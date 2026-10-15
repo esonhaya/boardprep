@@ -3562,5 +3562,35 @@
         "notes": "Supports rewriting a factor as a sum and distributing multiplication across those addends.",
         "source_role": "INSTRUCTIONAL_SOURCE",
         "volatility": "STABLE_FOUNDATIONAL"
+    },
+    {
+        "id": "purdue-owl-proofreading-errors",
+        "title": "Purdue OWL: Proofreading for Errors",
+        "source_type": "OPEN_TEXTBOOK",
+        "authority": "Purdue Online Writing Lab, Purdue University",
+        "url": "https://owl.purdue.edu/owl/general_writing/the_writing_process/proofreading/proofreading_for_errors.html",
+        "publication_date": null,
+        "retrieved_at": "2026-10-15",
+        "version": "Web guidance checked 2026-10-15",
+        "status": "verified_reference",
+        "confidence": "authoritative_instructional_reference",
+        "source_role": "INSTRUCTIONAL_SOURCE",
+        "volatility": "STABLE_FOUNDATIONAL",
+        "notes": "Purdue OWL describes proofreading checks for spelling, grammar, verb forms, subject–verb agreement, and sentence errors. It advises checking words individually and warns that spell-check alone may miss errors. This is instructional guidance, not official CSC scope or weighting."
+    },
+    {
+        "id": "cdc-field-epi-outbreak-investigation",
+        "title": "Conducting a Field Investigation",
+        "source_type": "OFFICIAL_GUIDANCE",
+        "authority": "U.S. Centers for Disease Control and Prevention",
+        "url": "https://www.cdc.gov/field-epi-manual/php/chapters/field-investigation.html",
+        "publication_date": null,
+        "retrieved_at": "2026-10-16",
+        "version": "CDC Field Epidemiology Manual, current web edition",
+        "status": "official_reference",
+        "confidence": "authoritative_reference",
+        "source_role": "INSTRUCTIONAL_SOURCE",
+        "volatility": "STABLE_FOUNDATIONAL",
+        "notes": "Field guidance to confirm diagnoses, assess whether case counts exceed expected levels, define and identify cases, and describe time/place/person. Steps may overlap; do not declare a source before evidence."
     }
 ]

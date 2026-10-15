@@ -59,7 +59,8 @@ final class EducationalIntegrityCheck implements CheckInterface
         $materials = self::index(App::storage()->all('study-materials'));
         $sources = self::index(App::storage()->all('sources'));
         $links = App::storage()->all('study-question-links');
-        $editorialAudit = QuestionEditorialEvidenceAudit::analyze($questions);
+        $questionEligibility = App::storage()->all('question-eligibility');
+        $editorialAudit = QuestionEditorialEvidenceAudit::analyze($questions, $links, $questionEligibility);
         foreach ($editorialAudit['findings'] as $finding) {
             if (isset($classified[$finding['class']])) {
                 $classified[$finding['class']][] = $finding;
@@ -154,13 +155,22 @@ final class EducationalIntegrityCheck implements CheckInterface
         foreach ($classified as $class => $findings) {
             $details[] = $class . ' count=' . count($findings);
             foreach ($findings as $finding) {
+                $classification = isset($finding['classification'])
+                    ? ' classification=' . $finding['classification']
+                    : '';
+                $differingFields = is_array($finding['differing_fields'] ?? null)
+                    && $finding['differing_fields'] !== []
+                    ? ' differing_fields=' . implode(',', $finding['differing_fields'])
+                    : '';
                 $details[] = sprintf(
-                    '%s code=%s board=%s %s_id=%s; %s',
+                    '%s code=%s board=%s %s_id=%s%s%s; %s',
                     $class,
                     $finding['code'],
                     $finding['board'],
                     $finding['entity_type'],
                     $finding['entity_id'],
+                    $classification,
+                    $differingFields,
                     $finding['note']
                 );
             }
@@ -172,6 +182,14 @@ final class EducationalIntegrityCheck implements CheckInterface
             count(array_diff_key($questionIds, $linkQuestionIds))
         );
         array_push($details, ...$editorialAudit['profiles']);
+        $duplicateCounts = (array) ($editorialAudit['duplicate_classification_counts'] ?? []);
+        $duplicateCountText = [];
+        foreach ($duplicateCounts as $classification => $count) {
+            $duplicateCountText[] = $classification . ':' . $count;
+        }
+        $details[] = 'QUESTION_DUPLICATE_CLASSIFICATION groups=' . array_sum($duplicateCounts)
+            . ' by_class=' . ($duplicateCountText !== [] ? implode(',', $duplicateCountText) : 'none')
+            . '; exact IDs and board are listed on each finding.';
         $details[] = 'SEMANTIC_LIMITATION: Valid links and source records do not establish question correctness or editorial fit; review classifications remain open until checked.';
 
         $hardCount = count($classified['HARD_DEFECT']);

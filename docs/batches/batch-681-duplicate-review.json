@@ -1,0 +1,5734 @@
+{
+  "baseline_revision": "246b55a7e7c727b516f49c2e8decae8344562a26",
+  "classification_rubric": {
+    "CONFLICTING_ANSWER": "Same board, concept, stem, choice set, source path, and eligibility, but a different correct-answer identity.",
+    "INSUFFICIENT_EVIDENCE": "Required answer, rationale, taxonomy, source/material, or eligibility evidence is incomplete or inconsistent.",
+    "LEGITIMATE_VARIANT": "Reviewer-verified distinct task with a documented preservation reason.",
+    "SAME_STEM_DIFFERENT_TASK": "A complete record differs in task-defining content; IDs remain separate.",
+    "TRUE_DUPLICATE": "All task and evidence fields match; metadata drift is separately reported."
+  },
+  "groups": [
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "6973": [
+          "civil-engineering"
+        ],
+        "7517": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"medium\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "3f896f819b772189a93a5e2e06b33c2797e41fa120dba1a5e38c907599895bab",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "6973",
+        "7517"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "6973": "dea129a2e7a874f2098be623b266af5edab2f5493e976d91b81d5dcca1c9884e",
+        "7517": "dea129a2e7a874f2098be623b266af5edab2f5493e976d91b81d5dcca1c9884e"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "6975": [
+          "civil-engineering"
+        ],
+        "7519": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": false,
+          "values": [
+            "\"hard\"",
+            "\"medium\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "e54b8d46efc43a45242ade7daa624cecc4df2baaf9d1a9cae8b7f3cfceaa334b",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "6975",
+        "7519"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "6975": "01380fff1eb759389ac8e12602c8a3f6da4d80a5a7a5212b26d5cde3ccdeb666",
+        "7519": "01380fff1eb759389ac8e12602c8a3f6da4d80a5a7a5212b26d5cde3ccdeb666"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "6978": [
+          "civil-engineering"
+        ],
+        "7138": [
+          "civil-engineering"
+        ],
+        "7146": [
+          "civil-engineering"
+        ],
+        "7330": [
+          "civil-engineering"
+        ],
+        "7514": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"medium\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "bf8d99952ba29e88c02d27870dd31324e5a94b9c59b893029b17e7b8f05fc861",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "6978",
+        "7138",
+        "7146",
+        "7330",
+        "7514"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "6978": "0c46de8d9f9c2f3814a22501fedd897e10f465402e300c86df69614fb5d7a8b6",
+        "7138": "0c46de8d9f9c2f3814a22501fedd897e10f465402e300c86df69614fb5d7a8b6",
+        "7146": "0c46de8d9f9c2f3814a22501fedd897e10f465402e300c86df69614fb5d7a8b6",
+        "7330": "0c46de8d9f9c2f3814a22501fedd897e10f465402e300c86df69614fb5d7a8b6",
+        "7514": "0c46de8d9f9c2f3814a22501fedd897e10f465402e300c86df69614fb5d7a8b6"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "6979": [
+          "civil-engineering"
+        ],
+        "7139": [
+          "civil-engineering"
+        ],
+        "7147": [
+          "civil-engineering"
+        ],
+        "7323": [
+          "civil-engineering"
+        ],
+        "7331": [
+          "civil-engineering"
+        ],
+        "7515": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"hard\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "0dee6c05ae185c9047e4b9dfdf6cde227e008d448ecc2471e06b062b3c62c8dd",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "6979",
+        "7139",
+        "7147",
+        "7323",
+        "7331",
+        "7515"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "6979": "3bbc7cc953cc62f7a153535268e1f43207dcc29e5e84220ffc33c873808458a1",
+        "7139": "3bbc7cc953cc62f7a153535268e1f43207dcc29e5e84220ffc33c873808458a1",
+        "7147": "3bbc7cc953cc62f7a153535268e1f43207dcc29e5e84220ffc33c873808458a1",
+        "7323": "3bbc7cc953cc62f7a153535268e1f43207dcc29e5e84220ffc33c873808458a1",
+        "7331": "3bbc7cc953cc62f7a153535268e1f43207dcc29e5e84220ffc33c873808458a1",
+        "7515": "3bbc7cc953cc62f7a153535268e1f43207dcc29e5e84220ffc33c873808458a1"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "6980": [
+          "civil-engineering"
+        ],
+        "7140": [
+          "civil-engineering"
+        ],
+        "7324": [
+          "civil-engineering"
+        ],
+        "7332": [
+          "civil-engineering"
+        ],
+        "7516": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"hard\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "1b4e542d6796fd3a302516e21140ba53f5b53bd218e2f23c6a7809199c037ba9",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "6980",
+        "7140",
+        "7324",
+        "7332",
+        "7516"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "6980": "0079140ff75085fa0344e16302a2d06244d1b39f5dba872954d70e5919d5a908",
+        "7140": "0079140ff75085fa0344e16302a2d06244d1b39f5dba872954d70e5919d5a908",
+        "7324": "0079140ff75085fa0344e16302a2d06244d1b39f5dba872954d70e5919d5a908",
+        "7332": "0079140ff75085fa0344e16302a2d06244d1b39f5dba872954d70e5919d5a908",
+        "7516": "0079140ff75085fa0344e16302a2d06244d1b39f5dba872954d70e5919d5a908"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "6986": [
+          "civil-engineering"
+        ],
+        "7154": [
+          "civil-engineering"
+        ],
+        "7338": [
+          "civil-engineering"
+        ],
+        "7346": [
+          "civil-engineering"
+        ],
+        "7522": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"medium\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "2aa749bf4bc3e27bbd5236e365ff513dca5aba5e113a7a3e5d5d4e933d8068d6",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "6986",
+        "7154",
+        "7338",
+        "7346",
+        "7522"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "6986": "43914b869a102ba332dfd883a222d58c622c974cdb3cb5ed288c9622b8b93399",
+        "7154": "43914b869a102ba332dfd883a222d58c622c974cdb3cb5ed288c9622b8b93399",
+        "7338": "43914b869a102ba332dfd883a222d58c622c974cdb3cb5ed288c9622b8b93399",
+        "7346": "43914b869a102ba332dfd883a222d58c622c974cdb3cb5ed288c9622b8b93399",
+        "7522": "43914b869a102ba332dfd883a222d58c622c974cdb3cb5ed288c9622b8b93399"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "6987": [
+          "civil-engineering"
+        ],
+        "7155": [
+          "civil-engineering"
+        ],
+        "7339": [
+          "civil-engineering"
+        ],
+        "7347": [
+          "civil-engineering"
+        ],
+        "7523": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"hard\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "808cd422eec3dbe3c8a9040bdb9bc4e6e13b964cb88528ac3e03d3b77a035dce",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "6987",
+        "7155",
+        "7339",
+        "7347",
+        "7523"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "6987": "804560bdbe8bb569af57bbcb14510af641571c47d232aecf4f18f0c6e8fe2f72",
+        "7155": "804560bdbe8bb569af57bbcb14510af641571c47d232aecf4f18f0c6e8fe2f72",
+        "7339": "804560bdbe8bb569af57bbcb14510af641571c47d232aecf4f18f0c6e8fe2f72",
+        "7347": "804560bdbe8bb569af57bbcb14510af641571c47d232aecf4f18f0c6e8fe2f72",
+        "7523": "804560bdbe8bb569af57bbcb14510af641571c47d232aecf4f18f0c6e8fe2f72"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "6988": [
+          "civil-engineering"
+        ],
+        "7148": [
+          "civil-engineering"
+        ],
+        "7156": [
+          "civil-engineering"
+        ],
+        "7340": [
+          "civil-engineering"
+        ],
+        "7524": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"hard\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "f8c77f4f463d3463cce1858424a3744cfe6d3429bd80f1164e7ffee48c1b1a04",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "6988",
+        "7148",
+        "7156",
+        "7340",
+        "7524"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "6988": "1b127de79ab4bf981b438d8675b42cff6bcd09b4174e8cd4ba1aa5a882d84a4a",
+        "7148": "1b127de79ab4bf981b438d8675b42cff6bcd09b4174e8cd4ba1aa5a882d84a4a",
+        "7156": "1b127de79ab4bf981b438d8675b42cff6bcd09b4174e8cd4ba1aa5a882d84a4a",
+        "7340": "1b127de79ab4bf981b438d8675b42cff6bcd09b4174e8cd4ba1aa5a882d84a4a",
+        "7524": "1b127de79ab4bf981b438d8675b42cff6bcd09b4174e8cd4ba1aa5a882d84a4a"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "6994": [
+          "civil-engineering"
+        ],
+        "7002": [
+          "civil-engineering"
+        ],
+        "7162": [
+          "civil-engineering"
+        ],
+        "7354": [
+          "civil-engineering"
+        ],
+        "7530": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"medium\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "715dbce8e551bb44ab2f48fdf2c4ac67ab17c1d2900d3f2a539dcd5415cc1426",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "6994",
+        "7002",
+        "7162",
+        "7354",
+        "7530"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "6994": "708473f643fa3b92fce7be5ebd853196af76513ee623360a96aa8cf40e9ff05b",
+        "7002": "708473f643fa3b92fce7be5ebd853196af76513ee623360a96aa8cf40e9ff05b",
+        "7162": "708473f643fa3b92fce7be5ebd853196af76513ee623360a96aa8cf40e9ff05b",
+        "7354": "708473f643fa3b92fce7be5ebd853196af76513ee623360a96aa8cf40e9ff05b",
+        "7530": "708473f643fa3b92fce7be5ebd853196af76513ee623360a96aa8cf40e9ff05b"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "6995": [
+          "civil-engineering"
+        ],
+        "7163": [
+          "civil-engineering"
+        ],
+        "7355": [
+          "civil-engineering"
+        ],
+        "7531": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"hard\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "24b8f01608632a005475ce9c1dd81ec7135a54a5c35d89cc6fedbb7c8fab9113",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "6995",
+        "7163",
+        "7355",
+        "7531"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "6995": "44722787245b77be37cc787d20a8fcb3e60da918c4453f75e989a880951eb3f8",
+        "7163": "44722787245b77be37cc787d20a8fcb3e60da918c4453f75e989a880951eb3f8",
+        "7355": "44722787245b77be37cc787d20a8fcb3e60da918c4453f75e989a880951eb3f8",
+        "7531": "44722787245b77be37cc787d20a8fcb3e60da918c4453f75e989a880951eb3f8"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "6996": [
+          "civil-engineering"
+        ],
+        "7164": [
+          "civil-engineering"
+        ],
+        "7348": [
+          "civil-engineering"
+        ],
+        "7356": [
+          "civil-engineering"
+        ],
+        "7532": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"hard\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "f7a76aa9593b2ec2e481f181754354651faca4feb8952e1051eef0945e726af9",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "6996",
+        "7164",
+        "7348",
+        "7356",
+        "7532"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "6996": "43eae51838418dbc9b2c75a13f2ade07ee992b918fb738efc13f1771c44ba0c9",
+        "7164": "43eae51838418dbc9b2c75a13f2ade07ee992b918fb738efc13f1771c44ba0c9",
+        "7348": "43eae51838418dbc9b2c75a13f2ade07ee992b918fb738efc13f1771c44ba0c9",
+        "7356": "43eae51838418dbc9b2c75a13f2ade07ee992b918fb738efc13f1771c44ba0c9",
+        "7532": "43eae51838418dbc9b2c75a13f2ade07ee992b918fb738efc13f1771c44ba0c9"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7003": [
+          "civil-engineering"
+        ],
+        "7171": [
+          "civil-engineering"
+        ],
+        "7363": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"hard\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "41599d20e2a5b07a01fe7590cc44429da3bd2a6edd008c8dd4f70644d0e072af",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7003",
+        "7171",
+        "7363"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7003": "1335eee15843571b682ea905330e2c352ea707738c5c9ed19e4e859bbdcce09f",
+        "7171": "1335eee15843571b682ea905330e2c352ea707738c5c9ed19e4e859bbdcce09f",
+        "7363": "1335eee15843571b682ea905330e2c352ea707738c5c9ed19e4e859bbdcce09f"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7004": [
+          "civil-engineering"
+        ],
+        "7172": [
+          "civil-engineering"
+        ],
+        "7364": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"hard\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "5568cfe754c89178376fa5355cf077e4a2e9e5a4418a969a179354b4a6c7cf4a",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7004",
+        "7172",
+        "7364"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7004": "e9a3decf33fe95bd6d7d640ab06c362184b89eee3ad63c64588c0b06329daabb",
+        "7172": "e9a3decf33fe95bd6d7d640ab06c362184b89eee3ad63c64588c0b06329daabb",
+        "7364": "e9a3decf33fe95bd6d7d640ab06c362184b89eee3ad63c64588c0b06329daabb"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7009": [
+          "civil-engineering"
+        ],
+        "7169": [
+          "civil-engineering"
+        ],
+        "7361": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"medium\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "false"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "87a85075f6a7f704e7a7501dff15a35625f4098b34be5d133759f10e865d2ee5",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7009",
+        "7169",
+        "7361"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7009": "5271a4013cf070686571bed343bc3455fe1b78164f81bcd81859e99ab8081628",
+        "7169": "5271a4013cf070686571bed343bc3455fe1b78164f81bcd81859e99ab8081628",
+        "7361": "5271a4013cf070686571bed343bc3455fe1b78164f81bcd81859e99ab8081628"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7010": [
+          "civil-engineering"
+        ],
+        "7170": [
+          "civil-engineering"
+        ],
+        "7362": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"medium\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "9f4cab979f3ff61b477f741372dead65868fdc8ba905c9338e1c65dab039b21a",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7010",
+        "7170",
+        "7362"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7010": "d9b2034fb57ac544bed26c97168f71797de3c5ee0686f11c7d4488905cc3e13f",
+        "7170": "d9b2034fb57ac544bed26c97168f71797de3c5ee0686f11c7d4488905cc3e13f",
+        "7362": "d9b2034fb57ac544bed26c97168f71797de3c5ee0686f11c7d4488905cc3e13f"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7011": [
+          "civil-engineering"
+        ],
+        "7019": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"hard\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "6a1592e7ec44dc1dcc9e4214c5ff1098996813c7bbd4eb149e50a532a9e73ed7",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7011",
+        "7019"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7011": "3d21373ffb43fffc50f2704c2eda37422198782668086a235b5e309c5d2bb802",
+        "7019": "3d21373ffb43fffc50f2704c2eda37422198782668086a235b5e309c5d2bb802"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7012": [
+          "civil-engineering"
+        ],
+        "7020": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"hard\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "160f097280f52a3f7d5949e5b494dfc387152d303529b2d7ef58f4709173cf50",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7012",
+        "7020"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7012": "479270b7471ec02df1894457220a737495c2951fdba4a60435334271f5318c89",
+        "7020": "479270b7471ec02df1894457220a737495c2951fdba4a60435334271f5318c89"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7017": [
+          "civil-engineering"
+        ],
+        "7025": [
+          "civil-engineering"
+        ],
+        "7177": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"medium\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "false"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "71051c935c10821546e4b7a7795562db87345a5ca069117e3f99cc989f938fbe",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7017",
+        "7025",
+        "7177"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7017": "31a5170f35282e67478063eb92b09d8d5e26dcf02fa86dbec12d23ac8c8d59a9",
+        "7025": "31a5170f35282e67478063eb92b09d8d5e26dcf02fa86dbec12d23ac8c8d59a9",
+        "7177": "31a5170f35282e67478063eb92b09d8d5e26dcf02fa86dbec12d23ac8c8d59a9"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7018": [
+          "civil-engineering"
+        ],
+        "7026": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"medium\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "68132274cc735bf59bf79013e9ed5db62c7c9d0ad6becf114bdfb98d49c42ebb",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7018",
+        "7026"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7018": "d29a045b55b741ba5ef1652ca4320c22aa03e99e3c7edc60f77a4480b734fe34",
+        "7026": "d29a045b55b741ba5ef1652ca4320c22aa03e99e3c7edc60f77a4480b734fe34"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7027": [
+          "civil-engineering"
+        ],
+        "7035": [
+          "civil-engineering"
+        ],
+        "7179": [
+          "civil-engineering"
+        ],
+        "7371": [
+          "civil-engineering"
+        ],
+        "7539": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"hard\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "46eab5a92f65c5521adaea0bb04b616c499c11aa62d414070827532dfaaf7873",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7027",
+        "7035",
+        "7179",
+        "7371",
+        "7539"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7027": "4585b2e915bb9d725c4fd5bba7d7444cb4cd0cbd62e2ef0d48224c1ab1437502",
+        "7035": "4585b2e915bb9d725c4fd5bba7d7444cb4cd0cbd62e2ef0d48224c1ab1437502",
+        "7179": "4585b2e915bb9d725c4fd5bba7d7444cb4cd0cbd62e2ef0d48224c1ab1437502",
+        "7371": "4585b2e915bb9d725c4fd5bba7d7444cb4cd0cbd62e2ef0d48224c1ab1437502",
+        "7539": "4585b2e915bb9d725c4fd5bba7d7444cb4cd0cbd62e2ef0d48224c1ab1437502"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7028": [
+          "civil-engineering"
+        ],
+        "7036": [
+          "civil-engineering"
+        ],
+        "7180": [
+          "civil-engineering"
+        ],
+        "7372": [
+          "civil-engineering"
+        ],
+        "7540": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"hard\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "4a987c26baeb18cc845d19534ff2f734854cc04e02cf0c3fd70b95aa8df1d913",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7028",
+        "7036",
+        "7180",
+        "7372",
+        "7540"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7028": "9152ba1deb2d588389a64ae35ba294de7a24264323cfec40471ca205e20124c1",
+        "7036": "9152ba1deb2d588389a64ae35ba294de7a24264323cfec40471ca205e20124c1",
+        "7180": "9152ba1deb2d588389a64ae35ba294de7a24264323cfec40471ca205e20124c1",
+        "7372": "9152ba1deb2d588389a64ae35ba294de7a24264323cfec40471ca205e20124c1",
+        "7540": "9152ba1deb2d588389a64ae35ba294de7a24264323cfec40471ca205e20124c1"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7029": [
+          "civil-engineering"
+        ],
+        "7037": [
+          "civil-engineering"
+        ],
+        "7181": [
+          "civil-engineering"
+        ],
+        "7373": [
+          "civil-engineering"
+        ],
+        "7541": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"medium\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "false"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "d7aaa90f992e7c58e09956c4445abf3a37fdc312d2a46ad33605e9799f56901e",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7029",
+        "7037",
+        "7181",
+        "7373",
+        "7541"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7029": "ca8009a8b569546e9b24c1b324f100807203c4510bbafeb77b09c63f281ce094",
+        "7037": "ca8009a8b569546e9b24c1b324f100807203c4510bbafeb77b09c63f281ce094",
+        "7181": "ca8009a8b569546e9b24c1b324f100807203c4510bbafeb77b09c63f281ce094",
+        "7373": "ca8009a8b569546e9b24c1b324f100807203c4510bbafeb77b09c63f281ce094",
+        "7541": "ca8009a8b569546e9b24c1b324f100807203c4510bbafeb77b09c63f281ce094"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7030": [
+          "civil-engineering"
+        ],
+        "7038": [
+          "civil-engineering"
+        ],
+        "7182": [
+          "civil-engineering"
+        ],
+        "7374": [
+          "civil-engineering"
+        ],
+        "7542": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"medium\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "85516926c7576e4383b8121a29ea49f5e2342ac453cc477e9028280f01efc1cb",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7030",
+        "7038",
+        "7182",
+        "7374",
+        "7542"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7030": "0de1a56fa05b98052361e3ff1521fb740c03093c43fbe9f1dff512aea3f8c348",
+        "7038": "0de1a56fa05b98052361e3ff1521fb740c03093c43fbe9f1dff512aea3f8c348",
+        "7182": "0de1a56fa05b98052361e3ff1521fb740c03093c43fbe9f1dff512aea3f8c348",
+        "7374": "0de1a56fa05b98052361e3ff1521fb740c03093c43fbe9f1dff512aea3f8c348",
+        "7542": "0de1a56fa05b98052361e3ff1521fb740c03093c43fbe9f1dff512aea3f8c348"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7031": [
+          "civil-engineering"
+        ],
+        "7039": [
+          "civil-engineering"
+        ],
+        "7367": [
+          "civil-engineering"
+        ],
+        "7375": [
+          "civil-engineering"
+        ],
+        "7543": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"hard\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "d9cd267ccd59b67b60f00c4782aa031c095222b59fa4893a48f42397a6772ace",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7031",
+        "7039",
+        "7367",
+        "7375",
+        "7543"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7031": "cf308430cc47973178eb07c4a9aff70051630ff287b8d92afe6e4783cd4842c5",
+        "7039": "cf308430cc47973178eb07c4a9aff70051630ff287b8d92afe6e4783cd4842c5",
+        "7367": "cf308430cc47973178eb07c4a9aff70051630ff287b8d92afe6e4783cd4842c5",
+        "7375": "cf308430cc47973178eb07c4a9aff70051630ff287b8d92afe6e4783cd4842c5",
+        "7543": "cf308430cc47973178eb07c4a9aff70051630ff287b8d92afe6e4783cd4842c5"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7032": [
+          "civil-engineering"
+        ],
+        "7040": [
+          "civil-engineering"
+        ],
+        "7368": [
+          "civil-engineering"
+        ],
+        "7376": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"hard\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "110894256a5c938ad52693138446cc14b31d6dca8b2d1c3fc6f26ec45af2d7a4",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7032",
+        "7040",
+        "7368",
+        "7376"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7032": "f423234d3bd011adfc491d9f657a9acc24167054890ff16fb1d5a3f2acb0fa34",
+        "7040": "f423234d3bd011adfc491d9f657a9acc24167054890ff16fb1d5a3f2acb0fa34",
+        "7368": "f423234d3bd011adfc491d9f657a9acc24167054890ff16fb1d5a3f2acb0fa34",
+        "7376": "f423234d3bd011adfc491d9f657a9acc24167054890ff16fb1d5a3f2acb0fa34"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7033": [
+          "civil-engineering"
+        ],
+        "7041": [
+          "civil-engineering"
+        ],
+        "7369": [
+          "civil-engineering"
+        ],
+        "7537": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"medium\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "false"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "6fb453efe1170cd0b04b19e4c3f7821f1133fa35f15ef7a75c290260defbc9d0",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7033",
+        "7041",
+        "7369",
+        "7537"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7033": "d2f1e0d656fd6fa7b16f8faa00213a224c955c616d17c726fe8b06b64ca86e56",
+        "7041": "d2f1e0d656fd6fa7b16f8faa00213a224c955c616d17c726fe8b06b64ca86e56",
+        "7369": "d2f1e0d656fd6fa7b16f8faa00213a224c955c616d17c726fe8b06b64ca86e56",
+        "7537": "d2f1e0d656fd6fa7b16f8faa00213a224c955c616d17c726fe8b06b64ca86e56"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7034": [
+          "civil-engineering"
+        ],
+        "7042": [
+          "civil-engineering"
+        ],
+        "7178": [
+          "civil-engineering"
+        ],
+        "7370": [
+          "civil-engineering"
+        ],
+        "7538": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"medium\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "6892c64f7bbd9beef5bcf804ef74c56c3e5c1f2e8b0e08c7f1d4e01d91d3d8a4",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7034",
+        "7042",
+        "7178",
+        "7370",
+        "7538"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7034": "3ec4c7acb81fb5bcf3b5cc1d364acc6fb6db8e7a1a121cbfe3aa7d0d6c0fbf81",
+        "7042": "3ec4c7acb81fb5bcf3b5cc1d364acc6fb6db8e7a1a121cbfe3aa7d0d6c0fbf81",
+        "7178": "3ec4c7acb81fb5bcf3b5cc1d364acc6fb6db8e7a1a121cbfe3aa7d0d6c0fbf81",
+        "7370": "3ec4c7acb81fb5bcf3b5cc1d364acc6fb6db8e7a1a121cbfe3aa7d0d6c0fbf81",
+        "7538": "3ec4c7acb81fb5bcf3b5cc1d364acc6fb6db8e7a1a121cbfe3aa7d0d6c0fbf81"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7043": [
+          "civil-engineering"
+        ],
+        "7051": [
+          "civil-engineering"
+        ],
+        "7187": [
+          "civil-engineering"
+        ],
+        "7379": [
+          "civil-engineering"
+        ],
+        "7547": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"hard\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "11ac70872b6f3110cc9ede66a7c72eda59b9fe6a8d9e29895f69a794e59ab4f6",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7043",
+        "7051",
+        "7187",
+        "7379",
+        "7547"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7043": "c1d3009b2eba8bfc2f2960bc3f3920862874c097071847ef908a7af67752ceb1",
+        "7051": "c1d3009b2eba8bfc2f2960bc3f3920862874c097071847ef908a7af67752ceb1",
+        "7187": "c1d3009b2eba8bfc2f2960bc3f3920862874c097071847ef908a7af67752ceb1",
+        "7379": "c1d3009b2eba8bfc2f2960bc3f3920862874c097071847ef908a7af67752ceb1",
+        "7547": "c1d3009b2eba8bfc2f2960bc3f3920862874c097071847ef908a7af67752ceb1"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7044": [
+          "civil-engineering"
+        ],
+        "7052": [
+          "civil-engineering"
+        ],
+        "7188": [
+          "civil-engineering"
+        ],
+        "7380": [
+          "civil-engineering"
+        ],
+        "7548": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"hard\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "856cd5c0ac0f467c91fd7c89865a76139ceb3365f1d2534f0e5a6bdd5d0dd2ff",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7044",
+        "7052",
+        "7188",
+        "7380",
+        "7548"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7044": "04e24f8c168921837960079f472732553503bb1016cc183e47d5e8d30b030cc0",
+        "7052": "04e24f8c168921837960079f472732553503bb1016cc183e47d5e8d30b030cc0",
+        "7188": "04e24f8c168921837960079f472732553503bb1016cc183e47d5e8d30b030cc0",
+        "7380": "04e24f8c168921837960079f472732553503bb1016cc183e47d5e8d30b030cc0",
+        "7548": "04e24f8c168921837960079f472732553503bb1016cc183e47d5e8d30b030cc0"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7046": [
+          "civil-engineering"
+        ],
+        "7382": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"medium\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "7cd81e18cf2a34f5d6f6bdcd02295c6535dddec5255580340c6f824f288a613a",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7046",
+        "7382"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7046": "6cd41993c05a8c16b692e6b812de304ad7491f821fc4d1742a52bf604e78d191",
+        "7382": "6cd41993c05a8c16b692e6b812de304ad7491f821fc4d1742a52bf604e78d191"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7050": [
+          "civil-engineering"
+        ],
+        "7186": [
+          "civil-engineering"
+        ],
+        "7378": [
+          "civil-engineering"
+        ],
+        "7386": [
+          "civil-engineering"
+        ],
+        "7546": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"medium\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "05464bf306b7ffc0524ebc88a749eee1e4bd22bb44c8af5a67a87b70ce2a1316",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7050",
+        "7186",
+        "7378",
+        "7386",
+        "7546"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7050": "57e59787064bf310304ab8b1635fa80c53fe2b84395ada3f30c1379596e27f30",
+        "7186": "57e59787064bf310304ab8b1635fa80c53fe2b84395ada3f30c1379596e27f30",
+        "7378": "57e59787064bf310304ab8b1635fa80c53fe2b84395ada3f30c1379596e27f30",
+        "7386": "57e59787064bf310304ab8b1635fa80c53fe2b84395ada3f30c1379596e27f30",
+        "7546": "57e59787064bf310304ab8b1635fa80c53fe2b84395ada3f30c1379596e27f30"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7055": [
+          "civil-engineering"
+        ],
+        "7199": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"medium\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "1e18a35d9fae2e5aca91eaa51576fd007e7b1c8a55e08eb7f3330190c12f254b",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7055",
+        "7199"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7055": "d932f60afd70a945e419f8e24745fb644a5514f213e22a0493704b00269b9353",
+        "7199": "d932f60afd70a945e419f8e24745fb644a5514f213e22a0493704b00269b9353"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7056": [
+          "civil-engineering"
+        ],
+        "7200": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"hard\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "a88d920fbe8f355c7ce0636b02860205369811c6914b1dbd0bd3bbe862733c35",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7056",
+        "7200"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7056": "a28f75f159172daa09e8595ee6c1ed4d19d67c08c79773491d18aa86308227bc",
+        "7200": "a28f75f159172daa09e8595ee6c1ed4d19d67c08c79773491d18aa86308227bc"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7058": [
+          "civil-engineering"
+        ],
+        "7194": [
+          "civil-engineering"
+        ],
+        "7202": [
+          "civil-engineering"
+        ],
+        "7394": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"medium\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "5a19ffdb3e0e088a34505be100dc99094d4e1747a3d830d0a74c85cbbdd7e45a",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7058",
+        "7194",
+        "7202",
+        "7394"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7058": "91b3896ff74110a3a0ddcf9b9eed3f5676c92c8cb5d3e9c5b32a8b68118b4cbe",
+        "7194": "91b3896ff74110a3a0ddcf9b9eed3f5676c92c8cb5d3e9c5b32a8b68118b4cbe",
+        "7202": "91b3896ff74110a3a0ddcf9b9eed3f5676c92c8cb5d3e9c5b32a8b68118b4cbe",
+        "7394": "91b3896ff74110a3a0ddcf9b9eed3f5676c92c8cb5d3e9c5b32a8b68118b4cbe"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7059": [
+          "civil-engineering"
+        ],
+        "7195": [
+          "civil-engineering"
+        ],
+        "7203": [
+          "civil-engineering"
+        ],
+        "7387": [
+          "civil-engineering"
+        ],
+        "7395": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"hard\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "1c2a7871ee1f1727fd8c43e74280319c3f34b2905b86efb8c497056389ef04ee",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7059",
+        "7195",
+        "7203",
+        "7387",
+        "7395"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7059": "592e503f1ee64148462f1d64cb34f664aca6dc0cc86b3211d464f264676d2dab",
+        "7195": "592e503f1ee64148462f1d64cb34f664aca6dc0cc86b3211d464f264676d2dab",
+        "7203": "592e503f1ee64148462f1d64cb34f664aca6dc0cc86b3211d464f264676d2dab",
+        "7387": "592e503f1ee64148462f1d64cb34f664aca6dc0cc86b3211d464f264676d2dab",
+        "7395": "592e503f1ee64148462f1d64cb34f664aca6dc0cc86b3211d464f264676d2dab"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7060": [
+          "civil-engineering"
+        ],
+        "7196": [
+          "civil-engineering"
+        ],
+        "7204": [
+          "civil-engineering"
+        ],
+        "7388": [
+          "civil-engineering"
+        ],
+        "7396": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"hard\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "e1b3a9bfb77f6865a21f5404d6824be2011cdc8ca5d82055148971be5b76f282",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7060",
+        "7196",
+        "7204",
+        "7388",
+        "7396"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7060": "6ca47c66b20c72c172f1600f6108b3587602a75dfc4e6b9cdb66368a928ff3d2",
+        "7196": "6ca47c66b20c72c172f1600f6108b3587602a75dfc4e6b9cdb66368a928ff3d2",
+        "7204": "6ca47c66b20c72c172f1600f6108b3587602a75dfc4e6b9cdb66368a928ff3d2",
+        "7388": "6ca47c66b20c72c172f1600f6108b3587602a75dfc4e6b9cdb66368a928ff3d2",
+        "7396": "6ca47c66b20c72c172f1600f6108b3587602a75dfc4e6b9cdb66368a928ff3d2"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7063": [
+          "civil-engineering"
+        ],
+        "7207": [
+          "civil-engineering"
+        ],
+        "7399": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"medium\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "8e5a7530b1ffb510b9ecd3aed9d9c2bae4f17b5c2333da38557e8a7b304d455b",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7063",
+        "7207",
+        "7399"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7063": "d1e70de3ba2b087887f80f2ca439649e9a7b9f21bdc503b148096f42d4c623d2",
+        "7207": "d1e70de3ba2b087887f80f2ca439649e9a7b9f21bdc503b148096f42d4c623d2",
+        "7399": "d1e70de3ba2b087887f80f2ca439649e9a7b9f21bdc503b148096f42d4c623d2"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7064": [
+          "civil-engineering"
+        ],
+        "7208": [
+          "civil-engineering"
+        ],
+        "7400": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"medium\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "a6b01751702a14d524a7de509dea8a9aaeabf0f006c038a6c48bded4cf81a74d",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7064",
+        "7208",
+        "7400"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7064": "387acca3db2c41697febae1ccf7f0b3cc7468497e533241a91e8d58cab7182c4",
+        "7208": "387acca3db2c41697febae1ccf7f0b3cc7468497e533241a91e8d58cab7182c4",
+        "7400": "387acca3db2c41697febae1ccf7f0b3cc7468497e533241a91e8d58cab7182c4"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7065": [
+          "civil-engineering"
+        ],
+        "7209": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"hard\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "df4641556d867a71a702abe4e05413129ed94e8fa92f067c7a5fd1001e841855",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7065",
+        "7209"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7065": "d00f2c0683c18c4073740d7e6a9fe522f4138f163fdaf8a30dce48b3e57a565e",
+        "7209": "d00f2c0683c18c4073740d7e6a9fe522f4138f163fdaf8a30dce48b3e57a565e"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7066": [
+          "civil-engineering"
+        ],
+        "7210": [
+          "civil-engineering"
+        ],
+        "7402": [
+          "civil-engineering"
+        ],
+        "7554": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"medium\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "cbae9703d6babc557f884ea241583ff9ea97c679fc48d8332b867be730a0ea4a",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7066",
+        "7210",
+        "7402",
+        "7554"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7066": "ba81ffe7a0bc3bf3fd7852d0188f72740f06cc25a6b62d87ba2466f670a0ab94",
+        "7210": "ba81ffe7a0bc3bf3fd7852d0188f72740f06cc25a6b62d87ba2466f670a0ab94",
+        "7402": "ba81ffe7a0bc3bf3fd7852d0188f72740f06cc25a6b62d87ba2466f670a0ab94",
+        "7554": "ba81ffe7a0bc3bf3fd7852d0188f72740f06cc25a6b62d87ba2466f670a0ab94"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7067": [
+          "civil-engineering"
+        ],
+        "7211": [
+          "civil-engineering"
+        ],
+        "7403": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"hard\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "83822a3764c00618f72d96272ffdc5faccf9eb55e8bc3bb56d1904c31c609b4b",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7067",
+        "7211",
+        "7403"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7067": "944ec2f13f9b3bb662ac5b27334975c241a0a48bb6059aa8860eac98251ef300",
+        "7211": "944ec2f13f9b3bb662ac5b27334975c241a0a48bb6059aa8860eac98251ef300",
+        "7403": "944ec2f13f9b3bb662ac5b27334975c241a0a48bb6059aa8860eac98251ef300"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7068": [
+          "civil-engineering"
+        ],
+        "7212": [
+          "civil-engineering"
+        ],
+        "7404": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"hard\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "3e4acad4deb83fd7e9e68cc5b26c33af9d092174e0b72c847524a6180cb66560",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7068",
+        "7212",
+        "7404"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7068": "4e0702e421af0adbc51188455a18b2307e6759ea7bbaa87c2077de2032cadb79",
+        "7212": "4e0702e421af0adbc51188455a18b2307e6759ea7bbaa87c2077de2032cadb79",
+        "7404": "4e0702e421af0adbc51188455a18b2307e6759ea7bbaa87c2077de2032cadb79"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7071": [
+          "civil-engineering"
+        ],
+        "7215": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"hard\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "432b912cedb6dfb699a60274e028d008aa609ce817b3f863fb2cad07d028130c",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7071",
+        "7215"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7071": "2694eefbb6fc9c70a045f3ab7d001fa329a7026ad6722ad107a91e2be279161f",
+        "7215": "2694eefbb6fc9c70a045f3ab7d001fa329a7026ad6722ad107a91e2be279161f"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7074": [
+          "civil-engineering"
+        ],
+        "7218": [
+          "civil-engineering"
+        ],
+        "7226": [
+          "civil-engineering"
+        ],
+        "7410": [
+          "civil-engineering"
+        ],
+        "7418": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"medium\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "b46af328678ccfeb5ad5814f2f31ab4746c1036fb1d6c60ffee29bd2e59c952b",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7074",
+        "7218",
+        "7226",
+        "7410",
+        "7418"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7074": "8b85d046a68c8e7ab463ef850b541afcf968e8b9f554203da0f9f1776e7a2ec7",
+        "7218": "8b85d046a68c8e7ab463ef850b541afcf968e8b9f554203da0f9f1776e7a2ec7",
+        "7226": "8b85d046a68c8e7ab463ef850b541afcf968e8b9f554203da0f9f1776e7a2ec7",
+        "7410": "8b85d046a68c8e7ab463ef850b541afcf968e8b9f554203da0f9f1776e7a2ec7",
+        "7418": "8b85d046a68c8e7ab463ef850b541afcf968e8b9f554203da0f9f1776e7a2ec7"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7075": [
+          "civil-engineering"
+        ],
+        "7219": [
+          "civil-engineering"
+        ],
+        "7227": [
+          "civil-engineering"
+        ],
+        "7411": [
+          "civil-engineering"
+        ],
+        "7555": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"hard\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "bbdeb3a14d74794e4f1063fed9cdd9412ca8b0d6fcfc4b0ee2a29b55a2c51ffb",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7075",
+        "7219",
+        "7227",
+        "7411",
+        "7555"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7075": "e13fdf32762340ddb62774b90c23b0eab60db3dffefae68138debd38328ba875",
+        "7219": "e13fdf32762340ddb62774b90c23b0eab60db3dffefae68138debd38328ba875",
+        "7227": "e13fdf32762340ddb62774b90c23b0eab60db3dffefae68138debd38328ba875",
+        "7411": "e13fdf32762340ddb62774b90c23b0eab60db3dffefae68138debd38328ba875",
+        "7555": "e13fdf32762340ddb62774b90c23b0eab60db3dffefae68138debd38328ba875"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7082": [
+          "civil-engineering"
+        ],
+        "7234": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"medium\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "5071d3cb16937d67e5ee80cbcc31fd208d57a8d9c66f0793b60aac725b2e578a",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7082",
+        "7234"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7082": "c8e4a416d5e60616d8a719721638f149f41cd821c019770fc15e5b039e8a214e",
+        "7234": "c8e4a416d5e60616d8a719721638f149f41cd821c019770fc15e5b039e8a214e"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7083": [
+          "civil-engineering"
+        ],
+        "7235": [
+          "civil-engineering"
+        ],
+        "7419": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"hard\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "804f36536a965e3bdf450514143092a8266a18d6e83387b6ee7479ebb3654c00",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7083",
+        "7235",
+        "7419"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7083": "e4abd32f86ab26d59abd6be8a6c1bcdc10f20b374d3c696eaa00d8bd8560e1ab",
+        "7235": "e4abd32f86ab26d59abd6be8a6c1bcdc10f20b374d3c696eaa00d8bd8560e1ab",
+        "7419": "e4abd32f86ab26d59abd6be8a6c1bcdc10f20b374d3c696eaa00d8bd8560e1ab"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7084": [
+          "civil-engineering"
+        ],
+        "7236": [
+          "civil-engineering"
+        ],
+        "7420": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"hard\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "81a100ad72710573c3af0207f7a65ffc5d49c692145b0ed8dc23ecaaf6203f19",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7084",
+        "7236",
+        "7420"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7084": "7da2660a4dc85cf9bb8e78698c850f71afb958862cd06e13597b53bfe6af6f6c",
+        "7236": "7da2660a4dc85cf9bb8e78698c850f71afb958862cd06e13597b53bfe6af6f6c",
+        "7420": "7da2660a4dc85cf9bb8e78698c850f71afb958862cd06e13597b53bfe6af6f6c"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7085": [
+          "civil-engineering"
+        ],
+        "7237": [
+          "civil-engineering"
+        ],
+        "7421": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"medium\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "false"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "ea647987fb46b03dc9f65430be04a4b34ef6a90ff502d1347d654aec534c1dad",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7085",
+        "7237",
+        "7421"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7085": "25e70f2a8774e189178ef267cc83a2a7b42eadb195f2879b18814b42b7944bf6",
+        "7237": "25e70f2a8774e189178ef267cc83a2a7b42eadb195f2879b18814b42b7944bf6",
+        "7421": "25e70f2a8774e189178ef267cc83a2a7b42eadb195f2879b18814b42b7944bf6"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7086": [
+          "civil-engineering"
+        ],
+        "7238": [
+          "civil-engineering"
+        ],
+        "7422": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"medium\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "7b9bc6f02d028b728edcbb1182c2a1233ec17d74d139df9d5c01a8a1dab2c7e3",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7086",
+        "7238",
+        "7422"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7086": "956765e4b3d98aa32b95eeee261a1882036e0f42d41d360c3430f0dc8ff492ce",
+        "7238": "956765e4b3d98aa32b95eeee261a1882036e0f42d41d360c3430f0dc8ff492ce",
+        "7422": "956765e4b3d98aa32b95eeee261a1882036e0f42d41d360c3430f0dc8ff492ce"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7087": [
+          "civil-engineering"
+        ],
+        "7239": [
+          "civil-engineering"
+        ],
+        "7423": [
+          "civil-engineering"
+        ],
+        "7559": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"hard\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "e47cec17db29973caa28a6a5ff91555cb76b8db506286f5d82c93a74e17c6c65",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7087",
+        "7239",
+        "7423",
+        "7559"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7087": "fd333ece6b59fe9edff0da038900ef22ef587eb1365c9ded9abb0cefe430c8f5",
+        "7239": "fd333ece6b59fe9edff0da038900ef22ef587eb1365c9ded9abb0cefe430c8f5",
+        "7423": "fd333ece6b59fe9edff0da038900ef22ef587eb1365c9ded9abb0cefe430c8f5",
+        "7559": "fd333ece6b59fe9edff0da038900ef22ef587eb1365c9ded9abb0cefe430c8f5"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7088": [
+          "civil-engineering"
+        ],
+        "7232": [
+          "civil-engineering"
+        ],
+        "7240": [
+          "civil-engineering"
+        ],
+        "7560": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"hard\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "267bb684de5a0201d67be0b8c51861b6a2ad3051836f8bf24da1b094d276986c",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7088",
+        "7232",
+        "7240",
+        "7560"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7088": "ff90aa1d289fee9d2df4ded05d2e6fe6023c223b47efa6f7c6b9a2e6a55c7aa8",
+        "7232": "ff90aa1d289fee9d2df4ded05d2e6fe6023c223b47efa6f7c6b9a2e6a55c7aa8",
+        "7240": "ff90aa1d289fee9d2df4ded05d2e6fe6023c223b47efa6f7c6b9a2e6a55c7aa8",
+        "7560": "ff90aa1d289fee9d2df4ded05d2e6fe6023c223b47efa6f7c6b9a2e6a55c7aa8"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7090": [
+          "civil-engineering"
+        ],
+        "7242": [
+          "civil-engineering"
+        ],
+        "7250": [
+          "civil-engineering"
+        ],
+        "7426": [
+          "civil-engineering"
+        ],
+        "7562": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"medium\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "12c4d78a868ad1258d77e7e1a71e4e8dd22c745d3ba3bb0509c0edf44028ae39",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7090",
+        "7242",
+        "7250",
+        "7426",
+        "7562"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7090": "2aac6a6005448f8f3515b5c721962c29c58d71fbb6090fda3e8b4636d2724f44",
+        "7242": "2aac6a6005448f8f3515b5c721962c29c58d71fbb6090fda3e8b4636d2724f44",
+        "7250": "2aac6a6005448f8f3515b5c721962c29c58d71fbb6090fda3e8b4636d2724f44",
+        "7426": "2aac6a6005448f8f3515b5c721962c29c58d71fbb6090fda3e8b4636d2724f44",
+        "7562": "2aac6a6005448f8f3515b5c721962c29c58d71fbb6090fda3e8b4636d2724f44"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7091": [
+          "civil-engineering"
+        ],
+        "7243": [
+          "civil-engineering"
+        ],
+        "7427": [
+          "civil-engineering"
+        ],
+        "7563": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"hard\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "2f7296ebbbe1194770f2e8ddd744c9bb7bad3dd5d95b76472acdff272fe6f503",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7091",
+        "7243",
+        "7427",
+        "7563"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7091": "c896ea13a305e59182ad7454d86f63b35099c6d4483c8bf79f24aa1c02c85371",
+        "7243": "c896ea13a305e59182ad7454d86f63b35099c6d4483c8bf79f24aa1c02c85371",
+        "7427": "c896ea13a305e59182ad7454d86f63b35099c6d4483c8bf79f24aa1c02c85371",
+        "7563": "c896ea13a305e59182ad7454d86f63b35099c6d4483c8bf79f24aa1c02c85371"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7092": [
+          "civil-engineering"
+        ],
+        "7244": [
+          "civil-engineering"
+        ],
+        "7428": [
+          "civil-engineering"
+        ],
+        "7564": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"hard\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "a012c7756fdb4c0151c3fd834d4d53595645d6a656dacbfe32a359a21c2f5ef3",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7092",
+        "7244",
+        "7428",
+        "7564"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7092": "4cd8dfea3619282c0df1b9c63fded3b15398626a1a2dba250a85d253aa4efd64",
+        "7244": "4cd8dfea3619282c0df1b9c63fded3b15398626a1a2dba250a85d253aa4efd64",
+        "7428": "4cd8dfea3619282c0df1b9c63fded3b15398626a1a2dba250a85d253aa4efd64",
+        "7564": "4cd8dfea3619282c0df1b9c63fded3b15398626a1a2dba250a85d253aa4efd64"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7099": [
+          "civil-engineering"
+        ],
+        "7251": [
+          "civil-engineering"
+        ],
+        "7259": [
+          "civil-engineering"
+        ],
+        "7435": [
+          "civil-engineering"
+        ],
+        "7443": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"hard\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "d15573203ee1bb9e89b1d2ee132089f1b84350e0f5bad9d0bdfec4d4d4683db0",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7099",
+        "7251",
+        "7259",
+        "7435",
+        "7443"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7099": "3434e3daa360ef7baedded27ddc78d3f67a669844fd8b4a2ffdc05ec35e18605",
+        "7251": "3434e3daa360ef7baedded27ddc78d3f67a669844fd8b4a2ffdc05ec35e18605",
+        "7259": "3434e3daa360ef7baedded27ddc78d3f67a669844fd8b4a2ffdc05ec35e18605",
+        "7435": "3434e3daa360ef7baedded27ddc78d3f67a669844fd8b4a2ffdc05ec35e18605",
+        "7443": "3434e3daa360ef7baedded27ddc78d3f67a669844fd8b4a2ffdc05ec35e18605"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7100": [
+          "civil-engineering"
+        ],
+        "7252": [
+          "civil-engineering"
+        ],
+        "7260": [
+          "civil-engineering"
+        ],
+        "7436": [
+          "civil-engineering"
+        ],
+        "7444": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"hard\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "292a41e2abde26340a742ffb3a7a11ce6bdb598e3f666c76beb1208e50c4128c",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7100",
+        "7252",
+        "7260",
+        "7436",
+        "7444"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7100": "cb2a3af0bfe6ae3fd1678aff7f0f7a63c1443879ee6475a5067d2e2772946271",
+        "7252": "cb2a3af0bfe6ae3fd1678aff7f0f7a63c1443879ee6475a5067d2e2772946271",
+        "7260": "cb2a3af0bfe6ae3fd1678aff7f0f7a63c1443879ee6475a5067d2e2772946271",
+        "7436": "cb2a3af0bfe6ae3fd1678aff7f0f7a63c1443879ee6475a5067d2e2772946271",
+        "7444": "cb2a3af0bfe6ae3fd1678aff7f0f7a63c1443879ee6475a5067d2e2772946271"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7107": [
+          "civil-engineering"
+        ],
+        "7267": [
+          "civil-engineering"
+        ],
+        "7275": [
+          "civil-engineering"
+        ],
+        "7451": [
+          "civil-engineering"
+        ],
+        "7571": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"hard\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "525bfacf7483198d647a3c02aeba87c8bdf8c6adfcc02bedf355cbaa8fb58871",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7107",
+        "7267",
+        "7275",
+        "7451",
+        "7571"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7107": "89d53888a275d7840f867aa732c3cbf4f653b1415fe6adc421f505529e3e8146",
+        "7267": "89d53888a275d7840f867aa732c3cbf4f653b1415fe6adc421f505529e3e8146",
+        "7275": "89d53888a275d7840f867aa732c3cbf4f653b1415fe6adc421f505529e3e8146",
+        "7451": "89d53888a275d7840f867aa732c3cbf4f653b1415fe6adc421f505529e3e8146",
+        "7571": "89d53888a275d7840f867aa732c3cbf4f653b1415fe6adc421f505529e3e8146"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7108": [
+          "civil-engineering"
+        ],
+        "7268": [
+          "civil-engineering"
+        ],
+        "7452": [
+          "civil-engineering"
+        ],
+        "7572": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"hard\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "cbe3deabfb251a87889d8979e2d9028440e8e36157635d6af5748581ad2cb718",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7108",
+        "7268",
+        "7452",
+        "7572"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7108": "4f2a6b1c4f9ed545e2fd41a7235e6ef77ac16b406b94ee936ce7c7de20058532",
+        "7268": "4f2a6b1c4f9ed545e2fd41a7235e6ef77ac16b406b94ee936ce7c7de20058532",
+        "7452": "4f2a6b1c4f9ed545e2fd41a7235e6ef77ac16b406b94ee936ce7c7de20058532",
+        "7572": "4f2a6b1c4f9ed545e2fd41a7235e6ef77ac16b406b94ee936ce7c7de20058532"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7109": [
+          "civil-engineering"
+        ],
+        "7269": [
+          "civil-engineering"
+        ],
+        "7453": [
+          "civil-engineering"
+        ],
+        "7573": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": false,
+          "values": [
+            "\"hard\"",
+            "\"medium\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "fdb33b013b662fe5fffe3ad06988ba100d3c8254f9742894002f4bd580fd87eb",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7109",
+        "7269",
+        "7453",
+        "7573"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7109": "e1011079abf3ab369bd3c6d041a57d48861c135a6620baf50988cdf78f5cc101",
+        "7269": "e1011079abf3ab369bd3c6d041a57d48861c135a6620baf50988cdf78f5cc101",
+        "7453": "e1011079abf3ab369bd3c6d041a57d48861c135a6620baf50988cdf78f5cc101",
+        "7573": "e1011079abf3ab369bd3c6d041a57d48861c135a6620baf50988cdf78f5cc101"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7110": [
+          "civil-engineering"
+        ],
+        "7270": [
+          "civil-engineering"
+        ],
+        "7454": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": false,
+          "values": [
+            "\"hard\"",
+            "\"medium\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "b80b87b286e517bef9678abf3565143bd166a9d8e4513bad933d2a928e5724ce",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7110",
+        "7270",
+        "7454"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7110": "fa43c9279ec548d8d09e4a8f68380392c9ea741eb3dbb76394f6bfdf2a8b77bd",
+        "7270": "fa43c9279ec548d8d09e4a8f68380392c9ea741eb3dbb76394f6bfdf2a8b77bd",
+        "7454": "fa43c9279ec548d8d09e4a8f68380392c9ea741eb3dbb76394f6bfdf2a8b77bd"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7113": [
+          "civil-engineering"
+        ],
+        "7449": [
+          "civil-engineering"
+        ],
+        "7569": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"hard\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "5a89aefa79bd07a4c8156ba78e7a861a15ffd5991f36a913df875c95ac98c680",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7113",
+        "7449",
+        "7569"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7113": "c13e2b0483eef1b08956879ddefd7e8ba816fe1901dde1c4f6e5ebf2ff8bb69b",
+        "7449": "c13e2b0483eef1b08956879ddefd7e8ba816fe1901dde1c4f6e5ebf2ff8bb69b",
+        "7569": "c13e2b0483eef1b08956879ddefd7e8ba816fe1901dde1c4f6e5ebf2ff8bb69b"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7114": [
+          "civil-engineering"
+        ],
+        "7266": [
+          "civil-engineering"
+        ],
+        "7274": [
+          "civil-engineering"
+        ],
+        "7450": [
+          "civil-engineering"
+        ],
+        "7570": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": false,
+          "values": [
+            "\"hard\"",
+            "\"medium\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "5d866676fb3ef3e197d8f9fdae602dbc7d39fba52c32692db8d6f0283f88ca75",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7114",
+        "7266",
+        "7274",
+        "7450",
+        "7570"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7114": "4b00e820ba6055400054efc1574cfba2035cd9a58c67643040543e9b89b2f810",
+        "7266": "4b00e820ba6055400054efc1574cfba2035cd9a58c67643040543e9b89b2f810",
+        "7274": "4b00e820ba6055400054efc1574cfba2035cd9a58c67643040543e9b89b2f810",
+        "7450": "4b00e820ba6055400054efc1574cfba2035cd9a58c67643040543e9b89b2f810",
+        "7570": "4b00e820ba6055400054efc1574cfba2035cd9a58c67643040543e9b89b2f810"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7115": [
+          "civil-engineering"
+        ],
+        "7283": [
+          "civil-engineering"
+        ],
+        "7459": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"hard\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "7295d1363ecd75b09dde53692ccbf5931fbeced903362038d313f1d67b1f2c4a",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7115",
+        "7283",
+        "7459"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7115": "c0fd90333e5ab0ee1923ef2a8ee18dffdebc48db62beed872e35078424046872",
+        "7283": "c0fd90333e5ab0ee1923ef2a8ee18dffdebc48db62beed872e35078424046872",
+        "7459": "c0fd90333e5ab0ee1923ef2a8ee18dffdebc48db62beed872e35078424046872"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7116": [
+          "civil-engineering"
+        ],
+        "7276": [
+          "civil-engineering"
+        ],
+        "7284": [
+          "civil-engineering"
+        ],
+        "7460": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"hard\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "df3e4b6c2b10757527b297cdcd97a45c1789ab8a55608fa86847a50a0a41e237",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7116",
+        "7276",
+        "7284",
+        "7460"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7116": "8e671bcad2c59898b83d294ec1df3e4495f85e848fac15ee342db75c9a7fc153",
+        "7276": "8e671bcad2c59898b83d294ec1df3e4495f85e848fac15ee342db75c9a7fc153",
+        "7284": "8e671bcad2c59898b83d294ec1df3e4495f85e848fac15ee342db75c9a7fc153",
+        "7460": "8e671bcad2c59898b83d294ec1df3e4495f85e848fac15ee342db75c9a7fc153"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7122": [
+          "civil-engineering"
+        ],
+        "7290": [
+          "civil-engineering"
+        ],
+        "7466": [
+          "civil-engineering"
+        ],
+        "7474": [
+          "civil-engineering"
+        ],
+        "7578": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"medium\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "83a07d3452d83a9775539f3913dedbe1028e16b9e03d881f22f7bc4762e70911",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7122",
+        "7290",
+        "7466",
+        "7474",
+        "7578"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7122": "4e86e245221f061c88155b3ef9d0a5cdb25ad8f9e4db541bcc95be307dd02836",
+        "7290": "4e86e245221f061c88155b3ef9d0a5cdb25ad8f9e4db541bcc95be307dd02836",
+        "7466": "4e86e245221f061c88155b3ef9d0a5cdb25ad8f9e4db541bcc95be307dd02836",
+        "7474": "4e86e245221f061c88155b3ef9d0a5cdb25ad8f9e4db541bcc95be307dd02836",
+        "7578": "4e86e245221f061c88155b3ef9d0a5cdb25ad8f9e4db541bcc95be307dd02836"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7123": [
+          "civil-engineering"
+        ],
+        "7291": [
+          "civil-engineering"
+        ],
+        "7467": [
+          "civil-engineering"
+        ],
+        "7475": [
+          "civil-engineering"
+        ],
+        "7579": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"hard\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "53f12fbf2f0c9da2a3d0103f476d523ccf12c65148eb5374dafea2ce3f2a3e78",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7123",
+        "7291",
+        "7467",
+        "7475",
+        "7579"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7123": "ffa55dce8bbea7eec60bfece9cc0830e7a3f497af1c282e02757848d4ff7a192",
+        "7291": "ffa55dce8bbea7eec60bfece9cc0830e7a3f497af1c282e02757848d4ff7a192",
+        "7467": "ffa55dce8bbea7eec60bfece9cc0830e7a3f497af1c282e02757848d4ff7a192",
+        "7475": "ffa55dce8bbea7eec60bfece9cc0830e7a3f497af1c282e02757848d4ff7a192",
+        "7579": "ffa55dce8bbea7eec60bfece9cc0830e7a3f497af1c282e02757848d4ff7a192"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7124": [
+          "civil-engineering"
+        ],
+        "7292": [
+          "civil-engineering"
+        ],
+        "7468": [
+          "civil-engineering"
+        ],
+        "7476": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"hard\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "404abdbcfee999e1b7e390d523c9ad1ea79012bf478fb312e2cd1b7def0c5e78",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7124",
+        "7292",
+        "7468",
+        "7476"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7124": "3aca44ca5cb146533dd918f12ffd2992281aa8194ec0830e8032584b8fec9f98",
+        "7292": "3aca44ca5cb146533dd918f12ffd2992281aa8194ec0830e8032584b8fec9f98",
+        "7468": "3aca44ca5cb146533dd918f12ffd2992281aa8194ec0830e8032584b8fec9f98",
+        "7476": "3aca44ca5cb146533dd918f12ffd2992281aa8194ec0830e8032584b8fec9f98"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7125": [
+          "civil-engineering"
+        ],
+        "7485": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"hard\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "5711dc78f0406513e123574358919e09df7769e75beeba14af42227c76f6c9cf",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7125",
+        "7485"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7125": "835c10fd8742c956ee1b99d92a9fd24e2b21d9b53faaea398cc996d48285b22a",
+        "7485": "835c10fd8742c956ee1b99d92a9fd24e2b21d9b53faaea398cc996d48285b22a"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7127": [
+          "civil-engineering"
+        ],
+        "7487": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"medium\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "09267ffb3844d7389c4058d04dd6a25a6e2ee34654986cf68223daf716c489a5",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7127",
+        "7487"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7127": "7e7e53dd416f7bcfb18ac1b2dfbe31bab1ea04266538911e317d12fd11ac3e46",
+        "7487": "7e7e53dd416f7bcfb18ac1b2dfbe31bab1ea04266538911e317d12fd11ac3e46"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7130": [
+          "civil-engineering"
+        ],
+        "7314": [
+          "civil-engineering"
+        ],
+        "7490": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"medium\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "db2090a96a0e65b1fb382bdadba2f3822253933933244e26686b0749ab1604b7",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7130",
+        "7314",
+        "7490"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7130": "99bc293f9ad1ca326372b055c32824c4955949c0df9c4cc5b791f6e29edafdf9",
+        "7314": "99bc293f9ad1ca326372b055c32824c4955949c0df9c4cc5b791f6e29edafdf9",
+        "7490": "99bc293f9ad1ca326372b055c32824c4955949c0df9c4cc5b791f6e29edafdf9"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7131": [
+          "civil-engineering"
+        ],
+        "7307": [
+          "civil-engineering"
+        ],
+        "7491": [
+          "civil-engineering"
+        ],
+        "7587": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"hard\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "1d4bf2029d9db74642509489a98d5fdbcc53182f40f7c4925030b8d52b6b7831",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7131",
+        "7307",
+        "7491",
+        "7587"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7131": "98bb05f088f32007fb02746ab3fb6ad02ba75bdcff39bb033fb1adf3ba62a1d3",
+        "7307": "98bb05f088f32007fb02746ab3fb6ad02ba75bdcff39bb033fb1adf3ba62a1d3",
+        "7491": "98bb05f088f32007fb02746ab3fb6ad02ba75bdcff39bb033fb1adf3ba62a1d3",
+        "7587": "98bb05f088f32007fb02746ab3fb6ad02ba75bdcff39bb033fb1adf3ba62a1d3"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7132": [
+          "civil-engineering"
+        ],
+        "7308": [
+          "civil-engineering"
+        ],
+        "7492": [
+          "civil-engineering"
+        ],
+        "7588": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"hard\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "d708abe512b3a22d29835e77c41302b3d88cadaaaf7b8d964f13e9afd9a7fbce",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7132",
+        "7308",
+        "7492",
+        "7588"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7132": "5c61e0c0d326c20947985da39433664da6e805230866f2878243a00478165262",
+        "7308": "5c61e0c0d326c20947985da39433664da6e805230866f2878243a00478165262",
+        "7492": "5c61e0c0d326c20947985da39433664da6e805230866f2878243a00478165262",
+        "7588": "5c61e0c0d326c20947985da39433664da6e805230866f2878243a00478165262"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7216": [
+          "civil-engineering"
+        ],
+        "7552": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"medium\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "6af8810edf9c9c564496f1f50ff765c0c55b993aa51c97e1287f8a4cc5e78a11",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7216",
+        "7552"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7216": "1866c405e60ffae9122c67b7aeb1e5130639063e95d06230532663b4f81c621f",
+        "7552": "1866c405e60ffae9122c67b7aeb1e5130639063e95d06230532663b4f81c621f"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7253": [
+          "civil-engineering"
+        ],
+        "7565": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"medium\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "f21d94f4e205fce7faade103ef364be2e218c6947fd8afd52c79439e7ced67f5",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7253",
+        "7565"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7253": "e75abce72708b189e5233e69ee515774ab1548718ada26555563ec65459679ad",
+        "7565": "e75abce72708b189e5233e69ee515774ab1548718ada26555563ec65459679ad"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7282": [
+          "civil-engineering"
+        ],
+        "7458": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"medium\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "db36b3f9ea7cb78ffdded2c489bf5d04987af1ee311e2635be3a5d1c4ef48118",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7282",
+        "7458"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7282": "c0d2792cf1c1e2d0ff965788f793c3d06e0c0c512d418ca6cdd93c74064bc722",
+        "7458": "c0d2792cf1c1e2d0ff965788f793c3d06e0c0c512d418ca6cdd93c74064bc722"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7288": [
+          "civil-engineering"
+        ],
+        "7472": [
+          "civil-engineering"
+        ],
+        "7576": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"medium\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "4670ec18d57408053724b6d381dfe060e6d4bdde0e7d522565a1afbb57d767cb",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7288",
+        "7472",
+        "7576"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7288": "24533dc0dc2175c9ee472e3914185ece0d99595e569f2ca22e136c184df5809f",
+        "7472": "24533dc0dc2175c9ee472e3914185ece0d99595e569f2ca22e136c184df5809f",
+        "7576": "24533dc0dc2175c9ee472e3914185ece0d99595e569f2ca22e136c184df5809f"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7295": [
+          "civil-engineering"
+        ],
+        "7583": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"medium\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "438595b105d2c11ab9cba82c33f3c8abdefa7933c258ceef37d99dfe7ad14a59",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7295",
+        "7583"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7295": "c20dce3faab3c7344f4aee624481fe4952d6d127ca4ea6fa5640e6a3e1a620d9",
+        "7583": "c20dce3faab3c7344f4aee624481fe4952d6d127ca4ea6fa5640e6a3e1a620d9"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7298": [
+          "civil-engineering"
+        ],
+        "7306": [
+          "civil-engineering"
+        ],
+        "7482": [
+          "civil-engineering"
+        ],
+        "7586": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"medium\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "9a968829844e4d577284dfde81e5d6cd87531d7fc1c4aaf80eff96f6407d5b3b",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7298",
+        "7306",
+        "7482",
+        "7586"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7298": "59b987cb1f4334638c6ccffdcf7dd2758a0a8075b202a55670e061108d54af02",
+        "7306": "59b987cb1f4334638c6ccffdcf7dd2758a0a8075b202a55670e061108d54af02",
+        "7482": "59b987cb1f4334638c6ccffdcf7dd2758a0a8075b202a55670e061108d54af02",
+        "7586": "59b987cb1f4334638c6ccffdcf7dd2758a0a8075b202a55670e061108d54af02"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7299": [
+          "civil-engineering"
+        ],
+        "7483": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"hard\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "cc4a67c88bdc073e41a0d518fe9367b6f90a4a352159a1bfaf32f6d9579cf734",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7299",
+        "7483"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7299": "ec0f57a0995700120dc6e0903ee5597f5a0baf7e250e30a853b4c98bcc523bf6",
+        "7483": "ec0f57a0995700120dc6e0903ee5597f5a0baf7e250e30a853b4c98bcc523bf6"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7300": [
+          "civil-engineering"
+        ],
+        "7484": [
+          "civil-engineering"
+        ],
+        "7580": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"hard\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "357b12e5076c30d2bc400ed97272fccc7acaee214c313e0c28f5916eefcf56f3",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7300",
+        "7484",
+        "7580"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7300": "89453e3e811bd180b924400f4ef167dace2afcff7f8cd67555a6d4b9848f14df",
+        "7484": "89453e3e811bd180b924400f4ef167dace2afcff7f8cd67555a6d4b9848f14df",
+        "7580": "89453e3e811bd180b924400f4ef167dace2afcff7f8cd67555a6d4b9848f14df"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7302": [
+          "civil-engineering"
+        ],
+        "7582": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": false,
+          "values": [
+            "\"hard\"",
+            "\"medium\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "5be03e7528814b6823399d38094b2a5cd3692be40ac67be6876c31c0d44a2404",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7302",
+        "7582"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7302": "e8c3a067ad21b451152182fdde13e737ca882d89d42f25e41f6cdcd8d1dc7054",
+        "7582": "e8c3a067ad21b451152182fdde13e737ca882d89d42f25e41f6cdcd8d1dc7054"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7315": [
+          "civil-engineering"
+        ],
+        "7499": [
+          "civil-engineering"
+        ],
+        "7507": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"hard\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "07bf193cd5582a1f8724d4e0b908445aa5d7b68bee1986dde7825ef3b69f410e",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7315",
+        "7499",
+        "7507"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7315": "44f41f0864233482c0b2e13c19ecc715f8ca12cb2a154dc9bd96560933ed0db8",
+        "7499": "44f41f0864233482c0b2e13c19ecc715f8ca12cb2a154dc9bd96560933ed0db8",
+        "7507": "44f41f0864233482c0b2e13c19ecc715f8ca12cb2a154dc9bd96560933ed0db8"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7316": [
+          "civil-engineering"
+        ],
+        "7500": [
+          "civil-engineering"
+        ],
+        "7508": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"hard\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "8edd25305c30a5eb163c0fb02247b704b811189dd924721465f505fa4a6af573",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7316",
+        "7500",
+        "7508"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7316": "9e5476785eec1d739b51a6cc75aa58087457082884d67a8f9cebece42cb1e71b",
+        "7500": "9e5476785eec1d739b51a6cc75aa58087457082884d67a8f9cebece42cb1e71b",
+        "7508": "9e5476785eec1d739b51a6cc75aa58087457082884d67a8f9cebece42cb1e71b"
+      }
+    },
+    {
+      "board_id": "civil-engineering",
+      "classification": "TRUE_DUPLICATE",
+      "classification_reason": "Task content, answer, explanation, taxonomy, sources, study materials, and board eligibility match. Every canonical ID remains because placement and reuse records reference each question; runtime exact-stem deduplication prevents repeated equivalent exposure.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "7322": [
+          "civil-engineering"
+        ],
+        "7498": [
+          "civil-engineering"
+        ],
+        "7506": [
+          "civil-engineering"
+        ]
+      },
+      "field_comparison": {
+        "answer": "MATCH",
+        "choices": "MATCH",
+        "eligible_boards": "MATCH",
+        "explanation": "MATCH",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": true,
+          "values": [
+            "\"medium\""
+          ]
+        },
+        "multistep": {
+          "consistent": true,
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "cefbb7946d24482eea543ba1e3d06de65c31a79de2a824de3db83f934b2ce950",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "7322",
+        "7498",
+        "7506"
+      ],
+      "resolution": "RETAINED_IDS; runtime exact-stem deduplication prevents equivalent prompts appearing together",
+      "task_fingerprints_by_question": {
+        "7322": "bcfadcc60c9ca6f4fc81b74796be99ec58525732f9844ec28af6771f4faba1e9",
+        "7498": "bcfadcc60c9ca6f4fc81b74796be99ec58525732f9844ec28af6771f4faba1e9",
+        "7506": "bcfadcc60c9ca6f4fc81b74796be99ec58525732f9844ec28af6771f4faba1e9"
+      }
+    },
+    {
+      "board_id": "civil-service",
+      "classification": "LEGITIMATE_VARIANT",
+      "classification_reason": "Separate tense-consistency examples have different actors, recorded events, option sets, correct sentences, concept taxonomy, and explanations. Both are valid APPLICATION items; both canonical IDs are retained.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "5206": [
+          "civil-service"
+        ],
+        "6602": [
+          "civil-service"
+        ]
+      },
+      "field_comparison": {
+        "answer": "DIFFERENT",
+        "choices": "DIFFERENT",
+        "eligible_boards": "MATCH",
+        "explanation": "DIFFERENT",
+        "source_ids": "DIFFERENT",
+        "study_material_links": "DIFFERENT",
+        "taxonomy": "DIFFERENT"
+      },
+      "fields_different": [
+        "choices",
+        "answer",
+        "explanation",
+        "taxonomy",
+        "source_ids",
+        "study_material_links"
+      ],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": false,
+          "values": [
+            "\"hard\"",
+            "\"medium\""
+          ]
+        },
+        "multistep": {
+          "consistent": false,
+          "values": [
+            "false",
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "a397814e37c3e9e1a3c77f9b954b53cd6e0ec791e220ecbe8d9bb21ae48c25cd",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "5206",
+        "6602"
+      ],
+      "resolution": "TASK_STEMS_DISTINGUISHED_AND_STUDY_LINKS_IMPROVED",
+      "task_fingerprints_by_question": {
+        "5206": "6726b95b4a3052a9d6d12228a5c5504e081f099beee6a0e1136fbf1969cc2f39",
+        "6602": "76ef9bf2e3b9e2bb600fb21308e0f1f718599b6cff29cd6f3de0d1131dd5aa65"
+      }
+    },
+    {
+      "board_id": "civil-service",
+      "classification": "LEGITIMATE_VARIANT",
+      "classification_reason": "Each option set tests spelling of a different target word. Correct words, distractors, answer keys, and explanations differ. Contextual stems and exact source-linked spelling practice now distinguish the seven tasks; all canonical IDs are retained.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "5462": [
+          "civil-service"
+        ],
+        "5463": [
+          "civil-service"
+        ],
+        "5464": [
+          "civil-service"
+        ],
+        "5465": [
+          "civil-service"
+        ],
+        "5466": [
+          "civil-service"
+        ],
+        "5467": [
+          "civil-service"
+        ],
+        "5468": [
+          "civil-service"
+        ]
+      },
+      "field_comparison": {
+        "answer": "DIFFERENT",
+        "choices": "DIFFERENT",
+        "eligible_boards": "MATCH",
+        "explanation": "DIFFERENT",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [
+        "choices",
+        "answer",
+        "explanation"
+      ],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": false,
+          "values": [
+            "\"easy\"",
+            "\"hard\"",
+            "\"medium\""
+          ]
+        },
+        "multistep": {
+          "consistent": false,
+          "values": [
+            "false",
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "21bf51f0b35a157cfdbb99c8511c17deb46179591f64ec0854251bf40ad12d87",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "5462",
+        "5463",
+        "5464",
+        "5465",
+        "5466",
+        "5467",
+        "5468"
+      ],
+      "resolution": "TASK_STEMS_DISTINGUISHED_AND_STUDY_LINKS_IMPROVED",
+      "task_fingerprints_by_question": {
+        "5462": "eefe6490298982decf178126ed5157071da6ffa88d36aa2ac0846c75b6e1b04d",
+        "5463": "7ed5e7aece003a5313696493b3ffa3e965661e6e152e1679f107135dcaa571ea",
+        "5464": "cf44d577e0f280ef26b2d8f642fe491df2eb87efa7f224d815e7e0f7e68d315e",
+        "5465": "b30b5a3b800fe25c83d9beaa82c0e95a36060a46008d657c6736f56357a4e276",
+        "5466": "83cbc79e00d5a06fc69f406bc5db3bc5d49c3f315bd6ef9a9d41cee625893271",
+        "5467": "23ed94f20541a7a1228cbf3ec7a8cb42292668dff3f41da1d306c995eca0b6d5",
+        "5468": "3c805668dafcb4a30d2675afce37053d8a69eda4281c689a68e902b9908c2fe7"
+      }
+    },
+    {
+      "board_id": "civil-service",
+      "classification": "LEGITIMATE_VARIANT",
+      "classification_reason": "Each option set is a distinct public-service proofreading task. Q5489 and Q5492 originally lacked a source sentence and allowed more than one grammatical choice; their stems now quote the approved sentence and ask for exact reproduction. All six IDs and correct answers are retained.",
+      "cross_board_placements": 0,
+      "eligible_boards_by_question": {
+        "5487": [
+          "civil-service"
+        ],
+        "5488": [
+          "civil-service"
+        ],
+        "5489": [
+          "civil-service"
+        ],
+        "5490": [
+          "civil-service"
+        ],
+        "5491": [
+          "civil-service"
+        ],
+        "5492": [
+          "civil-service"
+        ]
+      },
+      "field_comparison": {
+        "answer": "DIFFERENT",
+        "choices": "DIFFERENT",
+        "eligible_boards": "MATCH",
+        "explanation": "DIFFERENT",
+        "source_ids": "MATCH",
+        "study_material_links": "MATCH",
+        "taxonomy": "MATCH"
+      },
+      "fields_different": [
+        "choices",
+        "answer",
+        "explanation"
+      ],
+      "learner_question_counters_nonzero_ids": [],
+      "metadata_comparison": {
+        "cognitive_intent": {
+          "consistent": true,
+          "values": [
+            "\"<MISSING>\""
+          ]
+        },
+        "difficulty": {
+          "consistent": false,
+          "values": [
+            "\"easy\"",
+            "\"hard\"",
+            "\"medium\""
+          ]
+        },
+        "multistep": {
+          "consistent": false,
+          "values": [
+            "false",
+            "true"
+          ]
+        }
+      },
+      "normalized_stem_sha256": "416bf76e555bb564e40d0a4141cf6620c3661b15a91a41ab7adbd4196bf988cd",
+      "preserve_canonical_ids": true,
+      "question_ids": [
+        "5487",
+        "5488",
+        "5489",
+        "5490",
+        "5491",
+        "5492"
+      ],
+      "question_level_defects_fixed": [
+        "5489: multiple grammatical choices without a supplied source sentence",
+        "5492: a correct sentence plus a grammatically valid added-word variant"
+      ],
+      "resolution": "TASK_STEMS_DISTINGUISHED_AND_STUDY_LINKS_IMPROVED",
+      "task_fingerprints_by_question": {
+        "5487": "986fc8f83068fa9f40a5aa50b4ce99db5786019ae48dd3233921778ba93998af",
+        "5488": "b962ed8d87d60ddb7cf20e2a0399d43774c8ca0ae3b46bfd452c1613975ab987",
+        "5489": "752ff43509586391af10fdc28f28f2881d90b7f6d27b4714c86a61b27145aa65",
+        "5490": "c11f0171add0ee2a86316a1e3eda4a3bf152fa6acfb9205b0fafb30e0d48062d",
+        "5491": "f9114bb0d9a0fd2679c4ca7f48e3ddc30266d9c77f2d70cfee9f13e7b3e29898",
+        "5492": "1fa67e7310d69c1820e4863611d386dceeb5c5014d5d69d800743dc34f6a62b5"
+      }
+    }
+  ],
+  "normalization": "lowercase with repeated whitespace collapsed; punctuation retained",
+  "question_level_review_notes": {
+    "attempt_summaries": "Live and preserved recovery attempt files contain aggregate summaries without per-question IDs. No duplicate question ID was found in question-statistics or weakness records; duplicate canonical question counters are zero.",
+    "cross_board": "All baseline duplicate records map only to their native board; no cross-board placement was found."
+  },
+  "resolution_summary": "All 324 canonical IDs are preserved. The three Civil Service groups were reviewed as legitimate distinct tasks and received context-specific wording, clearer explanations, application-intent labels, and exact source-linked study resources. Q5489 and Q5492 now include approved source sentences to make one answer defensible. The 85 Civil Engineering groups remain intact because their IDs are referenced by eligibility and reuse records; runtime selection suppresses duplicate stems. Five Civil Engineering difficulty conflicts remain review items because difficulty has no psychometric calibration.",
+  "schema_version": 1,
+  "summary": {
+    "all_groups_with_difficulty_variation": 8,
+    "civil_engineering_difficulty_conflict_groups": 5,
+    "classifications": {
+      "LEGITIMATE_VARIANT": 3,
+      "TRUE_DUPLICATE": 85
+    },
+    "cross_board_duplicate_placements": 0,
+    "eligibility_and_reuse_rows_referencing_baseline_duplicate_ids": 324,
+    "excess_records_before": 236,
+    "groups_before": 88,
+    "learner_question_counters_nonzero_duplicate_ids": 0,
+    "question_level_history_references_found": 0,
+    "variant_groups_with_distinct_difficulty_values": 3
+  }
+}

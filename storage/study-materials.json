@@ -1525,6 +1525,10 @@
             [
                 "Batch 680 — Worked example: sum and compare a weekly table",
                 "For Q21, sum each row across the three days: Reading = 105 minutes, Practice = 60, and Review = 45. Rank the totals first, then subtract the second-largest (60) from the largest (105); the difference is 45 minutes. Keep the units and compare totals rather than individual cells."
+            ],
+            [
+                "Worked example: compare unit rates",
+                "Divide flour cups by bread count so every result is cups per bread: A = 3/4 = 0.75, B = 5/6 ≈ 0.83, C = 4/5 = 0.80. Compare converted rates, not raw numerators; keep units in the same order."
             ]
         ],
         "source_ids": [
@@ -1557,8 +1561,8 @@
             "concept_id": "mathematical-modeling-representation"
         },
         "status": "published",
-        "version": 6,
-        "updated_at": "2026-10-15",
+        "version": 7,
+        "updated_at": "2026-10-16",
         "batch629_update": {
             "updated_at": "2026-09-29",
             "action": "EXPAND",
@@ -6493,10 +6497,15 @@
             {
                 "heading": "Use in practice",
                 "body": "Apply the relationships and decision checks to connect calculation results to safe electrical-engineering decisions."
+            },
+            {
+                "heading": "Linear systems: eliminate and check",
+                "body": "Align like variables. Add equations when a variable has opposite coefficients; otherwise multiply an equation by a nonzero factor first. Solve, substitute into an original equation, and verify both. For 2x + y = 11 and x − y = 1, addition gives 3x = 12, so x = 4 A; substitution gives y = 3 A."
             }
         ],
         "source_ids": [
-            "prc-electrical-engineering-board-page"
+            "prc-electrical-engineering-board-page",
+            "openstax-algebra-and-trigonometry"
         ],
         "exams": [
             "registered-electrical-engineering"
@@ -6505,8 +6514,8 @@
             "subject_id": "registered-electrical-engineering-foundation"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-06",
+        "version": 2,
+        "updated_at": "2026-10-16",
         "supported_concept_ids": [
             "b633-ree-math-algebra-linear",
             "b633-ree-math-complex-phasors",
@@ -7560,6 +7569,10 @@
             {
                 "heading": "Common errors",
                 "body": "Do not rotate a plan for a diagrammatic ideal while ignoring wind or access, treat north as the only solar datum, or specify a passive strategy without stating occupancy and climate assumptions."
+            },
+            {
+                "heading": "Worked site schedule: daylight, glare, shade, and arrival",
+                "body": "For the stated reading-room schedule, compare late-afternoon sun at the west edge with shade at the north edge, then test a north-side location and shading against daylight and glare needs while keeping the east arrival legible. This is a response to supplied site facts, not a universal orientation rule."
             }
         ],
         "source_ids": [
@@ -7582,8 +7595,8 @@
             "subject_id": "architecture-architectural-design-and-site-planning"
         },
         "status": "published",
-        "version": 2,
-        "updated_at": "2026-09-28",
+        "version": 3,
+        "updated_at": "2026-10-16",
         "technical_support_state": "STRONG"
     },
     {
@@ -7610,6 +7623,10 @@
             {
                 "heading": "2024 accessible-route audit",
                 "body": "The 2024 BP 344 IRR defines an accessible route as continuous and unobstructed, connecting accessible elements and spaces. It requires public entrances to be accessible from arrival and departure points to the interior lobby, without longer travel or exclusion from the standard path. Trace the entire trip across site arrival, entries, doors, level changes, and interior destinations; then verify each dimension against the IRR. A route that exists on the plan but breaks at a segment is not continuous."
+            },
+            {
+                "heading": "Worked site schedule: follow the route end to end",
+                "body": "If the direct line from arrival crosses steps but a level path reaches the accessible entrance and lobby, trace the level path through every segment to the destination. Check continuity, obstructions, and applicable dimensional requirements against the 2024 BP 344 IRR. A line that stops at the site edge is not a complete route."
             }
         ],
         "source_ids": [
@@ -7637,8 +7654,8 @@
             ]
         },
         "status": "published",
-        "version": 3,
-        "updated_at": "2026-10-15",
+        "version": 4,
+        "updated_at": "2026-10-16",
         "technical_support_state": "STRONG"
     },
     {
@@ -8487,6 +8504,10 @@
             {
                 "heading": "Currency and separate statements",
                 "body": "Keep transaction remeasurement, translation, equity-method accounting, and separate-financial-statement measurement distinct. State the rate and reporting assumption used."
+            },
+            {
+                "heading": "Goodwill: identify every acquisition-date input",
+                "body": "IFRS 3 measures goodwill as consideration transferred plus any non-controlling interest plus the acquisition-date fair value of a previously held interest, less the acquisition-date net amount of identifiable assets acquired and liabilities assumed. A simple consideration-minus-net-assets exercise is valid only when the vignette excludes the additional interests and adjustments. Reassess measurements before recognizing a bargain-purchase gain."
             }
         ],
         "source_ids": [
@@ -8532,8 +8553,8 @@
         ],
         "technical_support_state": "STRONG",
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-29"
+        "version": 2,
+        "updated_at": "2026-10-16"
     },
     {
         "id": "batch622-cpa-management-evidence",
@@ -8806,6 +8827,10 @@
             {
                 "heading": "Boundary",
                 "body": "A useful science foundation does not itself establish an independent Nursing coverage row; keep shared-science claims separate from NP I competency evidence."
+            },
+            {
+                "heading": "Outbreak investigation: verify before attributing",
+                "body": "Confirm the reported diagnosis and assess whether the observed count exceeds an appropriate baseline; define and count cases systematically, then describe patterns by time, place, and person. Early steps may occur concurrently. Use required reporting channels, protect identifiable records, and do not announce a cause before evidence supports it. CDC Field Epi Manual."
             }
         ],
         "source_ids": [
@@ -8814,7 +8839,8 @@
             "who-community-health",
             "openrn-nursing-fundamentals",
             "cdc-infection-control-basics",
-            "doh-national-immunization-program"
+            "doh-national-immunization-program",
+            "cdc-field-epi-outbreak-investigation"
         ],
         "exams": [
             "nursing"
@@ -8824,8 +8850,8 @@
             "domain_id": "nle-community-health"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-29"
+        "version": 2,
+        "updated_at": "2026-10-16"
     },
     {
         "id": "nle-b625-np-ii-clinical-reasoning",
@@ -10773,5 +10799,187 @@
         "status": "published",
         "version": 1,
         "updated_at": "2026-10-14"
+    },
+    {
+        "id": "cse-spelling-in-context",
+        "title": "CSE Spelling in Sentence Context",
+        "summary": "Apply spelling knowledge in a sentence and distinguish a word form that fits the stated meaning.",
+        "notes": [
+            [
+                "Scope",
+                "CSC lists Clerical Ability for the Subprofessional CSE-PPT. That scope supports clerical spelling practice; the announcement does not publish topic weights."
+            ],
+            [
+                "Read for meaning first",
+                "Read the whole sentence, infer the word role and meaning required by the blank, then compare the candidate spellings letter by letter."
+            ],
+            [
+                "Verify uncertain forms",
+                "Use a reliable dictionary for a doubtful spelling. Purdue OWL recommends checking words individually and cautions that spell-check alone can miss errors."
+            ],
+            [
+                "Check transfer",
+                "After selecting a word, reread the full sentence to confirm its grammar and meaning still fit."
+            ]
+        ],
+        "source_ids": [
+            "csc-cse-ppt-scope-2026",
+            "purdue-owl-proofreading-errors"
+        ],
+        "exams": [
+            "civil-service"
+        ],
+        "taxonomy": {
+            "subject_id": "clerical-ability",
+            "domain_id": "spelling-and-word-forms",
+            "topic_id": "spelling-and-word-forms",
+            "concept_id": "cse-spelling"
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-10-15",
+        "exam_focus": {
+            "civil-service": {
+                "official_scope_status": "Supports a current CSC named subject area; not a prediction or weight.",
+                "focus_topics": [
+                    "cse-spelling"
+                ]
+            }
+        }
+    },
+    {
+        "id": "cse-proofreading-exact-copy",
+        "title": "CSE Proofreading and Exact Copying",
+        "summary": "Use the wording supplied by a reference sentence to identify spelling, agreement, tense, and transcription errors.",
+        "notes": [
+            [
+                "Name the task",
+                "A proofreading prompt asks you to find a language error. An exact-copy prompt gives an approved source sentence; compare each word with that source."
+            ],
+            [
+                "Check one feature at a time",
+                "Inspect spelling, verb form, tense, subject–verb agreement, and punctuation. A sentence can be grammatical while still differing from the supplied source."
+            ],
+            [
+                "Preserve the source",
+                "When asked to reproduce a record exactly, do not accept an added word, changed number, or substituted detail even if the result remains grammatical."
+            ],
+            [
+                "Use a deliberate pass",
+                "Read the full sentence once for meaning, then inspect individual words and agreement. Purdue OWL recommends focused checks because spell-check may miss errors."
+            ]
+        ],
+        "source_ids": [
+            "csc-cse-ppt-scope-2026",
+            "purdue-owl-proofreading-errors"
+        ],
+        "exams": [
+            "civil-service"
+        ],
+        "taxonomy": {
+            "subject_id": "clerical-ability",
+            "domain_id": "spelling-and-word-forms",
+            "topic_id": "spelling-and-word-forms",
+            "concept_id": "cse-proofreading"
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-10-15",
+        "exam_focus": {
+            "civil-service": {
+                "official_scope_status": "Supports a current CSC named subject area; not a prediction or weight.",
+                "focus_topics": [
+                    "cse-proofreading"
+                ]
+            }
+        }
+    },
+    {
+        "id": "cse-error-recognition-tense",
+        "title": "CSE Tense Consistency: Error Recognition",
+        "summary": "Recognize tense shifts when a sentence reports actions completed in the same time frame.",
+        "notes": [
+            [
+                "Identify the time cue",
+                "Use the sentence context to decide when each action occurred before comparing the verb forms."
+            ],
+            [
+                "Compare the verbs",
+                "For actions completed in the same time frame, check that the verbs express that shared time consistently. A changed tense is justified only when it changes the intended time meaning."
+            ],
+            [
+                "Test the full sentence",
+                "Read the chosen sentence from subject through both verbs. Reject forms that mix time without a reason or leave a verb incomplete."
+            ]
+        ],
+        "source_ids": [
+            "csc-cse-ppt-scope-2026",
+            "purdue-owl-grammar",
+            "purdue-owl-proofreading-errors"
+        ],
+        "exams": [
+            "civil-service"
+        ],
+        "taxonomy": {
+            "subject_id": "verbal-ability",
+            "domain_id": "grammar-and-usage",
+            "topic_id": "grammar-and-usage",
+            "concept_id": "cse-error-recognition"
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-10-15",
+        "exam_focus": {
+            "civil-service": {
+                "official_scope_status": "Supports a current CSC named subject area; not a prediction or weight.",
+                "focus_topics": [
+                    "cse-error-recognition"
+                ]
+            }
+        }
+    },
+    {
+        "id": "cse-grammar-application-tense",
+        "title": "CSE Applying Tense Consistency",
+        "summary": "Apply tense rules to a short public-service record describing completed actions.",
+        "notes": [
+            [
+                "Establish the time frame",
+                "Read the context before choosing a verb. The time relationship between actions controls whether their tense should match."
+            ],
+            [
+                "Apply the rule",
+                "When both actions are complete and share a time frame, use forms that express that same time. Do not select a form solely because it sounds familiar."
+            ],
+            [
+                "Review the sentence",
+                "Check subject–verb form and read the complete clause to confirm the verbs are both grammatical and consistent with the context."
+            ]
+        ],
+        "source_ids": [
+            "csc-cse-ppt-scope-2026",
+            "purdue-owl-grammar",
+            "purdue-owl-proofreading-errors"
+        ],
+        "exams": [
+            "civil-service"
+        ],
+        "taxonomy": {
+            "subject_id": "verbal-ability",
+            "domain_id": "grammar-and-usage",
+            "topic_id": "grammar-and-usage",
+            "concept_id": "cse-grammar-application"
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-10-15",
+        "exam_focus": {
+            "civil-service": {
+                "official_scope_status": "Supports a current CSC named subject area; not a prediction or weight.",
+                "focus_topics": [
+                    "cse-grammar-application"
+                ]
+            }
+        }
     }
 ]

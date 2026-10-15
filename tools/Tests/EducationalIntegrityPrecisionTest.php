@@ -29,7 +29,9 @@ $assert($has('source_id=boardprep-blueprint-targets'), 'The explicit internal ed
 $assert($has('question_id=263') && $has('board=let'), 'A justified flashcard exclusion does not expose its exact question and board.');
 $assert($has('questions=8962 source_supported=8962 missing=0'), 'Question-to-source-study coverage is not reported with counts.');
 $assert($has('repository_record_id=b633-arch-site-capacity') && $has('board=architecture'), 'Coverage evidence does not identify the affected taxonomy leaf and board.');
-$assert($has('question_set_id=6973,7517') && $has('board=civil-engineering'), 'A live exact-duplicate question pair is not reported with its board and exact IDs.');
+$assert($has('question_set_id=6973,7517') && $has('board=civil-engineering') && $has('classification=TRUE_DUPLICATE'), 'A live exact duplicate is not classified with its board and exact IDs.');
+$assert($has('QUESTION_DUPLICATE_CLASSIFICATION groups=85 by_class=TRUE_DUPLICATE:85'), 'The Doctor does not publish deterministic duplicate classification totals.');
+$assert($has('question_set_id=6975,7519') && $has('differing_fields=difficulty'), 'Difficulty conflicts among identical tasks are not identified by exact ID.');
 $assert($has('remote URL reachability is not tested'), 'URL shape validation is overstated as remote availability verification.');
 $assert($result->status !== 'FAIL', 'Existing justified exceptions or insufficient evidence became hard defects.');
 
