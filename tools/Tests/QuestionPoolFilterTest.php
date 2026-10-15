@@ -38,4 +38,38 @@ if (QuestionPoolFilter::filter([$question], $wrongLegacyDomainRequest) !== []) {
     throw new RuntimeException('A stale legacy subject/domain label still selects a question under the wrong taxonomy.');
 }
 
+$crossBoardQuestion = $question;
+$crossBoardQuestion['id'] = 'cross-board-eligibility-fixture';
+$crossBoardQuestion['taxonomy']['board_id'] = 'nursing';
+$eligibilityIndex = new \App\Services\Question\QuestionEligibilityIndex([
+    [
+        'question_ids' => ['cross-board-eligibility-fixture'],
+        'exam_ids' => ['LET'],
+        'subject_ids' => ['let' => 'english'],
+    ],
+], [], [], []);
+$crossBoardRequest = new SelectionRequest('*', null, [], 1, exam: 'LET');
+$crossBoardFiltered = QuestionPoolFilter::filter([$crossBoardQuestion], $crossBoardRequest, $eligibilityIndex);
+if (count($crossBoardFiltered) !== 1 || ($crossBoardFiltered[0]['id'] ?? '') !== 'cross-board-eligibility-fixture') {
+    throw new RuntimeException('Candidate prefilter rejected a valid explicit cross-board eligibility placement.');
+}
+
+$excludedIndex = new \App\Services\Question\QuestionEligibilityIndex([], [], [], [[
+    'question_id' => 'topic-priority-fixture',
+    'board_id' => 'LET',
+    'override_type' => 'EXCLUDE',
+]]);
+$excludedRequest = new SelectionRequest('*', null, [], 1, exam: 'LET');
+if (QuestionPoolFilter::filter([$question], $excludedRequest, $excludedIndex) !== []) {
+    throw new RuntimeException('Candidate prefilter bypassed the exact exclusion resolver for canonical board content.');
+}
+
+$unrelatedQuestion = $question;
+$unrelatedQuestion['id'] = 'unrelated-board-fixture';
+$unrelatedQuestion['taxonomy']['board_id'] = 'nursing';
+if (QuestionPoolFilter::filter([$unrelatedQuestion], $crossBoardRequest, $eligibilityIndex) !== []) {
+    throw new RuntimeException('Candidate prefilter admitted unrelated board content without an eligibility record.');
+}
+
 echo "[PASS] Practice selection uses canonical subject, domain, and topic IDs over conflicting legacy labels.\n";
+echo "[PASS] Candidate prefilter preserves canonical placement, explicit cross-board eligibility, and exact exclusion behavior.\n";

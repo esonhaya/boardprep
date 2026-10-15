@@ -21,6 +21,9 @@ final class QuestionEligibilityIndex
     /** @var array<string, array<string, array<int, array>>> */
     private array $overridesByQuestionBoard = [];
 
+    /** @var array<string, array<string, true>>|null */
+    private ?array $potentialQuestionIdsByExam = null;
+
     public function __construct(array $entries, array $blueprints = [], array $derivedEntries = [], array $overrides = [])
     {
         foreach ($entries as $entry) {
@@ -162,6 +165,33 @@ final class QuestionEligibilityIndex
     }
 
     /**
+     * Return false only when neither canonical taxonomy nor an indexed
+     * eligibility record can place this question on the requested board.
+     * The normal forExam() resolver remains the final eligibility authority.
+     */
+    public function mayBeEligibleForExam(array $question, string $exam): bool
+    {
+        $exam = self::normalize($exam);
+        if ($exam === '') {
+            return true;
+        }
+
+        $taxonomy = is_array($question['taxonomy'] ?? null) ? $question['taxonomy'] : [];
+        $canonicalBoard = self::normalize((string) ($taxonomy['board_id'] ?? $question['board'] ?? ''));
+        if ($canonicalBoard === $exam) {
+            return true;
+        }
+
+        $questionId = is_scalar($question['id'] ?? null) ? (string) $question['id'] : '';
+        if ($questionId === '') {
+            return false;
+        }
+
+        $candidateIdsByExam = $this->potentialQuestionIdsByExam();
+        return isset($candidateIdsByExam[$exam][$questionId]);
+    }
+
+    /**
      * Return a per-exam candidate ID set suitable for a later exact
      * `forExam()` check.  This is deliberately an over-inclusive index:
      * excluded IDs may be present, and the production resolver remains the
@@ -173,6 +203,10 @@ final class QuestionEligibilityIndex
      */
     public function potentialQuestionIdsByExam(): array
     {
+        if ($this->potentialQuestionIdsByExam !== null) {
+            return $this->potentialQuestionIdsByExam;
+        }
+
         $idsByExam = [];
         foreach ($this->entriesByQuestion as $questionId => $entries) {
             foreach ($entries as $entry) {
@@ -204,7 +238,7 @@ final class QuestionEligibilityIndex
             ksort($questionIds, SORT_STRING);
         }
         unset($questionIds);
-        return $idsByExam;
+        return $this->potentialQuestionIdsByExam = $idsByExam;
     }
 
     private function resolvedSubject(array $question, string $exam, string $subject): string

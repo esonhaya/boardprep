@@ -17,6 +17,11 @@ final class QuestionPoolFilter
         $eligible=[]; $seenIds=[]; $seenTexts=[];
         foreach ($questions as $question) {
             if (!is_array($question)) continue;
+            if ($request->exam !== null
+                && $eligibilityIndex !== null
+                && !$eligibilityIndex->mayBeEligibleForExam($question, $request->exam)) {
+                continue;
+            }
             $question=self::normalizeRuntimeFields($question);
             if (!self::hasValidRuntimeContent($question)) continue;
             $taxonomy=is_array($question['taxonomy']??null)?$question['taxonomy']:[];
