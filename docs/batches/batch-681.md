@@ -1,16 +1,17 @@
 # BoardPrep — Batch 681: Duplicate Resolution, Cognitive Depth, and Question Quality
 
 START_TIME=2026-10-15T17:55:21Z
-END_TIME=2026-10-15T19:21:36Z (final evidence and clipboard readback checkpoint)
-ELAPSED_MINUTES=86
+END_TIME=2026-10-15T19:23:55Z (final verification checkpoint)
+ELAPSED_MINUTES=89
 HEAD_BEFORE=246b55a7e7c727b516f49c2e8decae8344562a26
 HEAD_AFTER=17f2c6ce70522e5b1e5015bdfe827bea080c1de2 (application HEAD; documentation close is a descendant)
 BATCH680_STATUS=VERIFIED_COMPLETE; application commit 455ce5bc4e84280f12aa237b55de6157b54912f8 and later report descendants were present; no recovery was needed
 REMOTE_MAIN_STATUS=PASS; after the final report status close, fetch verified local main equals origin/main at the same documentation-only descendant; ancestry is preserved
 LEARNER_DATA_PRESERVED=PASS; isolated Doctor simulator left all 155 repository storage files and learner sessions byte-for-byte unchanged; attempts, weakness, question-statistics, recovery evidence, user assets, and existing stashes were preserved; the 19-row usage/timestamp delta in storage/questions.json remains unstaged
-STORAGE_BEFORE_AFTER=Start df output was approximately 1.4 GiB free; final free space was 1,874,564 KiB (1.79 GiB). The attempted full Doctor release reached a minimum of 1,532,884 KiB (about 40 MiB below the 1.5 GiB floor), so the run was stopped; its task-created temporary copies were removed and free space recovered above the floor. No pre-existing temporary evidence was deleted.
+STORAGE_BEFORE_AFTER=Start df output was approximately 1.4 GiB free; final free space was 1,873,836 KiB (1.79 GiB). The attempted full Doctor release reached a minimum of 1,532,884 KiB (about 40 MiB below the 1.5 GiB floor), so the run was stopped; its task-created temporary copies were removed and free space recovered above the floor. No pre-existing temporary evidence was deleted.
 DUPLICATE_GROUPS_BEFORE_AFTER=88 exact-stem groups / 236 excess records -> 85 groups / 224 excess records after three legitimate Civil Service variant groups were given distinct task wording
 QUESTION_BANK_GAP_RANKING=Civil Engineering had the largest exact-stem signal (85 groups/224 excess after the three variants were clarified) and five groups with uncalibrated difficulty disagreement. Missing intent is concentrated in Civil Service (1,059), LET (815), Civil Engineering (362), and Nursing (180); these are descriptive review priorities, not assumed blueprint deficits.
+DIFFICULTY_DISTRIBUTION=993 easy / 4,910 medium / 3,059 hard; stored labels are descriptive and uncalibrated. No difficulty labels were changed without psychometric evidence.
 DUPLICATE_CLASSIFICATIONS=Baseline forensic ledger: TRUE_DUPLICATE=85; LEGITIMATE_VARIANT=3; CONFLICTING_ANSWER=0; INSUFFICIENT_EVIDENCE=0. Five equivalent Civil Engineering groups carry inconsistent difficulty labels and remain REVIEW_REQUIRED because no psychometric evidence supports normalization.
 TRUE_DUPLICATES_RESOLVED=85 groups classified and suppressed as repeated exposure within a single runtime selection; no canonical record was deleted, merged, or remapped. The forensic ledger found no question-level history references for these groups; all canonical IDs and eligibility mappings remain.
 LEGITIMATE_VARIANTS_PRESERVED=3 groups; 15 Civil Service items now state their distinct editing or proofreading task and supporting sentence. Choices and correct-answer identity were retained. Differentiating these groups made 12 placements newly selectable, accounting for runtime growth.
@@ -33,7 +34,7 @@ CANONICAL_COUNTS=8,962 across ten boards; unchanged
 EFFECTIVE_COUNTS=9,422; unchanged
 RUNTIME_PLACEMENTS=9,522 (up 12 after clarifying three legitimate Civil Service variant groups)
 TEN_BOARD_HTTP=PASS on application HEAD for LET, CSE, CLE, NLE, PLE, CE, CPA, ME, REE, and Architecture; detail, study, board-scoped practice, answer/review, history/progress, retry, stale-action recovery, and persistence passed
-DOCTOR_RELEASE=NOT_PASS. The full 53-script release run was stopped for storage protection after 17 completed scripts; the 18th was interrupted and 35 were not run, so a complete result was not collected. A no-tests Doctor release on application HEAD reported health WARN, zero failing check entities, release gate REVIEW, and NOT_RELEASE_READY because learner-core-flow evidence was incomplete.
+DOCTOR_RELEASE=NOT_PASS. The full 53-script release run was stopped for storage protection after 17 completed scripts; the 18th was interrupted and 35 were not run, so a complete result was not collected. A small F2FS `cp --reflink=always` copy-on-write probe failed with Permission denied; no reflink shortcut was used, and unsafe hard links were avoided. A no-tests Doctor release on application HEAD reported health WARN, zero failing check entities, release gate REVIEW, and NOT_RELEASE_READY because learner-core-flow evidence was incomplete.
 SECURITY=PASS; trust-boundary, session, authorization, and CSRF regression checks passed
 PRIVACY=PASS for anonymous learner ownership, export/deletion scope, CSRF, session rotation, and JSON/SQLite parity; no learner records were changed
 PREFLIGHT=PASS on application HEAD; production preflight 22 PASS, 0 WARN, 0 FAIL
@@ -54,6 +55,6 @@ The 324 newly added cognitive labels apply to verified exact Civil Engineering d
 
 Current focused PASS suites include duplicate/cognitive evidence, educational-integrity precision, count reconciliation, content/flashcard integrity, simulator-state isolation, HayaDoctor adapter compatibility, adaptive evidence and prioritization, board eligibility/pool filtering, source links, security/privacy, ten-board HTTP journeys, browser evidence registration, product readiness, and performance contracts. The simulator isolation run hashed all 155 repository storage files during simulation. The existing usage delta remains limited to `timesUsed`, `timesCorrect`, `timesIncorrect`, and `updatedAt` across 19 rows.
 
-The exact browser workflow is registered in `docs/release-evidence/browser-workflows.json` with run ID, commit SHA, successful workflow/job conclusions, and GitHub API response digest. The resulting application evidence is exact to 17f2c6ce70522e5b1e5015bdfe827bea080c1de2; earlier runs remain historical and are classified stale.
+The F2FS copy-on-write probe failed, so the release runner still needs its two independent 91 MB storage trees; the available storage margin was not sufficient to safely complete the full suite. The exact browser workflow is registered in `docs/release-evidence/browser-workflows.json` with run ID, commit SHA, successful workflow/job conclusions, and GitHub API response digest. The resulting application evidence is exact to 17f2c6ce70522e5b1e5015bdfe827bea080c1de2; earlier runs remain historical and are classified stale.
 
 No performance gain is claimed without a matched baseline. The current profile establishes a reproducible ten-board request measurement; the separate Doctor release attempt is not presented as passing. Public launch remains NOT_READY despite technical preflight, smoke, HTTP, privacy/security, and browser evidence.
