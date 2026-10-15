@@ -1,14 +1,14 @@
 # BoardPrep — Batch 681: Duplicate Resolution, Cognitive Depth, and Question Quality
 
 START_TIME=2026-10-15T17:55:21Z
-END_TIME=2026-10-15T19:20:48Z (report/evidence push checkpoint; final clipboard close will update this)
-ELAPSED_MINUTES=85 at the report/evidence push checkpoint; final close will update this
+END_TIME=2026-10-15T19:21:36Z (final evidence and clipboard readback checkpoint)
+ELAPSED_MINUTES=86
 HEAD_BEFORE=246b55a7e7c727b516f49c2e8decae8344562a26
 HEAD_AFTER=17f2c6ce70522e5b1e5015bdfe827bea080c1de2 (application HEAD; documentation close is a descendant)
 BATCH680_STATUS=VERIFIED_COMPLETE; application commit 455ce5bc4e84280f12aa237b55de6157b54912f8 and later report descendants were present; no recovery was needed
-REMOTE_MAIN_STATUS=PASS; after pushing documentation commit c809fe72c27f54a183a046714b0f6c39e8f4a482, fetch confirmed local main equals origin/main; final report metadata close will remain a documentation-only fast-forward
+REMOTE_MAIN_STATUS=PASS; after the final report status close, fetch verified local main equals origin/main at the same documentation-only descendant; ancestry is preserved
 LEARNER_DATA_PRESERVED=PASS; isolated Doctor simulator left all 155 repository storage files and learner sessions byte-for-byte unchanged; attempts, weakness, question-statistics, recovery evidence, user assets, and existing stashes were preserved; the 19-row usage/timestamp delta in storage/questions.json remains unstaged
-STORAGE_BEFORE_AFTER=Start df output was approximately 1.4 GiB free; final free space was 1,876,864 KiB (1.79 GiB). The attempted full Doctor release reached a minimum of 1,532,884 KiB (about 40 MiB below the 1.5 GiB floor), so the run was stopped; its task-created temporary copies were removed and free space recovered above the floor. No pre-existing temporary evidence was deleted.
+STORAGE_BEFORE_AFTER=Start df output was approximately 1.4 GiB free; final free space was 1,874,564 KiB (1.79 GiB). The attempted full Doctor release reached a minimum of 1,532,884 KiB (about 40 MiB below the 1.5 GiB floor), so the run was stopped; its task-created temporary copies were removed and free space recovered above the floor. No pre-existing temporary evidence was deleted.
 DUPLICATE_GROUPS_BEFORE_AFTER=88 exact-stem groups / 236 excess records -> 85 groups / 224 excess records after three legitimate Civil Service variant groups were given distinct task wording
 QUESTION_BANK_GAP_RANKING=Civil Engineering had the largest exact-stem signal (85 groups/224 excess after the three variants were clarified) and five groups with uncalibrated difficulty disagreement. Missing intent is concentrated in Civil Service (1,059), LET (815), Civil Engineering (362), and Nursing (180); these are descriptive review priorities, not assumed blueprint deficits.
 DUPLICATE_CLASSIFICATIONS=Baseline forensic ledger: TRUE_DUPLICATE=85; LEGITIMATE_VARIANT=3; CONFLICTING_ANSWER=0; INSUFFICIENT_EVIDENCE=0. Five equivalent Civil Engineering groups carry inconsistent difficulty labels and remain REVIEW_REQUIRED because no psychometric evidence supports normalization.
@@ -42,9 +42,9 @@ CHROMIUM=PASS; GitHub Actions run 38790810662 completed successfully on exact ap
 PRODUCT_READINESS=NOT_READY; the current exact-commit Chromium run is verified, but human acceptance MVP-01 through MVP-12, approved site-specific privacy/contact/retention/deletion terms, live HTTPS/provider validation, and real-device accessibility acceptance remain open. Blocking capability BP662-CAP-001 remains.
 TESTS_PASS_FAIL_SKIP=23 unique focused suites PASS, 0 unresolved final FAIL, 1 SKIP (FlashcardIntegrationTest was stopped before risking writes to shared simulator-session storage). Two initial failures caused by Q323 cognitive labeling were corrected and rerun PASS; one DoctorIntegrity invocation with an empty fixture failed setup and passed when rerun with canonical fixture data. Additional release evidence: preflight 22/22 PASS; smoke 5/5 PASS; exact-commit Chromium 1/1 job PASS. Full Doctor release: 17 completed scripts without a retained aggregate, 1 interrupted, 35 not run. Counts are reported by validation group and are not added across overlapping checks.
 UNRESOLVED_GAPS=2,416 questions still lack defensible cognitive-intent labels; five equivalent CE groups have uncalibrated difficulty disagreement; eight source-review signals remain; full Doctor release suite is incomplete; Product Readiness launch gates remain open. No canonical question was added or removed.
-COMMITS=8c354cb16db64613a4fd5f754f4637341f3bb68d (duplicate/cognitive audit and content); 17f2c6ce70522e5b1e5015bdfe827bea080c1de2 (Rizal cognitive-label correction); documentation-only browser-registration and report close are descendants on main
-PUSH_STATUS=PASS for application commits and documentation-only browser evidence/report commit c809fe72c27f54a183a046714b0f6c39e8f4a482 using ordinary fast-forward; post-push fetch aligned local and remote. Final report metadata close will use the same safe operation.
-CLIPBOARD_STATUS=PENDING_FINAL_REPORT_CLOSE
+COMMITS=8c354cb16db64613a4fd5f754f4637341f3bb68d (duplicate/cognitive audit and content); 17f2c6ce70522e5b1e5015bdfe827bea080c1de2 (Rizal cognitive-label correction); c809fe72c27f54a183a046714b0f6c39e8f4a482 and d70f942ca22af83c74e0cf8a353b76089670d83e (documentation-only browser registration and report closure); final clipboard-status close is documentation-only
+PUSH_STATUS=PASS; application and documentation commits were pushed by ordinary non-force fast-forward; post-push fetch confirmed local main equals origin/main
+CLIPBOARD_STATUS=UNVERIFIED; termux-clipboard-set returned success, but termux-clipboard-get returned zero bytes; normalized SHA-256 did not match and the complete report remains preserved
 
 ## Verification details
 
