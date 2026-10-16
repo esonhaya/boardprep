@@ -1,0 +1,33 @@
+<section aria-labelledby="education-readiness-heading">
+    <div class="section-heading">
+        <div><p class="eyebrow">Education integrity and resource coverage</p><h2 id="education-readiness-heading">Study Readiness</h2><p class="muted">Structural traceability does not establish that a source semantically supports a question. Human academic sign-off remains explicit.</p></div>
+        <span class="badge <?= $escape(($readiness['status'] ?? 'UNKNOWN') === 'FAIL' ? 'badge-danger' : (($readiness['status'] ?? '') === 'PASS' ? 'badge-success' : 'badge-warning')) ?>"><?= $escape($readiness['status'] ?? 'UNKNOWN') ?></span>
+    </div>
+    <div class="ui-metric-grid">
+        <article class="card stat-card"><span class="stat-label">Canonical questions</span><strong class="stat-value"><?= (int) ($readinessMetrics['canonical_questions'] ?? 0) ?></strong></article>
+        <article class="card stat-card"><span class="stat-label">Registered-source traceability</span><strong class="stat-value"><?= (int) ($readinessMetrics['questions_with_registered_source_traceability'] ?? 0) ?></strong></article>
+        <article class="card stat-card"><span class="stat-label">Semantically verified sources</span><strong class="stat-value">UNKNOWN</strong><span class="muted">No question-level verified review state</span></article>
+        <article class="card stat-card"><span class="stat-label">Complete lesson practice links</span><strong class="stat-value"><?= (int) ($readinessMetrics['questions_linked_to_complete_boardprep_lessons'] ?? 0) ?></strong></article>
+        <article class="card stat-card"><span class="stat-label">Downloadable study PDFs</span><strong class="stat-value"><?= (int) ($readinessMetrics['questions_with_downloadable_study_pdfs'] ?? 0) ?></strong></article>
+        <article class="card stat-card"><span class="stat-label">Valid core metadata</span><strong class="stat-value"><?= (int) ($readinessMetrics['questions_with_valid_metadata'] ?? 0) ?> / <?= (int) ($readinessMetrics['canonical_questions'] ?? 0) ?></strong></article>
+        <article class="card stat-card"><span class="stat-label">Academic review queue</span><strong class="stat-value"><?= (int) ($readinessMetrics['questions_requiring_academic_or_editorial_review'] ?? 0) ?></strong></article>
+        <article class="card stat-card"><span class="stat-label">Numerical verification</span><strong class="stat-value"><?= (int) ($readinessMetrics['numerical_verification']['recomputed'] ?? 0) ?> / <?= (int) ($readinessMetrics['numerical_verification']['structured_payloads'] ?? 0) ?></strong><span class="muted">supported formula models only</span></article>
+        <article class="card stat-card"><span class="stat-label">Flashcard derivation</span><strong class="stat-value"><?= (int) ($readinessMetrics['flashcards']['derivable'] ?? 0) ?></strong><span class="muted">+ <?= (int) ($readinessMetrics['flashcards']['justified_exclusions'] ?? 0) ?> justified exclusions</span></article>
+        <article class="card stat-card"><span class="stat-label">Broken references / assets</span><strong class="stat-value"><?= (int) ($readinessMetrics['broken_references_and_assets']['invalid_source_references'] ?? 0) ?> / <?= (int) ($readinessMetrics['broken_references_and_assets']['broken_assets'] ?? 0) ?></strong></article>
+        <article class="card stat-card"><span class="stat-label">Unreviewed unlinked resources</span><strong class="stat-value"><?= count((array) ($readinessMetrics['orphan_published_materials'] ?? [])) ?></strong><span class="muted"><?= (int) ($readinessMetrics['justified_exclusions']['standalone_resources'] ?? 0) ?> reviewed standalone resources</span></article>
+    </div>
+    <?php $standaloneResources = (array) ($readinessMetrics['justified_exclusions']['standalone_resource_records'] ?? []); ?>
+    <?php if ($standaloneResources !== []): ?><details class="card study-readiness-exclusions"><summary>Reviewed standalone resources (<?= count($standaloneResources) ?>)</summary><ul><?php foreach ($standaloneResources as $resource): if (!is_array($resource)) continue; ?><li><strong><?= $escape($resource['title'] ?? $resource['id'] ?? '') ?></strong> <code><?= $escape($resource['id'] ?? '') ?></code> — <?= $escape($resource['reason'] ?? '') ?></li><?php endforeach; ?></ul></details><?php endif; ?>
+    <p><a class="button secondary" href="/developer/content-intelligence?format=json">Download complete machine-readable report</a></p>
+    <h3>Board coverage</h3>
+    <div class="table-wrap"><table><caption class="sr-only">Educational resource readiness by board</caption><thead><tr><th>Board</th><th>Status</th><th>Questions</th><th>Traceable sources</th><th>Complete lesson practice</th><th>PDF practice</th></tr></thead><tbody>
+        <?php foreach ($readinessBoards as $board): ?><tr><th scope="row"><?= $escape($board['board_name'] ?? $board['board_id'] ?? '') ?></th><td><?= $escape($board['status'] ?? 'UNKNOWN') ?></td><td><?= (int) ($board['canonical_questions'] ?? 0) ?></td><td><?= (int) ($board['traceable_source_questions'] ?? 0) ?></td><td><?= (int) ($board['lesson_practice_questions'] ?? 0) ?></td><td><?= (int) ($board['pdf_practice_questions'] ?? 0) ?></td></tr><?php endforeach; ?>
+    </tbody></table></div>
+    <h3>Actionable educational findings</h3>
+    <?php if ($readinessFindings === []): ?><p>No readiness findings were emitted. Check each audit status before treating an empty queue as a pass.</p><?php else: ?>
+        <div class="table-wrap"><table><caption class="sr-only">Confirmed, suspected, and review-required educational findings</caption><thead><tr><th>Class</th><th>Record</th><th>Reason</th><th>Recommended action</th></tr></thead><tbody>
+            <?php foreach (array_slice($readinessFindings, 0, 100) as $finding): ?><tr><td><?= $escape($finding['classification'] ?? 'UNKNOWN') ?> · <?= $escape($finding['severity'] ?? '') ?></td><th scope="row"><?php foreach ((array) ($finding['record_ids'] ?? [$finding['record_id'] ?? '<missing>']) as $id): ?><?php if (($finding['record_type'] ?? '') === 'question'): ?><a href="/question-editor/edit?id=<?= rawurlencode((string) $id) ?>"><code><?= $escape($id) ?></code></a> <?php else: ?><code><?= $escape($id) ?></code> <?php endif; ?><?php endforeach; ?></th><td><?= $escape($finding['reason'] ?? '') ?></td><td><?= $escape($finding['recommended_action'] ?? '') ?></td></tr><?php endforeach; ?>
+        </tbody></table></div>
+    <?php endif; ?>
+    <p class="muted">Findings beyond the first 100 and all per-board details are in the JSON report. PASS states never imply source relevance or human sign-off unless those checks ran.</p>
+</section>

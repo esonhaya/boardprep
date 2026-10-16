@@ -42,7 +42,7 @@ $collections = [
 $integrity = ['boards' => ['alpha' => ['defects' => ['unlinked_questions' => ['q-bad']]]], 'failures' => ['invalid_answers' => ['q-bad']]];
 $report = ContentQaService::analyze($collections, $integrity);
 $codes = array_column($report['issues'], 'issue_code');
-foreach (['INVALID_ANSWER_KEY', 'MISSING_STUDY_LINK', 'MISSING_RATIONALE', 'DUPLICATE_CHOICES', 'MISSING_SOURCE', 'NORMALIZED_DUPLICATE', 'NEAR_DUPLICATE_RISK', 'NUMBER_SWAP_CLONE_RISK', 'SOURCE_TOPIC_FIT_WARNING'] as $code) {
+foreach (['INVALID_ANSWER_KEY', 'MISSING_STUDY_LINK', 'MISSING_RATIONALE', 'DUPLICATE_CHOICES', 'MISSING_SOURCE', 'MISSING_COGNITIVE_INTENT', 'NORMALIZED_DUPLICATE', 'NEAR_DUPLICATE_RISK', 'NUMBER_SWAP_CLONE_RISK', 'SOURCE_TOPIC_FIT_WARNING'] as $code) {
     $assert(in_array($code, $codes, true), 'QA did not expose ' . $code);
 }
 $byCode = [];
@@ -50,8 +50,12 @@ foreach ($report['issues'] as $issue) { $byCode[$issue['issue_code']][] = $issue
 $assert(($byCode['INVALID_ANSWER_KEY'][0]['severity'] ?? '') === 'ERROR', 'invalid answer was not deterministic error');
 $assert(($byCode['NUMBER_SWAP_CLONE_RISK'][0]['detection_type'] ?? '') === 'HEURISTIC', 'number swap risk was not heuristic');
 $assert(($byCode['SOURCE_TOPIC_FIT_WARNING'][0]['severity'] ?? '') === 'REVIEW', 'fit audit was not a review item');
+$assert(($byCode['MISSING_COGNITIVE_INTENT'][0]['severity'] ?? '') === 'REVIEW'
+    && str_contains((string) ($byCode['MISSING_COGNITIVE_INTENT'][0]['suggested_action'] ?? ''), 'academic reviewer'), 'missing cognitive intent did not request academic review.');
 $filtered = ContentQaService::analyze($collections, $integrity, ['question_ids' => ['q-source']]);
+$filteredFromFullScan = ContentQaService::filterReport($report, ['question_ids' => ['q-source']]);
 $assert($filtered['issues'] !== [], 'incremental ID filter removed matching issue');
+$assert($filtered['summary'] === $filteredFromFullScan['summary'], 'Filtering a completed QA scan changed its issue summary.');
 foreach ($filtered['issues'] as $issue) {
     $assert(in_array('q-source', $issue['question_ids'], true), 'incremental ID filter leaked unrelated issue');
 }

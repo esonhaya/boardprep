@@ -15,7 +15,7 @@ if (!mkdir($storage, 0700, true)) {
     throw new RuntimeException('Unable to create isolated study library fixture.');
 }
 
-foreach (['study-materials.json', 'sources.json', 'study-question-links.json', 'exam-intelligence.json'] as $file) {
+foreach (['study-materials.json', 'study-lessons.json', 'sources.json', 'study-question-links.json', 'exam-intelligence.json'] as $file) {
     if (!copy($root . '/storage/' . $file, $storage . '/' . $file)) {
         throw new RuntimeException('Unable to seed study library fixture.');
     }
@@ -116,7 +116,7 @@ try {
         if (!$response['success'] || $response['status'] !== 200
             || !str_contains($response['output'], 'Study Library · ' . strtoupper($boardId))
             || !str_contains($response['output'], $expectedTitle)
-            || !str_contains($response['output'], 'Search titles and study notes')
+            || !str_contains($response['output'], 'Search lesson titles, notes, and concepts')
             || !str_contains($response['output'], '<details class="study-material-disclosure">')
             || str_contains($response['output'], 'No study materials are available yet')) {
             throw new RuntimeException('Board-scoped study materials did not render for ' . $boardId);
@@ -206,7 +206,7 @@ try {
         ? ''
         : substr($notesDetail['output'], $notesStart, $notesEnd - $notesStart);
     $expectedNoteCount = 0;
-    foreach (array_slice($positionalNotesMaterial['notes'], 0, 4) as $note) {
+    foreach ($positionalNotesMaterial['notes'] as $note) {
         if (!is_array($note)) {
             continue;
         }
@@ -226,6 +226,28 @@ try {
         || str_contains($notesMarkup, '<h3></h3>')
         || str_contains($notesMarkup, '<p></p>')) {
         throw new RuntimeException('Study material note content rendered as empty sections or lost its source-first text.');
+    }
+
+    $cseLesson = StudyLibraryService::find('cse-numerical-foundation');
+    if (!is_array($cseLesson) || !is_array($cseLesson['lesson'] ?? null)
+        || ($cseLesson['lesson']['id'] ?? '') !== 'cse-percent-and-ratio-reasoning'
+        || ($cseLesson['pdf_url'] ?? null) !== '/study-resources/cse-percent-and-ratio-reasoning.pdf') {
+        throw new RuntimeException('A published lesson or its generated PDF was not joined to the source material.');
+    }
+    $cseDetail = $http->request('GET', '/study-library', ['material' => 'cse-numerical-foundation'], [], [], ['PHPSESSID' => $sessionId]);
+    if (!$cseDetail['success'] || $cseDetail['status'] !== 200
+        || !str_contains($cseDetail['output'], 'Percent and Ratio Reasoning')
+        || !str_contains($cseDetail['output'], 'Official examination scope')
+        || !str_contains($cseDetail['output'], 'Instructional references')
+        || !str_contains($cseDetail['output'], 'Download searchable study PDF')
+        || !str_contains($cseDetail['output'], 'Prealgebra 2e, Section 6.2')) {
+        throw new RuntimeException('The direct lesson page omitted instruction, separated source roles, or the PDF download.');
+    }
+    $cseBrowse = $http->request('GET', '/study-library', ['exam' => 'civil-service'], [], [], ['PHPSESSID' => $sessionId]);
+    if (!str_contains($cseBrowse['output'], 'Open complete lesson')
+        || !str_contains($cseBrowse['output'], 'Download study PDF')
+        || !str_contains($cseBrowse['output'], 'Open all 11 notes')) {
+        throw new RuntimeException('Study-library discovery did not present a preview and direct path to the full material.');
     }
 
     $sourceById = [];

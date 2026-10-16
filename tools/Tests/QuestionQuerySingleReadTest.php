@@ -20,4 +20,13 @@ if($repo->reads!==1){throw new RuntimeException('question query read repository 
 if(count($r)!==1||($r[0]['id']??null)!=='a'){throw new RuntimeException('single-read production query returned wrong intersection');}
 QuestionQueryService::getQuestions(['search'=>['bad'],'domain'=>new stdClass()]);
 if($repo->reads!==2){throw new RuntimeException('malformed filters prevented safe production query');}
+$firstPage=QuestionQueryService::getQuestionPage([],1,1);
+$secondPage=QuestionQueryService::getQuestionPage([],2,1);
+if($repo->reads!==4){throw new RuntimeException('paginated query did not use one repository snapshot per request');}
+if(($firstPage['total']??0)!==2||($firstPage['pages']??0)!==2||($firstPage['items'][0]['id']??null)!=='a'){
+    throw new RuntimeException('first question-editor page did not return the expected bounded slice');
+}
+if(($secondPage['page']??0)!==2||($secondPage['items'][0]['id']??null)!=='b'){
+    throw new RuntimeException('second question-editor page did not return the next record');
+}
 echo "[PASS] Question query production path uses one repository snapshot.\n";

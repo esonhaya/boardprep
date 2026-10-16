@@ -86,6 +86,9 @@ final class ContentQaService
 
         $rawStems = []; $normalized = []; $templates = []; $groups = [];
         foreach ($byId as $id => $question) {
+            if (self::string($question['cognitive_intent'] ?? null) === '') {
+                $add(self::issue('MISSING_COGNITIVE_INTENT', 'REVIEW', 'DETERMINISTIC', 'Question has no declared cognitive intent, so its intended reasoning demand cannot be audited.', 'Have an academic reviewer classify the reasoning actually required; do not infer the label from the topic or answer format.', [$id], $byId, ['field' => 'cognitive_intent']));
+            }
             $choices = is_array($question['choices'] ?? null) ? $question['choices'] : [];
             $rationale = trim((string) ($question['explanation'] ?? $question['helpfulExplanation'] ?? ''));
             if ($rationale === '') {
@@ -185,6 +188,24 @@ final class ContentQaService
             'filters_supported' => ['question_ids', 'id_from', 'id_to', 'board_id', 'subject_id', 'topic_id', 'severity', 'issue_code', 'detection_type'],
             'runtime' => ['qa_runtime_ms' => round((microtime(true) - $started) * 1000, 2), 'question_passes' => 1, 'duplicate_buckets' => count($normalized) + count($templates), 'n_plus_one' => false],
         ];
+    }
+
+    /** Filter a complete audit result without rerunning the corpus scan. */
+    public static function filterReport(array $report, array $filters = []): array
+    {
+        if ($filters === []) return $report;
+        $issues = array_values(array_filter(
+            (array) ($report['issues'] ?? []),
+            static fn(mixed $issue): bool => is_array($issue) && self::matches($issue, $filters)
+        ));
+        usort($issues, static fn(array $a, array $b): int => [self::rank($a['severity']), $a['issue_code'], implode(',', $a['question_ids'])] <=> [self::rank($b['severity']), $b['issue_code'], implode(',', $b['question_ids'])]);
+        $counts = ['ERROR' => 0, 'WARNING' => 0, 'REVIEW' => 0, 'INFO' => 0];
+        foreach ($issues as $issue) $counts[$issue['severity']]++;
+        $report['summary'] = $counts + ['total' => count($issues)];
+        $report['issues'] = $issues;
+        $report['actionable_fix_queue'] = array_values(array_filter($issues, static fn(array $issue): bool => in_array($issue['severity'], ['ERROR', 'WARNING'], true) && $issue['confidence'] === 'HIGH'));
+        $report['filters_applied'] = $filters;
+        return $report;
     }
 
     private static function issue(string $code, string $severity, string $type, string $message, string $action, array $ids, array $byId, array $evidence = []): array

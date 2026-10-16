@@ -21,7 +21,11 @@ DoctorContext::setSnapshot($snapshot);
 $dependency = (new DependencyConsistencyCheck())->run();
 $signature = (new CallSignatureCheck())->run();
 $assert($dependency->status === 'PASS', 'dependency findings have no unresolved entries');
-$assert(str_contains($dependency->summary, '42 analyzer artifact(s)') && str_contains($dependency->summary, '1 justified dynamic call(s)'), '43 dependency findings are classified 42/1');
+// Batch 684 adds one root-qualified StudyResourceReadinessService reference.
+// The source tokenizer prefixes it with App\Core\App; the resolver-backed
+// classifier verifies the actual leading-backslash source token and marks it
+// FIXED_ANALYZER, keeping the additional finding visible without hiding it.
+$assert(str_contains($dependency->summary, '43 analyzer artifact(s)') && str_contains($dependency->summary, '1 justified dynamic call(s)'), '44 dependency findings are classified 43/1');
 $assert($signature->status === 'PASS', 'call signatures have no unresolved entries');
 $assert(in_array('FIXED_ANALYZER variadic methods: 8', $signature->details, true), 'only eight over-arity calls to true variadic methods are classified as analyzer artifacts');
 $assert(in_array('JUSTIFIED_DYNAMIC verified spread forwarding: 1', $signature->details, true), 'the one verified spread-forwarding call is classified separately');

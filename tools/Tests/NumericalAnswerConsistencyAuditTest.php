@@ -50,6 +50,48 @@ $results = NumericalAnswerConsistencyAudit::analyze([
     $missingAnswerUnit,
     $missingExpectedUnit,
 ]);
+$named = static function (string $id, string $formula, string $formulaFamily, array $inputs, float $expected, string $answer, string $unit = '', string $rounding = 'exact'): array {
+    return [
+        'id' => $id,
+        'status' => 'active',
+        'taxonomy' => ['board_id' => 'fixture-board'],
+        'answer' => $answer,
+        'calculation' => ['formula' => $formula, 'formula_family' => $formulaFamily, 'inputs' => $inputs, 'expected_value' => $expected, 'unit' => $unit, 'rounding' => $rounding],
+    ];
+};
+$expandedModels = [
+    $named('percent-change', 'percent_change', '', [250, 210], 16, '16%', '%'),
+    $named('three-point-mean', 'average_three', 'test-average', ['a' => 7, 'b' => 4, 'c' => 9], 20 / 3, '6.67 MPa', 'MPa', '2 decimals'),
+    $named('interpolation', 'interpolation', 'linear-interpolation', ['xlow' => 0, 'xhigh' => 10, 'xmid' => 4, 'low' => 12, 'high' => 26], 17.6, '17.6'),
+    $named('ratio-model', 'ratio_ab', 'ratio-model', ['a' => 8, 'b' => 7], 8 / 7, '1.14', '', '2 decimals'),
+    $named('effective-stress', 'total_minus_pore', 'effective-stress', ['total' => 124, 'pore' => 37], 87, '87 kPa', 'kPa'),
+    $named('support-reaction', 'half_load', 'support-reaction', ['load' => 16], 8, '8 kN', 'kN'),
+    $named('uniform-resultant', 'uniform_total', 'uniform-load-resultant', ['load' => 23, 'length' => 5], 115, '115 kN', 'kN'),
+    $named('axial-stress', 'force_over_area', 'axial-stress', ['force' => 84, 'area' => .4], 210, '210 kPa', 'kPa'),
+    $named('grade', 'rise_run_percent', 'grade', ['rise' => 3, 'run' => 81], 300 / 81, '3.7%', '%', '1 decimal'),
+    $named('headway', 'hour_seconds_over_flow', 'headway', ['flow' => 28], 3600 / 28, '128.57 s/veh', 's/veh', '2 decimals'),
+    $named('curve-tangent', 'radius_ratio', 'curve-tangent', ['radius' => 90, 'ratio' => .8], 72, '72 m', 'm'),
+    $named('square-sequence', 'sequence_pattern_next', '', [], 36, '36'),
+];
+$expandedModels[array_key_last($expandedModels)]['calculation']['values'] = [1, 4, 9, 16, 25];
+$expandedResults = NumericalAnswerConsistencyAudit::analyze($expandedModels);
+$expandedFindings = array_column($expandedResults['findings'], 'entity_id');
+foreach (array_column($expandedModels, 'id') as $id) {
+    $assert(!in_array($id, $expandedFindings, true), 'A supported named numerical formula was unresolved or incorrect: ' . $id);
+}
+$assert(($expandedResults['metrics']['recomputed'] ?? 0) === count($expandedModels), 'Expanded numerical formula coverage did not include every supported fixture.');
+$ratioShare = [
+    ['id' => 'ratio-small', 'question' => 'A total is divided in the ratio 5:6. What is the smaller share?', 'status' => 'active', 'answer' => '60', 'calculation' => ['formula' => 'ratio_share_auto', 'inputs' => [132, 5, 6], 'expected_value' => 60]],
+    ['id' => 'ratio-large', 'question' => 'A 5:7 ratio has a total of 144. What is the larger share?', 'status' => 'active', 'answer' => '84', 'calculation' => ['formula' => 'ratio_share_auto', 'inputs' => [144, 5, 7], 'expected_value' => 84]],
+    ['id' => 'ratio-second', 'question' => 'A box has 84 forms divided between two offices in the ratio 3:4. How many go to the second office?', 'status' => 'active', 'answer' => '48', 'calculation' => ['formula' => 'ratio_share_auto', 'inputs' => [84, 3, 4], 'expected_value' => 48]],
+];
+$ratioResults = NumericalAnswerConsistencyAudit::analyze($ratioShare);
+$assert(($ratioResults['metrics']['recomputed'] ?? 0) === 3 && $ratioResults['findings'] === [], 'Ratio-share models did not respect the question wording for smaller, larger, and second shares.');
+$unsupportedSequence = $named('ambiguous-sequence', 'sequence_pattern_next', '', [], 12, '12');
+$unsupportedSequence['calculation']['values'] = [2, 5, 9];
+$unsupportedSequence['calculation']['expected_value'] = 15;
+$unsupportedResult = NumericalAnswerConsistencyAudit::analyze([$unsupportedSequence]);
+$assert(($unsupportedResult['metrics']['unsupported'] ?? 0) === 1, 'An ambiguous geometric sequence was treated as a unique pattern without sufficient evidence.');
 $codes = array_column($results['findings'], 'code');
 $ids = array_column($results['findings'], 'entity_id');
 $assert(!in_array('valid', $ids, true), 'A correct arithmetic fixture was flagged.');

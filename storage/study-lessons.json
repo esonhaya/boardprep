@@ -1,0 +1,286 @@
+[
+  {
+    "id": "cse-percent-and-ratio-reasoning",
+    "title": "Percent and Ratio Reasoning",
+    "material_id": "cse-numerical-foundation",
+    "status": "published",
+    "version": 1,
+    "board_id": "civil-service",
+    "subject_id": "numerical-ability",
+    "official_scope_source_ids": [
+      "csc-cse-ppt-scope-2026"
+    ],
+    "instructional_source_ids": [
+      "openstax-prealgebra-percent-applications-6-2",
+      "openstax-prealgebra-proportions-chapter6-5"
+    ],
+    "scope_note": "CSC Examination Announcement No. 03 s. 2026 lists basic operations, number sequence, and word problems under Numerical Ability. This lesson practices percent and ratio applications within basic operations and word problems. It does not estimate item frequency or section weight; check current CSC notices before an exam.",
+    "learning_objectives": [
+      "Identify the original whole, part, and rate before calculating a percent.",
+      "Compute a percent of an amount and a percent change using the correct base.",
+      "Solve a proportion or rate question and check that units and totals make sense."
+    ],
+    "sections": [
+      {
+        "heading": "1. Percent of a base",
+        "body": "Percent means per hundred. Convert p percent to p/100, then multiply by the stated base. The base is the whole that the percent describes. For example, 18% of 250 is 0.18 x 250. Read the question for the whole before choosing an operation."
+      },
+      {
+        "heading": "2. Percent change",
+        "body": "Find the change first: new amount minus original amount. Divide that change by the original amount, then multiply by 100%. A decrease can be reported as a positive decrease when the question asks for its magnitude. The original amount remains the denominator because it is the comparison base."
+      },
+      {
+        "heading": "3. Ratios and rates",
+        "body": "An equivalent ratio scales every part by the same factor. A unit rate divides the measured quantity by the reference units, such as forms per hour. Convert units to a common basis before comparing rates. Keep the unit beside each intermediate value so a reversed ratio or mismatched time period is easier to catch."
+      },
+      {
+        "heading": "Essential relationships",
+        "items": [
+          "part = rate as a decimal x base",
+          "percent change = (new - original) / original x 100%",
+          "equivalent ratio: multiply or divide every term by the same nonzero factor",
+          "unit rate = quantity / reference units"
+        ]
+      }
+    ],
+    "worked_examples": [
+      {
+        "heading": "Find a percent of an amount",
+        "prompt": "What is 18% of 250?",
+        "steps": [
+          "Write 18% as 0.18.",
+          "Multiply 0.18 x 250 = 45."
+        ],
+        "answer": "18% of 250 is 45.",
+        "check": "Ten percent of 250 is 25 and eight percent is 20; 25 + 20 = 45."
+      },
+      {
+        "heading": "Find a percent increase",
+        "prompt": "An amount rises from 500 to 575. What is the percent increase?",
+        "steps": [
+          "Change = 575 - 500 = 75.",
+          "Divide by the original amount: 75 / 500 = 0.15.",
+          "Convert to a percent: 0.15 x 100% = 15%."
+        ],
+        "answer": "The increase is 15% of the original amount.",
+        "check": "500 x 1.15 = 575. Using 575 as the denominator would answer a different question."
+      },
+      {
+        "heading": "Undo a discount",
+        "prompt": "A price after a 15% discount is 680. What was the price before the discount?",
+        "steps": [
+          "The sale price is 100% - 15% = 85% of the original.",
+          "Write 85% as 0.85 and solve original x 0.85 = 680.",
+          "Original = 680 / 0.85 = 800."
+        ],
+        "answer": "The original price was 800.",
+        "check": "A 15% discount on 800 is 120; 800 - 120 = 680. Adding 15% of 680 would use the wrong base."
+      }
+    ],
+    "common_misconceptions": [
+      "Using 18 instead of 0.18 when multiplying by a percent.",
+      "Dividing percent change by the new amount instead of the original base.",
+      "Adding a discount percent to the discounted price to reverse the discount.",
+      "Scaling only one term of a ratio or comparing rates with different time units."
+    ],
+    "question_patterns": [
+      "Compute a stated percent of a supplied base.",
+      "Find a percent increase or decrease from an original and a new amount.",
+      "Recover an original amount from a discounted or retained percentage.",
+      "Scale a ratio, find a missing part, or compare unit rates after matching units."
+    ],
+    "practice_question_ids": [
+      "616",
+      "617",
+      "618",
+      "627",
+      "628"
+    ],
+    "pdf_file": "cse-percent-and-ratio-reasoning.pdf",
+    "source_review": {
+      "status": "SOURCE_CHECKED",
+      "checked_at": "2026-10-16",
+      "note": "Scope wording and worked arithmetic were checked against the linked CSC announcement and OpenStax sections. This status records source and calculation checking; it does not imply human editorial sign-off."
+    }
+  },
+  {
+    "id": "ree-dc-circuit-analysis",
+    "title": "Direct Current Circuit Analysis",
+    "material_id": "ree-material-circuits",
+    "status": "published",
+    "version": 1,
+    "board_id": "registered-electrical-engineering",
+    "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+    "official_scope_source_ids": [
+      "prc-ree-enhanced-tos-annex-a-2024"
+    ],
+    "instructional_source_ids": [
+      "openstax-university-physics-v2-kirchhoff-10-3"
+    ],
+    "scope_note": "PRC Board Resolution No. 40 s. 2024 promulgates the enhanced TOS for the REE subjects; consult its official Annex A for the complete scope, competencies, and weights. This lesson selects foundational DC network analysis for instruction. It does not claim that these examples occur frequently or carry a particular exam weight.",
+    "learning_objectives": [
+      "Apply Ohm's law to a resistive circuit and retain voltage, current, and resistance units.",
+      "Use series or parallel reduction only when the connection topology supports it.",
+      "Write and check Kirchhoff current and voltage equations with stated reference directions."
+    ],
+    "sections": [
+      {
+        "heading": "1. Start with the circuit model",
+        "body": "State that the circuit is a DC lumped resistive model and label reference current directions and polarities. Ohm's law is V = I x R. Use volts, amperes, and ohms consistently. A negative solved current means the actual direction is opposite the reference arrow; it is not automatically an invalid circuit."
+      },
+      {
+        "heading": "2. Reduce simple resistor groups",
+        "body": "Resistors in a single series path carry the same current and have equivalent resistance R_total = R1 + R2 + .... Resistors connected across the same two nodes are in parallel and have reciprocal equivalent resistance: 1/R_eq = 1/R1 + 1/R2 + .... Verify the node connections before applying either shortcut."
+      },
+      {
+        "heading": "3. Apply conservation at nodes and loops",
+        "body": "Kirchhoff's current law follows charge conservation: total current entering a node equals total current leaving. Kirchhoff's voltage law says the algebraic sum of voltage changes around a closed loop is zero. Choose a direction, record each sign consistently, solve the equations, and substitute the result back into the node and loop balances."
+      },
+      {
+        "heading": "Essential relationships",
+        "items": [
+          "Ohm's law: V = I x R",
+          "series resistors: R_eq = sum of resistances",
+          "parallel resistors: 1/R_eq = sum of reciprocal resistances",
+          "junction rule: sum of currents in = sum of currents out",
+          "loop rule: algebraic sum of voltage changes = 0"
+        ]
+      }
+    ],
+    "worked_examples": [
+      {
+        "heading": "Series loop with a voltage check",
+        "prompt": "A 20 V source feeds 4 ohms and 6 ohms in series. Find the current and each resistor voltage drop.",
+        "steps": [
+          "R_total = 4 + 6 = 10 ohms.",
+          "I = V/R_total = 20/10 = 2 A.",
+          "The drops are 2 x 4 = 8 V and 2 x 6 = 12 V."
+        ],
+        "answer": "Current = 2 A; voltage drops = 8 V and 12 V.",
+        "check": "The drops sum to 20 V, matching the source. Source power is 20 x 2 = 40 W; resistor power is 2^2 x 4 + 2^2 x 6 = 40 W."
+      },
+      {
+        "heading": "Current balance at a node",
+        "prompt": "A node receives 5 A. Two outgoing branch currents are 2 A and 1.5 A. Find the third outgoing current.",
+        "steps": [
+          "Write incoming current = outgoing current: 5 = 2 + 1.5 + I3.",
+          "Solve I3 = 5 - 3.5 = 1.5 A."
+        ],
+        "answer": "The third branch carries 1.5 A away from the node.",
+        "check": "The outgoing total is 2 + 1.5 + 1.5 = 5 A."
+      }
+    ],
+    "common_misconceptions": [
+      "Adding parallel resistances directly instead of using reciprocal conductances.",
+      "Treating two components as parallel because they look side by side rather than checking their nodes.",
+      "Changing sign conventions midway through a loop equation.",
+      "Rejecting a negative current instead of interpreting it relative to the chosen reference direction.",
+      "Using DC resistance rules for an AC impedance problem without checking the model."
+    ],
+    "question_patterns": [
+      "Compute series or parallel equivalent resistance and total current.",
+      "Find a branch current using a node balance or current division.",
+      "Write a loop equation with voltage source polarity and resistor drops.",
+      "Check a proposed answer by current, voltage, unit, or power balance."
+    ],
+    "practice_question_ids": [
+      "1641",
+      "1642",
+      "1647"
+    ],
+    "pdf_file": "ree-dc-circuit-analysis.pdf",
+    "source_review": {
+      "status": "SOURCE_CHECKED",
+      "checked_at": "2026-10-16",
+      "note": "The official TOS role and the DC circuit definitions, signs, and sample calculations were checked against the linked PRC resolution and OpenStax section. This status does not imply human editorial sign-off."
+    }
+  },
+  {
+    "id": "let-assessment-evidence-and-feedback",
+    "title": "Assessment Evidence and Feedback",
+    "material_id": "let-assessment-review",
+    "status": "published",
+    "version": 1,
+    "board_id": "let",
+    "subject_id": "professional-education",
+    "official_scope_source_ids": [
+      "prc-let-enhanced-tos-2025"
+    ],
+    "instructional_source_ids": [
+      "deped-classroom-assessment-do-8-2015",
+      "cornell-bloom-taxonomy"
+    ],
+    "scope_note": "The PRC Professional Teachers page lists the 2025 amendment to the LEPT Enhanced Table of Specifications. Consult the official TOS for current subject and competency boundaries. This lesson uses DepEd classroom-assessment guidance to teach assessment concepts; it does not claim a particular item frequency or weight.",
+    "learning_objectives": [
+      "Distinguish formative use of evidence during learning from summative reporting at a defined point.",
+      "Separate validity of an interpretation from reliability or consistency of scores.",
+      "Choose an instructional next step that responds to evidence and preserves the target competency."
+    ],
+    "sections": [
+      {
+        "heading": "1. Start with the purpose and use",
+        "body": "Assessment is formative when evidence is used during learning to adjust teaching or learning. A quiz is not formative solely because it is short or ungraded; its purpose and use matter. Summative assessment summarizes achievement at a defined point. The same task can serve different purposes depending on how its evidence is interpreted and used."
+      },
+      {
+        "heading": "2. Validity and reliability answer different questions",
+        "body": "Validity asks whether evidence supports the intended interpretation or decision. Reliability concerns consistency across comparable occasions, raters, or conditions. A scoring process may be consistent while measuring the wrong target. Conversely, a well-aligned task can still need clearer criteria or rater calibration. Neither term is a substitute for the other."
+      },
+      {
+        "heading": "3. Turn evidence into a next step",
+        "body": "Compare learner work with the intended competency and explicit criteria. Look for a pattern in the reasoning, not only a right-or-wrong total. Select a short response such as reteaching one misconception, changing a representation, or giving criterion-linked feedback. Then collect new evidence to see whether the response helped."
+      },
+      {
+        "heading": "4. Triangulate when the competency is broad",
+        "body": "A complex competency may require more than one evidence source, such as a product, observed performance, and learner explanation. Check whether the sources address the same intended target. Multiple sources do not automatically make a decision valid, but they can reveal gaps that a single score hides."
+      }
+    ],
+    "worked_examples": [
+      {
+        "heading": "Use an exit ticket formatively",
+        "prompt": "An exit ticket shows that several learners selected the correct answer but used the same unsupported reason. What should the teacher do next?",
+        "steps": [
+          "Separate the selected answer from the reasoning evidence.",
+          "Name the shared misconception without treating one response as a permanent learner trait.",
+          "Plan a short explanation or comparison task, then check the reasoning with a new example."
+        ],
+        "answer": "Use the reasoning pattern to plan targeted instruction and a follow-up check.",
+        "check": "The evidence changes the next lesson and is checked again, so it is being used formatively."
+      },
+      {
+        "heading": "Check rubric alignment",
+        "prompt": "A task asks learners to interpret evidence and justify a conclusion, but its rubric scores spelling only. What is the main concern?",
+        "steps": [
+          "State the intended construct: evidence interpretation and justification.",
+          "Compare the scored criteria with that construct.",
+          "Because spelling alone does not represent the intended reasoning, the score cannot support that intended interpretation."
+        ],
+        "answer": "The task has a validity alignment problem. Reliability of scoring is a separate question.",
+        "check": "A consistent spelling score would not repair the mismatch between the rubric and the target competency."
+      }
+    ],
+    "common_misconceptions": [
+      "Calling every short quiz formative even when the results do not affect learning or instruction.",
+      "Treating reliability and validity as interchangeable or assuming one guarantees the other.",
+      "Changing the target competency when a learner instead needs an accessible way to show it.",
+      "Making a lasting judgment about a learner from one response or one evidence source."
+    ],
+    "question_patterns": [
+      "Identify assessment purpose from when and how the teacher uses results.",
+      "Distinguish score consistency from evidence-to-construct alignment.",
+      "Select a next teaching step from a stated pattern in learner evidence.",
+      "Identify whether criteria and evidence represent the intended competency."
+    ],
+    "practice_question_ids": [
+      "62",
+      "63",
+      "65",
+      "152"
+    ],
+    "pdf_file": "let-assessment-evidence-and-feedback.pdf",
+    "source_review": {
+      "status": "SOURCE_CHECKED",
+      "checked_at": "2026-10-16",
+      "note": "The official scope reference, formative/summative distinction, validity/reliability distinction, and worked scenarios were checked against the linked PRC, DepEd, and Cornell references. This status does not imply human editorial sign-off."
+    }
+  }
+]

@@ -1,0 +1,121 @@
+%PDF-1.4
+%BoardPrep
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [5 0 R 7 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 6 0 R >>
+endobj
+6 0 obj
+<< /Length 4262>>
+stream
+BT /F2 19.0 Tf 50.0 790.0 Td (Direct Current Circuit Analysis) Tj ET
+BT /F1 8.0 Tf 50.0 765.0 Td (REGISTERED-ELECTRICAL-ENGINEERING ·) Tj ET
+BT /F1 8.0 Tf 50.0 753.0 Td (registered-electrical-engineering-electrical-engineering-professional-subjects · BoardPrep) Tj ET
+BT /F1 8.0 Tf 50.0 741.0 Td (lesson v1) Tj ET
+BT /F2 13.0 Tf 50.0 724.0 Td (Official examination scope) Tj ET
+BT /F1 10.0 Tf 50.0 703.0 Td (PRC Board Resolution No. 40 s. 2024 promulgates the enhanced TOS for the REE subjects; consult) Tj ET
+BT /F1 10.0 Tf 50.0 689.0 Td (its official Annex A for the complete scope, competencies, and weights. This lesson selects) Tj ET
+BT /F1 10.0 Tf 50.0 675.0 Td (foundational DC network analysis for instruction. It does not claim that these examples occur) Tj ET
+BT /F1 10.0 Tf 50.0 661.0 Td (frequently or carry a particular exam weight.) Tj ET
+BT /F2 13.0 Tf 50.0 642.0 Td (Learning objectives) Tj ET
+BT /F1 10.0 Tf 58.0 621.0 Td (- Apply Ohm's law to a resistive circuit and retain voltage, current, and resistance units.) Tj ET
+BT /F1 10.0 Tf 58.0 607.0 Td (- Use series or parallel reduction only when the connection topology supports it.) Tj ET
+BT /F1 10.0 Tf 58.0 593.0 Td (- Write and check Kirchhoff current and voltage equations with stated reference directions.) Tj ET
+BT /F2 13.0 Tf 50.0 574.0 Td (1. Start with the circuit model) Tj ET
+BT /F1 10.0 Tf 50.0 553.0 Td (State that the circuit is a DC lumped resistive model and label reference current directions) Tj ET
+BT /F1 10.0 Tf 50.0 539.0 Td (and polarities. Ohm's law is V = I x R. Use volts, amperes, and ohms consistently. A negative) Tj ET
+BT /F1 10.0 Tf 50.0 525.0 Td (solved current means the actual direction is opposite the reference arrow; it is not) Tj ET
+BT /F1 10.0 Tf 50.0 511.0 Td (automatically an invalid circuit.) Tj ET
+BT /F2 13.0 Tf 50.0 492.0 Td (2. Reduce simple resistor groups) Tj ET
+BT /F1 10.0 Tf 50.0 471.0 Td (Resistors in a single series path carry the same current and have equivalent resistance) Tj ET
+BT /F1 10.0 Tf 50.0 457.0 Td (R_total = R1 + R2 + .... Resistors connected across the same two nodes are in parallel and) Tj ET
+BT /F1 10.0 Tf 50.0 443.0 Td (have reciprocal equivalent resistance: 1/R_eq = 1/R1 + 1/R2 + .... Verify the node connections) Tj ET
+BT /F1 10.0 Tf 50.0 429.0 Td (before applying either shortcut.) Tj ET
+BT /F2 13.0 Tf 50.0 410.0 Td (3. Apply conservation at nodes and loops) Tj ET
+BT /F1 10.0 Tf 50.0 389.0 Td (Kirchhoff's current law follows charge conservation: total current entering a node equals) Tj ET
+BT /F1 10.0 Tf 50.0 375.0 Td (total current leaving. Kirchhoff's voltage law says the algebraic sum of voltage changes) Tj ET
+BT /F1 10.0 Tf 50.0 361.0 Td (around a closed loop is zero. Choose a direction, record each sign consistently, solve the) Tj ET
+BT /F1 10.0 Tf 50.0 347.0 Td (equations, and substitute the result back into the node and loop balances.) Tj ET
+BT /F2 13.0 Tf 50.0 328.0 Td (Essential relationships) Tj ET
+BT /F1 10.0 Tf 58.0 307.0 Td (- Ohm's law: V = I x R) Tj ET
+BT /F1 10.0 Tf 58.0 293.0 Td (- series resistors: R_eq = sum of resistances) Tj ET
+BT /F1 10.0 Tf 58.0 279.0 Td (- parallel resistors: 1/R_eq = sum of reciprocal resistances) Tj ET
+BT /F1 10.0 Tf 58.0 265.0 Td (- junction rule: sum of currents in = sum of currents out) Tj ET
+BT /F1 10.0 Tf 58.0 251.0 Td (- loop rule: algebraic sum of voltage changes = 0) Tj ET
+BT /F2 13.0 Tf 50.0 232.0 Td (Series loop with a voltage check) Tj ET
+BT /F1 10.0 Tf 50.0 211.0 Td (Question: A 20 V source feeds 4 ohms and 6 ohms in series. Find the current and each resistor) Tj ET
+BT /F1 10.0 Tf 50.0 197.0 Td (voltage drop.) Tj ET
+BT /F1 10.0 Tf 50.0 183.0 Td (1. R_total = 4 + 6 = 10 ohms.) Tj ET
+BT /F1 10.0 Tf 50.0 169.0 Td (2. I = V/R_total = 20/10 = 2 A.) Tj ET
+BT /F1 10.0 Tf 50.0 155.0 Td (3. The drops are 2 x 4 = 8 V and 2 x 6 = 12 V.) Tj ET
+BT /F1 10.0 Tf 50.0 141.0 Td (Answer: Current = 2 A; voltage drops = 8 V and 12 V.) Tj ET
+BT /F1 10.0 Tf 50.0 127.0 Td (Check: The drops sum to 20 V, matching the source. Source power is 20 x 2 = 40 W; resistor) Tj ET
+BT /F1 10.0 Tf 50.0 113.0 Td (power is 2^2 x 4 + 2^2 x 6 = 40 W.) Tj ET
+BT /F2 13.0 Tf 50.0 94.0 Td (Current balance at a node) Tj ET
+BT /F1 8 Tf 500 28 Td (BoardPrep | 1 / 2) Tj ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 8 0 R >>
+endobj
+8 0 obj
+<< /Length 2833>>
+stream
+BT /F1 10.0 Tf 50.0 790.0 Td (Question: A node receives 5 A. Two outgoing branch currents are 2 A and 1.5 A. Find the third) Tj ET
+BT /F1 10.0 Tf 50.0 776.0 Td (outgoing current.) Tj ET
+BT /F1 10.0 Tf 50.0 762.0 Td (1. Write incoming current = outgoing current: 5 = 2 + 1.5 + I3.) Tj ET
+BT /F1 10.0 Tf 50.0 748.0 Td (2. Solve I3 = 5 - 3.5 = 1.5 A.) Tj ET
+BT /F1 10.0 Tf 50.0 734.0 Td (Answer: The third branch carries 1.5 A away from the node.) Tj ET
+BT /F1 10.0 Tf 50.0 720.0 Td (Check: The outgoing total is 2 + 1.5 + 1.5 = 5 A.) Tj ET
+BT /F2 13.0 Tf 50.0 701.0 Td (Common misconceptions) Tj ET
+BT /F1 10.0 Tf 58.0 680.0 Td (- Adding parallel resistances directly instead of using reciprocal conductances.) Tj ET
+BT /F1 10.0 Tf 58.0 666.0 Td (- Treating two components as parallel because they look side by side rather than checking their) Tj ET
+BT /F1 10.0 Tf 58.0 652.0 Td (- nodes.) Tj ET
+BT /F1 10.0 Tf 58.0 638.0 Td (- Changing sign conventions midway through a loop equation.) Tj ET
+BT /F1 10.0 Tf 58.0 624.0 Td (- Rejecting a negative current instead of interpreting it relative to the chosen reference) Tj ET
+BT /F1 10.0 Tf 58.0 610.0 Td (- direction.) Tj ET
+BT /F1 10.0 Tf 58.0 596.0 Td (- Using DC resistance rules for an AC impedance problem without checking the model.) Tj ET
+BT /F2 13.0 Tf 50.0 577.0 Td (Practice patterns) Tj ET
+BT /F1 10.0 Tf 58.0 556.0 Td (- Compute series or parallel equivalent resistance and total current.) Tj ET
+BT /F1 10.0 Tf 58.0 542.0 Td (- Find a branch current using a node balance or current division.) Tj ET
+BT /F1 10.0 Tf 58.0 528.0 Td (- Write a loop equation with voltage source polarity and resistor drops.) Tj ET
+BT /F1 10.0 Tf 58.0 514.0 Td (- Check a proposed answer by current, voltage, unit, or power balance.) Tj ET
+BT /F2 13.0 Tf 50.0 495.0 Td (Official scope references) Tj ET
+BT /F1 10.0 Tf 50.0 474.0 Td (Official scope: Enhanced Tables of Specifications for REE — Annex A — Professional Regulatory) Tj ET
+BT /F1 10.0 Tf 50.0 460.0 Td (Board of Electrical Engineering, Professional Regulation Commission —) Tj ET
+BT /F1 10.0 Tf 50.0 446.0 Td (https://www.prc.gov.ph/sites/default/files/2024-40%20Annex%20A.pdf) Tj ET
+BT /F2 13.0 Tf 50.0 427.0 Td (Instructional references) Tj ET
+BT /F1 10.0 Tf 50.0 406.0 Td (Instructional reference: University Physics Volume 2, Section 10.3: Kirchhoff's Rules —) Tj ET
+BT /F1 10.0 Tf 50.0 392.0 Td (OpenStax, Rice University —) Tj ET
+BT /F1 10.0 Tf 50.0 378.0 Td (https://openstax.org/books/university-physics-volume-2/pages/10-3-kirchhoffs-rules) Tj ET
+BT /F1 8.0 Tf 50.0 364.0 Td (BoardPrep lesson material is original instruction. It is not an official examination document.) Tj ET
+BT /F1 8.0 Tf 50.0 352.0 Td (No claim about question frequency or examination weighting is made.) Tj ET
+BT /F1 8 Tf 500 28 Td (BoardPrep | 2 / 2) Tj ET
+endstream
+endobj
+xref
+0 9
+0000000000 65535 f 
+0000000020 00000 n 
+0000000069 00000 n 
+0000000132 00000 n 
+0000000229 00000 n 
+0000000331 00000 n 
+0000000467 00000 n 
+0000004779 00000 n 
+0000004915 00000 n 
+trailer
+<< /Size 9 /Root 1 0 R >>
+startxref
+7798
+%%EOF

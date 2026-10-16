@@ -30,7 +30,9 @@ final class ContentPriorityService
         'taxonomy/topics',
         'taxonomy/concepts',
         'question-eligibility',
+        'flashcard-exclusions',
         'study-materials',
+        'study-lessons',
         'study-question-links',
         'sources',
         'content-fit-audits',
@@ -51,18 +53,24 @@ final class ContentPriorityService
             $reads[$collection] = 1;
         }
 
-        $deriver = App::container()->get(FlashcardDerivationService::class);
+        $deriver = new FlashcardDerivationService(
+            null,
+            $collections['study-materials'] ?? [],
+            $collections['study-question-links'] ?? [],
+            $collections['flashcard-exclusions'] ?? []
+        );
         $derivedCards = [];
         $integrity = ContentIntegrityService::analyze(
             $collections,
             static function (array $question) use ($deriver, &$derivedCards): ?array {
-                $card = $deriver->derive($question);
+                $card = $deriver->deriveWithStatus($question)['card'];
                 $id = self::scalar($question['id'] ?? null);
                 if ($id !== '' && $card !== null) {
                     $derivedCards[$id] = $card;
                 }
                 return $card;
-            }
+            },
+            static fn(array $question): array => $deriver->derivationStatus($question)
         );
         $report = self::analyze(
             $collections,
@@ -71,7 +79,14 @@ final class ContentPriorityService
         );
         // QA consumes this already-loaded projection and integrity result; it
         // must not trigger a second repository parse for developer tooling.
-        $report['qa'] = ContentQaService::analyze($collections, $integrity, $qaFilters, $report);
+        $completeQa = ContentQaService::analyze($collections, $integrity, [], $report);
+        $report['qa'] = ContentQaService::filterReport($completeQa, $qaFilters);
+        $report['study_readiness'] = \App\Services\Study\StudyResourceReadinessService::analyze(
+            $collections,
+            $integrity,
+            $completeQa,
+            $report
+        );
         $report['runtime']['total_runtime_ms'] = round((microtime(true) - $started) * 1000, 2);
         $report['runtime']['collection_reads'] = $reads;
         return $report;

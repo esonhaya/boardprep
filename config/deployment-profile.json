@@ -32,11 +32,17 @@
         "storage/questions.json",
         "storage/question-eligibility.json",
         "storage/study-materials.json",
+        "storage/study-lessons.json",
         "storage/study-question-links.json",
         "storage/taxonomy/domains.json",
         "storage/taxonomy/topics.json",
         "storage/taxonomy/concepts.json"
     ],
+    "study_resources": {
+        "lesson_registry": "storage/study-lessons.json",
+        "generated_pdf_directory": "public/study-resources",
+        "generator_command": "php tools/generate-study-pdfs.php --check"
+    },
     "json_mutable_stores": [
         "attempts.json",
         "weakness.json",

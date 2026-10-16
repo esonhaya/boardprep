@@ -6566,54 +6566,56 @@
         }
     },
     {
-        "id": "ree-material-circuits",
-        "title": "REE Circuit Analysis Foundations",
-        "summary": "Source-first REE review of DC network analysis, equivalent circuits, conservation laws, transient storage, and diagnostic reasoning.",
-        "notes": [
-            {
-                "heading": "Model and conservation",
-                "body": "Use an explicit lumped-circuit model. Apply Kirchhoff current law at nodes and Kirchhoff voltage law around loops; state reference directions and signs before solving."
-            },
-            {
-                "heading": "Equivalent networks",
-                "body": "For linear resistive networks, use series/parallel reduction, source transformation, Thevenin, Norton, superposition, or nodal analysis only when the assumptions fit the circuit. Preserve the terminal behavior being analyzed."
-            },
-            {
-                "heading": "Energy storage and checks",
-                "body": "Capacitors and inductors store energy and create time-dependent responses. Check units, limiting behavior, initial/final conditions, and whether a claimed steady-state result is physically consistent."
-            },
-            {
-                "heading": "Common errors",
-                "body": "Do not add currents from different branches without a common node relationship, do not combine impedances as resistances in AC work, and do not use a source transformation without preserving polarity and terminal equivalence."
-            }
-        ],
-        "source_ids": [
-            "prc-electrical-engineering-board-page",
-            "mit-ocw-6-002-circuits-electronics",
-            "openstax-university-physics-volume-2"
-        ],
-        "exams": [
-            "registered-electrical-engineering"
-        ],
-        "taxonomy": {
-            "subject_id": "registered-electrical-engineering-foundation"
-        },
-        "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-06",
-        "supported_concept_ids": [
-            "b633-ree-pro-dc-networks",
-            "b633-ree-pro-transients"
-        ],
-        "batch638_foundation": {
-            "supported_leaf_id": "b633-ree-pro-transients",
-            "scope_source_ids": [
-                "prc-ree-exam-program-september-2026",
-                "prc-ree-enhanced-tos-annex-a-2024"
-            ],
-            "source_chain_validated": true
-        }
+    "id": "ree-material-circuits",
+    "title": "REE Circuit Analysis Foundations",
+    "summary": "Source-first REE review of DC network analysis, equivalent circuits, conservation laws, transient storage, and diagnostic reasoning.",
+    "notes": [
+      {
+        "heading": "Model and conservation",
+        "body": "Use an explicit lumped-circuit model. Apply Kirchhoff current law at nodes and Kirchhoff voltage law around loops; state reference directions and signs before solving."
+      },
+      {
+        "heading": "Equivalent networks",
+        "body": "For linear resistive networks, use series/parallel reduction, source transformation, Thevenin, Norton, superposition, or nodal analysis only when the assumptions fit the circuit. Preserve the terminal behavior being analyzed."
+      },
+      {
+        "heading": "Energy storage and checks",
+        "body": "Capacitors and inductors store energy and create time-dependent responses. Check units, limiting behavior, initial/final conditions, and whether a claimed steady-state result is physically consistent."
+      },
+      {
+        "heading": "Common errors",
+        "body": "Do not add currents from different branches without a common node relationship, do not combine impedances as resistances in AC work, and do not use a source transformation without preserving polarity and terminal equivalence."
+      }
+    ],
+    "source_ids": [
+      "prc-electrical-engineering-board-page",
+      "mit-ocw-6-002-circuits-electronics",
+      "openstax-university-physics-volume-2",
+      "prc-ree-enhanced-tos-annex-a-2024",
+      "openstax-university-physics-v2-kirchhoff-10-3"
+    ],
+    "exams": [
+      "registered-electrical-engineering"
+    ],
+    "taxonomy": {
+      "subject_id": "registered-electrical-engineering-foundation"
     },
+    "status": "published",
+    "version": 1,
+    "updated_at": "2026-09-06",
+    "supported_concept_ids": [
+      "b633-ree-pro-dc-networks",
+      "b633-ree-pro-transients"
+    ],
+    "batch638_foundation": {
+      "supported_leaf_id": "b633-ree-pro-transients",
+      "scope_source_ids": [
+        "prc-ree-exam-program-september-2026",
+        "prc-ree-enhanced-tos-annex-a-2024"
+      ],
+      "source_chain_validated": true
+    }
+  },
     {
         "id": "ree-material-ac-systems",
         "title": "REE AC and Three-Phase Systems",

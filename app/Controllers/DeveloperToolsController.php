@@ -23,11 +23,18 @@ class DeveloperToolsController extends BaseDeveloperController
         if (is_scalar($query['question_ids'] ?? null)) {
             $filters['question_ids'] = array_values(array_filter(array_map('trim', explode(',', (string) $query['question_ids']))));
         }
+        $jsonReport = strtolower(trim((string) ($query['format'] ?? ''))) === 'json';
+        $contentPriorities = ContentPriorityService::analyzeRepository($jsonReport ? [] : $filters);
+        if ($jsonReport) {
+            header('Content-Type: application/json; charset=utf-8');
+            echo json_encode($contentPriorities, JSON_UNESCAPED_SLASHES | JSON_INVALID_UTF8_SUBSTITUTE | JSON_THROW_ON_ERROR);
+            return;
+        }
         self::renderDeveloper(
             'developer/content-intelligence',
             [
                 'pageTitle' => 'Content Intelligence',
-                'contentPriorities' => ContentPriorityService::analyzeRepository($filters),
+                'contentPriorities' => $contentPriorities,
             ],
             false
         );

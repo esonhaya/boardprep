@@ -22,4 +22,21 @@ class QuestionQueryService
             QuestionQueryFilters::from($filters)
         );
     }
+
+    /** @return array{items: array<int, array<string, mixed>>, total: int, page: int, per_page: int, pages: int} */
+    public static function getQuestionPage(array $filters, int $page = 1, int $perPage = 50): array
+    {
+        $perPage = max(1, min(100, $perPage));
+        $all = self::getQuestions($filters);
+        $total = count($all);
+        $pages = max(1, (int) ceil($total / $perPage));
+        $page = max(1, min($page, $pages));
+        return [
+            'items' => array_slice($all, ($page - 1) * $perPage, $perPage),
+            'total' => $total,
+            'page' => $page,
+            'per_page' => $perPage,
+            'pages' => $pages,
+        ];
+    }
 }

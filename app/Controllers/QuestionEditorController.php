@@ -81,14 +81,14 @@ class QuestionEditorController extends BaseDeveloperController
 
         $status = Request::queryString("status");
 
-        $questions =
-            QuestionQueryService::getQuestions([
+        $pageNumber = filter_var(Request::queryString('page_num'), FILTER_VALIDATE_INT, ['options' => ['min_range' => 1]]) ?: 1;
+        $page = QuestionQueryService::getQuestionPage([
                 "search" => $search,
                 "domain" => $domain,
                 "difficulty" => $difficulty,
                 "topic" => $topic,
                 "status" => $status
-            ]);
+            ], $pageNumber, 50);
 
         self::renderDeveloper(
             "developer/question/editor",
@@ -97,8 +97,11 @@ class QuestionEditorController extends BaseDeveloperController
                     "pageTitle" =>
                         "Question Editor",
 
-                    "questions" =>
-                        $questions,
+                    "questions" => $page['items'],
+                    "totalQuestions" => $page['total'],
+                    "pageNumber" => $page['page'],
+                    "pageCount" => $page['pages'],
+                    "pageSize" => $page['per_page'],
 
                     "search" =>
                         $search,
@@ -110,7 +113,8 @@ class QuestionEditorController extends BaseDeveloperController
                         $difficulty,
 
                     "topic" =>
-                        $topic
+                        $topic,
+                    "status" => $status
                 ],
                 QuestionViewService::taxonomy(),
                 [

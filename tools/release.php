@@ -108,7 +108,7 @@ $packageFiles = [
     'docs/MVP_RELEASE_SCOPE.md', 'docs/RELEASE_CHECKLIST_v0.1.0.md',
     'docs/RELEASE_NOTES_v0.1.0.md', 'docs/RELEASE_NOTES_V1.0.1.md',
     'docs/RELEASE_RUNBOOK_V1.md', 'docs/POST_V1_BASELINE.md',
-    'docs/PRODUCTION_HANDOFF_V1.0.1.md', 'tools/doctor.php',
+    'docs/PRODUCTION_HANDOFF_V1.0.1.md', 'tools/doctor.php', 'tools/generate-study-pdfs.php',
     'tools/backup.php', 'tools/restore.php', 'tools/release.php', 'tools/db-migrate.php',
 ];
 $packageDirectories = ['app', 'bootstrap', 'config', 'database/migrations', 'public', 'routes', 'tools/Doctor'];
@@ -120,7 +120,7 @@ $curatedStorage = [
     'storage/organizations/organizations.json', 'storage/question-eligibility.json',
     'storage/question-required-concepts.json', 'storage/question-reuse-metadata.json',
     'storage/question-reuse-overrides.json', 'storage/questions.json', 'storage/sources.json',
-    'storage/study-materials.json', 'storage/study-question-links.json', 'storage/subjects.json',
+    'storage/study-materials.json', 'storage/study-lessons.json', 'storage/study-question-links.json', 'storage/subjects.json',
     'storage/taxonomy/concepts.json', 'storage/taxonomy/domains.json', 'storage/taxonomy/topics.json',
 ];
 

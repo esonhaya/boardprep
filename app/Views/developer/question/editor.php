@@ -19,7 +19,7 @@ Total Questions:
 
 </strong>
 
-<?= count($questions ?? []) ?>
+<?= (int) ($totalQuestions ?? count($questions ?? [])) ?>
 
 </p>
 
@@ -353,6 +353,26 @@ Restore
 <?php endforeach; ?>
 
 <?php endif; ?>
+
+<?php
+$pageFilters = array_filter([
+    'page' => 'question-editor',
+    'search' => (string) ($search ?? ''),
+    'domain' => (string) ($domain ?? ''),
+    'difficulty' => (string) ($difficulty ?? ''),
+    'topic' => (string) ($topic ?? ''),
+    'status' => (string) ($status ?? ''),
+], static fn(string $value): bool => $value !== '');
+$previousPageUrl = '?' . http_build_query($pageFilters + ['page_num' => max(1, (int) ($pageNumber ?? 1) - 1)]);
+$nextPageUrl = '?' . http_build_query($pageFilters + ['page_num' => min((int) ($pageCount ?? 1), (int) ($pageNumber ?? 1) + 1)]);
+?>
+<nav class="pagination question-inventory-pagination" aria-label="Question inventory pages">
+    <span>Showing <?= count($questions ?? []) ?> of <?= (int) ($totalQuestions ?? 0) ?> matching questions · Page <?= (int) ($pageNumber ?? 1) ?> of <?= (int) ($pageCount ?? 1) ?></span>
+    <div class="page-actions">
+        <?php if (($pageNumber ?? 1) > 1): ?><a class="button button-outline" rel="prev" href="<?= htmlspecialchars($previousPageUrl, ENT_QUOTES, 'UTF-8') ?>">Previous page</a><?php endif; ?>
+        <?php if (($pageNumber ?? 1) < ($pageCount ?? 1)): ?><a class="button button-outline" rel="next" href="<?= htmlspecialchars($nextPageUrl, ENT_QUOTES, 'UTF-8') ?>">Next page</a><?php endif; ?>
+    </div>
+</nav>
 
 <hr>
 

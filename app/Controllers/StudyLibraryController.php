@@ -37,6 +37,14 @@ final class StudyLibraryController extends BaseDeveloperController
                         }
                     }
                 }
+                $lesson = is_array($material['lesson'] ?? null) ? $material['lesson'] : [];
+                foreach (['learning_objectives', 'common_misconceptions', 'question_patterns'] as $key) {
+                    foreach ((array) ($lesson[$key] ?? []) as $text) if (is_scalar($text)) $parts[] = (string) $text;
+                }
+                foreach ((array) ($lesson['sections'] ?? []) as $section) {
+                    if (!is_array($section)) continue;
+                    foreach (['heading', 'body'] as $key) if (is_scalar($section[$key] ?? null)) $parts[] = (string) $section[$key];
+                }
                 $content = implode(' ', $parts);
                 $content = function_exists('mb_strtolower') ? mb_strtolower($content) : strtolower($content);
                 return str_contains($content, $needle);
