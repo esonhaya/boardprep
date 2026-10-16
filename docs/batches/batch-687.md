@@ -5,14 +5,14 @@
 ```text
 HEAD_BEFORE=113a7b826865e96bd788e95d8e02e334de5c5a20
 HEAD_AFTER_APPLICATION=e314a99956b846950a5cb97d56f1b9f49f3999ef
-HEAD_AFTER_DOCUMENTATION=Final documentation HEAD; its SHA is reported in the batch completion message because a commit cannot embed its own hash.
+HEAD_AFTER_DOCUMENTATION=Final report-correction commit after cf7bf3e; its SHA is reported in the batch completion message because a commit cannot embed its own hash.
 START_TIME=2026-10-16 16:01:33 UTC
-END_TIME=2026-10-16 16:36:25 UTC (pre-report finalization; update at completion)
-ELAPSED_MINUTES=35 (pre-report finalization; update at completion)
+END_TIME=2026-10-16 16:38:26 UTC (final storage snapshot; report/clipboard finalization follows)
+ELAPSED_MINUTES=37 (rounded; report/clipboard finalization follows)
 STORAGE_FREE_BEFORE=1,423,576 KiB (df -Pk; 1.36 GiB)
-STORAGE_FREE_AFTER=1,228,148 KiB at 2026-10-16 16:36:25 UTC (df -Pk; 1.17 GiB)
+STORAGE_FREE_AFTER=633,368 KiB at 2026-10-16 16:38:26 UTC (df -Pk; 0.60 GiB)
 STORAGE_RECOVERY_ACTIONS=Inventory only; no deletion or cache cleanup was proven safe.
-STORAGE_FLOOR_STATUS=FAIL; 1.5 GiB floor is 1,572,864 KiB, so this measurement is 344,716 KiB below it.
+STORAGE_FLOOR_STATUS=FAIL; 1.5 GiB floor is 1,572,864 KiB, so this measurement is 939,496 KiB below it.
 CANONICAL_QUESTIONS=8,962 before and after
 SOURCE_PREVIOUSLY_REVIEWED_RECHECKED=38
 SOURCE_NEWLY_REVIEWED=0
@@ -35,15 +35,15 @@ PRODUCT_READINESS=NOT_READY; formal job failed with 2 incomplete features and 4 
 HUMAN_SIGNOFF_STATUS=HUMAN_SIGNOFF_PENDING; 37 educational proposals and 85 duplicate clusters remain unapproved.
 PROTECTED_STATE_STATUS=PASS; 59/59 protected SHA-256 entries verified; learner usage delta remains the same 19 rows.
 UNRELATED_WORK_PRESERVED=PASS; dirty learner statistics, flashcard state, user assets, .commandcode, Batch 596 authoring tool, stashes, and HayaDoctor pin left untouched.
-PUSH_STATUS=PASS by ordinary fast-forward; origin/main=e314a99956b846950a5cb97d56f1b9f49f3999ef before documentation-only changes.
-CLIPBOARD_STATUS=To be verified after final report commit; final outcome will be recorded in this file and in the completion message.
+PUSH_STATUS=PASS by ordinary fast-forward; application commits plus evidence commit cf7bf3e were pushed. Final report correction commit is to follow through ordinary fast-forward.
+CLIPBOARD_STATUS=To be verified against the final report bytes; outcome will be recorded in this file and in the completion message.
 UNRESOLVED_BLOCKERS=Storage below the mandatory floor; Doctor P0 records not retrievable; independent academic sign-off pending; owner privacy/production evidence pending; full-corpus duplicate scan not rerun.
 NEXT_SAFE_BATCH=Restore at least 1.5 GiB free using only positively identified disposable artifacts; obtain independent academic review; resolve Doctor P0 records from authenticated CI evidence; then rerun the release gates on the resulting application SHA.
 ```
 
 ## Storage recovery and data protection
 
-The filesystem was already below its 1.5 GiB minimum at the start of this batch. Free space fell from `1,423,576 KiB` to `1,228,148 KiB` at 16:36:25 UTC; no local cleanup, artifact download, full Doctor run, or other storage-heavy suite was performed. The additional decline has no demonstrated cause. It is not attributed to a specific process.
+The filesystem was already below its 1.5 GiB minimum at the start of this batch. The recorded free-space snapshot fell from `1,423,576 KiB` to `633,368 KiB` at 16:38:26 UTC, a decrease of `790,208 KiB` (~772 MiB). In the final minute, measured free space fell by about 290 MiB while no local tests, artifact downloads, cleanup, cache operations, or other storage-heavy batch command ran. A process listing showed no local PHP, Node test runner, Chromium, Doctor, npm, Composer, or Git maintenance process; only the Codex session host was present among the filtered processes. The cause is unresolved and is not attributed to a specific process.
 
 | Inventory item | Measured size | Owner | Safety decision |
 |---|---:|---|---|
@@ -147,6 +147,6 @@ Application commits, all fast-forward pushed to `origin/main`:
 3. `7e459db5ad4b99131f0781f2ecbf701624698996` — sanitized gate failure annotations.
 4. `e314a99956b846950a5cb97d56f1b9f49f3999ef` — correct testing environment for the developer import CSRF regression.
 
-At the last application check, `HEAD` and `origin/main` both equalled `e314a99956b846950a5cb97d56f1b9f49f3999ef`. The documentation and evidence files in this report are intended as a separate, explicitly scoped documentation-only commit. The final commit SHA will be given in the completion message because it cannot be included in a report committed by that same commit. The report and supporting ledgers are the only files to be staged for that commit; learner state and unrelated untracked files remain excluded.
+At the last application check, `HEAD` and `origin/main` both equalled `e314a99956b846950a5cb97d56f1b9f49f3999ef`. The evidence packet was pushed as documentation commit `cf7bf3e827aa302f50197c1d3e1f2543ecdd4d3b`. A narrowly scoped report-correction commit follows it; its SHA will be given in the completion message because a report cannot contain the hash of the commit that contains it. Learner state and unrelated untracked files remain excluded.
 
 The next safe action is to stop local intensive validation until free space is restored above 1.5 GiB through an independently verified disposable artifact, then obtain authenticated access to the Doctor evidence and independent academic sign-off. Rerun only the gates affected by any subsequent changes, against their exact final SHA. Keep Product Readiness `NOT_READY` while owner, privacy, production-host, accessibility, and academic approvals remain incomplete.
