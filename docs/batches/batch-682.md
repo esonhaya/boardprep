@@ -1,15 +1,15 @@
 # BoardPrep — Batch 682: Storage-Efficient Doctor, Release Recovery, and Educational Development
 
 START_TIME=2026-10-15T23:22:05Z (first recorded Batch 682 checkpoint; setup time was not separately instrumented)
-END_TIME=2026-10-16T00:31:39Z
-ELAPSED_MINUTES=69
+END_TIME=2026-10-16T00:34:24Z
+ELAPSED_MINUTES=72
 HEAD_BEFORE=56b4be816c65251b3db6ace58e4bb7669f71a877
 HEAD_AFTER=887c4fa13878d780634bbc93e51c62a8be24f11f (verified application commit; report and browser registry are documentation-only descendants)
 REMOTE_MAIN_STATUS=PASS; application commits and final documentation-only evidence/report commit were pushed by ordinary fast-forward; final fetch matched local main
 BATCH681_STATUS=PARTIAL_INCOMPLETE; its report showed the Doctor release had 17 of 53 scripts complete, one interrupted, and 35 not run; the full release was recovered in this batch
 STORAGE_BASELINE=1,922,387,968 bytes before the first post-remediation release attempt; 1,903,779,840 bytes before the final full release run
 STORAGE_MINIMUM=1,600,888,832 bytes on the first run (9,723,904 bytes below the 1.5 GiB floor); after fixes, 1,681,457,152 bytes (70,844,416 bytes above the floor). Required floor: 1,610,612,736 bytes
-STORAGE_FINAL=1,858,812 KiB (1,903,423,488 bytes; 1.77 GiB), above the 1.5 GiB floor
+STORAGE_FINAL=1,827,764 KiB (1,871,630,336 bytes; 1.74 GiB) at the final post-push checks; the preceding report checkpoint was 1,858,812 KiB. Both readings are above the 1.5 GiB floor
 DOCTOR_PEAK_DISK_BEFORE_AFTER=Maximum per-test additional temporary use fell from 227,475,456 to 163,692,544 bytes (63,782,912 bytes / 28.0% lower)
 FIXTURE_COPY_BYTES_BEFORE_AFTER=One 90,416,165-byte private storage fixture (105 files) is used; one redundant second baseline copy of 90,416,165 bytes is avoided. Release packaging no longer stages a full repository copy
 STORAGE_ISOLATION_DESIGN=Portable explicit-dependency copy; no reflinks or hard links. One private fixture contains canonical test inputs, excludes cached Doctor/release reports and recovery/runtime data, strips learner usage counters from its question copy, and seeds attempts, weakness, statistics, and flashcard state as empty arrays. Each child gets a unique session directory and TMPDIR; fixtures are rebuilt between mutating suites. Cleanup removes task-owned fixture/session trees while returned evidence retains bounded failure tails
@@ -42,7 +42,7 @@ CHROMIUM=PASS; GitHub Actions run 38828868431, workflow conclusion success, brow
 PRODUCT_READINESS=NOT_READY; current exact-commit Chromium and ten-board journeys pass, but real human acceptance MVP-01–12, owner-approved privacy/contact/retention/deletion terms, and live HTTPS/provider validation are not verified. Public launch remains blocked
 TESTS_PASS_FAIL_SKIP=Full Doctor release: 76/76 recorded test executions PASS across 54 unique script paths (some scripts are intentionally referenced by multiple domains); 0 FAIL, 0 SKIP, 0 NOT_RUN. Five Doctor integrity suites PASS. PHP syntax 8/8 PASS; changed JSON 4/4 and preserved local learner JSON 2/2 parse; production preflight 22/22 PASS; smoke 5/5 PASS. Counts are grouped and overlapping validations are not added together
 UNRESOLVED_GAPS=2,407 questions still lack sufficiently supported cognitive intent; eight source-review signals remain visible; the Doctor release retains nonblocking source/content planning debt. Human acceptance, approved privacy terms, and live hosting gates remain open. The first storage run briefly crossed the floor; the corrected complete run remained above it
-COMMITS=7a0f5e9ae5eed3faf75b0a5b30bd2ac6e49ff032 (storage runner and education); 887c4fa13878d780634bbc93e51c62a8be24f11f (package/temp isolation); final documentation-only commit records this report and verified browser evidence
+COMMITS=7a0f5e9ae5eed3faf75b0a5b30bd2ac6e49ff032 (storage runner and education); 887c4fa13878d780634bbc93e51c62a8be24f11f (package/temp isolation); 1c38e17f543b6cf35f5acad86368901d23508c03 records the report and verified browser evidence; a final documentation-only storage close commit updates the last measured free-space snapshot
 PUSH_STATUS=PASS; safe ordinary fast-forward only; final origin/main matched local main
 CLIPBOARD_STATUS=VERIFIED; termux-clipboard-set text argument used and newline-normalized SHA-256 readback matched
 
