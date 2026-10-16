@@ -31,7 +31,7 @@ PRODUCT_READINESS=NOT_READY; formal command returned PRODUCT_FEATURE_COMPLETE=NO
 PROTECTED_STATE_STATUS=PASS, 59/59 protected manifest hashes match; question-usage worktree delta independently isolated to 19 records
 UNRELATED_WORK_PRESERVED=YES; existing learner delta, untracked assets, two stashes, recovery refs, branches, and HayaDoctor pin preserved
 STORAGE_FREE_BEFORE=1,581,404 KiB (~1.51 GiB, first captured check)
-STORAGE_FREE_AFTER=1,439,068 KiB (~1.37 GiB; below the 1.5 GiB floor by about 131 MiB at the last check)
+STORAGE_FREE_AFTER=1,425,312 KiB (~1.36 GiB; below the 1.5 GiB floor by about 144 MiB at the last check)
 PUSH_STATUS=Application/test commits and final documentation/evidence commit pushed by ordinary fast-forward; no force push
 CLIPBOARD_STATUS=UNVERIFIED (termux-clipboard-set returned success, but termux-clipboard-get returned 0 bytes; SHA-256 readback did not match)
 UNRESOLVED_BLOCKERS=Human academic review; 8,862 unreviewed source questions; 75 sampled cognition records without a justified label; unresolved duplicate/clone decisions; full Doctor/security and ten-board HTTP gates not run; all 12 human/mobile/accessibility cases; owner-approved privacy and live-host checks
@@ -150,7 +150,7 @@ The expanded MVP-01–MVP-12 mobile/screen-reader checklist is [HUMAN_TESTER_REA
 
 ## Storage and Git
 
-Free space began at approximately 1,581,404 KiB and was last measured at 1,439,068 KiB (about 1.37 GiB), below the required 1.5 GiB floor by about 131 MiB. No 127 MB browser artifact or local Chromium package was downloaded; the cause of the approximately 139 MiB decline was not isolated. No unrelated or user-owned files were cleaned to recover space. Further local heavy validation is deferred until headroom is restored.
+Free space began at approximately 1,581,404 KiB and was last measured at 1,425,312 KiB (about 1.36 GiB), below the required 1.5 GiB floor by about 144 MiB. No 127 MB browser artifact or local Chromium package was downloaded; the cause of the approximately 152 MiB decline was not isolated. No unrelated or user-owned files were cleaned to recover space. Further local heavy validation is deferred until headroom is restored.
 
 Scoped application/test commits were pushed only by ordinary fast-forward. `origin/main` matched the application commit before the final documentation/evidence commit. The final documentation push and repository HEAD are recorded in the Git log; no force push, reset, new worktree, learner-data commit, or HayaDoctor pin change occurred.
 
