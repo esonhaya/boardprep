@@ -64,9 +64,25 @@ jobs:
           retention-days: 14
 
   security-privacy:
-    name: Security and privacy regression
+    name: Security/privacy — ${{ matrix.test_id }}
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - test_id: production-quiz-csrf
+            test_path: tools/Tests/ProductionQuizCsrfTest.php
+          - test_id: question-import-csrf
+            test_path: tools/Tests/QuestionImportCsrfTest.php
+          - test_id: question-import-safety
+            test_path: tools/Tests/QuestionImportSafetyTest.php
+          - test_id: anonymous-learner-privacy
+            test_path: tools/Tests/AnonymousLearnerPrivacyHttpTest.php
+          - test_id: session-configuration
+            test_path: tools/Tests/SessionConfigurationTest.php
+          - test_id: security-trust-boundary
+            test_path: tools/Tests/SecurityTrustBoundaryTest.php
     steps:
       - uses: actions/checkout@v4
 
@@ -77,35 +93,28 @@ jobs:
           extensions: json, session, pdo_sqlite, mbstring
           coverage: none
 
-      - name: Run isolated security and privacy tests
+      - name: Run focused security and privacy test
+        env:
+          TEST_ID: ${{ matrix.test_id }}
+          TEST_PATH: ${{ matrix.test_path }}
         run: |
           mkdir -p release-gate-evidence
-          printf '{"gate":"security_privacy","commit":"%s","run_id":"%s","run_attempt":"%s"}\n' "$GITHUB_SHA" "$GITHUB_RUN_ID" "$GITHUB_RUN_ATTEMPT" > release-gate-evidence/manifest.json
-          : > release-gate-evidence/security-privacy.log
-          : > release-gate-evidence/security-privacy.status
-          failed=0
+          printf '{"gate":"security_privacy","test_id":"%s","test_path":"%s","commit":"%s","run_id":"%s","run_attempt":"%s"}\n' "$TEST_ID" "$TEST_PATH" "$GITHUB_SHA" "$GITHUB_RUN_ID" "$GITHUB_RUN_ATTEMPT" > release-gate-evidence/manifest.json
           set +e
-          for test in \
-            tools/Tests/ProductionQuizCsrfTest.php \
-            tools/Tests/QuestionImportCsrfTest.php \
-            tools/Tests/QuestionImportSafetyTest.php \
-            tools/Tests/AnonymousLearnerPrivacyHttpTest.php \
-            tools/Tests/SessionConfigurationTest.php \
-            tools/Tests/SecurityTrustBoundaryTest.php
-          do
-            printf '\n=== %s ===\n' "$test" | tee -a release-gate-evidence/security-privacy.log
-            php "$test" >> release-gate-evidence/security-privacy.log 2>&1
-            status=$?
-            printf '%s exit_code=%s\n' "$test" "$status" | tee -a release-gate-evidence/security-privacy.status
-            if [ "$status" -ne 0 ]; then failed=1; fi
-          done
-          exit "$failed"
+          php "$TEST_PATH" > release-gate-evidence/test.log 2>&1
+          status=$?
+          cat release-gate-evidence/test.log
+          printf '%s exit_code=%s\n' "$TEST_ID" "$status" > release-gate-evidence/test.status
+          if [ "$status" -ne 0 ]; then
+            printf '::error file=%s,line=1,title=Security/privacy regression failed::%s exited with code %s; inspect its committed-run evidence artifact.\n' "$TEST_PATH" "$TEST_ID" "$status"
+          fi
+          exit "$status"
 
       - name: Upload security and privacy evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: boardprep-security-privacy-${{ github.sha }}
+          name: boardprep-security-privacy-${{ matrix.test_id }}-${{ github.sha }}
           path: release-gate-evidence/
           if-no-files-found: warn
           retention-days: 14
