@@ -199,7 +199,7 @@ test.describe('BoardPrep learner browser acceptance', () => {
     recordBrowserEvidence('runtime', { engine, version, viewport }, testInfo);
   });
 
-  test('study lesson PDF opens as a PDF and downloads with keyboard access', async ({ page }, testInfo) => {
+  test('study lesson PDF link serves the identified document and supports keyboard download', async ({ page }, testInfo) => {
     const lessons = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../../..', 'storage', 'study-lessons.json'), 'utf8'));
     const lesson = lessons.find((item) => item.board_id === 'let' && item.pdf_file);
     expect(lesson, 'A complete LET lesson with a generated PDF is required for the document fixture.').toBeTruthy();
@@ -227,12 +227,9 @@ test.describe('BoardPrep learner browser acceptance', () => {
     expect(manifestEntry.searchable_text).toBe(true);
     expect(crypto.createHash('sha256').update(servedBytes).digest('hex')).toBe(manifestEntry.sha256);
 
-    const previewPage = await page.context().newPage();
-    const previewResponse = await previewPage.goto(new URL(pdfHref, page.url()).toString());
-    expect(previewResponse?.status()).toBe(200);
-    expect(previewPage.url()).toContain(lesson.pdf_file);
-    await previewPage.close();
-
+    // Chromium's headless browser starts a download when navigating directly to
+    // an application/pdf response. Validate the link's document response above,
+    // and exercise the actual browser download interaction below.
     await tabToKeyboardFocus(page, downloadLink);
     const [download] = await Promise.all([
       page.waitForEvent('download'),
@@ -249,7 +246,7 @@ test.describe('BoardPrep learner browser acceptance', () => {
       lesson_id: lesson.id,
       material_id: lesson.material_id,
       filename: lesson.pdf_file,
-      open_response: previewResponse.status(),
+      pdf_response: pdfResponse.status(),
       manifest_sha256: manifestEntry.sha256,
       download_bytes_match_served_document: true,
       pdf_identity: lesson.title,
@@ -286,7 +283,7 @@ test.describe('BoardPrep learner browser acceptance', () => {
     const response = await page.goto('http://127.0.0.1:4174/question-editor/edit?id=616');
     expect(response?.status()).toBe(200);
     await expect(page.getByRole('heading', { name: 'Edit Question', exact: true })).toBeVisible();
-    await expect(page.locator('form[method="POST"]').first()).toBeVisible();
+    await expect(page.locator('form[action^="/question-editor/update"]')).toBeVisible();
     expect(methods.every((method) => method === 'GET'), 'Read-only acceptance must not submit developer forms.').toBeTruthy();
     await assertPageHealthy(page, testInfo, 'developer-editor-read-only');
     recordBrowserEvidence('developer-editor', {
