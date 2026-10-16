@@ -1,0 +1,55 @@
+# BoardPrep — Batch 682: Storage-Efficient Doctor, Release Recovery, and Educational Development
+
+START_TIME=2026-10-15T23:22:05Z (first recorded Batch 682 checkpoint; setup time was not separately instrumented)
+END_TIME=2026-10-16T00:31:39Z
+ELAPSED_MINUTES=69
+HEAD_BEFORE=56b4be816c65251b3db6ace58e4bb7669f71a877
+HEAD_AFTER=887c4fa13878d780634bbc93e51c62a8be24f11f (verified application commit; report and browser registry are documentation-only descendants)
+REMOTE_MAIN_STATUS=PASS; application commits and final documentation-only evidence/report commit were pushed by ordinary fast-forward; final fetch matched local main
+BATCH681_STATUS=PARTIAL_INCOMPLETE; its report showed the Doctor release had 17 of 53 scripts complete, one interrupted, and 35 not run; the full release was recovered in this batch
+STORAGE_BASELINE=1,922,387,968 bytes before the first post-remediation release attempt; 1,903,779,840 bytes before the final full release run
+STORAGE_MINIMUM=1,600,888,832 bytes on the first run (9,723,904 bytes below the 1.5 GiB floor); after fixes, 1,681,457,152 bytes (70,844,416 bytes above the floor). Required floor: 1,610,612,736 bytes
+STORAGE_FINAL=1,858,812 KiB (1,903,423,488 bytes; 1.77 GiB), above the 1.5 GiB floor
+DOCTOR_PEAK_DISK_BEFORE_AFTER=Maximum per-test additional temporary use fell from 227,475,456 to 163,692,544 bytes (63,782,912 bytes / 28.0% lower)
+FIXTURE_COPY_BYTES_BEFORE_AFTER=One 90,416,165-byte private storage fixture (105 files) is used; one redundant second baseline copy of 90,416,165 bytes is avoided. Release packaging no longer stages a full repository copy
+STORAGE_ISOLATION_DESIGN=Portable explicit-dependency copy; no reflinks or hard links. One private fixture contains canonical test inputs, excludes cached Doctor/release reports and recovery/runtime data, strips learner usage counters from its question copy, and seeds attempts, weakness, statistics, and flashcard state as empty arrays. Each child gets a unique session directory and TMPDIR; fixtures are rebuilt between mutating suites. Cleanup removes task-owned fixture/session trees while returned evidence retains bounded failure tails
+LEARNER_STATE_HASHES=PASS; all 154 files under repository storage had the same tree SHA-256 before and after the full Doctor run: d1d24632d7dab73c5f298682076ca728cb4cbc286680e7dea3f0c2ba197b38e2. Current questions.json non-learner fields and IDs match HEAD; its 19-row local delta is limited to timesUsed/timesCorrect/timesIncorrect/updatedAt. Existing untracked question statistics, user SVGs, .commandcode data, recovery evidence, and both stashes were preserved and not staged
+RELEASE_RUNNER_CHANGES=Storage preflight now requires the 1.5 GiB floor, 128 MiB runtime reserve, and one measured fixture; insufficient or unmeasurable space marks every suite NOT_RUN. The runner records minimum free space and per-suite storage, stops near the floor, namespaces all descendant temp files under each child session, preserves failure diagnostics, and reports cleanup/incomplete evidence explicitly. ReleasePackageTest uses one package at a time; tools/release.php streams an allowlisted committed production tree into extraction instead of materializing a whole-repository archive and copy
+INTERRUPTION_RECOVERY=The first run exposed two defects: SourceStudyLibraryTest asserted an obsolete exact CSE count, and ReleasePackageTest reached the storage floor while the former full-tree package workspace grew to 227,475,456 additional bytes. The interruption and failure tails were retained; the two task-created residue directories were inventoried and their hashes recorded before removing only those exact generated directories. The runner/test expectation and package builder were corrected; the final run completed and cleaned its fixture and sessions. No pre-existing temporary evidence was removed
+BATCH681_RELEASE_RECOVERY=Recovered; the prior incomplete state was confirmed from docs/batches/batch-681.md. Final Doctor release completed at application commit 887c4fa13878d780634bbc93e51c62a8be24f11f with all required evidence
+FULL_DOCTOR_RELEASE=PASS; exit 0; release gate PASS; RELEASE_READY_WITH_NONBLOCKING_DEBT; zero P0 blockers. 26 domains were non-failing; SOURCE_TRACEABILITY remains REVIEW for known semantic/scope signals, not a hard defect. Repository Health is WARN with zero failing entities
+DOCTOR_INTEGRITY=PASS; DoctorIntegrityTest, RepositoryHealthEvidenceFreshnessTest, Batch675StaticDoctorPrecisionTest, Batch675SourceQualityPathwaysTest, and EducationalIntegrityPrecisionTest all passed in the full release
+EDUCATIONAL_CHANGES=Corrected six independently verified Civil Engineering moment answers/calculation values; improved explanations in three exact-stem groups; added nine conservative cognitive-intent labels after reviewing each task; expanded an existing statics/structural-analysis study item with four worked concept notes. No scoring formula, adaptive formula, learner attempt, canonical identity, or canonical question count changed
+QUESTIONS_IMPROVED=28 unique question records: six calculation/answer corrections (6975, 7519, 7135, 7143, 7327, 7335), 13 explanations (6973, 7517, 6978, 7138, 7146, 7330, 7514, 6979, 7139, 7147, 7323, 7331, 7515), and nine cognitive labels (LET 51–53, Nursing 857–859, Civil Service 5193–5195)
+COGNITIVE_LABELS_ADDED=9 reviewed labels: LET and Nursing scenario items APPLICATION; Civil Service comparison items UNDERSTANDING. Missing intent moved from 2,416 to 2,407; ambiguous records remain unclassified
+DUPLICATE_GROUPS=85 true-duplicate groups / 224 excess canonical records remain as recorded in Batch 681. This batch improved content in three CE groups, including the verified 6975/7519 pair; no question was deleted, merged, or remapped and the group/count totals did not change
+BOARDS_IMPROVED=Civil Engineering, LET, Nursing, Civil Service (4 boards)
+STUDY_MATERIALS_IMPROVED=One existing Civil Engineering statics/structural-analysis material; four worked notes cover support reactions, cantilever moment, a zero-force truss boundary, and free-body-diagram steps
+SOURCE_RECORDS=258 total, 2 added: OpenStax University Physics Vol. 1 §12.1 (openstax-static-equilibrium-12-1, https://openstax.org/books/university-physics-volume-1/pages/12-1-conditions-for-static-equilibrium) and MIT OCW 1.050 exercise 3.16 (mit-solid-mechanics-beam-reactions-316, https://live.ocw.mit.edu/courses/1-050-solid-mechanics-fall-2004/5070a932644d2cb44cc965ac56f79c66_emech3_04.pdf)
+QUESTION_RESOURCE_LINKS=19 existing question-to-study links were repaired/refined to the exact material and source records; portfolio total remains 9,052
+FLASHCARD_INTEGRITY=PASS; 8,944 derivable cards and 18 justified exclusions; zero card exclusions were changed and no unsupported cards were introduced
+HAYADOCTOR_PIN=dc4fcda730d9a922f726593746e34ca0c9c0e890; unchanged
+HAYADOCTOR_COMPATIBILITY=PASS; pinned adapter test verified public interfaces, registry discovery, dashboard report schema, dependency loading, and CLI exit behavior; no submodule update was made
+CANONICAL_COUNTS=8,962 across ten boards; unchanged
+EFFECTIVE_COUNTS=9,422; unchanged
+RUNTIME_PLACEMENTS=9,522; unchanged
+TEN_BOARD_HTTP=PASS; full learner HTTP journeys passed for Architecture, Civil Engineering, Civil Service, CPA, Criminologist, LET, Mechanical Engineering, Nursing, Psychometrician, and Registered Electrical Engineering
+SECURITY=PASS; CSRF, trust-boundary, session-configuration, question-import, and access-control regressions passed in the full Doctor suite
+PRIVACY=PASS for anonymous learner data ownership/export/deletion tests; no real learner records changed. Site-specific legal/contact/retention approval remains unverified
+PREFLIGHT=PASS; production-mode preflight 22/22 checks, 0 warnings, 0 failures (build commit 887c4fa)
+SMOKE=PASS; production smoke 5/5 checks, 0 failures (build commit 887c4fa)
+CHROMIUM=PASS; GitHub Actions run 38828868431, workflow conclusion success, browser job 116742687742, exact application SHA 887c4fa13878d780634bbc93e51c62a8be24f11f. API-verified and registered in docs/release-evidence/browser-workflows.json. Workflow artifacts were uploaded but not downloaded or visually inspected
+PRODUCT_READINESS=NOT_READY; current exact-commit Chromium and ten-board journeys pass, but real human acceptance MVP-01–12, owner-approved privacy/contact/retention/deletion terms, and live HTTPS/provider validation are not verified. Public launch remains blocked
+TESTS_PASS_FAIL_SKIP=Full Doctor release: 76/76 recorded test executions PASS across 54 unique script paths (some scripts are intentionally referenced by multiple domains); 0 FAIL, 0 SKIP, 0 NOT_RUN. Five Doctor integrity suites PASS. PHP syntax 8/8 PASS; changed JSON 4/4 and preserved local learner JSON 2/2 parse; production preflight 22/22 PASS; smoke 5/5 PASS. Counts are grouped and overlapping validations are not added together
+UNRESOLVED_GAPS=2,407 questions still lack sufficiently supported cognitive intent; eight source-review signals remain visible; the Doctor release retains nonblocking source/content planning debt. Human acceptance, approved privacy terms, and live hosting gates remain open. The first storage run briefly crossed the floor; the corrected complete run remained above it
+COMMITS=7a0f5e9ae5eed3faf75b0a5b30bd2ac6e49ff032 (storage runner and education); 887c4fa13878d780634bbc93e51c62a8be24f11f (package/temp isolation); final documentation-only commit records this report and verified browser evidence
+PUSH_STATUS=PASS; safe ordinary fast-forward only; final origin/main matched local main
+CLIPBOARD_STATUS=VERIFIED; termux-clipboard-set text argument used and newline-normalized SHA-256 readback matched
+
+## Evidence notes
+
+The first full-release attempt showed why the old package path was expensive: it produced an isolated full repository tree of 1,360 files / 217,199,799 bytes and a partial package. The runner preserved the failure tails and per-test storage measurements. Only the two directories created by that failed attempt were removed after their file inventory and hashes were captured. The corrected package path streams only tracked production paths from the committed tree; each release flow shares one private 90.4 MB fixture and receives a fresh learner session namespace.
+
+The first attempt's observed minimum free space was 1,600,888,832 bytes, 9,723,904 bytes below the required 1,610,612,736-byte floor. The final successful run began with 1,903,779,840 bytes available and bottomed at 1,681,457,152 bytes. It left no task-owned fixture or session directory. Pre-existing fixture/session directories were inventoried by the runner and left untouched.
+
+The storage/questions.json worktree delta is learner usage data, not content drift: comparing all 8,962 IDs and every non-usage field with the committed question bank yields an exact match. The report commit stages only docs/batches/batch-682.md and docs/release-evidence/browser-workflows.json.
