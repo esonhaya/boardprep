@@ -339,7 +339,7 @@ test.describe('BoardPrep deterministic visual baseline', () => {
     await capture(page, testInfo, entries, 'study-landing', { fullPage: true });
 
     await page.goto('/study-library?exam=LET');
-    await expect(page.locator('h1')).toHaveText('Source-backed study materials');
+    await expect(page.locator('h1')).toHaveText('Study resources');
     const librarySearch = page.getByRole('searchbox', { name: 'Search titles and study notes' });
     const librarySearchHeight = await librarySearch.evaluate((input) => input.getBoundingClientRect().height);
     expect(librarySearchHeight).toBeLessThan(60);

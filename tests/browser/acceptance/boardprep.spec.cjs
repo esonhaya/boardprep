@@ -522,7 +522,7 @@ test.describe('BoardPrep learner browser acceptance', () => {
       const boardName = await page.locator('.exam-detail h1').innerText();
       await expect(page.getByRole('link', { name: 'Study materials' })).toBeVisible();
       await page.getByRole('link', { name: 'Study materials' }).click();
-      await expect(page.locator('h1')).toHaveText('Source-backed study materials');
+      await expect(page.locator('h1')).toHaveText('Study resources');
       await page.goBack();
 
       await page.getByRole('link', { name: 'Configure practice' }).click();

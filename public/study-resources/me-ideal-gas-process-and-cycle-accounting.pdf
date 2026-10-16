@@ -1,0 +1,112 @@
+%PDF-1.4
+%BoardPrep
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [5 0 R 7 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 6 0 R >>
+endobj
+6 0 obj
+<< /Length 4286>>
+stream
+BT /F2 19.0 Tf 50.0 790.0 Td (Ideal-Gas Processes and Cycle Energy Accounting) Tj ET
+BT /F1 8.0 Tf 50.0 765.0 Td (MECHANICAL-ENGINEERING · mechanical-engineering-mechanical-engineering-professional-subjects ·) Tj ET
+BT /F1 8.0 Tf 50.0 753.0 Td (BoardPrep lesson v1) Tj ET
+BT /F2 13.0 Tf 50.0 736.0 Td (Official examination scope) Tj ET
+BT /F1 10.0 Tf 50.0 715.0 Td (The PRC August 2026 ME program lists Power Plant Engineering \(35%\), Mathematics \(35%\), and) Tj ET
+BT /F1 10.0 Tf 50.0 701.0 Td (Machine Design, Materials and Shop Practice \(30%\); it gives no thermal-science subtopic) Tj ET
+BT /F1 10.0 Tf 50.0 687.0 Td (weight. This is foundational thermodynamics instruction from existing BoardPrep material.) Tj ET
+BT /F1 10.0 Tf 50.0 673.0 Td (Verify detailed scope in current PRC syllabus resources; no frequency claim is made.) Tj ET
+BT /F2 13.0 Tf 50.0 654.0 Td (Learning objectives) Tj ET
+BT /F1 10.0 Tf 58.0 633.0 Td (- Use an ideal-gas relation for a fixed-mass, fixed-volume process with absolute temperature.) Tj ET
+BT /F1 10.0 Tf 58.0 619.0 Td (- Compute work for a stated isothermal ideal-gas expansion.) Tj ET
+BT /F1 10.0 Tf 58.0 605.0 Td (- Calculate cycle net work and thermal efficiency from heat input and rejection.) Tj ET
+BT /F2 13.0 Tf 50.0 586.0 Td (1. State the gas model) Tj ET
+BT /F1 10.0 Tf 50.0 565.0 Td (For fixed mass of ideal gas, pV = mRT. At fixed volume and mass, p/T is constant, so p2 =) Tj ET
+BT /F1 10.0 Tf 50.0 551.0 Td (p1\(T2/T1\). Use kelvins. The relation does not apply unchanged when mass or volume changes.) Tj ET
+BT /F2 13.0 Tf 50.0 532.0 Td (2. Calculate isothermal work) Tj ET
+BT /F1 10.0 Tf 50.0 511.0 Td (For quasi-equilibrium isothermal ideal-gas expansion, work by the gas is W = mRT ln\(V2/V1\).) Tj ET
+BT /F1 10.0 Tf 50.0 497.0 Td (With R in kJ/\(kg K\), mass in kg, and temperature in K, work is kJ. Expansion is positive work) Tj ET
+BT /F1 10.0 Tf 50.0 483.0 Td (by the gas under this convention; compression reverses the sign.) Tj ET
+BT /F2 13.0 Tf 50.0 464.0 Td (3. Account for a cycle) Tj ET
+BT /F1 10.0 Tf 50.0 443.0 Td (For a heat-engine cycle, net stored energy change is zero. With heat input Qin and rejected) Tj ET
+BT /F1 10.0 Tf 50.0 429.0 Td (heat Qout, Wnet = Qin - Qout and thermal efficiency eta = Wnet/Qin. Efficiency is) Tj ET
+BT /F1 10.0 Tf 50.0 415.0 Td (dimensionless; multiply by 100 only when reporting a percent.) Tj ET
+BT /F2 13.0 Tf 50.0 396.0 Td (4. Check units and balances) Tj ET
+BT /F1 10.0 Tf 50.0 375.0 Td (Write constraints and sign convention, convert units, and check expected signs. Engine work) Tj ET
+BT /F1 10.0 Tf 50.0 361.0 Td (should be less than heat input, and efficiency should be dimensionless. A number without its) Tj ET
+BT /F1 10.0 Tf 50.0 347.0 Td (process assumptions is not reproducible.) Tj ET
+BT /F2 13.0 Tf 50.0 328.0 Td (Fixed-volume pressure change) Tj ET
+BT /F1 10.0 Tf 50.0 307.0 Td (Question: An ideal gas at 150 kPa and 300 K is heated to 450 K at constant mass and volume.) Tj ET
+BT /F1 10.0 Tf 50.0 293.0 Td (1. Use p2/p1 = T2/T1.) Tj ET
+BT /F1 10.0 Tf 50.0 279.0 Td (2. p2 = 150\(450/300\) kPa.) Tj ET
+BT /F1 10.0 Tf 50.0 265.0 Td (3. The ratio is 1.5, so p2 = 225 kPa.) Tj ET
+BT /F1 10.0 Tf 50.0 251.0 Td (Answer: Final pressure = 225 kPa.) Tj ET
+BT /F1 10.0 Tf 50.0 237.0 Td (Check: A 50% rise in absolute temperature gives a 50% pressure rise at fixed volume.) Tj ET
+BT /F2 13.0 Tf 50.0 218.0 Td (Heat-engine work and efficiency) Tj ET
+BT /F1 10.0 Tf 50.0 197.0 Td (Question: A cycle receives 900 kJ and rejects 540 kJ per cycle.) Tj ET
+BT /F1 10.0 Tf 50.0 183.0 Td (1. Wnet = 900 - 540 = 360 kJ.) Tj ET
+BT /F1 10.0 Tf 50.0 169.0 Td (2. eta = 360/900 = 0.40.) Tj ET
+BT /F1 10.0 Tf 50.0 155.0 Td (3. If requested, 0.40 x 100% = 40%.) Tj ET
+BT /F1 10.0 Tf 50.0 141.0 Td (Answer: Net work is 360 kJ per cycle and efficiency is 0.40 \(40%\).) Tj ET
+BT /F1 10.0 Tf 50.0 127.0 Td (Check: Output work is less than heat input and efficiency has no unit.) Tj ET
+BT /F2 13.0 Tf 50.0 108.0 Td (Common misconceptions) Tj ET
+BT /F1 10.0 Tf 58.0 87.0 Td (- Using Celsius instead of kelvins in a pressure-temperature ratio.) Tj ET
+BT /F1 10.0 Tf 58.0 73.0 Td (- Using p/T = constant when volume or gas mass is not fixed.) Tj ET
+BT /F1 8 Tf 500 28 Td (BoardPrep | 1 / 2) Tj ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 8 0 R >>
+endobj
+8 0 obj
+<< /Length 2179>>
+stream
+BT /F1 10.0 Tf 58.0 790.0 Td (- Treating isothermal ideal-gas expansion work as a rectangular p-V area.) Tj ET
+BT /F1 10.0 Tf 58.0 776.0 Td (- Dividing rejected heat by input heat instead of using net work for engine efficiency.) Tj ET
+BT /F2 13.0 Tf 50.0 762.0 Td (Practice patterns) Tj ET
+BT /F1 10.0 Tf 58.0 741.0 Td (- Find a state change from a stated ideal-gas process constraint.) Tj ET
+BT /F1 10.0 Tf 58.0 727.0 Td (- Calculate expansion work from mass, R, temperature, and volume ratio.) Tj ET
+BT /F1 10.0 Tf 58.0 713.0 Td (- Determine cycle work and efficiency from input and rejected heat.) Tj ET
+BT /F2 13.0 Tf 50.0 694.0 Td (Official scope references) Tj ET
+BT /F1 10.0 Tf 50.0 673.0 Td (Official scope: PRC Mechanical Engineering Syllabus Resources — Professional Regulation) Tj ET
+BT /F1 10.0 Tf 50.0 659.0 Td (Commission; Professional Regulatory Board of Mechanical Engineering —) Tj ET
+BT /F1 10.0 Tf 50.0 645.0 Td (https://www.prc.gov.ph/Pages/PRBv4/MechanicalEngineering.htm) Tj ET
+BT /F1 10.0 Tf 50.0 631.0 Td (Official scope: PRC Program of the August 2026 Mechanical Engineers Licensure Examination —) Tj ET
+BT /F1 10.0 Tf 50.0 617.0 Td (Professional Regulation Commission; Professional Regulatory Board of Mechanical Engineering —) Tj ET
+BT /F1 10.0 Tf 50.0 603.0 Td (https://www.prc.gov.ph/sites/default/files/exam%20program%20aug%202026%20mele%20signed.pdf) Tj ET
+BT /F2 13.0 Tf 50.0 584.0 Td (Instructional references) Tj ET
+BT /F1 10.0 Tf 50.0 563.0 Td (Instructional reference: Introduction to Engineering Thermodynamics — Claire Yu Yan; BCcampus) Tj ET
+BT /F1 10.0 Tf 50.0 549.0 Td (Open Education — https://pressbooks.bccampus.ca/thermo1/) Tj ET
+BT /F1 10.0 Tf 50.0 535.0 Td (Instructional reference: University Physics Volume 2 — OpenStax, Rice University —) Tj ET
+BT /F1 10.0 Tf 50.0 521.0 Td (https://openstax.org/details/books/university-physics-volume-2) Tj ET
+BT /F1 8.0 Tf 50.0 507.0 Td (BoardPrep lesson material is original instruction. It is not an official examination document.) Tj ET
+BT /F1 8.0 Tf 50.0 495.0 Td (No claim about question frequency or examination weighting is made.) Tj ET
+BT /F1 8 Tf 500 28 Td (BoardPrep | 2 / 2) Tj ET
+endstream
+endobj
+xref
+0 9
+0000000000 65535 f 
+0000000020 00000 n 
+0000000069 00000 n 
+0000000132 00000 n 
+0000000229 00000 n 
+0000000331 00000 n 
+0000000467 00000 n 
+0000004803 00000 n 
+0000004939 00000 n 
+trailer
+<< /Size 9 /Root 1 0 R >>
+startxref
+7168
+%%EOF

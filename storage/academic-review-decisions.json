@@ -1,0 +1,51 @@
+[
+    {
+        "id": "batch685-question-616-rationale",
+        "question_id": "616",
+        "board_id": "civil-service",
+        "subject_id": "numerical-ability",
+        "topic_id": "arithmetic",
+        "concept_id": "cse-basic-operations",
+        "original_issue": "RATIONALE_TOO_EMPTY_TO_SUPPORT_KEY",
+        "original_value": {
+            "explanation": "0.18 × 250 = 45."
+        },
+        "corrected_fields": {
+            "explanation": "18% is 0.18, so multiply the stated base by 0.18: 0.18 × 250 = 45. As a check, 10% of 250 is 25 and 8% is 20; together they give 45."
+        },
+        "reason": "The original calculation was correct but too compressed to show percent conversion, use of the stated base, or an independent mental check.",
+        "supporting_source_ids": [
+            "openstax-prealgebra-percent-applications-6-2",
+            "openstax-prealgebra-proportions-chapter6-5"
+        ],
+        "validation_result": "PASS: 0.18 × 250 = 45; 10% of 250 is 25 and 8% is 20, totaling 45; rationale now explains the conversion and base.",
+        "review_state": "REVIEW_REQUIRED",
+        "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+        "human_signoff": "NOT_RECORDED",
+        "recorded_at": "2026-10-16"
+    },
+    {
+        "id": "batch685-question-937-cognitive-intent",
+        "question_id": "937",
+        "board_id": "nursing",
+        "subject_id": "nursing-foundations",
+        "topic_id": "nle-medical-surgical",
+        "concept_id": "nle-np-iii-infection",
+        "original_issue": "MISSING_COGNITIVE_INTENT",
+        "original_value": {
+            "cognitive_intent": null
+        },
+        "corrected_fields": {
+            "cognitive_intent": "understand"
+        },
+        "reason": "The item asks the learner to explain why hand hygiene is performed; selecting the transmission-reduction purpose requires understanding, and the key and explanation support that reading.",
+        "supporting_source_ids": [
+            "cdc-infection-control-basics"
+        ],
+        "validation_result": "PASS: question wording, keyed answer, and rationale align with the stated understanding intent and the CDC Standard Precautions reference.",
+        "review_state": "REVIEW_REQUIRED",
+        "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+        "human_signoff": "NOT_RECORDED",
+        "recorded_at": "2026-10-16"
+    }
+]

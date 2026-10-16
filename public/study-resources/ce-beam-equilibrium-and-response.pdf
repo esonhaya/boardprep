@@ -1,0 +1,115 @@
+%PDF-1.4
+%BoardPrep
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [5 0 R 7 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 6 0 R >>
+endobj
+6 0 obj
+<< /Length 4234>>
+stream
+BT /F2 19.0 Tf 50.0 790.0 Td (Simply Supported Beam Equilibrium and Response) Tj ET
+BT /F1 8.0 Tf 50.0 765.0 Td (CIVIL-ENGINEERING · civil-engineering-structural-engineering · BoardPrep lesson v1) Tj ET
+BT /F2 13.0 Tf 50.0 753.0 Td (Official examination scope) Tj ET
+BT /F1 10.0 Tf 50.0 732.0 Td (PRC's Civil Engineering board page provides official syllabus and examination references. This) Tj ET
+BT /F1 10.0 Tf 50.0 718.0 Td (lesson practices basic equilibrium and elastic-beam relationships within that scope; confirm) Tj ET
+BT /F1 10.0 Tf 50.0 704.0 Td (the current PRC notice and TOS. Formulas assume the stated idealized supports and model. No) Tj ET
+BT /F1 10.0 Tf 50.0 690.0 Td (frequency claim is made.) Tj ET
+BT /F2 13.0 Tf 50.0 671.0 Td (Learning objectives) Tj ET
+BT /F1 10.0 Tf 58.0 650.0 Td (- Solve support reactions using a free-body diagram and force and moment equilibrium.) Tj ET
+BT /F1 10.0 Tf 58.0 636.0 Td (- Relate shear and bending moment to locate a candidate maximum moment.) Tj ET
+BT /F1 10.0 Tf 58.0 622.0 Td (- Compute midspan deflection for a stated simply supported beam model with consistent units.) Tj ET
+BT /F2 13.0 Tf 50.0 603.0 Td (1. Draw the free-body diagram) Tj ET
+BT /F1 10.0 Tf 50.0 582.0 Td (Replace supports with reaction components, show each load and its location, and choose) Tj ET
+BT /F1 10.0 Tf 50.0 568.0 Td (positive directions. For planar statics, sum horizontal forces, vertical forces, and moments) Tj ET
+BT /F1 10.0 Tf 50.0 554.0 Td (to zero. A centered load on a symmetric span gives equal reactions; a different geometry may) Tj ET
+BT /F1 10.0 Tf 50.0 540.0 Td (not.) Tj ET
+BT /F2 13.0 Tf 50.0 521.0 Td (2. Use shear and moment together) Tj ET
+BT /F1 10.0 Tf 50.0 500.0 Td (Under the usual beam sign convention, dM/dx = V. A stationary moment occurs where shear is) Tj ET
+BT /F1 10.0 Tf 50.0 486.0 Td (zero or changes sign, subject to jumps and boundary conditions. Check moment values at) Tj ET
+BT /F1 10.0 Tf 50.0 472.0 Td (supports and other candidates before naming the maximum.) Tj ET
+BT /F2 13.0 Tf 50.0 453.0 Td (3. Apply the centered point-load model) Tj ET
+BT /F1 10.0 Tf 50.0 432.0 Td (For a simply supported prismatic beam, linear elasticity, small deflection, and a centered) Tj ET
+BT /F1 10.0 Tf 50.0 418.0 Td (load P, delta_max = P L^3/\(48 E I\). Use P in newtons, L in metres, E in pascals, and I in m^4;) Tj ET
+BT /F1 10.0 Tf 50.0 404.0 Td (the answer is metres.) Tj ET
+BT /F2 13.0 Tf 50.0 385.0 Td (Find support reactions) Tj ET
+BT /F1 10.0 Tf 50.0 364.0 Td (Question: A simply supported beam carries a centered 16 kN point load.) Tj ET
+BT /F1 10.0 Tf 50.0 350.0 Td (1. Vertical equilibrium: R_A + R_B = 16 kN.) Tj ET
+BT /F1 10.0 Tf 50.0 336.0 Td (2. Moments about A: R_B L = 16\(L/2\), so R_B = 8 kN.) Tj ET
+BT /F1 10.0 Tf 50.0 322.0 Td (3. Then R_A = 16 - 8 = 8 kN.) Tj ET
+BT /F1 10.0 Tf 50.0 308.0 Td (Answer: Each support reaction is 8 kN upward.) Tj ET
+BT /F1 10.0 Tf 50.0 294.0 Td (Check: The reactions sum to the load and their moments balance it.) Tj ET
+BT /F2 13.0 Tf 50.0 275.0 Td (Check midspan deflection) Tj ET
+BT /F1 10.0 Tf 50.0 254.0 Td (Question: P = 8 kN, L = 4 m, E = 200 GPa, I = 3.0 x 10^-5 m^4.) Tj ET
+BT /F1 10.0 Tf 50.0 240.0 Td (1. Convert P = 8000 N and E = 200 x 10^9 Pa.) Tj ET
+BT /F1 10.0 Tf 50.0 226.0 Td (2. Substitute: 8000\(4^3\)/\(48\(200 x 10^9\)\(3.0 x 10^-5\)\) = 0.00178 m.) Tj ET
+BT /F1 10.0 Tf 50.0 212.0 Td (3. Multiply by 1000 to convert to millimetres.) Tj ET
+BT /F1 10.0 Tf 50.0 198.0 Td (Answer: The deflection magnitude is approximately 1.78 mm.) Tj ET
+BT /F1 10.0 Tf 50.0 184.0 Td (Check: All inputs use consistent SI units.) Tj ET
+BT /F2 13.0 Tf 50.0 165.0 Td (Common misconceptions) Tj ET
+BT /F1 10.0 Tf 58.0 144.0 Td (- Assuming equal reactions when geometry or loading is asymmetric.) Tj ET
+BT /F1 10.0 Tf 58.0 130.0 Td (- Locating maximum moment without checking shear or the moment function.) Tj ET
+BT /F1 10.0 Tf 58.0 116.0 Td (- Mixing millimetres, pascals, metres, and m^4 without conversion.) Tj ET
+BT /F1 10.0 Tf 58.0 102.0 Td (- Applying a small-deflection formula outside its assumptions.) Tj ET
+BT /F2 13.0 Tf 50.0 83.0 Td (Practice patterns) Tj ET
+BT /F1 8 Tf 500 28 Td (BoardPrep | 1 / 2) Tj ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 8 0 R >>
+endobj
+8 0 obj
+<< /Length 2252>>
+stream
+BT /F1 10.0 Tf 58.0 790.0 Td (- Find reactions from force and moment equilibrium.) Tj ET
+BT /F1 10.0 Tf 58.0 776.0 Td (- Locate the maximum moment from a shear or moment relationship.) Tj ET
+BT /F1 10.0 Tf 58.0 762.0 Td (- Apply a deflection formula and convert the result to the requested unit.) Tj ET
+BT /F2 13.0 Tf 50.0 743.0 Td (Official scope references) Tj ET
+BT /F1 10.0 Tf 50.0 722.0 Td (Official scope: PRC Civil Engineering Board and Syllabus Resources — Professional Regulation) Tj ET
+BT /F1 10.0 Tf 50.0 708.0 Td (Commission; Professional Regulatory Board of Civil Engineering —) Tj ET
+BT /F1 10.0 Tf 50.0 694.0 Td (https://prc.gov.ph/Pages/PRBv4/CivilEngineering.htm) Tj ET
+BT /F2 13.0 Tf 50.0 675.0 Td (Instructional references) Tj ET
+BT /F1 10.0 Tf 50.0 654.0 Td (Instructional reference: University Physics Volume 1, Section 12.1: Conditions for Static) Tj ET
+BT /F1 10.0 Tf 50.0 640.0 Td (Equilibrium — OpenStax, Rice University —) Tj ET
+BT /F1 10.0 Tf 50.0 626.0 Td (https://openstax.org/books/university-physics-volume-1/pages/12-1-conditions-for-static-equili) Tj ET
+BT /F1 10.0 Tf 50.0 612.0 Td (brium) Tj ET
+BT /F1 10.0 Tf 50.0 598.0 Td (Instructional reference: Analysis of Structural Member Systems — Jerome J. Connor; MIT) Tj ET
+BT /F1 10.0 Tf 50.0 584.0 Td (OpenCourseWare —) Tj ET
+BT /F1 10.0 Tf 50.0 570.0 Td (https://ocw.mit.edu/courses/1-571-structural-analysis-and-control-spring-2004/resources/open-t) Tj ET
+BT /F1 10.0 Tf 50.0 556.0 Td (extbooks/) Tj ET
+BT /F1 10.0 Tf 50.0 542.0 Td (Instructional reference: MIT OpenCourseWare 1.050 Solid Mechanics: Internal Forces and) Tj ET
+BT /F1 10.0 Tf 50.0 528.0 Td (Moments, Exercise 3.16 — MIT OpenCourseWare, Department of Civil and Environmental Engineering) Tj ET
+BT /F1 10.0 Tf 50.0 514.0 Td (—) Tj ET
+BT /F1 10.0 Tf 50.0 500.0 Td (https://live.ocw.mit.edu/courses/1-050-solid-mechanics-fall-2004/5070a932644d2cb44cc965ac56f79) Tj ET
+BT /F1 10.0 Tf 50.0 486.0 Td (c66_emech3_04.pdf) Tj ET
+BT /F1 8.0 Tf 50.0 472.0 Td (BoardPrep lesson material is original instruction. It is not an official examination document.) Tj ET
+BT /F1 8.0 Tf 50.0 460.0 Td (No claim about question frequency or examination weighting is made.) Tj ET
+BT /F1 8 Tf 500 28 Td (BoardPrep | 2 / 2) Tj ET
+endstream
+endobj
+xref
+0 9
+0000000000 65535 f 
+0000000020 00000 n 
+0000000069 00000 n 
+0000000132 00000 n 
+0000000229 00000 n 
+0000000331 00000 n 
+0000000467 00000 n 
+0000004751 00000 n 
+0000004887 00000 n 
+trailer
+<< /Size 9 /Root 1 0 R >>
+startxref
+7189
+%%EOF

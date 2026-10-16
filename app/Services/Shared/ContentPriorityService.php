@@ -36,6 +36,7 @@ final class ContentPriorityService
         'study-question-links',
         'sources',
         'content-fit-audits',
+        'academic-review-decisions',
     ];
 
     private const MIN_USAGE_SAMPLE = 5;

@@ -15,7 +15,7 @@ class DeveloperToolsController extends BaseDeveloperController
     {
         $query = Request::query();
         $filters = [];
-        foreach (['board_id', 'subject_id', 'topic_id', 'severity', 'issue_code', 'detection_type', 'id_from', 'id_to'] as $key) {
+        foreach (['board_id', 'subject_id', 'topic_id', 'concept_id', 'severity', 'issue_code', 'detection_type', 'id_from', 'id_to'] as $key) {
             if (is_scalar($query[$key] ?? null) && trim((string) $query[$key]) !== '') {
                 $filters[$key] = trim((string) $query[$key]);
             }
@@ -30,6 +30,13 @@ class DeveloperToolsController extends BaseDeveloperController
             echo json_encode($contentPriorities, JSON_UNESCAPED_SLASHES | JSON_INVALID_UTF8_SUBSTITUTE | JSON_THROW_ON_ERROR);
             return;
         }
+        $requestedPage = filter_var($query['page'] ?? 1, FILTER_VALIDATE_INT);
+        $requestedPageSize = filter_var($query['per_page'] ?? 25, FILTER_VALIDATE_INT);
+        $contentPriorities['qa'] = \App\Services\Shared\ContentQaService::paginateReport(
+            is_array($contentPriorities['qa'] ?? null) ? $contentPriorities['qa'] : [],
+            $requestedPage === false ? 1 : $requestedPage,
+            $requestedPageSize === false ? 25 : $requestedPageSize
+        );
         self::renderDeveloper(
             'developer/content-intelligence',
             [

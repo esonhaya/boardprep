@@ -282,5 +282,287 @@
       "checked_at": "2026-10-16",
       "note": "The official scope reference, formative/summative distinction, validity/reliability distinction, and worked scenarios were checked against the linked PRC, DepEd, and Cornell references. This status does not imply human editorial sign-off."
     }
+  },
+  {
+    "id": "cle-scene-documentation-and-evidence-custody",
+    "title": "Crime-Scene Documentation and Evidence Custody",
+    "material_id": "cle-investigation-foundation",
+    "status": "published",
+    "version": 1,
+    "board_id": "criminologist",
+    "subject_id": "criminal-justice-foundations",
+    "official_scope_source_ids": ["prc-criminology-enhanced-tos-2024"],
+    "instructional_source_ids": ["nij-crime-scene-guide-2013", "nij-crime-scene-guides-2017", "nij-chain-of-custody-dna-evidence-2023"],
+    "scope_note": "The PRC enhanced Criminology TOS defines licensure competencies; consult its current annex for exact boundaries. This lesson teaches scene documentation, evidence preservation, and custody records using NIJ guidance. It does not estimate item frequency or replace applicable Philippine law and agency procedures.",
+    "learning_objectives": [
+      "Preserve scene context and record observable conditions before collection changes them.",
+      "Trace an item's identity, recovery, condition, package, seal, and transfers.",
+      "Distinguish a custody-record gap from proof that evidence was altered."
+    ],
+    "sections": [
+      {"heading": "1. Secure, observe, and document", "body": "Protect people first and control access so the scene is not unnecessarily disturbed. Record the condition on arrival and the relationship between traces and their surroundings. Notes, photographs, measurements, and sketches preserve different details. Separate direct observations from later interpretations."},
+      {"heading": "2. Preserve context before collection", "body": "A trace can lose meaning if its location or relationship to other objects is undocumented. Record and photograph it in context, then collect it using the approved method. When evidence is vulnerable to weather or loss, protect it promptly while assigning parallel tasks where staffing allows. Follow agency and laboratory guidance for packaging and preservation."},
+      {"heading": "3. Maintain custody continuity", "body": "Give each item a unique identifier and record its description, condition, recovery location, date and time, collector, package, and seal. Each transfer should identify the giver, receiver, date and time, and purpose, with a receipt or secure electronic record. If an authorized examination opens a package, document the event and replacement seal under policy."},
+      {"heading": "4. Review gaps without overclaiming", "body": "An unexplained broken seal or incomplete resealing entry is a traceability problem requiring investigation. The record alone does not establish who caused the gap or whether an item changed. Preserve the original record, seek authorized explanations and corroboration, and report any unresolved limitation accurately."}
+    ],
+    "worked_examples": [
+      {"heading": "Review an incomplete reseal record", "prompt": "A laboratory log says an exhibit was opened for testing and resealed, but the replacement seal has no initials or date. What can the reviewer conclude?", "steps": ["Identify the missing initials and date as a documentation gap.", "Check authorized laboratory records, transfer receipts, and the examiner's account for an explanation.", "Do not call the gap tampering unless independent evidence supports that conclusion."], "answer": "The resealing event is insufficiently documented and requires explanation and corroboration.", "check": "The conclusion preserves the evidentiary concern without claiming a proven alteration."}
+    ],
+    "common_misconceptions": [
+      "Collecting before recording location can remove useful scene context.",
+      "A label alone is not a complete record of every transfer.",
+      "A broken or incomplete seal entry is not by itself proof of tampering.",
+      "Guidance must be applied with local law, agency policy, safety, and laboratory requirements."
+    ],
+    "question_patterns": [
+      "Choose what to document or protect first when a scene feature may change.",
+      "Identify missing information in a collection, transfer, opening, or resealing record.",
+      "Separate a supportable custody conclusion from an unsupported accusation."
+    ],
+    "practice_question_ids": ["757", "762", "770", "780"],
+    "pdf_file": "cle-scene-documentation-and-evidence-custody.pdf",
+    "source_review": {"status": "SOURCE_CHECKED", "checked_at": "2026-10-16", "note": "Scope and original explanations were checked against the PRC TOS and NIJ scene and custody guidance. Apply local law and agency policy; this does not imply human academic sign-off."}
+  },
+  {
+    "id": "nursing-standard-and-transmission-precautions",
+    "title": "Standard Precautions, Transmission Risk, and Safe Injections",
+    "material_id": "nle-np-iii-foundation",
+    "status": "published",
+    "version": 1,
+    "board_id": "nursing",
+    "subject_id": "nursing-foundations",
+    "official_scope_source_ids": ["prc-nursing-enhanced-tos-2025"],
+    "instructional_source_ids": ["cdc-infection-control-basics", "cdc-isolation-precautions", "cdc-safe-injection-practices-2024"],
+    "scope_note": "PRC Resolution No. 10 s. 2025 adopts the enhanced Nurses Licensure Examination TOS for November 2025 and later schedules. This lesson selects infection-prevention principles for nursing practice. Follow current public-health guidance, patient condition, product instructions, and facility policy; no frequency claim is made.",
+    "learning_objectives": [
+      "Apply Standard Precautions to all patient care and assess exposure before selecting PPE.",
+      "Recognize when transmission-based precautions add measures to Standard Precautions.",
+      "Explain how hand hygiene and single-use sterile injection equipment interrupt avoidable transmission."
+    ],
+    "sections": [
+      {"heading": "1. Start with Standard Precautions", "body": "Standard Precautions apply to every patient in every care setting, regardless of known infection status. They include hand hygiene, safe injection practices, environmental and equipment controls, respiratory hygiene, and exposure-based PPE. Gloves do not replace hand hygiene. Follow the indicated care moments and clean hands after removing PPE."},
+      {"heading": "2. Add measures for transmission risk", "body": "Use current transmission-based guidance when a suspected or confirmed condition warrants additional contact, droplet, or airborne controls. Check the required pathway, room controls, respiratory protection, equipment, and transport plan. Exact precautions depend on the organism, task, setting, and current guidance."},
+      {"heading": "3. Match PPE and equipment to the task", "body": "Before suctioning or close care, consider contact with secretions, contaminated surfaces, and splash or aerosol exposure. Prepare the required PPE and dedicated or reprocessed equipment, then plan safe disposal and hand hygiene. A procedure name alone does not replace the risk assessment or isolation pathway."},
+      {"heading": "4. Keep injections aseptic", "body": "Use a new sterile needle and syringe for each patient and each injection. Never reuse a syringe or use a used needle to enter a medication vial or solution container. Follow product labeling and facility policy for vial access, storage, and discard."}
+    ],
+    "worked_examples": [
+      {"heading": "Prepare to suction a patient on contact precautions", "prompt": "What should the nurse check before entering?", "steps": ["Confirm current isolation instructions and expected contact with secretions and equipment.", "Select PPE and hand-hygiene steps required by the task and facility protocol.", "Prepare equipment, disposal, and any room or transport controls."], "answer": "Verify exposure risk, PPE, hand hygiene, equipment, disposal, and the current precaution pathway.", "check": "The plan includes routine Standard Precautions and additional contact controls."},
+      {"heading": "Access a multidose vial", "prompt": "What prevents syringe-mediated transmission?", "steps": ["Use a new sterile needle and syringe for the patient and injection.", "Do not re-enter the vial with used equipment.", "Follow product labeling and facility rules for storage and discard."], "answer": "Use single-use sterile injection equipment and an aseptic vial-access process.", "check": "Needle and syringe are not shared between patients or reused for another vial entry."}
+    ],
+    "common_misconceptions": [
+      "Standard Precautions apply only after infection is diagnosed.",
+      "Gloves remove the need for hand hygiene.",
+      "One PPE set is appropriate for every task and setting.",
+      "A multidose vial makes used injection equipment safe to reuse."
+    ],
+    "question_patterns": [
+      "Select preparation steps from a stated task and exposure risk.",
+      "Combine Standard Precautions with indicated transmission-based controls.",
+      "Identify unsafe medication or injection practices."
+    ],
+    "practice_question_ids": ["3853", "4004", "4005", "4006"],
+    "pdf_file": "nursing-standard-and-transmission-precautions.pdf",
+    "source_review": {"status": "SOURCE_CHECKED", "checked_at": "2026-10-16", "note": "Scope and infection-prevention statements were checked against the PRC TOS and CDC core, isolation, and injection guidance. Follow current clinical policy; human academic sign-off is not recorded."}
+  },
+  {
+    "id": "psychometrician-reliability-and-score-precision",
+    "title": "Reliability, Measurement Error, and Score Precision",
+    "material_id": "ple-487--eliability-and-easurement-rror",
+    "status": "published",
+    "version": 1,
+    "board_id": "psychometrician",
+    "subject_id": "psych-assessment-research-statistics",
+    "official_scope_source_ids": ["prc-psychometrician-enhanced-tos-2023"],
+    "instructional_source_ids": ["aera-apa-ncme-testing-standards-2014", "openstax-introductory-statistics-2e"],
+    "scope_note": "The PRC Psychology board page lists Resolution No. 02 s. 2023 and its enhanced TOS for the Psychometrician examination. This lesson uses testing standards and statistical instruction to explain reliability and score precision. Its formula example is a classical-test-theory model, not a universal threshold or frequency claim.",
+    "learning_objectives": [
+      "Distinguish reliability evidence from validity evidence and a guarantee about an individual score.",
+      "Compute a standard error of measurement from a stated SD and reliability estimate.",
+      "Interpret score consistency for the relevant population, administration, and use."
+    ],
+    "sections": [
+      {"heading": "1. Reliability is contextual", "body": "Reliability evidence concerns score consistency or precision for a defined population and use. Estimates may address different error sources, such as internal consistency, alternate forms, or occasions. The value can change with examinee range, item set, administration, and scoring. Report the source and context instead of treating reliability as a permanent property of a test."},
+      {"heading": "2. Reliability does not establish validity", "body": "Validity concerns whether evidence supports the proposed score interpretation and use. Consistent scores may still represent the wrong construct, omit important content, or support an unjustified decision. An internal-consistency coefficient alone does not show adequate content coverage, fairness, or validity for a particular use."},
+      {"heading": "3. Estimate precision with SEM", "body": "Under a classical-test-theory model, SEM = SD_x x sqrt(1 - r_xx), where SD_x is the observed-score standard deviation and r_xx is the relevant reliability estimate. Inputs must refer to an appropriate group and model. SEM summarizes score imprecision; it is not the standard error of a sample mean."},
+      {"heading": "4. Match evidence to a decision", "body": "Use reliability evidence relevant to the present population, administration, and decision. A small or unrelated sample may provide weak guidance. For scores near a decision threshold, acknowledge uncertainty and consider additional evidence instead of treating one observed score as error-free."}
+    ],
+    "worked_examples": [
+      {"heading": "Compute a classical SEM estimate", "prompt": "SD_x = 10 points and a relevant reliability estimate r_xx = .84. Estimate SEM.", "steps": ["Compute 1 - .84 = .16.", "Take sqrt(.16) = .40.", "Multiply 10 points x .40 = 4 points."], "answer": "Estimated SEM = 4 score points under the stated model and inputs.", "check": "The output has the score's unit; it is not a validity coefficient or a guaranteed interval for each person."}
+    ],
+    "common_misconceptions": [
+      "A high internal-consistency coefficient proves that the test measures the intended construct.",
+      "One reliability estimate transfers unchanged to every population and decision.",
+      "SEM is the standard error of a sample mean or a guaranteed error bound for one person.",
+      "More similar items always improve construct representation."
+    ],
+    "question_patterns": [
+      "Compute SEM from the supplied reliability estimate and score SD.",
+      "Explain why evidence from another population may not support the current decision.",
+      "Separate internal consistency from validity and content representation."
+    ],
+    "practice_question_ids": ["4618", "4631", "4633", "4639"],
+    "pdf_file": "psychometrician-reliability-and-score-precision.pdf",
+    "source_review": {"status": "SOURCE_CHECKED", "checked_at": "2026-10-16", "note": "The TOS reference, reliability/validity distinction, and classical SEM calculation were checked against the registered PRC, AERA/APA/NCME, and OpenStax references. This does not imply human academic sign-off."}
+  },
+  {
+    "id": "ce-beam-equilibrium-and-response",
+    "title": "Simply Supported Beam Equilibrium and Response",
+    "material_id": "ce-489--tructural-echanics-and-esign",
+    "status": "published",
+    "version": 1,
+    "board_id": "civil-engineering",
+    "subject_id": "civil-engineering-structural-engineering",
+    "official_scope_source_ids": ["prc-civil-engineering-board-page"],
+    "instructional_source_ids": ["openstax-static-equilibrium-12-1", "mit-structural-analysis-member-systems", "mit-solid-mechanics-beam-reactions-316"],
+    "scope_note": "PRC's Civil Engineering board page provides official syllabus and examination references. This lesson practices basic equilibrium and elastic-beam relationships within that scope; confirm the current PRC notice and TOS. Formulas assume the stated idealized supports and model. No frequency claim is made.",
+    "learning_objectives": [
+      "Solve support reactions using a free-body diagram and force and moment equilibrium.",
+      "Relate shear and bending moment to locate a candidate maximum moment.",
+      "Compute midspan deflection for a stated simply supported beam model with consistent units."
+    ],
+    "sections": [
+      {"heading": "1. Draw the free-body diagram", "body": "Replace supports with reaction components, show each load and its location, and choose positive directions. For planar statics, sum horizontal forces, vertical forces, and moments to zero. A centered load on a symmetric span gives equal reactions; a different geometry may not."},
+      {"heading": "2. Use shear and moment together", "body": "Under the usual beam sign convention, dM/dx = V. A stationary moment occurs where shear is zero or changes sign, subject to jumps and boundary conditions. Check moment values at supports and other candidates before naming the maximum."},
+      {"heading": "3. Apply the centered point-load model", "body": "For a simply supported prismatic beam, linear elasticity, small deflection, and a centered load P, delta_max = P L^3/(48 E I). Use P in newtons, L in metres, E in pascals, and I in m^4; the answer is metres."}
+    ],
+    "worked_examples": [
+      {"heading": "Find support reactions", "prompt": "A simply supported beam carries a centered 16 kN point load.", "steps": ["Vertical equilibrium: R_A + R_B = 16 kN.", "Moments about A: R_B L = 16(L/2), so R_B = 8 kN.", "Then R_A = 16 - 8 = 8 kN."], "answer": "Each support reaction is 8 kN upward.", "check": "The reactions sum to the load and their moments balance it."},
+      {"heading": "Check midspan deflection", "prompt": "P = 8 kN, L = 4 m, E = 200 GPa, I = 3.0 x 10^-5 m^4.", "steps": ["Convert P = 8000 N and E = 200 x 10^9 Pa.", "Substitute: 8000(4^3)/(48(200 x 10^9)(3.0 x 10^-5)) = 0.00178 m.", "Multiply by 1000 to convert to millimetres."], "answer": "The deflection magnitude is approximately 1.78 mm.", "check": "All inputs use consistent SI units."}
+    ],
+    "common_misconceptions": [
+      "Assuming equal reactions when geometry or loading is asymmetric.",
+      "Locating maximum moment without checking shear or the moment function.",
+      "Mixing millimetres, pascals, metres, and m^4 without conversion.",
+      "Applying a small-deflection formula outside its assumptions."
+    ],
+    "question_patterns": [
+      "Find reactions from force and moment equilibrium.",
+      "Locate the maximum moment from a shear or moment relationship.",
+      "Apply a deflection formula and convert the result to the requested unit."
+    ],
+    "practice_question_ids": ["6973", "1168", "1162"],
+    "pdf_file": "ce-beam-equilibrium-and-response.pdf",
+    "source_review": {"status": "SOURCE_CHECKED", "checked_at": "2026-10-16", "note": "Equilibrium, beam assumptions, and numerical work were checked against the registered PRC, OpenStax, and MIT sources. This does not imply human academic sign-off."}
+  },
+  {
+    "id": "cpa-audit-evidence-and-assertion-testing",
+    "title": "Audit Evidence Quality and Assertion-Directed Procedures",
+    "material_id": "batch622-cpa-auditing-evidence",
+    "status": "published",
+    "version": 1,
+    "board_id": "cpa",
+    "subject_id": "cpa-auditing",
+    "official_scope_source_ids": ["prc-accountancy-board-page", "prc-accountancy-exam-program-2026", "prc-accountancy-auditing-standards-2026"],
+    "instructional_source_ids": ["iaasb-isa-500-audit-evidence", "iaasb-isa-315-risk-assessment", "iaasb-isa-230-documentation"],
+    "scope_note": "The PRC Board of Accountancy page and 2026 program identify current LECPA subjects; PRC Board Resolution No. 3 s. 2026 adopts Philippine auditing and assurance standards. This lesson teaches selected ISA 500 concepts. Consult current PRC and adopted standards; no frequency claim is made.",
+    "learning_objectives": [
+      "Distinguish evidence appropriateness (quality) from sufficiency (quantity).",
+      "Select a procedure direction that tests the stated financial-statement assertion.",
+      "Investigate contradictory evidence and document the resulting professional judgment."
+    ],
+    "sections": [
+      {"heading": "1. Separate evidence quality and amount", "body": "Appropriateness concerns evidence quality, including relevance to the assertion and reliability of its source and form. Sufficiency concerns amount. More low-relevance or unreliable evidence may not resolve a gap. Evaluate both dimensions in relation to assessed risks and the conclusion."},
+      {"heading": "2. Let the assertion determine direction", "body": "To test occurrence of recorded revenue, select entries from the accounting records and trace to shipping or customer-acceptance support. To test completeness of purchases, begin with a source population such as receiving reports and trace forward to the purchases journal and liabilities. Direction changes which omissions or unsupported records the procedure can detect."},
+      {"heading": "3. Investigate contradictory evidence", "body": "An external confirmation may be persuasive, but a conflict with management's schedule requires investigation. Consider reliability, the reason for the difference, corroborating evidence, and whether risks or procedures should change. Document the conflict, work performed, and conclusion."},
+      {"heading": "4. Keep skepticism and documentation active", "body": "Assess evidence in context. Inquiry alone may not support a conclusion when stronger corroboration is needed. Record procedures, sources, results, judgments, and how inconsistencies were resolved. The objective is sufficient appropriate evidence, not a predetermined document count."}
+    ],
+    "worked_examples": [
+      {"heading": "Choose a completeness procedure", "prompt": "Start with receiving reports issued before year-end and trace them into the purchases journal. Which assertion is targeted?", "steps": ["Receiving reports may include goods received but not recorded.", "Tracing forward asks whether those source events entered the accounting records.", "An omitted purchase or liability can therefore be identified."], "answer": "The procedure primarily tests completeness of purchases and related liabilities.", "check": "Starting with recorded purchases and tracing backward would more directly address occurrence."}
+    ],
+    "common_misconceptions": [
+      "Appropriateness and sufficiency both mean the quantity of evidence.",
+      "Tracing forward and vouching backward test the same direction and assertion.",
+      "External evidence automatically resolves a conflict without assessing reliability.",
+      "A contradiction can be ignored when one source agrees with management."
+    ],
+    "question_patterns": [
+      "Classify an evidence-quality issue as appropriateness or sufficiency.",
+      "Choose the assertion tested by the direction of tracing or vouching.",
+      "Identify a sound response to evidence that conflicts with management."
+    ],
+    "practice_question_ids": ["1338", "4238", "4239", "4248"],
+    "pdf_file": "cpa-audit-evidence-and-assertion-testing.pdf",
+    "source_review": {"status": "SOURCE_CHECKED", "checked_at": "2026-10-16", "note": "The 2026 PRC scope and selected ISA evidence principles were checked against registered PRC and IAASB sources. This synthesis does not imply human academic sign-off."}
+  },
+  {
+    "id": "me-ideal-gas-process-and-cycle-accounting",
+    "title": "Ideal-Gas Processes and Cycle Energy Accounting",
+    "material_id": "me-material-6",
+    "status": "published",
+    "version": 1,
+    "board_id": "mechanical-engineering",
+    "subject_id": "mechanical-engineering-mechanical-engineering-professional-subjects",
+    "official_scope_source_ids": ["prc-mechanical-engineering-board-page", "prc-mechanical-engineering-exam-program-aug-2026"],
+    "instructional_source_ids": ["ubc-introduction-engineering-thermodynamics", "openstax-university-physics-volume-2"],
+    "scope_note": "The PRC August 2026 ME program lists Power Plant Engineering (35%), Mathematics (35%), and Machine Design, Materials and Shop Practice (30%); it gives no thermal-science subtopic weight. This is foundational thermodynamics instruction from existing BoardPrep material. Verify detailed scope in current PRC syllabus resources; no frequency claim is made.",
+    "learning_objectives": [
+      "Use an ideal-gas relation for a fixed-mass, fixed-volume process with absolute temperature.",
+      "Compute work for a stated isothermal ideal-gas expansion.",
+      "Calculate cycle net work and thermal efficiency from heat input and rejection."
+    ],
+    "sections": [
+      {"heading": "1. State the gas model", "body": "For fixed mass of ideal gas, pV = mRT. At fixed volume and mass, p/T is constant, so p2 = p1(T2/T1). Use kelvins. The relation does not apply unchanged when mass or volume changes."},
+      {"heading": "2. Calculate isothermal work", "body": "For quasi-equilibrium isothermal ideal-gas expansion, work by the gas is W = mRT ln(V2/V1). With R in kJ/(kg K), mass in kg, and temperature in K, work is kJ. Expansion is positive work by the gas under this convention; compression reverses the sign."},
+      {"heading": "3. Account for a cycle", "body": "For a heat-engine cycle, net stored energy change is zero. With heat input Qin and rejected heat Qout, Wnet = Qin - Qout and thermal efficiency eta = Wnet/Qin. Efficiency is dimensionless; multiply by 100 only when reporting a percent."},
+      {"heading": "4. Check units and balances", "body": "Write constraints and sign convention, convert units, and check expected signs. Engine work should be less than heat input, and efficiency should be dimensionless. A number without its process assumptions is not reproducible."}
+    ],
+    "worked_examples": [
+      {"heading": "Fixed-volume pressure change", "prompt": "An ideal gas at 150 kPa and 300 K is heated to 450 K at constant mass and volume.", "steps": ["Use p2/p1 = T2/T1.", "p2 = 150(450/300) kPa.", "The ratio is 1.5, so p2 = 225 kPa."], "answer": "Final pressure = 225 kPa.", "check": "A 50% rise in absolute temperature gives a 50% pressure rise at fixed volume."},
+      {"heading": "Heat-engine work and efficiency", "prompt": "A cycle receives 900 kJ and rejects 540 kJ per cycle.", "steps": ["Wnet = 900 - 540 = 360 kJ.", "eta = 360/900 = 0.40.", "If requested, 0.40 x 100% = 40%."], "answer": "Net work is 360 kJ per cycle and efficiency is 0.40 (40%).", "check": "Output work is less than heat input and efficiency has no unit."}
+    ],
+    "common_misconceptions": [
+      "Using Celsius instead of kelvins in a pressure-temperature ratio.",
+      "Using p/T = constant when volume or gas mass is not fixed.",
+      "Treating isothermal ideal-gas expansion work as a rectangular p-V area.",
+      "Dividing rejected heat by input heat instead of using net work for engine efficiency."
+    ],
+    "question_patterns": [
+      "Find a state change from a stated ideal-gas process constraint.",
+      "Calculate expansion work from mass, R, temperature, and volume ratio.",
+      "Determine cycle work and efficiency from input and rejected heat."
+    ],
+    "practice_question_ids": ["3366", "3369", "3375", "3393"],
+    "pdf_file": "me-ideal-gas-process-and-cycle-accounting.pdf",
+    "source_review": {"status": "SOURCE_CHECKED", "checked_at": "2026-10-16", "note": "The official program categories and calculations were checked against registered PRC, UBC, and OpenStax references. No thermal subtopic weight is claimed; human academic sign-off is not recorded."}
+  },
+  {
+    "id": "architecture-site-analysis-and-design-response",
+    "title": "Site Analysis: From Environmental Evidence to Design Response",
+    "material_id": "architecture-4-1-foundation",
+    "status": "published",
+    "version": 1,
+    "board_id": "architecture",
+    "subject_id": "architecture-architectural-design-and-site-planning",
+    "official_scope_source_ids": ["prc-architecture-exam-program-june-2026"],
+    "instructional_source_ids": ["mit-4-111-intro-architecture", "mit-4-401-environmental-buildings"],
+    "scope_note": "The PRC June 2026 Architects program assigns 40% to Architectural Design and Site Planning for that cycle; it does not weight this lesson topic. This lesson combines original instruction with MIT course references. Confirm future program changes and applicable Philippine accessibility, safety, and building rules.",
+    "learning_objectives": [
+      "Build a site analysis from physical, environmental, access, use, and service evidence.",
+      "Compare orientation, shading, daylight, and circulation against stated user and climate needs.",
+      "Explain why a response follows from supplied evidence without making it a universal rule."
+    ],
+    "sections": [
+      {"heading": "1. Map relationships before placing functions", "body": "Record contours, drainage, sun, prevailing wind, vegetation, views, noise, access, adjacent uses, hazards, and existing services. Separate measured conditions from assumptions. A boundary and north arrow are not a complete site analysis; program needs and surrounding context also shape design."},
+      {"heading": "2. Translate evidence into comparisons", "body": "For each use, compare daylight, glare, heat, ventilation, privacy, noise, safety, and arrival. Orientation and shading are tools to test, not fixed answers. A shaded edge may support one use while another edge better serves access, views, or another condition."},
+      {"heading": "3. Resolve trade-offs explicitly", "body": "State the user need, site constraint, proposed response, and remaining checks. Test effects on circulation, adjacent functions, outdoor space, and safe access. Apply current accessibility and building rules; a diagram does not demonstrate code compliance."},
+      {"heading": "4. Communicate a reasoned proposal", "body": "Tie a program decision to observable site evidence and acknowledge trade-offs. A north-side reading room might reduce a stated west-glare concern, but still needs daylight, access, ventilation, and adjacency checks. Do not generalize one orientation to every building or climate."}
+    ],
+    "worked_examples": [
+      {"heading": "Place a reading room from a site schedule", "prompt": "The west edge has late-afternoon direct sun, the north edge is shaded, and pedestrians arrive from the east. A reading room needs usable daylight with limited direct glare.", "steps": ["Map the east arrival path and keep the entrance connection legible.", "Compare a north-side room with west exposure and the daylight the room still needs.", "Test shading, glazing, views, and circulation together."], "answer": "Test a north-side location and shading against daylight, glare, and east-side arrival.", "check": "The proposal follows the supplied schedule and is not a universal orientation rule."}
+    ],
+    "common_misconceptions": [
+      "Treating compass direction as a complete design solution without climate or user evidence.",
+      "Placing the entrance at geometric center while ignoring actual arrival paths.",
+      "Choosing a flat location without checking safety, drainage, access, and use.",
+      "Calling a diagram complete after mapping only the boundary and north arrow."
+    ],
+    "question_patterns": [
+      "Choose which evidence to map before placing a building.",
+      "Evaluate an entrance or function using actual arrival, climate, and use.",
+      "Compare solar exposure and shade with daylight, glare, and circulation needs."
+    ],
+    "practice_question_ids": ["1779", "3723", "3724", "3725"],
+    "pdf_file": "architecture-site-analysis-and-design-response.pdf",
+    "source_review": {"status": "SOURCE_CHECKED", "checked_at": "2026-10-16", "note": "The June 2026 program area and original site-analysis instruction were checked against PRC and MIT sources. No universal orientation or topic-frequency claim is made; human sign-off is not recorded."}
   }
 ]

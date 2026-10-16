@@ -2846,7 +2846,7 @@
         "confidence": "authoritative_reference",
         "source_role": "SCOPE_SOURCE",
         "volatility": "REGULATORY_CURRENT",
-        "notes": "Latest located PRC Architecture examination program as of 2026-10-04. It confirms the current three-area structure and weights: History/Theory, Principles of Planning and Architectural Practice 30%; Utilities, Structural Conceptualization, Building Materials and Technology 30%; Architectural Design and Site Planning 40%."
+        "notes": "Latest located PRC Architecture examination program as of 2026-10-04. It confirms the three-area structure and weights for that cycle: History/Theory, Principles of Planning and Architectural Practice 30%; Utilities, Structural Conceptualization, Building Materials and Technology 30%; Architectural Design and Site Planning 40%. These area weights are not frequency estimates for individual lesson topics."
     },
     {
         "id": "prc-architecture-syllabi",
@@ -3698,8 +3698,8 @@
         "source_role": "INSTRUCTIONAL_SOURCE",
         "volatility": "STABLE_FOUNDATIONAL"
     },
-  {
-    "id": "openstax-university-physics-v2-kirchhoff-10-3",
+    {
+        "id": "openstax-university-physics-v2-kirchhoff-10-3",
     "title": "University Physics Volume 2, Section 10.3: Kirchhoff's Rules",
     "source_type": "OPEN_TEXTBOOK",
     "authority": "OpenStax, Rice University",
@@ -3711,6 +3711,49 @@
     "confidence": "authoritative_instructional_reference",
     "source_role": "INSTRUCTIONAL_SOURCE",
     "volatility": "STABLE_FOUNDATIONAL",
-    "notes": "Teaches Kirchhoff junction and loop rules with original BoardPrep worked examples; the study PDF does not reproduce OpenStax questions or pages."
-  }
+        "notes": "Teaches Kirchhoff junction and loop rules with original BoardPrep worked examples; the study PDF does not reproduce OpenStax questions or pages."
+    },
+    {
+        "id": "nij-chain-of-custody-dna-evidence-2023",
+        "title": "Collecting DNA Evidence at Property Crime Scenes: Chain of Custody",
+        "source_type": "OFFICIAL_GUIDANCE",
+        "authority": "National Institute of Justice, U.S. Department of Justice",
+        "url": "https://nij.ojp.gov/nij-hosted-online-training-courses/collecting-dna-evidence-at-property-crime-scenes/evidence-collection/chain-custody",
+        "publication_date": "2023-06-07",
+        "retrieved_at": "2026-10-16",
+        "version": "NIJ online training module",
+        "status": "official_reference",
+        "confidence": "authoritative_instructional_reference",
+        "source_role": "INSTRUCTIONAL_SOURCE",
+        "notes": "Describes scene notes, item identifiers, collection location and time, packaging, seals, transfer records, and custody receipts. Apply local law and agency policy."
+    },
+    {
+        "id": "cdc-safe-injection-practices-2024",
+        "title": "Safe Injection Practices to Prevent Transmission of Infections to Patients",
+        "source_type": "OFFICIAL_GUIDANCE",
+        "authority": "U.S. Centers for Disease Control and Prevention",
+        "url": "https://www.cdc.gov/injection-safety/hcp/clinical-guidance/",
+        "publication_date": "2024-04-12",
+        "retrieved_at": "2026-10-16",
+        "version": "Current CDC clinical guidance page",
+        "status": "periodically_updated",
+        "confidence": "authoritative_instructional_reference",
+        "source_role": "INSTRUCTIONAL_SOURCE",
+        "notes": "Supports aseptic injection practice, including one sterile needle and syringe for one patient and one use. Follow current product instructions and facility policy."
+    },
+    {
+        "id": "prc-mechanical-engineering-exam-program-aug-2026",
+        "title": "PRC Program of the August 2026 Mechanical Engineers Licensure Examination",
+        "source_type": "OFFICIAL_PROGRAM",
+        "authority": "Professional Regulation Commission; Professional Regulatory Board of Mechanical Engineering",
+        "url": "https://www.prc.gov.ph/sites/default/files/exam%20program%20aug%202026%20mele%20signed.pdf",
+        "publication_date": "2026-06-01",
+        "retrieved_at": "2026-10-16",
+        "version": "August 2026 examination program",
+        "status": "official_reference",
+        "confidence": "authoritative_reference",
+        "source_role": "SCOPE_SOURCE",
+        "volatility": "EXAM_CYCLE",
+        "notes": "The program lists Power Plant Engineering (35%), Mathematics (35%), and Machine Design, Materials and Shop Practice (30%). It does not give a thermal-science subtopic weight."
+    }
 ]

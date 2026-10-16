@@ -181,11 +181,19 @@ final class ContentQaService
         usort($issues, static fn(array $a, array $b): int => [self::rank($a['severity']), $a['issue_code'], implode(',', $a['question_ids'])] <=> [self::rank($b['severity']), $b['issue_code'], implode(',', $b['question_ids'])]);
         $counts = ['ERROR' => 0, 'WARNING' => 0, 'REVIEW' => 0, 'INFO' => 0];
         foreach ($issues as $issue) { $counts[$issue['severity']]++; }
+        $reviewDecisions = array_values(array_filter($collections['academic-review-decisions'] ?? [], 'is_array'));
+        $reviewDecisionSummary = [
+            'total' => count($reviewDecisions),
+            'review_required' => count(array_filter($reviewDecisions, static fn(array $row): bool => strtoupper(self::string($row['review_state'] ?? null)) === 'REVIEW_REQUIRED')),
+            'corrections_applied_pending_human_signoff' => count(array_filter($reviewDecisions, static fn(array $row): bool => strtoupper(self::string($row['correction_state'] ?? null)) === 'APPLIED_PENDING_HUMAN_SIGNOFF')),
+        ];
         return [
             'summary' => $counts + ['total' => count($issues)],
             'issues' => $issues,
             'actionable_fix_queue' => array_values(array_filter($issues, static fn(array $issue): bool => in_array($issue['severity'], ['ERROR', 'WARNING'], true) && $issue['confidence'] === 'HIGH')),
-            'filters_supported' => ['question_ids', 'id_from', 'id_to', 'board_id', 'subject_id', 'topic_id', 'severity', 'issue_code', 'detection_type'],
+            'filters_supported' => ['question_ids', 'id_from', 'id_to', 'board_id', 'subject_id', 'topic_id', 'concept_id', 'severity', 'issue_code', 'detection_type'],
+            'review_decision_summary' => $reviewDecisionSummary,
+            'review_decisions' => $reviewDecisions,
             'runtime' => ['qa_runtime_ms' => round((microtime(true) - $started) * 1000, 2), 'question_passes' => 1, 'duplicate_buckets' => count($normalized) + count($templates), 'n_plus_one' => false],
         ];
     }
@@ -208,6 +216,27 @@ final class ContentQaService
         return $report;
     }
 
+    /** Bound developer HTML responses while retaining the filtered full-scan summary. */
+    public static function paginateReport(array $report, int $page = 1, int $perPage = 25): array
+    {
+        $issues = array_values(array_filter((array) ($report['issues'] ?? []), 'is_array'));
+        $total = count($issues);
+        $perPage = max(1, min(100, $perPage));
+        $pages = max(1, (int) ceil($total / $perPage));
+        $page = max(1, min($pages, $page));
+        $offset = ($page - 1) * $perPage;
+        $report['issues'] = array_slice($issues, $offset, $perPage);
+        $report['pagination'] = [
+            'page' => $page,
+            'per_page' => $perPage,
+            'pages' => $pages,
+            'total' => $total,
+            'first' => $total === 0 ? 0 : $offset + 1,
+            'last' => $total === 0 ? 0 : min($total, $offset + $perPage),
+        ];
+        return $report;
+    }
+
     private static function issue(string $code, string $severity, string $type, string $message, string $action, array $ids, array $byId, array $evidence = []): array
     {
         $question = $byId[(string) ($ids[0] ?? '')] ?? [];
@@ -216,7 +245,7 @@ final class ContentQaService
     }
     private static function matches(array $issue, array $filters): bool
     {
-        foreach (['board_id', 'subject_id', 'topic_id', 'severity', 'issue_code', 'detection_type'] as $key) if (($filters[$key] ?? '') !== '' && strtolower((string) $issue[$key]) !== strtolower((string) $filters[$key])) return false;
+        foreach (['board_id', 'subject_id', 'topic_id', 'concept_id', 'severity', 'issue_code', 'detection_type'] as $key) if (($filters[$key] ?? '') !== '' && strtolower((string) ($issue[$key] ?? '')) !== strtolower((string) $filters[$key])) return false;
         $wanted = array_filter(array_map('strval', (array) ($filters['question_ids'] ?? [])));
         if ($wanted !== [] && array_intersect($wanted, $issue['question_ids']) === []) return false;
         if (($filters['id_from'] ?? null) !== null || ($filters['id_to'] ?? null) !== null) {

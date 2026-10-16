@@ -146,6 +146,14 @@ $assert(str_contains((string) ($reportResponse['output'] ?? ''), 'Portfolio QA')
 $assert(str_contains((string) ($reportResponse['output'] ?? ''), 'Content Priorities'), 'Content Intelligence priority section was not rendered');
 $assert(str_contains((string) ($reportResponse['output'] ?? ''), 'psychometrician'), 'Content Intelligence report omitted a registered board');
 $assert(str_contains((string) ($reportResponse['output'] ?? ''), 'PASS_WITH_JUSTIFIED_EXCLUSIONS'), 'Content Intelligence report omitted the integrity status');
-$assert(!str_contains((string) ($reportResponse['output'] ?? ''), '>UNKNOWN<'), 'Content Intelligence report failed to map board integrity results');
+$reportHtml = (string) ($reportResponse['output'] ?? '');
+$boardReadinessStart = strpos($reportHtml, '<section aria-labelledby="board-depth-heading">');
+$boardReadinessEnd = $boardReadinessStart === false ? false : strpos($reportHtml, '</tbody>', $boardReadinessStart);
+$boardReadinessHtml = $boardReadinessStart === false || $boardReadinessEnd === false
+    ? ''
+    : substr($reportHtml, $boardReadinessStart, $boardReadinessEnd - $boardReadinessStart);
+$assert($boardReadinessHtml !== '', 'Content Intelligence report omitted the board readiness matrix');
+$assert(!str_contains($boardReadinessHtml, '>UNKNOWN<'), 'Content Intelligence report failed to map board integrity results');
+$assert(str_contains($reportHtml, '<td>UNKNOWN</td>'), 'Content Intelligence report hid unresolved semantic audit states');
 
 echo "[PASS] Content depth, usage signals, deterministic priorities, and Developer Tools contract verified.\n";

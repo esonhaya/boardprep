@@ -38,6 +38,7 @@ $collections = [
     'study-question-links' => [['id' => 'link-source', 'question_id' => 'q-source', 'material_id' => 'source-less']],
     'sources' => [],
     'content-fit-audits' => [['question_id' => 'q-one', 'fit_classification' => 'WEAK_BUT_DEFENSIBLE', 'rationale' => 'Fixture review evidence']],
+    'academic-review-decisions' => [['id' => 'decision-q-source', 'question_id' => 'q-source', 'review_state' => 'REVIEW_REQUIRED', 'correction_state' => 'APPLIED_PENDING_HUMAN_SIGNOFF']],
 ];
 $integrity = ['boards' => ['alpha' => ['defects' => ['unlinked_questions' => ['q-bad']]]], 'failures' => ['invalid_answers' => ['q-bad']]];
 $report = ContentQaService::analyze($collections, $integrity);
@@ -62,5 +63,18 @@ foreach ($filtered['issues'] as $issue) {
 $boardFiltered = ContentQaService::analyze($collections, $integrity, ['board_id' => 'alpha']);
 $assert($boardFiltered['summary']['total'] === $report['summary']['total'], 'board filter did not retain matching board issues');
 $assert(isset($report['actionable_fix_queue']) && $report['runtime']['n_plus_one'] === false, 'QA action queue/runtime contract missing');
+$assert(($report['review_decision_summary']['review_required'] ?? 0) === 1
+    && ($report['review_decision_summary']['corrections_applied_pending_human_signoff'] ?? 0) === 1,
+    'Editorial correction ledger hid outstanding human sign-off.');
+$conceptFiltered = ContentQaService::filterReport($report, ['concept_id' => 'c']);
+$assert($conceptFiltered['issues'] !== [] && count($conceptFiltered['issues']) === count($report['issues']), 'Concept filter removed matching taxonomy findings.');
+$pageOne = ContentQaService::paginateReport($report, 1, 2);
+$pageTwo = ContentQaService::paginateReport($report, 2, 2);
+$assert(count($pageOne['issues']) === 2 && count($pageTwo['issues']) === 2, 'QA issue pagination did not bound each page.');
+$assert(($pageOne['pagination']['total'] ?? 0) === ($report['summary']['total'] ?? -1)
+    && ($pageTwo['pagination']['first'] ?? 0) === 3,
+    'QA pagination changed the full filtered summary or page offsets.');
+$clamped = ContentQaService::paginateReport($report, 9999, 1000);
+$assert(($clamped['pagination']['per_page'] ?? 0) === 100 && ($clamped['pagination']['page'] ?? 0) === ($clamped['pagination']['pages'] ?? -1), 'QA pagination failed to clamp page size or page number.');
 
 echo "Content QA service test passed\n";
