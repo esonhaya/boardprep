@@ -5,14 +5,14 @@
 ```text
 HEAD_BEFORE=113a7b826865e96bd788e95d8e02e334de5c5a20
 HEAD_AFTER_APPLICATION=e314a99956b846950a5cb97d56f1b9f49f3999ef
-HEAD_AFTER_DOCUMENTATION=Final report/clipboard-status commit after 9702443; its SHA is reported in the batch completion message because a commit cannot embed its own hash.
+HEAD_AFTER_DOCUMENTATION=Final documentation commit; its SHA is reported in the completion message because a commit cannot embed its own hash.
 START_TIME=2026-10-16 16:01:33 UTC
-END_TIME=2026-10-16 16:42:03 UTC (last recorded storage snapshot; final report correction/push follows)
-ELAPSED_MINUTES=41 (rounded)
+END_TIME=2026-10-16 16:43:30 UTC (final recorded storage snapshot; report/clipboard completion follows immediately)
+ELAPSED_MINUTES=42 (rounded from 41m 57s)
 STORAGE_FREE_BEFORE=1,423,576 KiB (df -Pk; 1.36 GiB)
-STORAGE_FREE_AFTER=1,226,716 KiB at 2026-10-16 16:42:03 UTC (df -Pk; 1.17 GiB); a lower 633,368 KiB snapshot was observed at 16:38:26 UTC.
+STORAGE_FREE_AFTER=1,226,620 KiB at 2026-10-16 16:43:30 UTC (df -Pk; 1.17 GiB); a lower 633,368 KiB snapshot was observed at 16:38:26 UTC.
 STORAGE_RECOVERY_ACTIONS=Inventory only; no deletion or cache cleanup was proven safe.
-STORAGE_FLOOR_STATUS=FAIL; 1.5 GiB floor is 1,572,864 KiB, so the last measurement is 346,148 KiB below it.
+STORAGE_FLOOR_STATUS=FAIL; 1.5 GiB floor is 1,572,864 KiB, so the last measurement is 346,244 KiB below it.
 CANONICAL_QUESTIONS=8,962 before and after
 SOURCE_PREVIOUSLY_REVIEWED_RECHECKED=38
 SOURCE_NEWLY_REVIEWED=0
@@ -35,7 +35,7 @@ PRODUCT_READINESS=NOT_READY; formal job failed with 2 incomplete features and 4 
 HUMAN_SIGNOFF_STATUS=HUMAN_SIGNOFF_PENDING; 37 educational proposals and 85 duplicate clusters remain unapproved.
 PROTECTED_STATE_STATUS=PASS; 59/59 protected SHA-256 entries verified; learner usage delta remains the same 19 rows.
 UNRELATED_WORK_PRESERVED=PASS; dirty learner statistics, flashcard state, user assets, .commandcode, Batch 596 authoring tool, stashes, and HayaDoctor pin left untouched.
-PUSH_STATUS=PASS by ordinary fast-forward; application commits plus evidence commit cf7bf3e were pushed. Final report correction commit is to follow through ordinary fast-forward.
+PUSH_STATUS=PASS; application and documentation commits were pushed by ordinary fast-forward; final origin/main matched the final documentation HEAD.
 CLIPBOARD_STATUS=UNVERIFIED; termux-clipboard-set returned but termux-clipboard-get returned 0 bytes on repeated attempts; empty-readback SHA-256 was e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855. No report copy could be verified; manual fallback is docs/batches/batch-687.md.
 UNRESOLVED_BLOCKERS=Storage below the mandatory floor; Doctor P0 records not retrievable; independent academic sign-off pending; owner privacy/production evidence pending; full-corpus duplicate scan not rerun.
 NEXT_SAFE_BATCH=Restore at least 1.5 GiB free using only positively identified disposable artifacts; obtain independent academic review; resolve Doctor P0 records from authenticated CI evidence; then rerun the release gates on the resulting application SHA.
@@ -43,7 +43,7 @@ NEXT_SAFE_BATCH=Restore at least 1.5 GiB free using only positively identified d
 
 ## Storage recovery and data protection
 
-The filesystem was below its 1.5 GiB minimum at the start. Free-space measurements fluctuated sharply without any local cleanup or storage-heavy command: `1,423,576 KiB` at start, `633,368 KiB` at 16:38:26 UTC, then `1,226,716 KiB` at 16:42:03 UTC. No browser artifacts were downloaded and no local full suite was run. A process listing showed no local PHP, Node test runner, Chromium, Doctor, npm, Composer, or Git maintenance process; only the Codex session host was present among the filtered processes. The fluctuation source remains unknown. At the last measurement the floor was still violated by `346,148 KiB`; no candidate was safely deleted.
+The filesystem was below its 1.5 GiB minimum at the start. Free-space measurements fluctuated sharply without any local cleanup or storage-heavy command: `1,423,576 KiB` at start, `633,368 KiB` at 16:38:26 UTC, then `1,226,620 KiB` at 16:43:30 UTC. No browser artifacts were downloaded and no local full suite was run. A process listing showed no local PHP, Node test runner, Chromium, Doctor, npm, Composer, or Git maintenance process; only the Codex session host was present among the filtered processes. The fluctuation source remains unknown. At the last measurement the floor was still violated by `346,244 KiB`; no candidate was safely deleted.
 
 | Inventory item | Measured size | Owner | Safety decision |
 |---|---:|---|---|
@@ -147,6 +147,6 @@ Application commits, all fast-forward pushed to `origin/main`:
 3. `7e459db5ad4b99131f0781f2ecbf701624698996` — sanitized gate failure annotations.
 4. `e314a99956b846950a5cb97d56f1b9f49f3999ef` — correct testing environment for the developer import CSRF regression.
 
-At the last application check, `HEAD` and `origin/main` both equalled `e314a99956b846950a5cb97d56f1b9f49f3999ef`. Evidence/report commits `cf7bf3e827aa302f50197c1d3e1f2543ecdd4d3b`, `22e42608efb32a6497d87fc2c655ec377716d48c`, `36de7863c4b8306ed940d05bec6a816cce7ffc88`, `a64298e10e7de4ebe24ba0633f293066fc1263ed`, and `9702443819e5d895e6da6db0e90079a922f038c3` were pushed by ordinary fast-forward. The final clipboard status correction is explicitly scoped to this report; its SHA will be given in the completion message because a report cannot contain the hash of the commit that contains it. Learner state and unrelated untracked files remain excluded.
+All application commits listed above and the report/evidence documents were pushed by ordinary fast-forward. Final local `HEAD` and `origin/main` matched; the final documentation SHA is given in the completion message because a report cannot contain the hash of the commit that contains it. Only explicit Batch 687 paths were staged. Learner state and unrelated untracked files remain excluded.
 
 The next safe action is to stop local intensive validation until free space is restored above 1.5 GiB through an independently verified disposable artifact, then obtain authenticated access to the Doctor evidence and independent academic sign-off. Rerun only the gates affected by any subsequent changes, against their exact final SHA. Keep Product Readiness `NOT_READY` while owner, privacy, production-host, accessibility, and academic approvals remain incomplete.
