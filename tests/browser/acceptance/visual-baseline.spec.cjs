@@ -340,7 +340,7 @@ test.describe('BoardPrep deterministic visual baseline', () => {
 
     await page.goto('/study-library?exam=LET');
     await expect(page.locator('h1')).toHaveText('Study resources');
-    const librarySearch = page.getByRole('searchbox', { name: 'Search titles and study notes' });
+    const librarySearch = page.getByRole('searchbox', { name: 'Search lesson titles, notes, and concepts' });
     const librarySearchHeight = await librarySearch.evaluate((input) => input.getBoundingClientRect().height);
     expect(librarySearchHeight).toBeLessThan(60);
     const studyMaterialCards = page.locator('.study-material-card');
