@@ -1,0 +1,523 @@
+{
+  "environment": "isolated development server",
+  "base": "127.0.0.1:8081",
+  "methods": "GET only",
+  "routes": [
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 25206,
+      "content_type": "text/html; charset=UTF-8",
+      "elapsed_ms": 5238
+    },
+    {
+      "path": "/exams",
+      "status": 200,
+      "bytes": 13609,
+      "content_type": "text/html; charset=UTF-8",
+      "elapsed_ms": 3328
+    },
+    {
+      "path": "/grammar",
+      "status": 200,
+      "bytes": 5304,
+      "content_type": "text/html; charset=UTF-8",
+      "elapsed_ms": 235
+    },
+    {
+      "path": "/dashboard",
+      "status": 200,
+      "bytes": 11611,
+      "content_type": "text/html; charset=UTF-8",
+      "elapsed_ms": 392
+    },
+    {
+      "path": "/history",
+      "status": 200,
+      "bytes": 6275,
+      "content_type": "text/html; charset=UTF-8",
+      "elapsed_ms": 43
+    },
+    {
+      "path": "/history/result",
+      "status": 200,
+      "bytes": 6404,
+      "content_type": "text/html; charset=UTF-8",
+      "elapsed_ms": 53
+    },
+    {
+      "path": "/quiz?exam=cse",
+      "status": 200,
+      "bytes": 16235,
+      "content_type": "text/html; charset=UTF-8",
+      "elapsed_ms": 2681
+    },
+    {
+      "path": "/study",
+      "status": 200,
+      "bytes": 8827,
+      "content_type": "text/html; charset=UTF-8",
+      "elapsed_ms": 103
+    },
+    {
+      "path": "/study-library?exam=civil-service",
+      "status": 200,
+      "bytes": 48386,
+      "content_type": "text/html; charset=UTF-8",
+      "elapsed_ms": 171
+    },
+    {
+      "path": "/study-library?material=cse-numerical-foundation",
+      "status": 200,
+      "bytes": 17092,
+      "content_type": "text/html; charset=UTF-8",
+      "elapsed_ms": 111,
+      "rendered_source_note_sections": 11,
+      "lesson_title_present": true,
+      "pdf_link_present": true
+    },
+    {
+      "path": "/profile",
+      "status": 200,
+      "bytes": 6635,
+      "content_type": "text/html; charset=UTF-8",
+      "elapsed_ms": 37
+    },
+    {
+      "path": "/progress",
+      "status": 200,
+      "bytes": 8759,
+      "content_type": "text/html; charset=UTF-8",
+      "elapsed_ms": 21
+    },
+    {
+      "path": "/flashcards",
+      "status": 200,
+      "bytes": 60955,
+      "content_type": "text/html; charset=UTF-8",
+      "elapsed_ms": 6698
+    },
+    {
+      "path": "/flashcards/missed",
+      "status": 200,
+      "bytes": 16327,
+      "content_type": "text/html; charset=UTF-8",
+      "elapsed_ms": 6064
+    },
+    {
+      "path": "/flashcards/review",
+      "status": 200,
+      "bytes": 6638,
+      "content_type": "text/html; charset=UTF-8",
+      "elapsed_ms": 7955
+    },
+    {
+      "path": "/privacy",
+      "status": 200,
+      "bytes": 8599,
+      "content_type": "text/html; charset=UTF-8",
+      "elapsed_ms": 95
+    },
+    {
+      "path": "/privacy/export",
+      "status": 200,
+      "bytes": 347,
+      "content_type": "application/json; charset=utf-8",
+      "elapsed_ms": 21
+    },
+    {
+      "path": "/boards",
+      "status": 200,
+      "bytes": 14461,
+      "content_type": "text/html; charset=UTF-8",
+      "elapsed_ms": 2244
+    },
+    {
+      "path": "/subjects",
+      "status": 200,
+      "bytes": 41034,
+      "content_type": "text/html; charset=UTF-8",
+      "elapsed_ms": 38
+    },
+    {
+      "path": "/question-editor",
+      "status": 200,
+      "bytes": 7988616,
+      "content_type": "text/html; charset=UTF-8",
+      "elapsed_ms": 1210
+    },
+    {
+      "path": "/question-editor/create",
+      "status": 200,
+      "bytes": 657178,
+      "content_type": "text/html; charset=UTF-8",
+      "elapsed_ms": 66
+    },
+    {
+      "path": "/question-editor/edit?id=616",
+      "status": 200,
+      "bytes": 1325676,
+      "content_type": "text/html; charset=UTF-8",
+      "elapsed_ms": 1940
+    },
+    {
+      "path": "/question-import",
+      "status": 200,
+      "bytes": 8531,
+      "content_type": "text/html; charset=UTF-8",
+      "elapsed_ms": 30
+    },
+    {
+      "path": "/question-quality",
+      "status": 200,
+      "bytes": 213804,
+      "content_type": "text/html; charset=UTF-8",
+      "elapsed_ms": 17495
+    },
+    {
+      "path": "/question-inspector",
+      "status": 200,
+      "bytes": 3097861,
+      "content_type": "text/html; charset=UTF-8",
+      "elapsed_ms": 1343
+    },
+    {
+      "path": "/question-export",
+      "status": 200,
+      "bytes": 39145250,
+      "content_type": "application/json",
+      "elapsed_ms": 1695
+    },
+    {
+      "path": "/coverage",
+      "status": 200,
+      "bytes": 7769,
+      "content_type": "text/html; charset=UTF-8",
+      "elapsed_ms": 15401
+    },
+    {
+      "path": "/taxonomy",
+      "status": 200,
+      "bytes": 113148,
+      "content_type": "text/html; charset=UTF-8",
+      "elapsed_ms": 64
+    },
+    {
+      "path": "/metadata-repair",
+      "status": 200,
+      "bytes": 7699,
+      "content_type": "text/html; charset=UTF-8",
+      "elapsed_ms": 15046
+    },
+    {
+      "path": "/blueprints",
+      "status": 200,
+      "bytes": 10519,
+      "content_type": "text/html; charset=UTF-8",
+      "elapsed_ms": 46
+    },
+    {
+      "path": "/blueprints/create",
+      "status": 200,
+      "bytes": 14297,
+      "content_type": "text/html; charset=UTF-8",
+      "elapsed_ms": 1999
+    },
+    {
+      "path": "/blueprint-health",
+      "status": 200,
+      "bytes": 8949,
+      "content_type": "text/html; charset=UTF-8",
+      "elapsed_ms": 31
+    },
+    {
+      "path": "/developer/study-library",
+      "status": 200,
+      "bytes": 175291,
+      "content_type": "text/html; charset=UTF-8",
+      "elapsed_ms": 1010
+    },
+    {
+      "path": "/developer/doctor",
+      "status": 200,
+      "bytes": 241755,
+      "content_type": "text/html; charset=UTF-8",
+      "elapsed_ms": 20999
+    },
+    {
+      "path": "/developer/content-intelligence?format=json",
+      "status": 200,
+      "bytes": 13311820,
+      "content_type": "application/json; charset=utf-8",
+      "elapsed_ms": 13941,
+      "readiness_status": "FAIL",
+      "canonical_questions": 8962,
+      "traceable_questions": 8962,
+      "lesson_practice_questions": 12,
+      "pdf_practice_questions": 12,
+      "valid_metadata": 6559,
+      "numerical_verification": {
+        "structured_payloads": 708,
+        "recomputed": 232,
+        "unsupported": 476,
+        "unreadable_answers": 4,
+        "unit_unresolved": 57,
+        "coverage_percent": 32.77
+      },
+      "board_count": 10,
+      "finding_count": 2793
+    },
+    {
+      "path": "/developer/content-intelligence",
+      "status": 200,
+      "bytes": 376288,
+      "study_readiness_html": true,
+      "board_table_html": true,
+      "elapsed_ms": 14904
+    },
+    {
+      "path": "/study-resources/cse-percent-and-ratio-reasoning.pdf",
+      "status": 200,
+      "bytes": 8087,
+      "content_type": "application/pdf",
+      "pdf_magic": "%PDF-",
+      "elapsed_ms": 39
+    },
+    {
+      "path": "/question-editor",
+      "status": 200,
+      "bytes": 116457,
+      "content_type": "text/html; charset=UTF-8",
+      "elapsed_ms": 1655,
+      "inventory_card_count": 50,
+      "page_text_present": true,
+      "next_link_present": true,
+      "previous_link_present": false
+    },
+    {
+      "path": "/question-editor?page_num=2",
+      "status": 200,
+      "bytes": 117730,
+      "content_type": "text/html; charset=UTF-8",
+      "elapsed_ms": 966,
+      "inventory_card_count": 50,
+      "page_text_present": true,
+      "next_link_present": true,
+      "previous_link_present": true
+    },
+    {
+      "path": "/developer/content-intelligence?format=json",
+      "status": 200,
+      "bytes": 13333823,
+      "content_type": "application/json; charset=utf-8",
+      "elapsed_ms": 9568,
+      "readiness_status": "PARTIAL",
+      "integrity_status": "PASS_WITH_JUSTIFIED_EXCLUSIONS",
+      "canonical_questions": 8962,
+      "traceable_questions": 8962,
+      "lesson_practice_questions": 12,
+      "pdf_practice_questions": 12,
+      "valid_metadata": 6559,
+      "academic_review_queue": 2880,
+      "numerical_verification": {
+        "structured_payloads": 708,
+        "recomputed": 232,
+        "unsupported": 476,
+        "unreadable_answers": 4,
+        "unit_unresolved": 57,
+        "coverage_percent": 32.77
+      },
+      "flashcards": {
+        "derivable": 8944,
+        "justified_exclusions": 18,
+        "unexpected_derivation_failures": 0
+      },
+      "board_count": 10,
+      "finding_count": 2793
+    },
+    {
+      "path": "/developer/content-intelligence",
+      "status": 200,
+      "bytes": 377917,
+      "content_type": "text/html; charset=UTF-8",
+      "elapsed_ms": 8955,
+      "study_readiness_html": true,
+      "board_table_html": true,
+      "finding_table_html": true
+    },
+    {
+      "path": "/study-resources/cse-percent-and-ratio-reasoning.pdf",
+      "status": 200,
+      "bytes": 8087,
+      "content_type": "application/pdf",
+      "elapsed_ms": 21,
+      "pdf_magic": "%PDF-"
+    },
+    {
+      "path": "/developer/content-intelligence",
+      "status": 200,
+      "bytes": 382581,
+      "content_type": "text/html; charset=UTF-8",
+      "study_readiness_html": true,
+      "unreviewed_unlinked_resources_label": true,
+      "reviewed_standalone_resources_visible": 16,
+      "all_reviewed_standalone_ids_visible": true,
+      "finding_table_html": true,
+      "methods": "GET only"
+    },
+    {
+      "path": "/developer/content-intelligence?format=json",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "readiness_status": "PARTIAL",
+      "canonical_questions": 8962,
+      "registered_source_traceability": 8962,
+      "semantically_verified_source_support": "UNKNOWN",
+      "lesson_practice_questions": 12,
+      "pdf_practice_questions": 12,
+      "valid_metadata": 6559,
+      "academic_review_queue": 2880,
+      "qa_summary": {
+        "ERROR": 85,
+        "WARNING": 225,
+        "REVIEW": 2774,
+        "INFO": 1,
+        "total": 3085
+      },
+      "numerical_verification": {
+        "structured_payloads": 708,
+        "recomputed": 232,
+        "unsupported": 476,
+        "unreadable_answers": 4,
+        "unit_unresolved": 57,
+        "coverage_percent": 32.77
+      },
+      "unlinked_published_materials": 16,
+      "unreviewed_orphans": 0,
+      "reviewed_standalone_resources": 16,
+      "flashcards": {
+        "derivable": 8944,
+        "justified_exclusions": 18,
+        "unexpected_derivation_failures": 0
+      },
+      "board_count": 10,
+      "finding_count": 2793,
+      "methods": "GET only"
+    }
+  ],
+  "learner_storage": "isolated copied storage",
+  "http_methods": "GET only",
+  "final_readiness_snapshot": {
+    "commit": "79833730889e97077898db787b4fcbde22647188",
+    "observed_at": "2026-10-16T15:44:43+08:00",
+    "method": "GET",
+    "route": "/developer/content-intelligence?format=json",
+    "overall_status": "PARTIAL",
+    "board_status_rule": "Structural board integrity passes, but each board remains PARTIAL until all canonical questions have linked lesson and downloadable-PDF coverage.",
+    "metrics": {
+      "canonical_questions": 8962,
+      "questions_with_registered_source_traceability": 8962,
+      "questions_with_semantically_verified_source_support": {
+        "count": 0,
+        "status": "UNKNOWN",
+        "reason": "No question-level semantic source review is encoded as a verified state in this readiness view."
+      },
+      "questions_linked_to_complete_boardprep_lessons": 12,
+      "questions_with_downloadable_study_pdfs": 12,
+      "questions_with_valid_metadata": 6559,
+      "questions_requiring_academic_or_editorial_review": 2880
+    },
+    "boards": [
+      {
+        "board_id": "let",
+        "status": "PARTIAL",
+        "canonical_questions": 1788,
+        "traceable_source_questions": 1788,
+        "lesson_practice_questions": 4,
+        "pdf_practice_questions": 4,
+        "structural_integrity": "PASS_WITH_JUSTIFIED_EXCLUSIONS"
+      },
+      {
+        "board_id": "civil-service",
+        "status": "PARTIAL",
+        "canonical_questions": 1553,
+        "traceable_source_questions": 1553,
+        "lesson_practice_questions": 5,
+        "pdf_practice_questions": 5,
+        "structural_integrity": "PASS"
+      },
+      {
+        "board_id": "criminologist",
+        "status": "PARTIAL",
+        "canonical_questions": 451,
+        "traceable_source_questions": 451,
+        "lesson_practice_questions": 0,
+        "pdf_practice_questions": 0,
+        "structural_integrity": "PASS"
+      },
+      {
+        "board_id": "nursing",
+        "status": "PARTIAL",
+        "canonical_questions": 878,
+        "traceable_source_questions": 878,
+        "lesson_practice_questions": 0,
+        "pdf_practice_questions": 0,
+        "structural_integrity": "PASS"
+      },
+      {
+        "board_id": "psychometrician",
+        "status": "PARTIAL",
+        "canonical_questions": 401,
+        "traceable_source_questions": 401,
+        "lesson_practice_questions": 0,
+        "pdf_practice_questions": 0,
+        "structural_integrity": "PASS"
+      },
+      {
+        "board_id": "civil-engineering",
+        "status": "PARTIAL",
+        "canonical_questions": 922,
+        "traceable_source_questions": 922,
+        "lesson_practice_questions": 0,
+        "pdf_practice_questions": 0,
+        "structural_integrity": "PASS"
+      },
+      {
+        "board_id": "cpa",
+        "status": "PARTIAL",
+        "canonical_questions": 1132,
+        "traceable_source_questions": 1132,
+        "lesson_practice_questions": 0,
+        "pdf_practice_questions": 0,
+        "structural_integrity": "PASS"
+      },
+      {
+        "board_id": "mechanical-engineering",
+        "status": "PARTIAL",
+        "canonical_questions": 511,
+        "traceable_source_questions": 511,
+        "lesson_practice_questions": 0,
+        "pdf_practice_questions": 0,
+        "structural_integrity": "PASS"
+      },
+      {
+        "board_id": "registered-electrical-engineering",
+        "status": "PARTIAL",
+        "canonical_questions": 842,
+        "traceable_source_questions": 842,
+        "lesson_practice_questions": 3,
+        "pdf_practice_questions": 3,
+        "structural_integrity": "PASS"
+      },
+      {
+        "board_id": "architecture",
+        "status": "PARTIAL",
+        "canonical_questions": 484,
+        "traceable_source_questions": 484,
+        "lesson_practice_questions": 0,
+        "pdf_practice_questions": 0,
+        "structural_integrity": "PASS"
+      }
+    ]
+  }
+}

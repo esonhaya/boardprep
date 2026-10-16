@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "checks": {
+    "PREFLIGHT": {
+      "status": "PASS",
+      "reason": "Production preflight completed.",
+      "evidence": {
+        "status": "PASS"
+      }
+    },
+    "APPLICATION_BOOT": {
+      "status": "PASS",
+      "reason": "Application booted in the configured environment.",
+      "evidence": []
+    },
+    "CONTENT_LOAD": {
+      "status": "PASS",
+      "reason": "Boards, questions, and eligibility are readable.",
+      "evidence": {
+        "boards": 10,
+        "questions": 8962,
+        "eligibility": 2705
+      }
+    },
+    "LEARNER_SERVICE_PATH": {
+      "status": "PASS",
+      "reason": "Core learner selection service is loadable.",
+      "evidence": []
+    },
+    "PROGRESS_HISTORY_PATH": {
+      "status": "PASS",
+      "reason": "Progress/history services are loadable.",
+      "evidence": []
+    }
+  },
+  "failures": [],
+  "release_identity": {
+    "product": "BoardPrep",
+    "product_version": "1.0.1",
+    "release_tag": "v1.0.1",
+    "build_commit": "79833730889e97077898db787b4fcbde22647188",
+    "baseline_commit": "4753c03c11d5808c2ea80a9ab414ff73bd767d32"
+  },
+  "runtime_ms": 1399.741
+}

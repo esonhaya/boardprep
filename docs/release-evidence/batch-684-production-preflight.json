@@ -1,0 +1,171 @@
+{
+  "status": "PASS",
+  "product": "BoardPrep",
+  "product_version": "1.0.1",
+  "release_tag": "v1.0.1",
+  "build_commit": "79833730889e97077898db787b4fcbde22647188",
+  "environment": "production",
+  "database_driver": "json",
+  "storage_path": "storage",
+  "checks": {
+    "DEPLOYMENT_PROFILE": {
+      "status": "PASS",
+      "reason": "Deployment profile is valid.",
+      "evidence": []
+    },
+    "ENVIRONMENT_FILE": {
+      "status": "PASS",
+      "reason": "Environment file is optional; process environment and .env values are readable.",
+      "evidence": []
+    },
+    "PHP_VERSION": {
+      "status": "PASS",
+      "reason": "PHP runtime meets the deployment minimum.",
+      "evidence": {
+        "running": "8.5.1",
+        "required": "8.1.0"
+      }
+    },
+    "PHP_MEMORY_LIMIT": {
+      "status": "PASS",
+      "reason": "PHP memory limit meets the documented production floor.",
+      "evidence": {
+        "running": "512M",
+        "required": "512M"
+      }
+    },
+    "REQUIRED_EXTENSIONS": {
+      "status": "PASS",
+      "reason": "Required PHP extensions are loaded.",
+      "evidence": {
+        "missing": []
+      }
+    },
+    "PRODUCTION_MODE": {
+      "status": "PASS",
+      "reason": "APP_ENV is production.",
+      "evidence": {
+        "environment": "production"
+      }
+    },
+    "DEBUG_DISABLED": {
+      "status": "PASS",
+      "reason": "APP_DEBUG is disabled.",
+      "evidence": []
+    },
+    "TIMEZONE": {
+      "status": "PASS",
+      "reason": "Configured timezone is valid.",
+      "evidence": {
+        "timezone": "UTC"
+      }
+    },
+    "DOCUMENT_ROOT": {
+      "status": "PASS",
+      "reason": "public/ document root and front controller are present.",
+      "evidence": []
+    },
+    "STORAGE_DIRECTORY": {
+      "status": "PASS",
+      "reason": "Configured storage is readable and writable.",
+      "evidence": {
+        "configured": "storage"
+      }
+    },
+    "PUBLIC_DATA_ISOLATION": {
+      "status": "PASS",
+      "reason": "Writable state and configuration are outside the configured public document root.",
+      "evidence": {
+        "affected": []
+      }
+    },
+    "CANONICAL_CONTENT": {
+      "status": "PASS",
+      "reason": "Required canonical content files are present.",
+      "evidence": {
+        "missing": []
+      }
+    },
+    "CANONICAL_JSON": {
+      "status": "PASS",
+      "reason": "Canonical JSON collections parse with the expected list shape.",
+      "evidence": {
+        "errors": []
+      }
+    },
+    "MUTABLE_JSON": {
+      "status": "PASS",
+      "reason": "Present mutable JSON stores parse with the expected list shape.",
+      "evidence": {
+        "present": [
+          "attempts.json",
+          "weakness.json",
+          "question-statistics.json",
+          "flashcard_state.json",
+          "blueprints.json"
+        ],
+        "errors": []
+      }
+    },
+    "DATABASE_DRIVER": {
+      "status": "PASS",
+      "reason": "Configured database mode is supported.",
+      "evidence": {
+        "driver": "json"
+      }
+    },
+    "SQLITE": {
+      "status": "PASS",
+      "reason": "SQLite is optional for JSON mode.",
+      "evidence": []
+    },
+    "SESSION_STORAGE": {
+      "status": "PASS",
+      "reason": "PHP session storage is writable.",
+      "evidence": []
+    },
+    "RELEASE_IDENTITY": {
+      "status": "PASS",
+      "reason": "Product and build identity are discoverable.",
+      "evidence": {
+        "product_version": "1.0.1",
+        "release_tag": "v1.0.1"
+      }
+    },
+    "RELEASE_IDENTITY_CONTRACT": {
+      "status": "PASS",
+      "reason": "Product version and release tag match the deployment profile.",
+      "evidence": {
+        "expected_product_version": "1.0.1",
+        "actual_product_version": "1.0.1",
+        "expected_release_tag": "v1.0.1",
+        "actual_release_tag": "v1.0.1"
+      }
+    },
+    "RUNTIME_ERROR_SAFETY": {
+      "status": "PASS",
+      "reason": "Production entrypoint disables runtime error display.",
+      "evidence": {
+        "cli_display_errors": true,
+        "front_controller_guard": true
+      }
+    },
+    "CONFIG_TEMPLATE": {
+      "status": "PASS",
+      "reason": "Configuration template is present.",
+      "evidence": []
+    },
+    "OPERATIONAL_BASELINE": {
+      "status": "PASS",
+      "reason": "Deployment profile and runbook are available.",
+      "evidence": []
+    }
+  },
+  "failures": [],
+  "warnings": [],
+  "summary": {
+    "pass": 22,
+    "warn": 0,
+    "fail": 0
+  }
+}

@@ -279,6 +279,68 @@
             "verification_endpoint": "https://api.github.com/repos/esonhaya/boardprep/actions/runs/38842224689",
             "api_response_sha256": "db32b07cd979d202b5ab9eb052ffc22fb50fa65efe17ffaa2298fe3288034c45",
             "registered_at": "2026-10-16T02:58:53+00:00"
+        },
+        {
+            "run_id": 38862807765,
+            "run_attempt": 1,
+            "repository": "esonhaya/boardprep",
+            "workflow_id": 353180279,
+            "workflow_path": ".github/workflows/browser-acceptance.yml",
+            "workflow_name": "Browser acceptance",
+            "event": "push",
+            "branch": "main",
+            "head_sha": "b01539d6bd9cb1ecdc2b5e740035670eea7494c3",
+            "run_status": "completed",
+            "workflow_conclusion": "failure",
+            "workflow_created_at": "2026-10-16T06:43:17Z",
+            "workflow_completed_at": "2026-10-16T06:48:44Z",
+            "run_url": "https://github.com/esonhaya/boardprep/actions/runs/38862807765",
+            "jobs": [
+                {
+                    "id": 116848743227,
+                    "name": "browser",
+                    "status": "completed",
+                    "conclusion": "failure",
+                    "started_at": "2026-10-16T06:43:19Z",
+                    "completed_at": "2026-10-16T06:48:44Z"
+                }
+            ],
+            "verification_status": "VERIFIED",
+            "verification_source": "GITHUB_ACTIONS_API",
+            "verification_endpoint": "https://api.github.com/repos/esonhaya/boardprep/actions/runs/38862807765",
+            "api_response_sha256": "2f9bd5ebae3f6e89614cb7c4376679aa1a46d37ec31d7d4a76dfe1e1821cb9a0",
+            "registered_at": "2026-10-16T07:15:15+00:00"
+        },
+        {
+            "run_id": 38866456485,
+            "run_attempt": 1,
+            "repository": "esonhaya/boardprep",
+            "workflow_id": 353180279,
+            "workflow_path": ".github/workflows/browser-acceptance.yml",
+            "workflow_name": "Browser acceptance",
+            "event": "push",
+            "branch": "main",
+            "head_sha": "79833730889e97077898db787b4fcbde22647188",
+            "run_status": "completed",
+            "workflow_conclusion": "failure",
+            "workflow_created_at": "2026-10-16T07:19:13Z",
+            "workflow_completed_at": "2026-10-16T07:23:21Z",
+            "run_url": "https://github.com/esonhaya/boardprep/actions/runs/38866456485",
+            "jobs": [
+                {
+                    "id": 116860308403,
+                    "name": "browser",
+                    "status": "completed",
+                    "conclusion": "failure",
+                    "started_at": "2026-10-16T07:19:16Z",
+                    "completed_at": "2026-10-16T07:23:20Z"
+                }
+            ],
+            "verification_status": "VERIFIED",
+            "verification_source": "GITHUB_ACTIONS_API",
+            "verification_endpoint": "https://api.github.com/repos/esonhaya/boardprep/actions/runs/38866456485",
+            "api_response_sha256": "632b05d2f704da67d7c30e7137e58470e468d7410cdbb9d78da4ecfe7014501f",
+            "registered_at": "2026-10-16T07:42:44+00:00"
         }
     ]
 }

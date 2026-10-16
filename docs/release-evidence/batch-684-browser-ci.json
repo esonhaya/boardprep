@@ -1,0 +1,34 @@
+{
+  "workflow": "Browser acceptance",
+  "commit": "79833730889e97077898db787b4fcbde22647188",
+  "run_id": 38866456485,
+  "run_url": "https://github.com/esonhaya/boardprep/actions/runs/38866456485",
+  "status": "completed",
+  "conclusion": "failure",
+  "job_id": 116860308403,
+  "steps": {
+    "Set up PHP": "success",
+    "Set up Node": "success",
+    "Install JavaScript dependencies": "success",
+    "Install Chromium": "success",
+    "Run browser acceptance": "failure",
+    "Collect browser evidence artifacts": "success",
+    "Upload browser visual and diagnostic artifacts": "success"
+  },
+  "artifact": {
+    "id": 12031796538,
+    "name": "boardprep-chromium-visual-qa",
+    "size_in_bytes": 93160455,
+    "expired": false,
+    "created_at": "2026-10-16T07:23:17Z",
+    "download_attempt": "HTTP 401 Unauthorized"
+  },
+  "logs_download_attempt": "HTTP 403 Forbidden",
+  "screenshots": "Artifact exists remotely but cannot be downloaded without GitHub authorization; no screenshots were inspected locally.",
+  "prior_batch_684_run": {
+    "commit": "b01539d6bd9cb1ecdc2b5e740035670eea7494c3",
+    "run_id": 38862807765,
+    "conclusion": "failure",
+    "run_url": "https://github.com/esonhaya/boardprep/actions/runs/38862807765"
+  }
+}
