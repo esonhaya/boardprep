@@ -82,7 +82,7 @@ Formal Product Readiness ran on `5f3fada7c89266a66f1107e6350f1e99fb82d84c`. Resu
 - The historical 19-question usage delta remains unchanged: `timesUsed +26`, `timesCorrect +2`, `timesIncorrect +24`. The staged/committed question-bank diff contains only the two educational corrections; learner usage fields remain unstaged.
 - Storage was 1.6 GiB free at this turn’s first check (an earlier baseline capture showed about 1.7 GiB). During the broad integrity simulator run it briefly measured 1.4 GiB. Three task-created simulator fixtures (about 49 MiB each) were inventoried, checked for symlinks and non-empty learner-state copies, then removed using their exact temporary paths. Their SHA-256 inventory manifests remain in `$TMPDIR` with hashes `76735074324fae331e1d8357991b039d906cb748cf9e39a201c491be2f34b814`, `3def424a735d9c31512e3858119b0bb596453e1d889e18ca587dcf1dae96fec4`, and `36fed71444a769a96ab2d640621238607b8317eaa49492a51d326cfb8dbf880f`. Free space returned to 1.6 GiB; no further storage-heavy validation ran.
 - `PUSH_STATUS=application commits pushed to origin/main by ordinary fast-forward; no force push.` Unrelated learner/user changes remain outside the commits.
-- `CLIPBOARD_STATUS=VERIFIED` after copying the complete final report with `termux-clipboard-set` and comparing `termux-clipboard-get` readback by SHA-256 after line-ending/trailing-newline normalization.
+- `CLIPBOARD_STATUS=UNVERIFIED`: `termux-clipboard-set` exited successfully, but `termux-clipboard-get` returned 0 bytes on both stdin and argument-based attempts. The complete report is preserved at `docs/batches/batch-685.md` and is printed below.
 
 ## Unresolved work and next safe batch
 
