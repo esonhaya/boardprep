@@ -230,7 +230,7 @@ test.describe('BoardPrep learner browser acceptance', () => {
     // Chromium's headless browser starts a download when navigating directly to
     // an application/pdf response. Validate the link's document response above,
     // and exercise the actual browser download interaction below.
-    await tabToKeyboardFocus(page, downloadLink);
+    await tabToKeyboardFocus(page, downloadLink, 100);
     const [download] = await Promise.all([
       page.waitForEvent('download'),
       page.keyboard.press('Enter'),
