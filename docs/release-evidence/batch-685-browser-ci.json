@@ -1,0 +1,70 @@
+{
+  "workflow": "Browser acceptance",
+  "application_commit": "5f3fada7c89266a66f1107e6350f1e99fb82d84c",
+  "run_id": 38904638327,
+  "run_url": "https://github.com/esonhaya/boardprep/actions/runs/38904638327",
+  "status": "completed",
+  "conclusion": "success",
+  "event": "push",
+  "branch": "main",
+  "job_id": 116985027925,
+  "job_started_at": "2026-10-16T13:00:58Z",
+  "job_completed_at": "2026-10-16T13:05:28Z",
+  "steps": {
+    "Set up PHP": "success",
+    "Set up Node": "success",
+    "Install JavaScript dependencies": "success",
+    "Install Chromium": "success",
+    "Run browser acceptance": "success",
+    "Collect browser evidence artifacts": "success",
+    "Upload browser visual and diagnostic artifacts": "success"
+  },
+  "test_summary": {
+    "passed": 22,
+    "failed": 0,
+    "skipped": 2,
+    "duration": "3.8m",
+    "console_errors": 0
+  },
+  "viewports": {
+    "mobile": "390x844",
+    "desktop": "1366x768"
+  },
+  "browser_evidence": {
+    "screenshots": 87,
+    "diagnostics": 24,
+    "artifact_id": 12048440096,
+    "artifact_name": "boardprep-chromium-visual-qa",
+    "artifact_size_bytes": 94627302,
+    "artifact_sha256": "360cad27f718c7acfb691dea437df8c2c9baaebe4363d02bf937abc3bf989b43",
+    "artifact_expires_at": "2026-10-30T13:05:21Z",
+    "availability": "REMOTE; not downloaded because local free space was near the 1.5 GiB minimum",
+    "screenshots_inspected_locally": false
+  },
+  "acceptance_expectation_repairs": [
+    {
+      "failure": "Batch 684 run 38866456485",
+      "classification": "TEST_EXPECTATION_DEFECT",
+      "detail": "The Batch 684 study-library heading changed to “Study resources” while three browser assertions still expected “Source-backed study materials”. Updated the two unique assertions in the mobile learner flow and desktop/mobile visual baseline."
+    },
+    {
+      "failure": "Run 38903271903 on 49e7a60586cff647273a2fba9a3d916dc18a0a2e",
+      "classification": "TEST_EXPECTATION_DEFECT",
+      "detail": "After the heading assertion passed, desktop and mobile visual baseline cases timed out looking for the stale accessible name “Search titles and study notes”; the actual searchbox label is “Search lesson titles, notes, and concepts”. Updated that exact expectation. The application control and acceptance assertions were not changed."
+    }
+  ],
+  "prior_attempt": {
+    "run_id": 38903271903,
+    "commit": "49e7a60586cff647273a2fba9a3d916dc18a0a2e",
+    "conclusion": "failure",
+    "passed": 20,
+    "failed": 2,
+    "skipped": 2,
+    "screenshots": 58,
+    "diagnostics": 26,
+    "console_errors": 0,
+    "artifact_id": 12048030164,
+    "artifact_size_bytes": 94243309,
+    "run_url": "https://github.com/esonhaya/boardprep/actions/runs/38903271903"
+  }
+}
