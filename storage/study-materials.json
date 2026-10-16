@@ -1884,6 +1884,10 @@
             [
                 "Batch 680 — Worked example: percentage of a whole",
                 "For 24 permits meeting a criterion out of 120 approved permits, compute part ÷ whole × 100 = 24 ÷ 120 × 100 = 20%. Check by reversing the operation: 20% of 120 is 24."
+            ],
+            [
+                "Batch 683 — Reverse a discount",
+                "If 1,050 remains after a 5% discount, the paid amount is 95% of the original: 1,050 ÷ 0.95 = 1,105.263...; to the nearest cent, 1,105.26. Check by multiplying 1,105.26 × 0.95 ≈ 1,050.00. Do not subtract 5% from the discounted amount; the percentage base is the original price."
             ]
         ],
         "source_ids": [
@@ -1892,7 +1896,8 @@
             "openstax-introductory-statistics-2e",
             "openstax-prealgebra-proportions-chapter6-5",
             "openstax-statistics-graphs-chapter2-2",
-            "openstax-prealgebra-distributive-property-7-3"
+            "openstax-prealgebra-distributive-property-7-3",
+            "openstax-prealgebra-percent-applications-6-2"
         ],
         "exams": [
             "civil-service"
@@ -1904,8 +1909,8 @@
             "concept_id": "cse-percentages"
         },
         "status": "published",
-        "version": 15,
-        "updated_at": "2026-10-15",
+        "version": 16,
+        "updated_at": "2026-10-16",
         "exam_focus": {
             "civil-service-professional": {
                 "priority": "high",
@@ -5344,11 +5349,16 @@
             {
                 "heading": "Decision use",
                 "body": "Combine variance amounts with operational context and controllability before recommending corrective action."
+            },
+            {
+                "heading": "Batch 683 — Worked price-variance example",
+                "body": "For an actual purchase of 430 kg at P6/kg against a standard P5/kg, price variance = actual quantity × (actual price − standard price) = 430 × (P6 − P5) = P430 unfavorable. Use the actual purchase quantity for this price comparison. The direction describes cost relative to standard; it does not establish who caused the difference."
             }
         ],
         "source_ids": [
             "openstax-principles-managerial-accounting",
-            "prc-accountancy-board-page"
+            "prc-accountancy-board-page",
+            "openstax-managerial-accounting-material-variances-8-2"
         ],
         "exams": [
             "cpa"
@@ -5362,8 +5372,8 @@
         ],
         "technical_support_state": "ADEQUATE",
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-09"
+        "version": 2,
+        "updated_at": "2026-10-16"
     },
     {
         "id": "cpa-management-performance-foundation",
@@ -6519,11 +6529,16 @@
             {
                 "heading": "Linear systems: eliminate and check",
                 "body": "Align like variables. Add equations when a variable has opposite coefficients; otherwise multiply an equation by a nonzero factor first. Solve, substitute into an original equation, and verify both. For 2x + y = 11 and x − y = 1, addition gives 3x = 12, so x = 4 A; substitution gives y = 3 A."
+            },
+            {
+                "heading": "Batch 683 — Circuit-model check",
+                "body": "Kirchhoff junction and loop rules turn a stated network model into simultaneous equations. For 2x + y = 11 A and x − y = 1 A, add the equations to obtain x = 4 A, then substitute to verify y = 3 A in both. If a solved current is negative relative to the chosen reference direction, its physical direction is opposite; the algebra alone does not replace a circuit or code review."
             }
         ],
         "source_ids": [
             "prc-electrical-engineering-board-page",
-            "openstax-algebra-and-trigonometry"
+            "openstax-algebra-and-trigonometry",
+            "openstax-university-physics-volume-2-kirchhoff-10-3"
         ],
         "exams": [
             "registered-electrical-engineering"
@@ -6532,7 +6547,7 @@
             "subject_id": "registered-electrical-engineering-foundation"
         },
         "status": "published",
-        "version": 2,
+        "version": 3,
         "updated_at": "2026-10-16",
         "supported_concept_ids": [
             "b633-ree-math-algebra-linear",
@@ -7541,13 +7556,18 @@
             {
                 "heading": "Common errors",
                 "body": "Do not measure a void as finished area, close a wall before testing concealed utilities, or treat a shop drawing as permission to change a design without review."
+            },
+            {
+                "heading": "Batch 683 — Worked net wall-finish area",
+                "body": "For the supplied room schedule, gross wall area = total perimeter × wall height = 24 m × 3 m = 72 m². Subtract the stated 10 m² of openings to obtain 62 m² net finish area. This assumes the supplied perimeter covers the measured wall faces and that no additional deductions or waste allowance are specified."
             }
         ],
         "source_ids": [
             "prc-architecture-exam-program-2024",
             "prc-architecture-exam-program-2025",
             "mit-4-461-building-technology",
-            "mit-4-463-structural-systems"
+            "mit-4-463-structural-systems",
+            "openstax-prealgebra-geometry-rectangles-9-4"
         ],
         "exams": [
             "architecture"
@@ -7563,8 +7583,8 @@
             "subject_id": "architecture-utilities-and-construction"
         },
         "status": "published",
-        "version": 2,
-        "updated_at": "2026-09-28",
+        "version": 3,
+        "updated_at": "2026-10-16",
         "technical_support_state": "STRONG"
     },
     {
@@ -9157,12 +9177,17 @@
             [
                 "Common errors",
                 "Unit mismatch, using perimeter for area, averaging incompatible values, and treating a probability denominator as a numerator are common distractor families."
+            ],
+            [
+                "Batch 683 — Part of a whole",
+                "For 3/4 of 20 counters, multiply the fraction by the whole: (3 × 20) ÷ 4 = 60 ÷ 4 = 15 counters. Check the inverse relation: 15 × 4/3 = 20. Keep the unit as counters, and reduce the fraction first only when that makes the arithmetic clearer."
             ]
         ],
         "source_ids": [
             "prc-let-enhanced-tos-2025",
             "deped-math-curriculum-guide",
-            "openstax-algebra-and-trigonometry"
+            "openstax-algebra-and-trigonometry",
+            "openstax-prealgebra-multiply-divide-fractions-4-2"
         ],
         "exams": [
             "let"
@@ -9183,8 +9208,8 @@
         },
         "let_specialization_id": "secondary-mathematics",
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-29",
+        "version": 2,
+        "updated_at": "2026-10-16",
         "batch_marker": "batch629"
     },
     {
@@ -10640,6 +10665,14 @@
                 "body": "Relate pressure forces to resisting wall forces for the stated cylindrical geometry. Distinguish hoop and longitudinal stress where the model and end condition support that distinction."
             },
             {
+                "heading": "Batch 683 — Membrane-stress relations",
+                "body": "For an ideal thin-walled cylinder, equilibrium gives hoop stress σh = pD/(2t); for a closed-end cylinder, longitudinal stress σL = pD/(4t). The diameter D and wall thickness t must use the same length unit, and p is the stated pressure difference. These relations assume a thin wall and ideal membrane behavior; they do not supply a design allowable or code factor."
+            },
+            {
+                "heading": "Batch 683 — Worked hoop-stress check",
+                "body": "With p = 2.4 MPa = 2.4 N/mm², D = 500 mm, and t = 10 mm, σh = (2.4 × 500)/(2 × 10) = 60 N/mm² = 60 MPa. For the same closed-end idealization, σL is half that value, 30 MPa. Recheck pressure and geometry assumptions before using either relation."
+            },
+            {
                 "heading": "Excluded design rules",
                 "body": "This note does not set code allowables, joint efficiency, corrosion allowance, minimum thickness, inspection intervals, or approved pipe/vessel design. Obtain a verified current standard before any code-sensitive authoring."
             }
@@ -10663,8 +10696,8 @@
         "technical_support_state": "PARTIAL",
         "confidence": "authoritative_educational_reference",
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-10-02"
+        "version": 2,
+        "updated_at": "2026-10-16"
     },
     {
         "id": "me-material-18",

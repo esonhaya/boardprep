@@ -66,6 +66,12 @@ final class EducationalIntegrityCheck implements CheckInterface
                 $classified[$finding['class']][] = $finding;
             }
         }
+        $numericalAudit = NumericalAnswerConsistencyAudit::analyze($questions);
+        foreach ($numericalAudit['findings'] as $finding) {
+            if (isset($classified[$finding['class']])) {
+                $classified[$finding['class']][] = $finding;
+            }
+        }
         $linkQuestionIds = [];
         foreach ($links as $link) {
             if (!is_array($link)) {
@@ -191,6 +197,15 @@ final class EducationalIntegrityCheck implements CheckInterface
             . ' by_class=' . ($duplicateCountText !== [] ? implode(',', $duplicateCountText) : 'none')
             . '; exact IDs and board are listed on each finding.';
         $details[] = 'SEMANTIC_LIMITATION: Valid links and source records do not establish question correctness or editorial fit; review classifications remain open until checked.';
+        $numericalMetrics = (array) ($numericalAudit['metrics'] ?? []);
+        $details[] = sprintf(
+            'NUMERICAL_AUDIT structured=%d recomputed=%d unsupported=%d unreadable_answers=%d unit_unresolved=%d; unsupported formulas or natural-language tasks are INSUFFICIENT_EVIDENCE and are not claimed as verified.',
+            (int) ($numericalMetrics['structured_payloads'] ?? 0),
+            (int) ($numericalMetrics['recomputed'] ?? 0),
+            (int) ($numericalMetrics['unsupported'] ?? 0),
+            (int) ($numericalMetrics['unreadable_answers'] ?? 0),
+            (int) ($numericalMetrics['unit_unresolved'] ?? 0)
+        );
 
         $hardCount = count($classified['HARD_DEFECT']);
         $reviewCount = count($classified['REVIEW_REQUIRED']);

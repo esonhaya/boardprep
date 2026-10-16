@@ -22627,15 +22627,30 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "hard",
-        "question": "A receipt totals 1,050 after a 5% discount. What was the price before discount?",
+        "question": "A receipt totals 1,050 after a 5% discount. What was the price before discount, to the nearest cent?",
         "choices": [
-            "1,100",
+            "1,105.26",
             "1,000",
             "1,050",
             "1,150"
         ],
-        "answer": "1,100",
-        "explanation": "The discounted amount is 95% of the original; 1,050 ÷ .95 is about 1,105, so none?",
+        "answer": "1,105.26",
+        "explanation": "The discounted amount is 95% of the original, so the original price is 1,050 ÷ 0.95 = 1,105.263... . Rounded to the nearest cent, it is 1,105.26. Checking 1,105.26 × 0.95 gives 1,050.00 after cent rounding.",
+        "source_ids": [
+            "csc-cse-ppt-scope-2026",
+            "openstax-prealgebra-percent-applications-6-2"
+        ],
+        "numeric": true,
+        "calculation_required": true,
+        "calculation": {
+            "family": "reverse_percent",
+            "values": [
+                1050,
+                0.95
+            ],
+            "expected": 1105.2631578947369,
+            "rounding": "nearest cent"
+        },
         "subject": "numerical-ability",
         "cognitive_intent": "analyze and apply",
         "multistep": true,
@@ -53437,10 +53452,11 @@
             "P2,580 favorable"
         ],
         "answer": "P430 unfavorable",
-        "explanation": "430 × (P6−P5) = P430 unfavorable because actual price is higher.",
+        "explanation": "Use actual purchase quantity for the price variance: 430 kg × (P6/kg − P5/kg) = P430 unfavorable. The actual price exceeds standard by P1 per kg; the variance direction identifies a higher cost than standard, not who caused it.",
         "subject": "Cpa Management Services",
         "source_ids": [
-            "prc-accountancy-board-page"
+            "prc-accountancy-board-page",
+            "openstax-managerial-accounting-material-variances-8-2"
         ],
         "numeric": true,
         "multistep": true,
@@ -53452,6 +53468,17 @@
                 "fallback": "Price above standard is unfavorable."
             }
         ],
+        "calculation_required": true,
+        "calculation": {
+            "family": "multiply",
+            "values": [
+                430,
+                1
+            ],
+            "expected": 430,
+            "unit": "P",
+            "rounding": "exact"
+        },
         "table_dependent": false,
         "data_interpretation": false,
         "long_scenario": true,
@@ -65712,8 +65739,20 @@
             }
         },
         "source_ids": [
-            "openstax-algebra-and-trigonometry"
-        ]
+            "openstax-algebra-and-trigonometry",
+            "openstax-university-physics-volume-2-kirchhoff-10-3"
+        ],
+        "calculation": {
+            "family": "linear_system_2x2",
+            "equations": [
+                [2, 1, 11],
+                [1, -1, 1]
+            ],
+            "solve_for": "x",
+            "expected": 4,
+            "unit": "A",
+            "rounding": "exact"
+        }
     },
     {
         "id": 1570,
@@ -77069,11 +77108,11 @@
             "subject_id": "architecture-utilities-and-construction",
             "domain_id": "architecture-utilities-construction",
             "topic_id": "architecture-systems-coordination",
-            "concept_id": "b633-arch-technical-systems",
+            "concept_id": "b633-arch-technical-construction",
             "parent_concept_id": "architecture-technical-integration",
-            "subcompetency_id": "b633-arch-technical-systems",
+            "subcompetency_id": "b633-arch-technical-construction",
             "subcompetency_confidence": "EXACT",
-            "subcompetency_evidence": "Unique water, drainage, ventilation, and electrical coordination study material."
+            "subcompetency_evidence": "Exact construction-quantity task and the linked construction quantities study material."
         },
         "board": "architecture",
         "status": "active",
@@ -77096,10 +77135,12 @@
             "34 m²"
         ],
         "answer": "62 m²",
-        "explanation": "Gross wall area is 24 × 3 = 72 m²; subtracting 10 m² of openings gives 62 m².",
+        "explanation": "Gross wall area = 24 m perimeter × 3 m height = 72 m². Subtract the stated 10 m² of openings: 72 − 10 = 62 m² net finish area. No additional deduction or waste allowance is supplied.",
         "subject": "Utilities and Construction",
         "source_ids": [
-            "prc-architecture-exam-program-2024"
+            "prc-architecture-exam-program-2024",
+            "openstax-prealgebra-geometry-rectangles-9-4",
+            "mit-4-461-building-technology"
         ],
         "source_sensitivity": "STABLE",
         "cognitive_intent": "application and interpretation",
@@ -77132,7 +77173,13 @@
         ],
         "domain": "Architecture Utilities Construction",
         "topic": "Architecture Systems Coordination",
-        "concept": "Water, drainage, ventilation, and electrical coordination"
+        "concept": "Construction quantities, sequencing, and interfaces",
+        "calculation_required": true,
+        "calculation": {
+            "expression": "24 * 3 - 10",
+            "result": 62,
+            "unit": "m²"
+        }
     },
     {
         "id": 1751,
@@ -309236,7 +309283,7 @@
             "12"
         ],
         "answer": "15",
-        "explanation": "Compute 20 × 3/4 = 15 counters.",
+        "explanation": "Take three-fourths of 20: (3 × 20) ÷ 4 = 60 ÷ 4 = 15 counters. Check by multiplying 15 by the reciprocal, 4/3, to recover 20.",
         "subject": "mathematics",
         "domain": "number-sense",
         "topic": "math-number-sense",
@@ -309244,7 +309291,8 @@
         "source_ids": [
             "prc-let-enhanced-tos-2025",
             "deped-math-curriculum-guide",
-            "openstax-algebra-and-trigonometry"
+            "openstax-algebra-and-trigonometry",
+            "openstax-prealgebra-multiply-divide-fractions-4-2"
         ],
         "source_sensitivity": "CURRICULUM_VERSIONED",
         "version_sensitive_categories": [
@@ -473720,19 +473768,19 @@
         "difficulty": "medium",
         "question": "A cantilever has a point load of 16 kN at a lever arm of 3.5 m from its fixed end. What is the fixed-end moment magnitude?",
         "choices": [
-            "344.96 kN-m",
-            "271.04 kN-m",
-            "616 kN-m",
-            "308 kN-m"
+            "16 kN-m",
+            "28 kN-m",
+            "56 kN-m",
+            "112 kN-m"
         ],
-        "answer": "308 kN-m",
-        "explanation": "Use the stated cantilever-moment relationship. Substitution of the supplied values gives 308 kN-m; the distractors represent common denominator, sign, or factor errors.",
+        "answer": "56 kN-m",
+        "explanation": "For a point load on a cantilever, take moments about the fixed support: |M_A| = P d = (16 kN)(3.5 m) = 56 kN·m. The support reaction moment acts in the opposite direction; the question asks for magnitude. The 16 kN distractor omits the arm, 28 kN·m halves the result, and 112 kN·m doubles it.",
         "subject": "Structural Engineering",
         "content_blocks": [
             {
                 "type": "equation",
-                "value": "Use the stated relationship, units, and assumptions.",
-                "fallback": "Show the substitution and check the result."
+                "value": "|M_A| = P d = (16 kN)(3.5 m) = 56 kN·m",
+                "fallback": "Use the stated load and perpendicular lever arm; report the magnitude."
             }
         ],
         "numeric": true,
@@ -473883,7 +473931,7 @@
                     "late": 40,
                     "early": 32
                 },
-                "expected_value": 308,
+                "expected_value": 56,
                 "unit": "kN-m",
                 "recomputed": true
             }
