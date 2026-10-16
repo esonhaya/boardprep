@@ -1,0 +1,46 @@
+{
+  "batch": "687",
+  "commit": "e314a99956b846950a5cb97d56f1b9f49f3999ef",
+  "workflow": "Release gates",
+  "run_id": "38931866048",
+  "run_url": "https://github.com/esonhaya/boardprep/actions/runs/38931866048",
+  "overall": "FAIL",
+  "gates": {
+    "full_doctor_release": {
+      "status": "FAIL",
+      "duration": "4m 36s",
+      "visible_summary": "gate=FAIL decision=NOT_RELEASE_READY p0=4 health=WARN health_fail=0 failed_domains=STUDY_EXPERIENCE,DEVELOPER_HEALTH,STUDY_FLASHCARD_EXPERIENCE,PRODUCTION_CONFIGURATION",
+      "details": "The exact Doctor evidence artifact and step logs were not retrievable through the available public GitHub session (artifact/log access returned 401/403). The four P0 records cannot be identified from the public run annotation."
+    },
+    "security_privacy": {
+      "status": "PASS",
+      "tests_passed": 6,
+      "tests": [
+        "production-quiz-csrf",
+        "question-import-csrf",
+        "question-import-safety",
+        "anonymous-learner-privacy",
+        "session-configuration",
+        "security-trust-boundary"
+      ],
+      "details": "Each of the six separately reported matrix jobs completed successfully on this commit."
+    },
+    "ten_board_http": {
+      "status": "PASS",
+      "duration": "24s"
+    },
+    "production_preflight_smoke": {
+      "status": "PASS",
+      "duration": "12s"
+    },
+    "formal_product_readiness": {
+      "status": "FAIL",
+      "visible_summary": "product_feature_complete=no product_launch_ready=no privacy_terms=no incomplete_features=2 mandatory_evidence_not_passed=4"
+    }
+  },
+  "evidence_limits": [
+    "Public run and job pages were inspected; complete raw job logs and evidence artifacts were not downloaded because authenticated access was unavailable and local free space was below the 1.5 GiB safety floor.",
+    "The Doctor annotation identifies affected domains and P0 count but not the individual P0 records.",
+    "Product readiness remains NOT_READY."
+  ]
+}

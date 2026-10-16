@@ -1,0 +1,2957 @@
+{
+  "batch": "687",
+  "source_packet": "docs/batches/batch-686-duplicate-triage.json",
+  "findings_before": {
+    "exact": 85,
+    "normalized": 85,
+    "same_question_sets": 85,
+    "heuristic_clone_components": 179
+  },
+  "findings_after": {
+    "exact": 85,
+    "normalized": 85,
+    "same_question_sets": 85,
+    "heuristic_clone_components": 179
+  },
+  "focused_detailed_clusters": [
+    {
+      "cluster_id": "qdup-8c94d33c3080740218ff",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "6979",
+        "7139",
+        "7147",
+        "7323",
+        "7331",
+        "7515"
+      ],
+      "record_relationship": "distinct canonical question IDs; not merely reused study mappings",
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "classification_evidence": {
+        "current_question_fields_compared": [
+          "question",
+          "choices",
+          "answer",
+          "explanation",
+          "taxonomy",
+          "source_ids"
+        ],
+        "current_differing_fields": [],
+        "normalized_finding_same_ids": true,
+        "prior_batch681_group_match": true,
+        "prior_classification": "TRUE_DUPLICATE"
+      },
+      "learner_and_reference_safety": {
+        "eligibility_rows": 0,
+        "study_link_rows": 6,
+        "retain_all_question_ids": true,
+        "learner_attempts_or_statistics_modified": false
+      },
+      "action": "RETAIN_IDENTITIES; no content deletion/merge is authorized by string equality. Prevent equivalent duplicate exposure in a single selection and require an academic editor to decide whether one item should be rewritten or retired.",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION",
+      "members": [
+        {
+          "id": "6979",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-structural-engineering",
+          "topic": "structural-mechanics",
+          "concept": "b633-ce-structural-mechanics",
+          "question": "Why should a structural free-body diagram be prepared before calculating reactions?",
+          "choices": [
+            "It replaces the need to check units.",
+            "It proves the member is elastic.",
+            "It determines concrete strength directly.",
+            "It exposes supports, external actions, and sign conventions for the equilibrium equations."
+          ],
+          "answer": "It exposes supports, external actions, and sign conventions for the equilibrium equations.",
+          "explanation": "A free-body diagram isolates the selected structure and shows every external load, support reaction, location, and sign convention before the equilibrium equations are written. That lets the solver check force and moment balance without assuming symmetry or omitting a reaction; material strength and unit checks remain separate design checks.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7139",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-structural-engineering",
+          "topic": "structural-mechanics",
+          "concept": "b633-ce-structural-mechanics",
+          "question": "Why should a structural free-body diagram be prepared before calculating reactions?",
+          "choices": [
+            "It replaces the need to check units.",
+            "It proves the member is elastic.",
+            "It determines concrete strength directly.",
+            "It exposes supports, external actions, and sign conventions for the equilibrium equations."
+          ],
+          "answer": "It exposes supports, external actions, and sign conventions for the equilibrium equations.",
+          "explanation": "A free-body diagram isolates the selected structure and shows every external load, support reaction, location, and sign convention before the equilibrium equations are written. That lets the solver check force and moment balance without assuming symmetry or omitting a reaction; material strength and unit checks remain separate design checks.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7147",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-structural-engineering",
+          "topic": "structural-mechanics",
+          "concept": "b633-ce-structural-mechanics",
+          "question": "Why should a structural free-body diagram be prepared before calculating reactions?",
+          "choices": [
+            "It replaces the need to check units.",
+            "It proves the member is elastic.",
+            "It determines concrete strength directly.",
+            "It exposes supports, external actions, and sign conventions for the equilibrium equations."
+          ],
+          "answer": "It exposes supports, external actions, and sign conventions for the equilibrium equations.",
+          "explanation": "A free-body diagram isolates the selected structure and shows every external load, support reaction, location, and sign convention before the equilibrium equations are written. That lets the solver check force and moment balance without assuming symmetry or omitting a reaction; material strength and unit checks remain separate design checks.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7323",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-structural-engineering",
+          "topic": "structural-mechanics",
+          "concept": "b633-ce-structural-mechanics",
+          "question": "Why should a structural free-body diagram be prepared before calculating reactions?",
+          "choices": [
+            "It replaces the need to check units.",
+            "It proves the member is elastic.",
+            "It determines concrete strength directly.",
+            "It exposes supports, external actions, and sign conventions for the equilibrium equations."
+          ],
+          "answer": "It exposes supports, external actions, and sign conventions for the equilibrium equations.",
+          "explanation": "A free-body diagram isolates the selected structure and shows every external load, support reaction, location, and sign convention before the equilibrium equations are written. That lets the solver check force and moment balance without assuming symmetry or omitting a reaction; material strength and unit checks remain separate design checks.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7331",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-structural-engineering",
+          "topic": "structural-mechanics",
+          "concept": "b633-ce-structural-mechanics",
+          "question": "Why should a structural free-body diagram be prepared before calculating reactions?",
+          "choices": [
+            "It replaces the need to check units.",
+            "It proves the member is elastic.",
+            "It determines concrete strength directly.",
+            "It exposes supports, external actions, and sign conventions for the equilibrium equations."
+          ],
+          "answer": "It exposes supports, external actions, and sign conventions for the equilibrium equations.",
+          "explanation": "A free-body diagram isolates the selected structure and shows every external load, support reaction, location, and sign convention before the equilibrium equations are written. That lets the solver check force and moment balance without assuming symmetry or omitting a reaction; material strength and unit checks remain separate design checks.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7515",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-structural-engineering",
+          "topic": "structural-mechanics",
+          "concept": "b633-ce-structural-mechanics",
+          "question": "Why should a structural free-body diagram be prepared before calculating reactions?",
+          "choices": [
+            "It replaces the need to check units.",
+            "It proves the member is elastic.",
+            "It determines concrete strength directly.",
+            "It exposes supports, external actions, and sign conventions for the equilibrium equations."
+          ],
+          "answer": "It exposes supports, external actions, and sign conventions for the equilibrium equations.",
+          "explanation": "A free-body diagram isolates the selected structure and shows every external load, support reaction, location, and sign convention before the equilibrium equations are written. That lets the solver check force and moment balance without assuming symmetry or omitting a reaction; material strength and unit checks remain separate design checks.",
+          "source_ids": [],
+          "study_link_count": 1
+        }
+      ],
+      "review_priority_basis": "Risk-ordered packet: regulated/public-safety boards first, then linked-material exposure; ordering only, not an academic disposition."
+    },
+    {
+      "cluster_id": "qdup-0e71f3074c63c9b7b52a",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7034",
+        "7042",
+        "7178",
+        "7370",
+        "7538"
+      ],
+      "record_relationship": "distinct canonical question IDs; not merely reused study mappings",
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "classification_evidence": {
+        "current_question_fields_compared": [
+          "question",
+          "choices",
+          "answer",
+          "explanation",
+          "taxonomy",
+          "source_ids"
+        ],
+        "current_differing_fields": [],
+        "normalized_finding_same_ids": true,
+        "prior_batch681_group_match": true,
+        "prior_classification": "TRUE_DUPLICATE"
+      },
+      "learner_and_reference_safety": {
+        "eligibility_rows": 0,
+        "study_link_rows": 5,
+        "retain_all_question_ids": true,
+        "learner_attempts_or_statistics_modified": false
+      },
+      "action": "RETAIN_IDENTITIES; no content deletion/merge is authorized by string equality. Prevent equivalent duplicate exposure in a single selection and require an academic editor to decide whether one item should be rewritten or retired.",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION",
+      "members": [
+        {
+          "id": "7034",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-structural-engineering",
+          "topic": "structural-mechanics",
+          "concept": "b633-ce-structural-governing-codes",
+          "question": "A general code rule is being applied to a site-specific structural condition. What is required?",
+          "choices": [
+            "Assume every site has identical conditions.",
+            "Use the rule without checking applicability.",
+            "Confirm that the rule applies to the member, materials, loads, site, and limit state before using it.",
+            "Replace the code with a generic shortcut."
+          ],
+          "answer": "Confirm that the rule applies to the member, materials, loads, site, and limit state before using it.",
+          "explanation": "The controlling principle is: Confirm that the rule applies to the member, materials, loads, site, and limit state before using it.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7042",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-structural-engineering",
+          "topic": "structural-mechanics",
+          "concept": "b633-ce-structural-governing-codes",
+          "question": "A general code rule is being applied to a site-specific structural condition. What is required?",
+          "choices": [
+            "Assume every site has identical conditions.",
+            "Use the rule without checking applicability.",
+            "Confirm that the rule applies to the member, materials, loads, site, and limit state before using it.",
+            "Replace the code with a generic shortcut."
+          ],
+          "answer": "Confirm that the rule applies to the member, materials, loads, site, and limit state before using it.",
+          "explanation": "The controlling principle is: Confirm that the rule applies to the member, materials, loads, site, and limit state before using it.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7178",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-structural-engineering",
+          "topic": "structural-mechanics",
+          "concept": "b633-ce-structural-governing-codes",
+          "question": "A general code rule is being applied to a site-specific structural condition. What is required?",
+          "choices": [
+            "Assume every site has identical conditions.",
+            "Use the rule without checking applicability.",
+            "Confirm that the rule applies to the member, materials, loads, site, and limit state before using it.",
+            "Replace the code with a generic shortcut."
+          ],
+          "answer": "Confirm that the rule applies to the member, materials, loads, site, and limit state before using it.",
+          "explanation": "The controlling principle is: Confirm that the rule applies to the member, materials, loads, site, and limit state before using it.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7370",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-structural-engineering",
+          "topic": "structural-mechanics",
+          "concept": "b633-ce-structural-governing-codes",
+          "question": "A general code rule is being applied to a site-specific structural condition. What is required?",
+          "choices": [
+            "Assume every site has identical conditions.",
+            "Use the rule without checking applicability.",
+            "Confirm that the rule applies to the member, materials, loads, site, and limit state before using it.",
+            "Replace the code with a generic shortcut."
+          ],
+          "answer": "Confirm that the rule applies to the member, materials, loads, site, and limit state before using it.",
+          "explanation": "The controlling principle is: Confirm that the rule applies to the member, materials, loads, site, and limit state before using it.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7538",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-structural-engineering",
+          "topic": "structural-mechanics",
+          "concept": "b633-ce-structural-governing-codes",
+          "question": "A general code rule is being applied to a site-specific structural condition. What is required?",
+          "choices": [
+            "Assume every site has identical conditions.",
+            "Use the rule without checking applicability.",
+            "Confirm that the rule applies to the member, materials, loads, site, and limit state before using it.",
+            "Replace the code with a generic shortcut."
+          ],
+          "answer": "Confirm that the rule applies to the member, materials, loads, site, and limit state before using it.",
+          "explanation": "The controlling principle is: Confirm that the rule applies to the member, materials, loads, site, and limit state before using it.",
+          "source_ids": [],
+          "study_link_count": 1
+        }
+      ],
+      "review_priority_basis": "Risk-ordered packet: regulated/public-safety boards first, then linked-material exposure; ordering only, not an academic disposition."
+    },
+    {
+      "cluster_id": "qdup-17b4266c140f1fb0df3b",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7029",
+        "7037",
+        "7181",
+        "7373",
+        "7541"
+      ],
+      "record_relationship": "distinct canonical question IDs; not merely reused study mappings",
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "classification_evidence": {
+        "current_question_fields_compared": [
+          "question",
+          "choices",
+          "answer",
+          "explanation",
+          "taxonomy",
+          "source_ids"
+        ],
+        "current_differing_fields": [],
+        "normalized_finding_same_ids": true,
+        "prior_batch681_group_match": true,
+        "prior_classification": "TRUE_DUPLICATE"
+      },
+      "learner_and_reference_safety": {
+        "eligibility_rows": 0,
+        "study_link_rows": 5,
+        "retain_all_question_ids": true,
+        "learner_attempts_or_statistics_modified": false
+      },
+      "action": "RETAIN_IDENTITIES; no content deletion/merge is authorized by string equality. Prevent equivalent duplicate exposure in a single selection and require an academic editor to decide whether one item should be rewritten or retired.",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION",
+      "members": [
+        {
+          "id": "7029",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-structural-engineering",
+          "topic": "structural-mechanics",
+          "concept": "b633-ce-structural-governing-codes",
+          "question": "A structural question depends on a current design requirement. What should control the answer?",
+          "choices": [
+            "An undated forum summary.",
+            "The current applicable code or official authority identified for the project and examination context.",
+            "A remembered section number from an unknown edition.",
+            "A formula detached from its stated jurisdiction."
+          ],
+          "answer": "The current applicable code or official authority identified for the project and examination context.",
+          "explanation": "The controlling principle is: The current applicable code or official authority identified for the project and examination context.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7037",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-structural-engineering",
+          "topic": "structural-mechanics",
+          "concept": "b633-ce-structural-governing-codes",
+          "question": "A structural question depends on a current design requirement. What should control the answer?",
+          "choices": [
+            "An undated forum summary.",
+            "The current applicable code or official authority identified for the project and examination context.",
+            "A remembered section number from an unknown edition.",
+            "A formula detached from its stated jurisdiction."
+          ],
+          "answer": "The current applicable code or official authority identified for the project and examination context.",
+          "explanation": "The controlling principle is: The current applicable code or official authority identified for the project and examination context.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7181",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-structural-engineering",
+          "topic": "structural-mechanics",
+          "concept": "b633-ce-structural-governing-codes",
+          "question": "A structural question depends on a current design requirement. What should control the answer?",
+          "choices": [
+            "An undated forum summary.",
+            "The current applicable code or official authority identified for the project and examination context.",
+            "A remembered section number from an unknown edition.",
+            "A formula detached from its stated jurisdiction."
+          ],
+          "answer": "The current applicable code or official authority identified for the project and examination context.",
+          "explanation": "The controlling principle is: The current applicable code or official authority identified for the project and examination context.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7373",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-structural-engineering",
+          "topic": "structural-mechanics",
+          "concept": "b633-ce-structural-governing-codes",
+          "question": "A structural question depends on a current design requirement. What should control the answer?",
+          "choices": [
+            "An undated forum summary.",
+            "The current applicable code or official authority identified for the project and examination context.",
+            "A remembered section number from an unknown edition.",
+            "A formula detached from its stated jurisdiction."
+          ],
+          "answer": "The current applicable code or official authority identified for the project and examination context.",
+          "explanation": "The controlling principle is: The current applicable code or official authority identified for the project and examination context.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7541",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-structural-engineering",
+          "topic": "structural-mechanics",
+          "concept": "b633-ce-structural-governing-codes",
+          "question": "A structural question depends on a current design requirement. What should control the answer?",
+          "choices": [
+            "An undated forum summary.",
+            "The current applicable code or official authority identified for the project and examination context.",
+            "A remembered section number from an unknown edition.",
+            "A formula detached from its stated jurisdiction."
+          ],
+          "answer": "The current applicable code or official authority identified for the project and examination context.",
+          "explanation": "The controlling principle is: The current applicable code or official authority identified for the project and examination context.",
+          "source_ids": [],
+          "study_link_count": 1
+        }
+      ],
+      "review_priority_basis": "Risk-ordered packet: regulated/public-safety boards first, then linked-material exposure; ordering only, not an academic disposition."
+    },
+    {
+      "cluster_id": "qdup-22ce613767751f7c5937",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7043",
+        "7051",
+        "7187",
+        "7379",
+        "7547"
+      ],
+      "record_relationship": "distinct canonical question IDs; not merely reused study mappings",
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "classification_evidence": {
+        "current_question_fields_compared": [
+          "question",
+          "choices",
+          "answer",
+          "explanation",
+          "taxonomy",
+          "source_ids"
+        ],
+        "current_differing_fields": [],
+        "normalized_finding_same_ids": true,
+        "prior_batch681_group_match": true,
+        "prior_classification": "TRUE_DUPLICATE"
+      },
+      "learner_and_reference_safety": {
+        "eligibility_rows": 0,
+        "study_link_rows": 5,
+        "retain_all_question_ids": true,
+        "learner_attempts_or_statistics_modified": false
+      },
+      "action": "RETAIN_IDENTITIES; no content deletion/merge is authorized by string equality. Prevent equivalent duplicate exposure in a single selection and require an academic editor to decide whether one item should be rewritten or retired.",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION",
+      "members": [
+        {
+          "id": "7043",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-applied-mathematics",
+          "topic": "applied-engineering",
+          "concept": "b633-ce-applied-mathematics",
+          "question": "A calculus model gives a stationary point inside a permitted interval. What else should be checked?",
+          "choices": [
+            "Assume every stationary point is a maximum.",
+            "Ignore the permitted interval.",
+            "Replace the model with a unit conversion.",
+            "Compare the stationary point with relevant endpoints and constraints before selecting an optimum."
+          ],
+          "answer": "Compare the stationary point with relevant endpoints and constraints before selecting an optimum.",
+          "explanation": "The controlling principle is: Compare the stationary point with relevant endpoints and constraints before selecting an optimum.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7051",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-applied-mathematics",
+          "topic": "applied-engineering",
+          "concept": "b633-ce-applied-mathematics",
+          "question": "A calculus model gives a stationary point inside a permitted interval. What else should be checked?",
+          "choices": [
+            "Assume every stationary point is a maximum.",
+            "Ignore the permitted interval.",
+            "Replace the model with a unit conversion.",
+            "Compare the stationary point with relevant endpoints and constraints before selecting an optimum."
+          ],
+          "answer": "Compare the stationary point with relevant endpoints and constraints before selecting an optimum.",
+          "explanation": "The controlling principle is: Compare the stationary point with relevant endpoints and constraints before selecting an optimum.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7187",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-applied-mathematics",
+          "topic": "applied-engineering",
+          "concept": "b633-ce-applied-mathematics",
+          "question": "A calculus model gives a stationary point inside a permitted interval. What else should be checked?",
+          "choices": [
+            "Assume every stationary point is a maximum.",
+            "Ignore the permitted interval.",
+            "Replace the model with a unit conversion.",
+            "Compare the stationary point with relevant endpoints and constraints before selecting an optimum."
+          ],
+          "answer": "Compare the stationary point with relevant endpoints and constraints before selecting an optimum.",
+          "explanation": "The controlling principle is: Compare the stationary point with relevant endpoints and constraints before selecting an optimum.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7379",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-applied-mathematics",
+          "topic": "applied-engineering",
+          "concept": "b633-ce-applied-mathematics",
+          "question": "A calculus model gives a stationary point inside a permitted interval. What else should be checked?",
+          "choices": [
+            "Assume every stationary point is a maximum.",
+            "Ignore the permitted interval.",
+            "Replace the model with a unit conversion.",
+            "Compare the stationary point with relevant endpoints and constraints before selecting an optimum."
+          ],
+          "answer": "Compare the stationary point with relevant endpoints and constraints before selecting an optimum.",
+          "explanation": "The controlling principle is: Compare the stationary point with relevant endpoints and constraints before selecting an optimum.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7547",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-applied-mathematics",
+          "topic": "applied-engineering",
+          "concept": "b633-ce-applied-mathematics",
+          "question": "A calculus model gives a stationary point inside a permitted interval. What else should be checked?",
+          "choices": [
+            "Assume every stationary point is a maximum.",
+            "Ignore the permitted interval.",
+            "Replace the model with a unit conversion.",
+            "Compare the stationary point with relevant endpoints and constraints before selecting an optimum."
+          ],
+          "answer": "Compare the stationary point with relevant endpoints and constraints before selecting an optimum.",
+          "explanation": "The controlling principle is: Compare the stationary point with relevant endpoints and constraints before selecting an optimum.",
+          "source_ids": [],
+          "study_link_count": 1
+        }
+      ],
+      "review_priority_basis": "Risk-ordered packet: regulated/public-safety boards first, then linked-material exposure; ordering only, not an academic disposition."
+    },
+    {
+      "cluster_id": "qdup-2ba7af8aa4bc811af4ba",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7122",
+        "7290",
+        "7466",
+        "7474",
+        "7578"
+      ],
+      "record_relationship": "distinct canonical question IDs; not merely reused study mappings",
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "classification_evidence": {
+        "current_question_fields_compared": [
+          "question",
+          "choices",
+          "answer",
+          "explanation",
+          "taxonomy",
+          "source_ids"
+        ],
+        "current_differing_fields": [],
+        "normalized_finding_same_ids": true,
+        "prior_batch681_group_match": true,
+        "prior_classification": "TRUE_DUPLICATE"
+      },
+      "learner_and_reference_safety": {
+        "eligibility_rows": 0,
+        "study_link_rows": 5,
+        "retain_all_question_ids": true,
+        "learner_attempts_or_statistics_modified": false
+      },
+      "action": "RETAIN_IDENTITIES; no content deletion/merge is authorized by string equality. Prevent equivalent duplicate exposure in a single selection and require an academic editor to decide whether one item should be rewritten or retired.",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION",
+      "members": [
+        {
+          "id": "7122",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-geotechnical-and-hydraulics",
+          "topic": "hydraulics-geotechnical",
+          "concept": "b633-ce-soil-properties-classification",
+          "question": "What is the purpose of a soil classification system?",
+          "choices": [
+            "It predicts every settlement value exactly.",
+            "It replaces site investigation.",
+            "It groups soils by measured index or particle characteristics to support consistent engineering interpretation.",
+            "It eliminates the need for moisture data."
+          ],
+          "answer": "It groups soils by measured index or particle characteristics to support consistent engineering interpretation.",
+          "explanation": "The controlling principle is: It groups soils by measured index or particle characteristics to support consistent engineering interpretation.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7290",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-geotechnical-and-hydraulics",
+          "topic": "hydraulics-geotechnical",
+          "concept": "b633-ce-soil-properties-classification",
+          "question": "What is the purpose of a soil classification system?",
+          "choices": [
+            "It predicts every settlement value exactly.",
+            "It replaces site investigation.",
+            "It groups soils by measured index or particle characteristics to support consistent engineering interpretation.",
+            "It eliminates the need for moisture data."
+          ],
+          "answer": "It groups soils by measured index or particle characteristics to support consistent engineering interpretation.",
+          "explanation": "The controlling principle is: It groups soils by measured index or particle characteristics to support consistent engineering interpretation.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7466",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-geotechnical-and-hydraulics",
+          "topic": "hydraulics-geotechnical",
+          "concept": "b633-ce-soil-properties-classification",
+          "question": "What is the purpose of a soil classification system?",
+          "choices": [
+            "It predicts every settlement value exactly.",
+            "It replaces site investigation.",
+            "It groups soils by measured index or particle characteristics to support consistent engineering interpretation.",
+            "It eliminates the need for moisture data."
+          ],
+          "answer": "It groups soils by measured index or particle characteristics to support consistent engineering interpretation.",
+          "explanation": "The controlling principle is: It groups soils by measured index or particle characteristics to support consistent engineering interpretation.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7474",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-geotechnical-and-hydraulics",
+          "topic": "hydraulics-geotechnical",
+          "concept": "b633-ce-soil-properties-classification",
+          "question": "What is the purpose of a soil classification system?",
+          "choices": [
+            "It predicts every settlement value exactly.",
+            "It replaces site investigation.",
+            "It groups soils by measured index or particle characteristics to support consistent engineering interpretation.",
+            "It eliminates the need for moisture data."
+          ],
+          "answer": "It groups soils by measured index or particle characteristics to support consistent engineering interpretation.",
+          "explanation": "The controlling principle is: It groups soils by measured index or particle characteristics to support consistent engineering interpretation.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7578",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-geotechnical-and-hydraulics",
+          "topic": "hydraulics-geotechnical",
+          "concept": "b633-ce-soil-properties-classification",
+          "question": "What is the purpose of a soil classification system?",
+          "choices": [
+            "It predicts every settlement value exactly.",
+            "It replaces site investigation.",
+            "It groups soils by measured index or particle characteristics to support consistent engineering interpretation.",
+            "It eliminates the need for moisture data."
+          ],
+          "answer": "It groups soils by measured index or particle characteristics to support consistent engineering interpretation.",
+          "explanation": "The controlling principle is: It groups soils by measured index or particle characteristics to support consistent engineering interpretation.",
+          "source_ids": [],
+          "study_link_count": 1
+        }
+      ],
+      "review_priority_basis": "Risk-ordered packet: regulated/public-safety boards first, then linked-material exposure; ordering only, not an academic disposition."
+    },
+    {
+      "cluster_id": "qdup-35dab7805a64c9c8dc13",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7099",
+        "7251",
+        "7259",
+        "7435",
+        "7443"
+      ],
+      "record_relationship": "distinct canonical question IDs; not merely reused study mappings",
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "classification_evidence": {
+        "current_question_fields_compared": [
+          "question",
+          "choices",
+          "answer",
+          "explanation",
+          "taxonomy",
+          "source_ids"
+        ],
+        "current_differing_fields": [],
+        "normalized_finding_same_ids": true,
+        "prior_batch681_group_match": true,
+        "prior_classification": "TRUE_DUPLICATE"
+      },
+      "learner_and_reference_safety": {
+        "eligibility_rows": 0,
+        "study_link_rows": 5,
+        "retain_all_question_ids": true,
+        "learner_attempts_or_statistics_modified": false
+      },
+      "action": "RETAIN_IDENTITIES; no content deletion/merge is authorized by string equality. Prevent equivalent duplicate exposure in a single selection and require an academic editor to decide whether one item should be rewritten or retired.",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION",
+      "members": [
+        {
+          "id": "7099",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-applied-mathematics",
+          "topic": "applied-engineering",
+          "concept": "b633-ce-engineering-economics-scheduling",
+          "question": "Why should alternatives be compared at a common time basis?",
+          "choices": [
+            "Nominal totals always answer the same question.",
+            "Time has no effect on cost.",
+            "A larger initial value is always preferred.",
+            "Cash flows at different times are not directly comparable without the stated timing and discount convention."
+          ],
+          "answer": "Cash flows at different times are not directly comparable without the stated timing and discount convention.",
+          "explanation": "The controlling principle is: Cash flows at different times are not directly comparable without the stated timing and discount convention.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7251",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-applied-mathematics",
+          "topic": "applied-engineering",
+          "concept": "b633-ce-engineering-economics-scheduling",
+          "question": "Why should alternatives be compared at a common time basis?",
+          "choices": [
+            "Nominal totals always answer the same question.",
+            "Time has no effect on cost.",
+            "A larger initial value is always preferred.",
+            "Cash flows at different times are not directly comparable without the stated timing and discount convention."
+          ],
+          "answer": "Cash flows at different times are not directly comparable without the stated timing and discount convention.",
+          "explanation": "The controlling principle is: Cash flows at different times are not directly comparable without the stated timing and discount convention.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7259",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-applied-mathematics",
+          "topic": "applied-engineering",
+          "concept": "b633-ce-engineering-economics-scheduling",
+          "question": "Why should alternatives be compared at a common time basis?",
+          "choices": [
+            "Nominal totals always answer the same question.",
+            "Time has no effect on cost.",
+            "A larger initial value is always preferred.",
+            "Cash flows at different times are not directly comparable without the stated timing and discount convention."
+          ],
+          "answer": "Cash flows at different times are not directly comparable without the stated timing and discount convention.",
+          "explanation": "The controlling principle is: Cash flows at different times are not directly comparable without the stated timing and discount convention.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7435",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-applied-mathematics",
+          "topic": "applied-engineering",
+          "concept": "b633-ce-engineering-economics-scheduling",
+          "question": "Why should alternatives be compared at a common time basis?",
+          "choices": [
+            "Nominal totals always answer the same question.",
+            "Time has no effect on cost.",
+            "A larger initial value is always preferred.",
+            "Cash flows at different times are not directly comparable without the stated timing and discount convention."
+          ],
+          "answer": "Cash flows at different times are not directly comparable without the stated timing and discount convention.",
+          "explanation": "The controlling principle is: Cash flows at different times are not directly comparable without the stated timing and discount convention.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7443",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-applied-mathematics",
+          "topic": "applied-engineering",
+          "concept": "b633-ce-engineering-economics-scheduling",
+          "question": "Why should alternatives be compared at a common time basis?",
+          "choices": [
+            "Nominal totals always answer the same question.",
+            "Time has no effect on cost.",
+            "A larger initial value is always preferred.",
+            "Cash flows at different times are not directly comparable without the stated timing and discount convention."
+          ],
+          "answer": "Cash flows at different times are not directly comparable without the stated timing and discount convention.",
+          "explanation": "The controlling principle is: Cash flows at different times are not directly comparable without the stated timing and discount convention.",
+          "source_ids": [],
+          "study_link_count": 1
+        }
+      ],
+      "review_priority_basis": "Risk-ordered packet: regulated/public-safety boards first, then linked-material exposure; ordering only, not an academic disposition."
+    },
+    {
+      "cluster_id": "qdup-3dd0f8b98cbf0f028700",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7074",
+        "7218",
+        "7226",
+        "7410",
+        "7418"
+      ],
+      "record_relationship": "distinct canonical question IDs; not merely reused study mappings",
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "classification_evidence": {
+        "current_question_fields_compared": [
+          "question",
+          "choices",
+          "answer",
+          "explanation",
+          "taxonomy",
+          "source_ids"
+        ],
+        "current_differing_fields": [],
+        "normalized_finding_same_ids": true,
+        "prior_batch681_group_match": true,
+        "prior_classification": "TRUE_DUPLICATE"
+      },
+      "learner_and_reference_safety": {
+        "eligibility_rows": 0,
+        "study_link_rows": 5,
+        "retain_all_question_ids": true,
+        "learner_attempts_or_statistics_modified": false
+      },
+      "action": "RETAIN_IDENTITIES; no content deletion/merge is authorized by string equality. Prevent equivalent duplicate exposure in a single selection and require an academic editor to decide whether one item should be rewritten or retired.",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION",
+      "members": [
+        {
+          "id": "7074",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-applied-mathematics",
+          "topic": "applied-engineering",
+          "concept": "b633-ce-construction-quantity-productivity",
+          "question": "What makes a construction method statement useful for engineering control?",
+          "choices": [
+            "It lists only the project title.",
+            "It replaces inspection records.",
+            "It connects sequence, resources, interfaces, hazards, quality checks, and acceptance responsibilities.",
+            "It guarantees productivity without assumptions."
+          ],
+          "answer": "It connects sequence, resources, interfaces, hazards, quality checks, and acceptance responsibilities.",
+          "explanation": "The controlling principle is: It connects sequence, resources, interfaces, hazards, quality checks, and acceptance responsibilities.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7218",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-applied-mathematics",
+          "topic": "applied-engineering",
+          "concept": "b633-ce-construction-quantity-productivity",
+          "question": "What makes a construction method statement useful for engineering control?",
+          "choices": [
+            "It lists only the project title.",
+            "It replaces inspection records.",
+            "It connects sequence, resources, interfaces, hazards, quality checks, and acceptance responsibilities.",
+            "It guarantees productivity without assumptions."
+          ],
+          "answer": "It connects sequence, resources, interfaces, hazards, quality checks, and acceptance responsibilities.",
+          "explanation": "The controlling principle is: It connects sequence, resources, interfaces, hazards, quality checks, and acceptance responsibilities.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7226",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-applied-mathematics",
+          "topic": "applied-engineering",
+          "concept": "b633-ce-construction-quantity-productivity",
+          "question": "What makes a construction method statement useful for engineering control?",
+          "choices": [
+            "It lists only the project title.",
+            "It replaces inspection records.",
+            "It connects sequence, resources, interfaces, hazards, quality checks, and acceptance responsibilities.",
+            "It guarantees productivity without assumptions."
+          ],
+          "answer": "It connects sequence, resources, interfaces, hazards, quality checks, and acceptance responsibilities.",
+          "explanation": "The controlling principle is: It connects sequence, resources, interfaces, hazards, quality checks, and acceptance responsibilities.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7410",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-applied-mathematics",
+          "topic": "applied-engineering",
+          "concept": "b633-ce-construction-quantity-productivity",
+          "question": "What makes a construction method statement useful for engineering control?",
+          "choices": [
+            "It lists only the project title.",
+            "It replaces inspection records.",
+            "It connects sequence, resources, interfaces, hazards, quality checks, and acceptance responsibilities.",
+            "It guarantees productivity without assumptions."
+          ],
+          "answer": "It connects sequence, resources, interfaces, hazards, quality checks, and acceptance responsibilities.",
+          "explanation": "The controlling principle is: It connects sequence, resources, interfaces, hazards, quality checks, and acceptance responsibilities.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7418",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-applied-mathematics",
+          "topic": "applied-engineering",
+          "concept": "b633-ce-construction-quantity-productivity",
+          "question": "What makes a construction method statement useful for engineering control?",
+          "choices": [
+            "It lists only the project title.",
+            "It replaces inspection records.",
+            "It connects sequence, resources, interfaces, hazards, quality checks, and acceptance responsibilities.",
+            "It guarantees productivity without assumptions."
+          ],
+          "answer": "It connects sequence, resources, interfaces, hazards, quality checks, and acceptance responsibilities.",
+          "explanation": "The controlling principle is: It connects sequence, resources, interfaces, hazards, quality checks, and acceptance responsibilities.",
+          "source_ids": [],
+          "study_link_count": 1
+        }
+      ],
+      "review_priority_basis": "Risk-ordered packet: regulated/public-safety boards first, then linked-material exposure; ordering only, not an academic disposition."
+    },
+    {
+      "cluster_id": "qdup-4069d8b45bf8e5d7d1f3",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7030",
+        "7038",
+        "7182",
+        "7374",
+        "7542"
+      ],
+      "record_relationship": "distinct canonical question IDs; not merely reused study mappings",
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "classification_evidence": {
+        "current_question_fields_compared": [
+          "question",
+          "choices",
+          "answer",
+          "explanation",
+          "taxonomy",
+          "source_ids"
+        ],
+        "current_differing_fields": [],
+        "normalized_finding_same_ids": true,
+        "prior_batch681_group_match": true,
+        "prior_classification": "TRUE_DUPLICATE"
+      },
+      "learner_and_reference_safety": {
+        "eligibility_rows": 0,
+        "study_link_rows": 5,
+        "retain_all_question_ids": true,
+        "learner_attempts_or_statistics_modified": false
+      },
+      "action": "RETAIN_IDENTITIES; no content deletion/merge is authorized by string equality. Prevent equivalent duplicate exposure in a single selection and require an academic editor to decide whether one item should be rewritten or retired.",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION",
+      "members": [
+        {
+          "id": "7030",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-structural-engineering",
+          "topic": "structural-mechanics",
+          "concept": "b633-ce-structural-governing-codes",
+          "question": "What is the best use of a stable structural principle when a code provision is version-sensitive?",
+          "choices": [
+            "Treat the principle as a substitute for every code limit.",
+            "Ignore the current edition.",
+            "Use the stable principle for understanding and consult the current controlling provision for the requirement.",
+            "Memorize an unverified number."
+          ],
+          "answer": "Use the stable principle for understanding and consult the current controlling provision for the requirement.",
+          "explanation": "The controlling principle is: Use the stable principle for understanding and consult the current controlling provision for the requirement.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7038",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-structural-engineering",
+          "topic": "structural-mechanics",
+          "concept": "b633-ce-structural-governing-codes",
+          "question": "What is the best use of a stable structural principle when a code provision is version-sensitive?",
+          "choices": [
+            "Treat the principle as a substitute for every code limit.",
+            "Ignore the current edition.",
+            "Use the stable principle for understanding and consult the current controlling provision for the requirement.",
+            "Memorize an unverified number."
+          ],
+          "answer": "Use the stable principle for understanding and consult the current controlling provision for the requirement.",
+          "explanation": "The controlling principle is: Use the stable principle for understanding and consult the current controlling provision for the requirement.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7182",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-structural-engineering",
+          "topic": "structural-mechanics",
+          "concept": "b633-ce-structural-governing-codes",
+          "question": "What is the best use of a stable structural principle when a code provision is version-sensitive?",
+          "choices": [
+            "Treat the principle as a substitute for every code limit.",
+            "Ignore the current edition.",
+            "Use the stable principle for understanding and consult the current controlling provision for the requirement.",
+            "Memorize an unverified number."
+          ],
+          "answer": "Use the stable principle for understanding and consult the current controlling provision for the requirement.",
+          "explanation": "The controlling principle is: Use the stable principle for understanding and consult the current controlling provision for the requirement.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7374",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-structural-engineering",
+          "topic": "structural-mechanics",
+          "concept": "b633-ce-structural-governing-codes",
+          "question": "What is the best use of a stable structural principle when a code provision is version-sensitive?",
+          "choices": [
+            "Treat the principle as a substitute for every code limit.",
+            "Ignore the current edition.",
+            "Use the stable principle for understanding and consult the current controlling provision for the requirement.",
+            "Memorize an unverified number."
+          ],
+          "answer": "Use the stable principle for understanding and consult the current controlling provision for the requirement.",
+          "explanation": "The controlling principle is: Use the stable principle for understanding and consult the current controlling provision for the requirement.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7542",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-structural-engineering",
+          "topic": "structural-mechanics",
+          "concept": "b633-ce-structural-governing-codes",
+          "question": "What is the best use of a stable structural principle when a code provision is version-sensitive?",
+          "choices": [
+            "Treat the principle as a substitute for every code limit.",
+            "Ignore the current edition.",
+            "Use the stable principle for understanding and consult the current controlling provision for the requirement.",
+            "Memorize an unverified number."
+          ],
+          "answer": "Use the stable principle for understanding and consult the current controlling provision for the requirement.",
+          "explanation": "The controlling principle is: Use the stable principle for understanding and consult the current controlling provision for the requirement.",
+          "source_ids": [],
+          "study_link_count": 1
+        }
+      ],
+      "review_priority_basis": "Risk-ordered packet: regulated/public-safety boards first, then linked-material exposure; ordering only, not an academic disposition."
+    },
+    {
+      "cluster_id": "qdup-4d93a0d2d98dbc7878c5",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7075",
+        "7219",
+        "7227",
+        "7411",
+        "7555"
+      ],
+      "record_relationship": "distinct canonical question IDs; not merely reused study mappings",
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "classification_evidence": {
+        "current_question_fields_compared": [
+          "question",
+          "choices",
+          "answer",
+          "explanation",
+          "taxonomy",
+          "source_ids"
+        ],
+        "current_differing_fields": [],
+        "normalized_finding_same_ids": true,
+        "prior_batch681_group_match": true,
+        "prior_classification": "TRUE_DUPLICATE"
+      },
+      "learner_and_reference_safety": {
+        "eligibility_rows": 0,
+        "study_link_rows": 5,
+        "retain_all_question_ids": true,
+        "learner_attempts_or_statistics_modified": false
+      },
+      "action": "RETAIN_IDENTITIES; no content deletion/merge is authorized by string equality. Prevent equivalent duplicate exposure in a single selection and require an academic editor to decide whether one item should be rewritten or retired.",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION",
+      "members": [
+        {
+          "id": "7075",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-applied-mathematics",
+          "topic": "applied-engineering",
+          "concept": "b633-ce-construction-quantity-productivity",
+          "question": "What should be retained when a measured quantity change affects a unit-price work item?",
+          "choices": [
+            "Only a verbal estimate.",
+            "A changed total without basis.",
+            "The original quantity with no annotation.",
+            "The measured basis, assumptions, approvals, and affected work should be traceably recorded."
+          ],
+          "answer": "The measured basis, assumptions, approvals, and affected work should be traceably recorded.",
+          "explanation": "The controlling principle is: The measured basis, assumptions, approvals, and affected work should be traceably recorded.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7219",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-applied-mathematics",
+          "topic": "applied-engineering",
+          "concept": "b633-ce-construction-quantity-productivity",
+          "question": "What should be retained when a measured quantity change affects a unit-price work item?",
+          "choices": [
+            "Only a verbal estimate.",
+            "A changed total without basis.",
+            "The original quantity with no annotation.",
+            "The measured basis, assumptions, approvals, and affected work should be traceably recorded."
+          ],
+          "answer": "The measured basis, assumptions, approvals, and affected work should be traceably recorded.",
+          "explanation": "The controlling principle is: The measured basis, assumptions, approvals, and affected work should be traceably recorded.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7227",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-applied-mathematics",
+          "topic": "applied-engineering",
+          "concept": "b633-ce-construction-quantity-productivity",
+          "question": "What should be retained when a measured quantity change affects a unit-price work item?",
+          "choices": [
+            "Only a verbal estimate.",
+            "A changed total without basis.",
+            "The original quantity with no annotation.",
+            "The measured basis, assumptions, approvals, and affected work should be traceably recorded."
+          ],
+          "answer": "The measured basis, assumptions, approvals, and affected work should be traceably recorded.",
+          "explanation": "The controlling principle is: The measured basis, assumptions, approvals, and affected work should be traceably recorded.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7411",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-applied-mathematics",
+          "topic": "applied-engineering",
+          "concept": "b633-ce-construction-quantity-productivity",
+          "question": "What should be retained when a measured quantity change affects a unit-price work item?",
+          "choices": [
+            "Only a verbal estimate.",
+            "A changed total without basis.",
+            "The original quantity with no annotation.",
+            "The measured basis, assumptions, approvals, and affected work should be traceably recorded."
+          ],
+          "answer": "The measured basis, assumptions, approvals, and affected work should be traceably recorded.",
+          "explanation": "The controlling principle is: The measured basis, assumptions, approvals, and affected work should be traceably recorded.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7555",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-applied-mathematics",
+          "topic": "applied-engineering",
+          "concept": "b633-ce-construction-quantity-productivity",
+          "question": "What should be retained when a measured quantity change affects a unit-price work item?",
+          "choices": [
+            "Only a verbal estimate.",
+            "A changed total without basis.",
+            "The original quantity with no annotation.",
+            "The measured basis, assumptions, approvals, and affected work should be traceably recorded."
+          ],
+          "answer": "The measured basis, assumptions, approvals, and affected work should be traceably recorded.",
+          "explanation": "The controlling principle is: The measured basis, assumptions, approvals, and affected work should be traceably recorded.",
+          "source_ids": [],
+          "study_link_count": 1
+        }
+      ],
+      "review_priority_basis": "Risk-ordered packet: regulated/public-safety boards first, then linked-material exposure; ordering only, not an academic disposition."
+    },
+    {
+      "cluster_id": "qdup-566132ebdc6d9707da9d",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7090",
+        "7242",
+        "7250",
+        "7426",
+        "7562"
+      ],
+      "record_relationship": "distinct canonical question IDs; not merely reused study mappings",
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "classification_evidence": {
+        "current_question_fields_compared": [
+          "question",
+          "choices",
+          "answer",
+          "explanation",
+          "taxonomy",
+          "source_ids"
+        ],
+        "current_differing_fields": [],
+        "normalized_finding_same_ids": true,
+        "prior_batch681_group_match": true,
+        "prior_classification": "TRUE_DUPLICATE"
+      },
+      "learner_and_reference_safety": {
+        "eligibility_rows": 0,
+        "study_link_rows": 5,
+        "retain_all_question_ids": true,
+        "learner_attempts_or_statistics_modified": false
+      },
+      "action": "RETAIN_IDENTITIES; no content deletion/merge is authorized by string equality. Prevent equivalent duplicate exposure in a single selection and require an academic editor to decide whether one item should be rewritten or retired.",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION",
+      "members": [
+        {
+          "id": "7090",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-applied-mathematics",
+          "topic": "applied-engineering",
+          "concept": "b633-ce-engineering-data",
+          "question": "A single laboratory result differs sharply from the trend. What should happen before assigning a physical cause?",
+          "choices": [
+            "Delete it automatically.",
+            "Treat it as the new mean.",
+            "Check specimen identity, calibration, procedure, repeatability, and the data record before interpreting the mechanism.",
+            "Assume the material failed."
+          ],
+          "answer": "Check specimen identity, calibration, procedure, repeatability, and the data record before interpreting the mechanism.",
+          "explanation": "The controlling principle is: Check specimen identity, calibration, procedure, repeatability, and the data record before interpreting the mechanism.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7242",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-applied-mathematics",
+          "topic": "applied-engineering",
+          "concept": "b633-ce-engineering-data",
+          "question": "A single laboratory result differs sharply from the trend. What should happen before assigning a physical cause?",
+          "choices": [
+            "Delete it automatically.",
+            "Treat it as the new mean.",
+            "Check specimen identity, calibration, procedure, repeatability, and the data record before interpreting the mechanism.",
+            "Assume the material failed."
+          ],
+          "answer": "Check specimen identity, calibration, procedure, repeatability, and the data record before interpreting the mechanism.",
+          "explanation": "The controlling principle is: Check specimen identity, calibration, procedure, repeatability, and the data record before interpreting the mechanism.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7250",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-applied-mathematics",
+          "topic": "applied-engineering",
+          "concept": "b633-ce-engineering-data",
+          "question": "A single laboratory result differs sharply from the trend. What should happen before assigning a physical cause?",
+          "choices": [
+            "Delete it automatically.",
+            "Treat it as the new mean.",
+            "Check specimen identity, calibration, procedure, repeatability, and the data record before interpreting the mechanism.",
+            "Assume the material failed."
+          ],
+          "answer": "Check specimen identity, calibration, procedure, repeatability, and the data record before interpreting the mechanism.",
+          "explanation": "The controlling principle is: Check specimen identity, calibration, procedure, repeatability, and the data record before interpreting the mechanism.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7426",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-applied-mathematics",
+          "topic": "applied-engineering",
+          "concept": "b633-ce-engineering-data",
+          "question": "A single laboratory result differs sharply from the trend. What should happen before assigning a physical cause?",
+          "choices": [
+            "Delete it automatically.",
+            "Treat it as the new mean.",
+            "Check specimen identity, calibration, procedure, repeatability, and the data record before interpreting the mechanism.",
+            "Assume the material failed."
+          ],
+          "answer": "Check specimen identity, calibration, procedure, repeatability, and the data record before interpreting the mechanism.",
+          "explanation": "The controlling principle is: Check specimen identity, calibration, procedure, repeatability, and the data record before interpreting the mechanism.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7562",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-applied-mathematics",
+          "topic": "applied-engineering",
+          "concept": "b633-ce-engineering-data",
+          "question": "A single laboratory result differs sharply from the trend. What should happen before assigning a physical cause?",
+          "choices": [
+            "Delete it automatically.",
+            "Treat it as the new mean.",
+            "Check specimen identity, calibration, procedure, repeatability, and the data record before interpreting the mechanism.",
+            "Assume the material failed."
+          ],
+          "answer": "Check specimen identity, calibration, procedure, repeatability, and the data record before interpreting the mechanism.",
+          "explanation": "The controlling principle is: Check specimen identity, calibration, procedure, repeatability, and the data record before interpreting the mechanism.",
+          "source_ids": [],
+          "study_link_count": 1
+        }
+      ],
+      "review_priority_basis": "Risk-ordered packet: regulated/public-safety boards first, then linked-material exposure; ordering only, not an academic disposition."
+    },
+    {
+      "cluster_id": "qdup-58f3e37f473b8a06f4f9",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7031",
+        "7039",
+        "7367",
+        "7375",
+        "7543"
+      ],
+      "record_relationship": "distinct canonical question IDs; not merely reused study mappings",
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "classification_evidence": {
+        "current_question_fields_compared": [
+          "question",
+          "choices",
+          "answer",
+          "explanation",
+          "taxonomy",
+          "source_ids"
+        ],
+        "current_differing_fields": [],
+        "normalized_finding_same_ids": true,
+        "prior_batch681_group_match": true,
+        "prior_classification": "TRUE_DUPLICATE"
+      },
+      "learner_and_reference_safety": {
+        "eligibility_rows": 0,
+        "study_link_rows": 5,
+        "retain_all_question_ids": true,
+        "learner_attempts_or_statistics_modified": false
+      },
+      "action": "RETAIN_IDENTITIES; no content deletion/merge is authorized by string equality. Prevent equivalent duplicate exposure in a single selection and require an academic editor to decide whether one item should be rewritten or retired.",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION",
+      "members": [
+        {
+          "id": "7031",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-structural-engineering",
+          "topic": "structural-mechanics",
+          "concept": "b633-ce-structural-governing-codes",
+          "question": "When interpreting a code-based load combination, what must be checked first?",
+          "choices": [
+            "Only the largest number in the expression.",
+            "Only the member color on a drawing.",
+            "Whether a calculation has any units.",
+            "The applicable limit state, action definitions, factors, and edition or jurisdiction specified by the authority."
+          ],
+          "answer": "The applicable limit state, action definitions, factors, and edition or jurisdiction specified by the authority.",
+          "explanation": "The controlling principle is: The applicable limit state, action definitions, factors, and edition or jurisdiction specified by the authority.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7039",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-structural-engineering",
+          "topic": "structural-mechanics",
+          "concept": "b633-ce-structural-governing-codes",
+          "question": "When interpreting a code-based load combination, what must be checked first?",
+          "choices": [
+            "Only the largest number in the expression.",
+            "Only the member color on a drawing.",
+            "Whether a calculation has any units.",
+            "The applicable limit state, action definitions, factors, and edition or jurisdiction specified by the authority."
+          ],
+          "answer": "The applicable limit state, action definitions, factors, and edition or jurisdiction specified by the authority.",
+          "explanation": "The controlling principle is: The applicable limit state, action definitions, factors, and edition or jurisdiction specified by the authority.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7367",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-structural-engineering",
+          "topic": "structural-mechanics",
+          "concept": "b633-ce-structural-governing-codes",
+          "question": "When interpreting a code-based load combination, what must be checked first?",
+          "choices": [
+            "Only the largest number in the expression.",
+            "Only the member color on a drawing.",
+            "Whether a calculation has any units.",
+            "The applicable limit state, action definitions, factors, and edition or jurisdiction specified by the authority."
+          ],
+          "answer": "The applicable limit state, action definitions, factors, and edition or jurisdiction specified by the authority.",
+          "explanation": "The controlling principle is: The applicable limit state, action definitions, factors, and edition or jurisdiction specified by the authority.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7375",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-structural-engineering",
+          "topic": "structural-mechanics",
+          "concept": "b633-ce-structural-governing-codes",
+          "question": "When interpreting a code-based load combination, what must be checked first?",
+          "choices": [
+            "Only the largest number in the expression.",
+            "Only the member color on a drawing.",
+            "Whether a calculation has any units.",
+            "The applicable limit state, action definitions, factors, and edition or jurisdiction specified by the authority."
+          ],
+          "answer": "The applicable limit state, action definitions, factors, and edition or jurisdiction specified by the authority.",
+          "explanation": "The controlling principle is: The applicable limit state, action definitions, factors, and edition or jurisdiction specified by the authority.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7543",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-structural-engineering",
+          "topic": "structural-mechanics",
+          "concept": "b633-ce-structural-governing-codes",
+          "question": "When interpreting a code-based load combination, what must be checked first?",
+          "choices": [
+            "Only the largest number in the expression.",
+            "Only the member color on a drawing.",
+            "Whether a calculation has any units.",
+            "The applicable limit state, action definitions, factors, and edition or jurisdiction specified by the authority."
+          ],
+          "answer": "The applicable limit state, action definitions, factors, and edition or jurisdiction specified by the authority.",
+          "explanation": "The controlling principle is: The applicable limit state, action definitions, factors, and edition or jurisdiction specified by the authority.",
+          "source_ids": [],
+          "study_link_count": 1
+        }
+      ],
+      "review_priority_basis": "Risk-ordered packet: regulated/public-safety boards first, then linked-material exposure; ordering only, not an academic disposition."
+    },
+    {
+      "cluster_id": "qdup-5e0f9ea411963b6828d6",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7060",
+        "7196",
+        "7204",
+        "7388",
+        "7396"
+      ],
+      "record_relationship": "distinct canonical question IDs; not merely reused study mappings",
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "classification_evidence": {
+        "current_question_fields_compared": [
+          "question",
+          "choices",
+          "answer",
+          "explanation",
+          "taxonomy",
+          "source_ids"
+        ],
+        "current_differing_fields": [],
+        "normalized_finding_same_ids": true,
+        "prior_batch681_group_match": true,
+        "prior_classification": "TRUE_DUPLICATE"
+      },
+      "learner_and_reference_safety": {
+        "eligibility_rows": 0,
+        "study_link_rows": 5,
+        "retain_all_question_ids": true,
+        "learner_attempts_or_statistics_modified": false
+      },
+      "action": "RETAIN_IDENTITIES; no content deletion/merge is authorized by string equality. Prevent equivalent duplicate exposure in a single selection and require an academic editor to decide whether one item should be rewritten or retired.",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION",
+      "members": [
+        {
+          "id": "7060",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-applied-mathematics",
+          "topic": "applied-engineering",
+          "concept": "b633-ce-surveying-layout",
+          "question": "Which field practice best supports reliable building layout?",
+          "choices": [
+            "Protect control points, record observations in sequence, and repeat critical checks before construction proceeds.",
+            "Move the benchmark after each setup.",
+            "Record only the final stake.",
+            "Rely on memory for instrument height."
+          ],
+          "answer": "Protect control points, record observations in sequence, and repeat critical checks before construction proceeds.",
+          "explanation": "The controlling principle is: Protect control points, record observations in sequence, and repeat critical checks before construction proceeds.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7196",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-applied-mathematics",
+          "topic": "applied-engineering",
+          "concept": "b633-ce-surveying-layout",
+          "question": "Which field practice best supports reliable building layout?",
+          "choices": [
+            "Protect control points, record observations in sequence, and repeat critical checks before construction proceeds.",
+            "Move the benchmark after each setup.",
+            "Record only the final stake.",
+            "Rely on memory for instrument height."
+          ],
+          "answer": "Protect control points, record observations in sequence, and repeat critical checks before construction proceeds.",
+          "explanation": "The controlling principle is: Protect control points, record observations in sequence, and repeat critical checks before construction proceeds.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7204",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-applied-mathematics",
+          "topic": "applied-engineering",
+          "concept": "b633-ce-surveying-layout",
+          "question": "Which field practice best supports reliable building layout?",
+          "choices": [
+            "Protect control points, record observations in sequence, and repeat critical checks before construction proceeds.",
+            "Move the benchmark after each setup.",
+            "Record only the final stake.",
+            "Rely on memory for instrument height."
+          ],
+          "answer": "Protect control points, record observations in sequence, and repeat critical checks before construction proceeds.",
+          "explanation": "The controlling principle is: Protect control points, record observations in sequence, and repeat critical checks before construction proceeds.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7388",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-applied-mathematics",
+          "topic": "applied-engineering",
+          "concept": "b633-ce-surveying-layout",
+          "question": "Which field practice best supports reliable building layout?",
+          "choices": [
+            "Protect control points, record observations in sequence, and repeat critical checks before construction proceeds.",
+            "Move the benchmark after each setup.",
+            "Record only the final stake.",
+            "Rely on memory for instrument height."
+          ],
+          "answer": "Protect control points, record observations in sequence, and repeat critical checks before construction proceeds.",
+          "explanation": "The controlling principle is: Protect control points, record observations in sequence, and repeat critical checks before construction proceeds.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7396",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-applied-mathematics",
+          "topic": "applied-engineering",
+          "concept": "b633-ce-surveying-layout",
+          "question": "Which field practice best supports reliable building layout?",
+          "choices": [
+            "Protect control points, record observations in sequence, and repeat critical checks before construction proceeds.",
+            "Move the benchmark after each setup.",
+            "Record only the final stake.",
+            "Rely on memory for instrument height."
+          ],
+          "answer": "Protect control points, record observations in sequence, and repeat critical checks before construction proceeds.",
+          "explanation": "The controlling principle is: Protect control points, record observations in sequence, and repeat critical checks before construction proceeds.",
+          "source_ids": [],
+          "study_link_count": 1
+        }
+      ],
+      "review_priority_basis": "Risk-ordered packet: regulated/public-safety boards first, then linked-material exposure; ordering only, not an academic disposition."
+    },
+    {
+      "cluster_id": "qdup-677c0cb4fb8710267d4f",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7123",
+        "7291",
+        "7467",
+        "7475",
+        "7579"
+      ],
+      "record_relationship": "distinct canonical question IDs; not merely reused study mappings",
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "classification_evidence": {
+        "current_question_fields_compared": [
+          "question",
+          "choices",
+          "answer",
+          "explanation",
+          "taxonomy",
+          "source_ids"
+        ],
+        "current_differing_fields": [],
+        "normalized_finding_same_ids": true,
+        "prior_batch681_group_match": true,
+        "prior_classification": "TRUE_DUPLICATE"
+      },
+      "learner_and_reference_safety": {
+        "eligibility_rows": 0,
+        "study_link_rows": 5,
+        "retain_all_question_ids": true,
+        "learner_attempts_or_statistics_modified": false
+      },
+      "action": "RETAIN_IDENTITIES; no content deletion/merge is authorized by string equality. Prevent equivalent duplicate exposure in a single selection and require an academic editor to decide whether one item should be rewritten or retired.",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION",
+      "members": [
+        {
+          "id": "7123",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-geotechnical-and-hydraulics",
+          "topic": "hydraulics-geotechnical",
+          "concept": "b633-ce-soil-properties-classification",
+          "question": "What pair is identified from a standard compaction curve for a stated effort?",
+          "choices": [
+            "The saturated unit weight and liquid limit only.",
+            "The shear strength at every stress.",
+            "The final foundation settlement.",
+            "The maximum dry unit weight and the corresponding optimum water content."
+          ],
+          "answer": "The maximum dry unit weight and the corresponding optimum water content.",
+          "explanation": "The controlling principle is: The maximum dry unit weight and the corresponding optimum water content.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7291",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-geotechnical-and-hydraulics",
+          "topic": "hydraulics-geotechnical",
+          "concept": "b633-ce-soil-properties-classification",
+          "question": "What pair is identified from a standard compaction curve for a stated effort?",
+          "choices": [
+            "The saturated unit weight and liquid limit only.",
+            "The shear strength at every stress.",
+            "The final foundation settlement.",
+            "The maximum dry unit weight and the corresponding optimum water content."
+          ],
+          "answer": "The maximum dry unit weight and the corresponding optimum water content.",
+          "explanation": "The controlling principle is: The maximum dry unit weight and the corresponding optimum water content.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7467",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-geotechnical-and-hydraulics",
+          "topic": "hydraulics-geotechnical",
+          "concept": "b633-ce-soil-properties-classification",
+          "question": "What pair is identified from a standard compaction curve for a stated effort?",
+          "choices": [
+            "The saturated unit weight and liquid limit only.",
+            "The shear strength at every stress.",
+            "The final foundation settlement.",
+            "The maximum dry unit weight and the corresponding optimum water content."
+          ],
+          "answer": "The maximum dry unit weight and the corresponding optimum water content.",
+          "explanation": "The controlling principle is: The maximum dry unit weight and the corresponding optimum water content.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7475",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-geotechnical-and-hydraulics",
+          "topic": "hydraulics-geotechnical",
+          "concept": "b633-ce-soil-properties-classification",
+          "question": "What pair is identified from a standard compaction curve for a stated effort?",
+          "choices": [
+            "The saturated unit weight and liquid limit only.",
+            "The shear strength at every stress.",
+            "The final foundation settlement.",
+            "The maximum dry unit weight and the corresponding optimum water content."
+          ],
+          "answer": "The maximum dry unit weight and the corresponding optimum water content.",
+          "explanation": "The controlling principle is: The maximum dry unit weight and the corresponding optimum water content.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7579",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-geotechnical-and-hydraulics",
+          "topic": "hydraulics-geotechnical",
+          "concept": "b633-ce-soil-properties-classification",
+          "question": "What pair is identified from a standard compaction curve for a stated effort?",
+          "choices": [
+            "The saturated unit weight and liquid limit only.",
+            "The shear strength at every stress.",
+            "The final foundation settlement.",
+            "The maximum dry unit weight and the corresponding optimum water content."
+          ],
+          "answer": "The maximum dry unit weight and the corresponding optimum water content.",
+          "explanation": "The controlling principle is: The maximum dry unit weight and the corresponding optimum water content.",
+          "source_ids": [],
+          "study_link_count": 1
+        }
+      ],
+      "review_priority_basis": "Risk-ordered packet: regulated/public-safety boards first, then linked-material exposure; ordering only, not an academic disposition."
+    },
+    {
+      "cluster_id": "qdup-6a412e597b48613e8057",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7050",
+        "7186",
+        "7378",
+        "7386",
+        "7546"
+      ],
+      "record_relationship": "distinct canonical question IDs; not merely reused study mappings",
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "classification_evidence": {
+        "current_question_fields_compared": [
+          "question",
+          "choices",
+          "answer",
+          "explanation",
+          "taxonomy",
+          "source_ids"
+        ],
+        "current_differing_fields": [],
+        "normalized_finding_same_ids": true,
+        "prior_batch681_group_match": true,
+        "prior_classification": "TRUE_DUPLICATE"
+      },
+      "learner_and_reference_safety": {
+        "eligibility_rows": 0,
+        "study_link_rows": 5,
+        "retain_all_question_ids": true,
+        "learner_attempts_or_statistics_modified": false
+      },
+      "action": "RETAIN_IDENTITIES; no content deletion/merge is authorized by string equality. Prevent equivalent duplicate exposure in a single selection and require an academic editor to decide whether one item should be rewritten or retired.",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION",
+      "members": [
+        {
+          "id": "7050",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-applied-mathematics",
+          "topic": "applied-engineering",
+          "concept": "b633-ce-applied-mathematics",
+          "question": "What is the most useful first check after setting up an engineering equation?",
+          "choices": [
+            "Round every input immediately.",
+            "Ignore the denominator units.",
+            "Confirm that the units of the result match the requested quantity and that the magnitude is plausible.",
+            "Treat a calculator output as proof."
+          ],
+          "answer": "Confirm that the units of the result match the requested quantity and that the magnitude is plausible.",
+          "explanation": "The controlling principle is: Confirm that the units of the result match the requested quantity and that the magnitude is plausible.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7186",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-applied-mathematics",
+          "topic": "applied-engineering",
+          "concept": "b633-ce-applied-mathematics",
+          "question": "What is the most useful first check after setting up an engineering equation?",
+          "choices": [
+            "Round every input immediately.",
+            "Ignore the denominator units.",
+            "Confirm that the units of the result match the requested quantity and that the magnitude is plausible.",
+            "Treat a calculator output as proof."
+          ],
+          "answer": "Confirm that the units of the result match the requested quantity and that the magnitude is plausible.",
+          "explanation": "The controlling principle is: Confirm that the units of the result match the requested quantity and that the magnitude is plausible.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7378",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-applied-mathematics",
+          "topic": "applied-engineering",
+          "concept": "b633-ce-applied-mathematics",
+          "question": "What is the most useful first check after setting up an engineering equation?",
+          "choices": [
+            "Round every input immediately.",
+            "Ignore the denominator units.",
+            "Confirm that the units of the result match the requested quantity and that the magnitude is plausible.",
+            "Treat a calculator output as proof."
+          ],
+          "answer": "Confirm that the units of the result match the requested quantity and that the magnitude is plausible.",
+          "explanation": "The controlling principle is: Confirm that the units of the result match the requested quantity and that the magnitude is plausible.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7386",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-applied-mathematics",
+          "topic": "applied-engineering",
+          "concept": "b633-ce-applied-mathematics",
+          "question": "What is the most useful first check after setting up an engineering equation?",
+          "choices": [
+            "Round every input immediately.",
+            "Ignore the denominator units.",
+            "Confirm that the units of the result match the requested quantity and that the magnitude is plausible.",
+            "Treat a calculator output as proof."
+          ],
+          "answer": "Confirm that the units of the result match the requested quantity and that the magnitude is plausible.",
+          "explanation": "The controlling principle is: Confirm that the units of the result match the requested quantity and that the magnitude is plausible.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7546",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-applied-mathematics",
+          "topic": "applied-engineering",
+          "concept": "b633-ce-applied-mathematics",
+          "question": "What is the most useful first check after setting up an engineering equation?",
+          "choices": [
+            "Round every input immediately.",
+            "Ignore the denominator units.",
+            "Confirm that the units of the result match the requested quantity and that the magnitude is plausible.",
+            "Treat a calculator output as proof."
+          ],
+          "answer": "Confirm that the units of the result match the requested quantity and that the magnitude is plausible.",
+          "explanation": "The controlling principle is: Confirm that the units of the result match the requested quantity and that the magnitude is plausible.",
+          "source_ids": [],
+          "study_link_count": 1
+        }
+      ],
+      "review_priority_basis": "Risk-ordered packet: regulated/public-safety boards first, then linked-material exposure; ordering only, not an academic disposition."
+    },
+    {
+      "cluster_id": "qdup-70a0aba6c9d7e64a868f",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "6980",
+        "7140",
+        "7324",
+        "7332",
+        "7516"
+      ],
+      "record_relationship": "distinct canonical question IDs; not merely reused study mappings",
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "classification_evidence": {
+        "current_question_fields_compared": [
+          "question",
+          "choices",
+          "answer",
+          "explanation",
+          "taxonomy",
+          "source_ids"
+        ],
+        "current_differing_fields": [],
+        "normalized_finding_same_ids": true,
+        "prior_batch681_group_match": true,
+        "prior_classification": "TRUE_DUPLICATE"
+      },
+      "learner_and_reference_safety": {
+        "eligibility_rows": 0,
+        "study_link_rows": 5,
+        "retain_all_question_ids": true,
+        "learner_attempts_or_statistics_modified": false
+      },
+      "action": "RETAIN_IDENTITIES; no content deletion/merge is authorized by string equality. Prevent equivalent duplicate exposure in a single selection and require an academic editor to decide whether one item should be rewritten or retired.",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION",
+      "members": [
+        {
+          "id": "6980",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-structural-engineering",
+          "topic": "structural-mechanics",
+          "concept": "b633-ce-structural-mechanics",
+          "question": "A computed elastic deflection is below a stated service limit. What does that result establish?",
+          "choices": [
+            "It satisfies that stated deflection check under the model assumptions, but does not prove every other limit state.",
+            "It proves collapse cannot occur.",
+            "It removes the need for load combinations.",
+            "It proves the support is fixed."
+          ],
+          "answer": "It satisfies that stated deflection check under the model assumptions, but does not prove every other limit state.",
+          "explanation": "The controlling principle is: It satisfies that stated deflection check under the model assumptions, but does not prove every other limit state.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7140",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-structural-engineering",
+          "topic": "structural-mechanics",
+          "concept": "b633-ce-structural-mechanics",
+          "question": "A computed elastic deflection is below a stated service limit. What does that result establish?",
+          "choices": [
+            "It satisfies that stated deflection check under the model assumptions, but does not prove every other limit state.",
+            "It proves collapse cannot occur.",
+            "It removes the need for load combinations.",
+            "It proves the support is fixed."
+          ],
+          "answer": "It satisfies that stated deflection check under the model assumptions, but does not prove every other limit state.",
+          "explanation": "The controlling principle is: It satisfies that stated deflection check under the model assumptions, but does not prove every other limit state.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7324",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-structural-engineering",
+          "topic": "structural-mechanics",
+          "concept": "b633-ce-structural-mechanics",
+          "question": "A computed elastic deflection is below a stated service limit. What does that result establish?",
+          "choices": [
+            "It satisfies that stated deflection check under the model assumptions, but does not prove every other limit state.",
+            "It proves collapse cannot occur.",
+            "It removes the need for load combinations.",
+            "It proves the support is fixed."
+          ],
+          "answer": "It satisfies that stated deflection check under the model assumptions, but does not prove every other limit state.",
+          "explanation": "The controlling principle is: It satisfies that stated deflection check under the model assumptions, but does not prove every other limit state.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7332",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-structural-engineering",
+          "topic": "structural-mechanics",
+          "concept": "b633-ce-structural-mechanics",
+          "question": "A computed elastic deflection is below a stated service limit. What does that result establish?",
+          "choices": [
+            "It satisfies that stated deflection check under the model assumptions, but does not prove every other limit state.",
+            "It proves collapse cannot occur.",
+            "It removes the need for load combinations.",
+            "It proves the support is fixed."
+          ],
+          "answer": "It satisfies that stated deflection check under the model assumptions, but does not prove every other limit state.",
+          "explanation": "The controlling principle is: It satisfies that stated deflection check under the model assumptions, but does not prove every other limit state.",
+          "source_ids": [],
+          "study_link_count": 1
+        },
+        {
+          "id": "7516",
+          "board": "civil-engineering",
+          "subject": "civil-engineering-structural-engineering",
+          "topic": "structural-mechanics",
+          "concept": "b633-ce-structural-mechanics",
+          "question": "A computed elastic deflection is below a stated service limit. What does that result establish?",
+          "choices": [
+            "It satisfies that stated deflection check under the model assumptions, but does not prove every other limit state.",
+            "It proves collapse cannot occur.",
+            "It removes the need for load combinations.",
+            "It proves the support is fixed."
+          ],
+          "answer": "It satisfies that stated deflection check under the model assumptions, but does not prove every other limit state.",
+          "explanation": "The controlling principle is: It satisfies that stated deflection check under the model assumptions, but does not prove every other limit state.",
+          "source_ids": [],
+          "study_link_count": 1
+        }
+      ],
+      "review_priority_basis": "Risk-ordered packet: regulated/public-safety boards first, then linked-material exposure; ordering only, not an academic disposition."
+    }
+  ],
+  "complete_exact_cluster_index": [
+    {
+      "cluster_id": "qdup-293fff486f363ca70a38",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "6973",
+        "7517"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-00e64d33c71e85706c3d",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "6975",
+        "7519"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-c6ccce217ea335dd18d4",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "6978",
+        "7138",
+        "7146",
+        "7330",
+        "7514"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-8c94d33c3080740218ff",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "6979",
+        "7139",
+        "7147",
+        "7323",
+        "7331",
+        "7515"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-70a0aba6c9d7e64a868f",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "6980",
+        "7140",
+        "7324",
+        "7332",
+        "7516"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-b29f2625e3a1f7267acb",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "6986",
+        "7154",
+        "7338",
+        "7346",
+        "7522"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-f3378dd727a4d40ebc89",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "6987",
+        "7155",
+        "7339",
+        "7347",
+        "7523"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-dbfc8a6ade0e41fa7105",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "6988",
+        "7148",
+        "7156",
+        "7340",
+        "7524"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-f2bf29955d6c4716a586",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "6994",
+        "7002",
+        "7162",
+        "7354",
+        "7530"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-c8e4a1da9c61abd87a87",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "6995",
+        "7163",
+        "7355",
+        "7531"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-ec1058d45028ee05bfc2",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "6996",
+        "7164",
+        "7348",
+        "7356",
+        "7532"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-a0b12ae75cc75e8db972",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7003",
+        "7171",
+        "7363"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-afd574a05274ae542c61",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7004",
+        "7172",
+        "7364"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-b4db5d61b199978403e9",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7009",
+        "7169",
+        "7361"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-453f788c904fdcb95e06",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7010",
+        "7170",
+        "7362"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-faedb75abcab04c40d26",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7011",
+        "7019"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-c0ed4af5ef41496f04b5",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7012",
+        "7020"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-7e24f79fc96db695e812",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7017",
+        "7025",
+        "7177"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-c3e5c50bc2d0ddda75ba",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7018",
+        "7026"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-90862aa07f6bbc92ee5d",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7027",
+        "7035",
+        "7179",
+        "7371",
+        "7539"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-a81db2b371a40a888386",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7028",
+        "7036",
+        "7180",
+        "7372",
+        "7540"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-17b4266c140f1fb0df3b",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7029",
+        "7037",
+        "7181",
+        "7373",
+        "7541"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-4069d8b45bf8e5d7d1f3",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7030",
+        "7038",
+        "7182",
+        "7374",
+        "7542"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-58f3e37f473b8a06f4f9",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7031",
+        "7039",
+        "7367",
+        "7375",
+        "7543"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-3ad129562fff65e14614",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7032",
+        "7040",
+        "7368",
+        "7376"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-f0a9663e348485ab0888",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7033",
+        "7041",
+        "7369",
+        "7537"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-0e71f3074c63c9b7b52a",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7034",
+        "7042",
+        "7178",
+        "7370",
+        "7538"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-22ce613767751f7c5937",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7043",
+        "7051",
+        "7187",
+        "7379",
+        "7547"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-8b04e6f0519f7976a30e",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7044",
+        "7052",
+        "7188",
+        "7380",
+        "7548"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-ba15543d524a35b1929d",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7046",
+        "7382"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-6a412e597b48613e8057",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7050",
+        "7186",
+        "7378",
+        "7386",
+        "7546"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-7a359e259d3a00d33a8c",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7055",
+        "7199"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-cbf9a5bcd659d64d96c6",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7056",
+        "7200"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-2cd68d4428872a68243c",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7058",
+        "7194",
+        "7202",
+        "7394"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-7fa5478d74dc77fc1c1a",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7059",
+        "7195",
+        "7203",
+        "7387",
+        "7395"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-5e0f9ea411963b6828d6",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7060",
+        "7196",
+        "7204",
+        "7388",
+        "7396"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-37079b3e478db2ba882c",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7063",
+        "7207",
+        "7399"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-8949e20e799f2061066c",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7064",
+        "7208",
+        "7400"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-f027de5880dc0371877b",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7065",
+        "7209"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-019186539948e87faa80",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7066",
+        "7210",
+        "7402",
+        "7554"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-e0b68e7a1b42c27572fa",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7067",
+        "7211",
+        "7403"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-08cf1df8dd167c8d2c7e",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7068",
+        "7212",
+        "7404"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-a2bd0bab98649ba5455d",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7071",
+        "7215"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-3dd0f8b98cbf0f028700",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7074",
+        "7218",
+        "7226",
+        "7410",
+        "7418"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-4d93a0d2d98dbc7878c5",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7075",
+        "7219",
+        "7227",
+        "7411",
+        "7555"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-15ead83c703bf14e5593",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7082",
+        "7234"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-8e29887941f20dc4150c",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7083",
+        "7235",
+        "7419"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-f2dee6f1d21f5c1e2277",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7084",
+        "7236",
+        "7420"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-ed30b923ec46d242d49e",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7085",
+        "7237",
+        "7421"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-0b0162de0c187207232e",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7086",
+        "7238",
+        "7422"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-0b91442fa7796111e2fb",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7087",
+        "7239",
+        "7423",
+        "7559"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-7f02ef65cfffabe65b48",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7088",
+        "7232",
+        "7240",
+        "7560"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-566132ebdc6d9707da9d",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7090",
+        "7242",
+        "7250",
+        "7426",
+        "7562"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-6cfcff78b64b380f4440",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7091",
+        "7243",
+        "7427",
+        "7563"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-9f7ede02f3ce4f1ea172",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7092",
+        "7244",
+        "7428",
+        "7564"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-35dab7805a64c9c8dc13",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7099",
+        "7251",
+        "7259",
+        "7435",
+        "7443"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-7603036f2926879ac6d9",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7100",
+        "7252",
+        "7260",
+        "7436",
+        "7444"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-bf294d2b0e25ed9572b9",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7107",
+        "7267",
+        "7275",
+        "7451",
+        "7571"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-d6c957bb7c8660bf86c1",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7108",
+        "7268",
+        "7452",
+        "7572"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-43c283a644a7376e7188",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7109",
+        "7269",
+        "7453",
+        "7573"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-7e0169fc755ae75cccef",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7110",
+        "7270",
+        "7454"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-fec3763c18909366fb7e",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7113",
+        "7449",
+        "7569"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-abd2d49bdbd368e55a2c",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7114",
+        "7266",
+        "7274",
+        "7450",
+        "7570"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-405d4ed761e1ba734bb1",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7115",
+        "7283",
+        "7459"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-727eb3e5bdcbc385ab17",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7116",
+        "7276",
+        "7284",
+        "7460"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-2ba7af8aa4bc811af4ba",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7122",
+        "7290",
+        "7466",
+        "7474",
+        "7578"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-677c0cb4fb8710267d4f",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7123",
+        "7291",
+        "7467",
+        "7475",
+        "7579"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-041260f9ad935d5198fd",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7124",
+        "7292",
+        "7468",
+        "7476"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-baa4f58cf00b500f2d7a",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7125",
+        "7485"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-8ece9a5ab62ce978f6be",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7127",
+        "7487"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-0bd2f3ad61f3f9bb956e",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7130",
+        "7314",
+        "7490"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-afa6bc35c48305886dba",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7131",
+        "7307",
+        "7491",
+        "7587"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-43c0febb54246c1dc6fb",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7132",
+        "7308",
+        "7492",
+        "7588"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-2c91e9e20300e50ccc66",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7216",
+        "7552"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-7eaa24c547ec0b1ed271",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7253",
+        "7565"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-fb14a1775d8d6730bbdd",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7282",
+        "7458"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-5093b7bfff1c094fee44",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7288",
+        "7472",
+        "7576"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-ab2e6082e6631aaae012",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7295",
+        "7583"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-3f01eeecb290b1f1ca09",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7298",
+        "7306",
+        "7482",
+        "7586"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-6dcdd06492daba4ccff6",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7299",
+        "7483"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-ed48e8e9f92a2099bcba",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7300",
+        "7484",
+        "7580"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-e8d4a761b0842acc9f31",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7302",
+        "7582"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-50b60bed8fda3c38e2cb",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7315",
+        "7499",
+        "7507"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-df8f1c6c8a3da9893a84",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7316",
+        "7500",
+        "7508"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    },
+    {
+      "cluster_id": "qdup-60d067e26e71389b8364",
+      "board_id": "civil-engineering",
+      "question_ids": [
+        "7322",
+        "7498",
+        "7506"
+      ],
+      "classification": "TRUE_REDUNDANT_CONTENT",
+      "review_state": "REVIEW_REQUIRED_HUMAN_CONFIRMATION"
+    }
+  ],
+  "human_disposition": "All clusters require human academic confirmation; prior AI classification is not approval.",
+  "identity_and_data_rule": "Retain canonical IDs, attempts, history, usage, eligibility, taxonomy, study links, flashcard derivability, and content until separately authorized review and migration.",
+  "review_questions": [
+    "Do the stems/options/key/rationales present the same learner task?",
+    "Does board or subject-specific scope justify separate items despite exact task text?",
+    "Are source, lesson, eligibility, attempt/history, or flashcard relationships distinct?",
+    "Recommend content rewrite, retirement, retain as-is, or request further evidence; do not merge/delete as part of this review."
+  ],
+  "selection_exposure": "The deterministic regression uses real corpus pair 6973/7517 and synthetic cross-taxonomy duplicate IDs. Before the fix, two separate one-item requests could reserve distinct IDs with equivalent content; after the fix the session returns only distinct content, and an explicitly tagged fallback is used only when the pool is too short. Shortage notice is shown to the learner."
+}

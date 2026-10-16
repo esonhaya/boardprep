@@ -1,0 +1,1860 @@
+{
+  "batch": "687",
+  "purpose": "Independent academic sign-off for 37 existing Batch 685–686 edits",
+  "items": [
+    {
+      "decision_id": "batch685-question-616-rationale",
+      "question_id": "616",
+      "board_id": "civil-service",
+      "subject_id": "numerical-ability",
+      "topic_id": "arithmetic",
+      "concept_id": "cse-basic-operations",
+      "issue": "RATIONALE_TOO_EMPTY_TO_SUPPORT_KEY",
+      "question": "Using the supplied figures, what amount equals the stated percentage of the base?",
+      "choices": [
+        "35",
+        "50",
+        "45",
+        "55"
+      ],
+      "current_key": "45",
+      "current_explanation": "18% is 0.18, so multiply the stated base by 0.18: 0.18 × 250 = 45. As a check, 10% of 250 is 25 and 8% is 20; together they give 45.",
+      "current_metadata": {
+        "cognitive_intent": "apply and interpret"
+      },
+      "proposed_changes": [
+        {
+          "field": "explanation",
+          "before": "0.18 × 250 = 45.",
+          "after": "18% is 0.18, so multiply the stated base by 0.18: 0.18 × 250 = 45. As a check, 10% of 250 is 25 and 8% is 20; together they give 45."
+        }
+      ],
+      "educational_reason": "The original calculation was correct but too compressed to show percent conversion, use of the stated base, or an independent mental check.",
+      "supporting_evidence": null,
+      "sources": [
+        {
+          "id": "openstax-prealgebra-percent-applications-6-2",
+          "title": "Prealgebra 2e, Section 6.2: Solve General Applications of Percent",
+          "authority": "OpenStax, Rice University",
+          "url": "https://openstax.org/books/prealgebra-2e/pages/6-2-solve-general-applications-of-percent",
+          "locator": "Section 6.2, Solve General Applications of Percent; worked percent applications and checking against the stated base.",
+          "status": "verified_reference"
+        },
+        {
+          "id": "openstax-prealgebra-proportions-chapter6-5",
+          "title": "Prealgebra 2e, Section 6.5: Solve Proportions and Their Applications",
+          "authority": "OpenStax",
+          "url": "https://openstax.org/books/prealgebra-2e/pages/6-5-solve-proportions-and-their-applications",
+          "locator": null,
+          "status": "verified_reference"
+        }
+      ],
+      "validation_result": "PASS: 0.18 × 250 = 45; 10% of 250 is 25 and 8% is 20, totaling 45; rationale now explains the conversion and base.",
+      "potential_ambiguity": "Independently verify the answer, formula/units, choices, and whether the added steps teach rather than overstate the method.",
+      "recommended_reviewer_expertise": "Assessment editor experienced in public-service numerical/English examination items",
+      "approval_state": "REVIEW_REQUIRED",
+      "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+      "human_signoff": "NOT_RECORDED",
+      "reviewer_identity": null,
+      "review_date": null,
+      "reviewer_decision": null
+    },
+    {
+      "decision_id": "batch685-question-937-cognitive-intent",
+      "question_id": "937",
+      "board_id": "nursing",
+      "subject_id": "nursing-foundations",
+      "topic_id": "nle-medical-surgical",
+      "concept_id": "nle-np-iii-infection",
+      "issue": "MISSING_COGNITIVE_INTENT",
+      "question": "A client asks why hand hygiene is performed before and after contact. What is the best answer?",
+      "choices": [
+        "it reduces transfer of organisms between the client, staff, and environment",
+        "it sterilizes the entire room",
+        "it eliminates the need for gloves",
+        "it is required only after visible dirt"
+      ],
+      "current_key": "it reduces transfer of organisms between the client, staff, and environment",
+      "current_explanation": "Hand hygiene interrupts transmission before and after contact; it does not sterilize a room.",
+      "current_metadata": {
+        "cognitive_intent": "understand"
+      },
+      "proposed_changes": [
+        {
+          "field": "cognitive_intent",
+          "before": null,
+          "after": "understand"
+        }
+      ],
+      "educational_reason": "The item asks the learner to explain why hand hygiene is performed; selecting the transmission-reduction purpose requires understanding, and the key and explanation support that reading.",
+      "supporting_evidence": null,
+      "sources": [
+        {
+          "id": "cdc-infection-control-basics",
+          "title": "Core Infection Prevention and Control Practices",
+          "authority": "U.S. Centers for Disease Control and Prevention",
+          "url": "https://www.cdc.gov/infection-control/hcp/core-practices/",
+          "locator": "CDC Core Infection Prevention and Control Practices, “Standard Precautions” and “Hand Hygiene” subsections.",
+          "status": "periodically_updated"
+        }
+      ],
+      "validation_result": "PASS: question wording, keyed answer, and rationale align with the stated understanding intent and the CDC Standard Precautions reference.",
+      "potential_ambiguity": "Confirm the task demand and cognitive-intent rubric fit from the complete stem/options/key; do not infer from topic or answer form.",
+      "recommended_reviewer_expertise": "Registered nurse educator with current Philippine nursing/public-health practice expertise",
+      "approval_state": "REVIEW_REQUIRED",
+      "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+      "human_signoff": "NOT_RECORDED",
+      "reviewer_identity": null,
+      "review_date": null,
+      "reviewer_decision": null
+    },
+    {
+      "decision_id": "batch686-cognitive-q7045",
+      "question_id": "7045",
+      "board_id": "civil-engineering",
+      "subject_id": "civil-engineering-applied-mathematics",
+      "topic_id": "applied-engineering",
+      "concept_id": "b633-ce-applied-mathematics",
+      "issue": "MISSING_COGNITIVE_INTENT",
+      "question": "A plan length of 6 cm is drawn at a representative fraction of 1:5000. What ground length is represented in meters?",
+      "choices": [
+        "336 m",
+        "300 m",
+        "264 m",
+        "600 m"
+      ],
+      "current_key": "300 m",
+      "current_explanation": "Use the stated unit-scale relationship. Substitution of the supplied values gives 300 m; the distractors represent common denominator, sign, or factor errors.",
+      "current_metadata": {
+        "cognitive_intent": "apply"
+      },
+      "proposed_changes": [
+        {
+          "field": "cognitive_intent",
+          "before": null,
+          "after": "apply"
+        }
+      ],
+      "educational_reason": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: A plan length of 6 cm is drawn at a representative fraction of 1:5000. What ground length is represented in meters?",
+      "supporting_evidence": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: A plan length of 6 cm is drawn at a representative fraction of 1:5000. What ground length is represented in meters?",
+      "sources": [],
+      "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+      "potential_ambiguity": "Confirm the task demand and cognitive-intent rubric fit from the complete stem/options/key; do not infer from topic or answer form.",
+      "recommended_reviewer_expertise": "Licensed civil engineer and discipline educator; verify formula, units, and engineering context",
+      "approval_state": "REVIEW_REQUIRED",
+      "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+      "human_signoff": "NOT_RECORDED",
+      "reviewer_identity": null,
+      "review_date": null,
+      "reviewer_decision": null
+    },
+    {
+      "decision_id": "batch686-cognitive-q1181",
+      "question_id": "1181",
+      "board_id": "civil-engineering",
+      "subject_id": "civil-engineering-applied-mathematics",
+      "topic_id": "applied-engineering",
+      "concept_id": "b633-ce-construction-quantity-productivity",
+      "issue": "MISSING_COGNITIVE_INTENT",
+      "question": "A rectangular excavation is 12 m long, 4 m wide, and 1.5 m deep. Volume is:",
+      "choices": [
+        "72 m³",
+        "48 m³",
+        "18 m³",
+        "288 m³"
+      ],
+      "current_key": "72 m³",
+      "current_explanation": "Volume = 12×4×1.5 = 72 m³.",
+      "current_metadata": {
+        "cognitive_intent": "apply"
+      },
+      "proposed_changes": [
+        {
+          "field": "cognitive_intent",
+          "before": null,
+          "after": "apply"
+        }
+      ],
+      "educational_reason": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: A rectangular excavation is 12 m long, 4 m wide, and 1.5 m deep. Volume is:",
+      "supporting_evidence": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: A rectangular excavation is 12 m long, 4 m wide, and 1.5 m deep. Volume is:",
+      "sources": [],
+      "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+      "potential_ambiguity": "Confirm the task demand and cognitive-intent rubric fit from the complete stem/options/key; do not infer from topic or answer form.",
+      "recommended_reviewer_expertise": "Licensed civil engineer and discipline educator; verify formula, units, and engineering context",
+      "approval_state": "REVIEW_REQUIRED",
+      "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+      "human_signoff": "NOT_RECORDED",
+      "reviewer_identity": null,
+      "review_date": null,
+      "reviewer_decision": null
+    },
+    {
+      "decision_id": "batch686-cognitive-q1146",
+      "question_id": "1146",
+      "board_id": "civil-engineering",
+      "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+      "topic_id": "hydraulics-geotechnical",
+      "concept_id": "b633-ce-foundations-bearing",
+      "issue": "MISSING_COGNITIVE_INTENT",
+      "question": "A footing carries 900 kN on soil allowable pressure 150 kPa. Minimum plan area is:",
+      "choices": [
+        "6 m²",
+        "0.167 m²",
+        "1350 m²",
+        "750 m²"
+      ],
+      "current_key": "6 m²",
+      "current_explanation": "Area = load/pressure = 900 kN ÷ 150 kN/m² = 6 m².",
+      "current_metadata": {
+        "cognitive_intent": "apply"
+      },
+      "proposed_changes": [
+        {
+          "field": "cognitive_intent",
+          "before": null,
+          "after": "apply"
+        }
+      ],
+      "educational_reason": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: A footing carries 900 kN on soil allowable pressure 150 kPa. Minimum plan area is:",
+      "supporting_evidence": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: A footing carries 900 kN on soil allowable pressure 150 kPa. Minimum plan area is:",
+      "sources": [],
+      "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+      "potential_ambiguity": "Confirm the task demand and cognitive-intent rubric fit from the complete stem/options/key; do not infer from topic or answer form.",
+      "recommended_reviewer_expertise": "Licensed civil engineer and discipline educator; verify formula, units, and engineering context",
+      "approval_state": "REVIEW_REQUIRED",
+      "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+      "human_signoff": "NOT_RECORDED",
+      "reviewer_identity": null,
+      "review_date": null,
+      "reviewer_decision": null
+    },
+    {
+      "decision_id": "batch686-cognitive-q1227",
+      "question_id": "1227",
+      "board_id": "civil-engineering",
+      "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+      "topic_id": "hydraulics-geotechnical",
+      "concept_id": "b633-ce-soil-effective-stress-strength",
+      "issue": "MISSING_COGNITIVE_INTENT",
+      "question": "A saturated soil has total stress 180 kPa and pore pressure 70 kPa. Effective stress is:",
+      "choices": [
+        "110 kPa",
+        "250 kPa",
+        "70 kPa",
+        "2.57 kPa"
+      ],
+      "current_key": "110 kPa",
+      "current_explanation": "Effective stress equals total stress minus pore pressure: 180−70=110 kPa.",
+      "current_metadata": {
+        "cognitive_intent": "apply"
+      },
+      "proposed_changes": [
+        {
+          "field": "cognitive_intent",
+          "before": null,
+          "after": "apply"
+        }
+      ],
+      "educational_reason": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: A saturated soil has total stress 180 kPa and pore pressure 70 kPa. Effective stress is:",
+      "supporting_evidence": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: A saturated soil has total stress 180 kPa and pore pressure 70 kPa. Effective stress is:",
+      "sources": [],
+      "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+      "potential_ambiguity": "Confirm the task demand and cognitive-intent rubric fit from the complete stem/options/key; do not infer from topic or answer form.",
+      "recommended_reviewer_expertise": "Licensed civil engineer and discipline educator; verify formula, units, and engineering context",
+      "approval_state": "REVIEW_REQUIRED",
+      "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+      "human_signoff": "NOT_RECORDED",
+      "reviewer_identity": null,
+      "review_date": null,
+      "reviewer_decision": null
+    },
+    {
+      "decision_id": "batch686-cognitive-q1137",
+      "question_id": "1137",
+      "board_id": "civil-engineering",
+      "subject_id": "civil-engineering-structural-engineering",
+      "topic_id": "structural-mechanics",
+      "concept_id": "b633-ce-structural-mechanics",
+      "issue": "MISSING_COGNITIVE_INTENT",
+      "question": "A simply supported beam carries a 10 kN point load at midspan over 6 m. What is the reaction at each support?",
+      "choices": [
+        "5 kN",
+        "10 kN",
+        "3 kN",
+        "60 kN"
+      ],
+      "current_key": "5 kN",
+      "current_explanation": "Symmetry gives equal reactions: (10 kN)/2 = 5 kN.",
+      "current_metadata": {
+        "cognitive_intent": "apply"
+      },
+      "proposed_changes": [
+        {
+          "field": "cognitive_intent",
+          "before": null,
+          "after": "apply"
+        }
+      ],
+      "educational_reason": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: A simply supported beam carries a 10 kN point load at midspan over 6 m. What is the reaction at each support?",
+      "supporting_evidence": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: A simply supported beam carries a 10 kN point load at midspan over 6 m. What is the reaction at each support?",
+      "sources": [],
+      "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+      "potential_ambiguity": "Confirm the task demand and cognitive-intent rubric fit from the complete stem/options/key; do not infer from topic or answer form.",
+      "recommended_reviewer_expertise": "Licensed civil engineer and discipline educator; verify formula, units, and engineering context",
+      "approval_state": "REVIEW_REQUIRED",
+      "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+      "human_signoff": "NOT_RECORDED",
+      "reviewer_identity": null,
+      "review_date": null,
+      "reviewer_decision": null
+    },
+    {
+      "decision_id": "batch686-cognitive-q1234",
+      "question_id": "1234",
+      "board_id": "civil-engineering",
+      "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+      "topic_id": "hydraulics-geotechnical",
+      "concept_id": "b633-ce-soil-effective-stress-strength",
+      "issue": "MISSING_COGNITIVE_INTENT",
+      "question": "A seepage head drops 6 m over a flow length of 30 m. Hydraulic gradient is:",
+      "choices": [
+        "0.20",
+        "5.0",
+        "36",
+        "0.02"
+      ],
+      "current_key": "0.20",
+      "current_explanation": "Hydraulic gradient is head loss per flow length: i = Δh/L = 6 m ÷ 30 m = 0.20, a dimensionless ratio. It is distinct from hydraulic conductivity k, which appears separately in Darcy flow.",
+      "current_metadata": {
+        "cognitive_intent": "apply"
+      },
+      "proposed_changes": [
+        {
+          "field": "cognitive_intent",
+          "before": null,
+          "after": "apply"
+        }
+      ],
+      "educational_reason": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: A seepage head drops 6 m over a flow length of 30 m. Hydraulic gradient is:",
+      "supporting_evidence": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: A seepage head drops 6 m over a flow length of 30 m. Hydraulic gradient is:",
+      "sources": [],
+      "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+      "potential_ambiguity": "Confirm the task demand and cognitive-intent rubric fit from the complete stem/options/key; do not infer from topic or answer form.",
+      "recommended_reviewer_expertise": "Licensed civil engineer and discipline educator; verify formula, units, and engineering context",
+      "approval_state": "REVIEW_REQUIRED",
+      "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+      "human_signoff": "NOT_RECORDED",
+      "reviewer_identity": null,
+      "review_date": null,
+      "reviewer_decision": null
+    },
+    {
+      "decision_id": "batch686-cognitive-q1138",
+      "question_id": "1138",
+      "board_id": "civil-engineering",
+      "subject_id": "civil-engineering-structural-engineering",
+      "topic_id": "structural-mechanics",
+      "concept_id": "b633-ce-structural-mechanics",
+      "issue": "MISSING_COGNITIVE_INTENT",
+      "question": "A 12 kN force acts perpendicular to a lever arm 2.5 m long. Find the moment about the pivot.",
+      "choices": [
+        "30 kN·m",
+        "4.8 kN·m",
+        "14.5 kN·m",
+        "24 kN·m"
+      ],
+      "current_key": "30 kN·m",
+      "current_explanation": "The moment is Fd = 12 × 2.5 = 30 kN·m.",
+      "current_metadata": {
+        "cognitive_intent": "apply"
+      },
+      "proposed_changes": [
+        {
+          "field": "cognitive_intent",
+          "before": null,
+          "after": "apply"
+        }
+      ],
+      "educational_reason": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: A 12 kN force acts perpendicular to a lever arm 2.5 m long. Find the moment about the pivot.",
+      "supporting_evidence": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: A 12 kN force acts perpendicular to a lever arm 2.5 m long. Find the moment about the pivot.",
+      "sources": [],
+      "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+      "potential_ambiguity": "Confirm the task demand and cognitive-intent rubric fit from the complete stem/options/key; do not infer from topic or answer form.",
+      "recommended_reviewer_expertise": "Licensed civil engineer and discipline educator; verify formula, units, and engineering context",
+      "approval_state": "REVIEW_REQUIRED",
+      "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+      "human_signoff": "NOT_RECORDED",
+      "reviewer_identity": null,
+      "review_date": null,
+      "reviewer_decision": null
+    },
+    {
+      "decision_id": "batch686-cognitive-q1141",
+      "question_id": "1141",
+      "board_id": "civil-engineering",
+      "subject_id": "civil-engineering-structural-engineering",
+      "topic_id": "structural-mechanics",
+      "concept_id": "b633-ce-strength-materials",
+      "issue": "MISSING_COGNITIVE_INTENT",
+      "question": "A rectangular section is 100 mm wide and 200 mm deep. Its second moment of area about the centroidal horizontal axis is:",
+      "choices": [
+        "66.7 × 10^6 mm⁴",
+        "2.0 × 10^6 mm⁴",
+        "133.3 × 10^6 mm⁴",
+        "6.67 × 10^3 mm⁴"
+      ],
+      "current_key": "66.7 × 10^6 mm⁴",
+      "current_explanation": "For a rectangle I = bd³/12 = 100(200³)/12 = 66.7 million mm⁴.",
+      "current_metadata": {
+        "cognitive_intent": "apply"
+      },
+      "proposed_changes": [
+        {
+          "field": "cognitive_intent",
+          "before": null,
+          "after": "apply"
+        }
+      ],
+      "educational_reason": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: A rectangular section is 100 mm wide and 200 mm deep. Its second moment of area about the centroidal horizontal axis is:",
+      "supporting_evidence": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: A rectangular section is 100 mm wide and 200 mm deep. Its second moment of area about the centroidal horizontal axis is:",
+      "sources": [],
+      "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+      "potential_ambiguity": "Confirm the task demand and cognitive-intent rubric fit from the complete stem/options/key; do not infer from topic or answer form.",
+      "recommended_reviewer_expertise": "Licensed civil engineer and discipline educator; verify formula, units, and engineering context",
+      "approval_state": "REVIEW_REQUIRED",
+      "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+      "human_signoff": "NOT_RECORDED",
+      "reviewer_identity": null,
+      "review_date": null,
+      "reviewer_decision": null
+    },
+    {
+      "decision_id": "batch686-cognitive-q1142",
+      "question_id": "1142",
+      "board_id": "civil-engineering",
+      "subject_id": "civil-engineering-structural-engineering",
+      "topic_id": "structural-mechanics",
+      "concept_id": "b633-ce-strength-materials",
+      "issue": "MISSING_COGNITIVE_INTENT",
+      "question": "A beam has bending moment 8 kN·m and section modulus 400 cm³. The bending stress is:",
+      "choices": [
+        "20 MPa",
+        "2 MPa",
+        "200 MPa",
+        "3.2 MPa"
+      ],
+      "current_key": "20 MPa",
+      "current_explanation": "8 kN·m = 8,000,000 N·mm and 400 cm³ = 400,000 mm³; σ=M/Z=20 MPa.",
+      "current_metadata": {
+        "cognitive_intent": "apply"
+      },
+      "proposed_changes": [
+        {
+          "field": "cognitive_intent",
+          "before": null,
+          "after": "apply"
+        }
+      ],
+      "educational_reason": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: A beam has bending moment 8 kN·m and section modulus 400 cm³. The bending stress is:",
+      "supporting_evidence": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: A beam has bending moment 8 kN·m and section modulus 400 cm³. The bending stress is:",
+      "sources": [],
+      "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+      "potential_ambiguity": "Confirm the task demand and cognitive-intent rubric fit from the complete stem/options/key; do not infer from topic or answer form.",
+      "recommended_reviewer_expertise": "Licensed civil engineer and discipline educator; verify formula, units, and engineering context",
+      "approval_state": "REVIEW_REQUIRED",
+      "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+      "human_signoff": "NOT_RECORDED",
+      "reviewer_identity": null,
+      "review_date": null,
+      "reviewer_decision": null
+    },
+    {
+      "decision_id": "batch686-cognitive-q1143",
+      "question_id": "1143",
+      "board_id": "civil-engineering",
+      "subject_id": "civil-engineering-structural-engineering",
+      "topic_id": "structural-mechanics",
+      "concept_id": "b633-ce-structural-mechanics",
+      "issue": "MISSING_COGNITIVE_INTENT",
+      "question": "A circular shaft transmits 600 N·m through a radius of 25 mm. The torque force couple at the rim is:",
+      "choices": [
+        "24 kN",
+        "15 kN",
+        "1.5 kN",
+        "240 N"
+      ],
+      "current_key": "24 kN",
+      "current_explanation": "T = Fr, so F = 600/0.025 = 24,000 N.",
+      "current_metadata": {
+        "cognitive_intent": "apply"
+      },
+      "proposed_changes": [
+        {
+          "field": "cognitive_intent",
+          "before": null,
+          "after": "apply"
+        }
+      ],
+      "educational_reason": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: A circular shaft transmits 600 N·m through a radius of 25 mm. The torque force couple at the rim is:",
+      "supporting_evidence": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: A circular shaft transmits 600 N·m through a radius of 25 mm. The torque force couple at the rim is:",
+      "sources": [],
+      "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+      "potential_ambiguity": "Confirm the task demand and cognitive-intent rubric fit from the complete stem/options/key; do not infer from topic or answer form.",
+      "recommended_reviewer_expertise": "Licensed civil engineer and discipline educator; verify formula, units, and engineering context",
+      "approval_state": "REVIEW_REQUIRED",
+      "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+      "human_signoff": "NOT_RECORDED",
+      "reviewer_identity": null,
+      "review_date": null,
+      "reviewer_decision": null
+    },
+    {
+      "decision_id": "batch686-cognitive-q5413",
+      "question_id": "5413",
+      "board_id": "civil-service",
+      "subject_id": "analytical-logical",
+      "topic_id": "analytical-sequences",
+      "concept_id": "analytical-sequence-rule",
+      "issue": "MISSING_COGNITIVE_INTENT",
+      "question": "A code sequence increases by 4: 3, 7, 11, 15. What is next?",
+      "choices": [
+        "20",
+        "23",
+        "19",
+        "18"
+      ],
+      "current_key": "19",
+      "current_explanation": "Adding four to 15 gives 19.",
+      "current_metadata": {
+        "cognitive_intent": "apply"
+      },
+      "proposed_changes": [
+        {
+          "field": "cognitive_intent",
+          "before": null,
+          "after": "apply"
+        }
+      ],
+      "educational_reason": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: A code sequence increases by 4: 3, 7, 11, 15. What is next?",
+      "supporting_evidence": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: A code sequence increases by 4: 3, 7, 11, 15. What is next?",
+      "sources": [],
+      "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+      "potential_ambiguity": "Confirm the task demand and cognitive-intent rubric fit from the complete stem/options/key; do not infer from topic or answer form.",
+      "recommended_reviewer_expertise": "Assessment editor experienced in public-service numerical/English examination items",
+      "approval_state": "REVIEW_REQUIRED",
+      "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+      "human_signoff": "NOT_RECORDED",
+      "reviewer_identity": null,
+      "review_date": null,
+      "reviewer_decision": null
+    },
+    {
+      "decision_id": "batch686-cognitive-q5301",
+      "question_id": "5301",
+      "board_id": "civil-service",
+      "subject_id": "numerical-ability",
+      "topic_id": "arithmetic",
+      "concept_id": "cse-averages",
+      "issue": "MISSING_COGNITIVE_INTENT",
+      "question": "A unit records 11, 17, and 23 completed cases over three days. What is the daily average?",
+      "choices": [
+        "12 completed cases",
+        "28 completed cases",
+        "17 completed cases",
+        "51 completed cases"
+      ],
+      "current_key": "17 completed cases",
+      "current_explanation": "Add the three observations and divide by three.",
+      "current_metadata": {
+        "cognitive_intent": "apply",
+        "calculation": {
+          "family": "average",
+          "params": {
+            "values": [
+              11,
+              17,
+              23
+            ]
+          },
+          "expected": 17,
+          "unit": "completed cases per day"
+        }
+      },
+      "proposed_changes": [
+        {
+          "field": "cognitive_intent",
+          "before": null,
+          "after": "apply"
+        }
+      ],
+      "educational_reason": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: A unit records 11, 17, and 23 completed cases over three days. What is the daily average?",
+      "supporting_evidence": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: A unit records 11, 17, and 23 completed cases over three days. What is the daily average?",
+      "sources": [],
+      "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+      "potential_ambiguity": "Confirm the task demand and cognitive-intent rubric fit from the complete stem/options/key; do not infer from topic or answer form.",
+      "recommended_reviewer_expertise": "Assessment editor experienced in public-service numerical/English examination items",
+      "approval_state": "REVIEW_REQUIRED",
+      "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+      "human_signoff": "NOT_RECORDED",
+      "reviewer_identity": null,
+      "review_date": null,
+      "reviewer_decision": null
+    },
+    {
+      "decision_id": "batch686-cognitive-q5258",
+      "question_id": "5258",
+      "board_id": "civil-service",
+      "subject_id": "numerical-ability",
+      "topic_id": "arithmetic",
+      "concept_id": "cse-basic-operations",
+      "issue": "MISSING_COGNITIVE_INTENT",
+      "question": "A desk logs 23 intake requests in one batch and 19 in another. How many are logged in all?",
+      "choices": [
+        "51 intake requests",
+        "4 intake requests",
+        "437 intake requests",
+        "42 intake requests"
+      ],
+      "current_key": "42 intake requests",
+      "current_explanation": "Add the two stated counts.",
+      "current_metadata": {
+        "cognitive_intent": "apply",
+        "calculation": {
+          "family": "add",
+          "params": {
+            "a": 23,
+            "b": 19
+          },
+          "expected": 42,
+          "unit": "intake requests"
+        }
+      },
+      "proposed_changes": [
+        {
+          "field": "cognitive_intent",
+          "before": null,
+          "after": "apply"
+        }
+      ],
+      "educational_reason": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: A desk logs 23 intake requests in one batch and 19 in another. How many are logged in all?",
+      "supporting_evidence": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: A desk logs 23 intake requests in one batch and 19 in another. How many are logged in all?",
+      "sources": [],
+      "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+      "potential_ambiguity": "Confirm the task demand and cognitive-intent rubric fit from the complete stem/options/key; do not infer from topic or answer form.",
+      "recommended_reviewer_expertise": "Assessment editor experienced in public-service numerical/English examination items",
+      "approval_state": "REVIEW_REQUIRED",
+      "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+      "human_signoff": "NOT_RECORDED",
+      "reviewer_identity": null,
+      "review_date": null,
+      "reviewer_decision": null
+    },
+    {
+      "decision_id": "batch686-cognitive-q5226",
+      "question_id": "5226",
+      "board_id": "civil-service",
+      "subject_id": "verbal-ability",
+      "topic_id": "cse-reading-comprehension-topic",
+      "concept_id": "cse-contextual-inference",
+      "issue": "MISSING_COGNITIVE_INTENT",
+      "question": "The notice says a release is contingent on a signed log, but the log is missing. What is the safest interpretation?",
+      "choices": [
+        "the release is automatically approved",
+        "the word contingent means prohibited",
+        "the missing log is irrelevant",
+        "the release condition has not yet been shown to be met"
+      ],
+      "current_key": "the release condition has not yet been shown to be met",
+      "current_explanation": "The context makes contingent a condition that still requires evidence.",
+      "current_metadata": {
+        "cognitive_intent": "analyze"
+      },
+      "proposed_changes": [
+        {
+          "field": "cognitive_intent",
+          "before": null,
+          "after": "analyze"
+        }
+      ],
+      "educational_reason": "The stem requires comparing evidence, inferring a consequence, or prioritizing interacting case cues. Stem: The notice says a release is contingent on a signed log, but the log is missing. What is the safest interpretation?",
+      "supporting_evidence": "The stem requires comparing evidence, inferring a consequence, or prioritizing interacting case cues. Stem: The notice says a release is contingent on a signed log, but the log is missing. What is the safest interpretation?",
+      "sources": [],
+      "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+      "potential_ambiguity": "Confirm the task demand and cognitive-intent rubric fit from the complete stem/options/key; do not infer from topic or answer form.",
+      "recommended_reviewer_expertise": "Assessment editor experienced in public-service numerical/English examination items",
+      "approval_state": "REVIEW_REQUIRED",
+      "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+      "human_signoff": "NOT_RECORDED",
+      "reviewer_identity": null,
+      "review_date": null,
+      "reviewer_decision": null
+    },
+    {
+      "decision_id": "batch686-cognitive-q5281",
+      "question_id": "5281",
+      "board_id": "civil-service",
+      "subject_id": "analytical-logical",
+      "topic_id": "analytical-data",
+      "concept_id": "cse-data-interpretation",
+      "issue": "MISSING_COGNITIVE_INTENT",
+      "question": "A unit reports 20, 24, and 30 resolved requests over three days. Which statement is supported?",
+      "choices": [
+        "the average proves causation",
+        "no comparison is possible",
+        "resolution increased across the three reported days",
+        "resolution decreased each day"
+      ],
+      "current_key": "resolution increased across the three reported days",
+      "current_explanation": "The values rise from 20 to 24 to 30; no causal claim is supplied.",
+      "current_metadata": {
+        "cognitive_intent": "analyze"
+      },
+      "proposed_changes": [
+        {
+          "field": "cognitive_intent",
+          "before": null,
+          "after": "analyze"
+        }
+      ],
+      "educational_reason": "The stem requires comparing evidence, inferring a consequence, or prioritizing interacting case cues. Stem: A unit reports 20, 24, and 30 resolved requests over three days. Which statement is supported?",
+      "supporting_evidence": "The stem requires comparing evidence, inferring a consequence, or prioritizing interacting case cues. Stem: A unit reports 20, 24, and 30 resolved requests over three days. Which statement is supported?",
+      "sources": [],
+      "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+      "potential_ambiguity": "Confirm the task demand and cognitive-intent rubric fit from the complete stem/options/key; do not infer from topic or answer form.",
+      "recommended_reviewer_expertise": "Assessment editor experienced in public-service numerical/English examination items",
+      "approval_state": "REVIEW_REQUIRED",
+      "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+      "human_signoff": "NOT_RECORDED",
+      "reviewer_identity": null,
+      "review_date": null,
+      "reviewer_decision": null
+    },
+    {
+      "decision_id": "batch686-cognitive-q5993",
+      "question_id": "5993",
+      "board_id": "let",
+      "subject_id": "culture-and-arts-education",
+      "topic_id": "cae-media-and-performance",
+      "concept_id": "cae-media-and-performance",
+      "issue": "MISSING_COGNITIVE_INTENT",
+      "question": "In Culture and Arts Education specialization, A performance allocates 4 minutes to setup and 6 minutes to the work. What is the total planned time?",
+      "choices": [
+        "46 minutes",
+        "10 minutes",
+        "2 minutes",
+        "24 minutes"
+      ],
+      "current_key": "10 minutes",
+      "current_explanation": "Add the two planned intervals: 4 + 6 = 10 minutes.",
+      "current_metadata": {
+        "cognitive_intent": "apply",
+        "calculation": {
+          "expression": "4 + 6",
+          "operation": "add",
+          "operands": [
+            4,
+            6
+          ],
+          "result": 10,
+          "unit": "minutes"
+        }
+      },
+      "proposed_changes": [
+        {
+          "field": "cognitive_intent",
+          "before": null,
+          "after": "apply"
+        }
+      ],
+      "educational_reason": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: In Culture and Arts Education specialization, A performance allocates 4 minutes to setup and 6 minutes to the work. What is the total planned time?",
+      "supporting_evidence": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: In Culture and Arts Education specialization, A performance allocates 4 minutes to setup and 6 minutes to the work. What is the total planned time?",
+      "sources": [],
+      "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+      "potential_ambiguity": "Confirm the task demand and cognitive-intent rubric fit from the complete stem/options/key; do not infer from topic or answer form.",
+      "recommended_reviewer_expertise": "Teacher educator or language/education assessment specialist",
+      "approval_state": "REVIEW_REQUIRED",
+      "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+      "human_signoff": "NOT_RECORDED",
+      "reviewer_identity": null,
+      "review_date": null,
+      "reviewer_decision": null
+    },
+    {
+      "decision_id": "batch686-cognitive-q5763",
+      "question_id": "5763",
+      "board_id": "let",
+      "subject_id": "early-childhood-education",
+      "topic_id": "ece-observation-and-assessment",
+      "concept_id": "ece-developmental-observation",
+      "issue": "MISSING_COGNITIVE_INTENT",
+      "question": "Which statement best applies developmental observation in this situation: a learner meets an unfamiliar example during guided practice",
+      "choices": [
+        "Record the observable behavior, context, and time before making an interpretation.",
+        "Ignore the controlling criterion and choose the most familiar response.",
+        "Apply an unrelated rule without checking the facts or purpose.",
+        "Treat a single surface feature as decisive even when the context contradicts it."
+      ],
+      "current_key": "Record the observable behavior, context, and time before making an interpretation.",
+      "current_explanation": "Record the observable behavior, context, and time before making an interpretation. The controlling rule is that observation is purposeful, documented, and interpreted in context rather than based on a single impression.",
+      "current_metadata": {
+        "cognitive_intent": "apply"
+      },
+      "proposed_changes": [
+        {
+          "field": "cognitive_intent",
+          "before": null,
+          "after": "apply"
+        }
+      ],
+      "educational_reason": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: Which statement best applies developmental observation in this situation: a learner meets an unfamiliar example during guided practice",
+      "supporting_evidence": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: Which statement best applies developmental observation in this situation: a learner meets an unfamiliar example during guided practice",
+      "sources": [],
+      "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+      "potential_ambiguity": "Confirm the task demand and cognitive-intent rubric fit from the complete stem/options/key; do not infer from topic or answer form.",
+      "recommended_reviewer_expertise": "Teacher educator or language/education assessment specialist",
+      "approval_state": "REVIEW_REQUIRED",
+      "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+      "human_signoff": "NOT_RECORDED",
+      "reviewer_identity": null,
+      "review_date": null,
+      "reviewer_decision": null
+    },
+    {
+      "decision_id": "batch686-cognitive-q5538",
+      "question_id": "5538",
+      "board_id": "let",
+      "subject_id": "english",
+      "topic_id": "english-inference",
+      "concept_id": "english-inference-evidence",
+      "issue": "MISSING_COGNITIVE_INTENT",
+      "question": "Which statement best applies evidence-based inference in this situation: a learner meets an unfamiliar example during guided practice",
+      "choices": [
+        "Choose the conclusion that follows from the stated evidence without adding an unstated motive.",
+        "Treat personal experience as evidence from the passage.",
+        "Choose the most dramatic possibility even when the text does not support it.",
+        "Convert an inference into a directly stated fact."
+      ],
+      "current_key": "Choose the conclusion that follows from the stated evidence without adding an unstated motive.",
+      "current_explanation": "Choose the conclusion that follows from the stated evidence without adding an unstated motive. The controlling rule is that an inference must be a reasonable conclusion supported by details in the text.",
+      "current_metadata": {
+        "cognitive_intent": "analyze"
+      },
+      "proposed_changes": [
+        {
+          "field": "cognitive_intent",
+          "before": null,
+          "after": "analyze"
+        }
+      ],
+      "educational_reason": "The stem requires comparing evidence, inferring a consequence, or prioritizing interacting case cues. Stem: Which statement best applies evidence-based inference in this situation: a learner meets an unfamiliar example during guided practice",
+      "supporting_evidence": "The stem requires comparing evidence, inferring a consequence, or prioritizing interacting case cues. Stem: Which statement best applies evidence-based inference in this situation: a learner meets an unfamiliar example during guided practice",
+      "sources": [],
+      "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+      "potential_ambiguity": "Confirm the task demand and cognitive-intent rubric fit from the complete stem/options/key; do not infer from topic or answer form.",
+      "recommended_reviewer_expertise": "Teacher educator or language/education assessment specialist",
+      "approval_state": "REVIEW_REQUIRED",
+      "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+      "human_signoff": "NOT_RECORDED",
+      "reviewer_identity": null,
+      "review_date": null,
+      "reviewer_decision": null
+    },
+    {
+      "decision_id": "batch686-cognitive-q5548",
+      "question_id": "5548",
+      "board_id": "let",
+      "subject_id": "filipino",
+      "topic_id": "filipino-pagbasa",
+      "concept_id": "filipino-pagbasa-pangunahing-diwan",
+      "issue": "MISSING_COGNITIVE_INTENT",
+      "question": "Which statement best applies Pangunahing diwa in this situation: a learner meets an unfamiliar example during guided practice",
+      "choices": [
+        "Piliin ang pahayag na sumasaklaw sa mahahalagang detalye ng talata.",
+        "Ignore the controlling criterion and choose the most familiar response.",
+        "Apply an unrelated rule without checking the facts or purpose.",
+        "Treat a single surface feature as decisive even when the context contradicts it."
+      ],
+      "current_key": "Piliin ang pahayag na sumasaklaw sa mahahalagang detalye ng talata.",
+      "current_explanation": "Piliin ang pahayag na sumasaklaw sa mahahalagang detalye ng talata. The controlling rule is that the main idea states the central point supported by the important details.",
+      "current_metadata": {
+        "cognitive_intent": "understand"
+      },
+      "proposed_changes": [
+        {
+          "field": "cognitive_intent",
+          "before": null,
+          "after": "understand"
+        }
+      ],
+      "educational_reason": "The stem asks the learner to explain or recognize the meaning of a stated principle in context. Stem: Which statement best applies Pangunahing diwa in this situation: a learner meets an unfamiliar example during guided practice",
+      "supporting_evidence": "The stem asks the learner to explain or recognize the meaning of a stated principle in context. Stem: Which statement best applies Pangunahing diwa in this situation: a learner meets an unfamiliar example during guided practice",
+      "sources": [],
+      "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+      "potential_ambiguity": "Confirm the task demand and cognitive-intent rubric fit from the complete stem/options/key; do not infer from topic or answer form.",
+      "recommended_reviewer_expertise": "Teacher educator or language/education assessment specialist",
+      "approval_state": "REVIEW_REQUIRED",
+      "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+      "human_signoff": "NOT_RECORDED",
+      "reviewer_identity": null,
+      "review_date": null,
+      "reviewer_decision": null
+    },
+    {
+      "decision_id": "batch686-cognitive-q5563",
+      "question_id": "5563",
+      "board_id": "let",
+      "subject_id": "filipino",
+      "topic_id": "filipino-panitikan",
+      "concept_id": "filipino-panitikan-tauhan",
+      "issue": "MISSING_COGNITIVE_INTENT",
+      "question": "Which statement best applies Tauhan at motibasyon in this situation: a learner meets an unfamiliar example during guided practice",
+      "choices": [
+        "Gamitin ang kilos at pananalita ng tauhan bilang patunay sa motibasyon.",
+        "Ignore the controlling criterion and choose the most familiar response.",
+        "Apply an unrelated rule without checking the facts or purpose.",
+        "Treat a single surface feature as decisive even when the context contradicts it."
+      ],
+      "current_key": "Gamitin ang kilos at pananalita ng tauhan bilang patunay sa motibasyon.",
+      "current_explanation": "Gamitin ang kilos at pananalita ng tauhan bilang patunay sa motibasyon. The controlling rule is that a character interpretation should be grounded in actions, dialogue, and stated circumstances.",
+      "current_metadata": {
+        "cognitive_intent": "analyze"
+      },
+      "proposed_changes": [
+        {
+          "field": "cognitive_intent",
+          "before": null,
+          "after": "analyze"
+        }
+      ],
+      "educational_reason": "The stem requires comparing evidence, inferring a consequence, or prioritizing interacting case cues. Stem: Which statement best applies Tauhan at motibasyon in this situation: a learner meets an unfamiliar example during guided practice",
+      "supporting_evidence": "The stem requires comparing evidence, inferring a consequence, or prioritizing interacting case cues. Stem: Which statement best applies Tauhan at motibasyon in this situation: a learner meets an unfamiliar example during guided practice",
+      "sources": [],
+      "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+      "potential_ambiguity": "Confirm the task demand and cognitive-intent rubric fit from the complete stem/options/key; do not infer from topic or answer form.",
+      "recommended_reviewer_expertise": "Teacher educator or language/education assessment specialist",
+      "approval_state": "REVIEW_REQUIRED",
+      "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+      "human_signoff": "NOT_RECORDED",
+      "reviewer_identity": null,
+      "review_date": null,
+      "reviewer_decision": null
+    },
+    {
+      "decision_id": "batch686-cognitive-q861",
+      "question_id": "861",
+      "board_id": "nursing",
+      "subject_id": "nursing-foundations",
+      "topic_id": "nle-community-health",
+      "concept_id": "nle-np-i-disaster",
+      "issue": "MISSING_COGNITIVE_INTENT",
+      "question": "A family with an infant stores kerosene in an unlabelled bottle on the floor. What should the home visit emphasize?",
+      "choices": [
+        "locked, labelled storage out of the child’s reach",
+        "a new feeding schedule",
+        "routine blood-pressure screening only",
+        "keeping the bottle under a chair"
+      ],
+      "current_key": "locked, labelled storage out of the child’s reach",
+      "current_explanation": "Safe storage removes a preventable poisoning hazard; the other choices do not address the observed risk.",
+      "current_metadata": {
+        "cognitive_intent": "apply"
+      },
+      "proposed_changes": [
+        {
+          "field": "cognitive_intent",
+          "before": null,
+          "after": "apply"
+        }
+      ],
+      "educational_reason": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: A family with an infant stores kerosene in an unlabelled bottle on the floor. What should the home visit emphasize?",
+      "supporting_evidence": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: A family with an infant stores kerosene in an unlabelled bottle on the floor. What should the home visit emphasize?",
+      "sources": [],
+      "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+      "potential_ambiguity": "Confirm the task demand and cognitive-intent rubric fit from the complete stem/options/key; do not infer from topic or answer form.",
+      "recommended_reviewer_expertise": "Registered nurse educator with current Philippine nursing/public-health practice expertise",
+      "approval_state": "REVIEW_REQUIRED",
+      "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+      "human_signoff": "NOT_RECORDED",
+      "reviewer_identity": null,
+      "review_date": null,
+      "reviewer_decision": null
+    },
+    {
+      "decision_id": "batch686-cognitive-q864",
+      "question_id": "864",
+      "board_id": "nursing",
+      "subject_id": "nursing-foundations",
+      "topic_id": "nle-community-health",
+      "concept_id": "nle-np-i-prevention",
+      "issue": "MISSING_COGNITIVE_INTENT",
+      "question": "A nurse compares the number of new tuberculosis cases in two districts during one month. What measure is being considered?",
+      "choices": [
+        "incidence",
+        "prevalence",
+        "case-fatality proportion",
+        "service utilization"
+      ],
+      "current_key": "incidence",
+      "current_explanation": "Incidence counts new cases during a specified period; prevalence includes existing cases.",
+      "current_metadata": {
+        "cognitive_intent": "understand"
+      },
+      "proposed_changes": [
+        {
+          "field": "cognitive_intent",
+          "before": null,
+          "after": "understand"
+        }
+      ],
+      "educational_reason": "The stem asks the learner to explain or recognize the meaning of a stated principle in context. Stem: A nurse compares the number of new tuberculosis cases in two districts during one month. What measure is being considered?",
+      "supporting_evidence": "The stem asks the learner to explain or recognize the meaning of a stated principle in context. Stem: A nurse compares the number of new tuberculosis cases in two districts during one month. What measure is being considered?",
+      "sources": [],
+      "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+      "potential_ambiguity": "Confirm the task demand and cognitive-intent rubric fit from the complete stem/options/key; do not infer from topic or answer form.",
+      "recommended_reviewer_expertise": "Registered nurse educator with current Philippine nursing/public-health practice expertise",
+      "approval_state": "REVIEW_REQUIRED",
+      "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+      "human_signoff": "NOT_RECORDED",
+      "reviewer_identity": null,
+      "review_date": null,
+      "reviewer_decision": null
+    },
+    {
+      "decision_id": "batch686-cognitive-q897",
+      "question_id": "897",
+      "board_id": "nursing",
+      "subject_id": "nursing-foundations",
+      "topic_id": "nle-maternal-child",
+      "concept_id": "nle-np-ii-development",
+      "issue": "MISSING_COGNITIVE_INTENT",
+      "question": "A parent asks why a healthy newborn receives vitamin K. What explanation is best?",
+      "choices": [
+        "it helps prevent bleeding while the newborn’s clotting reserve is developing",
+        "it guarantees the newborn will not become ill",
+        "it replaces all feeding support",
+        "it is given only when bleeding is visible"
+      ],
+      "current_key": "it helps prevent bleeding while the newborn’s clotting reserve is developing",
+      "current_explanation": "The explanation connects the prophylaxis to newborn physiology without overstating its effect.",
+      "current_metadata": {
+        "cognitive_intent": "understand"
+      },
+      "proposed_changes": [
+        {
+          "field": "cognitive_intent",
+          "before": null,
+          "after": "understand"
+        }
+      ],
+      "educational_reason": "The stem asks the learner to explain or recognize the meaning of a stated principle in context. Stem: A parent asks why a healthy newborn receives vitamin K. What explanation is best?",
+      "supporting_evidence": "The stem asks the learner to explain or recognize the meaning of a stated principle in context. Stem: A parent asks why a healthy newborn receives vitamin K. What explanation is best?",
+      "sources": [],
+      "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+      "potential_ambiguity": "Confirm the task demand and cognitive-intent rubric fit from the complete stem/options/key; do not infer from topic or answer form.",
+      "recommended_reviewer_expertise": "Registered nurse educator with current Philippine nursing/public-health practice expertise",
+      "approval_state": "REVIEW_REQUIRED",
+      "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+      "human_signoff": "NOT_RECORDED",
+      "reviewer_identity": null,
+      "review_date": null,
+      "reviewer_decision": null
+    },
+    {
+      "decision_id": "batch686-cognitive-q895",
+      "question_id": "895",
+      "board_id": "nursing",
+      "subject_id": "nursing-foundations",
+      "topic_id": "nle-maternal-child",
+      "concept_id": "nle-np-ii-postpartum",
+      "issue": "MISSING_COGNITIVE_INTENT",
+      "question": "A postpartum client saturates a pad rapidly and feels dizzy. Which finding makes this urgent?",
+      "choices": [
+        "rapid bleeding with dizziness suggests possible hemodynamic compromise",
+        "mild afterpains while breastfeeding",
+        "fatigue after a sleepless night",
+        "a request for water"
+      ],
+      "current_key": "rapid bleeding with dizziness suggests possible hemodynamic compromise",
+      "current_explanation": "The combination of rapid loss and dizziness requires immediate assessment and response.",
+      "current_metadata": {
+        "cognitive_intent": "analyze"
+      },
+      "proposed_changes": [
+        {
+          "field": "cognitive_intent",
+          "before": null,
+          "after": "analyze"
+        }
+      ],
+      "educational_reason": "The stem requires comparing evidence, inferring a consequence, or prioritizing interacting case cues. Stem: A postpartum client saturates a pad rapidly and feels dizzy. Which finding makes this urgent?",
+      "supporting_evidence": "The stem requires comparing evidence, inferring a consequence, or prioritizing interacting case cues. Stem: A postpartum client saturates a pad rapidly and feels dizzy. Which finding makes this urgent?",
+      "sources": [],
+      "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+      "potential_ambiguity": "Confirm the task demand and cognitive-intent rubric fit from the complete stem/options/key; do not infer from topic or answer form.",
+      "recommended_reviewer_expertise": "Registered nurse educator with current Philippine nursing/public-health practice expertise",
+      "approval_state": "REVIEW_REQUIRED",
+      "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+      "human_signoff": "NOT_RECORDED",
+      "reviewer_identity": null,
+      "review_date": null,
+      "reviewer_decision": null
+    },
+    {
+      "decision_id": "batch686-cognitive-q930",
+      "question_id": "930",
+      "board_id": "nursing",
+      "subject_id": "nursing-foundations",
+      "topic_id": "nle-medical-surgical",
+      "concept_id": "nle-np-iii-fluids",
+      "issue": "MISSING_COGNITIVE_INTENT",
+      "question": "A postoperative client has shallow breathing after receiving analgesia. Which assessment is most important?",
+      "choices": [
+        "respiratory rate, depth, effort, and level of consciousness",
+        "the client’s appetite",
+        "the color of the meal tray",
+        "the time of the next bath"
+      ],
+      "current_key": "respiratory rate, depth, effort, and level of consciousness",
+      "current_explanation": "Respiratory assessment detects possible opioid-related compromise before it worsens.",
+      "current_metadata": {
+        "cognitive_intent": "apply"
+      },
+      "proposed_changes": [
+        {
+          "field": "cognitive_intent",
+          "before": null,
+          "after": "apply"
+        }
+      ],
+      "educational_reason": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: A postoperative client has shallow breathing after receiving analgesia. Which assessment is most important?",
+      "supporting_evidence": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: A postoperative client has shallow breathing after receiving analgesia. Which assessment is most important?",
+      "sources": [],
+      "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+      "potential_ambiguity": "Confirm the task demand and cognitive-intent rubric fit from the complete stem/options/key; do not infer from topic or answer form.",
+      "recommended_reviewer_expertise": "Registered nurse educator with current Philippine nursing/public-health practice expertise",
+      "approval_state": "REVIEW_REQUIRED",
+      "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+      "human_signoff": "NOT_RECORDED",
+      "reviewer_identity": null,
+      "review_date": null,
+      "reviewer_decision": null
+    },
+    {
+      "decision_id": "batch686-rationale-q622",
+      "question_id": "622",
+      "board_id": "civil-service",
+      "subject_id": "numerical-ability",
+      "topic_id": "arithmetic",
+      "concept_id": "cse-basic-operations",
+      "issue": "RATIONALE_TOO_EMPTY_TO_SUPPORT_KEY",
+      "question": "How much of the budget is allocated to supplies?",
+      "choices": [
+        "420",
+        "320",
+        "400",
+        "450"
+      ],
+      "current_key": "420",
+      "current_explanation": "35% is 0.35, so 0.35 × 1,200 = 420. Check: 30% is 360 and 5% is 60; 360 + 60 = 420.",
+      "current_metadata": {
+        "cognitive_intent": "apply and interpret",
+        "calculation": {
+          "operation": "multiply",
+          "values": [
+            0.35,
+            1200
+          ],
+          "expected_value": 420
+        }
+      },
+      "proposed_changes": [
+        {
+          "field": "explanation",
+          "before": "0.35 × 1,200 = 420.",
+          "after": "35% is 0.35, so 0.35 × 1,200 = 420. Check: 30% is 360 and 5% is 60; 360 + 60 = 420."
+        },
+        {
+          "field": "calculation",
+          "before": null,
+          "after": {
+            "operation": "multiply",
+            "values": [
+              0.35,
+              1200
+            ],
+            "expected_value": 420
+          }
+        }
+      ],
+      "educational_reason": "The supplied base and percentage recompute to 420; OpenStax Prealgebra 2e §6.2 explains the percent-of-base relationship.",
+      "supporting_evidence": "The supplied base and percentage recompute to 420; OpenStax Prealgebra 2e §6.2 explains the percent-of-base relationship.",
+      "sources": [
+        {
+          "id": "openstax-prealgebra-percent-applications-6-2",
+          "title": "Prealgebra 2e, Section 6.2: Solve General Applications of Percent",
+          "authority": "OpenStax, Rice University",
+          "url": "https://openstax.org/books/prealgebra-2e/pages/6-2-solve-general-applications-of-percent",
+          "locator": "Section 6.2, Solve General Applications of Percent; worked percent applications and checking against the stated base.",
+          "status": "verified_reference"
+        }
+      ],
+      "validation_result": "Added explicit formula, substitution, units and answer check; structured numerical audit must recompute. Human academic sign-off required.",
+      "potential_ambiguity": "Independently verify the answer, formula/units, choices, and whether the added steps teach rather than overstate the method.",
+      "recommended_reviewer_expertise": "Assessment editor experienced in public-service numerical/English examination items",
+      "approval_state": "REVIEW_REQUIRED",
+      "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+      "human_signoff": "NOT_RECORDED",
+      "reviewer_identity": null,
+      "review_date": null,
+      "reviewer_decision": null
+    },
+    {
+      "decision_id": "batch686-rationale-q6334",
+      "question_id": "6334",
+      "board_id": "civil-service",
+      "subject_id": "numerical-ability",
+      "topic_id": "quantitative-reasoning",
+      "concept_id": "cse-rates-work",
+      "issue": "RATIONALE_TOO_EMPTY_TO_SUPPORT_KEY",
+      "question": "A vehicle covers 210 km in 3.5 hours. What is its average speed?",
+      "choices": [
+        "70 km/h",
+        "56 km/h",
+        "73.5 km/h",
+        "60 km/h"
+      ],
+      "current_key": "60 km/h",
+      "current_explanation": "Average speed = distance ÷ time = 210 km ÷ 3.5 h = 60 km/h. Check: 60 km/h × 3.5 h = 210 km.",
+      "current_metadata": {
+        "calculation": {
+          "operation": "distance_time",
+          "inputs": [
+            210,
+            3.5
+          ],
+          "expected": 60,
+          "unit": "km/h",
+          "rounding": "exact"
+        }
+      },
+      "proposed_changes": [
+        {
+          "field": "explanation",
+          "before": "210 ÷ 3.5 = 60 km/h.",
+          "after": "Average speed = distance ÷ time = 210 km ÷ 3.5 h = 60 km/h. Check: 60 km/h × 3.5 h = 210 km."
+        },
+        {
+          "field": "calculation",
+          "before": {
+            "operation": "distance_time",
+            "inputs": [
+              210,
+              3.5
+            ],
+            "expected": 60
+          },
+          "after": {
+            "operation": "distance_time",
+            "inputs": [
+              210,
+              3.5
+            ],
+            "expected": 60,
+            "unit": "km/h",
+            "rounding": "exact"
+          }
+        }
+      ],
+      "educational_reason": "The stated distance/time gives 60; multiplying back returns 210 km. Units reduce to km/h.",
+      "supporting_evidence": "The stated distance/time gives 60; multiplying back returns 210 km. Units reduce to km/h.",
+      "sources": [
+        {
+          "id": "openstax-prealgebra-2e",
+          "title": "Prealgebra 2e",
+          "authority": "OpenStax",
+          "url": "https://openstax.org/details/books/prealgebra-2e",
+          "locator": null,
+          "status": "verified_reference"
+        }
+      ],
+      "validation_result": "Added explicit formula, substitution, units and answer check; structured numerical audit must recompute. Human academic sign-off required.",
+      "potential_ambiguity": "Independently verify the answer, formula/units, choices, and whether the added steps teach rather than overstate the method.",
+      "recommended_reviewer_expertise": "Assessment editor experienced in public-service numerical/English examination items",
+      "approval_state": "REVIEW_REQUIRED",
+      "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+      "human_signoff": "NOT_RECORDED",
+      "reviewer_identity": null,
+      "review_date": null,
+      "reviewer_decision": null
+    },
+    {
+      "decision_id": "batch686-rationale-q6353",
+      "question_id": "6353",
+      "board_id": "civil-service",
+      "subject_id": "numerical-ability",
+      "topic_id": "quantitative-reasoning",
+      "concept_id": "cse-rates-work",
+      "issue": "RATIONALE_TOO_EMPTY_TO_SUPPORT_KEY",
+      "question": "An intake rate of 8 cases per hour continues for 8.5 hours. How many cases are processed at that pace?",
+      "choices": [
+        "60",
+        "68",
+        "56",
+        "72"
+      ],
+      "current_key": "68",
+      "current_explanation": "Processed cases = rate × time = 8 cases/h × 8.5 h = 68 cases. The hours cancel, leaving a count.",
+      "current_metadata": {
+        "calculation": {
+          "operation": "rate_times_time",
+          "inputs": [
+            8,
+            8.5
+          ],
+          "expected": 68,
+          "rounding": "exact"
+        }
+      },
+      "proposed_changes": [
+        {
+          "field": "explanation",
+          "before": "8 × 8.5 = 68 cases.",
+          "after": "Processed cases = rate × time = 8 cases/h × 8.5 h = 68 cases. The hours cancel, leaving a count."
+        },
+        {
+          "field": "calculation",
+          "before": {
+            "operation": "rate_times_time",
+            "inputs": [
+              8,
+              8.5
+            ],
+            "expected": 68
+          },
+          "after": {
+            "operation": "rate_times_time",
+            "inputs": [
+              8,
+              8.5
+            ],
+            "expected": 68,
+            "rounding": "exact"
+          }
+        }
+      ],
+      "educational_reason": "The stated rate multiplied by duration gives 68, and hours cancel. Direct arithmetic and dimensional check.",
+      "supporting_evidence": "The stated rate multiplied by duration gives 68, and hours cancel. Direct arithmetic and dimensional check.",
+      "sources": [
+        {
+          "id": "openstax-prealgebra-2e",
+          "title": "Prealgebra 2e",
+          "authority": "OpenStax",
+          "url": "https://openstax.org/details/books/prealgebra-2e",
+          "locator": null,
+          "status": "verified_reference"
+        }
+      ],
+      "validation_result": "Added explicit formula, substitution, units and answer check; structured numerical audit must recompute. Human academic sign-off required.",
+      "potential_ambiguity": "Independently verify the answer, formula/units, choices, and whether the added steps teach rather than overstate the method.",
+      "recommended_reviewer_expertise": "Assessment editor experienced in public-service numerical/English examination items",
+      "approval_state": "REVIEW_REQUIRED",
+      "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+      "human_signoff": "NOT_RECORDED",
+      "reviewer_identity": null,
+      "review_date": null,
+      "reviewer_decision": null
+    },
+    {
+      "decision_id": "batch686-rationale-q5667",
+      "question_id": "5667",
+      "board_id": "let",
+      "subject_id": "science",
+      "topic_id": "science-physics-motion",
+      "concept_id": "science-physics-motion-graphs",
+      "issue": "RATIONALE_TOO_EMPTY_TO_SUPPORT_KEY",
+      "question": "A cyclist travels 2.4 km in 8 minutes. What is the average speed in km/min?",
+      "choices": [
+        "0.3 km/min",
+        "0.8 km/min",
+        "1.6 km/min",
+        "19.2 km/min"
+      ],
+      "current_key": "0.3 km/min",
+      "current_explanation": "Average speed = distance ÷ time = 2.4 km ÷ 8 min = 0.30 km/min. Converting 8 min to 8/60 h gives the equivalent 18 km/h.",
+      "current_metadata": {
+        "calculation": {
+          "expression": "2.4 / 8",
+          "result": 0.3,
+          "unit": "km/min"
+        }
+      },
+      "proposed_changes": [
+        {
+          "field": "explanation",
+          "before": "2.4 ÷ 8 = 0.3 km/min.",
+          "after": "Average speed = distance ÷ time = 2.4 km ÷ 8 min = 0.30 km/min. Converting 8 min to 8/60 h gives the equivalent 18 km/h."
+        },
+        {
+          "field": "calculation",
+          "before": {
+            "expression": "2.4 / 8",
+            "result": 0.3,
+            "unit": "km/min"
+          },
+          "after": {
+            "expression": "2.4 / 8",
+            "result": 0.3,
+            "unit": "km/min"
+          }
+        }
+      ],
+      "educational_reason": "The distance/time calculation and unit conversion independently agree.",
+      "supporting_evidence": "The distance/time calculation and unit conversion independently agree.",
+      "sources": [
+        {
+          "id": "openstax-university-physics-volume-1",
+          "title": "University Physics Volume 1",
+          "authority": "OpenStax, Rice University",
+          "url": "https://openstax.org/details/books/university-physics-volume-1",
+          "locator": null,
+          "status": "verified_reference"
+        }
+      ],
+      "validation_result": "Added explicit formula, substitution, units and answer check; structured numerical audit must recompute. Human academic sign-off required.",
+      "potential_ambiguity": "Independently verify the answer, formula/units, choices, and whether the added steps teach rather than overstate the method.",
+      "recommended_reviewer_expertise": "Teacher educator or language/education assessment specialist",
+      "approval_state": "REVIEW_REQUIRED",
+      "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+      "human_signoff": "NOT_RECORDED",
+      "reviewer_identity": null,
+      "review_date": null,
+      "reviewer_decision": null
+    },
+    {
+      "decision_id": "batch686-rationale-q1387",
+      "question_id": "1387",
+      "board_id": "mechanical-engineering",
+      "subject_id": "b644-me-subject-mathematics",
+      "topic_id": "b644-me-topic-math-calculus",
+      "concept_id": "b644-me-math-calculus-models",
+      "issue": "RATIONALE_TOO_EMPTY_TO_SUPPORT_KEY",
+      "question": "For f(x)=x²+3x, what is the instantaneous rate of change at x=2?",
+      "choices": [
+        "7",
+        "5",
+        "10",
+        "13"
+      ],
+      "current_key": "7",
+      "current_explanation": "For f(x)=x²+3x, f′(x)=2x+3. At x=2, 2(2)+3=7, so the instantaneous rate is 7.",
+      "current_metadata": {
+        "cognitive_intent": "apply",
+        "calculation": {
+          "formula": "quadratic_derivative_at_x",
+          "formula_family": "quadratic-derivative",
+          "inputs": {
+            "a": 1,
+            "b": 3,
+            "x": 2
+          },
+          "expected_value": 7,
+          "rounding": "exact"
+        }
+      },
+      "proposed_changes": [
+        {
+          "field": "explanation",
+          "before": "f′(x)=2x+3, so f′(2)=7.",
+          "after": "For f(x)=x²+3x, f′(x)=2x+3. At x=2, 2(2)+3=7, so the instantaneous rate is 7."
+        },
+        {
+          "field": "calculation",
+          "before": null,
+          "after": {
+            "formula": "quadratic_derivative_at_x",
+            "formula_family": "quadratic-derivative",
+            "inputs": {
+              "a": 1,
+              "b": 3,
+              "x": 2
+            },
+            "expected_value": 7,
+            "rounding": "exact"
+          }
+        }
+      ],
+      "educational_reason": "Differentiate the stated polynomial term-by-term and substitute x=2; the derivative evaluates to 7. Stem provides all required data.",
+      "supporting_evidence": "Differentiate the stated polynomial term-by-term and substitute x=2; the derivative evaluates to 7. Stem provides all required data.",
+      "sources": [],
+      "validation_result": "Added explicit formula, substitution, units and answer check; structured numerical audit must recompute. Human academic sign-off required.",
+      "potential_ambiguity": "Independently verify the answer, formula/units, choices, and whether the added steps teach rather than overstate the method.",
+      "recommended_reviewer_expertise": "Licensed mechanical engineer and discipline educator; verify formula and units",
+      "approval_state": "REVIEW_REQUIRED",
+      "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+      "human_signoff": "NOT_RECORDED",
+      "reviewer_identity": null,
+      "review_date": null,
+      "reviewer_decision": null
+    },
+    {
+      "decision_id": "batch686-rationale-q1397",
+      "question_id": "1397",
+      "board_id": "mechanical-engineering",
+      "subject_id": "b644-me-subject-machine-design-materials-shop-practice",
+      "topic_id": "b644-me-topic-machine-mechanics",
+      "concept_id": "b644-me-engineering-mechanics",
+      "issue": "RATIONALE_TOO_EMPTY_TO_SUPPORT_KEY",
+      "question": "A flywheel accelerates uniformly from 2 to 10 rad/s in 4 s. Its angular acceleration is:",
+      "choices": [
+        "2 rad/s²",
+        "3 rad/s²",
+        "8 rad/s²",
+        "12 rad/s²"
+      ],
+      "current_key": "2 rad/s²",
+      "current_explanation": "Angular acceleration = (ωf−ωi)/t = (10−2) rad/s ÷ 4 s = 2 rad/s². The unit check is (rad/s)/s.",
+      "current_metadata": {
+        "cognitive_intent": "analyze",
+        "calculation": {
+          "formula": "angular_acceleration",
+          "formula_family": "uniform-angular-acceleration",
+          "inputs": {
+            "initial_angular_velocity": 2,
+            "final_angular_velocity": 10,
+            "time": 4
+          },
+          "expected_value": 2,
+          "unit": "rad/s2",
+          "rounding": "exact"
+        }
+      },
+      "proposed_changes": [
+        {
+          "field": "explanation",
+          "before": "α=(10−2)/4=2 rad/s².",
+          "after": "Angular acceleration = (ωf−ωi)/t = (10−2) rad/s ÷ 4 s = 2 rad/s². The unit check is (rad/s)/s."
+        },
+        {
+          "field": "calculation",
+          "before": null,
+          "after": {
+            "formula": "angular_acceleration",
+            "formula_family": "uniform-angular-acceleration",
+            "inputs": {
+              "initial_angular_velocity": 2,
+              "final_angular_velocity": 10,
+              "time": 4
+            },
+            "expected_value": 2,
+            "unit": "rad/s2",
+            "rounding": "exact"
+          }
+        }
+      ],
+      "educational_reason": "Given uniform change, (10−2)/4=2; dividing rad/s by seconds yields rad/s².",
+      "supporting_evidence": "Given uniform change, (10−2)/4=2; dividing rad/s by seconds yields rad/s².",
+      "sources": [],
+      "validation_result": "Added explicit formula, substitution, units and answer check; structured numerical audit must recompute. Human academic sign-off required.",
+      "potential_ambiguity": "Independently verify the answer, formula/units, choices, and whether the added steps teach rather than overstate the method.",
+      "recommended_reviewer_expertise": "Licensed mechanical engineer and discipline educator; verify formula and units",
+      "approval_state": "REVIEW_REQUIRED",
+      "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+      "human_signoff": "NOT_RECORDED",
+      "reviewer_identity": null,
+      "review_date": null,
+      "reviewer_decision": null
+    },
+    {
+      "decision_id": "batch686-rationale-q3533",
+      "question_id": "3533",
+      "board_id": "mechanical-engineering",
+      "subject_id": "b644-me-subject-machine-design-materials-shop-practice",
+      "topic_id": "b644-me-topic-machine-maintenance",
+      "concept_id": "b644-me-quality-reliability-maintenance",
+      "issue": "RATIONALE_TOO_EMPTY_TO_SUPPORT_KEY",
+      "question": "An FMEA entry has severity 8, occurrence 3, and detection 4. What risk-priority number follows from RPN=SOD?",
+      "choices": [
+        "96",
+        "15",
+        "32",
+        "128"
+      ],
+      "current_key": "96",
+      "current_explanation": "Using the relationship in the stem, RPN = severity × occurrence × detection = 8 × 3 × 4 = 96. RPN is a prioritization index, not a probability.",
+      "current_metadata": {
+        "cognitive_intent": "analyze",
+        "calculation": {
+          "formula": "multiply",
+          "values": [
+            8,
+            3,
+            4
+          ],
+          "expected_value": 96,
+          "rounding": "exact"
+        }
+      },
+      "proposed_changes": [
+        {
+          "field": "explanation",
+          "before": "RPN=8(3)(4)=96.",
+          "after": "Using the relationship in the stem, RPN = severity × occurrence × detection = 8 × 3 × 4 = 96. RPN is a prioritization index, not a probability."
+        },
+        {
+          "field": "calculation",
+          "before": null,
+          "after": {
+            "formula": "multiply",
+            "values": [
+              8,
+              3,
+              4
+            ],
+            "expected_value": 96,
+            "rounding": "exact"
+          }
+        }
+      ],
+      "educational_reason": "The stem supplies RPN=SOD; multiplication gives 96. This explanation does not claim an external standard was reviewed.",
+      "supporting_evidence": "The stem supplies RPN=SOD; multiplication gives 96. This explanation does not claim an external standard was reviewed.",
+      "sources": [],
+      "validation_result": "Added explicit formula, substitution, units and answer check; structured numerical audit must recompute. Human academic sign-off required.",
+      "potential_ambiguity": "Independently verify the answer, formula/units, choices, and whether the added steps teach rather than overstate the method.",
+      "recommended_reviewer_expertise": "Licensed mechanical engineer and discipline educator; verify formula and units",
+      "approval_state": "REVIEW_REQUIRED",
+      "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+      "human_signoff": "NOT_RECORDED",
+      "reviewer_identity": null,
+      "review_date": null,
+      "reviewer_decision": null
+    },
+    {
+      "decision_id": "batch686-rationale-q4622",
+      "question_id": "4622",
+      "board_id": "psychometrician",
+      "subject_id": "psychology-foundations",
+      "topic_id": "ple-measurement",
+      "concept_id": "psych-assessment-research-statistics",
+      "issue": "RATIONALE_TOO_EMPTY_TO_SUPPORT_KEY",
+      "question": "An item is answered correctly by 48 of 60 examinees. What percentage answered correctly?",
+      "choices": [
+        "12%",
+        "20%",
+        "88%",
+        "80%"
+      ],
+      "current_key": "80%",
+      "current_explanation": "Percent correct = correct responses ÷ all examinees × 100 = 48 ÷ 60 × 100 = 80%. The denominator is all 60 examinees.",
+      "current_metadata": {
+        "cognitive_intent": "understanding",
+        "calculation": {
+          "family": "percentage",
+          "params": {
+            "part": 48,
+            "whole": 60
+          },
+          "expected": 80,
+          "unit": "%",
+          "rounding": "Answer choice uses exact or stated nearest practical value; tolerance 0.011."
+        }
+      },
+      "proposed_changes": [
+        {
+          "field": "explanation",
+          "before": "48 ÷ 60 × 100 = 80%.",
+          "after": "Percent correct = correct responses ÷ all examinees × 100 = 48 ÷ 60 × 100 = 80%. The denominator is all 60 examinees."
+        },
+        {
+          "field": "calculation",
+          "before": {
+            "family": "percentage",
+            "params": {
+              "part": 48,
+              "whole": 60
+            },
+            "expected": 80,
+            "unit": "%",
+            "rounding": "Answer choice uses exact or stated nearest practical value; tolerance 0.011."
+          },
+          "after": {
+            "family": "percentage",
+            "params": {
+              "part": 48,
+              "whole": 60
+            },
+            "expected": 80,
+            "unit": "%",
+            "rounding": "Answer choice uses exact or stated nearest practical value; tolerance 0.011."
+          }
+        }
+      ],
+      "educational_reason": "48/60×100 recomputes to 80%; independent arithmetic matches the key. OpenStax provides general statistics background.",
+      "supporting_evidence": "48/60×100 recomputes to 80%; independent arithmetic matches the key. OpenStax provides general statistics background.",
+      "sources": [
+        {
+          "id": "openstax-introductory-statistics-2e",
+          "title": "Introductory Statistics 2e",
+          "authority": "OpenStax; Illowsky and Dean",
+          "url": "https://openstax.org/books/introductory-statistics-2e/pages/index",
+          "locator": "OpenStax Introductory Statistics 2e, §1.3 “Frequency, Frequency Tables, and Levels of Measurement,” relative frequency: frequency divided by total outcomes; fractions, decimals, or percents.",
+          "status": "verified_reference"
+        }
+      ],
+      "validation_result": "Added explicit formula, substitution, units and answer check; structured numerical audit must recompute. Human academic sign-off required.",
+      "potential_ambiguity": "Independently verify the answer, formula/units, choices, and whether the added steps teach rather than overstate the method.",
+      "recommended_reviewer_expertise": "Licensed psychometrician or measurement specialist; verify psychometric terminology and formulas",
+      "approval_state": "REVIEW_REQUIRED",
+      "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+      "human_signoff": "NOT_RECORDED",
+      "reviewer_identity": null,
+      "review_date": null,
+      "reviewer_decision": null
+    },
+    {
+      "decision_id": "batch686-rationale-q1589",
+      "question_id": "1589",
+      "board_id": "registered-electrical-engineering",
+      "subject_id": "registered-electrical-engineering-mathematics",
+      "topic_id": "ree-math-algebra",
+      "concept_id": "b633-ree-math-algebra-linear",
+      "issue": "RATIONALE_TOO_EMPTY_TO_SUPPORT_KEY",
+      "question": "What angular frequency corresponds to a 60 Hz waveform?",
+      "choices": [
+        "60 rad/s",
+        "188.5 rad/s",
+        "377.0 rad/s",
+        "1200 rad/s"
+      ],
+      "current_key": "377.0 rad/s",
+      "current_explanation": "Angular frequency is ω=2πf. At 60 Hz, ω=2π(60)=376.991… rad/s, which rounds to 377.0 rad/s.",
+      "current_metadata": {
+        "cognitive_intent": "analyze",
+        "calculation": {
+          "formula": "angular_frequency_hz",
+          "formula_family": "angular-frequency",
+          "inputs": {
+            "frequency_hz": 60
+          },
+          "expected_value": 376.99111843077515,
+          "unit": "rad/s",
+          "rounding": "1 decimal"
+        }
+      },
+      "proposed_changes": [
+        {
+          "field": "explanation",
+          "before": "ω=2πf=2π(60)≈377 rad/s.",
+          "after": "Angular frequency is ω=2πf. At 60 Hz, ω=2π(60)=376.991… rad/s, which rounds to 377.0 rad/s."
+        },
+        {
+          "field": "calculation",
+          "before": null,
+          "after": {
+            "formula": "angular_frequency_hz",
+            "formula_family": "angular-frequency",
+            "inputs": {
+              "frequency_hz": 60
+            },
+            "expected_value": 376.99111843077515,
+            "unit": "rad/s",
+            "rounding": "1 decimal"
+          }
+        }
+      ],
+      "educational_reason": "The stated frequency maps to ω=2πf; result rounds to the keyed one-decimal value.",
+      "supporting_evidence": "The stated frequency maps to ω=2πf; result rounds to the keyed one-decimal value.",
+      "sources": [],
+      "validation_result": "Added explicit formula, substitution, units and answer check; structured numerical audit must recompute. Human academic sign-off required.",
+      "potential_ambiguity": "Independently verify the answer, formula/units, choices, and whether the added steps teach rather than overstate the method.",
+      "recommended_reviewer_expertise": "Licensed electrical engineer; verify engineering formula, units, and standard applicability",
+      "approval_state": "REVIEW_REQUIRED",
+      "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+      "human_signoff": "NOT_RECORDED",
+      "reviewer_identity": null,
+      "review_date": null,
+      "reviewer_decision": null
+    },
+    {
+      "decision_id": "batch686-rationale-q1607",
+      "question_id": "1607",
+      "board_id": "registered-electrical-engineering",
+      "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+      "topic_id": "ree-allied-mechanics",
+      "concept_id": "b633-ree-allied-materials",
+      "issue": "RATIONALE_TOO_EMPTY_TO_SUPPORT_KEY",
+      "question": "A 20 kN tensile force acts on a 200 mm² support. What is the average stress?",
+      "choices": [
+        "10 MPa",
+        "50 MPa",
+        "400 MPa",
+        "100 MPa"
+      ],
+      "current_key": "100 MPa",
+      "current_explanation": "Average tensile stress = force ÷ area = 20,000 N ÷ 200 mm² = 100 N/mm² = 100 MPa.",
+      "current_metadata": {
+        "cognitive_intent": "analyze",
+        "calculation": {
+          "formula": "force_over_area",
+          "formula_family": "axial-stress",
+          "inputs": {
+            "force": 20000,
+            "area": 200
+          },
+          "expected_value": 100,
+          "unit": "MPa",
+          "rounding": "exact"
+        }
+      },
+      "proposed_changes": [
+        {
+          "field": "explanation",
+          "before": "Stress=F/A=100 MPa.",
+          "after": "Average tensile stress = force ÷ area = 20,000 N ÷ 200 mm² = 100 N/mm² = 100 MPa."
+        },
+        {
+          "field": "calculation",
+          "before": null,
+          "after": {
+            "formula": "force_over_area",
+            "formula_family": "axial-stress",
+            "inputs": {
+              "force": 20000,
+              "area": 200
+            },
+            "expected_value": 100,
+            "unit": "MPa",
+            "rounding": "exact"
+          }
+        }
+      ],
+      "educational_reason": "20 kN is 20,000 N; division gives 100 N/mm², numerically equal to 100 MPa. Units and key agree.",
+      "supporting_evidence": "20 kN is 20,000 N; division gives 100 N/mm², numerically equal to 100 MPa. Units and key agree.",
+      "sources": [],
+      "validation_result": "Added explicit formula, substitution, units and answer check; structured numerical audit must recompute. Human academic sign-off required.",
+      "potential_ambiguity": "Independently verify the answer, formula/units, choices, and whether the added steps teach rather than overstate the method.",
+      "recommended_reviewer_expertise": "Licensed electrical engineer; verify engineering formula, units, and standard applicability",
+      "approval_state": "REVIEW_REQUIRED",
+      "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+      "human_signoff": "NOT_RECORDED",
+      "reviewer_identity": null,
+      "review_date": null,
+      "reviewer_decision": null
+    }
+  ],
+  "decision_protocol": {
+    "reviewer_must_be_independent": true,
+    "reviewer_identity_and_qualifications": "To be entered by reviewer; blank until real reviewer responds",
+    "allowed_decisions": [
+      "APPROVE",
+      "REQUEST_CHANGES",
+      "REJECT"
+    ],
+    "evidence_required": "Exact question ID, reviewer identity/role, date, decision, rationale, and requested correction where applicable",
+    "state_change_rule": "An authorized editor records a human decision only after receiving authentic reviewer evidence. Automated tests do not alter approval state."
+  },
+  "summary": {
+    "items": 37,
+    "pending": 37,
+    "questions_616_and_937_included": true
+  }
+}
