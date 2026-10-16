@@ -1,8 +1,8 @@
 # BoardPrep — Batch 682: Storage-Efficient Doctor, Release Recovery, and Educational Development
 
 START_TIME=2026-10-15T23:22:05Z (first recorded Batch 682 checkpoint; setup time was not separately instrumented)
-END_TIME=2026-10-16T00:39:55Z
-ELAPSED_MINUTES=77
+END_TIME=2026-10-16T00:42:10Z
+ELAPSED_MINUTES=80
 HEAD_BEFORE=56b4be816c65251b3db6ace58e4bb7669f71a877
 HEAD_AFTER=887c4fa13878d780634bbc93e51c62a8be24f11f (verified application commit; report and browser registry are documentation-only descendants)
 REMOTE_MAIN_STATUS=PASS; application commits and final documentation-only evidence/report commit were pushed by ordinary fast-forward; final fetch matched local main
@@ -42,7 +42,7 @@ CHROMIUM=PASS; GitHub Actions run 38828868431, workflow conclusion success, brow
 PRODUCT_READINESS=NOT_READY; current exact-commit Chromium and ten-board journeys pass, but real human acceptance MVP-01–12, owner-approved privacy/contact/retention/deletion terms, and live HTTPS/provider validation are not verified. Public launch remains blocked
 TESTS_PASS_FAIL_SKIP=Full Doctor release: 76/76 recorded test executions PASS across 54 unique script paths (some scripts are intentionally referenced by multiple domains); 0 FAIL, 0 SKIP, 0 NOT_RUN. Five Doctor integrity suites PASS. PHP syntax 8/8 PASS; changed JSON 4/4 and preserved local learner JSON 2/2 parse; production preflight 22/22 PASS; smoke 5/5 PASS. Counts are grouped and overlapping validations are not added together
 UNRESOLVED_GAPS=2,407 questions still lack sufficiently supported cognitive intent; eight source-review signals remain visible; the Doctor release retains nonblocking source/content planning debt. Human acceptance, approved privacy terms, and live hosting gates remain open. The first storage run briefly crossed the floor; the corrected complete run remained above it
-COMMITS=7a0f5e9ae5eed3faf75b0a5b30bd2ac6e49ff032 (storage runner and education); 887c4fa13878d780634bbc93e51c62a8be24f11f (package/temp isolation); 1c38e17f543b6cf35f5acad86368901d23508c03 records the report and verified browser evidence; 419fadb4d62ddf88b3f10985ba2dea90ed7058fb records the preceding storage close; the final documentation-only commits record the latest storage snapshot and clipboard readback limitation
+COMMITS=7a0f5e9ae5eed3faf75b0a5b30bd2ac6e49ff032 (storage runner and education); 887c4fa13878d780634bbc93e51c62a8be24f11f (package/temp isolation); 1c38e17f543b6cf35f5acad86368901d23508c03 (report and browser evidence); 419fadb4d62ddf88b3f10985ba2dea90ed7058fb (storage close); 761f482a24f23e6006213969c5824a6718a1a4fd (storage snapshot); 866a4b2ebb55bb2ecd2e5ff6d3bdab031a0f6df6 (clipboard limitation); final documentation-only close commit records this exact inventory
 PUSH_STATUS=PASS; safe ordinary fast-forward only; final origin/main matched local main
 CLIPBOARD_STATUS=UNVERIFIED; termux-clipboard-set returned exit 0, but termux-clipboard-get returned zero bytes for both text-argument and stdin attempts; normalized SHA-256 did not match. Full report is preserved at docs/batches/batch-682.md
 
