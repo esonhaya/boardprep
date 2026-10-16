@@ -22,6 +22,7 @@ final class NumericalAnswerConsistencyAudit
             'unsupported' => 0,
             'unreadable_answers' => 0,
             'unit_unresolved' => 0,
+            'rounded_answers' => 0,
         ];
 
         foreach ($questions as $question) {
@@ -44,14 +45,16 @@ final class NumericalAnswerConsistencyAudit
             }
             $metrics['recomputed']++;
 
-            $rounding = (string) ($payload['rounding'] ?? 'exact');
+            $roundingDeclared = is_scalar($payload['rounding'] ?? null)
+                && trim((string) $payload['rounding']) !== '';
+            $rounding = $roundingDeclared ? trim((string) $payload['rounding']) : 'exact';
             $expectedUnit = self::text($payload['unit'] ?? '');
-            $tolerance = self::tolerance($rounding, $expectedUnit);
+            $formulaTolerance = self::tolerance($rounding, $expectedUnit);
             $id = self::text($question['id'] ?? '');
             $taxonomy = is_array($question['taxonomy'] ?? null) ? $question['taxonomy'] : [];
             $board = self::text($taxonomy['board_id'] ?? $question['board'] ?? 'UNKNOWN');
 
-            if (abs($computed - $expected) > $tolerance) {
+            if (abs($computed - $expected) > $formulaTolerance) {
                 $findings[] = self::finding(
                     'HARD_DEFECT',
                     'NUMERICAL_FORMULA_METADATA_MISMATCH',
@@ -75,14 +78,29 @@ final class NumericalAnswerConsistencyAudit
                 continue;
             }
 
-            if (abs($computed - $normalizedAnswer) > $tolerance) {
+            $displayedDecimals = $roundingDeclared ? null : self::displayedDecimals($question['answer'] ?? null);
+            $answerTolerance = $roundingDeclared
+                ? self::tolerance($rounding, $expectedUnit)
+                : ($displayedDecimals === null ? 1.0e-8 : 0.5 * (10 ** (-$displayedDecimals)));
+            $answerMatches = $displayedDecimals !== null
+                ? abs(round($computed, $displayedDecimals, PHP_ROUND_HALF_UP) - $normalizedAnswer) <= 1.0e-8
+                : abs($computed - $normalizedAnswer) <= $answerTolerance;
+
+            if (!$answerMatches) {
                 $findings[] = self::finding(
                     'REVIEW_REQUIRED',
                     'NUMERICAL_ANSWER_METADATA_DISAGREEMENT',
                     $board,
                     $id,
-                    sprintf('Supported calculation gives %.12g, while the keyed answer gives %.12g (%s); verify the stated inputs and answer before editing.', $computed, $normalizedAnswer, $rounding)
+                    sprintf(
+                        'Supported calculation gives %.12g, while the keyed answer gives %.12g (%s); verify the stated inputs and answer before editing.',
+                        $computed,
+                        $normalizedAnswer,
+                        $roundingDeclared ? $rounding : ($displayedDecimals === null ? 'exact' : 'key display precision: ' . $displayedDecimals . ' decimal places')
+                    )
                 );
+            } elseif ($displayedDecimals !== null && abs($computed - $normalizedAnswer) > 1.0e-8) {
+                $metrics['rounded_answers']++;
             }
         }
 
@@ -477,7 +495,7 @@ final class NumericalAnswerConsistencyAudit
             return null;
         }
         $answer = trim((string) $answer);
-        if (preg_match('/\A([₱P$]?)\s*([-+]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?(?:[eE][-+]?\d+)?)\s*(.*?)\z/u', $answer, $matches) !== 1) {
+        if (preg_match('/\A((?:PHP|[₱P$])?)\s*([-+]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?(?:[eE][-+]?\d+)?)\s*(.*?)\z/iu', $answer, $matches) !== 1) {
             return null;
         }
         $suffix = trim((string) ($matches[3] ?? ''));
@@ -521,6 +539,15 @@ final class NumericalAnswerConsistencyAudit
         if (in_array($unit, ['₱', 'p', '$', 'peso', 'pesos'], true)) {
             return 'currency';
         }
+        if ($unit === 'php') {
+            return 'currency';
+        }
+        if (in_array($unit, ['percent', 'percentage'], true)) {
+            return '%';
+        }
+        if (in_array($unit, ['kg', 'kilogram', 'kilograms'], true)) {
+            return 'kg';
+        }
         return $unit;
     }
 
@@ -537,6 +564,19 @@ final class NumericalAnswerConsistencyAudit
             return strtolower($rounding) === 'nearest cent' ? 0.005 : 0.5;
         }
         return 1.0e-8;
+    }
+
+    private static function displayedDecimals(mixed $answer): ?int
+    {
+        if (!is_string($answer) && !is_numeric($answer)) {
+            return null;
+        }
+        if (preg_match('/(?P<number>[-+]?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.(?P<decimals>\\d+))?(?:[eE](?P<exponent>[+-]?\\d+))?)/u', trim((string) $answer), $matches) !== 1
+            || !isset($matches['decimals']) || $matches['decimals'] === '') {
+            return null;
+        }
+        $places = strlen($matches['decimals']) - (int) ($matches['exponent'] ?? 0);
+        return $places >= 0 && $places <= 12 ? $places : null;
     }
 
     private static function number(mixed $value): ?float

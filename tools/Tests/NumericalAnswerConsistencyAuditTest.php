@@ -113,6 +113,31 @@ $assert(!in_array('reverse-percent', $ids, true), 'A percentage reduction was no
 $assert(($results['metrics']['unsupported'] ?? 0) === 1, 'Unsupported calculation families must remain explicitly counted.');
 $assert(($results['metrics']['unit_unresolved'] ?? 0) === 2, 'Missing expected or answer units must remain explicitly unresolved.');
 
+$rounded = $fixture('rounded-display', 'divide', [], 1 / 3, '0.33');
+$rounded['calculation']['values'] = [1, 3];
+$wrongRounded = $rounded;
+$wrongRounded['id'] = 'wrong-rounded-display';
+$wrongRounded['answer'] = '0.34';
+$exactRounded = $rounded;
+$exactRounded['id'] = 'explicit-exact-display';
+$exactRounded['calculation']['rounding'] = 'exact';
+$roundedResults = NumericalAnswerConsistencyAudit::analyze([$rounded, $wrongRounded, $exactRounded]);
+$roundedFindingIds = array_column($roundedResults['findings'], 'entity_id');
+$assert(!in_array('rounded-display', $roundedFindingIds, true), 'A key correctly rounded to its displayed decimal precision was flagged as wrong.');
+$assert(in_array('wrong-rounded-display', $roundedFindingIds, true), 'A displayed answer outside the valid rounding interval was accepted.');
+$assert(in_array('explicit-exact-display', $roundedFindingIds, true), 'An explicitly exact answer was weakened by inferred display precision.');
+$assert(($roundedResults['metrics']['rounded_answers'] ?? 0) === 1, 'Correct rounded display results were not made visible in the audit metrics.');
+
+$percentUnit = $fixture('percent-unit-alias', 'sum', ['a' => 10, 'b' => 10], 20, '20%');
+$percentUnit['calculation']['unit'] = 'percent';
+$kilogramUnit = $fixture('kilogram-unit-alias', 'sum', ['a' => 1, 'b' => 2], 3, '3 kilograms');
+$kilogramUnit['calculation']['unit'] = 'kg';
+$phpCurrency = $fixture('php-currency-prefix', 'sum', ['a' => 40000, 'b' => 30320], 70320, 'PHP 70,320');
+$phpCurrency['calculation']['unit'] = 'PHP';
+$unitResults = NumericalAnswerConsistencyAudit::analyze([$percentUnit, $kilogramUnit, $phpCurrency]);
+$assert($unitResults['findings'] === [], 'Unambiguous percent, kilogram, or PHP answer units were not normalized consistently.');
+$assert(($unitResults['metrics']['unit_unresolved'] ?? 0) === 0, 'Explicitly equivalent unit labels remained unresolved.');
+
 $root = dirname(__DIR__, 2);
 $questions = json_decode((string) file_get_contents($root . '/storage/questions.json'), true, 512, JSON_THROW_ON_ERROR);
 $audit = NumericalAnswerConsistencyAudit::analyze($questions);
@@ -122,6 +147,9 @@ foreach (['651', '1301', '1569', '5589', '6983', '8864'] as $id) {
 }
 foreach (['6975', '7519', '7135', '7143', '7327', '7335'] as $id) {
     $assert(!in_array($id, $findingIds, true), "Corrected Batch 682 Civil Engineering item {$id} regressed.");
+}
+foreach (['7005', '7047', '7049', '7064', '7065', '7173', '7183', '7191', '7208', '7209', '7216', '7247', '7377', '7383', '7385', '7400', '7533', '7552', '7553'] as $id) {
+    $assert(!in_array($id, $findingIds, true), "Correctly rounded answer {$id} was reported as an exact-value disagreement.");
 }
 
 echo '[PASS] Explicit numerical models, reverse-percent handling, unsupported-formula boundaries, and reviewed Batch 682/683 answer fixtures verified.' . PHP_EOL;

@@ -2,7 +2,29 @@ name: Browser acceptance
 
 on:
   push:
+    paths:
+      - 'app/**'
+      - 'config/**'
+      - 'public/**'
+      - 'storage/**'
+      - 'tests/**'
+      - 'tools/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'playwright.config.*'
+      - '.github/workflows/browser-acceptance.yml'
   pull_request:
+    paths:
+      - 'app/**'
+      - 'config/**'
+      - 'public/**'
+      - 'storage/**'
+      - 'tests/**'
+      - 'tools/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'playwright.config.*'
+      - '.github/workflows/browser-acceptance.yml'
   workflow_dispatch:
 
 permissions:

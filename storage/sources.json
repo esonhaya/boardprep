@@ -3758,17 +3758,47 @@
     },
     {
         "id": "aasc-psa-500-redrafted",
-        "title": "Philippine Standard on Auditing 500: Audit Evidence (with consequential amendments)",
+        "title": "Philippine Standard on Auditing 500: Audit Evidence — AASC publisher overview",
         "source_type": "PROFESSIONAL_STANDARD",
         "authority": "Asian Alliance for Sustainability Certification (AASC), PDF reproduction of PSA 500 Redrafted",
-        "url": "https://aasc.org.ph/downloads/codified-standards/publications/PDFs/PSA-500-with-conf-amend.pdf",
-        "publication_date": "2009-01-01",
+        "url": "https://aasc.org.ph/psa-500-redrafted",
+        "publication_date": "2010-01-12",
         "retrieved_at": "2026-10-16",
-        "version": "AASC codified PDF with consequential amendments; current Philippine adoption/effective date remains to be verified",
+        "version": "AASC publisher scope page posted 2010-01-12; the linked codified PDF returned HTTP 404 on 2026-10-16; current adopted version/effective date unverified.",
         "status": "official_reference_currentness_unverified",
-        "confidence": "authoritative_standard_text_historical_version",
+        "confidence": "authoritative_publisher_scope_overview",
         "source_role": "PROFESSIONAL_STANDARD",
         "volatility": "VERSIONED_PROFESSIONAL_STANDARD",
-        "notes": "Official AASC PDF. Paragraph 11 addresses inconsistent evidence or doubts about reliability and requires determining modifications/additions to procedures. This register entry does not establish the current PRC/BOA-adopted version or effective date; verify before operational or compliance use."
+        "notes": "AASC publisher page confirms PSA 500 concerns audit evidence and the responsibility to design procedures for sufficient appropriate evidence. It is an overview, not the standard text. The previously registered PDF URL returned HTTP 404 on 2026-10-16. Do not infer paragraph-level support or current Philippine adoption from this overview."
+    },
+    {
+        "id": "cdc-isolation-precautions-transport-2007",
+        "title": "CDC Isolation Precautions Guideline — Section II.H: Transport of Patients",
+        "source_type": "OFFICIAL_GUIDANCE",
+        "authority": "U.S. Centers for Disease Control and Prevention",
+        "url": "https://www.cdc.gov/infection-control/hcp/isolation-precautions/prevention.html",
+        "publication_date": "2023-11-22",
+        "retrieved_at": "2026-10-16",
+        "version": "CDC webpage dated 2023-11-22; section II.H reproduces the 2007 Guideline for Isolation Precautions.",
+        "status": "official_reference_currentness_unverified",
+        "confidence": "authoritative_historical_guidance",
+        "source_role": "OFFICIAL_GUIDANCE",
+        "volatility": "VERSIONED_PUBLIC_HEALTH_GUIDANCE",
+        "notes": "Section II.H describes essential-only transport, barriers appropriate to transmission route/risk, and notifying receiving-area personnel for patients requiring Transmission-Based Precautions. The CDC Core Practices page dated 2024-04-12 points readers to the full isolation guideline for further detail. U.S. guidance; current organism-specific and Philippine/local facility policy must be checked."
+    },
+    {
+        "id": "cdc-isolation-precautions-page-2023",
+        "title": "CDC Isolation Precautions Guideline — Section III: Precautions to Prevent Transmission",
+        "source_type": "OFFICIAL_GUIDANCE",
+        "authority": "U.S. Centers for Disease Control and Prevention",
+        "url": "https://www.cdc.gov/infection-control/hcp/isolation-precautions/precautions.html",
+        "publication_date": "2023-11-22",
+        "retrieved_at": "2026-10-16",
+        "version": "CDC webpage dated 2023-11-22 presenting sections of the 2007 Guideline for Isolation Precautions.",
+        "status": "official_reference_currentness_unverified",
+        "confidence": "authoritative_historical_guidance",
+        "source_role": "OFFICIAL_GUIDANCE",
+        "volatility": "VERSIONED_PUBLIC_HEALTH_GUIDANCE",
+        "notes": "Sections III.A–III.C distinguish Standard and Transmission-Based Precautions and describe contact, droplet, and airborne precautions. These are historical U.S. recommendations hosted by CDC; confirm current organism-specific guidance and Philippine/local policy before operational use."
     }
 ]

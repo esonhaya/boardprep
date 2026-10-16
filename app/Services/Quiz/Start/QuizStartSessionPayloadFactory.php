@@ -17,6 +17,25 @@ final class QuizStartSessionPayloadFactory
             ? max(0, (int) ($specification->timeLimitMinutes ?? 0))
             : 0;
         $timeLimitSeconds = $timeLimitMinutes * 60;
+        $repeatedContentCount = count(array_filter(
+            $questions,
+            static fn(mixed $question): bool => is_array($question)
+                && ($question['_selection_duplicate_content_fallback'] ?? false) === true
+        ));
+        $selectionNotice = null;
+        if ($repeatedContentCount > 0) {
+            $selectionNotice = sprintf(
+                'This session includes %d repeated question item%s because the selected pool had too few distinct questions to meet the requested count.',
+                $repeatedContentCount,
+                $repeatedContentCount === 1 ? '' : 's'
+            );
+        } elseif (count($questions) < max(0, (int) $specification->questionCount)) {
+            $selectionNotice = sprintf(
+                'This session contains %d of %d requested eligible questions because the selected pool was too small.',
+                count($questions),
+                max(0, (int) $specification->questionCount)
+            );
+        }
         return [
             'id' => 'quiz-' . bin2hex(random_bytes(8)),
             'board' => $specification->board,
@@ -41,6 +60,7 @@ final class QuizStartSessionPayloadFactory
             'started_at' => date('c'),
             'blueprint_coverage' => $coverage,
             'blueprint_issues' => $issues,
+            'selection_notice' => $selectionNotice,
         ];
     }
 }

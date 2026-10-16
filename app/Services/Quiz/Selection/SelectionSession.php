@@ -5,9 +5,11 @@ declare(strict_types=1);
 final class SelectionSession
 {
     private array $selectedIds = [];
+    private array $selectedContent = [];
 
     public function available(
-        array $questions
+        array $questions,
+        bool $includeContentDuplicates = false
     ): array {
 
         return array_values(
@@ -18,7 +20,7 @@ final class SelectionSession
 
                 function (
                     mixed $question
-                ): bool {
+                ) use ($includeContentDuplicates): bool {
 
                     if (!is_array($question)) {
                         return false;
@@ -31,9 +33,18 @@ final class SelectionSession
                         return true;
                     }
 
-                    return !isset(
-                        $this->selectedIds[(string) $id]
-                    );
+                    if (isset($this->selectedIds[(string) $id])) {
+                        return false;
+                    }
+
+                    if (!$includeContentDuplicates) {
+                        $contentKey = self::contentKey($question);
+                        if ($contentKey !== null && isset($this->selectedContent[$contentKey])) {
+                            return false;
+                        }
+                    }
+
+                    return true;
 
                 }
 
@@ -57,6 +68,13 @@ final class SelectionSession
 
             }
 
+            if (is_array($question)) {
+                $contentKey = self::contentKey($question);
+                if ($contentKey !== null) {
+                    $this->selectedContent[$contentKey] = true;
+                }
+            }
+
         }
 
     }
@@ -68,5 +86,39 @@ final class SelectionSession
             $this->selectedIds
         );
 
+    }
+
+    /**
+     * Identify the learner-facing task independently of record ID, taxonomy,
+     * rationale, or choice order. A different set of choices remains a
+     * distinct task even when the stem is reused.
+     */
+    private static function contentKey(array $question): ?string
+    {
+        $stem = $question['question'] ?? null;
+        $choices = $question['choices'] ?? null;
+        if (!is_scalar($stem) || !is_array($choices) || count($choices) < 2) {
+            return null;
+        }
+
+        $normalize = static function (string $value): string {
+            $value = preg_replace('/\\s+/u', ' ', trim($value)) ?? trim($value);
+            return strtolower($value);
+        };
+        $normalizedChoices = [];
+        foreach ($choices as $choice) {
+            if (!is_scalar($choice)) {
+                return null;
+            }
+            $normalizedChoices[] = $normalize((string) $choice);
+        }
+        sort($normalizedChoices, SORT_STRING);
+
+        $identity = json_encode([
+            $normalize((string) $stem),
+            $normalizedChoices,
+        ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+
+        return is_string($identity) ? hash('sha256', $identity) : null;
     }
 }

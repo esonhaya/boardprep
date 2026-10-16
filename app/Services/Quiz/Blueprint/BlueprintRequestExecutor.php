@@ -84,6 +84,43 @@ final class BlueprintRequestExecutor
                 $chunk = SelectionDeduplicator::unique(
                     ShortageRecoveryService::recover($result, $eligible)
                 );
+
+                // Only after distinct content is exhausted may the exam repeat
+                // an equivalent item to meet a requested count.
+                if (count($chunk) < $needed) {
+                    $session->reserve($chunk);
+                    $fallbackNeeded = $needed - count($chunk);
+                    $duplicateRequest = new SelectionRequest(
+                        subject: $request->subject,
+                        domain: $request->domain,
+                        difficultyDistribution: $request->difficultyDistribution,
+                        questionCount: $fallbackNeeded,
+                        topic: $request->topic,
+                        concept: $request->concept,
+                        exam: $request->exam,
+                        letVariant: $request->letVariant,
+                        letComponent: $request->letComponent,
+                        civilServiceLevel: $request->civilServiceLevel
+                    );
+                    $duplicateFallback = QuestionPoolFilter::filter(
+                        $session->available($questions, includeContentDuplicates: true),
+                        $duplicateRequest,
+                        $eligibilityIndex
+                    );
+                    $fallbackResult = QuestionSelectionService::fulfillRequest(
+                        $duplicateFallback,
+                        $duplicateRequest,
+                        $eligibilityIndex
+                    );
+                    $fallbackChunk = SelectionDeduplicator::unique(
+                        ShortageRecoveryService::recover($fallbackResult, $duplicateFallback)
+                    );
+                    foreach ($fallbackChunk as &$fallbackQuestion) {
+                        $fallbackQuestion['_selection_duplicate_content_fallback'] = true;
+                    }
+                    unset($fallbackQuestion);
+                    $chunk = array_merge($chunk, $fallbackChunk);
+                }
                 $session->reserve($chunk);
                 $selected = array_merge($selected, $chunk);
             }

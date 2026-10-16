@@ -24,7 +24,7 @@ $assert(count($questions) === 8962, 'Canonical question identities changed durin
 
 $sourceSummary = AcademicSourceReviewService::summarize($questions, $sources, $sourceRows, $links, $materials);
 $assert(($sourceSummary['reviewed_questions'] ?? 0) === 100, 'The source sample is not 100 distinct questions.');
-$assert(($sourceSummary['classifications'] ?? []) === ['DIRECT_SUPPORT' => 34, 'PARTIAL' => 32, 'CONTRADICTED' => 0, 'UNKNOWN' => 34], 'Source evidence classes or honest unknowns changed.');
+$assert(($sourceSummary['classifications'] ?? []) === ['DIRECT_SUPPORT' => 39, 'PARTIAL' => 33, 'CONTRADICTED' => 0, 'UNKNOWN' => 28], 'Source evidence classes or honest unknowns changed after the Batch 687 recheck.');
 $assert(($sourceSummary['human_confirmed_rows'] ?? -1) === 0 && ($sourceSummary['whole_corpus_verified_count'] ?? -1) === 0, 'A bounded AI sample was promoted to human or whole-corpus verification.');
 $assert(($sourceSummary['invalid_review_rows'] ?? []) === [], 'A source review row has stale identity, invalid provenance, or broken structural linkage.');
 $assert(count($sourceSummary['by_board'] ?? []) === 10, 'Source sampling omitted one or more registered boards.');
@@ -70,4 +70,4 @@ $assert(($summary['exact_groups_matched_to_batch681'] ?? 0) === 85 && ($summary[
 $assert(($summary['question_ids_deleted_or_merged'] ?? -1) === 0 && ($summary['human_approved_clusters'] ?? -1) === 0, 'Duplicate identity or human-review safety contract changed.');
 $assert(count($duplicate['unresolved_clone_candidates'] ?? []) === 179, 'Heuristic clone candidates were silently dropped from the review packet.');
 
-echo '[PASS] Batch 686 source/cognitive ledgers, pending decisions, duplicate clusters, and numerical corrections are structurally consistent.' . PHP_EOL;
+echo '[PASS] Source/cognitive ledgers, pending decisions, duplicate clusters, and numerical corrections are structurally consistent.' . PHP_EOL;

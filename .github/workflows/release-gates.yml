@@ -1,0 +1,216 @@
+name: Release gates
+
+on:
+  push:
+    paths:
+      - 'app/**'
+      - 'config/**'
+      - 'public/**'
+      - 'storage/**'
+      - 'tools/**'
+      - 'composer.json'
+      - 'composer.lock'
+      - '.github/workflows/release-gates.yml'
+  pull_request:
+    paths:
+      - 'app/**'
+      - 'config/**'
+      - 'public/**'
+      - 'storage/**'
+      - 'tools/**'
+      - 'composer.json'
+      - 'composer.lock'
+      - '.github/workflows/release-gates.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  doctor-release:
+    name: Full Doctor release
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: json, session, pdo_sqlite, mbstring, curl
+          coverage: none
+
+      - name: Record exact commit and run Doctor release
+        id: doctor
+        run: |
+          mkdir -p release-gate-evidence
+          printf '{"gate":"full_doctor_release","commit":"%s","run_id":"%s","run_attempt":"%s"}\n' "$GITHUB_SHA" "$GITHUB_RUN_ID" "$GITHUB_RUN_ATTEMPT" > release-gate-evidence/manifest.json
+          set +e
+          php -d memory_limit=1G tools/doctor.php --release --json > release-gate-evidence/doctor-release.json 2>&1
+          status=$?
+          printf 'exit_code=%s\n' "$status" > release-gate-evidence/doctor-release.status
+          exit "$status"
+
+      - name: Upload Doctor evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: boardprep-doctor-release-${{ github.sha }}
+          path: release-gate-evidence/
+          if-no-files-found: warn
+          retention-days: 14
+
+  security-privacy:
+    name: Security and privacy regression
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: json, session, pdo_sqlite, mbstring
+          coverage: none
+
+      - name: Run isolated security and privacy tests
+        run: |
+          mkdir -p release-gate-evidence
+          printf '{"gate":"security_privacy","commit":"%s","run_id":"%s","run_attempt":"%s"}\n' "$GITHUB_SHA" "$GITHUB_RUN_ID" "$GITHUB_RUN_ATTEMPT" > release-gate-evidence/manifest.json
+          : > release-gate-evidence/security-privacy.log
+          : > release-gate-evidence/security-privacy.status
+          failed=0
+          set +e
+          for test in \
+            tools/Tests/ProductionQuizCsrfTest.php \
+            tools/Tests/QuestionImportCsrfTest.php \
+            tools/Tests/QuestionImportSafetyTest.php \
+            tools/Tests/AnonymousLearnerPrivacyHttpTest.php \
+            tools/Tests/SessionConfigurationTest.php \
+            tools/Tests/SecurityTrustBoundaryTest.php
+          do
+            printf '\n=== %s ===\n' "$test" | tee -a release-gate-evidence/security-privacy.log
+            php "$test" >> release-gate-evidence/security-privacy.log 2>&1
+            status=$?
+            printf '%s exit_code=%s\n' "$test" "$status" | tee -a release-gate-evidence/security-privacy.status
+            if [ "$status" -ne 0 ]; then failed=1; fi
+          done
+          exit "$failed"
+
+      - name: Upload security and privacy evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: boardprep-security-privacy-${{ github.sha }}
+          path: release-gate-evidence/
+          if-no-files-found: warn
+          retention-days: 14
+
+  ten-board-http:
+    name: Ten-board learner HTTP journey
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: json, session, pdo_sqlite, mbstring
+          coverage: none
+
+      - name: Run ten-board HTTP journey
+        run: |
+          mkdir -p release-gate-evidence
+          printf '{"gate":"ten_board_http","commit":"%s","run_id":"%s","run_attempt":"%s"}\n' "$GITHUB_SHA" "$GITHUB_RUN_ID" "$GITHUB_RUN_ATTEMPT" > release-gate-evidence/manifest.json
+          set +e
+          php tools/Tests/TenBoardLearnerJourneyHttpTest.php > release-gate-evidence/ten-board-http.log 2>&1
+          status=$?
+          printf 'exit_code=%s\n' "$status" > release-gate-evidence/ten-board-http.status
+          exit "$status"
+
+      - name: Upload ten-board HTTP evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: boardprep-ten-board-http-${{ github.sha }}
+          path: release-gate-evidence/
+          if-no-files-found: warn
+          retention-days: 14
+
+  production-preflight:
+    name: Production preflight and smoke
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: json, session, pdo_sqlite, mbstring
+          coverage: none
+
+      - name: Run preflight and smoke independently
+        run: |
+          mkdir -p release-gate-evidence
+          printf '{"gate":"production_preflight_smoke","commit":"%s","run_id":"%s","run_attempt":"%s"}\n' "$GITHUB_SHA" "$GITHUB_RUN_ID" "$GITHUB_RUN_ATTEMPT" > release-gate-evidence/manifest.json
+          failed=0
+          set +e
+          APP_ENV=production APP_DEBUG=false php tools/doctor.php --preflight --json > release-gate-evidence/production-preflight.json 2>&1
+          preflight_status=$?
+          printf 'exit_code=%s\n' "$preflight_status" > release-gate-evidence/production-preflight.status
+          if [ "$preflight_status" -ne 0 ]; then failed=1; fi
+          APP_ENV=production APP_DEBUG=false php tools/doctor.php --smoke --json > release-gate-evidence/production-smoke.json 2>&1
+          smoke_status=$?
+          printf 'exit_code=%s\n' "$smoke_status" > release-gate-evidence/production-smoke.status
+          if [ "$smoke_status" -ne 0 ]; then failed=1; fi
+          exit "$failed"
+
+      - name: Upload production evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: boardprep-production-preflight-${{ github.sha }}
+          path: release-gate-evidence/
+          if-no-files-found: warn
+          retention-days: 14
+
+  product-readiness:
+    name: Formal product readiness
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: json, session, pdo_sqlite, mbstring
+          coverage: none
+
+      - name: Evaluate product readiness
+        run: |
+          mkdir -p release-gate-evidence
+          printf '{"gate":"formal_product_readiness","commit":"%s","run_id":"%s","run_attempt":"%s"}\n' "$GITHUB_SHA" "$GITHUB_RUN_ID" "$GITHUB_RUN_ATTEMPT" > release-gate-evidence/manifest.json
+          set +e
+          php tools/product-readiness.php --json > release-gate-evidence/product-readiness.json 2>&1
+          status=$?
+          printf 'exit_code=%s\n' "$status" > release-gate-evidence/product-readiness.status
+          exit "$status"
+
+      - name: Upload product readiness evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: boardprep-product-readiness-${{ github.sha }}
+          path: release-gate-evidence/
+          if-no-files-found: warn
+          retention-days: 14
