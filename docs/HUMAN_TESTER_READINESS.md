@@ -280,3 +280,39 @@ while human acceptance remains `NOT_RUN`.
 - General verification: `README.md` and `tools/Doctor/README.md`
 - Do not edit `storage/doctor-report.json` as a test result; it is generated
   state and may remain locally dirty.
+
+## Mobile-device and screen-reader evidence for MVP-01 through MVP-12
+
+The matrix above remains the single acceptance tracker. These procedures add
+concrete mobile and assistive-technology observations to each existing case;
+they do not create new PASS states. Test the supported phone/browser pairs the
+owner intends to serve. If only one platform is available, record the other as
+`NOT_RUN` or `BLOCKED` with the reason.
+
+Before each pass, record the commit, phone/tablet model, OS version, browser and
+version, screen-reader name/version, viewport or orientation, text scaling,
+and fresh-session identifier. On Android, use Chrome with TalkBack; on iOS,
+use Safari with VoiceOver when iOS is an intended target. Try portrait and
+landscape, browser text zoom at 200%, and the narrowest supported viewport.
+Use headings/landmarks and swipe navigation in the screen reader, then repeat
+core controls with touch and keyboard where the device supports an external
+keyboard. Record spoken names, state changes, focus location, and any clipping.
+
+| MVP case | Mobile / screen-reader procedure | Evidence to record |
+|---|---|---|
+| MVP-01 | Read the home page by headings and landmarks; activate Exams and a board link; verify the focused board/action is announced with context. | Heading order, link names, focus destination, portrait/landscape overflow. |
+| MVP-02 | Set board, subject, question count, and Start using screen-reader control navigation; verify each setting's label and selected value before starting. | Spoken labels/values, validation text, focus after start. |
+| MVP-03 | Navigate answer choices; select one; submit; listen for selection and feedback; move to Next and verify focus is not lost. | Choice label/state, feedback announcement, focus after submission/navigation. |
+| MVP-04 | Finish a short attempt; navigate result headings and missed-answer review; verify score, denominator, correct answer, and rationale are distinguishable. | Spoken result labels, explanation relationship, scroll/zoom usability. |
+| MVP-05 | Open History, reopen a result, then Progress and Study Dashboard; verify attempt identity and section headings are announced. | History item names/dates, route focus, consistency with result. |
+| MVP-06 | Configure exam simulation, timer, review, and submit; confirm timer and unanswered state have accessible names and remain understandable after refresh. | Timer announcement, answer visibility, review/submit control names. |
+| MVP-07 | Complete a second attempt and navigate the history list by touch and screen reader; open each result. | Distinct attempt labels, order, no replaced/duplicated result. |
+| MVP-08 | During an active attempt, refresh and use Back/Forward; follow recovery actions by screen reader and verify state is retained. | Recovery message announcement, restored question/answer, focus target. |
+| MVP-09 | From a completed attempt, use Back and activate any stale-action or recovery message; verify the rejected action is announced and safe. | Status/error message, route, attempt/history unchanged. |
+| MVP-10 | Request a no-match pool in the isolated fixture; navigate the empty-state guidance and return to a valid pool. | Empty-state heading, reason and recovery link names, no blank/fabricated result. |
+| MVP-11 | On the physical phone, use primary navigation and study/PDF controls at portrait/landscape and 200% text zoom; check horizontal scrolling and touch-target separation. | Device/viewport, clipping, accidental activation, PDF open/download behavior. |
+| MVP-12 | Use TalkBack/VoiceOver rotor or heading navigation plus Tab/Shift+Tab where available; inspect names, roles, states, focus ring, errors, and live announcements. | Screen-reader/browser versions, announced text/state, keyboard order, focus visibility. |
+
+Do not describe an automated Playwright assertion as human visual, screen
+reader, physical-device, or comprehension acceptance. Each MVP status stays
+`NOT_RUN` until a tester records the observed result and evidence path.

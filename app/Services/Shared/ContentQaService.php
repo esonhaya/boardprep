@@ -177,11 +177,28 @@ final class ContentQaService
             $add(self::issue('LEARNER_OVEREXPOSURE', 'INFO', 'DETERMINISTIC', 'Existing exposure analysis classifies this question as high exposure.', 'Use this signal when selecting new content; it is not a defect.', [(string) $id], $byId));
         }
 
+        $reviewDecisions = array_values(array_filter($collections['academic-review-decisions'] ?? [], 'is_array'));
+        $cognitiveReview = CognitiveIntentReviewService::summarize(
+            $questions,
+            array_values(array_filter($collections['cognitive-intent-review-samples'] ?? [], 'is_array')),
+            $reviewDecisions
+        );
+        foreach ($cognitiveReview['invalid_review_rows'] as $invalidRow) {
+            $invalidId = self::string($invalidRow['question_id'] ?? null);
+            $add(self::issue('INVALID_COGNITIVE_REVIEW_LEDGER', 'REVIEW', 'DETERMINISTIC', 'A bounded cognitive-intent review row is stale or structurally inconsistent: ' . self::string($invalidRow['reason'] ?? null) . '.', 'Refresh the snapshot or correct its review decision; do not promote a label automatically.', $invalidId !== '' ? [$invalidId] : [], $byId, ['row' => $invalidRow['row'] ?? null, 'reason' => $invalidRow['reason'] ?? 'UNKNOWN']));
+        }
+
         $issues = array_values(array_filter($issues, static fn(array $issue): bool => self::matches($issue, $filters)));
         usort($issues, static fn(array $a, array $b): int => [self::rank($a['severity']), $a['issue_code'], implode(',', $a['question_ids'])] <=> [self::rank($b['severity']), $b['issue_code'], implode(',', $b['question_ids'])]);
         $counts = ['ERROR' => 0, 'WARNING' => 0, 'REVIEW' => 0, 'INFO' => 0];
         foreach ($issues as $issue) { $counts[$issue['severity']]++; }
-        $reviewDecisions = array_values(array_filter($collections['academic-review-decisions'] ?? [], 'is_array'));
+        $sourceReview = AcademicSourceReviewService::summarize(
+            $questions,
+            array_values($sources),
+            array_values(array_filter($collections['academic-source-reviews'] ?? [], 'is_array')),
+            array_values(array_filter($collections['study-question-links'] ?? [], 'is_array')),
+            array_values($materials)
+        );
         $reviewDecisionSummary = [
             'total' => count($reviewDecisions),
             'review_required' => count(array_filter($reviewDecisions, static fn(array $row): bool => strtoupper(self::string($row['review_state'] ?? null)) === 'REVIEW_REQUIRED')),
@@ -194,6 +211,8 @@ final class ContentQaService
             'filters_supported' => ['question_ids', 'id_from', 'id_to', 'board_id', 'subject_id', 'topic_id', 'concept_id', 'severity', 'issue_code', 'detection_type'],
             'review_decision_summary' => $reviewDecisionSummary,
             'review_decisions' => $reviewDecisions,
+            'semantic_source_review' => $sourceReview,
+            'cognitive_intent_review' => $cognitiveReview,
             'runtime' => ['qa_runtime_ms' => round((microtime(true) - $started) * 1000, 2), 'question_passes' => 1, 'duplicate_buckets' => count($normalized) + count($templates), 'n_plus_one' => false],
         ];
     }
@@ -241,7 +260,23 @@ final class ContentQaService
     {
         $question = $byId[(string) ($ids[0] ?? '')] ?? [];
         $taxonomy = is_array($question['taxonomy'] ?? null) ? $question['taxonomy'] : [];
-        return ['issue_code' => $code, 'severity' => $severity, 'confidence' => $type === 'HEURISTIC' ? 'MEDIUM' : 'HIGH', 'detection_type' => $type, 'message' => $message, 'suggested_action' => $action, 'evidence' => $evidence, 'question_ids' => $ids, 'board_id' => self::string($taxonomy['board_id'] ?? $question['board'] ?? null), 'subject_id' => self::string($taxonomy['subject_id'] ?? $question['subject'] ?? null), 'domain_id' => self::string($taxonomy['domain_id'] ?? null), 'topic_id' => self::string($taxonomy['topic_id'] ?? $question['topic'] ?? null), 'concept_id' => self::string($taxonomy['concept_id'] ?? $question['concept'] ?? null)];
+        $issue = ['issue_code' => $code, 'severity' => $severity, 'confidence' => $type === 'HEURISTIC' ? 'MEDIUM' : 'HIGH', 'detection_type' => $type, 'message' => $message, 'suggested_action' => $action, 'evidence' => $evidence, 'question_ids' => $ids, 'board_id' => self::string($taxonomy['board_id'] ?? $question['board'] ?? null), 'subject_id' => self::string($taxonomy['subject_id'] ?? $question['subject'] ?? null), 'domain_id' => self::string($taxonomy['domain_id'] ?? null), 'topic_id' => self::string($taxonomy['topic_id'] ?? $question['topic'] ?? null), 'concept_id' => self::string($taxonomy['concept_id'] ?? $question['concept'] ?? null)];
+        if (in_array($code, ['EXACT_DUPLICATE', 'NORMALIZED_DUPLICATE', 'NEAR_DUPLICATE_RISK', 'NUMBER_SWAP_CLONE_RISK', 'STEM_TEMPLATE_OVERUSE'], true)) {
+            $stableIds = array_values(array_unique(array_map('strval', $ids)));
+            sort($stableIds, SORT_NATURAL);
+            $boardIds = [];
+            foreach ($stableIds as $id) {
+                $row = $byId[$id] ?? [];
+                $rowTaxonomy = is_array($row['taxonomy'] ?? null) ? $row['taxonomy'] : [];
+                $boardIds[] = self::string($rowTaxonomy['board_id'] ?? $row['board'] ?? null);
+            }
+            $boardIds = array_values(array_unique($boardIds));
+            sort($boardIds, SORT_STRING);
+            $identity = json_encode(['boards' => $boardIds, 'question_ids' => $stableIds], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+            $prefix = in_array($code, ['EXACT_DUPLICATE', 'NORMALIZED_DUPLICATE'], true) ? 'qdup-' : 'qclone-';
+            $issue['cluster_id'] = $prefix . substr(hash('sha256', is_string($identity) ? $identity : ''), 0, 20);
+        }
+        return $issue;
     }
     private static function matches(array $issue, array $filters): bool
     {

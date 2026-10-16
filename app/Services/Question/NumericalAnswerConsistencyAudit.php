@@ -111,6 +111,18 @@ final class NumericalAnswerConsistencyAudit
         // calculation records contain unrelated generated inputs; never treat
         // those as a generic operand list.
         $namedModels = [
+            'quadratic_derivative_at_x' => ['quadratic-derivative', static function (array $i): ?float {
+                $a = self::number($i['a'] ?? null); $b = self::number($i['b'] ?? null); $x = self::number($i['x'] ?? null);
+                return $a !== null && $b !== null && $x !== null ? 2 * $a * $x + $b : null;
+            }],
+            'angular_acceleration' => ['uniform-angular-acceleration', static function (array $i): ?float {
+                $initial = self::number($i['initial_angular_velocity'] ?? null); $final = self::number($i['final_angular_velocity'] ?? null); $time = self::number($i['time'] ?? null);
+                return $initial !== null && $final !== null && $time !== null && $time != 0.0 ? ($final - $initial) / $time : null;
+            }],
+            'angular_frequency_hz' => ['angular-frequency', static function (array $i): ?float {
+                $frequency = self::number($i['frequency_hz'] ?? null);
+                return $frequency !== null ? 2 * M_PI * $frequency : null;
+            }],
             'force_over_area' => ['axial-stress', static fn(array $i): ?float => self::divideNamed($i, 'force', 'area')],
             'average_three' => ['test-average', static fn(array $i): ?float => self::meanNamed($i, ['a', 'b', 'c'])],
             'interpolation' => ['linear-interpolation', static fn(array $i): ?float => self::interpolate($i)],
@@ -145,6 +157,18 @@ final class NumericalAnswerConsistencyAudit
             else return null;
             $totalParts = array_sum($parts);
             return $selected !== null && $totalParts != 0.0 ? $numbers[0] * $selected / $totalParts : null;
+        }
+        if ($family === 'distance_time') {
+            $numbers = $values ?? self::numericList($inputs);
+            return $numbers !== null && count($numbers) === 2 && $numbers[1] != 0.0 ? $numbers[0] / $numbers[1] : null;
+        }
+        if ($family === 'rate_times_time') {
+            $numbers = $values ?? self::numericList($inputs);
+            return $numbers !== null && count($numbers) === 2 ? $numbers[0] * $numbers[1] : null;
+        }
+        if ($family === 'fraction_of_total') {
+            $numbers = $values ?? self::numericList($inputs);
+            return $numbers !== null && count($numbers) === 3 && $numbers[2] != 0.0 ? $numbers[0] * $numbers[1] / $numbers[2] : null;
         }
         if ($family === 'sequence_pattern_next') {
             return self::recognizeSequenceNext(self::numericList($payload['values'] ?? null));

@@ -47,5 +47,913 @@
         "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
         "human_signoff": "NOT_RECORDED",
         "recorded_at": "2026-10-16"
+    },
+    {
+        "id": "batch686-cognitive-q7045",
+        "question_id": "7045",
+        "original_issue": "MISSING_COGNITIVE_INTENT",
+        "field_changes": [
+            {
+                "field": "cognitive_intent",
+                "before": null,
+                "after": "apply"
+            }
+        ],
+        "supporting_evidence": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: A plan length of 6 cm is drawn at a representative fraction of 1:5000. What ground length is represented in meters?",
+        "supporting_source_ids": [],
+        "review_method": "Explicit task/case reasoning compared with the existing five-level editorial rubric; not an exam blueprint claim.",
+        "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+        "review_state": "REVIEW_REQUIRED",
+        "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+        "human_signoff": "NOT_RECORDED",
+        "reviewer_type": "AI_ASSISTED_EDITORIAL_REVIEW",
+        "reviewed_at": "2026-10-16"
+    },
+    {
+        "id": "batch686-cognitive-q1181",
+        "question_id": "1181",
+        "original_issue": "MISSING_COGNITIVE_INTENT",
+        "field_changes": [
+            {
+                "field": "cognitive_intent",
+                "before": null,
+                "after": "apply"
+            }
+        ],
+        "supporting_evidence": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: A rectangular excavation is 12 m long, 4 m wide, and 1.5 m deep. Volume is:",
+        "supporting_source_ids": [],
+        "review_method": "Explicit task/case reasoning compared with the existing five-level editorial rubric; not an exam blueprint claim.",
+        "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+        "review_state": "REVIEW_REQUIRED",
+        "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+        "human_signoff": "NOT_RECORDED",
+        "reviewer_type": "AI_ASSISTED_EDITORIAL_REVIEW",
+        "reviewed_at": "2026-10-16"
+    },
+    {
+        "id": "batch686-cognitive-q1146",
+        "question_id": "1146",
+        "original_issue": "MISSING_COGNITIVE_INTENT",
+        "field_changes": [
+            {
+                "field": "cognitive_intent",
+                "before": null,
+                "after": "apply"
+            }
+        ],
+        "supporting_evidence": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: A footing carries 900 kN on soil allowable pressure 150 kPa. Minimum plan area is:",
+        "supporting_source_ids": [],
+        "review_method": "Explicit task/case reasoning compared with the existing five-level editorial rubric; not an exam blueprint claim.",
+        "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+        "review_state": "REVIEW_REQUIRED",
+        "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+        "human_signoff": "NOT_RECORDED",
+        "reviewer_type": "AI_ASSISTED_EDITORIAL_REVIEW",
+        "reviewed_at": "2026-10-16"
+    },
+    {
+        "id": "batch686-cognitive-q1227",
+        "question_id": "1227",
+        "original_issue": "MISSING_COGNITIVE_INTENT",
+        "field_changes": [
+            {
+                "field": "cognitive_intent",
+                "before": null,
+                "after": "apply"
+            }
+        ],
+        "supporting_evidence": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: A saturated soil has total stress 180 kPa and pore pressure 70 kPa. Effective stress is:",
+        "supporting_source_ids": [],
+        "review_method": "Explicit task/case reasoning compared with the existing five-level editorial rubric; not an exam blueprint claim.",
+        "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+        "review_state": "REVIEW_REQUIRED",
+        "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+        "human_signoff": "NOT_RECORDED",
+        "reviewer_type": "AI_ASSISTED_EDITORIAL_REVIEW",
+        "reviewed_at": "2026-10-16"
+    },
+    {
+        "id": "batch686-cognitive-q1137",
+        "question_id": "1137",
+        "original_issue": "MISSING_COGNITIVE_INTENT",
+        "field_changes": [
+            {
+                "field": "cognitive_intent",
+                "before": null,
+                "after": "apply"
+            }
+        ],
+        "supporting_evidence": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: A simply supported beam carries a 10 kN point load at midspan over 6 m. What is the reaction at each support?",
+        "supporting_source_ids": [],
+        "review_method": "Explicit task/case reasoning compared with the existing five-level editorial rubric; not an exam blueprint claim.",
+        "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+        "review_state": "REVIEW_REQUIRED",
+        "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+        "human_signoff": "NOT_RECORDED",
+        "reviewer_type": "AI_ASSISTED_EDITORIAL_REVIEW",
+        "reviewed_at": "2026-10-16"
+    },
+    {
+        "id": "batch686-cognitive-q1234",
+        "question_id": "1234",
+        "original_issue": "MISSING_COGNITIVE_INTENT",
+        "field_changes": [
+            {
+                "field": "cognitive_intent",
+                "before": null,
+                "after": "apply"
+            }
+        ],
+        "supporting_evidence": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: A seepage head drops 6 m over a flow length of 30 m. Hydraulic gradient is:",
+        "supporting_source_ids": [],
+        "review_method": "Explicit task/case reasoning compared with the existing five-level editorial rubric; not an exam blueprint claim.",
+        "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+        "review_state": "REVIEW_REQUIRED",
+        "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+        "human_signoff": "NOT_RECORDED",
+        "reviewer_type": "AI_ASSISTED_EDITORIAL_REVIEW",
+        "reviewed_at": "2026-10-16"
+    },
+    {
+        "id": "batch686-cognitive-q1138",
+        "question_id": "1138",
+        "original_issue": "MISSING_COGNITIVE_INTENT",
+        "field_changes": [
+            {
+                "field": "cognitive_intent",
+                "before": null,
+                "after": "apply"
+            }
+        ],
+        "supporting_evidence": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: A 12 kN force acts perpendicular to a lever arm 2.5 m long. Find the moment about the pivot.",
+        "supporting_source_ids": [],
+        "review_method": "Explicit task/case reasoning compared with the existing five-level editorial rubric; not an exam blueprint claim.",
+        "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+        "review_state": "REVIEW_REQUIRED",
+        "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+        "human_signoff": "NOT_RECORDED",
+        "reviewer_type": "AI_ASSISTED_EDITORIAL_REVIEW",
+        "reviewed_at": "2026-10-16"
+    },
+    {
+        "id": "batch686-cognitive-q1141",
+        "question_id": "1141",
+        "original_issue": "MISSING_COGNITIVE_INTENT",
+        "field_changes": [
+            {
+                "field": "cognitive_intent",
+                "before": null,
+                "after": "apply"
+            }
+        ],
+        "supporting_evidence": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: A rectangular section is 100 mm wide and 200 mm deep. Its second moment of area about the centroidal horizontal axis is:",
+        "supporting_source_ids": [],
+        "review_method": "Explicit task/case reasoning compared with the existing five-level editorial rubric; not an exam blueprint claim.",
+        "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+        "review_state": "REVIEW_REQUIRED",
+        "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+        "human_signoff": "NOT_RECORDED",
+        "reviewer_type": "AI_ASSISTED_EDITORIAL_REVIEW",
+        "reviewed_at": "2026-10-16"
+    },
+    {
+        "id": "batch686-cognitive-q1142",
+        "question_id": "1142",
+        "original_issue": "MISSING_COGNITIVE_INTENT",
+        "field_changes": [
+            {
+                "field": "cognitive_intent",
+                "before": null,
+                "after": "apply"
+            }
+        ],
+        "supporting_evidence": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: A beam has bending moment 8 kN·m and section modulus 400 cm³. The bending stress is:",
+        "supporting_source_ids": [],
+        "review_method": "Explicit task/case reasoning compared with the existing five-level editorial rubric; not an exam blueprint claim.",
+        "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+        "review_state": "REVIEW_REQUIRED",
+        "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+        "human_signoff": "NOT_RECORDED",
+        "reviewer_type": "AI_ASSISTED_EDITORIAL_REVIEW",
+        "reviewed_at": "2026-10-16"
+    },
+    {
+        "id": "batch686-cognitive-q1143",
+        "question_id": "1143",
+        "original_issue": "MISSING_COGNITIVE_INTENT",
+        "field_changes": [
+            {
+                "field": "cognitive_intent",
+                "before": null,
+                "after": "apply"
+            }
+        ],
+        "supporting_evidence": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: A circular shaft transmits 600 N·m through a radius of 25 mm. The torque force couple at the rim is:",
+        "supporting_source_ids": [],
+        "review_method": "Explicit task/case reasoning compared with the existing five-level editorial rubric; not an exam blueprint claim.",
+        "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+        "review_state": "REVIEW_REQUIRED",
+        "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+        "human_signoff": "NOT_RECORDED",
+        "reviewer_type": "AI_ASSISTED_EDITORIAL_REVIEW",
+        "reviewed_at": "2026-10-16"
+    },
+    {
+        "id": "batch686-cognitive-q5413",
+        "question_id": "5413",
+        "original_issue": "MISSING_COGNITIVE_INTENT",
+        "field_changes": [
+            {
+                "field": "cognitive_intent",
+                "before": null,
+                "after": "apply"
+            }
+        ],
+        "supporting_evidence": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: A code sequence increases by 4: 3, 7, 11, 15. What is next?",
+        "supporting_source_ids": [],
+        "review_method": "Explicit task/case reasoning compared with the existing five-level editorial rubric; not an exam blueprint claim.",
+        "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+        "review_state": "REVIEW_REQUIRED",
+        "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+        "human_signoff": "NOT_RECORDED",
+        "reviewer_type": "AI_ASSISTED_EDITORIAL_REVIEW",
+        "reviewed_at": "2026-10-16"
+    },
+    {
+        "id": "batch686-cognitive-q5301",
+        "question_id": "5301",
+        "original_issue": "MISSING_COGNITIVE_INTENT",
+        "field_changes": [
+            {
+                "field": "cognitive_intent",
+                "before": null,
+                "after": "apply"
+            }
+        ],
+        "supporting_evidence": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: A unit records 11, 17, and 23 completed cases over three days. What is the daily average?",
+        "supporting_source_ids": [],
+        "review_method": "Explicit task/case reasoning compared with the existing five-level editorial rubric; not an exam blueprint claim.",
+        "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+        "review_state": "REVIEW_REQUIRED",
+        "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+        "human_signoff": "NOT_RECORDED",
+        "reviewer_type": "AI_ASSISTED_EDITORIAL_REVIEW",
+        "reviewed_at": "2026-10-16"
+    },
+    {
+        "id": "batch686-cognitive-q5258",
+        "question_id": "5258",
+        "original_issue": "MISSING_COGNITIVE_INTENT",
+        "field_changes": [
+            {
+                "field": "cognitive_intent",
+                "before": null,
+                "after": "apply"
+            }
+        ],
+        "supporting_evidence": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: A desk logs 23 intake requests in one batch and 19 in another. How many are logged in all?",
+        "supporting_source_ids": [],
+        "review_method": "Explicit task/case reasoning compared with the existing five-level editorial rubric; not an exam blueprint claim.",
+        "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+        "review_state": "REVIEW_REQUIRED",
+        "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+        "human_signoff": "NOT_RECORDED",
+        "reviewer_type": "AI_ASSISTED_EDITORIAL_REVIEW",
+        "reviewed_at": "2026-10-16"
+    },
+    {
+        "id": "batch686-cognitive-q5226",
+        "question_id": "5226",
+        "original_issue": "MISSING_COGNITIVE_INTENT",
+        "field_changes": [
+            {
+                "field": "cognitive_intent",
+                "before": null,
+                "after": "analyze"
+            }
+        ],
+        "supporting_evidence": "The stem requires comparing evidence, inferring a consequence, or prioritizing interacting case cues. Stem: The notice says a release is contingent on a signed log, but the log is missing. What is the safest interpretation?",
+        "supporting_source_ids": [],
+        "review_method": "Explicit task/case reasoning compared with the existing five-level editorial rubric; not an exam blueprint claim.",
+        "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+        "review_state": "REVIEW_REQUIRED",
+        "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+        "human_signoff": "NOT_RECORDED",
+        "reviewer_type": "AI_ASSISTED_EDITORIAL_REVIEW",
+        "reviewed_at": "2026-10-16"
+    },
+    {
+        "id": "batch686-cognitive-q5281",
+        "question_id": "5281",
+        "original_issue": "MISSING_COGNITIVE_INTENT",
+        "field_changes": [
+            {
+                "field": "cognitive_intent",
+                "before": null,
+                "after": "analyze"
+            }
+        ],
+        "supporting_evidence": "The stem requires comparing evidence, inferring a consequence, or prioritizing interacting case cues. Stem: A unit reports 20, 24, and 30 resolved requests over three days. Which statement is supported?",
+        "supporting_source_ids": [],
+        "review_method": "Explicit task/case reasoning compared with the existing five-level editorial rubric; not an exam blueprint claim.",
+        "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+        "review_state": "REVIEW_REQUIRED",
+        "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+        "human_signoff": "NOT_RECORDED",
+        "reviewer_type": "AI_ASSISTED_EDITORIAL_REVIEW",
+        "reviewed_at": "2026-10-16"
+    },
+    {
+        "id": "batch686-cognitive-q5993",
+        "question_id": "5993",
+        "original_issue": "MISSING_COGNITIVE_INTENT",
+        "field_changes": [
+            {
+                "field": "cognitive_intent",
+                "before": null,
+                "after": "apply"
+            }
+        ],
+        "supporting_evidence": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: In Culture and Arts Education specialization, A performance allocates 4 minutes to setup and 6 minutes to the work. What is the total planned time?",
+        "supporting_source_ids": [],
+        "review_method": "Explicit task/case reasoning compared with the existing five-level editorial rubric; not an exam blueprint claim.",
+        "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+        "review_state": "REVIEW_REQUIRED",
+        "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+        "human_signoff": "NOT_RECORDED",
+        "reviewer_type": "AI_ASSISTED_EDITORIAL_REVIEW",
+        "reviewed_at": "2026-10-16"
+    },
+    {
+        "id": "batch686-cognitive-q5763",
+        "question_id": "5763",
+        "original_issue": "MISSING_COGNITIVE_INTENT",
+        "field_changes": [
+            {
+                "field": "cognitive_intent",
+                "before": null,
+                "after": "apply"
+            }
+        ],
+        "supporting_evidence": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: Which statement best applies developmental observation in this situation: a learner meets an unfamiliar example during guided practice",
+        "supporting_source_ids": [],
+        "review_method": "Explicit task/case reasoning compared with the existing five-level editorial rubric; not an exam blueprint claim.",
+        "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+        "review_state": "REVIEW_REQUIRED",
+        "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+        "human_signoff": "NOT_RECORDED",
+        "reviewer_type": "AI_ASSISTED_EDITORIAL_REVIEW",
+        "reviewed_at": "2026-10-16"
+    },
+    {
+        "id": "batch686-cognitive-q5538",
+        "question_id": "5538",
+        "original_issue": "MISSING_COGNITIVE_INTENT",
+        "field_changes": [
+            {
+                "field": "cognitive_intent",
+                "before": null,
+                "after": "analyze"
+            }
+        ],
+        "supporting_evidence": "The stem requires comparing evidence, inferring a consequence, or prioritizing interacting case cues. Stem: Which statement best applies evidence-based inference in this situation: a learner meets an unfamiliar example during guided practice",
+        "supporting_source_ids": [],
+        "review_method": "Explicit task/case reasoning compared with the existing five-level editorial rubric; not an exam blueprint claim.",
+        "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+        "review_state": "REVIEW_REQUIRED",
+        "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+        "human_signoff": "NOT_RECORDED",
+        "reviewer_type": "AI_ASSISTED_EDITORIAL_REVIEW",
+        "reviewed_at": "2026-10-16"
+    },
+    {
+        "id": "batch686-cognitive-q5548",
+        "question_id": "5548",
+        "original_issue": "MISSING_COGNITIVE_INTENT",
+        "field_changes": [
+            {
+                "field": "cognitive_intent",
+                "before": null,
+                "after": "understand"
+            }
+        ],
+        "supporting_evidence": "The stem asks the learner to explain or recognize the meaning of a stated principle in context. Stem: Which statement best applies Pangunahing diwa in this situation: a learner meets an unfamiliar example during guided practice",
+        "supporting_source_ids": [],
+        "review_method": "Explicit task/case reasoning compared with the existing five-level editorial rubric; not an exam blueprint claim.",
+        "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+        "review_state": "REVIEW_REQUIRED",
+        "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+        "human_signoff": "NOT_RECORDED",
+        "reviewer_type": "AI_ASSISTED_EDITORIAL_REVIEW",
+        "reviewed_at": "2026-10-16"
+    },
+    {
+        "id": "batch686-cognitive-q5563",
+        "question_id": "5563",
+        "original_issue": "MISSING_COGNITIVE_INTENT",
+        "field_changes": [
+            {
+                "field": "cognitive_intent",
+                "before": null,
+                "after": "analyze"
+            }
+        ],
+        "supporting_evidence": "The stem requires comparing evidence, inferring a consequence, or prioritizing interacting case cues. Stem: Which statement best applies Tauhan at motibasyon in this situation: a learner meets an unfamiliar example during guided practice",
+        "supporting_source_ids": [],
+        "review_method": "Explicit task/case reasoning compared with the existing five-level editorial rubric; not an exam blueprint claim.",
+        "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+        "review_state": "REVIEW_REQUIRED",
+        "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+        "human_signoff": "NOT_RECORDED",
+        "reviewer_type": "AI_ASSISTED_EDITORIAL_REVIEW",
+        "reviewed_at": "2026-10-16"
+    },
+    {
+        "id": "batch686-cognitive-q861",
+        "question_id": "861",
+        "original_issue": "MISSING_COGNITIVE_INTENT",
+        "field_changes": [
+            {
+                "field": "cognitive_intent",
+                "before": null,
+                "after": "apply"
+            }
+        ],
+        "supporting_evidence": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: A family with an infant stores kerosene in an unlabelled bottle on the floor. What should the home visit emphasize?",
+        "supporting_source_ids": [],
+        "review_method": "Explicit task/case reasoning compared with the existing five-level editorial rubric; not an exam blueprint claim.",
+        "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+        "review_state": "REVIEW_REQUIRED",
+        "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+        "human_signoff": "NOT_RECORDED",
+        "reviewer_type": "AI_ASSISTED_EDITORIAL_REVIEW",
+        "reviewed_at": "2026-10-16"
+    },
+    {
+        "id": "batch686-cognitive-q864",
+        "question_id": "864",
+        "original_issue": "MISSING_COGNITIVE_INTENT",
+        "field_changes": [
+            {
+                "field": "cognitive_intent",
+                "before": null,
+                "after": "understand"
+            }
+        ],
+        "supporting_evidence": "The stem asks the learner to explain or recognize the meaning of a stated principle in context. Stem: A nurse compares the number of new tuberculosis cases in two districts during one month. What measure is being considered?",
+        "supporting_source_ids": [],
+        "review_method": "Explicit task/case reasoning compared with the existing five-level editorial rubric; not an exam blueprint claim.",
+        "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+        "review_state": "REVIEW_REQUIRED",
+        "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+        "human_signoff": "NOT_RECORDED",
+        "reviewer_type": "AI_ASSISTED_EDITORIAL_REVIEW",
+        "reviewed_at": "2026-10-16"
+    },
+    {
+        "id": "batch686-cognitive-q897",
+        "question_id": "897",
+        "original_issue": "MISSING_COGNITIVE_INTENT",
+        "field_changes": [
+            {
+                "field": "cognitive_intent",
+                "before": null,
+                "after": "understand"
+            }
+        ],
+        "supporting_evidence": "The stem asks the learner to explain or recognize the meaning of a stated principle in context. Stem: A parent asks why a healthy newborn receives vitamin K. What explanation is best?",
+        "supporting_source_ids": [],
+        "review_method": "Explicit task/case reasoning compared with the existing five-level editorial rubric; not an exam blueprint claim.",
+        "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+        "review_state": "REVIEW_REQUIRED",
+        "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+        "human_signoff": "NOT_RECORDED",
+        "reviewer_type": "AI_ASSISTED_EDITORIAL_REVIEW",
+        "reviewed_at": "2026-10-16"
+    },
+    {
+        "id": "batch686-cognitive-q895",
+        "question_id": "895",
+        "original_issue": "MISSING_COGNITIVE_INTENT",
+        "field_changes": [
+            {
+                "field": "cognitive_intent",
+                "before": null,
+                "after": "analyze"
+            }
+        ],
+        "supporting_evidence": "The stem requires comparing evidence, inferring a consequence, or prioritizing interacting case cues. Stem: A postpartum client saturates a pad rapidly and feels dizzy. Which finding makes this urgent?",
+        "supporting_source_ids": [],
+        "review_method": "Explicit task/case reasoning compared with the existing five-level editorial rubric; not an exam blueprint claim.",
+        "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+        "review_state": "REVIEW_REQUIRED",
+        "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+        "human_signoff": "NOT_RECORDED",
+        "reviewer_type": "AI_ASSISTED_EDITORIAL_REVIEW",
+        "reviewed_at": "2026-10-16"
+    },
+    {
+        "id": "batch686-cognitive-q930",
+        "question_id": "930",
+        "original_issue": "MISSING_COGNITIVE_INTENT",
+        "field_changes": [
+            {
+                "field": "cognitive_intent",
+                "before": null,
+                "after": "apply"
+            }
+        ],
+        "supporting_evidence": "The stem requires use of an explicit rule or procedure on supplied values or a stated case; this describes the demonstrated task, not topic or answer format. Stem: A postoperative client has shallow breathing after receiving analgesia. Which assessment is most important?",
+        "supporting_source_ids": [],
+        "review_method": "Explicit task/case reasoning compared with the existing five-level editorial rubric; not an exam blueprint claim.",
+        "validation_result": "Label maps to existing rubric; human confirmation remains required.",
+        "review_state": "REVIEW_REQUIRED",
+        "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+        "human_signoff": "NOT_RECORDED",
+        "reviewer_type": "AI_ASSISTED_EDITORIAL_REVIEW",
+        "reviewed_at": "2026-10-16"
+    },
+    {
+        "id": "batch686-rationale-q622",
+        "question_id": 622,
+        "original_issue": "RATIONALE_TOO_EMPTY_TO_SUPPORT_KEY",
+        "field_changes": [
+            {
+                "field": "explanation",
+                "before": "0.35 × 1,200 = 420.",
+                "after": "35% is 0.35, so 0.35 × 1,200 = 420. Check: 30% is 360 and 5% is 60; 360 + 60 = 420."
+            },
+            {
+                "field": "calculation",
+                "before": null,
+                "after": {
+                    "operation": "multiply",
+                    "values": [
+                        0.35,
+                        1200
+                    ],
+                    "expected_value": 420
+                }
+            }
+        ],
+        "supporting_evidence": "The supplied base and percentage recompute to 420; OpenStax Prealgebra 2e §6.2 explains the percent-of-base relationship.",
+        "supporting_source_ids": [
+            "openstax-prealgebra-percent-applications-6-2"
+        ],
+        "review_method": "Independent calculation/unit or calculus check from the explicit stem; cited references are supplemental where listed.",
+        "validation_result": "Added explicit formula, substitution, units and answer check; structured numerical audit must recompute. Human academic sign-off required.",
+        "review_state": "REVIEW_REQUIRED",
+        "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+        "human_signoff": "NOT_RECORDED",
+        "reviewer_type": "AI_ASSISTED_EDITORIAL_REVIEW",
+        "reviewed_at": "2026-10-16"
+    },
+    {
+        "id": "batch686-rationale-q6334",
+        "question_id": 6334,
+        "original_issue": "RATIONALE_TOO_EMPTY_TO_SUPPORT_KEY",
+        "field_changes": [
+            {
+                "field": "explanation",
+                "before": "210 ÷ 3.5 = 60 km/h.",
+                "after": "Average speed = distance ÷ time = 210 km ÷ 3.5 h = 60 km/h. Check: 60 km/h × 3.5 h = 210 km."
+            },
+            {
+                "field": "calculation",
+                "before": {
+                    "operation": "distance_time",
+                    "inputs": [
+                        210,
+                        3.5
+                    ],
+                    "expected": 60
+                },
+                "after": {
+                    "operation": "distance_time",
+                    "inputs": [
+                        210,
+                        3.5
+                    ],
+                    "expected": 60,
+                    "unit": "km/h",
+                    "rounding": "exact"
+                }
+            }
+        ],
+        "supporting_evidence": "The stated distance/time gives 60; multiplying back returns 210 km. Units reduce to km/h.",
+        "supporting_source_ids": [
+            "openstax-prealgebra-2e"
+        ],
+        "review_method": "Independent calculation/unit or calculus check from the explicit stem; cited references are supplemental where listed.",
+        "validation_result": "Added explicit formula, substitution, units and answer check; structured numerical audit must recompute. Human academic sign-off required.",
+        "review_state": "REVIEW_REQUIRED",
+        "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+        "human_signoff": "NOT_RECORDED",
+        "reviewer_type": "AI_ASSISTED_EDITORIAL_REVIEW",
+        "reviewed_at": "2026-10-16"
+    },
+    {
+        "id": "batch686-rationale-q6353",
+        "question_id": 6353,
+        "original_issue": "RATIONALE_TOO_EMPTY_TO_SUPPORT_KEY",
+        "field_changes": [
+            {
+                "field": "explanation",
+                "before": "8 × 8.5 = 68 cases.",
+                "after": "Processed cases = rate × time = 8 cases/h × 8.5 h = 68 cases. The hours cancel, leaving a count."
+            },
+            {
+                "field": "calculation",
+                "before": {
+                    "operation": "rate_times_time",
+                    "inputs": [
+                        8,
+                        8.5
+                    ],
+                    "expected": 68
+                },
+                "after": {
+                    "operation": "rate_times_time",
+                    "inputs": [
+                        8,
+                        8.5
+                    ],
+                    "expected": 68,
+                    "rounding": "exact"
+                }
+            }
+        ],
+        "supporting_evidence": "The stated rate multiplied by duration gives 68, and hours cancel. Direct arithmetic and dimensional check.",
+        "supporting_source_ids": [
+            "openstax-prealgebra-2e"
+        ],
+        "review_method": "Independent calculation/unit or calculus check from the explicit stem; cited references are supplemental where listed.",
+        "validation_result": "Added explicit formula, substitution, units and answer check; structured numerical audit must recompute. Human academic sign-off required.",
+        "review_state": "REVIEW_REQUIRED",
+        "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+        "human_signoff": "NOT_RECORDED",
+        "reviewer_type": "AI_ASSISTED_EDITORIAL_REVIEW",
+        "reviewed_at": "2026-10-16"
+    },
+    {
+        "id": "batch686-rationale-q5667",
+        "question_id": 5667,
+        "original_issue": "RATIONALE_TOO_EMPTY_TO_SUPPORT_KEY",
+        "field_changes": [
+            {
+                "field": "explanation",
+                "before": "2.4 ÷ 8 = 0.3 km/min.",
+                "after": "Average speed = distance ÷ time = 2.4 km ÷ 8 min = 0.30 km/min. Converting 8 min to 8/60 h gives the equivalent 18 km/h."
+            },
+            {
+                "field": "calculation",
+                "before": {
+                    "expression": "2.4 / 8",
+                    "result": 0.3,
+                    "unit": "km/min"
+                },
+                "after": {
+                    "expression": "2.4 / 8",
+                    "result": 0.3,
+                    "unit": "km/min"
+                }
+            }
+        ],
+        "supporting_evidence": "The distance/time calculation and unit conversion independently agree.",
+        "supporting_source_ids": [
+            "openstax-university-physics-volume-1"
+        ],
+        "review_method": "Independent calculation/unit or calculus check from the explicit stem; cited references are supplemental where listed.",
+        "validation_result": "Added explicit formula, substitution, units and answer check; structured numerical audit must recompute. Human academic sign-off required.",
+        "review_state": "REVIEW_REQUIRED",
+        "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+        "human_signoff": "NOT_RECORDED",
+        "reviewer_type": "AI_ASSISTED_EDITORIAL_REVIEW",
+        "reviewed_at": "2026-10-16"
+    },
+    {
+        "id": "batch686-rationale-q1387",
+        "question_id": 1387,
+        "original_issue": "RATIONALE_TOO_EMPTY_TO_SUPPORT_KEY",
+        "field_changes": [
+            {
+                "field": "explanation",
+                "before": "f′(x)=2x+3, so f′(2)=7.",
+                "after": "For f(x)=x²+3x, f′(x)=2x+3. At x=2, 2(2)+3=7, so the instantaneous rate is 7."
+            },
+            {
+                "field": "calculation",
+                "before": null,
+                "after": {
+                    "formula": "quadratic_derivative_at_x",
+                    "formula_family": "quadratic-derivative",
+                    "inputs": {
+                        "a": 1,
+                        "b": 3,
+                        "x": 2
+                    },
+                    "expected_value": 7,
+                    "rounding": "exact"
+                }
+            }
+        ],
+        "supporting_evidence": "Differentiate the stated polynomial term-by-term and substitute x=2; the derivative evaluates to 7. Stem provides all required data.",
+        "supporting_source_ids": [],
+        "review_method": "Independent calculation/unit or calculus check from the explicit stem; cited references are supplemental where listed.",
+        "validation_result": "Added explicit formula, substitution, units and answer check; structured numerical audit must recompute. Human academic sign-off required.",
+        "review_state": "REVIEW_REQUIRED",
+        "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+        "human_signoff": "NOT_RECORDED",
+        "reviewer_type": "AI_ASSISTED_EDITORIAL_REVIEW",
+        "reviewed_at": "2026-10-16"
+    },
+    {
+        "id": "batch686-rationale-q1397",
+        "question_id": 1397,
+        "original_issue": "RATIONALE_TOO_EMPTY_TO_SUPPORT_KEY",
+        "field_changes": [
+            {
+                "field": "explanation",
+                "before": "α=(10−2)/4=2 rad/s².",
+                "after": "Angular acceleration = (ωf−ωi)/t = (10−2) rad/s ÷ 4 s = 2 rad/s². The unit check is (rad/s)/s."
+            },
+            {
+                "field": "calculation",
+                "before": null,
+                "after": {
+                    "formula": "angular_acceleration",
+                    "formula_family": "uniform-angular-acceleration",
+                    "inputs": {
+                        "initial_angular_velocity": 2,
+                        "final_angular_velocity": 10,
+                        "time": 4
+                    },
+                    "expected_value": 2,
+                    "unit": "rad/s2",
+                    "rounding": "exact"
+                }
+            }
+        ],
+        "supporting_evidence": "Given uniform change, (10−2)/4=2; dividing rad/s by seconds yields rad/s².",
+        "supporting_source_ids": [],
+        "review_method": "Independent calculation/unit or calculus check from the explicit stem; cited references are supplemental where listed.",
+        "validation_result": "Added explicit formula, substitution, units and answer check; structured numerical audit must recompute. Human academic sign-off required.",
+        "review_state": "REVIEW_REQUIRED",
+        "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+        "human_signoff": "NOT_RECORDED",
+        "reviewer_type": "AI_ASSISTED_EDITORIAL_REVIEW",
+        "reviewed_at": "2026-10-16"
+    },
+    {
+        "id": "batch686-rationale-q3533",
+        "question_id": 3533,
+        "original_issue": "RATIONALE_TOO_EMPTY_TO_SUPPORT_KEY",
+        "field_changes": [
+            {
+                "field": "explanation",
+                "before": "RPN=8(3)(4)=96.",
+                "after": "Using the relationship in the stem, RPN = severity × occurrence × detection = 8 × 3 × 4 = 96. RPN is a prioritization index, not a probability."
+            },
+            {
+                "field": "calculation",
+                "before": null,
+                "after": {
+                    "formula": "multiply",
+                    "values": [
+                        8,
+                        3,
+                        4
+                    ],
+                    "expected_value": 96,
+                    "rounding": "exact"
+                }
+            }
+        ],
+        "supporting_evidence": "The stem supplies RPN=SOD; multiplication gives 96. This explanation does not claim an external standard was reviewed.",
+        "supporting_source_ids": [],
+        "review_method": "Independent calculation/unit or calculus check from the explicit stem; cited references are supplemental where listed.",
+        "validation_result": "Added explicit formula, substitution, units and answer check; structured numerical audit must recompute. Human academic sign-off required.",
+        "review_state": "REVIEW_REQUIRED",
+        "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+        "human_signoff": "NOT_RECORDED",
+        "reviewer_type": "AI_ASSISTED_EDITORIAL_REVIEW",
+        "reviewed_at": "2026-10-16"
+    },
+    {
+        "id": "batch686-rationale-q4622",
+        "question_id": 4622,
+        "original_issue": "RATIONALE_TOO_EMPTY_TO_SUPPORT_KEY",
+        "field_changes": [
+            {
+                "field": "explanation",
+                "before": "48 ÷ 60 × 100 = 80%.",
+                "after": "Percent correct = correct responses ÷ all examinees × 100 = 48 ÷ 60 × 100 = 80%. The denominator is all 60 examinees."
+            },
+            {
+                "field": "calculation",
+                "before": {
+                    "family": "percentage",
+                    "params": {
+                        "part": 48,
+                        "whole": 60
+                    },
+                    "expected": 80,
+                    "unit": "%",
+                    "rounding": "Answer choice uses exact or stated nearest practical value; tolerance 0.011."
+                },
+                "after": {
+                    "family": "percentage",
+                    "params": {
+                        "part": 48,
+                        "whole": 60
+                    },
+                    "expected": 80,
+                    "unit": "%",
+                    "rounding": "Answer choice uses exact or stated nearest practical value; tolerance 0.011."
+                }
+            }
+        ],
+        "supporting_evidence": "48/60×100 recomputes to 80%; independent arithmetic matches the key. OpenStax provides general statistics background.",
+        "supporting_source_ids": [
+            "openstax-introductory-statistics-2e"
+        ],
+        "review_method": "Independent calculation/unit or calculus check from the explicit stem; cited references are supplemental where listed.",
+        "validation_result": "Added explicit formula, substitution, units and answer check; structured numerical audit must recompute. Human academic sign-off required.",
+        "review_state": "REVIEW_REQUIRED",
+        "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+        "human_signoff": "NOT_RECORDED",
+        "reviewer_type": "AI_ASSISTED_EDITORIAL_REVIEW",
+        "reviewed_at": "2026-10-16"
+    },
+    {
+        "id": "batch686-rationale-q1589",
+        "question_id": 1589,
+        "original_issue": "RATIONALE_TOO_EMPTY_TO_SUPPORT_KEY",
+        "field_changes": [
+            {
+                "field": "explanation",
+                "before": "ω=2πf=2π(60)≈377 rad/s.",
+                "after": "Angular frequency is ω=2πf. At 60 Hz, ω=2π(60)=376.991… rad/s, which rounds to 377.0 rad/s."
+            },
+            {
+                "field": "calculation",
+                "before": null,
+                "after": {
+                    "formula": "angular_frequency_hz",
+                    "formula_family": "angular-frequency",
+                    "inputs": {
+                        "frequency_hz": 60
+                    },
+                    "expected_value": 376.99111843077515,
+                    "unit": "rad/s",
+                    "rounding": "1 decimal"
+                }
+            }
+        ],
+        "supporting_evidence": "The stated frequency maps to ω=2πf; result rounds to the keyed one-decimal value.",
+        "supporting_source_ids": [],
+        "review_method": "Independent calculation/unit or calculus check from the explicit stem; cited references are supplemental where listed.",
+        "validation_result": "Added explicit formula, substitution, units and answer check; structured numerical audit must recompute. Human academic sign-off required.",
+        "review_state": "REVIEW_REQUIRED",
+        "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+        "human_signoff": "NOT_RECORDED",
+        "reviewer_type": "AI_ASSISTED_EDITORIAL_REVIEW",
+        "reviewed_at": "2026-10-16"
+    },
+    {
+        "id": "batch686-rationale-q1607",
+        "question_id": 1607,
+        "original_issue": "RATIONALE_TOO_EMPTY_TO_SUPPORT_KEY",
+        "field_changes": [
+            {
+                "field": "explanation",
+                "before": "Stress=F/A=100 MPa.",
+                "after": "Average tensile stress = force ÷ area = 20,000 N ÷ 200 mm² = 100 N/mm² = 100 MPa."
+            },
+            {
+                "field": "calculation",
+                "before": null,
+                "after": {
+                    "formula": "force_over_area",
+                    "formula_family": "axial-stress",
+                    "inputs": {
+                        "force": 20000,
+                        "area": 200
+                    },
+                    "expected_value": 100,
+                    "unit": "MPa",
+                    "rounding": "exact"
+                }
+            }
+        ],
+        "supporting_evidence": "20 kN is 20,000 N; division gives 100 N/mm², numerically equal to 100 MPa. Units and key agree.",
+        "supporting_source_ids": [],
+        "review_method": "Independent calculation/unit or calculus check from the explicit stem; cited references are supplemental where listed.",
+        "validation_result": "Added explicit formula, substitution, units and answer check; structured numerical audit must recompute. Human academic sign-off required.",
+        "review_state": "REVIEW_REQUIRED",
+        "correction_state": "APPLIED_PENDING_HUMAN_SIGNOFF",
+        "human_signoff": "NOT_RECORDED",
+        "reviewer_type": "AI_ASSISTED_EDITORIAL_REVIEW",
+        "reviewed_at": "2026-10-16"
     }
 ]

@@ -21463,7 +21463,7 @@
             "450"
         ],
         "answer": "420",
-        "explanation": "0.35 × 1,200 = 420.",
+        "explanation": "35% is 0.35, so 0.35 × 1,200 = 420. Check: 30% is 360 and 5% is 60; 360 + 60 = 420.",
         "subject": "numerical-ability",
         "content_blocks": [
             {
@@ -21485,7 +21485,15 @@
         "cognitive_intent": "apply and interpret",
         "multistep": true,
         "case_interpretation": false,
-        "professional_judgment": false
+        "professional_judgment": false,
+        "calculation": {
+            "operation": "multiply",
+            "values": [
+                0.35,
+                1200
+            ],
+            "expected_value": 420
+        }
     },
     {
         "id": 623,
@@ -33668,7 +33676,8 @@
         ],
         "answer": "locked, labelled storage out of the child’s reach",
         "explanation": "Safe storage removes a preventable poisoning hazard; the other choices do not address the observed risk.",
-        "subject": "nursing-foundations"
+        "subject": "nursing-foundations",
+        "cognitive_intent": "apply"
     },
     {
         "id": 862,
@@ -33767,7 +33776,8 @@
         ],
         "answer": "incidence",
         "explanation": "Incidence counts new cases during a specified period; prevalence includes existing cases.",
-        "subject": "nursing-foundations"
+        "subject": "nursing-foundations",
+        "cognitive_intent": "understand"
     },
     {
         "id": 865,
@@ -34790,7 +34800,8 @@
         ],
         "answer": "rapid bleeding with dizziness suggests possible hemodynamic compromise",
         "explanation": "The combination of rapid loss and dizziness requires immediate assessment and response.",
-        "subject": "nursing-foundations"
+        "subject": "nursing-foundations",
+        "cognitive_intent": "analyze"
     },
     {
         "id": 896,
@@ -34856,7 +34867,8 @@
         ],
         "answer": "it helps prevent bleeding while the newborn’s clotting reserve is developing",
         "explanation": "The explanation connects the prophylaxis to newborn physiology without overstating its effect.",
-        "subject": "nursing-foundations"
+        "subject": "nursing-foundations",
+        "cognitive_intent": "understand"
     },
     {
         "id": 898,
@@ -35945,7 +35957,8 @@
         ],
         "answer": "respiratory rate, depth, effort, and level of consciousness",
         "explanation": "Respiratory assessment detects possible opioid-related compromise before it worsens.",
-        "subject": "nursing-foundations"
+        "subject": "nursing-foundations",
+        "cognitive_intent": "apply"
     },
     {
         "id": 931,
@@ -44802,7 +44815,8 @@
         "multistep": true,
         "domain": "Structural Analysis and Design",
         "topic": "Structural Mechanics",
-        "concept": "Structural mechanics, equilibrium, beams, and trusses"
+        "concept": "Structural mechanics, equilibrium, beams, and trusses",
+        "cognitive_intent": "apply"
     },
     {
         "id": 1138,
@@ -44851,7 +44865,8 @@
         "multistep": false,
         "domain": "Structural Analysis and Design",
         "topic": "Structural Mechanics",
-        "concept": "Structural mechanics, equilibrium, beams, and trusses"
+        "concept": "Structural mechanics, equilibrium, beams, and trusses",
+        "cognitive_intent": "apply"
     },
     {
         "id": 1139,
@@ -44998,7 +45013,8 @@
         "multistep": true,
         "domain": "Structural Analysis and Design",
         "topic": "Structural Mechanics",
-        "concept": "Strength of materials and section response"
+        "concept": "Strength of materials and section response",
+        "cognitive_intent": "apply"
     },
     {
         "id": 1142,
@@ -45047,7 +45063,8 @@
         "multistep": true,
         "domain": "Structural Analysis and Design",
         "topic": "Structural Mechanics",
-        "concept": "Strength of materials and section response"
+        "concept": "Strength of materials and section response",
+        "cognitive_intent": "apply"
     },
     {
         "id": 1143,
@@ -45096,7 +45113,8 @@
         "multistep": true,
         "domain": "Structural Analysis and Design",
         "topic": "Structural Mechanics",
-        "concept": "Structural mechanics, equilibrium, beams, and trusses"
+        "concept": "Structural mechanics, equilibrium, beams, and trusses",
+        "cognitive_intent": "apply"
     },
     {
         "id": 1144,
@@ -45243,7 +45261,8 @@
         "multistep": true,
         "domain": "Hydraulics and Geotechnical Engineering",
         "topic": "Hydraulics and Geotechnical Methods",
-        "concept": "Foundations, bearing capacity, and contact pressure"
+        "concept": "Foundations, bearing capacity, and contact pressure",
+        "cognitive_intent": "apply"
     },
     {
         "id": 1147,
@@ -47153,7 +47172,8 @@
         "multistep": true,
         "domain": "Applied Mathematics, Surveying, Transportation and Construction",
         "topic": "Applied Engineering Methods",
-        "concept": "Construction quantities, productivity, and methods"
+        "concept": "Construction quantities, productivity, and methods",
+        "cognitive_intent": "apply"
     },
     {
         "id": 1182,
@@ -49709,7 +49729,8 @@
         "multistep": false,
         "domain": "Hydraulics and Geotechnical Engineering",
         "topic": "Hydraulics and Geotechnical Methods",
-        "concept": "Effective stress, seepage, and soil strength"
+        "concept": "Effective stress, seepage, and soil strength",
+        "cognitive_intent": "apply"
     },
     {
         "id": 1228,
@@ -50063,7 +50084,8 @@
         "multistep": false,
         "domain": "Hydraulics and Geotechnical Engineering",
         "topic": "Hydraulics and Geotechnical Methods",
-        "concept": "Effective stress, seepage, and soil strength"
+        "concept": "Effective stress, seepage, and soil strength",
+        "cognitive_intent": "apply"
     },
     {
         "id": 1235,
@@ -57477,7 +57499,7 @@
             "13"
         ],
         "answer": "7",
-        "explanation": "f′(x)=2x+3, so f′(2)=7.",
+        "explanation": "For f(x)=x²+3x, f′(x)=2x+3. At x=2, 2(2)+3=7, so the instantaneous rate is 7.",
         "subject": "Mechanical Engineering Mathematics",
         "numeric": true,
         "multistep": false,
@@ -57493,7 +57515,18 @@
         "unit_sensitive": true,
         "table_dependent": false,
         "data_interpretation": false,
-        "long_scenario": false
+        "long_scenario": false,
+        "calculation": {
+            "formula": "quadratic_derivative_at_x",
+            "formula_family": "quadratic-derivative",
+            "inputs": {
+                "a": 1,
+                "b": 3,
+                "x": 2
+            },
+            "expected_value": 7,
+            "rounding": "exact"
+        }
     },
     {
         "id": 1388,
@@ -57955,7 +57988,7 @@
             "12 rad/s²"
         ],
         "answer": "2 rad/s²",
-        "explanation": "α=(10−2)/4=2 rad/s².",
+        "explanation": "Angular acceleration = (ωf−ωi)/t = (10−2) rad/s ÷ 4 s = 2 rad/s². The unit check is (rad/s)/s.",
         "subject": "Mechanical Engineering Mathematics",
         "numeric": true,
         "multistep": false,
@@ -57971,7 +58004,19 @@
         "unit_sensitive": true,
         "table_dependent": false,
         "data_interpretation": false,
-        "long_scenario": false
+        "long_scenario": false,
+        "calculation": {
+            "formula": "angular_acceleration",
+            "formula_family": "uniform-angular-acceleration",
+            "inputs": {
+                "initial_angular_velocity": 2,
+                "final_angular_velocity": 10,
+                "time": 4
+            },
+            "expected_value": 2,
+            "unit": "rad/s2",
+            "rounding": "exact"
+        }
     },
     {
         "id": 1398,
@@ -67009,7 +67054,7 @@
             "1200 rad/s"
         ],
         "answer": "377.0 rad/s",
-        "explanation": "ω=2πf=2π(60)≈377 rad/s.",
+        "explanation": "Angular frequency is ω=2πf. At 60 Hz, ω=2π(60)=376.991… rad/s, which rounds to 377.0 rad/s.",
         "subject": "Mathematics",
         "numeric": true,
         "multistep": false,
@@ -67045,6 +67090,16 @@
                 "method_family": "legacy:b633-ree-math-algebra-linear:leaf-specific-quantitative-reasoning",
                 "review_basis": "manual independent calculation from stem quantities and stated model"
             }
+        },
+        "calculation": {
+            "formula": "angular_frequency_hz",
+            "formula_family": "angular-frequency",
+            "inputs": {
+                "frequency_hz": 60
+            },
+            "expected_value": 376.99111843077515,
+            "unit": "rad/s",
+            "rounding": "1 decimal"
         }
     },
     {
@@ -68209,7 +68264,7 @@
             "100 MPa"
         ],
         "answer": "100 MPa",
-        "explanation": "Stress=F/A=100 MPa.",
+        "explanation": "Average tensile stress = force ÷ area = 20,000 N ÷ 200 mm² = 100 N/mm² = 100 MPa.",
         "subject": "Engineering Sciences and Allied Subjects",
         "numeric": true,
         "multistep": true,
@@ -68245,6 +68300,17 @@
                 "method_family": "legacy:b633-ree-allied-materials:mechanics-equilibrium-material",
                 "review_basis": "manual independent calculation from stem quantities and stated model"
             }
+        },
+        "calculation": {
+            "formula": "force_over_area",
+            "formula_family": "axial-stress",
+            "inputs": {
+                "force": 20000,
+                "area": 200
+            },
+            "expected_value": 100,
+            "unit": "MPa",
+            "rounding": "exact"
         }
     },
     {
@@ -158383,7 +158449,7 @@
             "128"
         ],
         "answer": "96",
-        "explanation": "RPN=8(3)(4)=96.",
+        "explanation": "Using the relationship in the stem, RPN = severity × occurrence × detection = 8 × 3 × 4 = 96. RPN is a prioritization index, not a probability.",
         "subject": "Mechanical Engineering Professional Subjects",
         "domain": "mechanical-engineering-mechanical-engineering-professional-subjects",
         "topic": "me-topic-3-5",
@@ -158409,7 +158475,17 @@
         "reports": 0,
         "helpfulExplanation": 0,
         "notHelpfulExplanation": 0,
-        "id": 3533
+        "id": 3533,
+        "calculation": {
+            "formula": "multiply",
+            "values": [
+                8,
+                3,
+                4
+            ],
+            "expected_value": 96,
+            "rounding": "exact"
+        }
     },
     {
         "taxonomy": {
@@ -224529,7 +224605,7 @@
             "80%"
         ],
         "answer": "80%",
-        "explanation": "48 ÷ 60 × 100 = 80%.",
+        "explanation": "Percent correct = correct responses ÷ all examinees × 100 = 48 ÷ 60 × 100 = 80%. The denominator is all 60 examinees.",
         "subject": "psychology-foundations",
         "source_ids": [
             "prc-psychometrician-enhanced-tos-2023",
@@ -272952,7 +273028,8 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
-        }
+        },
+        "cognitive_intent": "analyze"
     },
     {
         "id": 5227,
@@ -275913,7 +275990,8 @@
             },
             "expected": 42,
             "unit": "intake requests"
-        }
+        },
+        "cognitive_intent": "apply"
     },
     {
         "id": 5259,
@@ -278318,7 +278396,8 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": true
             }
-        }
+        },
+        "cognitive_intent": "analyze"
     },
     {
         "id": 5282,
@@ -280483,7 +280562,8 @@
             },
             "expected": 17,
             "unit": "completed cases per day"
-        }
+        },
+        "cognitive_intent": "apply"
     },
     {
         "id": 5302,
@@ -291735,7 +291815,8 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": true
             }
-        }
+        },
+        "cognitive_intent": "apply"
     },
     {
         "id": 5414,
@@ -303901,7 +303982,8 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
-        }
+        },
+        "cognitive_intent": "analyze"
     },
     {
         "id": 5539,
@@ -304971,7 +305053,8 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
-        }
+        },
+        "cognitive_intent": "understand"
     },
     {
         "id": 5549,
@@ -306576,7 +306659,8 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
-        }
+        },
+        "cognitive_intent": "analyze"
     },
     {
         "id": 5564,
@@ -318184,7 +318268,7 @@
             "19.2 km/min"
         ],
         "answer": "0.3 km/min",
-        "explanation": "2.4 ÷ 8 = 0.3 km/min.",
+        "explanation": "Average speed = distance ÷ time = 2.4 km ÷ 8 min = 0.30 km/min. Converting 8 min to 8/60 h gives the equivalent 18 km/h.",
         "subject": "science",
         "domain": "physics",
         "topic": "science-physics-motion",
@@ -328964,7 +329048,8 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
-        }
+        },
+        "cognitive_intent": "apply"
     },
     {
         "id": 5764,
@@ -355735,7 +355820,8 @@
             ],
             "result": 10,
             "unit": "minutes"
-        }
+        },
+        "cognitive_intent": "apply"
     },
     {
         "id": 5994,
@@ -401327,7 +401413,7 @@
             "60 km/h"
         ],
         "answer": "60 km/h",
-        "explanation": "210 ÷ 3.5 = 60 km/h.",
+        "explanation": "Average speed = distance ÷ time = 210 km ÷ 3.5 h = 60 km/h. Check: 60 km/h × 3.5 h = 210 km.",
         "subject": "numerical-ability",
         "domain": "quantitative-reasoning",
         "topic": "quantitative-reasoning",
@@ -401353,7 +401439,9 @@
                 210,
                 3.5
             ],
-            "expected": 60
+            "expected": 60,
+            "unit": "km/h",
+            "rounding": "exact"
         },
         "multistep": false,
         "data_interpretation": false,
@@ -403496,7 +403584,7 @@
             "72"
         ],
         "answer": "68",
-        "explanation": "8 × 8.5 = 68 cases.",
+        "explanation": "Processed cases = rate × time = 8 cases/h × 8.5 h = 68 cases. The hours cancel, leaving a count.",
         "subject": "numerical-ability",
         "domain": "quantitative-reasoning",
         "topic": "quantitative-reasoning",
@@ -403522,7 +403610,8 @@
                 8,
                 8.5
             ],
-            "expected": 68
+            "expected": 68,
+            "rounding": "exact"
         },
         "multistep": false,
         "data_interpretation": false,
@@ -479096,7 +479185,8 @@
                 "unit": "m",
                 "recomputed": true
             }
-        }
+        },
+        "cognitive_intent": "apply"
     },
     {
         "id": 7046,

@@ -1,0 +1,95 @@
+{
+    "schema_version": 1,
+    "batch": "686",
+    "as_of": "2026-10-16",
+    "canonical_questions": 8962,
+    "question_source_review_baseline": {
+        "question_level_reviews": 0,
+        "human_confirmed": 0,
+        "whole_corpus_verified": 0
+    },
+    "question_source_review_after": {
+        "validated_sample_reviews": 100,
+        "structural_question_material_source_linkage": 100,
+        "human_confirmed": 0,
+        "whole_corpus_verified": 0,
+        "unreviewed_canonical_questions": 8862,
+        "classification_counts": {
+            "DIRECT_SUPPORT": 34,
+            "PARTIAL": 32,
+            "CONTRADICTED": 0,
+            "UNKNOWN": 34
+        },
+        "by_board": {
+            "architecture": {
+                "PARTIAL": 4,
+                "reviewed_questions": 10,
+                "UNKNOWN": 6
+            },
+            "civil-engineering": {
+                "DIRECT_SUPPORT": 5,
+                "reviewed_questions": 10,
+                "PARTIAL": 3,
+                "UNKNOWN": 2
+            },
+            "civil-service": {
+                "DIRECT_SUPPORT": 7,
+                "reviewed_questions": 10,
+                "PARTIAL": 3
+            },
+            "cpa": {
+                "DIRECT_SUPPORT": 1,
+                "reviewed_questions": 10,
+                "PARTIAL": 1,
+                "UNKNOWN": 8
+            },
+            "criminologist": {
+                "PARTIAL": 4,
+                "reviewed_questions": 10,
+                "DIRECT_SUPPORT": 4,
+                "UNKNOWN": 2
+            },
+            "let": {
+                "UNKNOWN": 3,
+                "reviewed_questions": 10,
+                "DIRECT_SUPPORT": 3,
+                "PARTIAL": 4
+            },
+            "mechanical-engineering": {
+                "DIRECT_SUPPORT": 4,
+                "reviewed_questions": 10,
+                "PARTIAL": 3,
+                "UNKNOWN": 3
+            },
+            "nursing": {
+                "DIRECT_SUPPORT": 1,
+                "reviewed_questions": 10,
+                "UNKNOWN": 3,
+                "PARTIAL": 6
+            },
+            "psychometrician": {
+                "DIRECT_SUPPORT": 1,
+                "reviewed_questions": 10,
+                "PARTIAL": 2,
+                "UNKNOWN": 7
+            },
+            "registered-electrical-engineering": {
+                "DIRECT_SUPPORT": 8,
+                "reviewed_questions": 10,
+                "PARTIAL": 2
+            }
+        }
+    },
+    "coverage_delta": {
+        "reviewed_sample_rows": "+100",
+        "whole_corpus_verified_questions": "0 → 0",
+        "human_confirmed_rows": "0 → 0"
+    },
+    "limitations": [
+        "bounded sample, ten selected questions per board; not a random or census audit",
+        "AI-assisted editorial review only; all rows await human academic confirmation",
+        "direct/partial/unknown are source-semantic judgments on the selected item and exact locator; registered URL presence alone does not count",
+        "current regulatory adoption/effective-date checks remain required for professional or government sources",
+        "no PRC examination frequency statistics are claimed"
+    ]
+}

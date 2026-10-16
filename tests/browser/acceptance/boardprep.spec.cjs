@@ -1,4 +1,5 @@
 const { execFileSync } = require('node:child_process');
+const crypto = require('node:crypto');
 const fs = require('node:fs');
 const path = require('node:path');
 
@@ -50,6 +51,18 @@ function questionById(id) {
 
 function normalize(value) {
   return String(value || '').replace(/\s+/g, ' ').trim().toLowerCase();
+}
+
+function extractPdfText(buffer) {
+  const runs = [];
+  const source = buffer.toString('latin1');
+  for (const match of source.matchAll(/\(((?:\\[\s\S]|[^\\)])*)\)\s*Tj/g)) {
+    runs.push(match[1]
+      .replace(/\\([\\()])/g, '$1')
+      .replace(/\\n/g, ' ')
+      .replace(/\\r/g, ' '));
+  }
+  return runs.join(' ').replace(/\s+/g, ' ').trim();
 }
 
 async function startQuiz(page, {
@@ -184,6 +197,104 @@ test.describe('BoardPrep learner browser acceptance', () => {
     }).trim());
     expect(health.status).toBe('PASS');
     recordBrowserEvidence('runtime', { engine, version, viewport }, testInfo);
+  });
+
+  test('study lesson PDF opens as a PDF and downloads with keyboard access', async ({ page }, testInfo) => {
+    const lessons = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../../..', 'storage', 'study-lessons.json'), 'utf8'));
+    const lesson = lessons.find((item) => item.board_id === 'let' && item.pdf_file);
+    expect(lesson, 'A complete LET lesson with a generated PDF is required for the document fixture.').toBeTruthy();
+    await page.goto('/study-library?exam=LET');
+    const material = page.locator(`#study-material-${lesson.material_id}`);
+    await expect(material).toBeVisible();
+    await expect(material.getByRole('link', { name: 'Open complete lesson' })).toBeVisible();
+    const downloadLink = material.locator('a[download][href$=".pdf"]').first();
+    await expect(downloadLink).toBeVisible();
+    const pdfHref = await downloadLink.getAttribute('href');
+    expect(pdfHref).toBe(`/study-resources/${lesson.pdf_file}`);
+
+    const pdfResponse = await page.request.get(pdfHref);
+    expect(pdfResponse.status()).toBe(200);
+    expect(pdfResponse.headers()['content-type']).toContain('application/pdf');
+    const servedBytes = await pdfResponse.body();
+    expect(servedBytes.subarray(0, 5).toString('ascii')).toBe('%PDF-');
+    const servedText = extractPdfText(servedBytes);
+    expect(servedText).toContain('BoardPrep');
+    expect(servedText).toContain(lesson.title);
+    const manifest = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../../..', 'public', 'study-resources', 'manifest.json'), 'utf8'));
+    const manifestEntry = manifest.files.find((entry) => entry.lesson_id === lesson.id);
+    expect(manifestEntry, 'The lesson must have a generated-document identity entry.').toBeTruthy();
+    expect(manifestEntry.path).toBe(`public/study-resources/${lesson.pdf_file}`);
+    expect(manifestEntry.searchable_text).toBe(true);
+    expect(crypto.createHash('sha256').update(servedBytes).digest('hex')).toBe(manifestEntry.sha256);
+
+    const previewPage = await page.context().newPage();
+    const previewResponse = await previewPage.goto(new URL(pdfHref, page.url()).toString());
+    expect(previewResponse?.status()).toBe(200);
+    expect(previewPage.url()).toContain(lesson.pdf_file);
+    await previewPage.close();
+
+    await tabToKeyboardFocus(page, downloadLink);
+    const [download] = await Promise.all([
+      page.waitForEvent('download'),
+      page.keyboard.press('Enter'),
+    ]);
+    expect(download.suggestedFilename()).toBe(lesson.pdf_file);
+    const downloadPath = await download.path();
+    expect(downloadPath).toBeTruthy();
+    const downloadedBytes = fs.readFileSync(downloadPath);
+    expect(crypto.createHash('sha256').update(downloadedBytes).digest('hex'))
+      .toBe(crypto.createHash('sha256').update(servedBytes).digest('hex'));
+    await assertPageHealthy(page, testInfo, 'study-pdf-download');
+    recordBrowserEvidence('study-pdf', {
+      lesson_id: lesson.id,
+      material_id: lesson.material_id,
+      filename: lesson.pdf_file,
+      open_response: previewResponse.status(),
+      manifest_sha256: manifestEntry.sha256,
+      download_bytes_match_served_document: true,
+      pdf_identity: lesson.title,
+      keyboard_accessible: true,
+      viewport: page.viewportSize(),
+    }, testInfo);
+  });
+
+  test('mobile board navigation opens its study resource and lesson', async ({ page }, testInfo) => {
+    test.skip(testInfo.project.name !== 'mobile', 'Mobile study-resource navigation is exercised at the phone viewport.');
+    const lessons = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../../..', 'storage', 'study-lessons.json'), 'utf8'));
+    const lesson = lessons.find((item) => item.board_id === 'let' && item.pdf_file);
+    expect(lesson).toBeTruthy();
+    await page.goto('/exams?exam=LET');
+    await page.getByRole('link', { name: 'Study materials' }).click();
+    await expect(page).toHaveURL(/\/study-library\?exam=let/i);
+    await expect(page.locator('h1')).toHaveText('Study resources');
+    const material = page.locator(`#study-material-${lesson.material_id}`);
+    await expect(material).toBeVisible();
+    await material.getByRole('link', { name: 'Open complete lesson' }).click();
+    await expect(page.locator(`#boardprep-lesson-${lesson.id}`)).toBeVisible();
+    await expect(page.locator(`#lesson-title-${lesson.id}`)).toHaveText(lesson.title);
+    await assertPageHealthy(page, testInfo, 'mobile-study-resource-lesson');
+    recordBrowserEvidence('mobile-study-navigation', {
+      board: 'let', lesson_id: lesson.id, resource_to_lesson_navigation: 'PASS',
+      viewport: page.viewportSize(),
+    }, testInfo);
+  });
+
+  test('developer question editor opens in isolated read-only browser workflow', async ({ page }, testInfo) => {
+    test.skip(testInfo.project.name !== 'desktop', 'The isolated developer editor workflow runs once at desktop width.');
+    const methods = [];
+    page.on('request', (request) => methods.push(request.method()));
+    const response = await page.goto('http://127.0.0.1:4174/question-editor/edit?id=616');
+    expect(response?.status()).toBe(200);
+    await expect(page.getByRole('heading', { name: 'Edit Question', exact: true })).toBeVisible();
+    await expect(page.locator('form[method="POST"]').first()).toBeVisible();
+    expect(methods.every((method) => method === 'GET'), 'Read-only acceptance must not submit developer forms.').toBeTruthy();
+    await assertPageHealthy(page, testInfo, 'developer-editor-read-only');
+    recordBrowserEvidence('developer-editor', {
+      route: '/question-editor/edit?id=616',
+      response: response.status(),
+      write_requests: 0,
+      workflow: 'READ_ONLY',
+    }, testInfo);
   });
 
   test('production hides developer routes and presents a safe not-found page', async ({ page }, testInfo) => {

@@ -3700,17 +3700,17 @@
     },
     {
         "id": "openstax-university-physics-v2-kirchhoff-10-3",
-    "title": "University Physics Volume 2, Section 10.3: Kirchhoff's Rules",
-    "source_type": "OPEN_TEXTBOOK",
-    "authority": "OpenStax, Rice University",
-    "url": "https://openstax.org/books/university-physics-volume-2/pages/10-3-kirchhoffs-rules",
-    "publication_date": "2016-09-19",
-    "retrieved_at": "2026-10-16",
-    "version": "University Physics Volume 2 web edition, Section 10.3",
-    "status": "verified_reference",
-    "confidence": "authoritative_instructional_reference",
-    "source_role": "INSTRUCTIONAL_SOURCE",
-    "volatility": "STABLE_FOUNDATIONAL",
+        "title": "University Physics Volume 2, Section 10.3: Kirchhoff's Rules",
+        "source_type": "OPEN_TEXTBOOK",
+        "authority": "OpenStax, Rice University",
+        "url": "https://openstax.org/books/university-physics-volume-2/pages/10-3-kirchhoffs-rules",
+        "publication_date": "2016-09-19",
+        "retrieved_at": "2026-10-16",
+        "version": "University Physics Volume 2 web edition, Section 10.3",
+        "status": "verified_reference",
+        "confidence": "authoritative_instructional_reference",
+        "source_role": "INSTRUCTIONAL_SOURCE",
+        "volatility": "STABLE_FOUNDATIONAL",
         "notes": "Teaches Kirchhoff junction and loop rules with original BoardPrep worked examples; the study PDF does not reproduce OpenStax questions or pages."
     },
     {
@@ -3755,5 +3755,20 @@
         "source_role": "SCOPE_SOURCE",
         "volatility": "EXAM_CYCLE",
         "notes": "The program lists Power Plant Engineering (35%), Mathematics (35%), and Machine Design, Materials and Shop Practice (30%). It does not give a thermal-science subtopic weight."
+    },
+    {
+        "id": "aasc-psa-500-redrafted",
+        "title": "Philippine Standard on Auditing 500: Audit Evidence (with consequential amendments)",
+        "source_type": "PROFESSIONAL_STANDARD",
+        "authority": "Asian Alliance for Sustainability Certification (AASC), PDF reproduction of PSA 500 Redrafted",
+        "url": "https://aasc.org.ph/downloads/codified-standards/publications/PDFs/PSA-500-with-conf-amend.pdf",
+        "publication_date": "2009-01-01",
+        "retrieved_at": "2026-10-16",
+        "version": "AASC codified PDF with consequential amendments; current Philippine adoption/effective date remains to be verified",
+        "status": "official_reference_currentness_unverified",
+        "confidence": "authoritative_standard_text_historical_version",
+        "source_role": "PROFESSIONAL_STANDARD",
+        "volatility": "VERSIONED_PROFESSIONAL_STANDARD",
+        "notes": "Official AASC PDF. Paragraph 11 addresses inconsistent evidence or doubts about reliability and requires determining modifications/additions to procedures. This register entry does not establish the current PRC/BOA-adopted version or effective date; verify before operational or compliance use."
     }
 ]

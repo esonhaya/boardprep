@@ -56,9 +56,11 @@ implemented behavior only; future ideas are not part of the MVP finish line.
 
 `HUMAN_ACCEPTANCE_EXECUTED=NO`.
 
-`HUMAN_ACCEPTANCE_ASSUMED_PASS_BY_RELEASE_DECISION=YES` for release planning,
-as explicitly authorized by the release owner. This is not test evidence and
-does not claim that browser/device acceptance was observed.
+`HUMAN_ACCEPTANCE_ASSUMED_PASS=NO`. Automated browser assertions, previous
+release decisions, and a completed checklist template do not substitute for
+observed human acceptance. MVP-01 through MVP-12 remain `NOT_RUN` until a real
+tester records device, build, assistive technology where applicable, result,
+and evidence.
 
 `MVP_SCOPE_FROZEN=YES` once the release-candidate gates recorded in the
 checklist pass. Further product or engineering expansion is post-MVP work.

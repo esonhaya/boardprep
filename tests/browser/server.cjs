@@ -45,12 +45,16 @@ if (extraction.status !== 0) {
 const applicationRoot = path.join(temporaryRoot, prefix.replace(/\/$/, ''));
 const runtimeStorage = path.join(temporaryRoot, 'runtime-storage');
 const sessionStorage = path.join(temporaryRoot, 'sessions');
+const developerSessionStorage = path.join(temporaryRoot, 'developer-sessions');
 fs.cpSync(path.join(applicationRoot, 'storage'), runtimeStorage, { recursive: true });
 fs.mkdirSync(sessionStorage, { recursive: true });
+fs.mkdirSync(developerSessionStorage, { recursive: true });
 
 const port = String(process.env.BOARDPREP_BROWSER_PORT || '4173');
+const developerPort = String(process.env.BOARDPREP_DEVELOPER_BROWSER_PORT || '4174');
 console.log(`BROWSER_FIXTURE_URL=http://127.0.0.1:${port}`);
-console.log('BROWSER_FIXTURE_ENV=production; storage and sessions are temporary; listener is loopback-only.');
+console.log(`BROWSER_DEVELOPER_FIXTURE_URL=http://127.0.0.1:${developerPort}`);
+console.log('BROWSER_FIXTURE_ENV=isolated production learner and testing developer servers; storage and sessions are temporary; listeners are loopback-only.');
 const php = spawn(
   'php',
   [
@@ -73,12 +77,35 @@ const php = spawn(
     stdio: 'inherit',
   }
 );
+const developerPhp = spawn(
+  'php',
+  [
+    '-d', `session.save_path=${developerSessionStorage}`,
+    '-S', `127.0.0.1:${developerPort}`,
+    '-t', path.join(applicationRoot, 'public'),
+    path.join(applicationRoot, 'public', 'router.php'),
+  ],
+  {
+    cwd: applicationRoot,
+    env: {
+      ...process.env,
+      APP_ENV: 'testing',
+      APP_DEBUG: 'false',
+      APP_TIMEZONE: 'Asia/Manila',
+      BUILD_COMMIT: buildCommit,
+      DB_DRIVER: 'json',
+      APP_STORAGE_PATH: runtimeStorage,
+    },
+    stdio: 'inherit',
+  }
+);
+const phpProcesses = [php, developerPhp];
 
 let shuttingDown = false;
 function cleanup() {
   if (shuttingDown) return;
   shuttingDown = true;
-  if (!php.killed) php.kill('SIGTERM');
+  for (const phpChild of phpProcesses) if (!phpChild.killed) phpChild.kill('SIGTERM');
   fs.rmSync(temporaryRoot, { recursive: true, force: true });
 }
 
@@ -91,7 +118,7 @@ process.on('SIGTERM', () => {
   process.exit(143);
 });
 process.on('exit', cleanup);
-php.on('exit', (code, signal) => {
+for (const phpChild of phpProcesses) phpChild.on('exit', (code, signal) => {
   if (!shuttingDown) {
     cleanup();
     process.exit(code ?? (signal ? 1 : 0));

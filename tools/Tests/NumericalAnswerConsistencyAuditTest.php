@@ -92,6 +92,17 @@ $unsupportedSequence['calculation']['values'] = [2, 5, 9];
 $unsupportedSequence['calculation']['expected_value'] = 15;
 $unsupportedResult = NumericalAnswerConsistencyAudit::analyze([$unsupportedSequence]);
 $assert(($unsupportedResult['metrics']['unsupported'] ?? 0) === 1, 'An ambiguous geometric sequence was treated as a unique pattern without sufficient evidence.');
+$newSupportedModels = [
+    ['id' => 'distance-time', 'status' => 'active', 'taxonomy' => ['board_id' => 'civil-service'], 'answer' => '60 km/h', 'calculation' => ['operation' => 'distance_time', 'inputs' => [210, 3.5], 'expected' => 60, 'unit' => 'km/h']],
+    ['id' => 'rate-time', 'status' => 'active', 'taxonomy' => ['board_id' => 'civil-service'], 'answer' => '68', 'calculation' => ['operation' => 'rate_times_time', 'inputs' => [8, 8.5], 'expected' => 68]],
+    ['id' => 'fraction-total', 'status' => 'active', 'taxonomy' => ['board_id' => 'civil-service'], 'answer' => '160', 'calculation' => ['operation' => 'fraction_of_total', 'inputs' => [2, 240, 3], 'expected' => 160]],
+    ['id' => 'angular-acceleration', 'status' => 'active', 'taxonomy' => ['board_id' => 'mechanical-engineering'], 'answer' => '2 rad/s²', 'calculation' => ['operation' => 'angular_acceleration', 'formula_family' => 'uniform-angular-acceleration', 'inputs' => ['initial_angular_velocity' => 2, 'final_angular_velocity' => 10, 'time' => 4], 'expected_value' => 2, 'unit' => 'rad/s2']],
+    ['id' => 'angular-frequency', 'status' => 'active', 'taxonomy' => ['board_id' => 'registered-electrical-engineering'], 'answer' => '377.0 rad/s', 'calculation' => ['operation' => 'angular_frequency_hz', 'formula_family' => 'angular-frequency', 'inputs' => ['frequency_hz' => 60], 'expected_value' => 376.99111843077515, 'unit' => 'rad/s', 'rounding' => '1 decimal']],
+    ['id' => 'quadratic-derivative', 'status' => 'active', 'taxonomy' => ['board_id' => 'mechanical-engineering'], 'answer' => '7', 'calculation' => ['operation' => 'quadratic_derivative_at_x', 'formula_family' => 'quadratic-derivative', 'inputs' => ['a' => 1, 'b' => 3, 'x' => 2], 'expected_value' => 7]],
+];
+$newModelAudit = NumericalAnswerConsistencyAudit::analyze($newSupportedModels);
+$assert(($newModelAudit['metrics']['recomputed'] ?? 0) === count($newSupportedModels)
+    && ($newModelAudit['findings'] ?? []) === [], 'A newly supported rate, fraction, or engineering formula failed its independent numerical contract.');
 $codes = array_column($results['findings'], 'code');
 $ids = array_column($results['findings'], 'entity_id');
 $assert(!in_array('valid', $ids, true), 'A correct arithmetic fixture was flagged.');

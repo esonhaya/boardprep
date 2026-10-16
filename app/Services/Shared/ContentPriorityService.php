@@ -37,6 +37,8 @@ final class ContentPriorityService
         'sources',
         'content-fit-audits',
         'academic-review-decisions',
+        'academic-source-reviews',
+        'cognitive-intent-review-samples',
     ];
 
     private const MIN_USAGE_SAMPLE = 5;
