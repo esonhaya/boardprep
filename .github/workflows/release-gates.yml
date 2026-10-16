@@ -52,6 +52,10 @@ jobs:
           php -d memory_limit=1G tools/doctor.php --release --json > release-gate-evidence/doctor-release.json 2>&1
           status=$?
           printf 'exit_code=%s\n' "$status" > release-gate-evidence/doctor-release.status
+          if [ "$status" -ne 0 ]; then
+            summary=$(php -d memory_limit=256M -r '$d=json_decode((string)file_get_contents($argv[1]),true); if (!is_array($d)) { echo "doctor_summary_unavailable"; exit(0); } $r=$d["release_readiness"]??[]; $g=$r["release_gate"]??[]; $h=$d["health"]??[]; $hs=$h["summary"]??[]; $failed=[]; foreach (($r["release_domains"]??[]) as $name=>$domain) { if (is_array($domain) && strtoupper((string)($domain["status"]??""))==="FAIL") $failed[]=(string)$name; } printf("gate=%s decision=%s p0=%d health=%s health_fail=%d failed_domains=%s", $g["status"]??"UNKNOWN", $r["release_decision"]??"UNKNOWN", (int)($r["priority_counts"]["P0"]??0), $h["overall_status"]??"UNKNOWN", (int)($hs["fail_count"]??0), implode(",",$failed));' release-gate-evidence/doctor-release.json 2>/dev/null || printf 'doctor_summary_unavailable')
+            printf '::error file=.github/workflows/release-gates.yml,line=1,title=Doctor release result::%s\n' "$summary"
+          fi
           exit "$status"
 
       - name: Upload Doctor evidence
@@ -106,7 +110,12 @@ jobs:
           cat release-gate-evidence/test.log
           printf '%s exit_code=%s\n' "$TEST_ID" "$status" > release-gate-evidence/test.status
           if [ "$status" -ne 0 ]; then
-            printf '::error file=%s,line=1,title=Security/privacy regression failed::%s exited with code %s; inspect its committed-run evidence artifact.\n' "$TEST_PATH" "$TEST_ID" "$status"
+            reason=$(grep -E '^(PHP Fatal error:|Fatal error:|Parse error:|Uncaught (Error|TypeError|RuntimeException))' release-gate-evidence/test.log | tail -n 1 | cut -c1-350 | tr '\r\n' ' ')
+            if [ -z "$reason" ]; then reason='No sanitized PHP fatal or exception line was captured; inspect the run evidence artifact.'; fi
+            reason=${reason//'%'/'%25'}
+            reason=${reason//$'\r'/'%0D'}
+            reason=${reason//$'\n'/'%0A'}
+            printf '::error file=%s,line=1,title=Security/privacy regression failed::%s exited with code %s: %s\n' "$TEST_PATH" "$TEST_ID" "$status" "$reason"
           fi
           exit "$status"
 
@@ -213,6 +222,10 @@ jobs:
           php tools/product-readiness.php --json > release-gate-evidence/product-readiness.json 2>&1
           status=$?
           printf 'exit_code=%s\n' "$status" > release-gate-evidence/product-readiness.status
+          if [ "$status" -ne 0 ]; then
+            summary=$(php -r '$d=json_decode((string)file_get_contents($argv[1]),true); if (!is_array($d)) { echo "product_readiness_summary_unavailable"; exit(0); } printf("product_feature_complete=%s product_launch_ready=%s privacy_terms=%s incomplete_features=%d mandatory_evidence_not_passed=%d", !empty($d["product_feature_complete"])?"yes":"no", !empty($d["product_launch_ready"])?"yes":"no", !empty($d["privacy_owner_terms_configured"])?"yes":"no", count((array)($d["incomplete_in_scope_features"]??[])), count((array)($d["mandatory_evidence_not_passed"]??[])));' release-gate-evidence/product-readiness.json 2>/dev/null || printf 'product_readiness_summary_unavailable')
+            printf '::error file=.github/workflows/release-gates.yml,line=1,title=Product readiness remains blocked::%s\n' "$summary"
+          fi
           exit "$status"
 
       - name: Upload product readiness evidence
