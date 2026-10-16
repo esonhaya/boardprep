@@ -37,7 +37,7 @@ $collections = [
 ];
 $integrity = [
     'portfolio' => ['status' => 'PASS', 'total_invalid_eligibility' => 0, 'total_missing_eligibility' => 0, 'total_invalid_links' => 0, 'total_invalid_taxonomy_refs' => 0, 'total_invalid_source_refs' => 0, 'total_broken_assets' => 0, 'total_invalid_answer_keys' => 0, 'total_derivable_cards' => 1, 'total_justified_exclusions' => 0, 'total_accidental_non_derivable' => 0, 'total_justified_standalone_study_materials' => 0],
-    'boards' => ['fixture-board' => ['status' => 'PASS', 'defects' => []]],
+    'boards' => ['fixture-board' => ['readiness_status' => 'PASS', 'defects' => []]],
 ];
 $qa = ['summary' => ['total' => 0], 'issues' => []];
 $readiness = StudyResourceReadinessService::analyze($collections, $integrity, $qa);

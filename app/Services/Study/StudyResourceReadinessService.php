@@ -115,7 +115,11 @@ final class StudyResourceReadinessService
             $boardIds = array_fill_keys(array_map(static fn(array $question): string => self::text($question['id'] ?? null), $boardQuestions), true);
             $linkedLessons = count(array_intersect_key($lessonQuestions, $boardIds));
             $linkedPdfs = count(array_intersect_key($pdfQuestions, $boardIds));
-            $baseStatus = (string) ($integrityBoards[$boardId]['status'] ?? 'UNKNOWN');
+            $baseStatus = (string) (
+                $integrityBoards[$boardId]['readiness_status']
+                ?? $integrityBoards[$boardId]['status']
+                ?? 'UNKNOWN'
+            );
             $boardStatus = in_array($baseStatus, ['FAIL', 'UNKNOWN', 'NOT_RUN'], true)
                 ? $baseStatus
                 : (($linkedLessons < count($boardQuestions) || $linkedPdfs < count($boardQuestions)) ? 'PARTIAL' : $baseStatus);
