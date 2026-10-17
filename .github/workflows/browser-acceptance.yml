@@ -34,10 +34,14 @@ jobs:
   browser:
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    env:
-      BOARDPREP_BROWSER_EVIDENCE_DIR: ${{ runner.temp }}/boardprep-browser-evidence/${{ github.run_id }}/${{ github.run_attempt }}
     steps:
       - uses: actions/checkout@v4
+
+      - name: Set isolated browser evidence directory
+        run: |
+          evidence_dir="$RUNNER_TEMP/boardprep-browser-evidence/$GITHUB_RUN_ID/$GITHUB_RUN_ATTEMPT"
+          mkdir -p "$evidence_dir"
+          printf 'BOARDPREP_BROWSER_EVIDENCE_DIR=%s\n' "$evidence_dir" >> "$GITHUB_ENV"
 
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
@@ -74,6 +78,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: boardprep-chromium-visual-qa
-          path: ${{ runner.temp }}/boardprep-browser-evidence/${{ github.run_id }}/${{ github.run_attempt }}/
+          path: ${{ env.BOARDPREP_BROWSER_EVIDENCE_DIR }}/
           if-no-files-found: ignore
           retention-days: 14
