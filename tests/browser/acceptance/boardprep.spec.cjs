@@ -312,7 +312,16 @@ test.describe('BoardPrep learner browser acceptance', () => {
     // Chromium's headless browser starts a download when navigating directly to
     // an application/pdf response. Validate the link's document response above,
     // and exercise the actual browser download interaction below.
-    await tabToKeyboardFocus(page, downloadLink, 100);
+    // The lesson library contains many resource cards, so start keyboard
+    // traversal beside the target card rather than tabbing through every
+    // preceding resource on the page.
+    const lessonLink = material.getByRole('link', { name: 'Open complete lesson' });
+    await lessonLink.focus();
+    await page.keyboard.press('Tab');
+    await expect(downloadLink).toBeFocused();
+    const keyboardVisibleFocus = await downloadLink.evaluate((element) => element.matches(':focus-visible'));
+    expect(keyboardVisibleFocus, 'The download link should show keyboard focus after Tab.').toBeTruthy();
+    await assertVisibleKeyboardFocus(downloadLink);
     const [download] = await Promise.all([
       page.waitForEvent('download'),
       page.keyboard.press('Enter'),
@@ -575,7 +584,7 @@ test.describe('BoardPrep learner browser acceptance', () => {
     await subjectEntry.click();
 
     await expect(page.locator('.quiz-context-summary')).toBeVisible();
-    await expect(page.locator('.quiz-context-summary')).toContainText('LET');
+    await expect(page.locator('.quiz-context-summary')).toContainText('Licensure Examination for Teachers');
     await expect(page.locator('#quiz-exam')).toBeHidden();
     await expect(page.locator('#quiz-subject')).toBeHidden();
     await expect(page.locator('input[type="hidden"][name="exam"]')).toHaveValue('LET');
@@ -596,7 +605,7 @@ test.describe('BoardPrep learner browser acceptance', () => {
     await page.locator('#preferred-subject').selectOption('general-information');
     await page.locator('#profile-cse-level').selectOption('PROFESSIONAL');
     await page.getByRole('button', { name: 'Save exam preferences' }).click();
-    await expect(page.getByRole('status')).toContainText('preferences were saved');
+    await expect(page.locator('.alert-success[role="status"]')).toContainText('preferences were saved');
 
     await page.goto('/quiz');
     await expect(page.locator('.quiz-context-summary')).toContainText('Civil Service');
@@ -607,7 +616,7 @@ test.describe('BoardPrep learner browser acceptance', () => {
     await expect(page.getByRole('link', { name: /Practice with Civil Service.*General Information/ })).toBeVisible();
 
     await page.goto('/quiz?exam=LET&subject=english');
-    await expect(page.locator('.quiz-context-summary')).toContainText('LET');
+    await expect(page.locator('.quiz-context-summary')).toContainText('Licensure Examination for Teachers');
     await expect(page.locator('.quiz-context-summary')).toContainText('English');
 
     await page.goto('/flashcards?board=let');
@@ -631,13 +640,14 @@ test.describe('BoardPrep learner browser acceptance', () => {
     const response = await page.goto('http://127.0.0.1:4174/developer/acceptance');
     expect(response?.status()).toBe(200);
     await expect(page.getByRole('button', { name: 'Export My Feedback' })).toBeVisible();
-    await page.getByRole('button', { name: 'Open MVP-10 empty/error checks' }).click();
-    await expect(page.locator('#routeIntentNote')).toContainText('deliberate negative tests');
-    await expect(page.getByRole('link', { name: /intentional empty state/ }).first()).toBeVisible();
     await page.getByRole('button', { name: 'Export My Feedback' }).click();
     await expect(page.locator('#exportTitle')).toBeVisible();
     await expect(page.locator('#reportPreview')).toContainText('HUMAN_ACCEPTANCE_FEEDBACK');
     await expect(page.locator('#reportPreview')).toContainText('NOT_RUN');
+    await page.locator('.ac-tabs').getByRole('button', { name: 'Home' }).click();
+    await page.getByRole('button', { name: 'Open MVP-10 empty/error checks' }).click();
+    await expect(page.locator('#routeIntentNote')).toContainText('deliberate negative tests');
+    await expect(page.getByRole('link', { name: /intentional empty state/ }).first()).toBeVisible();
     await assertPageHealthy(page, testInfo, 'acceptance-center-mvp10-and-draft-export');
     recordBrowserEvidence('acceptance-center-guidance', {
       route: '/developer/acceptance', mvp10_intent_visible: true,
@@ -740,7 +750,7 @@ test.describe('BoardPrep learner browser acceptance', () => {
     const noJsPage = await context.newPage();
     try {
       await noJsPage.goto('/quiz?exam=LET&mode=exam');
-      await expect(noJsPage.locator('noscript')).toContainText('Untimed sessions ignore the minutes value');
+      await expect(noJsPage.locator('#exam-timer-fields')).toContainText('Untimed sessions ignore the minutes value');
       await expect(noJsPage.locator('#quiz-time-limit-field')).toBeVisible();
       await noJsPage.locator('#quiz-timer-mode').selectOption('untimed');
       await noJsPage.locator('#quiz-time-limit').fill('17');

@@ -220,14 +220,25 @@ test.describe('BoardPrep deterministic visual baseline', () => {
       await capture(page, testInfo, entries, screenshotName, { fullPage: true });
     }
 
-    await page.goto('/quiz?exam=LET');
-    await page.locator('#let-level').selectOption('ELEMENTARY');
-    const letSelectWidths = await page.locator('#let-level, #let-specialization').evaluateAll((elements) => elements
+    await page.goto('/profile');
+    await page.locator('#preferred-board').selectOption('LET');
+    await page.locator('#profile-let-level').selectOption('ELEMENTARY');
+    const letSelectWidths = await page.locator('#profile-let-level, #profile-let-specialization').evaluateAll((elements) => elements
       .map((element) => element.getBoundingClientRect().width));
     expect(Math.min(...letSelectWidths)).toBeGreaterThan(240);
+    await page.getByRole('button', { name: 'Save exam preferences' }).click();
+    await expect(page.locator('.alert-success[role="status"]')).toContainText('preferences were saved');
+    await page.goto('/quiz?exam=LET&subject=english');
+    await expect(page.locator('.quiz-context-summary')).toContainText('Licensure Examination for Teachers');
+    await expect(page.locator('.quiz-context-summary')).toContainText('English');
     await capture(page, testInfo, entries, 'quiz-config-let-elementary', { fullPage: false });
+    await page.goto('/profile');
+    await page.locator('#preferred-board').selectOption('CSE');
+    await page.locator('#profile-cse-level').selectOption('PROFESSIONAL');
+    await page.getByRole('button', { name: 'Save exam preferences' }).click();
+    await expect(page.locator('.alert-success[role="status"]')).toContainText('preferences were saved');
     await page.goto('/quiz?exam=CSE');
-    await page.locator('#civil-service-level').selectOption('PROFESSIONAL');
+    await expect(page.locator('.quiz-context-summary')).toContainText('Civil Service');
     await capture(page, testInfo, entries, 'quiz-config-cse-professional', { fullPage: false });
 
     await page.goto('/quiz');

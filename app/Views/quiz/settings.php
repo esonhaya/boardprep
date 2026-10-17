@@ -134,7 +134,8 @@ Review Mode
 <div class="form-field"><label for="quiz-timer-mode">Exam simulation timer</label><select id="quiz-timer-mode" name="timer_mode" aria-controls="quiz-time-limit"><option value="untimed" <?= ($settings['timer_mode'] ?? 'untimed') === 'untimed' ? 'selected' : '' ?>>Untimed</option><option value="timed" <?= ($settings['timer_mode'] ?? '') === 'timed' ? 'selected' : '' ?>>Timed</option></select><small class="form-help">Choose a timer for this study session. This does not represent an official examination duration.</small></div>
 <div id="quiz-time-limit-field" class="form-field" <?= ($settings['timer_mode'] ?? 'untimed') === 'timed' ? '' : 'hidden' ?>><label for="quiz-time-limit">Time limit in minutes</label><input id="quiz-time-limit" name="time_limit_minutes" type="number" min="1" max="600" step="1" value="<?= htmlspecialchars((string) ($settings['time_limit_minutes_input'] ?? (($settings['time_limit_minutes'] ?? 0) > 0 ? $settings['time_limit_minutes'] : 60)), ENT_QUOTES, 'UTF-8') ?>"><small class="form-help">Use a whole number from 1 to 600. The timer continues when you move between questions or refresh.</small></div>
 </div>
-<noscript><p class="small-note">JavaScript is off. Timer settings are shown so you can configure an exam simulation. Untimed sessions ignore the minutes value.</p><style>#exam-timer-fields[hidden],#quiz-time-limit-field[hidden]{display:block!important}</style></noscript>
+<p class="small-note">Untimed sessions ignore the minutes value. Choose Timed to enter a duration. With JavaScript off, both timer choices and the duration stay available.</p>
+<noscript><style>#exam-timer-fields[hidden],#quiz-time-limit-field[hidden]{display:block!important}</style></noscript>
 
 
 
