@@ -26,65 +26,59 @@ while any required human case is `NOT_RUN`, `HUMAN_FAIL`, `BLOCKED`, or
 
 ## Prepare a test session
 
-Run the local prerequisite once for the build under test:
+For the automated prerequisite, check the latest GitHub Release Gates run and
+its Doctor result for the build SHA under test. The local
+`php tools/doctor.php --simulate` command is optional and is not a human
+acceptance result. In the current Termux environment it exceeded PHP's default
+512 MiB memory limit while constructing an existing Doctor fixture; the
+supported GitHub Doctor release job passed for this build. The Acceptance
+Center launcher creates its own fresh isolated learner fixture. Use a phone in
+portrait orientation for the mobile cases.
+
+The Acceptance Center records the committed build SHA, UTC date, environment,
+browser, detected operating system, and current viewport. Enter a tester alias
+and device model if you want them in the report. Check the detected details
+before sharing; add any other viewport sizes you tried to a test note. Do not
+include learner names, session cookies, real exported records, or credentials
+in screenshots or artifacts.
+
+## Launch the guided Android test
+
+On the phone that has the repository, run:
 
 ```sh
-php tools/doctor.php --simulate
+./tools/acceptance/start.sh
 ```
 
-Do not begin if the prerequisite is `FAIL`, `DEPENDENCY_MISSING`, or
-`UNAVAILABLE`; record `BLOCKED` and its reason. Start with a fresh isolated
-learner session. Use a phone in portrait orientation for the mobile cases.
+Open the printed `OPEN_THIS_URL` in Android Chrome. The command serves the
+exact committed build in a production-mode learner preview, then opens the
+separate nonproduction Acceptance Center. Both listeners use `127.0.0.1` and
+isolated temporary learner storage. The Center opens real learner pages in a
+second tab; keep its tab open to follow the current instructions and record
+what you observed. Use the **Continue / return to this test guide** control
+when you switch back.
 
-Record these fields before testing:
+Comments and session reports stay outside the repository in
+`$PREFIX/share/boardprep/acceptance-center` (Termux),
+`$XDG_STATE_HOME/boardprep/acceptance-center`, or
+`~/.local/state/boardprep/acceptance-center`. The owner-only local directory
+persists when the preview stops. The page remembers the browser owner for 30
+days; choose **Start a new session** to keep an earlier run and test another
+build. The Center warns when its build SHA no longer matches the saved session.
+Stop both local previews with Ctrl-C.
 
-```text
-BUILD_SHA=
-DATE_UTC=
-TESTER_OR_ALIAS=
-DEVICE_AND_MODEL=
-OS_AND_VERSION=
-BROWSER_AND_VERSION=
-ENVIRONMENT=production|staging|local-fixture
-VIEWPORT_WIDTH_HEIGHT=
-ORIENTATION=portrait|landscape
-AUTOMATED_PREREQUISITE_STATUS=PASS|FAIL|SKIPPED|DEPENDENCY_MISSING|UNAVAILABLE
-AUTOMATED_RUN_IDS=
-EVIDENCE_REFERENCES=
-```
+Use **Review and export** to preview the report, then copy it, download Markdown
+or JSON, or use Android's share sheet when the browser supports it. The Center
+does not send the report to ChatGPT. Remove names, screenshots, or other private
+details you do not want to share before exporting. Do not include passwords,
+cookies, or learner records.
 
-Use a tester alias if the report will be shared. Do not include learner names,
-session cookies, real exported records, or credentials in screenshots or
-artifacts.
-
-## Android same-device preview
-
-For local acceptance on the Android phone that has the repository, the preview
-uses the committed `HEAD` archive with isolated production-mode storage and
-PHP sessions. It binds only to loopback and does not serve the working storage.
-
-```sh
-git status --short
-git rev-parse HEAD
-php tools/doctor.php --simulate
-node tests/browser/server.cjs
-```
-
-Open the exact URL printed by the server in Chrome on the same phone; it is
-normally `http://127.0.0.1:4173`. If that port is occupied, stop the first
-server or set `BOARDPREP_BROWSER_PORT=4174` before starting the preview and use
-the printed URL. Stop it with Ctrl-C. Do not change the bind address to
-`0.0.0.0`, create a tunnel, or use real learner data for destructive checks.
-
-The preview serves committed `HEAD`, not uncommitted files. Starting a new
-preview creates a fresh isolated fixture. It does not verify HTTPS, a hosting
-provider, or production privacy terms.
-
-Playwright is a separate desktop/CI run (`npm ci`, then `npm run test:browser`).
-The Android Termux Node runtime cannot launch its Chromium binary. Use supported
-desktop/CI for automated browser checks and the same-device Chrome preview for
-human phone checks. Playwright is not human acceptance, TalkBack acceptance, or
-WCAG conformance.
+This local run does not test live HTTPS, a hosting provider, approved privacy
+terms, or screen-reader behavior. Playwright is a separate desktop/CI run
+(`npm ci`, then `npm run test:browser`); the Android Termux Node runtime cannot
+launch its Chromium binary. Use supported desktop/CI for automated browser
+checks and the same-device Chrome preview for human phone checks. Playwright is
+not human acceptance, TalkBack acceptance, or WCAG conformance.
 
 ## Six short stages
 
@@ -152,27 +146,15 @@ run/build reference. Automation cannot change `HUMAN_STATUS`.
 
 ## Record a result
 
-Keep one record per case. `HUMAN_PASS` requires the expected behavior, usable
-presentation, and adequate evidence. `BLOCKED` and `NOT_APPLICABLE` are not
-passes.
+Use the current case guide in the Acceptance Center to launch the real learner
+page, record what you observed, and select its human result. A `PASS` requires
+the personal confirmation there; other results save when selected. Use
+**Review and export** to preview the report before copying, downloading, or
+sharing it. Playwright and HTTP evidence remain separate from this human result.
 
-```text
-CASE_ID=
-AUTOMATED_STATUS=AUTOMATED_PASS|BLOCKED|NOT_RUN|NOT_APPLICABLE
-AUTOMATED_EVIDENCE_REFERENCE=
-HUMAN_STATUS=HUMAN_PASS|HUMAN_FAIL|BLOCKED|NOT_RUN|NOT_APPLICABLE
-BUILD_SHA=
-DATE_UTC=
-TESTER_OR_ALIAS=
-DEVICE_AND_MODEL=
-OS_AND_VERSION=
-BROWSER_AND_VERSION=
-ENVIRONMENT=
-VIEWPORT_WIDTH_HEIGHT_AND_ORIENTATION=
-OBSERVATIONS=
-EVIDENCE_REFERENCES=
-DEFECT_ID=
-```
+The table below is the canonical acceptance checklist. Do not edit its
+`HUMAN_STATUS` values from automated results or an empty draft. The owner can
+update committed human evidence only after reviewing an actual tester report.
 
 For a failure, record the URL, exact steps, expected and actual results, visible
 message, viewport/device, and a screenshot reference. Add a short recording for
