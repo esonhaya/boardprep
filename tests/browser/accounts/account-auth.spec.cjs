@@ -6,6 +6,10 @@ const path = require('node:path');
 const { execFileSync } = require('node:child_process');
 const { test, expect } = require('@playwright/test');
 
+// Authentication journeys mutate rate limits and durable fixture accounts.
+// Retrying the same journey against that state can turn the first failure into
+// a misleading second attempt and overwrite its evidence.
+test.describe.configure({ retries: 0 });
 test.use({ screenshot: 'off' });
 
 const AUTH = 'http://127.0.0.1:4175';
@@ -379,7 +383,7 @@ test('isolated mobile account journeys preserve authentication and learner owner
   } catch (error) {
     explorerReport.scenarios_executed = explorerReport.scenarios.length;
     await recordReport('FAIL', error);
-    throw new Error('Account authentication journey failed; inspect the sanitized account-explorer report.');
+    throw error;
   } finally {
     for (const context of contexts) await context.close().catch(() => undefined);
   }
