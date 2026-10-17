@@ -63,15 +63,13 @@ test.describe('guided Human Acceptance Center', () => {
     await page.getByRole('button', { name: 'Save this result' }).click();
     await expect(page.locator('#notice')).toContainText(/confirm that you personally tried/i);
     await expect(page.locator('#caseOutcomeBadge')).toHaveText('NOT RUN');
-    const csrfStatus = await page.evaluate(async () => {
-      const response = await fetch('/developer/acceptance/update', {
-        method: 'POST',
-        credentials: 'same-origin',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action: 'outcome', case_id: 'MVP-01', result: 'PASS', pass_confirmed: true, session_id: document.querySelector('#buildSha').dataset.sessionId || '' }),
-      });
-      return response.status;
+    const csrfResponse = await page.request.post('http://127.0.0.1:4174/developer/acceptance/update', {
+      data: { action: 'outcome', case_id: 'MVP-01', result: 'PASS', pass_confirmed: true },
     });
+    const csrfStatus = csrfResponse.status();
+    const csrfResult = await csrfResponse.json();
+    expect(csrfResult.ok).toBe(false);
+    expect(csrfResult.error).toContain('page expired');
     expect(csrfStatus).toBe(403);
     await page.request.get('http://127.0.0.1:4173/');
     const productionRoute = await page.request.get('http://127.0.0.1:4173/developer/acceptance');
@@ -147,6 +145,17 @@ test.describe('guided Human Acceptance Center', () => {
     const markdown = require('node:fs').readFileSync(await markdownDownload.path(), 'utf8');
     expect(markdown).toContain('REPORT_TYPE=HUMAN_ACCEPTANCE_FEEDBACK');
     expect(markdown).toContain('VIEWPORT=');
+    expect(markdown).toContain('CASE_ID=MVP-01');
+    expect(markdown).toContain('CASE_TITLE=Find your way into practice');
+    expect(markdown).toContain('HUMAN_RESULT=NOT_RUN');
+    expect(markdown).toContain('FEEDBACK_CATEGORY=BUG');
+    expect(markdown).toContain('PRIORITY=HIGH');
+    expect(markdown).toContain('COMMENTS');
+    expect(markdown).toContain('EXPECTED_BEHAVIOR');
+    expect(markdown).toContain('ACTUAL_BEHAVIOR');
+    expect(markdown).toContain('SUGGESTED_IMPROVEMENT');
+    expect(markdown).toContain('REPRODUCTION_STEPS');
+    expect(markdown).toContain('EVIDENCE_REFERENCES');
     expect(markdown).toContain(comment);
     expect(markdown).toContain('I expected clear feedback.');
     expect(markdown).toContain('I saw no feedback.');

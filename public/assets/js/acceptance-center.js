@@ -802,12 +802,16 @@
     sections.push('## MVP test results', '');
     (report.CASE_RESULTS || []).forEach((item) => {
       sections.push(`### ${item.CASE_ID} — ${item.CASE_TITLE}`, '');
-      sections.push(`- Tested route: ${listField(item.TESTED_ROUTE)}`);
-      sections.push(`- Human result: ${item.HUMAN_RESULT}`);
-      sections.push(`- Feedback categories: ${listField(item.FEEDBACK_CATEGORY)}`);
-      sections.push(`- Priorities recorded: ${listField(item.PRIORITY)}`, '');
+      sections.push(`CASE_ID=${item.CASE_ID}`);
+      sections.push(`CASE_TITLE=${item.CASE_TITLE}`);
+      sections.push('TESTED_ROUTE:', listField(item.TESTED_ROUTE));
+      sections.push(`HUMAN_RESULT=${item.HUMAN_RESULT}`);
+      sections.push('FEEDBACK_CATEGORY:', listField(item.FEEDBACK_CATEGORY));
+      sections.push('PRIORITY:', listField(item.PRIORITY), '');
       (item.OBSERVATIONS || []).forEach((observation, index) => {
-        sections.push(`#### Observation ${index + 1} · ${observation.category || 'OTHER'} · ${observation.priority || 'UNSURE'}`, '');
+        sections.push(`#### Observation ${index + 1}`, '');
+        sections.push(`FEEDBACK_CATEGORY=${observation.category || 'OTHER'}`);
+        sections.push(`PRIORITY=${observation.priority || 'UNSURE'}`, '');
         [
           ['comments', 'What the tester noticed'],
           ['expected_behavior', 'What the tester expected'],
@@ -819,19 +823,27 @@
           if (observation[field]) sections.push(`**${label}:**`, '', fenced(observation[field]), '');
         });
       });
-      if (!item.OBSERVATIONS?.length) sections.push('_No notes recorded for this test._', '');
+      if (!item.OBSERVATIONS?.length) {
+        sections.push('_No notes recorded for this test._');
+        sections.push('COMMENTS=_None recorded._');
+        sections.push('EXPECTED_BEHAVIOR=_None recorded._');
+        sections.push('ACTUAL_BEHAVIOR=_None recorded._');
+        sections.push('SUGGESTED_IMPROVEMENT=_None recorded._');
+        sections.push('REPRODUCTION_STEPS=_None recorded._');
+        sections.push('EVIDENCE_REFERENCES=_None recorded._', '');
+      }
     });
-    sections.push('## General feedback', '');
+    sections.push('## GENERAL_FEEDBACK · General feedback', '');
     sections.push(renderObservationGroup(report.GENERAL_FEEDBACK || []));
-    sections.push('## All reported bugs', '');
+    sections.push('## ALL_REPORTED_BUGS · All reported bugs', '');
     sections.push(renderTriageGroup(report.ALL_REPORTED_BUGS || []));
-    sections.push('## Requested improvements and missing features', '');
+    sections.push('## ALL_REQUESTED_IMPROVEMENTS · Requested improvements and missing features', '');
     sections.push(renderTriageGroup(report.ALL_REQUESTED_IMPROVEMENTS || []));
-    sections.push('## Unresolved tests', '');
+    sections.push('## UNRESOLVED_TESTS · Unresolved tests', '');
     sections.push(report.UNRESOLVED_TESTS?.length
       ? report.UNRESOLVED_TESTS.map((item) => `- ${item.CASE_ID}: ${item.HUMAN_RESULT}`).join('\n')
       : '_None._');
-    sections.push('', '## Summary for the next Codex batch', '', report.SUMMARY_FOR_NEXT_CODEX_BATCH || '', '');
+    sections.push('', '## SUMMARY_FOR_NEXT_CODEX_BATCH · Summary for the next Codex batch', '', report.SUMMARY_FOR_NEXT_CODEX_BATCH || '', '');
     sections.push('## Other feedback fields', '', `
 
 JSON export includes all expected, actual, improvement, reproduction-step, priority, and evidence-reference fields for every observation. Report counts: ${JSON.stringify(report.FEEDBACK_COUNTS_BY_CATEGORY || {})}.`);
@@ -850,13 +862,16 @@ JSON export includes all expected, actual, improvement, reproduction-step, prior
 
   function renderObservationFields(item) {
     return [
-      ['comments', 'What the tester noticed'],
-      ['expected_behavior', 'What the tester expected'],
-      ['actual_behavior', 'What happened instead'],
-      ['suggested_improvement', 'Suggested improvement'],
-      ['reproduction_steps', 'Reproduction steps'],
-      ['evidence_reference', 'Evidence reference'],
-    ].filter(([field]) => item[field]).map(([field, label]) => `**${label}:**\n\n${fenced(item[field])}`).join('\n\n');
+      ['comments', 'COMMENTS · What the tester noticed'],
+      ['expected_behavior', 'EXPECTED_BEHAVIOR · What the tester expected'],
+      ['actual_behavior', 'ACTUAL_BEHAVIOR · What happened instead'],
+      ['suggested_improvement', 'SUGGESTED_IMPROVEMENT · Suggested improvement'],
+      ['reproduction_steps', 'REPRODUCTION_STEPS · Steps to reproduce'],
+      ['evidence_reference', 'EVIDENCE_REFERENCES · Evidence reference'],
+    ].map(([field, label]) => {
+      const value = String(item[field] ?? '');
+      return `**${label}:**\n\n${value === '' ? '_Not provided._' : fenced(value)}`;
+    }).join('\n\n');
   }
 
   async function refreshExportPreview() {
