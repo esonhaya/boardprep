@@ -271,7 +271,30 @@ test('bounded stateful BoardPrep journey exploration', async ({ page }, testInfo
         await addDefect('BOARD_HAS_NO_SUBJECT_ENTRY', `${code} has no learner subject entry link despite its available board status.`);
         continue;
       }
-      const chosen = subjectLinks[seed % subjectLinks.length];
+      let compatibleSubjectLinks = subjectLinks;
+      if (code === 'CSE') {
+        const clerical = subjectLinks.find((link) => new URL(link.href, APP).searchParams.get('subject') === 'clerical-ability');
+        if (clerical) {
+          await page.goto(`${APP}${clerical.href}`);
+          await page.locator('#quiz-count').selectOption('5');
+          await page.getByRole('button', { name: 'Start practice' }).click();
+          const compatibilityMessage = await page.locator('[role="alert"]').textContent().catch(() => '');
+          if (!/Clerical Ability is available only for the Subprofessional examination\./i.test(compatibilityMessage)) {
+            await addDefect('PROFILE_SCOPE_VALIDATION_MISSING', 'Professional Civil Service preferences did not clearly reject Clerical Ability.');
+          } else {
+            evidence.transitions.push('CSE: Professional preferences safely rejected incompatible Clerical Ability before quiz start');
+          }
+          evidence.actions_executed += 2;
+          await page.goto(boardUrl);
+          await inspectPage(boardUrl, boardResponse);
+        }
+        compatibleSubjectLinks = subjectLinks.filter((link) => new URL(link.href, APP).searchParams.get('subject') !== 'clerical-ability');
+      }
+      if (compatibleSubjectLinks.length === 0) {
+        await addDefect('BOARD_HAS_NO_PROFILE_COMPATIBLE_SUBJECT', `${code} has no subject entry compatible with the saved learner profile.`);
+        continue;
+      }
+      const chosen = compatibleSubjectLinks[seed % compatibleSubjectLinks.length];
       const settingsUrl = `${APP}${chosen.href}`;
       activeUrl = settingsUrl;
       const settingsResponse = await page.goto(settingsUrl);
