@@ -44,3 +44,65 @@ Run `39057409388` tested commit `d40c04e4a3d4c18763ee41692f9414a3b07c1d47` with 
 The report also lists 27 unique internal paths outside the safe allowlist, mainly PDFs, private data export, and developer/editor routes; `/flashcards/missed` is an additional learner route not yet covered. The explorer records those paths as untested rather than probing them. The report is not a claim of exhaustive route coverage.
 
 The exact-commit run `39060380608` tested `fa082ab138a5289b2622a5904e1d47353c24adbe` with seed `691`: `PASS`, 100 routes, 290 actions, 21 state transitions, 10 forms, all 10 boards, 10 board/subject combinations, and 50/50 independently checked question deliveries. It reported zero confirmed defects, heuristic review cues, console/page errors, failed internal requests, or unexpected HTTP errors. Its 59 untested-path entries represent 27 unique out-of-allowlist paths, chiefly learning PDFs, private data export, and developer/editor routes. Artifact `boardprep-site-explorer-fa082ab138a5289b2622a5904e1d47353c24adbe-39060380608` (ID `12110399126`) contains the sanitized JSON and Markdown report. This bounded traversal is not exhaustive route or semantic-content certification.
+
+## Nonproduction account authentication journeys
+
+The account suite uses a third isolated loopback server with its own temporary
+account JSON store and PHP session directory. The fixture starts with empty
+attempt, result, progress, and flashcard state. It never reads the owner's
+private Acceptance Center feedback or learner records. The account feature flag
+is enabled only for this `APP_ENV=testing` server; the separate production
+fixture must return 404 for account routes.
+
+On supported desktop/CI Chromium, run:
+
+```sh
+npm run test:explore:auth:smoke
+npm run test:explore:auth:full
+```
+
+Smoke covers the five mobile-sized login viewports, anonymous access,
+production-route exclusion, CSRF rejection, registration, duplicate-name
+response, login/session rotation, and logout. Full adds persistent preferences
+across independent sessions, two-account isolation, password-confirmed export,
+recovery-code consumption/replay, password change and stale-session rejection,
+deletion-request lockout, and rate limiting. The suite has a one-worker route
+and page budget and follows only explicitly scripted actions on its two
+loopback origins. Export content is checked in memory and its temporary
+download is deleted.
+
+Sanitized reports are written outside the repository under the selected
+`BOARDPREP_EXPLORER_EVIDENCE_DIR` (or the operating-system temporary directory).
+GitHub Actions runs the full account journey alongside the bounded site
+explorer and uploads only the redacted report and masked failure screenshot.
+These tests verify a local foundation; they do not authorize production
+accounts, prove provider email delivery, complete account deletion, or replace
+independent security review.
+
+### Batch 692 exact-commit result
+
+Run `39070597000` tested `07711e628b492d8ef47e6e11257f6ac3d13480f2` with seed
+`691`. Its final bounded site report is `PASS`: all ten boards and ten
+board/subject combinations were visited, 290 actions were recorded, 21 state
+transitions and 10 forms were exercised, and the report had no final confirmed
+defects, review cues, browser errors, failed internal requests, or unexpected
+HTTP errors. Attempt 1 stopped at a study-library navigation after
+`net::ERR_ABORTED` on `app-shell.js`; its failed attempt report and screenshot
+are retained in the workflow artifact. The full rerun completed with the same
+seed and all ten boards and did not reproduce the request cancellation. This
+remains a transient, unverified navigation-cancellation cue, not a closed
+application defect.
+
+The same workflow ran the account suite on that exact commit: `PASS`, 23
+scenarios and 45 main-frame navigations, with no confirmed defects. It covered
+five mobile-sized login viewports, production-route exclusion, registration,
+enumeration-safe duplicate response, wrong/correct password, session/CSRF
+rotation, saved profile retrieval in a second context, account export, logout,
+two-account profile isolation, recovery and replay rejection, password-change
+session invalidation, deletion-request lockout, and login rate limiting. Idle
+and absolute expiration are separately verified by `AccountSecurityTest.php`;
+the browser journey does not wait 30 minutes to simulate idle expiry.
+
+Run artifact: `boardprep-site-explorer-07711e628b492d8ef47e6e11257f6ac3d13480f2-39070597000`
+(ID `12115550385`). Reports and failure screenshots contain no real learner
+records or credential values.

@@ -68,6 +68,30 @@ See [human acceptance instructions](HUMAN_TESTER_READINESS.md) for the safe
 same-device Android preview. It binds only to loopback and is not a public or
 provider deployment test.
 
+## Batch 692 account-preview boundary
+
+Registration and persistent account profiles are available only in an
+explicitly enabled nonproduction preview. Public production account routes
+are absent, and `BOARDPREP_ACCOUNTS_ENABLED` defaults to false. The preview
+uses usernames rather than unverified email addresses and issues hashed,
+single-use recovery codes; it does not send or claim to send recovery email.
+Anonymous records are never linked automatically, and no linking route is
+implemented.
+
+The preview enforces a 12–128 character password policy and uses PHP's native
+password APIs. Login and sensitive password-confirmation actions are rate
+limited. No breached-password lookup or approved recovery delivery provider is
+configured; decide whether to require those before public account enablement.
+
+An account deletion action currently records a request and locks future sign-in;
+it does not purge account or learner records. The private credential file is
+excluded from release packages and the current backup helper because backups
+are not encrypted. Do not enable accounts publicly until an independent
+security review, owner-approved request/deletion/retention process, protected
+credential backup and restore, and live HTTPS/session/filesystem evidence are
+complete. The remaining requirements are tracked as `BP692-CAP-001` in
+`config/product-readiness.json`.
+
 ## Site-specific deployment verification template
 
 Complete this table against the selected domain and hosting account. Attach

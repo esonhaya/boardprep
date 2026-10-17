@@ -19,3 +19,23 @@ Owner request F691-08 calls for registration, sign-in, and persistent profiles. 
 5. Complete independent review and owner/provider approval before enabling production account creation.
 
 Until these steps pass, user profiles mean validated preferences stored in the existing anonymous browser session. No real registration, sign-in, persistent account identity, or anonymous-data migration is implemented.
+
+## Batch 692 implementation status — 2026-10-18
+
+Batch 692 implements and tests a private, nonproduction account foundation.
+This note supersedes the earlier “not implemented” status above; it does not
+close the production requirements. Registration, sign-in, persistent account
+preferences, PHP-native password hashing, hashed single-use recovery codes,
+rate limiting, session rotation/expiry, account-scoped export, and account
+isolation are available only when the explicit nonproduction feature flag is
+enabled. Production mode never registers these routes, even if the flag is set.
+
+The preview password policy requires 12–128 characters (with a runtime-specific
+72-byte limit when Argon2id is unavailable). No breached-password lookup is
+configured; decide and review that control before any public enablement. There
+is no email recovery provider. Anonymous records are not linked. A confirmed
+deletion action locks future sign-in but does not erase learner records. The
+unencrypted backup helper excludes the credential file, so protected backup
+and restore must be designed and tested before accounts can be operated
+publicly. Independent security review, owner-approved privacy/deletion terms,
+and live HTTPS/session/storage evidence remain open.
