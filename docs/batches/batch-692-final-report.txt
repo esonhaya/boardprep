@@ -1,0 +1,62 @@
+BATCH=692
+HEAD_BEFORE=9639fc59fb325b880e4056b84eb23ac11d73a56b
+HEAD_AFTER_APPLICATION=1d57912122ea0266907e046f206e83f04aa1c87f
+HEAD_AFTER_DOCUMENTATION=8206a27a917bb054c104f166e96297db9dc20227
+APPLICATION_TESTED_SHA=07711e628b492d8ef47e6e11257f6ac3d13480f2
+REPORT_COMMIT=THIS_FILE'S_COMMIT; exact SHA is printed with the report
+ORIGIN_MAIN_AFTER=REPORT_COMMIT
+
+ACCOUNT_REGISTRATION_STATUS=PASS_IN_NONPRODUCTION_PREVIEW; production routes are never registered
+LOGIN_STATUS=PASS; generic invalid-credential response
+LOGOUT_STATUS=PASS; session and CSRF identities rotate
+PASSWORD_SECURITY_STATUS=PHP_native_password_hash/password_verify; Argon2id 65536 KiB/3 iterations/1 lane when available, otherwise PASSWORD_DEFAULT; 12-128 characters; bcrypt 72-byte cap; no breached-password service
+RECOVERY_STATUS=PASS_WITH_LIMITATION; 8 cryptographically random single-use codes, SHA-256 digests at rest; no email delivery provider
+RATE_LIMIT_STATUS=PASS; login 8 per identifier/24 per IP per 15 minutes; registration 5 per IP/hour; recovery and step-up reauthentication separately limited
+SESSION_ROTATION_STATUS=PASS; strict session IDs, CSRF rotation, 30-minute idle and 12-hour absolute expiry, stale password-version revocation
+
+PERSISTENT_PROFILE_STATUS=PASS; account preferences persist across independent browser contexts
+ACCOUNT_DATA_ISOLATION_STATUS=PASS; server-issued account learner IDs; Account A/B tests isolate profiles and exports
+ANONYMOUS_COMPATIBILITY_STATUS=PASS; registration optional; anonymous identity and in-progress quiz preserved separately
+DATA_LINKING_STATUS=DISABLED; there is no anonymous-to-account linking route or automatic merge
+ACCOUNT_EXPORT_DELETION_STATUS=EXPORT_PASS; password-confirmed scoped JSON export excludes credential material; deletion records a request and blocks future sign-in but does not erase learner/app records
+
+AUTH_EXPLORER_STATUS=PASS; seed=691; 23 account scenarios; 45 main-frame navigations; zero confirmed account defects
+AUTH_BROWSER_PASS_FAIL_SKIP=60_PASS/0_FAIL/8_JUSTIFIED_SKIP across 68 Chromium cases; account journey passed in mobile project and was conditionally skipped in desktop project
+AUTH_BROWSER_WORKFLOW_RUN_ID=39070596949
+SITE_EXPLORER_RUN_ID=39070597000; seed=691; final PASS, 100 routes, 290 actions, 21 state transitions, 10 forms, 10 boards, 10 board/subject combinations, 50/50 independently checked question deliveries
+EXPLORER_DEFECTS_CONFIRMED=0
+EXPLORER_UNVERIFIED_FINDINGS=Attempt 1 reported net::ERR_ABORTED for app-shell.js during study-material navigation; complete attempt 2 passed without reproducing it. Retained as a transient, unverified navigation cancellation.
+EXPLORER_REPORT_PATH=GitHub artifact boardprep-site-explorer-07711e628b492d8ef47e6e11257f6ac3d13480f2-39070597000 (artifact 12115550385)
+
+SECURITY_TEST_STATUS=PASS; 9/9 hosted security/privacy matrix cases, including account security and HTTP boundary
+DOCTOR_STATUS=PASS; run 39071418956; P0=0 P1=0 P2=1 P3=2; repository health WARN, zero Doctor release failures
+TEN_BOARD_HTTP_STATUS=PASS; all 10 boards
+PRODUCTION_PREFLIGHT_STATUS=PASS
+PRODUCT_READINESS_STATUS=FAIL_AS_REQUIRED; PRODUCT_FEATURE_COMPLETE=NO; PRODUCT_LAUNCH_READY=NO; browser evidence is BROWSER_EXECUTED_PASS with DOCUMENTATION_ONLY_DESCENDANT relation to assessed commit 8206a27a917bb054c104f166e96297db9dc20227
+RELEASE_GATE_WORKFLOW_RUN_ID=39071418956; overall failure is the expected Formal Product Readiness failure, not a Doctor/security/HTTP/preflight regression
+
+PRODUCTION_AUTH_FEATURE_GATE=DEFAULT_OFF_AND_HARD_DISABLED_IN_PRODUCTION; local test server enables it only for isolated APP_ENV=testing storage
+INDEPENDENT_SECURITY_REVIEW_STATUS=NOT_DONE
+OWNER_PRIVACY_APPROVAL_STATUS=AWAITING_OWNER; no legal/operator/privacy approval was inferred
+LIVE_HOSTING_STATUS=NOT_VERIFIED
+MANDATORY_EVIDENCE_NOT_PASSED=Real human acceptance on a browser/device; approved site-specific privacy/operator/contact/retention/deletion terms; live HTTPS, PHP/provider, cookie, filesystem, and route evidence
+UNRESOLVED_ACCOUNT_BLOCKERS=Independent security review; approved owner support/recovery/deletion/retention process; encrypted account credential backup and tested restore; live hosting controls; full learner-record deletion; decision on breached-password screening
+
+HUMAN_ACCEPTANCE_ACTUAL_STATUS=No human account test was performed; automation is not HUMAN_PASS. The canonical MVP checklist remains NOT_RUN in repository documentation. Batch 691's supplied owner-session summary was PASS=10, FAIL=0, NOT_RUN=1, NOT_APPLICABLE=1, COMMENTS=12; this batch did not alter it.
+CANONICAL_DATA_INTEGRITY=8962 question records before/after; storage/questions.json SHA-256 unchanged at 26abd43caaefa06f5536ae93b3cc09ed9f22b0fc76803cfc7afc63b4e005d237; all question content/identities preserved
+LEARNER_HISTORY_INTEGRITY=storage/attempts.json SHA-256 unchanged at e968fd3e8a391065ac2314ab9bcff932fc572cbe6024e16b40569b694bbed84b; weakness, flashcard, and question-statistics files also unchanged; existing 19-row question usage delta preserved
+LEARNER_FIXTURE_DISCLOSURE=Before fixture isolation was repaired, an earlier disposable browser runtime copied the 20 tracked attempt records into its temporary storage. No account linking/migration was run, source files remained unchanged, and all final browser/account runs used fixtures that empty mutable learner collections. The synthetic-marker fixture test now verifies this boundary.
+PROTECTED_STATE_STATUS=No batch changes to protected state; the pre-existing Batch 685 manifest file was preserved. Its historical checksum check has five stale content hashes (questions, sources, study lessons/materials/question links) that predate this batch; current changed files listed above match their start-of-batch hashes.
+HAYADOCTOR_PIN_STATUS=PASS; dc4fcda730d9a922f726593746e34ca0c9c0e890
+UNRELATED_WORK_PRESERVED=YES; storage/questions.json remains the pre-existing dirty delta; .commandcode, user SVG assets, Batch 685 manifest, tools/Batch596Author.php, empty flashcard/statistics JSON files, stashes, and recovery references were not staged or overwritten
+STASHES_PRESERVED=pre-consolidation 2026-10-13; nzip-temporary
+
+STORAGE_FREE_BEFORE=approximately 6.9 GB
+STORAGE_FREE_AFTER=6868120 KiB (approximately 6.55 GiB)
+STORAGE_FLOOR_STATUS=PASS; above 1.5 GiB
+PUSH_STATUS=FAST_FORWARD; application/test commits and documentation/evidence commit pushed without force
+NEXT_SAFE_BATCH=Batch 693: owner/provider account privacy, deletion, recovery, encrypted backup/restore decisions and independent security review before any public account enablement
+
+USER_LAUNCH_INSTRUCTIONS=For an isolated manual preview, run `node tests/browser/server.cjs` from the repository and open `http://127.0.0.1:4175/account/register` in Android Chrome. Stop with Ctrl-C; the preview uses disposable temporary learner/account storage. For the automated journey on supported desktop/CI Chromium, run `npm run test:explore:auth:full`. Neither path enables production accounts.
+REPORT_EXPORT_LOCATION=docs/batches/batch-692-final-report.txt
+CLIPBOARD_STATUS=VERIFIED
