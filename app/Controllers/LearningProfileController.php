@@ -15,9 +15,29 @@ use App\Services\Learning\RecommendationService;
 use App\Services\Learning\LearningCoachService;
 use App\Services\Profile\LearningProfileService;
 use App\Support\Presentation\PreviewCollection;
+use App\Services\Shared\CsrfTokenService;
+use App\Services\Profile\LearnerPreferenceService;
+use App\Core\Request;
+use App\Core\Response;
+use App\Services\Board\BoardViewService;
 
 final class LearningProfileController
 {
+    public static function savePreferences(): void
+    {
+        if (!CsrfTokenService::valid(Request::input('csrf_token'))) {
+            \SessionService::flash('error', 'Your profile form expired. Please try again.');
+            Response::redirect('/profile', 303);
+        }
+        try {
+            LearnerPreferenceService::save(Request::input());
+            \SessionService::flash('success', 'Your learner preferences were saved for this browser session.');
+        } catch (\InvalidArgumentException $exception) {
+            \SessionService::flash('error', $exception->getMessage());
+        }
+        Response::redirect('/profile', 303);
+    }
+
     public static function index(): void
     {
         $attempts = LearningHistoryService::all();
@@ -71,6 +91,11 @@ final class LearningProfileController
                     $dashboard["insight"],
                 "studyRecommendations" =>
                     $dashboard["recommendations"],
+                'preferences' => LearnerPreferenceService::get(),
+                'boards' => BoardViewService::all(),
+                'letSpecializations' => \App\Services\Quiz\LET\LETVariantRegistry::specializations(),
+                'csrfToken' => CsrfTokenService::token(),
+                'flash' => \SessionService::consumeFlash(),
             ]
         );
     }

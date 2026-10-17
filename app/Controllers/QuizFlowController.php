@@ -17,6 +17,7 @@ use App\Services\Shared\CsrfTokenService;
 use App\Services\Quiz\LET\LETVariantRegistry;
 use App\Services\Study\StudyLibraryService;
 use App\Services\Question\QuestionIdMigrationService;
+use App\Services\Profile\LearnerPreferenceService;
 
 final class QuizFlowController
 {
@@ -118,13 +119,59 @@ final class QuizFlowController
 
     private static function settings(?array $activeSession = null): void
     {
-        $settings = QuizStartInputNormalizer::normalize(Request::query());
+        $query = Request::query();
+        $query = is_array($query) ? $query : [];
+        $query = LearnerPreferenceService::applyToQuizInput($query);
+        $rawTimerMode = is_scalar($query['timer_mode'] ?? null) ? strtolower(trim((string) $query['timer_mode'])) : 'untimed';
+        $rawTimerMinutes = is_scalar($query['time_limit_minutes'] ?? null) ? trim((string) $query['time_limit_minutes']) : '';
+        try {
+            $settings = QuizStartInputNormalizer::normalize($query);
+        } catch (\InvalidArgumentException $exception) {
+            if (\SessionService::get('flash') === null) {
+                \SessionService::flash('error', $exception->getMessage());
+            }
+            // Keep a safely-renderable form while retaining the learner's
+            // invalid timer value in the input for correction.
+            $fallback = $query;
+            $fallback['time_limit_minutes'] = '60';
+            unset($fallback['let_level'], $fallback['let_specialization'], $fallback['civil_service_level']);
+            $settings = QuizStartInputNormalizer::normalize($fallback);
+            if (strtolower((string) ($query['mode'] ?? '')) === 'exam' && $rawTimerMode === 'timed') {
+                $settings['timer_mode'] = 'timed';
+                $settings['time_limit_minutes_input'] = $rawTimerMinutes;
+            }
+        }
+        if (!isset($settings['time_limit_minutes_input'])) {
+            $settings['time_limit_minutes_input'] = (string) ($settings['time_limit_minutes'] ?? 60);
+        }
+        $boards = BoardViewService::all();
+        $requestedExam = is_scalar($query['exam'] ?? null) ? strtoupper(trim((string) $query['exam'])) : '';
+        $boardContext = null;
+        foreach ($boards as $candidate) {
+            if (strtoupper((string) ($candidate['code'] ?? '')) === $requestedExam) {
+                $boardContext = $candidate;
+                break;
+            }
+        }
+        $rawSubject = is_scalar($query['subject'] ?? null) ? strtolower(trim((string) $query['subject'])) : '';
+        $subjectContext = $rawSubject === '*';
+        if ($boardContext !== null && $rawSubject !== '' && $rawSubject !== '*') {
+            foreach ((array) ($boardContext['practice_subjects'] ?? []) as $candidateSubject) {
+                if (strtolower((string) ($candidateSubject['id'] ?? '')) === $rawSubject) {
+                    $subjectContext = true;
+                    break;
+                }
+            }
+        }
         View::render(
             'quiz/settings',
             [
                 'pageTitle' => 'Quiz',
                 'settings' => $settings,
-                'boards' => BoardViewService::all(),
+                'boards' => $boards,
+                'boardContext' => $boardContext,
+                'subjectContext' => $subjectContext,
+                'preferences' => LearnerPreferenceService::get(),
                 'letSpecializations' => LETVariantRegistry::specializations(),
                 'activeSession' => $activeSession ?? self::activeSessionSummary(),
             ]

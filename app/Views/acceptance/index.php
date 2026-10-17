@@ -65,7 +65,10 @@
                 <div class="dashboard-actions">
                     <button type="button" class="button secondary" data-open-case="MVP-01">Open test guide</button>
                     <button type="button" class="button secondary" data-screen="overview">See all 12 tests</button>
+                    <button type="button" id="dashboardExport" class="button primary">Export My Feedback</button>
+                    <button type="button" class="button secondary" data-open-case="MVP-10">Open MVP-10 empty/error checks</button>
                 </div>
+                <p class="small-note">You can export at any time. Saved unfinished notes are labeled DRAFT and do not count as submitted feedback or completed human tests.</p>
                 <div class="quick-summary" id="quickSummary" aria-live="polite"></div>
             </section>
 
@@ -81,6 +84,7 @@
                 <section class="route-launcher" aria-labelledby="routeLauncherTitle">
                     <div><h3 id="routeLauncherTitle">Open a learner page</h3><p>These links reuse one separate learner tab. Your guide stays open here.</p></div>
                     <div id="routeLinks" class="route-links"></div>
+                    <p id="routeIntentNote" class="small-note" hidden></p>
                     <p class="route-recorded" id="routesOpened"></p>
                     <button type="button" id="returnToGuide" class="button secondary">Continue / return to this test guide</button>
                 </section>

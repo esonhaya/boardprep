@@ -101,9 +101,6 @@ final class ContentQaService
                 if (in_array('', $trimmed, true)) {
                     $add(self::issue('EMPTY_OR_MALFORMED_CHOICE', 'ERROR', 'DETERMINISTIC', 'A choice is empty.', 'Provide a complete choice or remove it.', [$id], $byId));
                 }
-                if (count($trimmed) !== count(array_unique($trimmed))) {
-                    $add(self::issue('DUPLICATE_CHOICES', 'WARNING', 'DETERMINISTIC', 'Two or more displayed choices are identical.', 'Differentiate or remove duplicate choices.', [$id], $byId));
-                }
             }
             $hasSource = false; $invalidSource = false;
             foreach ($linksByQuestion[$id] ?? [] as $link) {
@@ -141,6 +138,27 @@ final class ContentQaService
                     $groups[$groupId]['answer_position'][$key][] = $id;
                 }
             }
+        }
+        $distractorAudit = \App\Services\Quality\QuestionDistractorAuditService::analyze(array_values($byId));
+        foreach ($distractorAudit['findings'] as $finding) {
+            $questionId = (string) ($finding['question_id'] ?? '');
+            $ids = $questionId !== '' ? [$questionId] : (array) ($finding['details']['question_ids'] ?? []);
+            $severity = (string) ($finding['severity'] ?? 'REVIEW');
+            if (!in_array($severity, ['ERROR', 'REVIEW'], true)) $severity = 'REVIEW';
+            $add(self::issue(
+                ($finding['code'] ?? '') === 'EXACT_OR_NORMALIZED_DUPLICATE'
+                    ? 'DUPLICATE_CHOICES'
+                    : 'DISTRACTOR_' . (string) ($finding['code'] ?? 'QUALITY_REVIEW'),
+                $severity,
+                $severity === 'ERROR' ? 'DETERMINISTIC' : 'HEURISTIC',
+                (string) ($finding['reason'] ?? 'Answer options require review.'),
+                $severity === 'ERROR'
+                    ? 'Repair the duplicate and verify the answer from its source material.'
+                    : 'Send the flagged options to an academic reviewer; do not rewrite automatically.',
+                $ids,
+                $byId,
+                (array) ($finding['details'] ?? [])
+            ));
         }
         foreach ($rawStems as $stem => $ids) if (count($ids) > 1) {
             $add(self::issue('EXACT_DUPLICATE', 'ERROR', 'DETERMINISTIC', 'Question stems are identical.', 'Keep one canonical question or materially differentiate them.', $ids, $byId));

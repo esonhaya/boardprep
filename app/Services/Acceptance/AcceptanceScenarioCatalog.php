@@ -61,6 +61,7 @@ final class AcceptanceScenarioCatalog
                 'success' => $cells[5],
                 'watch_for' => $cells[6],
                 'routes' => array_values($caseGuidance['routes']),
+                'route_note' => (string) ($caseGuidance['route_note'] ?? ''),
             ];
         }
 

@@ -51,7 +51,9 @@ if ($allocation !== ['general' => 1, 'professional' => 3, 'major' => 3]
 
 $question = static fn(string $id, string $difficulty = 'easy'): array => [
     'id' => $id,
+    'board' => 'LET',
     'subject' => 'English',
+    'taxonomy' => ['board_id' => 'LET', 'subject_id' => 'English'],
     'domain' => 'Grammar',
     'topic' => 'Agreement',
     'difficulty' => $difficulty,

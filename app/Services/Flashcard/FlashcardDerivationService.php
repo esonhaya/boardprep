@@ -7,6 +7,8 @@ namespace App\Services\Flashcard;
 use App\Core\App;
 use App\Repositories\QuestionRepository;
 use App\Services\Shared\QuestionValidationService;
+use App\Services\Question\QuestionEligibilityIndex;
+use App\Services\Question\QuestionEligibilityService;
 
 final class FlashcardDerivationService
 {
@@ -23,6 +25,7 @@ final class FlashcardDerivationService
     private array $cardCache = [];
 
     private FlashcardExclusionRegistry $exclusions;
+    private ?QuestionEligibilityIndex $eligibilityIndex = null;
 
     public function __construct(
         private ?QuestionRepository $questions = null,
@@ -75,21 +78,8 @@ final class FlashcardDerivationService
 
     private function matchesFilters(array $question, array $filters): bool
     {
-        $taxonomy = is_array($question['taxonomy'] ?? null)
-            ? $question['taxonomy']
-            : [];
-
-        foreach (['board', 'subject', 'topic'] as $name) {
-            if (!array_key_exists($name, $filters)) {
-                continue;
-            }
-            $actual = (string) ($taxonomy[$name . '_id'] ?? $question[$name] ?? '');
-            if ($actual !== trim((string) $filters[$name])) {
-                return false;
-            }
-        }
-
-        return true;
+        if (isset($filters['board'])) $this->eligibilityIndex ??= QuestionEligibilityService::index();
+        return FlashcardScopeMatcher::matches($question, $filters, $this->eligibilityIndex);
     }
 
     public function derive(array $question): ?array

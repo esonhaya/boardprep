@@ -11,6 +11,24 @@ $recentTrend = $hasCompletedQuizzes
 
 <h1>Learning Profile</h1>
 
+<?php $preferences = is_array($preferences ?? null) ? $preferences : []; $flash = is_array($flash ?? null) ? $flash : null; ?>
+<?php if ($flash !== null): ?><p class="alert <?= ($flash['type'] ?? '') === 'error' ? 'alert-danger' : 'alert-success' ?>" role="status"><?= htmlspecialchars((string) ($flash['message'] ?? ''), ENT_QUOTES, 'UTF-8') ?></p><?php endif; ?>
+
+<section class="card learner-preferences" aria-labelledby="learner-preferences-title">
+    <h2 id="learner-preferences-title">Your exam preferences</h2>
+    <p>These are stable choices for this browser session. They are separate from the Beginner, Intermediate, or Advanced level estimated from quiz results. Explicit board and subject links always take priority.</p>
+    <form method="POST" action="/profile/preferences">
+        <input type="hidden" name="csrf_token" value="<?= htmlspecialchars((string) ($csrfToken ?? ''), ENT_QUOTES, 'UTF-8') ?>">
+        <div class="form-field"><label for="preferred-board">Preferred board</label><select id="preferred-board" name="preferred_board"><option value="">No preference</option><?php foreach (($boards ?? []) as $board): ?><option value="<?= htmlspecialchars((string) ($board['code'] ?? ''), ENT_QUOTES, 'UTF-8') ?>" <?= strtoupper((string) ($preferences['preferred_board'] ?? '')) === strtoupper((string) ($board['code'] ?? '')) ? 'selected' : '' ?>><?= htmlspecialchars((string) ($board['name'] ?? $board['code'] ?? ''), ENT_QUOTES, 'UTF-8') ?></option><?php endforeach; ?></select></div>
+        <div class="form-field"><label for="preferred-subject">Preferred subject</label><select id="preferred-subject" name="preferred_subject"><option value="">No preference</option><?php foreach (($boards ?? []) as $board): foreach (($board['practice_subjects'] ?? []) as $subject): ?><option value="<?= htmlspecialchars((string) ($subject['id'] ?? ''), ENT_QUOTES, 'UTF-8') ?>" data-board="<?= htmlspecialchars((string) ($board['code'] ?? ''), ENT_QUOTES, 'UTF-8') ?>" <?= strtoupper((string) ($preferences['preferred_board'] ?? '')) === strtoupper((string) ($board['code'] ?? '')) && (string) ($preferences['preferred_subject'] ?? '') === (string) ($subject['id'] ?? '') ? 'selected' : '' ?>><?= htmlspecialchars((string) ($board['name'] ?? 'Board'), ENT_QUOTES, 'UTF-8') ?> · <?= htmlspecialchars((string) ($subject['name'] ?? ''), ENT_QUOTES, 'UTF-8') ?></option><?php endforeach; endforeach; ?></select></div>
+        <div class="form-field"><label for="profile-let-level">LET candidate level</label><select id="profile-let-level" name="let_level"><option value="">Not selected</option><option value="ELEMENTARY" <?= ($preferences['let_level'] ?? '') === 'ELEMENTARY' ? 'selected' : '' ?>>Elementary</option><option value="SECONDARY" <?= ($preferences['let_level'] ?? '') === 'SECONDARY' ? 'selected' : '' ?>>Secondary</option></select></div>
+        <div class="form-field"><label for="profile-let-specialization">LET specialization</label><select id="profile-let-specialization" name="let_specialization"><option value="">None</option><?php foreach (($letSpecializations ?? []) as $specialization): ?><option value="<?= htmlspecialchars((string) ($specialization['id'] ?? ''), ENT_QUOTES, 'UTF-8') ?>" <?= (string) ($preferences['let_specialization'] ?? '') === (string) ($specialization['id'] ?? '') ? 'selected' : '' ?>><?= htmlspecialchars((string) ($specialization['official_name'] ?? $specialization['id'] ?? ''), ENT_QUOTES, 'UTF-8') ?> (<?= htmlspecialchars((string) ($specialization['level'] ?? ''), ENT_QUOTES, 'UTF-8') ?>)</option><?php endforeach; ?></select></div>
+        <div class="form-field"><label for="profile-cse-level">Civil Service candidate level</label><select id="profile-cse-level" name="civil_service_level"><option value="">Not selected</option><option value="PROFESSIONAL" <?= ($preferences['civil_service_level'] ?? '') === 'PROFESSIONAL' ? 'selected' : '' ?>>Professional</option><option value="SUBPROFESSIONAL" <?= ($preferences['civil_service_level'] ?? '') === 'SUBPROFESSIONAL' ? 'selected' : '' ?>>Subprofessional</option></select></div>
+        <details><summary>Subject interests (optional)</summary><p>These can guide study suggestions. They do not change board eligibility or quiz scoring.</p><div class="profile-interest-list"><?php foreach (\App\Services\Shared\TaxonomyStorageService::subjects() as $interest): if (strtolower((string) ($interest['status'] ?? 'active')) === 'archived') continue; $interestId = (string) ($interest['id'] ?? ''); ?><label><input type="checkbox" name="subject_interests[]" value="<?= htmlspecialchars($interestId, ENT_QUOTES, 'UTF-8') ?>" <?= in_array($interestId, (array) ($preferences['subject_interests'] ?? []), true) ? 'checked' : '' ?>> <?= htmlspecialchars((string) ($interest['name'] ?? $interestId), ENT_QUOTES, 'UTF-8') ?></label><?php endforeach; ?></div></details>
+        <button type="submit">Save exam preferences</button>
+    </form>
+</section>
+
 <hr>
 
 <h2>Current Level</h2>
@@ -115,3 +133,5 @@ $recentTrend = $hasCompletedQuizzes
 <a href="/quiz">Take Quiz</a>
 <div class="form-spacer"></div>
 <a href="/dashboard">Dashboard</a>
+
+<script src="/assets/js/profile-preferences.js" defer></script>

@@ -564,5 +564,45 @@
     "practice_question_ids": ["1779", "3723", "3724", "3725"],
     "pdf_file": "architecture-site-analysis-and-design-response.pdf",
     "source_review": {"status": "SOURCE_CHECKED", "checked_at": "2026-10-16", "note": "The June 2026 program area and original site-analysis instruction were checked against PRC and MIT sources. No universal orientation or topic-frequency claim is made; human sign-off is not recorded."}
+  },
+  {
+    "id": "let-values-ethical-reasoning-basics",
+    "title": "Values Education: Reasoned Choices and Respectful Dialogue",
+    "material_id": "let-specialization-values-education",
+    "status": "published",
+    "version": 1,
+    "board_id": "let",
+    "subject_id": "values-education",
+    "pdf_file": "let-values-ethical-reasoning.pdf",
+    "official_scope_source_ids": ["prc-let-enhanced-tos-2025"],
+    "instructional_source_ids": ["deped-esep-curriculum-guide", "deped-ppst-do-42-2017"],
+    "scope_note": "The PRC 2025 enhanced TOS includes a secondary Values Education specification with foundations and analysis of Filipino values among its listed outcomes. The DepEd Edukasyon sa Pagpapakatao guide and Philippine Professional Standards for Teachers inform this original lesson's instructional examples. This is focused practice, not a prediction of examination items or a claim of academic sign-off.",
+    "learning_objectives": [
+      "Separate the known facts of a values dilemma from assumptions about the people involved.",
+      "Compare possible actions using relevant values, duties, rights, fairness, and foreseeable effects.",
+      "Explain how a teacher can support reflection and respectful dialogue without treating personal agreement as the only correct outcome."
+    ],
+    "sections": [
+      {"heading": "1. Read the official scope carefully", "body": "The PRC Values Education specification identifies foundations of Values Education and analysis of Filipino values among its secondary outcomes. A table of specifications describes intended examination scope; it does not tell a learner which exact scenario will appear. Use it to guide study breadth, then practice explaining concepts in context."},
+      {"heading": "2. Make the reasoning visible", "body": "In a dilemma, list the facts supplied, the people affected, the relevant values or duties, possible actions, and foreseeable effects. Compare each action against the same criterion. A strong explanation connects its choice to the case; a moral label by itself does not show why one action is more defensible."},
+      {"heading": "3. Teach dialogue without forcing agreement", "body": "Invite learners to give reasons, listen to another view, and describe the disagreement accurately before responding. Challenge a claim without demeaning its speaker. A teacher can set shared safety and respect rules while allowing more than one reasoned position when the case does not establish one predetermined answer."},
+      {"heading": "4. Reflect on action and effect", "body": "After an action, compare the value a person intended to honor with what actually happened. Ask what evidence supports that conclusion and identify a practical next step. Reflect on an action and its effects instead of treating one mistake as proof of a person's fixed character."}
+    ],
+    "worked_examples": [
+      {"heading": "Assigning roles in a group task", "prompt": "A group says that one member has contributed less. The task is unfinished, and the reason for the difference is not yet known. What should a teacher do first?", "steps": ["Separate the observation (unequal contribution reported) from an unverified explanation (the learner does not care).", "Check what work remains and ask the learner privately what participation is feasible without demanding disclosure of sensitive personal details.", "Agree on a concrete contribution and a fair way for the group to check progress.", "Review whether the plan protects dignity while keeping the group's shared responsibility clear."], "answer": "Gather relevant information, invite a feasible contribution, and make expectations clear before judging the learner's character.", "check": "The response addresses fairness and responsibility while avoiding an unsupported assumption about motive."}
+    ],
+    "common_misconceptions": [
+      "Treating one value as an automatic answer without considering the facts and affected people.",
+      "Assuming the teacher's personal preference is the universal moral rule.",
+      "Equating respectful dialogue with agreement or silence.",
+      "Using one action to label a learner's lasting character."
+    ],
+    "question_patterns": [
+      "Identify the principle that best explains a defensible response to a supplied classroom dilemma.",
+      "Distinguish a considered value commitment from an unsupported preference or moral label.",
+      "Choose a teaching response that invites reflection while preserving dignity, fairness, and learner agency."
+    ],
+    "practice_question_ids": ["5818", "5819", "5820", "5821", "5822"],
+    "source_review": {"status": "SOURCE_CHECKED", "checked_at": "2026-10-18", "note": "Checked the official PRC 2025 Values Education TOS and DepEd Learning Portal curriculum-guide record. Instructional wording and the worked classroom example are original BoardPrep text. This records source checking only; no independent academic review or human sign-off is recorded."}
   }
 ]

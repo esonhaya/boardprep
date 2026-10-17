@@ -154,11 +154,14 @@ async function startQuiz(page, {
 }
 
 async function configureAvailableBoardQuiz(page, exam) {
-  await expect(page.locator('#quiz-exam')).toHaveValue(exam);
-
   if (exam === 'CSE') {
-    await page.locator('#civil-service-level').selectOption('PROFESSIONAL');
+    await page.goto('/profile');
+    await page.locator('#profile-cse-level').selectOption('PROFESSIONAL');
+    await page.getByRole('button', { name: 'Save exam preferences' }).click();
+    await expect(page.locator('[role="status"]')).toContainText('preferences were saved');
+    await page.goto(`/quiz?exam=${encodeURIComponent(exam)}`);
   }
+  await expect(page.locator('#quiz-exam')).toHaveValue(exam);
 
   const subjectOption = page.locator(`#quiz-subject option[data-exam="${exam}"]`).first();
   await expect(subjectOption).toHaveCount(1);
@@ -280,8 +283,8 @@ test.describe('BoardPrep learner browser acceptance', () => {
 
   test('study lesson PDF link serves the identified document and supports keyboard download', async ({ page }, testInfo) => {
     const lessons = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../../..', 'storage', 'study-lessons.json'), 'utf8'));
-    const lesson = lessons.find((item) => item.board_id === 'let' && item.pdf_file);
-    expect(lesson, 'A complete LET lesson with a generated PDF is required for the document fixture.').toBeTruthy();
+    const lesson = lessons.find((item) => item.id === 'let-values-ethical-reasoning-basics' && item.pdf_file);
+    expect(lesson, 'The source-checked Values Education lesson should have a generated original PDF.').toBeTruthy();
     await page.goto('/study-library?exam=LET');
     const material = page.locator(`#study-material-${lesson.material_id}`);
     await expect(material).toBeVisible();
@@ -471,7 +474,10 @@ test.describe('BoardPrep learner browser acceptance', () => {
     await page.locator('#quiz-mode').selectOption('exam');
     await expect(page.locator('#exam-timer-fields')).toBeVisible();
     await expect(page.locator('#quiz-timer-mode')).toHaveValue('untimed');
+    await expect(page.locator('#quiz-time-limit-field')).toBeHidden();
+    await expect(page.locator('#quiz-time-limit')).toBeDisabled();
     await page.locator('#quiz-timer-mode').selectOption('timed');
+    await expect(page.locator('#quiz-time-limit-field')).toBeVisible();
     await expect(page.locator('#quiz-time-limit')).toBeEnabled();
     await expect(page.locator('#quiz-time-limit')).toHaveAttribute('min', '1');
     await page.locator('#quiz-mode').selectOption('practice');
@@ -560,6 +566,110 @@ test.describe('BoardPrep learner browser acceptance', () => {
     }, testInfo);
   });
 
+  test('selected board and subject stay visible without repeating setup choices', async ({ page }, testInfo) => {
+    await page.goto('/exams?exam=LET');
+    const subjectEntry = page.locator('a[href^="/quiz?exam=LET&subject="]').first();
+    await expect(subjectEntry).toBeVisible();
+    const entryHref = await subjectEntry.getAttribute('href');
+    const subjectId = new URL(entryHref, 'http://127.0.0.1:4173').searchParams.get('subject');
+    await subjectEntry.click();
+
+    await expect(page.locator('.quiz-context-summary')).toBeVisible();
+    await expect(page.locator('.quiz-context-summary')).toContainText('LET');
+    await expect(page.locator('#quiz-exam')).toBeHidden();
+    await expect(page.locator('#quiz-subject')).toBeHidden();
+    await expect(page.locator('input[type="hidden"][name="exam"]')).toHaveValue('LET');
+    await expect(page.locator('input[type="hidden"][name="subject"]')).toHaveValue(subjectId);
+    await expect(page.getByRole('link', { name: 'Change board or subject' })).toHaveAttribute('href', '/exams?exam=LET');
+    await expect(page.locator('#quiz-count')).toBeVisible();
+    await expect(page.locator('#profile-let-level')).toHaveCount(0);
+    await assertPageHealthy(page, testInfo, 'contextual-quiz-setup');
+    recordBrowserEvidence('quiz-context', {
+      board: 'LET', subject_id: subjectId, repeated_context_fields: 'HIDDEN_WITH_POST_VALUES',
+      change_context_link: 'PASS',
+    }, testInfo);
+  });
+
+  test('learner preferences and flashcard filters keep valid board context', async ({ page }, testInfo) => {
+    await page.goto('/profile');
+    await page.locator('#preferred-board').selectOption('CSE');
+    await page.locator('#preferred-subject').selectOption('general-information');
+    await page.locator('#profile-cse-level').selectOption('PROFESSIONAL');
+    await page.getByRole('button', { name: 'Save exam preferences' }).click();
+    await expect(page.getByRole('status')).toContainText('preferences were saved');
+
+    await page.goto('/quiz');
+    await expect(page.locator('.quiz-context-summary')).toContainText('Civil Service');
+    await expect(page.locator('.quiz-context-summary')).toContainText('General Information');
+    await expect(page.locator('#quiz-exam')).toBeHidden();
+    await expect(page.locator('#civil-service-level')).toHaveCount(0);
+    await page.goto('/study');
+    await expect(page.getByRole('link', { name: /Practice with Civil Service.*General Information/ })).toBeVisible();
+
+    await page.goto('/quiz?exam=LET&subject=english');
+    await expect(page.locator('.quiz-context-summary')).toContainText('LET');
+    await expect(page.locator('.quiz-context-summary')).toContainText('English');
+
+    await page.goto('/flashcards?board=let');
+    await expect(page.getByRole('alert')).toHaveCount(0);
+    const subjects = await page.locator('#flashcard-subject option').evaluateAll((options) => options.map((option) => option.value));
+    expect(subjects).not.toContain('general-information');
+    await page.goto('/flashcards?board=let&subject=general-information');
+    await expect(page.getByRole('alert')).toContainText('do not belong to the selected board');
+    await page.goto('/flashcards?board=let&subject=english&topic=let-art-interpretation');
+    await expect(page.getByRole('alert')).toContainText('do not belong to the selected board');
+    await assertPageHealthy(page, testInfo, 'preference-and-flashcard-scope');
+    recordBrowserEvidence('learner-context', {
+      stored_candidate_level: 'CSE PROFESSIONAL',
+      explicit_board_override: 'LET English',
+      incompatible_flashcard_filters: 'REJECTED',
+    }, testInfo);
+  });
+
+  test('Acceptance Center exposes MVP-10 guidance and draft export from the dashboard', async ({ page }, testInfo) => {
+    test.skip(testInfo.project.name !== 'desktop', 'The separate nonproduction Acceptance Center runs once in the desktop project.');
+    const response = await page.goto('http://127.0.0.1:4174/developer/acceptance');
+    expect(response?.status()).toBe(200);
+    await expect(page.getByRole('button', { name: 'Export My Feedback' })).toBeVisible();
+    await page.getByRole('button', { name: 'Open MVP-10 empty/error checks' }).click();
+    await expect(page.locator('#routeIntentNote')).toContainText('deliberate negative tests');
+    await expect(page.getByRole('link', { name: /intentional empty state/ }).first()).toBeVisible();
+    await page.getByRole('button', { name: 'Export My Feedback' }).click();
+    await expect(page.locator('#exportTitle')).toBeVisible();
+    await expect(page.locator('#reportPreview')).toContainText('HUMAN_ACCEPTANCE_FEEDBACK');
+    await expect(page.locator('#reportPreview')).toContainText('NOT_RUN');
+    await assertPageHealthy(page, testInfo, 'acceptance-center-mvp10-and-draft-export');
+    recordBrowserEvidence('acceptance-center-guidance', {
+      route: '/developer/acceptance', mvp10_intent_visible: true,
+      export_dashboard_action: true, automated_human_result_changes: false,
+    }, testInfo);
+  });
+
+  test('Acceptance Center dashboard and feedback export fit phone viewports', async ({ page }, testInfo) => {
+    test.skip(testInfo.project.name !== 'mobile', 'Acceptance Center mobile checks run once in the mobile project.');
+    await page.goto('http://127.0.0.1:4174/developer/acceptance');
+    const checked = [];
+    for (const viewport of responsiveViewports) {
+      await page.setViewportSize(viewport);
+      const dashboardExport = page.getByRole('button', { name: 'Export My Feedback' });
+      await expect(dashboardExport).toBeVisible();
+      const bounds = await page.evaluate(() => ({
+        width: document.documentElement.clientWidth,
+        documentWidth: document.documentElement.scrollWidth,
+      }));
+      expect(bounds.documentWidth, `Acceptance Center overflow at ${viewport.width}px`).toBeLessThanOrEqual(bounds.width + 2);
+      checked.push(`${viewport.width}x${viewport.height}`);
+    }
+    await page.getByRole('button', { name: 'Export My Feedback' }).click();
+    await expect(page.locator('#reportPreview')).toBeVisible();
+    await assertPageHealthy(page, testInfo, 'acceptance-center-mobile-export');
+    recordBrowserEvidence('acceptance-center-mobile', {
+      viewports: checked,
+      dashboard_export_visible: true,
+      preview_opened: true,
+    }, testInfo);
+  });
+
   test('timed exam simulation resumes, supports answer review, and submits once', async ({ page }, testInfo) => {
     await page.goto('/quiz?exam=LET');
     await page.locator('#quiz-mode').selectOption('exam');
@@ -622,6 +732,37 @@ test.describe('BoardPrep learner browser acceptance', () => {
       unansweredScoring: 'PASS',
       resultRefresh: 'PASS',
     }, testInfo);
+  });
+
+  test('exam timer falls back to server validation when JavaScript is disabled', async ({ browser }, testInfo) => {
+    test.skip(testInfo.project.name !== 'desktop', 'The no-JavaScript fallback runs once in the desktop project.');
+    const context = await browser.newContext({ javaScriptEnabled: false, baseURL: 'http://127.0.0.1:4173' });
+    const noJsPage = await context.newPage();
+    try {
+      await noJsPage.goto('/quiz?exam=LET&mode=exam');
+      await expect(noJsPage.locator('noscript')).toContainText('Untimed sessions ignore the minutes value');
+      await expect(noJsPage.locator('#quiz-time-limit-field')).toBeVisible();
+      await noJsPage.locator('#quiz-timer-mode').selectOption('untimed');
+      await noJsPage.locator('#quiz-time-limit').fill('17');
+      await noJsPage.locator('#quiz-count').selectOption('5');
+      await noJsPage.locator('#start-session-button').click();
+      await expect(noJsPage.locator('.quiz-meta')).toContainText('Question 1 / 5');
+      await expect(noJsPage.locator('.exam-countdown')).toHaveCount(0);
+
+      await noJsPage.goto('/quiz?exam=LET&mode=exam');
+      await noJsPage.locator('#quiz-timer-mode').selectOption('timed');
+      await noJsPage.locator('#quiz-time-limit').fill('5');
+      await noJsPage.locator('#quiz-count').selectOption('5');
+      await noJsPage.locator('#start-session-button').click();
+      await expect(noJsPage.locator('.exam-countdown')).toBeVisible();
+      recordBrowserEvidence('exam-timer-no-javascript', {
+        untimed_stale_minutes_ignored: true,
+        timed_whole_number_accepted: true,
+        server_side_validation: 'PASS',
+      }, testInfo);
+    } finally {
+      await context.close();
+    }
   });
 
   test('table and figure questions remain usable on the production path', async ({ page }, testInfo) => {
@@ -861,10 +1002,14 @@ test.describe('BoardPrep learner browser acceptance', () => {
       '/study',
       '/study-library?exam=LET',
       '/quiz',
+      '/quiz?exam=LET&subject=english',
       '/flashcards?include_new=1',
+      '/flashcards?board=let',
+      '/flashcards?board=let&subject=english',
       '/flashcards/review?include_new=0',
       '/progress',
       '/history',
+      '/profile',
       '/privacy',
     ];
 

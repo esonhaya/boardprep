@@ -6,9 +6,9 @@
 </p>
 <?php endif; ?>
 
-<div class="practice-setup-page"><section class="page-header"><div><p class="eyebrow">Practice setup</p><h1>Choose practice or an exam simulation</h1><p>Set the examination context first, then tailor the session to your review goal.</p></div></section>
+<div class="practice-setup-page"><section class="page-header"><div><p class="eyebrow">Practice setup</p><h1>Choose practice or an exam simulation</h1><p>Set the examination context first, then tailor the session to your review goal. Your candidate level and specialization are saved in your <a href="/profile">learner profile</a>.</p></div></section>
 
-<?php $settings = is_array($settings ?? null) ? $settings : []; ?>
+<?php $settings = is_array($settings ?? null) ? $settings : []; $preferences = is_array($preferences ?? null) ? $preferences : []; ?>
 <?php $activeSession = is_array($activeSession ?? null) ? $activeSession : null; ?>
 
 <?php if ($activeSession !== null): ?>
@@ -47,23 +47,20 @@ value="<?= htmlspecialchars((string) (($settings['topics'][0] ?? '')), ENT_QUOTE
 >
 
 
-<div class="form-field"><label for="quiz-exam">Examination</label><select id="quiz-exam" name="exam"><?php foreach (($boards ?? []) as $board): ?><option value="<?= htmlspecialchars((string) ($board['code'] ?? '')) ?>" <?= strtoupper((string) ($settings['board'] ?? 'LET')) === strtoupper((string) ($board['code'] ?? '')) ? 'selected' : '' ?>><?= htmlspecialchars((string) ($board['name'] ?? '')) ?></option><?php endforeach; ?></select></div>
+<?php $boardContext = is_array($boardContext ?? null) ? $boardContext : null; $subjectContext = ($subjectContext ?? false) === true; ?>
+<?php if ($boardContext !== null): ?><div class="quiz-context-summary"><p class="eyebrow">Your selected exam</p><p><strong><?= htmlspecialchars((string) ($boardContext['name'] ?? $boardContext['code'] ?? 'Exam'), ENT_QUOTES, 'UTF-8') ?></strong><?php if ($subjectContext && ($settings['subject'] ?? '*') !== '*'): ?> · <?= htmlspecialchars(\App\Services\Shared\TaxonomyStorageService::label('subjects', $settings['subject']), ENT_QUOTES, 'UTF-8') ?><?php endif; ?></p><a href="/exams?exam=<?= rawurlencode((string) ($boardContext['code'] ?? '')) ?>">Change board or subject</a></div><?php endif; ?>
+<div class="form-field" <?= $boardContext !== null ? 'hidden' : '' ?>><label for="quiz-exam">Examination</label><select id="quiz-exam" name="exam" <?= $boardContext !== null ? 'disabled' : '' ?>><?php foreach (($boards ?? []) as $board): ?><option value="<?= htmlspecialchars((string) ($board['code'] ?? '')) ?>" <?= strtoupper((string) ($settings['board'] ?? 'LET')) === strtoupper((string) ($board['code'] ?? '')) ? 'selected' : '' ?>><?= htmlspecialchars((string) ($board['name'] ?? '')) ?></option><?php endforeach; ?></select><?php if ($boardContext !== null): ?><input type="hidden" name="exam" value="<?= htmlspecialchars((string) ($boardContext['code'] ?? ''), ENT_QUOTES, 'UTF-8') ?>"><?php endif; ?></div>
 
-<div id="let-variant-fields" class="quiz-variant-fields" <?= strtolower((string) ($settings['board'] ?? '')) === 'let' ? '' : 'hidden' ?>>
-<div class="form-field"><label for="let-level">LET candidate level</label><select id="let-level" name="let_level"><option value="">Legacy board-wide practice</option><option value="ELEMENTARY" <?= strtoupper((string) ($settings['let_level'] ?? '')) === 'ELEMENTARY' ? 'selected' : '' ?>>Elementary</option><option value="SECONDARY" <?= strtoupper((string) ($settings['let_level'] ?? '')) === 'SECONDARY' ? 'selected' : '' ?>>Secondary</option></select><small class="form-help">Choose a level for variant-safe blueprint filtering. Secondary requires a specialization.</small></div>
-<div class="form-field"><label for="let-specialization">LET specialization</label><select id="let-specialization" name="let_specialization"><option value="">No specialization</option><?php foreach (($letSpecializations ?? []) as $specialization): ?><option value="<?= htmlspecialchars((string) ($specialization['id'] ?? '')) ?>" data-level="<?= htmlspecialchars((string) ($specialization['level'] ?? '')) ?>" <?= (string) (($settings['let_specialization'] ?? '')) === (string) ($specialization['id'] ?? '') ? 'selected' : '' ?>><?= htmlspecialchars((string) ($specialization['official_name'] ?? $specialization['id'] ?? '')) ?> (<?= htmlspecialchars((string) ($specialization['level'] ?? '')) ?>)</option><?php endforeach; ?></select><small class="form-help">Historical labels resolve to stable identities; ambiguous MAPEH/BTLEd qualification labels are not silently assigned.</small></div>
-</div>
+<input type="hidden" name="let_level" value="<?= htmlspecialchars((string) ($preferences['let_level'] ?? ''), ENT_QUOTES, 'UTF-8') ?>">
+<input type="hidden" name="let_specialization" value="<?= htmlspecialchars((string) ($preferences['let_specialization'] ?? ''), ENT_QUOTES, 'UTF-8') ?>">
+<input type="hidden" name="civil_service_level" value="<?= htmlspecialchars((string) ($preferences['civil_service_level'] ?? ''), ENT_QUOTES, 'UTF-8') ?>">
 
-<div id="civil-service-fields" class="quiz-variant-fields" <?= in_array(strtolower((string) ($settings['board'] ?? '')), ['cse', 'civil-service'], true) ? '' : 'hidden' ?>>
-<div class="form-field"><label for="civil-service-level">Civil Service examination level</label><select id="civil-service-level" name="civil_service_level"><option value="">Select level</option><option value="PROFESSIONAL" <?= strtoupper((string) ($settings['civil_service_level'] ?? '')) === 'PROFESSIONAL' ? 'selected' : '' ?>>Professional</option><option value="SUBPROFESSIONAL" <?= strtoupper((string) ($settings['civil_service_level'] ?? '')) === 'SUBPROFESSIONAL' ? 'selected' : '' ?>>Subprofessional</option></select><small class="form-help">Subprofessional includes Clerical Ability; Professional selections exclude it.</small></div>
-</div>
+<div class="form-field" <?= $subjectContext ? 'hidden' : '' ?>><label for="quiz-subject">Subject</label>
 
-<div class="form-field"><label for="quiz-subject">Subject</label>
-
-<select id="quiz-subject" name="subject">
+<select id="quiz-subject" name="subject" <?= $subjectContext ? 'disabled' : '' ?>>
 <option value="*" data-exam="all" <?= ($settings['subject'] ?? '') === '*' ? 'selected' : '' ?>>All available subjects</option>
 <?php foreach (($boards ?? []) as $board): foreach (($board['practice_subjects'] ?? []) as $subject): $subjectValue = (string) ($subject['id'] ?? ''); ?><option value="<?= htmlspecialchars($subjectValue, ENT_QUOTES, 'UTF-8') ?>" data-exam="<?= htmlspecialchars((string) ($board['code'] ?? ''), ENT_QUOTES, 'UTF-8') ?>" <?= ($settings['subject'] ?? '') === $subjectValue ? 'selected' : '' ?>><?= htmlspecialchars((string) ($subject['name'] ?? $subjectValue), ENT_QUOTES, 'UTF-8') ?></option><?php endforeach; endforeach; ?>
-</select></div>
+</select><?php if ($subjectContext): ?><input type="hidden" name="subject" value="<?= htmlspecialchars((string) ($settings['subject'] ?? '*'), ENT_QUOTES, 'UTF-8') ?>"><?php endif; ?></div>
 
 
 <div class="form-field"><label for="quiz-count">Number of questions</label>
@@ -135,8 +132,9 @@ Review Mode
 
 <div id="exam-timer-fields" class="quiz-variant-fields" <?= ($settings['mode'] ?? 'practice') === 'exam' ? '' : 'hidden' ?>>
 <div class="form-field"><label for="quiz-timer-mode">Exam simulation timer</label><select id="quiz-timer-mode" name="timer_mode" aria-controls="quiz-time-limit"><option value="untimed" <?= ($settings['timer_mode'] ?? 'untimed') === 'untimed' ? 'selected' : '' ?>>Untimed</option><option value="timed" <?= ($settings['timer_mode'] ?? '') === 'timed' ? 'selected' : '' ?>>Timed</option></select><small class="form-help">Choose a timer for this study session. This does not represent an official examination duration.</small></div>
-<div class="form-field"><label for="quiz-time-limit">Time limit in minutes</label><input id="quiz-time-limit" name="time_limit_minutes" type="number" min="1" max="600" step="1" value="<?= (int) ($settings['time_limit_minutes'] ?? 0) > 0 ? (int) $settings['time_limit_minutes'] : 60 ?>"><small class="form-help">Use a whole number from 1 to 600. The timer continues when you move between questions or refresh.</small></div>
+<div id="quiz-time-limit-field" class="form-field" <?= ($settings['timer_mode'] ?? 'untimed') === 'timed' ? '' : 'hidden' ?>><label for="quiz-time-limit">Time limit in minutes</label><input id="quiz-time-limit" name="time_limit_minutes" type="number" min="1" max="600" step="1" value="<?= htmlspecialchars((string) ($settings['time_limit_minutes_input'] ?? (($settings['time_limit_minutes'] ?? 0) > 0 ? $settings['time_limit_minutes'] : 60)), ENT_QUOTES, 'UTF-8') ?>"><small class="form-help">Use a whole number from 1 to 600. The timer continues when you move between questions or refresh.</small></div>
 </div>
+<noscript><p class="small-note">JavaScript is off. Timer settings are shown so you can configure an exam simulation. Untimed sessions ignore the minutes value.</p><style>#exam-timer-fields[hidden],#quiz-time-limit-field[hidden]{display:block!important}</style></noscript>
 
 
 

@@ -21,6 +21,7 @@ final class StudyDashboardController
                 "history" => PreviewCollection::items($attempts),
                 "historyHasMore" => PreviewCollection::hasMore($attempts),
                 "weaknesses" => WeaknessService::all(),
+                "preferences" => \App\Services\Profile\LearnerPreferenceService::get(),
             ]
         );
     }

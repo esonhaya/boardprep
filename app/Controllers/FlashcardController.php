@@ -9,11 +9,15 @@ use App\Core\Request;
 use App\Core\Response;
 use App\Core\View;
 use App\Services\Flashcard\FlashcardService;
+use App\Services\Flashcard\FlashcardScopeMatcher;
 use App\Services\Quiz\HistoricalQuizResultService;
 use App\Services\Quiz\Result\QuizAnswerStatisticsPlan;
 use App\Services\Question\QuestionIdMigrationService;
 use App\Services\Shared\CsrfTokenService;
 use App\Services\Shared\TaxonomyStorageService;
+use App\Services\Profile\LearnerPreferenceService;
+use App\Services\Question\QuestionEligibilityService;
+use App\Repositories\QuestionRepository;
 
 final class FlashcardController
 {
@@ -34,8 +38,7 @@ final class FlashcardController
         $boards = $subjects = $topics = [];
         try {
             $boards = self::options(TaxonomyStorageService::boards());
-            $subjects = self::options(TaxonomyStorageService::subjects());
-            $topics = self::options(TaxonomyStorageService::topics());
+            [$subjects, $topics] = self::filterOptions($parsed['filters']);
         } catch (\Throwable) {
             $error ??= 'Flashcard filters are temporarily unavailable. Please try again.';
         }
@@ -80,6 +83,10 @@ final class FlashcardController
             } catch (\Throwable) {
                 $error = 'That flashcard is unavailable or no longer eligible.';
             }
+        }
+
+        if ($card !== null) {
+            $card = self::applyReviewContext($card, $filters);
         }
 
         View::render('flashcards/review', [
@@ -196,12 +203,77 @@ final class FlashcardController
     private static function filters(mixed $input): array
     {
         $input = is_array($input) ? $input : [];
+        $preferences = LearnerPreferenceService::get();
+        $hasExplicitBoard = array_key_exists('board', $input) || array_key_exists('exam', $input);
+        $missedSession = [];
+        if (strtolower(trim((string) ($input['mode'] ?? ''))) === 'missed') {
+            $candidateSession = \SessionService::get('quiz_session', []);
+            $missedSession = is_array($candidateSession) ? $candidateSession : [];
+        }
+        if (!$hasExplicitBoard && $missedSession !== []) {
+            $input['board'] = $missedSession['board'] ?? $missedSession['exam'] ?? '';
+            $input['subject'] ??= $missedSession['subject'] ?? '';
+            $input['let_level'] ??= $missedSession['let_level'] ?? '';
+            $input['let_specialization'] ??= $missedSession['let_specialization_id'] ?? '';
+            $input['civil_service_level'] ??= $missedSession['civil_service_level'] ?? '';
+        } elseif (!$hasExplicitBoard && ($preferences['preferred_board'] ?? '') !== '') {
+            $input['board'] = $preferences['preferred_board'];
+        }
         $filters = ['include_new' => true];
         $mode = 'normal';
         $error = null;
         try {
+            $boardRows = self::options(TaxonomyStorageService::boards());
+            $boardAliases = [];
+            foreach ($boardRows as $board) {
+                $id = strtolower(trim((string) ($board['id'] ?? '')));
+                $code = strtolower(trim((string) ($board['code'] ?? '')));
+                if ($id !== '') $boardAliases[$id] = $id;
+                if ($code !== '' && $id !== '') $boardAliases[$code] = $id;
+            }
+            $preferredBoardId = $boardAliases[strtolower(trim((string) ($preferences['preferred_board'] ?? '')))] ?? '';
+            if (!array_key_exists('board', $input) && !array_key_exists('exam', $input)
+                && ($preferences['preferred_board'] ?? '') !== '') {
+                $input['board'] = $preferences['preferred_board'];
+            } elseif (!array_key_exists('board', $input) && array_key_exists('exam', $input)) {
+                $input['board'] = $input['exam'];
+            }
+            $effectiveBoardId = is_scalar($input['board'] ?? null)
+                ? ($boardAliases[strtolower(trim((string) $input['board']))] ?? '')
+                : '';
+            if (!$missedSession && !array_key_exists('subject', $input)
+                && $effectiveBoardId !== ''
+                && $effectiveBoardId === $preferredBoardId
+                && ($preferences['preferred_subject'] ?? '') !== '') {
+                $input['subject'] = $preferences['preferred_subject'];
+            }
+            if ($effectiveBoardId === 'let') {
+                $level = strtoupper(trim((string) ($input['let_level'] ?? $preferences['let_level'] ?? '')));
+                $specialization = trim((string) ($input['let_specialization'] ?? $preferences['let_specialization'] ?? ''));
+                if ($level !== '' || $specialization !== '') {
+                    $variant = \App\Services\Quiz\LET\LETVariantRegistry::validateConfiguration([
+                        'level' => $level,
+                        'specialization_id' => $specialization,
+                    ]);
+                    if (($variant['valid'] ?? false) === true) {
+                        $filters['let_variant'] = $variant['configuration'];
+                    } else {
+                        $error = 'Your saved LET candidate choices are incompatible. Update them in your learner profile.';
+                    }
+                }
+            }
+            if ($effectiveBoardId === 'civil-service') {
+                $level = strtoupper(trim((string) ($input['civil_service_level'] ?? $preferences['civil_service_level'] ?? '')));
+                if ($level !== '') {
+                    if (!in_array($level, ['PROFESSIONAL', 'SUBPROFESSIONAL'], true)) {
+                        $error = 'Your saved Civil Service level is unavailable. Update it in your learner profile.';
+                    } else {
+                        $filters['civil_service_level'] = $level;
+                    }
+                }
+            }
             $allowed = [
-                'board' => self::ids(TaxonomyStorageService::boards()),
+                'board' => array_values(array_unique(array_values($boardAliases))),
                 'subject' => self::ids(TaxonomyStorageService::subjects()),
                 'topic' => self::ids(TaxonomyStorageService::topics()),
             ];
@@ -229,6 +301,10 @@ final class FlashcardController
                 continue;
             }
             $value = strtolower(trim((string) $input[$name]));
+            if ($name === 'board' && isset($boardAliases[$value])) {
+                $filters[$name] = $boardAliases[$value];
+                continue;
+            }
             if (!in_array($value, $allowed[$name], true)) {
                 $error = 'Please choose a valid flashcard filter.';
                 $filters[$name] = '__invalid__';
@@ -243,6 +319,13 @@ final class FlashcardController
                 $filters['include_new'] = false;
             } else {
                 $filters['include_new'] = (string) $input['include_new'] === '1';
+            }
+        }
+
+        if ($error === null && (isset($filters['board']) || isset($filters['subject']) || isset($filters['topic']))) {
+            $compatible = self::filterCompatibility($filters);
+            if ($compatible === false) {
+                $error = 'That subject and topic do not belong to the selected board. Choose a compatible filter combination.';
             }
         }
 
@@ -319,12 +402,64 @@ final class FlashcardController
 
     private static function matches(array $card, array $filters): bool
     {
-        foreach (['board', 'subject', 'topic'] as $name) {
-            if (isset($filters[$name]) && (string) ($card[$name] ?? '') !== (string) $filters[$name]) {
-                return false;
-            }
-        }
+        $question = App::container()->get(QuestionRepository::class)->find((string) ($card['question_id'] ?? ''));
+        if (!is_array($question)) return false;
+        return FlashcardScopeMatcher::matches($question, $filters);
+    }
 
+    /** @return array{0:list<array>,1:list<array>} */
+    private static function filterOptions(array $filters): array
+    {
+        $wantedBoard = (string) ($filters['board'] ?? '');
+        $wantedSubject = (string) ($filters['subject'] ?? '');
+        if ($wantedBoard === '' && $wantedSubject === '') {
+            return [
+                self::options(TaxonomyStorageService::subjects()),
+                self::options(TaxonomyStorageService::topics()),
+            ];
+        }
+        $subjects = [];
+        $topics = [];
+        $questions = App::container()->get(QuestionRepository::class)->all();
+        $index = $wantedBoard !== '' ? QuestionEligibilityService::index() : null;
+        $scopeFilters = $filters;
+        unset($scopeFilters['subject'], $scopeFilters['topic']);
+        foreach ($questions as $question) {
+            if (!is_array($question)) continue;
+            $taxonomy = is_array($question['taxonomy'] ?? null) ? $question['taxonomy'] : [];
+            $eligibility = FlashcardScopeMatcher::effectiveEligibility($question, $scopeFilters, $index);
+            if ($eligibility === null) continue;
+            $subjectId = (string) ($eligibility['subject_id'] ?? '');
+            if ($subjectId !== '') $subjects[strtolower($subjectId)] = true;
+            if ($wantedSubject !== '' && strtolower($subjectId) !== strtolower($wantedSubject)) continue;
+            $placement = is_array($eligibility['placement'] ?? null) ? $eligibility['placement'] : [];
+            $topicId = (string) ($placement['topic_id'] ?? $placement['topic'] ?? $taxonomy['topic_id'] ?? $question['topic'] ?? '');
+            if ($topicId !== '') $topics[strtolower($topicId)] = true;
+        }
+        $subjectRows = array_values(array_filter(self::options(TaxonomyStorageService::subjects()), static fn(array $row): bool => isset($subjects[strtolower((string) ($row['id'] ?? ''))])));
+        $topicRows = array_values(array_filter(self::options(TaxonomyStorageService::topics()), static fn(array $row): bool => isset($topics[strtolower((string) ($row['id'] ?? ''))])));
+        return [$subjectRows, $topicRows];
+    }
+
+    private static function applyReviewContext(array $card, array $filters): array
+    {
+        $question = App::container()->get(QuestionRepository::class)->find((string) ($card['question_id'] ?? ''));
+        if (!is_array($question)) return $card;
+        $index = isset($filters['board']) ? QuestionEligibilityService::index() : null;
+        $effective = FlashcardScopeMatcher::effectiveEligibility($question, $filters, $index);
+        if ($effective === null) return $card;
+        if (isset($filters['board'])) $card['board'] = (string) $filters['board'];
+        if (trim((string) ($effective['subject_id'] ?? '')) !== '') $card['subject'] = (string) $effective['subject_id'];
+        $placement = is_array($effective['placement'] ?? null) ? $effective['placement'] : [];
+        if (isset($placement['topic_id']) || isset($placement['topic'])) $card['topic'] = (string) ($placement['topic_id'] ?? $placement['topic']);
+        return $card;
+    }
+
+    private static function filterCompatibility(array $filters): bool
+    {
+        [$subjects, $topics] = self::filterOptions($filters);
+        if (isset($filters['subject']) && !in_array(strtolower((string) $filters['subject']), array_map(static fn(array $row): string => strtolower((string) ($row['id'] ?? '')), $subjects), true)) return false;
+        if (isset($filters['topic']) && !in_array(strtolower((string) $filters['topic']), array_map(static fn(array $row): string => strtolower((string) ($row['id'] ?? '')), $topics), true)) return false;
         return true;
     }
 

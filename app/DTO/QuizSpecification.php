@@ -37,6 +37,9 @@ final class QuizSpecification
 
         public readonly int $timeLimitMinutes = 0,
 
+        /** Whether the learner explicitly chose a subject for this session. */
+        public readonly bool $subjectExplicit = false,
+
     ) {
     }
 }

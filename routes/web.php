@@ -86,6 +86,7 @@ $router->get(
     "/profile",
     [LearningProfileController::class, "index"]
 );
+$router->post('/profile/preferences', [LearningProfileController::class, 'savePreferences']);
 
 $router->get(
     "/progress",
@@ -114,6 +115,7 @@ $router->get(
     [DeveloperToolsController::class, "contentIntelligence"]
 );
 $router->get("/developer/study-library", [StudyLibraryController::class, "developer"]);
+$router->get('/developer/question-origin', [\App\Controllers\QuestionOriginDiagnosticController::class, 'index']);
 
 $router->get(
     "/developer/doctor",

@@ -68,10 +68,9 @@ final class QuizStartInputNormalizer
             }
         }
         $subject = self::text($input['subject'] ?? '');
+        $subjectExplicit = array_key_exists('subject', $input) && $subject !== '';
         if ($subject === '') {
-            $subject = in_array(strtolower($board), ['cse', 'civil-service'], true)
-                ? 'general-information'
-                : (strtolower($board) === 'let' ? 'english' : '*');
+            $subject = '*';
         }
         if ($civilServiceLevel === 'PROFESSIONAL' && in_array(strtolower($subject), ['clerical-ability', 'clerical ability'], true)) {
             throw new \InvalidArgumentException('Clerical Ability is available only for the Subprofessional examination.');
@@ -80,6 +79,7 @@ final class QuizStartInputNormalizer
         return [
             'board' => $board,
             'subject' => $subject,
+            'subject_explicit' => $subjectExplicit,
             'domain' => self::nullableText($input['domain'] ?? null),
             'topics' => $topic === '' ? [] : [$topic],
             'difficulty' => $difficulty,

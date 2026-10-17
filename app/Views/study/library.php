@@ -38,15 +38,15 @@ $escape = static fn(mixed $value): string => htmlspecialchars(is_scalar($value) 
                 $displayNotes = $materialRequested ? $notes : array_slice($notes, 0, 4);
                 ?>
                 <article id="study-material-<?= $escape($materialId) ?>" class="card study-material-card">
-                    <p class="eyebrow">Source record · v<?= (int) ($material['version'] ?? 1) ?></p>
+                    <p class="eyebrow"><?= $lesson !== null ? 'BoardPrep study lesson' : 'Reference/source record' ?> · v<?= (int) ($material['version'] ?? 1) ?></p>
                     <h2><?= $escape($material['title'] ?? '') ?></h2>
                     <p><?= $escape($material['summary'] ?? '') ?></p>
                     <?php if (is_array($material['priority'] ?? null)): ?>
                         <p><strong>Review focus: <?= $escape($material['priority']['level'] ?? 'LOW') ?></strong></p>
                         <ul><?php foreach (array_slice($material['priority']['reasons'] ?? [], 0, 2) as $reason): ?><li><?= $escape($reason) ?></li><?php endforeach; ?></ul>
                     <?php endif; ?>
-                    <p><span class="badge <?= $lesson !== null ? 'badge-success' : 'badge-info' ?>"><?= $lesson !== null ? 'BoardPrep lesson available' : 'Reference notes' ?></span> <span class="muted"><?= count($material['source_ids'] ?? []) ?> registered sources · <?= count($material['question_links'] ?? []) ?> linked questions</span></p>
-                    <?php if ($lesson !== null): ?><p><a class="button button-green" href="<?= $escape($detailUrl) ?>#boardprep-lesson-<?= $escape($lesson['id'] ?? '') ?>">Open complete lesson</a><?php if (!empty($material['pdf_url'])): ?> <a class="button button-outline" href="<?= $escape($material['pdf_url']) ?>" download>Download study PDF</a><?php endif; ?></p><?php else: ?><p><a class="button button-outline" href="<?= $escape($detailUrl) ?>">Open full material</a></p><?php endif; ?>
+                    <p><span class="badge <?= $lesson !== null ? 'badge-success' : 'badge-info' ?>"><?= $lesson !== null ? 'Study lesson' : (!empty($material['pdf_url']) ? 'Downloadable learning material' : 'Primary reference/source') ?></span> <span class="muted"><?= count($material['source_ids'] ?? []) ?> registered sources · <?= count($material['question_links'] ?? []) ?> linked questions</span></p>
+                    <?php if ($lesson !== null): ?><p><a class="button button-green" href="<?= $escape($detailUrl) ?>#boardprep-lesson-<?= $escape($lesson['id'] ?? '') ?>">Open complete lesson</a><?php if (!empty($material['pdf_url'])): ?> <a class="button button-outline" href="<?= $escape($material['pdf_url']) ?>" download>Download lesson material</a><?php endif; ?></p><?php else: ?><p><a class="button button-outline" href="<?= $escape($detailUrl) ?>">Open source notes and references</a></p><p class="muted">This source record provides references and notes; it is not a complete BoardPrep lesson.</p><?php endif; ?>
                     <details class="study-material-disclosure"<?= $materialRequested ? ' open' : '' ?>>
                         <summary>Read study notes and sources</summary>
                         <div class="study-material-notes">

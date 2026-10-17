@@ -13,6 +13,7 @@ fs.mkdirSync(resultsDirectory, { recursive: true });
 module.exports = defineConfig({
   testDir: __dirname,
   testMatch: /.*\.spec\.cjs$/,
+  testIgnore: process.env.BOARDPREP_RUN_EXPLORER === '1' ? [] : ['**/explorer/**'],
   timeout: 90_000,
   expect: {
     timeout: 10_000,

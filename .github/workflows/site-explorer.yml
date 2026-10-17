@@ -1,0 +1,95 @@
+name: Bounded site explorer
+
+on:
+  push:
+    paths:
+      - 'app/**'
+      - 'config/**'
+      - 'public/**'
+      - 'storage/**'
+      - 'tests/browser/explorer/**'
+      - 'tests/browser/playwright.config.cjs'
+      - 'tools/run-site-explorer.cjs'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/site-explorer.yml'
+  pull_request:
+    paths:
+      - 'app/**'
+      - 'config/**'
+      - 'public/**'
+      - 'storage/**'
+      - 'tests/browser/explorer/**'
+      - 'tests/browser/playwright.config.cjs'
+      - 'tools/run-site-explorer.cjs'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/site-explorer.yml'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Exploration budget
+        type: choice
+        options:
+          - smoke
+          - full
+        default: smoke
+        required: true
+      seed:
+        description: Deterministic seed
+        type: string
+        default: '691'
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  explore:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    env:
+      BOARDPREP_EXPLORER_EVIDENCE_DIR: ${{ runner.temp }}/boardprep-site-explorer/${{ github.run_id }}/${{ github.run_attempt }}
+      BOARDPREP_EXPLORER_SEED: ${{ inputs.seed || '691' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Record exact tested commit and isolate evidence
+        run: |
+          mkdir -p "$BOARDPREP_EXPLORER_EVIDENCE_DIR"
+          printf 'tested_commit=%s\nrun_id=%s\nrun_attempt=%s\nseed=%s\n' \
+            "$GITHUB_SHA" "$GITHUB_RUN_ID" "$GITHUB_RUN_ATTEMPT" "$BOARDPREP_EXPLORER_SEED" \
+            > "$BOARDPREP_EXPLORER_EVIDENCE_DIR/manifest.txt"
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: json, session, pdo_sqlite
+          coverage: none
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install JavaScript dependencies
+        run: npm ci
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Run bounded exploration
+        env:
+          BOARDPREP_EXPLORER_MODE: ${{ inputs.mode || 'smoke' }}
+        run: npm run test:explore:${{ inputs.mode || 'smoke' }} -- --seed="$BOARDPREP_EXPLORER_SEED"
+
+      - name: Upload sanitized exploration report and failure evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: boardprep-site-explorer-${{ github.sha }}-${{ github.run_id }}
+          path: ${{ env.BOARDPREP_EXPLORER_EVIDENCE_DIR }}/
+          if-no-files-found: warn
+          retention-days: 14

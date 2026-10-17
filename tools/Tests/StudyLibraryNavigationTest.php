@@ -243,9 +243,19 @@ try {
         || !str_contains($cseDetail['output'], 'Prealgebra 2e, Section 6.2')) {
         throw new RuntimeException('The direct lesson page omitted instruction, separated source roles, or the PDF download.');
     }
+    $valuesLesson = StudyLibraryService::find('let-specialization-values-education');
+    if (!is_array($valuesLesson)
+        || ($valuesLesson['lesson']['id'] ?? '') !== 'let-values-ethical-reasoning-basics'
+        || ($valuesLesson['pdf_url'] ?? '') !== '/study-resources/let-values-ethical-reasoning.pdf') {
+        throw new RuntimeException('The focused Values Education lesson was not distinguished from its source record or printable material.');
+    }
+    $valuesPdfPath = $root . '/public/study-resources/let-values-ethical-reasoning.pdf';
+    if (!is_file($valuesPdfPath) || !str_starts_with((string) file_get_contents($valuesPdfPath), '%PDF-')) {
+        throw new RuntimeException('The original Values Education lesson PDF was not generated as a printable learning resource.');
+    }
     $cseBrowse = $http->request('GET', '/study-library', ['exam' => 'civil-service'], [], [], ['PHPSESSID' => $sessionId]);
     if (!str_contains($cseBrowse['output'], 'Open complete lesson')
-        || !str_contains($cseBrowse['output'], 'Download study PDF')
+        || !str_contains($cseBrowse['output'], 'Download lesson material')
         || !str_contains($cseBrowse['output'], 'Open all 11 notes')) {
         throw new RuntimeException('Study-library discovery did not present a preview and direct path to the full material.');
     }

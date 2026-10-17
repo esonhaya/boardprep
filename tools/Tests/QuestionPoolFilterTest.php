@@ -71,5 +71,25 @@ if (QuestionPoolFilter::filter([$unrelatedQuestion], $crossBoardRequest, $eligib
     throw new RuntimeException('Candidate prefilter admitted unrelated board content without an eligibility record.');
 }
 
+$blankSameBoard = $question;
+$blankSameBoard['id'] = 'blank-same-board-subject-fixture';
+$blankIndex = new \App\Services\Question\QuestionEligibilityIndex([
+    ['question_ids' => ['blank-same-board-subject-fixture'], 'exam_ids' => ['LET'], 'subject_ids' => ['let' => '']],
+], [], [], []);
+$blankEffective = \App\Services\Question\QuestionEligibilityService::forExam($blankSameBoard, 'LET', $blankIndex);
+if (($blankEffective['subject_id'] ?? '') !== 'english') {
+    throw new RuntimeException('A same-board legacy eligibility row did not resolve through canonical taxonomy.');
+}
+$blankCrossBoard = $question;
+$blankCrossBoard['id'] = 'blank-cross-board-subject-fixture';
+$blankCrossBoard['taxonomy']['board_id'] = 'nursing';
+$blankCrossIndex = new \App\Services\Question\QuestionEligibilityIndex([
+    ['question_ids' => ['blank-cross-board-subject-fixture'], 'exam_ids' => ['LET'], 'subject_ids' => ['let' => '']],
+], [], [], []);
+if (QuestionPoolFilter::filter([$blankCrossBoard], $crossBoardRequest, $blankCrossIndex) !== []) {
+    throw new RuntimeException('A cross-board placement with no destination subject was allowed to reuse its source taxonomy.');
+}
+
 echo "[PASS] Practice selection uses canonical subject, domain, and topic IDs over conflicting legacy labels.\n";
 echo "[PASS] Candidate prefilter preserves canonical placement, explicit cross-board eligibility, and exact exclusion behavior.\n";
+echo "[PASS] Missing same-board subject metadata uses canonical taxonomy; missing cross-board destination placement fails closed.\n";

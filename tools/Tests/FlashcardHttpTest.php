@@ -108,6 +108,23 @@ try {
     $badFilter = $simulator->request('GET', '/flashcards', ['board' => 'attacker-value'], [], [], $cookie);
     httpCheck($badFilter['status'] === 200 && str_contains($badFilter['output'], 'valid flashcard filter'), 'unknown filter was not rejected safely');
 
+    $incompatibleSubject = $simulator->request('GET', '/flashcards', [
+        'board' => 'let',
+        'subject' => 'general-information',
+    ], [], [], $cookie);
+    httpCheck($incompatibleSubject['status'] === 200
+        && str_contains($incompatibleSubject['output'], 'do not belong to the selected board'),
+        'a subject from another board was not rejected');
+
+    $incompatibleTopic = $simulator->request('GET', '/flashcards', [
+        'board' => 'let',
+        'subject' => 'english',
+        'topic' => 'let-art-interpretation',
+    ], [], [], $cookie);
+    httpCheck($incompatibleTopic['status'] === 200
+        && str_contains($incompatibleTopic['output'], 'do not belong to the selected board'),
+        'a topic from a different effective subject was not rejected');
+
     $isolatedReview = $simulator->request('GET', '/flashcards/review', [], [], [], ['PHPSESSID' => 'batch676-flashcards-b-' . bin2hex(random_bytes(8))]);
     httpCheck($isolatedReview['status'] === 200 && str_contains($isolatedReview['output'], 'Recall before revealing'), 'isolated learner could not access review flow');
 
@@ -115,7 +132,7 @@ try {
     $count = (int) $pdo->query("SELECT COUNT(*) FROM storage_records WHERE collection = 'flashcard_state'")->fetchColumn();
     httpCheck($count === 1, 'review POST did not create exactly one SQLite state row');
 
-    echo "[PASS] Landing, review, reveal, filters, empty states, and mobile-safe form actions render through public/index.php.\n";
+    echo "[PASS] Landing, review, reveal, compatible board/subject/topic filters, empty states, and mobile-safe form actions render through public/index.php.\n";
     echo "[PASS] CSRF, rating, card-key, request-owner, PRG, persistence, and isolated-session boundaries hold over HTTP.\n";
 } finally {
     putenv('DB_DRIVER');

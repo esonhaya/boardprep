@@ -67,6 +67,9 @@ final class BaseSpecificationFactory
             timeLimitMinutes:
                 max(0, (int) ($options['time_limit_minutes'] ?? 0)),
 
+            subjectExplicit:
+                (bool) ($options['subject_explicit'] ?? false),
+
         );
 
     }

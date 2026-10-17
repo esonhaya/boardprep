@@ -28,6 +28,11 @@ final class QuestionPoolFilter
             $examEligibility = $request->exam === null ? null : \App\Services\Question\QuestionEligibilityService::forExam($question, $request->exam, $eligibilityIndex);
             if ($request->exam !== null && $examEligibility === null
                 && (array_key_exists('board', $question) || array_key_exists('taxonomy', $question))) continue;
+            if ($request->exam !== null && trim((string) ($examEligibility['subject_id'] ?? '')) === '') {
+                // A board-level record without a verifiable destination
+                // subject cannot satisfy an explicit exam-scoped request.
+                continue;
+            }
             if ($civilServiceLevel !== null) {
                 $subjectForLevel = trim((string) ($examEligibility['subject_id'] ?? ''));
                 if ($subjectForLevel === '') {
@@ -52,10 +57,9 @@ final class QuestionPoolFilter
                     $question['let_placement'] = $matchedLetPlacement;
                 }
             }
-            $subject=$taxonomy['subject_id']??$question['subject']??null;
-            if ($examEligibility !== null && ($examEligibility['subject_id'] ?? '') !== '') {
-                $subject = $examEligibility['subject_id'];
-            }
+            $subject=$examEligibility !== null
+                ? $examEligibility['subject_id']
+                : ($taxonomy['subject_id']??$question['subject']??null);
             $domain=$taxonomy['domain_id']??$question['domain']??null;
             $topic=$taxonomy['topic_id']??$question['topic']??null;
             $status=strtolower(trim((string)($question['status']??'active')));

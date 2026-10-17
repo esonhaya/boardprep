@@ -12,6 +12,9 @@
     "test:browser": "node tools/run-browser-tests.cjs",
     "test:browser:mobile": "node tools/run-browser-tests.cjs --project=mobile",
     "test:browser:desktop": "node tools/run-browser-tests.cjs --project=desktop",
+    "test:explore": "node tools/run-site-explorer.cjs --mode=full",
+    "test:explore:smoke": "node tools/run-site-explorer.cjs --mode=smoke",
+    "test:explore:full": "node tools/run-site-explorer.cjs --mode=full",
     "test:browser:update-snapshots": "node tools/run-browser-tests.cjs --update-snapshots",
     "test:browser:install": "playwright install chromium"
   },

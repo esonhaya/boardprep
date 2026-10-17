@@ -339,6 +339,9 @@
   function renderRouteLinks(scenario, record) {
     const container = $('#routeLinks');
     container.replaceChildren();
+    const intentNote = $('#routeIntentNote');
+    intentNote.textContent = scenario.route_note || '';
+    intentNote.hidden = !scenario.route_note;
     scenario.routes.forEach((route, index) => {
       const link = document.createElement('a');
       link.className = 'route-link';
@@ -848,6 +851,12 @@
     });
     sections.push('## GENERAL_FEEDBACK · General feedback', '');
     sections.push(renderObservationGroup(report.GENERAL_FEEDBACK || []));
+    sections.push('## DRAFT_OBSERVATIONS · Unsubmitted draft notes', '');
+    const draftItems = [...(report.DRAFT_OBSERVATIONS || [])];
+    if (report.GENERAL_DRAFT) draftItems.push(report.GENERAL_DRAFT);
+    sections.push(draftItems.length
+      ? draftItems.map((item, index) => `### DRAFT · ${item.case_id || 'General feedback'} · Note ${index + 1}\n\n${renderObservationFields(item)}`).join('\n\n')
+      : '_No unfinished draft notes._');
     sections.push('## ALL_REPORTED_BUGS · All reported bugs', '');
     sections.push(renderTriageGroup(report.ALL_REPORTED_BUGS || []));
     sections.push('## ALL_REQUESTED_IMPROVEMENTS · Requested improvements and missing features', '');
@@ -987,6 +996,10 @@ JSON export includes all expected, actual, improvement, reproduction-step, prior
     $('#savedSessions').addEventListener('change', (event) => { void changeSession(event.target.value); });
     $('#newSession').addEventListener('click', () => { void createNewSession(); });
     $('#launchNextTest').addEventListener('click', () => { void launchScenario(nextScenario()); });
+    $('#dashboardExport').addEventListener('click', async () => {
+      showScreen('export');
+      await refreshExportPreview();
+    });
     $('#returnToGuide').addEventListener('click', () => {
       $('#resultTitle').focus();
       $('#resultTitle').scrollIntoView({ behavior: 'smooth', block: 'center' });

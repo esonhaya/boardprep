@@ -11,6 +11,7 @@ $recommendations = $dashboard["recommendations"] ?? [];
 $studyPlan = $dashboard["studyPlan"] ?? [];
 $history = $history ?? [];
 $weaknesses = is_array($weaknesses ?? null) ? $weaknesses : [];
+$preferences = is_array($preferences ?? null) ? $preferences : [];
 $taxonomyLabel = static fn(string $collection, mixed $id): string => \App\Services\Shared\TaxonomyStorageService::label($collection, $id);
 $learningContextLabel = static function (array $row) use ($taxonomyLabel): string {
     $labels = [];
@@ -40,6 +41,10 @@ $learningContextLabel = static function (array $row) use ($taxonomyLabel): strin
 </p>
 
 <p><a class="button" href="/flashcards">Review flashcards</a><?php if (!empty($weaknesses)): ?> <a class="button button-outline" href="/flashcards/review?mode=weakness">Review weak topics</a><?php endif; ?></p>
+<?php if (($preferences['preferred_board'] ?? '') !== ''): ?>
+    <?php $preferredBoardLabel = \App\Services\Shared\TaxonomyStorageService::label('boards', (string) $preferences['preferred_board']); $preferredSubjectLabel = ($preferences['preferred_subject'] ?? '') !== '' ? \App\Services\Shared\TaxonomyStorageService::label('subjects', (string) $preferences['preferred_subject']) : ''; $preferredPracticeQuery = ['exam' => $preferences['preferred_board']]; if (($preferences['preferred_subject'] ?? '') !== '') $preferredPracticeQuery['subject'] = $preferences['preferred_subject']; ?>
+    <p><a class="button button-outline" href="/quiz?<?= htmlspecialchars(http_build_query($preferredPracticeQuery), ENT_QUOTES, 'UTF-8') ?>">Practice with <?= htmlspecialchars($preferredBoardLabel !== '' ? $preferredBoardLabel : (string) $preferences['preferred_board'], ENT_QUOTES, 'UTF-8') ?><?= $preferredSubjectLabel !== '' ? ' · ' . htmlspecialchars($preferredSubjectLabel, ENT_QUOTES, 'UTF-8') : '' ?></a> <a href="/profile">Change learner preferences</a></p>
+<?php endif; ?>
 
 <hr>
 

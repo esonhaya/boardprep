@@ -66,10 +66,11 @@ return [
     'MVP-10' => [
         'title' => 'Check empty and unavailable states',
         'why' => 'Check that an unavailable topic or action explains what the learner can do next.',
+        'route_note' => 'These are deliberate negative tests. The topic does not exist, the quiz action is invalid, and the flashcard set is empty. A clear message, safe recovery, or not-found response is expected; these URLs are not normal pages that should be added.',
         'routes' => [
-            ['label' => 'No-match LET topic', 'path' => '/quiz?exam=LET&topic=__no_such_topic__'],
-            ['label' => 'Invalid quiz action', 'path' => '/quiz?action=not-a-real-action'],
-            ['label' => 'Empty flashcard review', 'path' => '/flashcards/review?include_new=0'],
+            ['label' => 'No-match LET topic (intentional empty state)', 'path' => '/quiz?exam=LET&topic=__no_such_topic__'],
+            ['label' => 'Invalid quiz action (intentional rejected route)', 'path' => '/quiz?action=not-a-real-action'],
+            ['label' => 'Empty flashcard review (intentional empty state)', 'path' => '/flashcards/review?include_new=0'],
         ],
     ],
     'MVP-11' => [

@@ -18,6 +18,7 @@ final class AcceptanceFeedbackReport
         $counts = ['PASS' => 0, 'FAIL' => 0, 'BLOCKED' => 0, 'NOT_APPLICABLE' => 0, 'NOT_RUN' => 0];
         $cases = [];
         $observations = [];
+        $draftObservations = [];
         foreach ($scenarios as $scenario) {
             $caseId = (string) $scenario['case_id'];
             $entry = (array) (($session['cases'] ?? [])[$caseId] ?? []);
@@ -32,6 +33,10 @@ final class AcceptanceFeedbackReport
             $items = array_values(array_filter((array) ($entry['observations'] ?? []), 'is_array'));
             foreach ($items as $item) {
                 $observations[] = ['case_id' => $caseId] + $item;
+            }
+            $draft = is_array($entry['draft'] ?? null) ? $entry['draft'] : [];
+            if (self::hasDraftContent($draft)) {
+                $draftObservations[] = ['case_id' => $caseId, 'status' => 'DRAFT'] + $draft;
             }
             $categories = array_values(array_unique(array_map(
                 static fn(array $item): string => (string) ($item['category'] ?? 'OTHER'),
@@ -73,6 +78,10 @@ final class AcceptanceFeedbackReport
         }
 
         $generalFeedback = array_values(array_filter((array) ($session['general_feedback'] ?? []), 'is_array'));
+        $generalDraft = is_array($session['general_draft'] ?? null) ? $session['general_draft'] : [];
+        $generalDraftExport = self::hasDraftContent($generalDraft)
+            ? ['case_id' => 'GENERAL_FEEDBACK', 'status' => 'DRAFT'] + $generalDraft
+            : null;
         $triageObservations = array_merge(
             $observations,
             array_map(static fn(array $item): array => ['case_id' => 'GENERAL_FEEDBACK'] + $item, $generalFeedback)
@@ -116,12 +125,25 @@ final class AcceptanceFeedbackReport
             'OVERALL_HUMAN_ACCEPTANCE_STATUS' => $overall,
             'CASE_RESULTS' => $cases,
             'GENERAL_FEEDBACK' => $generalFeedback,
+            // Draft notes are exported verbatim but never counted as
+            // submitted observations or as a human test result.
+            'DRAFT_OBSERVATIONS' => $draftObservations,
+            'GENERAL_DRAFT' => $generalDraftExport,
             'ALL_REPORTED_BUGS' => $bugs,
             'ALL_REQUESTED_IMPROVEMENTS' => $improvements,
             'UNRESOLVED_TESTS' => $unresolved,
             'FEEDBACK_COUNTS_BY_CATEGORY' => $categoryCounts,
             'SUMMARY_FOR_NEXT_CODEX_BATCH' => self::triageSummary($counts, $categoryCounts, $unresolved, count($generalFeedback)),
         ];
+    }
+
+    private static function hasDraftContent(array $draft): bool
+    {
+        foreach ($draft as $key => $value) {
+            if (in_array((string) $key, ['category', 'priority'], true)) continue;
+            if (is_scalar($value) && trim((string) $value) !== '') return true;
+        }
+        return false;
     }
 
     private static function triageSummary(array $counts, array $categoryCounts, array $unresolved, int $generalCount): string

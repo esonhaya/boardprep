@@ -83,6 +83,12 @@ try {
             $assert(str_starts_with($route['path'], '/') && !str_starts_with($route['path'], '//'), 'A guided route can navigate outside the application.');
         }
     }
+    $emptyStateScenario = AcceptanceScenarioCatalog::find('MVP-10', $root);
+    $assert(is_array($emptyStateScenario)
+        && str_contains((string) ($emptyStateScenario['route_note'] ?? ''), 'deliberate negative tests')
+        && count((array) ($emptyStateScenario['routes'] ?? [])) === 3
+        && str_contains((string) ($emptyStateScenario['routes'][0]['label'] ?? ''), 'intentional empty state'),
+        'MVP-10 did not explain its direct, deliberate negative-test routes.');
     foreach ([['192.0.2.4', '127.0.0.1'], ['127.0.0.1', 'example.invalid']] as [$remoteAddress, $hostHeader]) {
         [$exitCode, $stdout, $stderr] = $probeLocalBoundary($remoteAddress, $hostHeader);
         $assert(
@@ -127,6 +133,12 @@ try {
     $assert(($resumed['cases']['MVP-03']['draft']['comments'] ?? '') === $firstComment, 'An interrupted draft did not recover exactly.');
     $assert(($resumed['active_case'] ?? '') === 'MVP-03', 'The current guided test did not resume.');
     $assert(($resumed['build_sha'] ?? '') === $build, 'Resuming changed the build identity.');
+    $draftReport = AcceptanceFeedbackReport::build($resumed, $root);
+    $assert(($draftReport['TESTS_NOT_RUN'] ?? 0) === 12
+        && count((array) ($draftReport['DRAFT_OBSERVATIONS'] ?? [])) === 1
+        && ($draftReport['DRAFT_OBSERVATIONS'][0]['status'] ?? '') === 'DRAFT'
+        && ($draftReport['DRAFT_OBSERVATIONS'][0]['comments'] ?? '') === $firstComment,
+        'A saved unfinished draft was omitted, changed, or counted as a submitted result.');
 
     $store->addObservation($ownerOne, $sessionId, 'MVP-03', $draft);
     $second = AcceptanceSessionStore::emptyObservation();
