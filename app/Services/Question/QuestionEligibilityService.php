@@ -746,9 +746,25 @@ final class QuestionEligibilityService
                 $subjects = is_array($subjectIds) ? $subjectIds : [];
                 $placements = is_array($override['placements'] ?? null) ? $override['placements'] : [];
                 $placement = is_array($placements[$exam] ?? null) ? $placements[$exam] : [];
+                $effectiveSubject = self::resolvedSubject(
+                    $question,
+                    $exam,
+                    (string) ($placement['subject_id'] ?? $subjects[$exam] ?? $entry['subject_id'] ?? '')
+                );
+                // Match the request-scoped index: canonical taxonomy can
+                // resolve a blank placement only when the question's source
+                // board is the selected exam. Reusable destination placements
+                // still require an explicit effective subject.
+                if (trim($effectiveSubject) === '') {
+                    $taxonomy = is_array($question['taxonomy'] ?? null) ? $question['taxonomy'] : [];
+                    $canonicalBoard = self::normalize((string) ($taxonomy['board_id'] ?? $question['board'] ?? ''));
+                    if ($canonicalBoard === $exam) {
+                        $effectiveSubject = (string) ($taxonomy['subject_id'] ?? $question['subject_id'] ?? '');
+                    }
+                }
                 return [
                     'exam_id' => $exam,
-                    'subject_id' => self::resolvedSubject($question, $exam, (string) ($placement['subject_id'] ?? $subjects[$exam] ?? $entry['subject_id'] ?? '')),
+                    'subject_id' => $effectiveSubject,
                     'placement' => $placement,
                     'variant_placements' => is_array($override['variant_placements'] ?? null)
                         ? $override['variant_placements']

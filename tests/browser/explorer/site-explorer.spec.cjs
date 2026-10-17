@@ -257,7 +257,7 @@ test('bounded stateful BoardPrep journey exploration', async ({ page }, testInfo
 
     const boardList = mode === 'smoke' ? seededShuffle(BOARDS, seed).slice(0, 2) : seededShuffle(BOARDS, seed);
     for (const [code] of boardList) {
-      if (Date.now() - started > maxDurationMs || evidence.actions_executed >= maxActions) {
+      if (Date.now() - started > maxDurationMs || evidence.actions_executed >= maxActions || evidence.routes_visited.length >= maxPages) {
         evidence.untested_paths.push(`Stopped at the configured action/time budget before ${code}.`);
         break;
       }
@@ -412,7 +412,7 @@ test('bounded stateful BoardPrep journey exploration', async ({ page }, testInfo
 
     const auxiliary = ['/study', '/study-library', '/history', '/progress', '/profile', '/privacy', '/flashcards'];
     for (const route of auxiliary) {
-      if (Date.now() - started > maxDurationMs || evidence.actions_executed >= maxActions || routeKeys.size >= maxPages) break;
+      if (Date.now() - started > maxDurationMs || evidence.actions_executed >= maxActions || evidence.routes_visited.length >= maxPages) break;
       activeUrl = `${APP}${route}`;
       const response = await page.goto(activeUrl);
       await inspectPage(activeUrl, response);
@@ -501,7 +501,7 @@ test('bounded stateful BoardPrep journey exploration', async ({ page }, testInfo
     }
 
     // Bounded dynamic route sweep uses only discovered same-origin safe links.
-    while (queue.length > 0 && routeKeys.size < maxPages && evidence.actions_executed < maxActions && Date.now() - started <= maxDurationMs) {
+    while (queue.length > 0 && evidence.routes_visited.length < maxPages && evidence.actions_executed < maxActions && Date.now() - started <= maxDurationMs) {
       const candidate = queue.shift();
       if (!candidate || routeKeys.has(candidate)) continue;
       const safe = allowedUrl(candidate);

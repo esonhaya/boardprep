@@ -12,6 +12,21 @@ use App\Services\Quiz\Start\QuizStartPreparationService;
 
 $questions = \App\Core\App::container()->get(\App\Repositories\QuestionRepository::class)->all();
 $index = QuestionEligibilityService::index();
+$legacyBlankPlacement = null;
+foreach ($questions as $question) {
+    if ((string) ($question['id'] ?? '') === '2771') {
+        $legacyBlankPlacement = $question;
+        break;
+    }
+}
+if (!is_array($legacyBlankPlacement)) {
+    throw new RuntimeException('Expected canonical LET English fixture question 2771 was not found.');
+}
+$indexedLegacyPlacement = QuestionEligibilityService::forExam($legacyBlankPlacement, 'LET', $index);
+$storageLegacyPlacement = QuestionEligibilityService::forExam($legacyBlankPlacement, 'LET');
+if (($indexedLegacyPlacement['subject_id'] ?? '') !== 'english' || ($storageLegacyPlacement['subject_id'] ?? '') !== 'english') {
+    throw new RuntimeException('Indexed and storage-backed eligibility must both resolve same-board blank LET placement 2771 to canonical English.');
+}
 $checkScoped = static function (string $subject, string $mode = 'practice', bool $adaptive = false) use ($questions, $index): array {
     $prepared = QuizStartPreparationService::prepare([
         'exam' => 'LET',
