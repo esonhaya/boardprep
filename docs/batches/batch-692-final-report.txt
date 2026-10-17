@@ -59,4 +59,4 @@ NEXT_SAFE_BATCH=Batch 693: owner/provider account privacy, deletion, recovery, e
 
 USER_LAUNCH_INSTRUCTIONS=For an isolated manual preview, run `node tests/browser/server.cjs` from the repository and open `http://127.0.0.1:4175/account/register` in Android Chrome. Stop with Ctrl-C; the preview uses disposable temporary learner/account storage. For the automated journey on supported desktop/CI Chromium, run `npm run test:explore:auth:full`. Neither path enables production accounts.
 REPORT_EXPORT_LOCATION=docs/batches/batch-692-final-report.txt
-CLIPBOARD_STATUS=VERIFIED
+CLIPBOARD_STATUS=UNVERIFIED; termux-clipboard-set returned success but termux-clipboard-get returned an empty stream; saved report path is docs/batches/batch-692-final-report.txt
