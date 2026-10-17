@@ -42,6 +42,28 @@ field. Update the production privacy notice only with approved, evidence-backed
 values. Re-run the privacy and production readiness checks after configuration;
 do not mark owner approval or live HTTPS as complete based on local tests.
 
+## Bounded closure checklist for BP662-CAP-001
+
+Use the site-specific table below as the single deployment record. Close the
+capability only after the operator has supplied dated evidence for each item:
+
+1. Name the real operating person or entity and a monitored public learner
+   support/contact route.
+2. Approve the exact privacy notice and record its reviewer and approval date.
+3. Set application learner-record retention and describe deletion scope,
+   including records kept in logs, provider backups, or external copies.
+4. Identify the hosting provider, account region, data location, PHP runtime,
+   and required extensions from the selected live account.
+5. Verify live HTTPS redirect, certificate validity and renewal, proxy HTTPS
+   detection, and the `Secure`, `HttpOnly`, and `SameSite=Lax` session cookie.
+6. Verify storage/session paths and permissions, session isolation, backup
+   access/retention, and the difference between app deletion and backup expiry.
+
+Record a verifier, date, and redacted evidence reference for each result in the
+table. Do not put account credentials, session tokens, or learner records in a
+public report or CI artifact. Leave any item awaiting owner/provider input
+unresolved; no local test can complete those external checks.
+
 See [human acceptance instructions](HUMAN_TESTER_READINESS.md) for the safe
 same-device Android preview. It binds only to loopback and is not a public or
 provider deployment test.
