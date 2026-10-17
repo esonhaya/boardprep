@@ -5,8 +5,8 @@
 ```text
 BATCH=690
 START_TIME=2026-10-17T13:19:38Z (earliest retained task timestamp; invocation time was not captured)
-END_TIME=2026-10-17T14:31Z (rounded closeout time)
-ELAPSED_MINUTES=~71 minutes from the earliest retained task timestamp; invocation time was not captured
+END_TIME=2026-10-17T14:32Z (rounded closeout time)
+ELAPSED_MINUTES=~73 minutes from the earliest retained task timestamp; invocation time was not captured
 HEAD_BEFORE=cfccd6b64d73798f0942485c0ac421f4457ddf2a
 HEAD_AFTER_APPLICATION=28de92ad49e17fd1edaee33b2bc89ddbe5d0337d
 HEAD_AFTER_DOCUMENTATION=25d7fe493537c7393746fa671c7f59ebf85bdb59 (owner handoff and evidence registration; final report closeout follows)
@@ -53,7 +53,7 @@ PRIVACY_OWNER_APPROVAL_STATUS=AWAITING_OWNER_APPROVAL; no owner/legal terms appr
 LIVE_HOSTING_EVIDENCE_STATUS=NOT_VERIFIED; no live deployment was tested
 
 STORAGE_FREE_BEFORE=about 8.53 million KiB (over 8 GiB)
-STORAGE_FREE_AFTER=8,505,024 KiB (~8.11 GiB) at final repository checks
+STORAGE_FREE_AFTER=8,501,976 KiB (~8.11 GiB) at final verification
 STORAGE_FLOOR_STATUS=PASS; remained above 1.5 GiB
 CANONICAL_QUESTIONS_BEFORE_AFTER=8,962 / 8,962; IDs, keys, explanations, taxonomy, eligibility, and educational content unchanged
 QUESTION_USAGE_DELTA_STATUS=PASS; 19 pre-existing rows only (timesUsed 19, timesCorrect 18, timesIncorrect 17, updatedAt 19); remained unstaged and unchanged
