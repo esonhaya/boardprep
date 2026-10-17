@@ -809,12 +809,12 @@
       (item.OBSERVATIONS || []).forEach((observation, index) => {
         sections.push(`#### Observation ${index + 1} · ${observation.category || 'OTHER'} · ${observation.priority || 'UNSURE'}`, '');
         [
-          ['COMMENTS', 'What the tester noticed'],
-          ['EXPECTED_BEHAVIOR', 'What the tester expected'],
-          ['ACTUAL_BEHAVIOR', 'What happened instead'],
-          ['SUGGESTED_IMPROVEMENT', 'Suggested improvement'],
-          ['REPRODUCTION_STEPS', 'Reproduction steps'],
-          ['EVIDENCE_REFERENCE', 'Evidence reference'],
+          ['comments', 'What the tester noticed'],
+          ['expected_behavior', 'What the tester expected'],
+          ['actual_behavior', 'What happened instead'],
+          ['suggested_improvement', 'Suggested improvement'],
+          ['reproduction_steps', 'Reproduction steps'],
+          ['evidence_reference', 'Evidence reference'],
         ].forEach(([field, label]) => {
           if (observation[field]) sections.push(`**${label}:**`, '', fenced(observation[field]), '');
         });
@@ -850,12 +850,12 @@ JSON export includes all expected, actual, improvement, reproduction-step, prior
 
   function renderObservationFields(item) {
     return [
-      ['COMMENTS', 'What the tester noticed'],
-      ['EXPECTED_BEHAVIOR', 'What the tester expected'],
-      ['ACTUAL_BEHAVIOR', 'What happened instead'],
-      ['SUGGESTED_IMPROVEMENT', 'Suggested improvement'],
-      ['REPRODUCTION_STEPS', 'Reproduction steps'],
-      ['EVIDENCE_REFERENCE', 'Evidence reference'],
+      ['comments', 'What the tester noticed'],
+      ['expected_behavior', 'What the tester expected'],
+      ['actual_behavior', 'What happened instead'],
+      ['suggested_improvement', 'Suggested improvement'],
+      ['reproduction_steps', 'Reproduction steps'],
+      ['evidence_reference', 'Evidence reference'],
     ].filter(([field]) => item[field]).map(([field, label]) => `**${label}:**\n\n${fenced(item[field])}`).join('\n\n');
   }
 

@@ -61,7 +61,7 @@ test.describe('guided Human Acceptance Center', () => {
     await page.getByRole('button', { name: 'Open test guide' }).click();
     await page.getByLabel(/I tried it and it worked for me/).check();
     await page.getByRole('button', { name: 'Save this result' }).click();
-    await expect(page.locator('#notice')).toContainText('Confirm that you personally tried');
+    await expect(page.locator('#notice')).toContainText(/confirm that you personally tried/i);
     await expect(page.locator('#caseOutcomeBadge')).toHaveText('NOT RUN');
     const csrfStatus = await page.evaluate(async () => {
       const response = await fetch('/developer/acceptance/update', {
@@ -130,6 +130,9 @@ test.describe('guided Human Acceptance Center', () => {
     expect(report.TESTS_TOTAL).toBe(12);
     expect(report.TESTS_NOT_RUN).toBe(12);
     expect(report.CASE_RESULTS[0].OBSERVATIONS[0].comments).toBe(comment);
+    expect(report.CASE_RESULTS[0].OBSERVATIONS[0].expected_behavior).toBe('I expected clear feedback.');
+    expect(report.CASE_RESULTS[0].OBSERVATIONS[0].actual_behavior).toBe('I saw no feedback.');
+    expect(report.CASE_RESULTS[0].OBSERVATIONS[0].reproduction_steps).toBe('Open the page, then tap the button.');
     expect(report.CASE_RESULTS[0].EVIDENCE_REFERENCES).toEqual(['']);
     expect(report.VIEWPORT).toMatch(/^\d+x\d+ CSS px$/);
     expect(report.OS_AND_VERSION).toMatch(/\S+/);
@@ -145,6 +148,9 @@ test.describe('guided Human Acceptance Center', () => {
     expect(markdown).toContain('REPORT_TYPE=HUMAN_ACCEPTANCE_FEEDBACK');
     expect(markdown).toContain('VIEWPORT=');
     expect(markdown).toContain(comment);
+    expect(markdown).toContain('I expected clear feedback.');
+    expect(markdown).toContain('I saw no feedback.');
+    expect(markdown).toContain('Open the page, then tap the button.');
     expect(markdown).toContain('UNRESOLVED_TESTS');
   });
 
