@@ -81,12 +81,27 @@ final class FlashcardService
         $now = $now ?? new DateTimeImmutable('now');
         $includeNew = (bool) ($filters['include_new'] ?? true);
         unset($filters['include_new']);
-        $allowedFilters = ['board', 'subject', 'topic'];
+        $allowedFilters = ['board', 'subject', 'topic', 'civil_service_level', 'let_variant'];
         foreach ($filters as $name => $value) {
-            if (!in_array($name, $allowedFilters, true)
-                || !is_scalar($value)
-                || trim((string) $value) === '') {
+            if (!in_array($name, $allowedFilters, true)) {
                 throw new InvalidArgumentException('Unsupported flashcard filter.');
+            }
+            if ($name === 'let_variant') {
+                $variant = is_array($value)
+                    ? \App\Services\Quiz\LET\LETVariantRegistry::validateConfiguration($value)
+                    : ['valid' => false];
+                if (($variant['valid'] ?? false) !== true) {
+                    throw new InvalidArgumentException('Invalid LET flashcard variant filter.');
+                }
+                $filters[$name] = $variant['configuration'];
+                continue;
+            }
+            if (!is_scalar($value) || trim((string) $value) === '') {
+                throw new InvalidArgumentException('Unsupported flashcard filter.');
+            }
+            if ($name === 'civil_service_level'
+                && !in_array(strtoupper(trim((string) $value)), ['PROFESSIONAL', 'SUBPROFESSIONAL'], true)) {
+                throw new InvalidArgumentException('Invalid Civil Service flashcard level filter.');
             }
         }
 

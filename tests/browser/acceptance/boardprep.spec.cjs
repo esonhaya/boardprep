@@ -615,6 +615,10 @@ test.describe('BoardPrep learner browser acceptance', () => {
     await page.goto('/study');
     await expect(page.getByRole('link', { name: /Practice with Civil Service.*General Information/ })).toBeVisible();
 
+    await page.goto('/flashcards?include_new=1');
+    await expect(page.locator('#flashcard-board')).toHaveValue('civil-service');
+    await expect(page.getByRole('alert')).toHaveCount(0);
+
     await page.goto('/quiz?exam=LET&subject=english');
     await expect(page.locator('.quiz-context-summary')).toContainText('Licensure Examination for Teachers');
     await expect(page.locator('.quiz-context-summary')).toContainText('English');
@@ -750,7 +754,7 @@ test.describe('BoardPrep learner browser acceptance', () => {
     const noJsPage = await context.newPage();
     try {
       await noJsPage.goto('/quiz?exam=LET&mode=exam');
-      await expect(noJsPage.locator('#exam-timer-fields')).toContainText('Untimed sessions ignore the minutes value');
+      await expect(noJsPage.locator('#timer-mode-help')).toContainText('Untimed sessions ignore the minutes value');
       await expect(noJsPage.locator('#quiz-time-limit-field')).toBeVisible();
       await noJsPage.locator('#quiz-timer-mode').selectOption('untimed');
       await noJsPage.locator('#quiz-time-limit').fill('17');

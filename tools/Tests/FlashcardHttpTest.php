@@ -128,6 +128,41 @@ try {
     $isolatedReview = $simulator->request('GET', '/flashcards/review', [], [], [], ['PHPSESSID' => 'batch676-flashcards-b-' . bin2hex(random_bytes(8))]);
     httpCheck($isolatedReview['status'] === 200 && str_contains($isolatedReview['output'], 'Recall before revealing'), 'isolated learner could not access review flow');
 
+    $preferenceCookie = ['PHPSESSID' => 'batch691-flashcard-preferences-' . bin2hex(random_bytes(8))];
+    $profile = $simulator->request('GET', '/profile', [], [], [], $preferenceCookie);
+    $preferenceToken = responseToken($profile['output']);
+    $savedCse = $simulator->request('POST', '/profile/preferences', [], [
+        'csrf_token' => $preferenceToken,
+        'preferred_board' => 'CSE',
+        'preferred_subject' => '',
+        'let_level' => '',
+        'let_specialization' => '',
+        'civil_service_level' => 'PROFESSIONAL',
+    ], [], $preferenceCookie);
+    httpCheck($savedCse['status'] === 303, 'CSE candidate preference did not save with POST/Redirect/GET');
+    $csePreferredFlashcards = $simulator->request('GET', '/flashcards', ['include_new' => '1'], [], [], $preferenceCookie);
+    httpCheck($csePreferredFlashcards['status'] === 200
+        && str_contains($csePreferredFlashcards['output'], '<option value="civil-service" selected')
+        && !str_contains($csePreferredFlashcards['output'], 'Flashcards are temporarily unavailable'),
+        'inherited CSE Professional preferences made flashcard selection unavailable');
+
+    $profile = $simulator->request('GET', '/profile', [], [], [], $preferenceCookie);
+    $preferenceToken = responseToken($profile['output']);
+    $savedLet = $simulator->request('POST', '/profile/preferences', [], [
+        'csrf_token' => $preferenceToken,
+        'preferred_board' => 'LET',
+        'preferred_subject' => '',
+        'let_level' => 'ELEMENTARY',
+        'let_specialization' => '',
+        'civil_service_level' => '',
+    ], [], $preferenceCookie);
+    httpCheck($savedLet['status'] === 303, 'LET candidate preference did not save with POST/Redirect/GET');
+    $letPreferredFlashcards = $simulator->request('GET', '/flashcards', ['include_new' => '1'], [], [], $preferenceCookie);
+    httpCheck($letPreferredFlashcards['status'] === 200
+        && str_contains($letPreferredFlashcards['output'], '<option value="let" selected')
+        && !str_contains($letPreferredFlashcards['output'], 'Flashcards are temporarily unavailable'),
+        'inherited LET Elementary preferences made flashcard selection unavailable');
+
     $pdo = new PDO('sqlite:' . $sqlitePath);
     $count = (int) $pdo->query("SELECT COUNT(*) FROM storage_records WHERE collection = 'flashcard_state'")->fetchColumn();
     httpCheck($count === 1, 'review POST did not create exactly one SQLite state row');

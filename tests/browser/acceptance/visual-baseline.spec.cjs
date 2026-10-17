@@ -373,7 +373,9 @@ test.describe('BoardPrep deterministic visual baseline', () => {
     await firstStudyMaterialDetail.locator('.study-material-disclosure > summary').click();
     await capture(page, testInfo, entries, 'study-material-detail', { fullPage: false });
 
-    await page.goto('/flashcards?include_new=1');
+    // Use an explicit board for the review-card screenshot so this visual
+    // state does not depend on the CSE preference saved earlier in this test.
+    await page.goto('/flashcards?board=let&include_new=1');
     await expect(page.locator('h1')).toHaveText('Flashcards');
     await capture(page, testInfo, entries, 'flashcard-landing', { fullPage: true });
     await page.getByRole('link', { name: /Start review|Review now/ }).first().click();
