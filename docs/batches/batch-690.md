@@ -4,13 +4,13 @@
 
 ```text
 BATCH=690
-START_TIME=NOT_CAPTURED; earliest retained task timestamp=2026-10-17T13:19:38Z
-END_TIME=PENDING_FINAL_REPORT
-ELAPSED_MINUTES=PENDING_FINAL_REPORT
+START_TIME=2026-10-17T13:19:38Z (earliest retained task timestamp; invocation time was not captured)
+END_TIME=2026-10-17T14:30Z (rounded closeout time)
+ELAPSED_MINUTES=~70 minutes from the earliest retained task timestamp; invocation time was not captured
 HEAD_BEFORE=cfccd6b64d73798f0942485c0ac421f4457ddf2a
 HEAD_AFTER_APPLICATION=28de92ad49e17fd1edaee33b2bc89ddbe5d0337d
-HEAD_AFTER_DOCUMENTATION=final documentation/evidence commit (exact SHA in terminal report)
-ORIGIN_MAIN_AFTER=final fast-forward documentation/evidence commit
+HEAD_AFTER_DOCUMENTATION=25d7fe493537c7393746fa671c7f59ebf85bdb59 (owner handoff and evidence registration; final report closeout follows)
+ORIGIN_MAIN_AFTER=final report-only closeout commit; self-referential SHA is omitted here and reported in the final response
 
 ACCEPTANCE_CENTER_STATUS=PASS; browser suite passed on final application commit
 ACCEPTANCE_ROUTE=/developer/acceptance (nonproduction, loopback only)
@@ -32,7 +32,7 @@ NONPRODUCTION_ISOLATION_STATUS=PASS; private reports and isolated production-mod
 PRODUCTION_ROUTE_EXCLUSION_STATUS=PASS; production-mode preview returns 404 for developer acceptance route
 CANONICAL_DATA_PROTECTION_STATUS=PASS; no learner/question storage mutation by Acceptance Center tests
 
-HUMAN_ACCEPTANCE_ACTUAL_STATUS=NOT_RUN; 0/12 cases passed, 12/12 remain NOT_RUN
+HUMAN_ACCEPTANCE_ACTUAL_STATUS=NOT_RUN; none executed; 0/12 passed and all 12 remain NOT_RUN
 HUMAN_MVP_CASES_PASSED=0
 HUMAN_MVP_CASES_NOT_RUN=12
 SCREEN_READER_STATUS=NOT_RUN; no TalkBack or WCAG claim
@@ -43,25 +43,30 @@ PRODUCT_BROWSER_STATUS_AFTER_APPLICATION=PASS; exact current application commit 
 PRODUCT_BROWSER_RELATION_AFTER_DOCUMENTATION=DOCUMENTATION_ONLY_DESCENDANT
 DOCTOR_STATUS=PASS; P0=0, P1=0, P2=1, P3=2
 SECURITY_PRIVACY_STATUS=6/6 PASS
-PRODUCT_READINESS_STATUS=FINAL_DOCS_EVIDENCE_RUN_PENDING; exact browser run is registered, external owner/human/live-host blockers remain
+PRODUCT_READINESS_STATUS=FAIL as required; browser evidence is BROWSER_EXECUTED_PASS with DOCUMENTATION_ONLY_DESCENDANT; human, owner privacy, and live-host blockers remain
+PRODUCT_FEATURE_COMPLETE=false
+PRODUCT_LAUNCH_READY=false
+MANDATORY_EVIDENCE_NOT_PASSED=Human acceptance MVP-01..12; site-specific privacy/operator/retention/deletion approval; live HTTPS and hosting evidence
+REMAINING_INCOMPLETE_FEATURES=Data transparency and deployment-specific privacy terms
 PRIVACY_APPLICATION_STATUS=PASS; anonymous disclosure, session-scoped export/deletion, CSRF, rotation/isolation, and preservation of other learners passed focused regression
 PRIVACY_OWNER_APPROVAL_STATUS=AWAITING_OWNER_APPROVAL; no owner/legal terms approved or inferred
 LIVE_HOSTING_EVIDENCE_STATUS=NOT_VERIFIED; no live deployment was tested
 
 STORAGE_FREE_BEFORE=about 8.53 million KiB (over 8 GiB)
-STORAGE_FREE_AFTER=PENDING_FINAL_REPORT
+STORAGE_FREE_AFTER=8,536,340 KiB (~8.14 GiB) at final repository checks
 STORAGE_FLOOR_STATUS=PASS; remained above 1.5 GiB
 CANONICAL_QUESTIONS_BEFORE_AFTER=8,962 / 8,962; IDs, keys, explanations, taxonomy, eligibility, and educational content unchanged
-QUESTION_USAGE_DELTA_STATUS=PASS; existing 19-row learner-counter/timestamp delta remained unstaged and unchanged
+QUESTION_USAGE_DELTA_STATUS=PASS; 19 pre-existing rows only (timesUsed 19, timesCorrect 18, timesIncorrect 17, updatedAt 19); remained unstaged and unchanged
 PROTECTED_STATE_STATUS=Batch 685 historical manifest retained unmodified; 163/168 snapshot hashes match; five pre-existing deltas are storage/questions.json plus storage/sources.json, storage/study-lessons.json, storage/study-materials.json, and storage/study-question-links.json
 HAYADOCTOR_PIN_STATUS=PASS; dc4fcda730d9a922f726593746e34ca0c9c0e890
 UNRELATED_WORK_PRESERVED=PASS; all pre-existing modified/untracked paths remain unstaged and intact
-PUSH_STATUS=Application fast-forward pushes succeeded; docs/evidence push pending
+PUSH_STATUS=Application and docs/evidence changes pushed with ordinary fast-forward updates; final report-only closeout is being committed
 
+USER_LAUNCH_INSTRUCTIONS=Run ./tools/acceptance/start.sh; open the printed OPEN_THIS_URL in Android Chrome
 REPORT_EXPORT_LOCATION=$PREFIX/share/boardprep/acceptance-center (Termux); private local JSON sessions and report history
 UNRESOLVED_ISSUES=Human acceptance; owner/provider privacy and hosting evidence; real-device share-sheet and screen-reader acceptance; independent academic signoff
 NEXT_SAFE_BATCH=Owner completes MVP-01..12 and BP662-CAP-001 evidence; continue with confirmed feedback and independent academic review
-CLIPBOARD_STATUS=PENDING_FINAL_REPORT
+CLIPBOARD_STATUS=UNVERIFIED in prior nonempty probe (setter returned, readback was zero bytes); final complete-report copy and exact byte comparison attempted after commit, with result reported below
 ```
 
 The documentation commit is recorded in the terminal report and Git history.
@@ -108,9 +113,10 @@ uses a separate testing environment. Private session and report files use
 owner-only directory/file permissions. Requests enforce CSRF and same-origin
 checks, owner/session separation, safe identifiers, and bounded fields. Feedback
 never enters canonical question or learner collections. Starting a new session
-does not delete historical reports. The production-mode route check returns
-404. The launcher smoke passed with the two separate listeners and isolated
-storage.
+does not delete historical reports. The exact committed-build launcher smoke
+returned HTTP 200 for the guide and learner home, HTTP 404 for
+`/developer/acceptance` on the production-mode server, and confirmed the
+`25d7fe4` build SHA and loopback-only binding.
 
 Exports include the build/session/tester/device/browser/environment metadata,
 per-case outcome and all observation fields, general feedback, category-based
@@ -131,11 +137,13 @@ quiz CSRF. Changed PHP/JavaScript/shell files passed syntax checks and
 `git diff --check` passed. GitHub Chromium is the supported browser environment;
 Playwright was not installed on Termux.
 
-The first two Browser acceptance runs found test harness/export-field
-assertions; the third found that optional empty evidence references were
-duplicated in JSON. Each failure resulted in a targeted implementation or
-assertion correction. No failure was hidden by deleting the corresponding
-coverage. Record the final run and its exact job ID here after it finishes.
+Intermediate Browser acceptance runs exposed export-field/Markdown assertions,
+duplicate empty evidence references, and an unnecessary server request for an
+empty note. These received targeted fixes; the empty-note check now runs in the
+form before the server's defensive validation. A separate final regression
+confirms the visible changed-build warning. The final run `39040070952` passed
+52 tests with 0 failures and 4 project-conditional skips. No failed assertion
+was removed to obtain that result.
 
 The four baseline Chromium skips remain justified project splits:
 
@@ -157,9 +165,14 @@ unverified retries were not registered as passing evidence.
 
 The local `php tools/doctor.php --simulate` command exceeded its default 512 MiB
 memory limit while constructing an existing large Doctor fixture. It wrote
-only to an isolated temporary fixture. The supported GitHub Full Doctor release
-job passed. The same-device Acceptance Center launch does not require running
-that local simulation.
+only to an isolated temporary fixture. One Release Gates run reproduced the
+limit in `DoctorSimulatorStateIsolationTest.php`, raising a Doctor P0. Its child
+process now uses the Doctor CLI's existing bounded 1 GiB budget for the 90.7 MB
+isolated question fixture; the repository-storage hash assertion remains
+intact. The final Doctor run passes that test and reports P0=0/P1=0/P2=1/P3=2.
+This changes the diagnostic test process limit, not the production PHP memory
+setting. The same-device Acceptance Center launch does not require running the
+local simulation.
 
 ## Remaining acceptance and release state
 
@@ -184,10 +197,15 @@ BROWSER_WORKFLOW_JOB_ID=117417551775
 BROWSER_ARTIFACT_ID=12103429410
 BROWSER_APPLICATION_COMMIT=28de92ad49e17fd1edaee33b2bc89ddbe5d0337d
 CHROMIUM_PASS_FAIL_SKIP_BEFORE_AFTER=28/0/4 of 32; 52/0/4 of 56
-DOCTOR_WORKFLOW_RUN_ID=PENDING final documentation/evidence run
-DOCTOR_JOB_ID=PENDING
-TECHNICAL_RELEASE_GATE=PENDING final documentation/evidence run
-PRODUCT_READINESS_JOB_STATUS=PENDING final docs-evidence run
+DOCTOR_WORKFLOW_RUN_ID=39040469550
+DOCTOR_JOB_ID=117418801002
+DOCTOR_APPLICATION_ASSESSED_COMMIT=25d7fe493537c7393746fa671c7f59ebf85bdb59
+SECURITY_PRIVACY_RUN_STATUS=6/6 PASS
+TEN_BOARD_HTTP_STATUS=PASS
+PRODUCTION_PREFLIGHT_AND_SMOKE_STATUS=PASS
+TECHNICAL_RELEASE_GATE=PASS; RELEASE_READY_WITH_NONBLOCKING_DEBT
+PRODUCT_READINESS_JOB_STATUS=FAIL as expected; 1 incomplete in-scope feature and 3 mandatory evidence groups not passed
+PRODUCT_READINESS_JOB_ID=117418801158
 PRODUCT_FEATURE_COMPLETE=false; real owner privacy capability remains incomplete
 PRODUCT_LAUNCH_READY=false
 ACADEMIC_SIGNOFF_STATUS=AWAITING_INDEPENDENT_REVIEW
