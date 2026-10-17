@@ -8,6 +8,7 @@ on:
       - 'public/**'
       - 'storage/**'
       - 'tools/**'
+      - 'docs/release-evidence/browser-workflows.json'
       - 'composer.json'
       - 'composer.lock'
       - '.github/workflows/release-gates.yml'
@@ -18,6 +19,7 @@ on:
       - 'public/**'
       - 'storage/**'
       - 'tools/**'
+      - 'docs/release-evidence/browser-workflows.json'
       - 'composer.json'
       - 'composer.lock'
       - '.github/workflows/release-gates.yml'
@@ -34,6 +36,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          # BrowserEvidenceService proves historical ancestry for registered runs.
+          # A shallow checkout makes a valid documentation-only descendant look unrelated.
+          fetch-depth: 0
           submodules: recursive
 
       - name: Set up PHP

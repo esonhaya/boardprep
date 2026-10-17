@@ -46,17 +46,54 @@ final class ExamIntelligenceService
 
     public static function validate(): array
     {
-        $sourceIds = array_fill_keys(array_map(static fn(array $source): string => (string) ($source['id'] ?? ''), SourceRegistryService::all()), true);
-        $invalid = [];
-        foreach (self::all() as $signal) {
-            if (!in_array((string) ($signal['signal_type'] ?? ''), self::TYPES, true)
-                || !isset($sourceIds[(string) ($signal['source_id'] ?? '')])
-                || trim((string) ($signal['exam'] ?? '')) === ''
-                || !in_array((string) ($signal['confidence'] ?? ''), ['high', 'medium', 'low'], true)) {
-                $invalid[] = (string) ($signal['id'] ?? '<missing>');
+        $sourceIds = [];
+        foreach (SourceRegistryService::all() as $source) {
+            $sourceId = trim((string) ($source['id'] ?? ''));
+            if ($sourceId !== '') {
+                $sourceIds[$sourceId] = true;
             }
         }
-        return ['valid' => $invalid === [], 'invalid' => array_values(array_unique($invalid)), 'total' => count(self::all())];
+        $invalid = [];
+        $issues = [];
+        foreach (self::all() as $signal) {
+            $id = trim((string) ($signal['id'] ?? '')) ?: '<missing>';
+            $type = (string) ($signal['signal_type'] ?? '');
+            $sourceId = trim((string) ($signal['source_id'] ?? ''));
+            $exam = trim((string) ($signal['exam'] ?? ''));
+            $confidence = (string) ($signal['confidence'] ?? '');
+            if (!in_array($type, self::TYPES, true)) {
+                $issues[] = self::issue($id, 'Signal type is not recognized: ' . ($type !== '' ? $type : '<missing>') . '.', 'Use a supported exam-intelligence signal type.');
+            }
+            if ($sourceId === '' || !isset($sourceIds[$sourceId])) {
+                $issues[] = self::issue($id, 'Signal references an unknown source: ' . ($sourceId !== '' ? $sourceId : '<missing>') . '.', 'Register the supporting source or repair the source ID.');
+            }
+            if ($exam === '') {
+                $issues[] = self::issue($id, 'Signal has no examination identifier.', 'Set the canonical examination or board ID.');
+            }
+            if (!in_array($confidence, ['high', 'medium', 'low'], true)) {
+                $issues[] = self::issue($id, 'Signal confidence is invalid: ' . ($confidence !== '' ? $confidence : '<missing>') . '.', 'Set confidence to high, medium, or low with appropriate evidence.');
+            }
+        }
+        foreach ($issues as $issue) {
+            $invalid[] = $issue['record_id'];
+        }
+        return [
+            'valid' => $issues === [],
+            'invalid' => array_values(array_unique($invalid)),
+            'issues' => $issues,
+            'total' => count(self::all()),
+        ];
+    }
+
+    private static function issue(string $id, string $reason, string $recommendedAction): array
+    {
+        return [
+            'record_type' => 'exam_intelligence',
+            'record_id' => $id,
+            'severity' => 'ERROR',
+            'reason' => $reason,
+            'recommended_action' => $recommendedAction,
+        ];
     }
 
     /** Resolve a factual claim using explicit source authority, never signal volume. */

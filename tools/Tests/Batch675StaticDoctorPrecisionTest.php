@@ -21,11 +21,18 @@ DoctorContext::setSnapshot($snapshot);
 $dependency = (new DependencyConsistencyCheck())->run();
 $signature = (new CallSignatureCheck())->run();
 $assert($dependency->status === 'PASS', 'dependency findings have no unresolved entries');
-// Batch 684 adds one root-qualified StudyResourceReadinessService reference.
-// The source tokenizer prefixes it with App\Core\App; the resolver-backed
-// classifier verifies the actual leading-backslash source token and marks it
-// FIXED_ANALYZER, keeping the additional finding visible without hiding it.
-$assert(str_contains($dependency->summary, '43 analyzer artifact(s)') && str_contains($dependency->summary, '1 justified dynamic call(s)'), '44 dependency findings are classified 43/1');
+$dependencyCounts = [];
+foreach ($dependency->details as $detail) {
+    if (preg_match('/\A(Raw analyzer findings|FIXED_ANALYZER|JUSTIFIED_DYNAMIC|UNRESOLVED): (\d+)\z/', $detail, $match) === 1) {
+        $dependencyCounts[$match[1]] = (int) $match[2];
+    }
+}
+$assert(isset($dependencyCounts['Raw analyzer findings'], $dependencyCounts['FIXED_ANALYZER'], $dependencyCounts['JUSTIFIED_DYNAMIC'], $dependencyCounts['UNRESOLVED'])
+    && $dependencyCounts['Raw analyzer findings'] === $dependencyCounts['FIXED_ANALYZER'] + $dependencyCounts['JUSTIFIED_DYNAMIC'] + $dependencyCounts['UNRESOLVED']
+    && $dependencyCounts['FIXED_ANALYZER'] > 0
+    && $dependencyCounts['JUSTIFIED_DYNAMIC'] > 0
+    && $dependencyCounts['UNRESOLVED'] === 0,
+    'Every raw dependency finding must remain visible in exactly one classification, with no unresolved entries.');
 $assert($signature->status === 'PASS', 'call signatures have no unresolved entries');
 $assert(in_array('FIXED_ANALYZER variadic methods: 8', $signature->details, true), 'only eight over-arity calls to true variadic methods are classified as analyzer artifacts');
 $assert(in_array('JUSTIFIED_DYNAMIC verified spread forwarding: 1', $signature->details, true), 'the one verified spread-forwarding call is classified separately');
@@ -35,7 +42,8 @@ $assert(!DependencyFindingClassifier::isVariadicArgumentCountFalsePositive('Ques
 $aliasFile = tempnam(sys_get_temp_dir(), 'b675-alias-');
 $globalFile = tempnam(sys_get_temp_dir(), 'b675-global-');
 $falseMatchFile = tempnam(sys_get_temp_dir(), 'b675-near-');
-if ($aliasFile === false || $globalFile === false || $falseMatchFile === false) {
+$unknownFile = tempnam(sys_get_temp_dir(), 'b675-unknown-');
+if ($aliasFile === false || $globalFile === false || $falseMatchFile === false || $unknownFile === false) {
     throw new RuntimeException('Unable to create bounded analyzer test fixtures.');
 }
 try {
@@ -62,10 +70,19 @@ try {
         'message' => 'Referenced type Batch675Fixture\\QuizSpecification cannot be resolved',
     ], ['Unrelated\\QuizSpecification' => ['file' => $falseMatchFile]]);
     $assert($nearMiss === null, 'a different FQCN with the same short name is not silently classified');
+
+    file_put_contents($unknownFile, "<?php\nnamespace Batch675Fixture;\n\\Missing\\UnknownDependency::class;\n");
+    $unknown = DependencyFindingClassifier::classify([
+        'file' => $unknownFile,
+        'line' => 3,
+        'message' => 'Referenced class Batch675Fixture\\Missing\\UnknownDependency cannot be resolved',
+    ], []);
+    $assert($unknown === null, 'a genuinely unresolved root-qualified dependency remains unclassified and therefore fails the Doctor check');
 } finally {
     @unlink($aliasFile);
     @unlink($globalFile);
     @unlink($falseMatchFile);
+    @unlink($unknownFile);
 }
 
 $forwarding = DependencyFindingClassifier::isVerifiedVariadicForwarding(

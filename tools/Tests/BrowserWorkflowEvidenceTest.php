@@ -10,6 +10,7 @@ use App\Services\Operations\BrowserEvidenceService;
 $root = dirname(__DIR__, 2);
 $registry = json_decode((string) file_get_contents($root . '/docs/release-evidence/browser-workflows.json'), true, 512, JSON_THROW_ON_ERROR);
 $registrationSource = (string) file_get_contents($root . '/tools/register-browser-evidence.php');
+$releaseWorkflowSource = (string) file_get_contents($root . '/.github/workflows/release-gates.yml');
 $verifiedBaseline = 'deed26cdb202e496cb84aab66310fbd256a5e1b4';
 $actual = BrowserEvidenceService::evaluate($registry, $verifiedBaseline, $root);
 $batch677Records = array_values(array_filter(
@@ -36,6 +37,10 @@ $assert(str_contains($registrationSource, 'extension_loaded(\'curl\')')
     && str_contains($registrationSource, 'CURLOPT_SSL_VERIFYPEER => true')
     && str_contains($registrationSource, 'stream_context_create')
     && !str_contains($registrationSource, 'curl_close('), 'GitHub API registration must use verified TLS, retain a stream fallback, and avoid deprecated cURL cleanup.');
+$doctorJobSource = explode("  security-privacy:", explode("  doctor-release:", $releaseWorkflowSource, 2)[1] ?? '', 2)[0] ?? '';
+$assert(str_contains($doctorJobSource, 'fetch-depth: 0')
+    && substr_count($releaseWorkflowSource, 'docs/release-evidence/browser-workflows.json') === 2,
+    'The Doctor job must fetch full history, and browser evidence updates must rerun release gates.');
 $assert(BrowserEvidenceService::classifyRelation(true, ['docs/batches/batch-677.md']) === 'DOCUMENTATION_ONLY_DESCENDANT', 'Documentation-only relation was rejected.');
 $assert(BrowserEvidenceService::classifyRelation(true, ['app/Controllers/DashboardController.php']) === 'STALE', 'Application code change did not stale earlier browser evidence.');
 $assert(BrowserEvidenceService::classifyRelation(false, []) === 'MISMATCH', 'Non-ancestor workflow evidence was accepted.');
@@ -121,5 +126,87 @@ $newerExactFailure['workflow_conclusion'] = 'failure';
 $failure = BrowserEvidenceService::evaluate(['schema_version' => 1, 'records' => [$record, $newerExactFailure]], $verifiedBaseline, $root);
 $assert(($failure['status'] ?? '') === 'FAIL', 'An exact-commit failure did not supersede older passing documentation-ancestor evidence.');
 
+// Reproduce the Doctor job's checkout boundary: full history can prove a
+// documentation-only descendant, while depth-1 history cannot certify it.
+$historyRoot = sys_get_temp_dir() . '/boardprep-browser-history-' . bin2hex(random_bytes(6));
+if (!mkdir($historyRoot, 0700, true)) {
+    throw new RuntimeException('Unable to create a bounded Browser history fixture.');
+}
+$historyGit = static function (array $arguments, ?string $directory = null): array {
+    $command = 'git ';
+    if ($directory !== null) {
+        $command .= '-C ' . escapeshellarg($directory) . ' ';
+    }
+    $command .= implode(' ', array_map('escapeshellarg', $arguments));
+    $output = [];
+    exec($command . ' 2>&1', $output, $exit);
+    return [$exit, implode("\n", $output)];
+};
+$historyRun = static function (array $arguments, ?string $directory = null) use ($historyGit): string {
+    [$exit, $output] = $historyGit($arguments, $directory);
+    if ($exit !== 0) {
+        throw new RuntimeException('Browser history fixture command failed: ' . $output);
+    }
+    return $output;
+};
+try {
+    $sourceRepository = $historyRoot . '/source';
+    $fullRepository = $historyRoot . '/full';
+    $shallowRepository = $historyRoot . '/shallow';
+    mkdir($sourceRepository, 0700);
+    $historyRun(['init', '-q'], $sourceRepository);
+    $historyRun(['config', 'user.name', 'BoardPrep Browser Fixture'], $sourceRepository);
+    $historyRun(['config', 'user.email', 'browser-fixture@example.invalid'], $sourceRepository);
+    file_put_contents($sourceRepository . '/app.php', "<?php // baseline application\n");
+    $historyRun(['add', 'app.php'], $sourceRepository);
+    $historyRun(['-c', 'user.name=BoardPrep Fixture', '-c', 'user.email=fixture@example.invalid', 'commit', '-qm', 'application baseline'], $sourceRepository);
+    $historyBaseline = $historyRun(['rev-parse', 'HEAD'], $sourceRepository);
+
+    mkdir($sourceRepository . '/docs', 0700);
+    file_put_contents($sourceRepository . '/docs/batch-report.md', "Documentation-only descendant.\n");
+    $historyRun(['add', 'docs/batch-report.md'], $sourceRepository);
+    $historyRun(['-c', 'user.name=BoardPrep Fixture', '-c', 'user.email=fixture@example.invalid', 'commit', '-qm', 'documentation descendant'], $sourceRepository);
+    $historyHead = $historyRun(['rev-parse', 'HEAD'], $sourceRepository);
+
+    $historyUrl = 'file://' . $sourceRepository;
+    $historyRun(['clone', '--quiet', '--no-tags', $historyUrl, $fullRepository]);
+    $historyRun(['clone', '--quiet', '--depth', '1', '--no-tags', $historyUrl, $shallowRepository]);
+    $fullHead = $historyRun(['rev-parse', 'HEAD'], $fullRepository);
+    $shallowHead = $historyRun(['rev-parse', 'HEAD'], $shallowRepository);
+    $historyRecord = $record;
+    $historyRecord['head_sha'] = trim($historyBaseline);
+    $fullHistoryResult = BrowserEvidenceService::evaluate(
+        ['schema_version' => 1, 'records' => [$historyRecord]],
+        trim($fullHead),
+        $fullRepository
+    );
+    $shallowHistoryResult = BrowserEvidenceService::evaluate(
+        ['schema_version' => 1, 'records' => [$historyRecord]],
+        trim($shallowHead),
+        $shallowRepository
+    );
+    $assert(trim($fullHead) === trim($historyHead)
+        && ($fullHistoryResult['status'] ?? '') === 'PASS'
+        && ($fullHistoryResult['relation'] ?? '') === 'DOCUMENTATION_ONLY_DESCENDANT',
+        'Complete Git history must preserve verified documentation-only descendant evidence.');
+    $assert(($shallowHistoryResult['status'] ?? '') !== 'PASS'
+        && ($shallowHistoryResult['relation'] ?? '') === 'MISMATCH',
+        'A shallow checkout missing the evidence commit must fail closed instead of certifying a descendant.');
+} finally {
+    $historyIterator = new RecursiveIteratorIterator(
+        new RecursiveDirectoryIterator($historyRoot, FilesystemIterator::SKIP_DOTS),
+        RecursiveIteratorIterator::CHILD_FIRST
+    );
+    foreach ($historyIterator as $entry) {
+        if ($entry->isDir()) {
+            rmdir($entry->getPathname());
+        } else {
+            unlink($entry->getPathname());
+        }
+    }
+    rmdir($historyRoot);
+}
+
 echo "[PASS] Browser workflow registration validates GitHub conclusions and commit ancestry.\n";
 echo "[PASS] Exact failures, stale code, mismatches, unverified claims, and historical records are distinguished.\n";
+echo "[PASS] Full history preserves documentation descendants; shallow history fails closed.\n";
