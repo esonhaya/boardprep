@@ -340,7 +340,7 @@ test('isolated mobile account journeys preserve authentication and learner owner
     await page.locator('#new-password-confirmation').fill(PASSWORD_A_CHANGED);
     await page.getByRole('button', { name: 'Change password' }).click();
     await expect(page).toHaveURL(/\/account\/security$/);
-    await expect(page.getByRole('status')).toContainText('password changed');
+    await expect(page.getByRole('alert')).toContainText('password changed');
     await pageC.goto(AUTH + '/account/profile');
     await expect(pageC).toHaveURL(/\/account\/login$/);
     scenario('password-change-revokes-other-session', '/account/password', 'Password update invalidates a second active session.');
