@@ -393,6 +393,7 @@ test.describe('BoardPrep deterministic visual baseline', () => {
       expect(structuredConceptId).toBeTruthy();
       const structuredFlashcardQuery = new URLSearchParams({
         include_new: '1',
+        board: 'let',
         card_key: `q:135:formula-or-data:${structuredConceptId}:r1`,
         reveal: '1',
       });

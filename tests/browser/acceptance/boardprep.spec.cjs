@@ -750,33 +750,42 @@ test.describe('BoardPrep learner browser acceptance', () => {
 
   test('exam timer falls back to server validation when JavaScript is disabled', async ({ browser }, testInfo) => {
     test.skip(testInfo.project.name !== 'desktop', 'The no-JavaScript fallback runs once in the desktop project.');
-    const context = await browser.newContext({ javaScriptEnabled: false, baseURL: 'http://127.0.0.1:4173' });
-    const noJsPage = await context.newPage();
-    try {
-      await noJsPage.goto('/quiz?exam=LET&mode=exam');
-      await expect(noJsPage.locator('#timer-mode-help')).toContainText('Untimed sessions ignore the minutes value');
-      await expect(noJsPage.locator('#quiz-time-limit-field')).toBeVisible();
-      await noJsPage.locator('#quiz-timer-mode').selectOption('untimed');
-      await noJsPage.locator('#quiz-time-limit').fill('17');
-      await noJsPage.locator('#quiz-count').selectOption('5');
-      await noJsPage.locator('#start-session-button').click();
-      await expect(noJsPage.locator('.quiz-meta')).toContainText('Question 1 / 5');
-      await expect(noJsPage.locator('.exam-countdown')).toHaveCount(0);
+    const submitNoJavaScriptSession = async (timerMode) => {
+      // Keep each submitted session in its own cookie jar. The first POST
+      // deliberately creates an unfinished quiz; the second case should test
+      // timer normalization without also becoming a replacement-session test.
+      const context = await browser.newContext({ javaScriptEnabled: false, baseURL: 'http://127.0.0.1:4173' });
+      const noJsPage = await context.newPage();
+      try {
+        await noJsPage.goto('/quiz?exam=LET&mode=exam');
+        await expect(noJsPage.locator('#timer-mode-help')).toContainText('Untimed sessions ignore the minutes value');
+        await expect(noJsPage.locator('#quiz-time-limit-field')).toBeVisible();
+        await noJsPage.locator('#quiz-timer-mode').selectOption(timerMode);
+        await noJsPage.locator('#quiz-time-limit').fill(timerMode === 'untimed' ? '17' : '5');
+        await noJsPage.locator('#quiz-count').selectOption('5');
+        const postResponse = noJsPage.waitForResponse((response) =>
+          response.url().endsWith('/quiz') && response.request().method() === 'POST', { timeout: 20_000 });
+        await noJsPage.locator('#start-session-button').click({ noWaitAfter: true, timeout: 20_000 });
+        const response = await postResponse;
+        expect(response.status()).toBeLessThan(400);
+        await expect(noJsPage.locator('.quiz-meta')).toContainText('Question 1 / 5');
+        if (timerMode === 'untimed') {
+          await expect(noJsPage.locator('.exam-countdown')).toHaveCount(0);
+        } else {
+          await expect(noJsPage.locator('.exam-countdown')).toBeVisible();
+        }
+      } finally {
+        await context.close();
+      }
+    };
 
-      await noJsPage.goto('/quiz?exam=LET&mode=exam');
-      await noJsPage.locator('#quiz-timer-mode').selectOption('timed');
-      await noJsPage.locator('#quiz-time-limit').fill('5');
-      await noJsPage.locator('#quiz-count').selectOption('5');
-      await noJsPage.locator('#start-session-button').click();
-      await expect(noJsPage.locator('.exam-countdown')).toBeVisible();
-      recordBrowserEvidence('exam-timer-no-javascript', {
-        untimed_stale_minutes_ignored: true,
-        timed_whole_number_accepted: true,
-        server_side_validation: 'PASS',
-      }, testInfo);
-    } finally {
-      await context.close();
-    }
+    await submitNoJavaScriptSession('untimed');
+    await submitNoJavaScriptSession('timed');
+    recordBrowserEvidence('exam-timer-no-javascript', {
+      untimed_stale_minutes_ignored: true,
+      timed_whole_number_accepted: true,
+      server_side_validation: 'PASS',
+    }, testInfo);
   });
 
   test('table and figure questions remain usable on the production path', async ({ page }, testInfo) => {
