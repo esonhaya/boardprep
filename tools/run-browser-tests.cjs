@@ -67,6 +67,36 @@ if (exitStatus === 0) {
     const tenBoard = readEvidence('ten-board');
     const viewports = readEvidence('viewports');
     const complexContent = readEvidence('complex-content');
+    const accountExplorer = readEvidence('account-explorer');
+    const accountScenarioIds = [
+      'mobile-login-layout-320',
+      'mobile-login-layout-360',
+      'mobile-login-layout-390',
+      'mobile-login-layout-430',
+      'mobile-login-layout-768',
+      'production-route-exclusion',
+      'anonymous-access-and-account-authorization',
+      'anonymous-data-linking-disabled',
+      'csrf-registration-rejection',
+      'registration-recovery-code-generation',
+      'duplicate-registration-enumeration',
+      'wrong-password-generic-response',
+      'login-and-session-rotation',
+      'authenticated-profile-update',
+      'account-export-step-up',
+      'logout-authorization',
+      'account-profile-isolation',
+      'independent-session-profile-persistence',
+      'single-use-recovery-code',
+      'recovery-replay-rejection',
+      'password-change-revokes-other-session',
+      'reauthenticated-deletion-request',
+      'login-rate-limit',
+    ];
+    const commit = spawnSync('git', ['rev-parse', 'HEAD'], {
+      cwd: repositoryRoot,
+      encoding: 'utf8',
+    }).stdout.trim();
     const responsiveStates = readEvidence('responsive-states');
     const requiredViewportSizes = ['320x640', '360x800', '390x844', '430x932', '768x1024'];
     const selectedProjects = process.argv.includes('--project=mobile')
@@ -104,14 +134,13 @@ if (exitStatus === 0) {
       && complexContent.projects.includes('mobile')
       && requiredViewportSizes.every((size) => complexContent.results.mobile?.math?.includes(size))
       && requiredViewportSizes.every((size) => complexContent.results.mobile?.tables?.includes(size))
+      && accountExplorer.status === 'PASS'
+      && accountExplorer.tested_commit === commit
+      && accountScenarioIds.every((id) => accountExplorer.scenarios?.some((item) => item.id === id && item.result === 'PASS'))
       && browserReport.stats?.unexpected === 0
       && browserReport.stats?.expected > 0
       && !process.argv.includes('--update-snapshots')
       && process.env.VISUAL_REGRESSION !== '1';
-    const commit = spawnSync('git', ['rev-parse', 'HEAD'], {
-      cwd: repositoryRoot,
-      encoding: 'utf8',
-    }).stdout.trim();
     const workingTree = spawnSync('git', ['status', '--porcelain'], {
       cwd: repositoryRoot,
       encoding: 'utf8',
@@ -149,6 +178,9 @@ if (exitStatus === 0) {
             'structured_table',
           ].every((journey) => requiredViewportSizes.every((size) => responsiveStates.results.mobile?.[journey]?.includes(size))),
         math_and_table_viewports: complexContent.projects.includes('mobile'),
+        authenticated_account_journeys: accountExplorer.status === 'PASS'
+          && accountExplorer.tested_commit === commit
+          && accountScenarioIds.every((id) => accountExplorer.scenarios?.some((item) => item.id === id && item.result === 'PASS')),
       },
       results: {
         passed: browserReport.stats?.expected ?? null,
@@ -157,6 +189,7 @@ if (exitStatus === 0) {
         flaky: browserReport.stats?.flaky ?? null,
       },
       report: 'test-results/browser-results.json',
+      authentication_report: 'account-explorer.json',
     };
     fs.mkdirSync(path.join(evidenceDirectory, 'test-results'), { recursive: true });
     fs.writeFileSync(

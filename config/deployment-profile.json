@@ -52,6 +52,13 @@
     "json_optional_mutable_stores": [
         "blueprints.json"
     ],
+    "account_preview": {
+        "private_storage": "storage/private/learner-accounts",
+        "enablement_flag": "BOARDPREP_ACCOUNTS_ENABLED=false",
+        "production_routes": "NOT_REGISTERED",
+        "credential_backup": "EXCLUDED_UNTIL_ENCRYPTED_BACKUP_AND_RESTORE_REVIEW",
+        "data_linking": "NOT_IMPLEMENTED_ANONYMOUS_AND_ACCOUNT_IDENTITIES_REMAIN_SEPARATE"
+    },
     "database_modes": [
         "json",
         "sqlite"
@@ -67,6 +74,7 @@
         "storage/question-statistics.json",
         "storage/flashcard_state.json",
         "storage/runtime",
+        "storage/private/learner-accounts",
         ".env"
     ],
     "backup_command": "php tools/backup.php --output=/path/to/backup",

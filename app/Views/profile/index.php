@@ -16,7 +16,7 @@ $recentTrend = $hasCompletedQuizzes
 
 <section class="card learner-preferences" aria-labelledby="learner-preferences-title">
     <h2 id="learner-preferences-title">Your exam preferences</h2>
-    <p>These are stable choices for this browser session. They are separate from the Beginner, Intermediate, or Advanced level estimated from quiz results. Explicit board and subject links always take priority.</p>
+    <p><?= ($accountPreferences ?? false) ? 'These exam preferences are saved to your signed-in account and return on another signed-in browser session.' : 'These choices are saved for this browser session.' ?> They are separate from the Beginner, Intermediate, or Advanced level estimated from quiz results. Explicit board and subject links always take priority.</p>
     <form method="POST" action="/profile/preferences">
         <input type="hidden" name="csrf_token" value="<?= htmlspecialchars((string) ($csrfToken ?? ''), ENT_QUOTES, 'UTF-8') ?>">
         <div class="form-field"><label for="preferred-board">Preferred board</label><select id="preferred-board" name="preferred_board"><option value="">No preference</option><?php foreach (($boards ?? []) as $board): ?><option value="<?= htmlspecialchars((string) ($board['code'] ?? ''), ENT_QUOTES, 'UTF-8') ?>" <?= strtoupper((string) ($preferences['preferred_board'] ?? '')) === strtoupper((string) ($board['code'] ?? '')) ? 'selected' : '' ?>><?= htmlspecialchars((string) ($board['name'] ?? $board['code'] ?? ''), ENT_QUOTES, 'UTF-8') ?></option><?php endforeach; ?></select></div>

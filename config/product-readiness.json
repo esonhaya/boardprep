@@ -1,7 +1,7 @@
 {
     "schema_version": 1,
-    "assessment_id": "batch665-product-deepening",
-    "baseline_commit": "7a3323135826f40124fe605b59c2fb33e67e2163",
+    "assessment_id": "batch692-account-security-foundation",
+    "baseline_commit": "9639fc59fb325b880e4056b84eb23ac11d73a56b",
     "release": "v1.0.1",
     "browser_validation": {
         "STATUS": "EVALUATED_FROM_REGISTERED_GITHUB_RUNS",
@@ -106,6 +106,14 @@
             "LAUNCH_CRITICAL": true,
             "EVIDENCE": ["Random per-session learner identities scope attempts, weakness, and flashcard state; cookie clearing loses access to that identity."],
             "TEST_COVERAGE": ["tools/Tests/MultiAttemptLearningHttpTest.php", "tools/Tests/SessionConfigurationTest.php", "tools/Tests/FlashcardHttpTest.php"]
+        },
+        {
+            "FEATURE": "Nonproduction learner accounts, recovery, and persistent profiles",
+            "STATUS": "IMPLEMENTED_UNVERIFIED",
+            "SCOPE_INCLUDED": false,
+            "LAUNCH_CRITICAL": false,
+            "EVIDENCE": ["Batch 692 adds PHP-native password hashes, one-time recovery codes, locked atomic private account storage, session rotation and expiry, account-scoped learner identities, and persistent preferences. The routes require a nonproduction environment and an explicit default-off flag; public account use remains blocked pending independent review and deployment requirements."],
+            "TEST_COVERAGE": ["tools/Tests/AccountSecurityTest.php", "tools/Tests/AccountHttpTest.php", "tests/browser/accounts/account-auth.spec.cjs"]
         },
         {
             "FEATURE": "Mobile layout and practical accessibility",
@@ -397,15 +405,15 @@
             "ID": "BP662-CAP-002",
             "FEATURE": "Cross-device learner accounts and recovery",
             "USER_IMPACT": "An anonymous learner cannot recover progress after switching browser/device or clearing the session cookie.",
-            "EVIDENCE": "LearnerIdentityService stores a random ID in the PHP session; no account, login, password recovery, or identity linking routes exist. Cross-device access appears in long-term vision, not frozen MVP scope.",
-            "REPRODUCTION": "Complete an attempt and open the app in a new browser session; learner history is not linked.",
+            "EVIDENCE": "Batch 692 adds an experimental nonproduction-only account foundation with cross-session profiles. Production routes stay absent and the feature flag is default-off; no public account enablement is claimed.",
+            "REPRODUCTION": "With BOARDPREP_ACCOUNTS_ENABLED=true under a nonproduction APP_ENV, create and sign into a fixture account from another browser session. Production mode and the default-off configuration return no account route.",
             "SEVERITY": "P2",
-            "ROOT_CAUSE": "The MVP intentionally uses anonymous browser-session identity.",
-            "STATUS": "INTENTIONALLY_DEFERRED",
+            "ROOT_CAUSE": "Public identity and recovery need owner/provider privacy decisions, independent security review, and operational backup/deletion processes beyond the nonproduction foundation.",
+            "STATUS": "FIXED_WITH_LIMITATION",
             "FIX_COMMIT": "",
-            "TEST_COVERAGE": "tools/Tests/MultiAttemptLearningHttpTest.php",
+            "TEST_COVERAGE": "tools/Tests/AccountSecurityTest.php; tools/Tests/AccountHttpTest.php; tests/browser/accounts/account-auth.spec.cjs",
             "RELEASE_BLOCKING": false,
-            "DEPENDENCIES": []
+            "DEPENDENCIES": ["Public accounts remain default-off until BP692-CAP-001 is closed."]
         },
         {
             "ID": "BP662-CAP-003",
@@ -434,6 +442,20 @@
             "TEST_COVERAGE": "tools/Tests/ProductionQuizCsrfTest.php; tools/Tests/DeveloperToolsTest.php",
             "RELEASE_BLOCKING": false,
             "DEPENDENCIES": []
+        },
+        {
+            "ID": "BP692-CAP-001",
+            "FEATURE": "Public learner-account enablement and protected operational recovery",
+            "USER_IMPACT": "Without reviewed recovery, account deletion, encrypted backup/restore, and deployment-specific privacy/session evidence, public account availability could expose persistent learner records or credentials to avoidable risk.",
+            "EVIDENCE": "Batch 692 account routes are registered only outside production and require BOARDPREP_ACCOUNTS_ENABLED=true (default false). The repository backup helper does not include the private credential store because it is not encrypted. No live identity, email delivery, provider retention, or independent review evidence was supplied.",
+            "REPRODUCTION": "Request /account/register in production or with the flag absent/false: route is unavailable. Inspect the privacy/hosting decision sheet and private account backup scope for unresolved owner/provider requirements.",
+            "SEVERITY": "P1",
+            "ROOT_CAUSE": "Public account operations, credential-store backup protection, request handling, and hosting controls require independent review and actual operator/provider decisions.",
+            "STATUS": "PARTIAL",
+            "FIX_COMMIT": "",
+            "TEST_COVERAGE": "tools/Tests/AccountSecurityTest.php; tools/Tests/AccountHttpTest.php; hosted authentication browser journey; independent security review and live deployment evidence still required",
+            "RELEASE_BLOCKING": false,
+            "DEPENDENCIES": ["Independent security review", "Owner-approved privacy/contact/retention/deletion policy", "Encrypted credential backup and restore procedure", "Verified live HTTPS/session/storage configuration", "Reviewed account-recovery operations", "Decide whether production account creation requires a breached-password screening control"]
         }
     ],
     "mandatory_launch_evidence": [

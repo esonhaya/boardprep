@@ -93,6 +93,12 @@ jobs:
             test_path: tools/Tests/SessionConfigurationTest.php
           - test_id: security-trust-boundary
             test_path: tools/Tests/SecurityTrustBoundaryTest.php
+          - test_id: account-security
+            test_path: tools/Tests/AccountSecurityTest.php
+          - test_id: account-http-boundary
+            test_path: tools/Tests/AccountHttpTest.php
+          - test_id: simulator-fixture-privacy
+            test_path: tools/Tests/SimulationFixturePrivacyIsolationTest.php
     steps:
       - uses: actions/checkout@v4
 

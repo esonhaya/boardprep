@@ -1,0 +1,61 @@
+.account-page {
+    width: min(100% - 2rem, 46rem);
+    margin: 1.25rem auto 3rem;
+}
+
+.account-page .form-field {
+    margin-block: 1rem;
+}
+
+.account-page input:not([type="checkbox"]) {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 2.9rem;
+}
+
+.account-page button,
+.account-page .button {
+    min-height: 2.9rem;
+    margin-block: .25rem;
+}
+
+.account-page .account-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+    margin-block: 1.25rem;
+}
+
+.account-page .recovery-code-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+    gap: .5rem;
+    margin-block: 1rem;
+}
+
+.account-page .recovery-code-list code {
+    display: block;
+    padding: .75rem;
+    border: 1px solid #8a96a6;
+    border-radius: .5rem;
+    overflow-wrap: anywhere;
+    background: #f6f8fa;
+}
+
+.account-page .account-delete-panel {
+    margin-block: 1.5rem;
+    padding: 1rem;
+    border: 1px solid #a94a4a;
+    border-radius: .5rem;
+}
+
+@media (max-width: 430px) {
+    .account-page {
+        width: min(100% - 1.25rem, 46rem);
+    }
+
+    .account-page .account-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+}

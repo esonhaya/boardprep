@@ -106,8 +106,13 @@ final class SimulationStorageFixture
 
         $excludedFiles = [
             'attempts.json',
+            'results.json',
+            'history.json',
+            'progress.json',
             'weakness.json',
             'question-statistics.json',
+            'flashcard_state.json',
+            'flashcard-state.json',
             'repository-health.json',
             'doctor-report.json',
             'release-readiness.json',
@@ -126,7 +131,7 @@ final class SimulationStorageFixture
             $firstPathPart = explode(DIRECTORY_SEPARATOR, $relative, 2)[0];
             if (
                 in_array($basename, $excludedFiles, true)
-                || in_array($firstPathPart, ['doctor', 'recovery', 'runtime'], true)
+                || in_array($firstPathPart, ['doctor', 'private', 'recovery', 'runtime'], true)
                 || preg_match('/^batch\d.*\.json$/i', $basename) === 1
                 || preg_match('/^(profile|progress|learner-state|flashcard-state).*\.json$/i', $basename) === 1
             ) {
@@ -152,7 +157,12 @@ final class SimulationStorageFixture
             }
         }
 
-        foreach (['attempts.json' => "[]\n", 'weakness.json' => "[]\n", 'question-statistics.json' => "[]\n"] as $file => $contents) {
+        foreach ([
+            'attempts.json' => "[]\n",
+            'weakness.json' => "[]\n",
+            'question-statistics.json' => "[]\n",
+            'flashcard_state.json' => "[]\n",
+        ] as $file => $contents) {
             if (file_put_contents($destination . '/' . $file, $contents, LOCK_EX) === false) {
                 throw new \RuntimeException('Unable to initialize isolated learner-state fixtures.');
             }

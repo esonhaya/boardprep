@@ -40,6 +40,7 @@ const env = {
   BOARDPREP_EXPLORER_MODE: mode,
   BOARDPREP_EXPLORER_SEED: String(seed),
   BOARDPREP_EXPLORER_EVIDENCE_DIR: evidenceDirectory,
+  BOARDPREP_BROWSER_EVIDENCE_DIR: evidenceDirectory,
   BOARDPREP_EXPLORER_MAX_PAGES: process.env.BOARDPREP_EXPLORER_MAX_PAGES || (mode === 'smoke' ? '60' : '100'),
   BOARDPREP_EXPLORER_MAX_ACTIONS: process.env.BOARDPREP_EXPLORER_MAX_ACTIONS || (mode === 'smoke' ? '180' : '320'),
   BOARDPREP_EXPLORER_MAX_DURATION_MS: process.env.BOARDPREP_EXPLORER_MAX_DURATION_MS || (mode === 'smoke' ? '180000' : '540000'),
@@ -70,4 +71,37 @@ if (fs.existsSync(jsonPath)) {
 } else {
   console.error(`SITE_EXPLORER_REPORT=MISSING expected ${jsonPath}`);
 }
-process.exit(result.status ?? 1);
+let exitStatus = result.status ?? 1;
+console.log('SITE_EXPLORER_SUITE=authentication');
+const authResult = spawnSync(process.execPath, [
+  playwrightCli,
+  'test',
+  '--config=tests/browser/playwright.config.cjs',
+  '--project=mobile',
+  'tests/browser/accounts/account-auth.spec.cjs',
+], {
+  cwd: root,
+  env: { ...env, BOARDPREP_AUTH_EXPLORER: '1' },
+  stdio: 'inherit',
+});
+if ((authResult.status ?? 1) !== 0) exitStatus = authResult.status ?? 1;
+
+const authJsonPath = path.join(evidenceDirectory, 'account-explorer.json');
+if (fs.existsSync(authJsonPath)) {
+  try {
+    const report = JSON.parse(fs.readFileSync(authJsonPath, 'utf8'));
+    const commit = spawnSync('git', ['rev-parse', 'HEAD'], { cwd: root, encoding: 'utf8' }).stdout.trim();
+    console.log('AUTH_EXPLORER=' + report.status);
+    console.log('AUTH_EXPLORER_SCENARIOS=' + (report.scenarios?.length ?? 0));
+    console.log('AUTH_EXPLORER_REPORT=' + authJsonPath);
+    console.log('AUTH_EXPLORER_COMMIT=' + (report.tested_commit || 'UNVERIFIED'));
+    if (report.status !== 'PASS' || report.tested_commit !== commit) exitStatus = exitStatus || 1;
+  } catch (error) {
+    console.error('AUTH_EXPLORER_REPORT=INVALID ' + String(error.message || error));
+    exitStatus = exitStatus || 1;
+  }
+} else {
+  console.error('AUTH_EXPLORER_REPORT=MISSING expected ' + authJsonPath);
+  exitStatus = exitStatus || 1;
+}
+process.exit(exitStatus);

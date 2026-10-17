@@ -30,6 +30,11 @@ final class AnonymousLearnerDataService
 
     public static function current(): self
     {
+        if (\App\Services\Accounts\AccountFeatureGate::enabled()
+            && \App\Services\Accounts\AccountSessionService::isAuthenticated()) {
+            throw new RuntimeException('Signed-in learner data is managed through the account controls.');
+        }
+
         return new self(
             App::storage(),
             App::database(),

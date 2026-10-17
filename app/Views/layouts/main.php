@@ -20,6 +20,9 @@
         href="/assets/css/style.css"
     >
     <link rel="stylesheet" href="/assets/css/rich-product.css">
+    <?php if (\App\Services\Accounts\AccountFeatureGate::enabled()): ?>
+        <link rel="stylesheet" href="/assets/css/account.css">
+    <?php endif; ?>
 
 </head>
 
@@ -53,6 +56,9 @@
             <?php $icon='history';$iconSize='sm';require __DIR__ . "/../components/icon.php"; ?>History
         </a>
         <a class="site-nav-link" href="/privacy"<?= str_starts_with($currentPath, "/privacy") ? ' aria-current="page"' : "" ?>><?php $icon='settings';$iconSize='sm';require __DIR__ . "/../components/icon.php"; ?>Privacy</a>
+        <?php if (\App\Services\Accounts\AccountFeatureGate::enabled()): ?>
+            <a class="site-nav-link" href="/account"<?= str_starts_with($currentPath, "/account") ? ' aria-current="page"' : "" ?>>Account</a>
+        <?php endif; ?>
         <?php if (\App\Core\App::config('environment') !== 'production'): ?>
             <a class="site-nav-link" href="/developer"<?= str_starts_with($currentPath, "/developer") ? ' aria-current="page"' : "" ?>>
                 <?php $icon='settings';$iconSize='sm';require __DIR__ . "/../components/icon.php"; ?>Developer

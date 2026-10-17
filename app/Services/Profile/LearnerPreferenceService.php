@@ -7,11 +7,17 @@ namespace App\Services\Profile;
 use App\Services\Board\BoardViewService;
 use App\Services\Quiz\LET\LETVariantRegistry;
 
-/** Stable choices scoped to the existing anonymous PHP session identity. */
+/** Stable choices for an anonymous session or a durable authenticated profile. */
 final class LearnerPreferenceService
 {
     public static function get(): array
     {
+        if (\App\Services\Accounts\AccountFeatureGate::enabled()) {
+            $account = \App\Services\Accounts\AccountSessionService::current();
+            if (is_array($account)) {
+                return array_replace(self::defaults(), is_array($account['preferences'] ?? null) ? $account['preferences'] : []);
+            }
+        }
         $stored = \SessionService::get('learner_preferences', []);
         return array_replace(self::defaults(), is_array($stored) ? $stored : []);
     }
@@ -78,7 +84,14 @@ final class LearnerPreferenceService
         }
         $preferences['subject_interests'] = array_values(array_unique(array_map(static fn(mixed $value): string => strtolower(trim((string) $value)), $interests)));
 
-        \SessionService::set('learner_preferences', $preferences);
+        if (\App\Services\Accounts\AccountFeatureGate::enabled()
+            && \App\Services\Accounts\AccountSessionService::current() !== null) {
+            if (!(new \App\Services\Accounts\AccountService())->updatePreferences($preferences)) {
+                throw new \RuntimeException('Your account preferences could not be saved. Please try again.');
+            }
+        } else {
+            \SessionService::set('learner_preferences', $preferences);
+        }
         return $preferences;
     }
 

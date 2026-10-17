@@ -16,6 +16,14 @@ final class LearnerIdentityService
             $_SESSION = [];
         }
 
+        if (\App\Services\Accounts\AccountFeatureGate::enabled()) {
+            $account = \App\Services\Accounts\AccountSessionService::current();
+            if (is_array($account)
+                && preg_match('/\Aaccount-learner-[a-f0-9]{32}\z/', (string) ($account['learner_id'] ?? '')) === 1) {
+                return (string) $account['learner_id'];
+            }
+        }
+
         $existing = $_SESSION[self::SESSION_KEY] ?? null;
         if (is_string($existing) && preg_match('/\Alearner-[a-f0-9]{32}\z/', $existing) === 1) {
             return $existing;

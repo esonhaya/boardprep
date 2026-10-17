@@ -9,6 +9,8 @@ use App\Core\Request;
 use App\Core\Response;
 use App\Core\View;
 use App\Services\Privacy\AnonymousLearnerDataService;
+use App\Services\Accounts\AccountFeatureGate;
+use App\Services\Accounts\AccountSessionService;
 use App\Services\Shared\CsrfTokenService;
 use Throwable;
 
@@ -16,6 +18,9 @@ final class DataHandlingController
 {
     public static function index(): void
     {
+        if (AccountFeatureGate::enabled() && AccountSessionService::isAuthenticated()) {
+            Response::redirect('/account/profile', 303);
+        }
         $privacy = (array) App::config('privacy', []);
         $privacy['site_policy_complete'] = (bool) ($privacy['terms_approved'] ?? false)
             && trim((string) ($privacy['operator_name'] ?? '')) !== ''
@@ -33,6 +38,9 @@ final class DataHandlingController
 
     public static function export(): void
     {
+        if (AccountFeatureGate::enabled() && AccountSessionService::isAuthenticated()) {
+            Response::redirect('/account/profile', 303);
+        }
         try {
             $export = json_encode(
                 AnonymousLearnerDataService::current()->export(),
@@ -54,6 +62,9 @@ final class DataHandlingController
 
     public static function clear(): void
     {
+        if (AccountFeatureGate::enabled() && AccountSessionService::isAuthenticated()) {
+            Response::redirect('/account/profile', 303);
+        }
         if (!CsrfTokenService::valid(Request::input('csrf_token'))) {
             \SessionService::flash('error', 'Your privacy form expired. Please reload the page and try again.');
             Response::redirect('/privacy', 303);

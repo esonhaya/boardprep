@@ -34,6 +34,18 @@ $assert(($report['board_matrix_complete'] ?? false) === true, 'The evidence-back
 $assert(($report['critical_capability_checks']['privacy_control_routes'] ?? false) === true, 'Privacy data-control routes were not detected.');
 $assert(($report['critical_capability_checks']['unsupported_exam_mode_claim_disclosed'] ?? false) === true, 'The actual learner-facing exam-mode limitations were not recognized.');
 $assert(($report['critical_capability_checks']['exam_simulation_timer_review_and_expiry_regression'] ?? false) === true, 'Timed exam simulation and review regression coverage were not recognized.');
+$assert(($report['account_preview']['routes_nonproduction_only'] ?? false) === true, 'Account routes were not verified as nonproduction-only.');
+$assert(($report['account_preview']['feature_gate_default_off_and_production_closed'] ?? false) === true, 'Public account routes do not fail closed by default and in production.');
+$assert(($report['account_preview']['public_accounts_enabled'] ?? true) === false, 'Product Readiness must not infer public account readiness from local tests.');
+$assert(($report['critical_capability_checks']['account_security_and_http_test_coverage_registered'] ?? false) === true, 'Account security regression coverage was not inventoried.');
+$accountEnablement = array_values(array_filter(
+    (array) ($report['missing_capabilities'] ?? []),
+    static fn(mixed $capability): bool => is_array($capability) && ($capability['ID'] ?? '') === 'BP692-CAP-001'
+));
+$assert(count($accountEnablement) === 1
+    && ($accountEnablement[0]['STATUS'] ?? '') === 'PARTIAL'
+    && ($accountEnablement[0]['RELEASE_BLOCKING'] ?? true) === false,
+    'Public account enablement requirements were not distinguished from frozen MVP release blockers.');
 $readinessConfig = json_decode((string) file_get_contents($root . '/config/product-readiness.json'), true, 512, JSON_THROW_ON_ERROR);
 $mobileFeatures = array_values(array_filter(
     (array) ($readinessConfig['feature_assessment'] ?? []),

@@ -21,6 +21,13 @@ final class CsrfTokenService
         return $token;
     }
 
+    public static function rotate(): string
+    {
+        $token = bin2hex(random_bytes(32));
+        \SessionService::set(self::SESSION_KEY, $token);
+        return $token;
+    }
+
     public static function valid(mixed $candidate): bool
     {
         $expected = \SessionService::get(self::SESSION_KEY);

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use App\Controllers\BoardController;
 use App\Controllers\AcceptanceCenterController;
+use App\Controllers\AccountController;
 use App\Controllers\BlueprintController;
 use App\Controllers\BlueprintHealthController;
 use App\Controllers\CoverageController;
@@ -29,6 +30,7 @@ use App\Controllers\StudyDashboardController;
 use App\Controllers\StudyLibraryController;
 use App\Controllers\TaxonomyController;
 use App\Core\App;
+use App\Services\Accounts\AccountFeatureGate;
 
 $router->get(
     "/",
@@ -99,6 +101,23 @@ $router->get('/flashcards/review', [FlashcardController::class, 'review']);
 $router->post('/flashcards/review', [FlashcardController::class, 'submitReview']);
 
 if (App::config('environment') !== 'production') {
+
+if (AccountFeatureGate::enabled()) {
+    $router->get('/account', [AccountController::class, 'index']);
+    $router->get('/account/register', [AccountController::class, 'registrationForm']);
+    $router->post('/account/register', [AccountController::class, 'register']);
+    $router->get('/account/login', [AccountController::class, 'loginForm']);
+    $router->post('/account/login', [AccountController::class, 'login']);
+    $router->post('/account/logout', [AccountController::class, 'logout']);
+    $router->get('/account/profile', [AccountController::class, 'profile']);
+    $router->get('/account/security', [AccountController::class, 'security']);
+    $router->post('/account/password', [AccountController::class, 'changePassword']);
+    $router->post('/account/recovery-codes', [AccountController::class, 'rotateRecoveryCodes']);
+    $router->get('/account/recover', [AccountController::class, 'recoveryForm']);
+    $router->post('/account/recover', [AccountController::class, 'recover']);
+    $router->post('/account/export', [AccountController::class, 'export']);
+    $router->post('/account/deletion-request', [AccountController::class, 'requestDeletion']);
+}
 
 $router->get('/developer/acceptance', [AcceptanceCenterController::class, 'index']);
 $router->get('/developer/acceptance/data', [AcceptanceCenterController::class, 'data']);

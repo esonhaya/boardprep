@@ -15,6 +15,8 @@
     "test:explore": "node tools/run-site-explorer.cjs --mode=full",
     "test:explore:smoke": "node tools/run-site-explorer.cjs --mode=smoke",
     "test:explore:full": "node tools/run-site-explorer.cjs --mode=full",
+    "test:explore:auth:smoke": "node tools/run-account-explorer.cjs --mode=smoke",
+    "test:explore:auth:full": "node tools/run-account-explorer.cjs --mode=full",
     "test:browser:update-snapshots": "node tools/run-browser-tests.cjs --update-snapshots",
     "test:browser:install": "playwright install chromium"
   },

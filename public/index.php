@@ -19,6 +19,7 @@ try {
     require_once __DIR__ . '/../bootstrap/app.php';
 
     \App\Core\SessionConfiguration::start();
+    \App\Services\Accounts\AccountSessionService::enforce();
 
     $router = new Router();
 

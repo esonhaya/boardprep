@@ -8,9 +8,15 @@
 </section>
 
 <section class="card" aria-labelledby="accounts-heading">
-    <h2 id="accounts-heading">No learner accounts</h2>
-    <p>BoardPrep v1.0.1 does not ask you to register or sign in. It creates a random learner identifier in your PHP browser session and uses it to associate your quiz history, progress, weakness summaries, and flashcard reviews.</p>
-    <p>There is no account recovery or cross-device synchronization. Clearing this site's cookies or changing browsers/devices can make earlier progress unavailable to you, even though the deployment may still retain its stored records.</p>
+    <?php if (\App\Services\Accounts\AccountFeatureGate::enabled()): ?>
+        <h2 id="accounts-heading">Nonproduction account preview</h2>
+        <p>Account creation and sign-in are enabled only in this nonproduction preview. A public account service is not approved or enabled. Anonymous learning remains available.</p>
+        <p><a href="/account/register">Create a preview account</a> · <a href="/account/login">Sign in</a></p>
+    <?php else: ?>
+        <h2 id="accounts-heading">No learner accounts</h2>
+        <p>Public BoardPrep currently uses a random learner identifier in your PHP browser session and does not offer public account registration or sign-in. Anonymous learning remains available.</p>
+        <p>Clearing this site's cookies or changing browsers/devices can make earlier progress unavailable to you, even though a deployment may still retain its stored records.</p>
+    <?php endif; ?>
 </section>
 
 <section class="card" aria-labelledby="stored-data-heading">
@@ -22,7 +28,7 @@
             <li><?= htmlspecialchars((string) $recordType, ENT_QUOTES, 'UTF-8') ?>: <?= (int) $count ?></li>
         <?php endforeach; ?>
     </ul>
-    <p>These controls apply to the current anonymous session only. Clearing browser cookies or using another browser can make previous records inaccessible without deleting them.</p>
+    <p>These controls apply to the current anonymous session only. Signed-in account data is handled through the account profile. Clearing browser cookies or using another browser can make previous anonymous records inaccessible without deleting them.</p>
     <p><a class="button button-outline" href="/privacy/export">Download my saved learning data</a></p>
     <form class="privacy-delete-form" method="post" action="/privacy/data/clear">
         <input type="hidden" name="csrf_token" value="<?= htmlspecialchars((string) ($csrfToken ?? ''), ENT_QUOTES, 'UTF-8') ?>">

@@ -181,6 +181,7 @@ $inventory = [
         'DB_DRIVER: json or sqlite in the production profile',
         'DB_SQLITE_PATH: private SQLite file path when selected',
         'APP_PUBLIC_PATH: CLI preflight document-root override; not an app feature flag',
+        'BOARDPREP_ACCOUNTS_ENABLED: default-off nonproduction-only account preview; production routes remain unavailable',
     ],
     'standalone_public_endpoints' => [
         'public/health.php: limited liveness/readiness and release identity',
@@ -206,6 +207,21 @@ sort($sortedExpectedBoards);
 $boardMatrixComplete = $assessedBoardNames === $sortedExpectedBoards
     && count(array_filter($assessedBoards, static fn(array $board): bool => ($board['STATUS'] ?? '') === 'IMPLEMENTED_AND_VERIFIED')) === count($expectedBoards);
 $privacyRoutesComplete = isset($routeKeys['GET /privacy/export'], $routeKeys['POST /privacy/data/clear']);
+$accountRoutes = array_values(array_filter(
+    $routes,
+    static fn(array $route): bool => str_starts_with((string) ($route['path'] ?? ''), '/account')
+));
+$accountGateSource = (string) @file_get_contents($root . '/app/Services/Accounts/AccountFeatureGate.php');
+$exampleEnvironment = (string) @file_get_contents($root . '/.env.example');
+$accountRoutesNonproductionOnly = count($accountRoutes) === 14
+    && count(array_filter($accountRoutes, static fn(array $route): bool => ($route['access'] ?? '') === 'NON_PRODUCTION_ONLY')) === count($accountRoutes)
+    && str_contains($routeSource, 'if (AccountFeatureGate::enabled())');
+$accountFeatureGateDefaultOff = str_contains($accountGateSource, "App::config('environment', 'production') === 'production'")
+    && str_contains($accountGateSource, "BOARDPREP_ACCOUNTS_ENABLED', 'false'")
+    && str_contains($exampleEnvironment, 'BOARDPREP_ACCOUNTS_ENABLED=false');
+$accountSecurityTestsRegistered = is_file($root . '/tools/Tests/AccountSecurityTest.php')
+    && is_file($root . '/tools/Tests/AccountHttpTest.php')
+    && is_file($root . '/tests/browser/accounts/account-auth.spec.cjs');
 $privacyTestRegistered = is_file($root . '/tools/Tests/AnonymousLearnerPrivacyHttpTest.php')
     && is_file($root . '/app/Services/Privacy/AnonymousLearnerDataService.php');
 $boardJourneyTestRegistered = is_file($root . '/tools/Tests/TenBoardLearnerJourneyHttpTest.php');
@@ -347,6 +363,9 @@ $criticalCapabilityChecks = [
     'human_acceptance_matrix_complete' => $humanAcceptanceInventoryComplete,
     'current_commit_real_browser_acceptance' => $browserExecutionVerified,
     'owner_approved_privacy_terms_configured' => $privacyOwnerTermsConfigured,
+    'account_routes_nonproduction_only' => $accountRoutesNonproductionOnly,
+    'account_feature_gate_default_off' => $accountFeatureGateDefaultOff,
+    'account_security_and_http_test_coverage_registered' => $accountSecurityTestsRegistered,
 ];
 $failedCapabilityChecks = array_keys(array_filter(
     $criticalCapabilityChecks,
@@ -419,6 +438,14 @@ $report = [
         'privacy_and_isolation' => $privacyTestRegistered,
         'ten_board_http_journeys' => $boardJourneyTestRegistered,
         'mobile_accessibility_structural' => $mobileStructuralTestsRegistered,
+        'account_security_http_and_browser' => $accountSecurityTestsRegistered,
+    ],
+    'account_preview' => [
+        'routes_nonproduction_only' => $accountRoutesNonproductionOnly,
+        'feature_gate_default_off_and_production_closed' => $accountFeatureGateDefaultOff,
+        'registered_route_count' => count($accountRoutes),
+        'public_accounts_enabled' => false,
+        'public_enablement_blocker' => 'BP692-CAP-001',
     ],
     'feature_status_counts' => array_count_values(array_map(
         static fn(array $feature): string => (string) ($feature['STATUS'] ?? 'INVALID'),

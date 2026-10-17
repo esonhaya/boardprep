@@ -47,16 +47,26 @@ const runtimeStorage = path.join(temporaryRoot, 'runtime-storage');
 const sessionStorage = path.join(temporaryRoot, 'sessions');
 const developerSessionStorage = path.join(temporaryRoot, 'developer-sessions');
 const acceptanceStorage = path.join(temporaryRoot, 'acceptance-feedback');
+const authStorage = path.join(temporaryRoot, 'auth-runtime-storage');
+const authSessionStorage = path.join(temporaryRoot, 'auth-sessions');
 fs.cpSync(path.join(applicationRoot, 'storage'), runtimeStorage, { recursive: true });
+fs.cpSync(path.join(applicationRoot, 'storage'), authStorage, { recursive: true });
 fs.mkdirSync(sessionStorage, { recursive: true });
 fs.mkdirSync(developerSessionStorage, { recursive: true });
 fs.mkdirSync(acceptanceStorage, { recursive: true, mode: 0o700 });
+fs.mkdirSync(authSessionStorage, { recursive: true, mode: 0o700 });
+for (const file of ['attempts.json', 'weakness.json', 'flashcard_state.json', 'question-statistics.json']) {
+  fs.writeFileSync(path.join(authStorage, file), '[]\n', { mode: 0o600 });
+}
+fs.rmSync(path.join(authStorage, 'private', 'learner-accounts'), { recursive: true, force: true });
 
 const port = String(process.env.BOARDPREP_BROWSER_PORT || '4173');
 const developerPort = String(process.env.BOARDPREP_DEVELOPER_BROWSER_PORT || '4174');
+const authPort = String(process.env.BOARDPREP_AUTH_BROWSER_PORT || '4175');
 console.log(`BROWSER_FIXTURE_URL=http://127.0.0.1:${port}`);
 console.log(`BROWSER_DEVELOPER_FIXTURE_URL=http://127.0.0.1:${developerPort}`);
-console.log('BROWSER_FIXTURE_ENV=isolated production learner and testing developer servers; storage and sessions are temporary; listeners are loopback-only.');
+console.log('BROWSER_FIXTURE_ENV=isolated production learner, testing developer, and testing account servers; account storage and sessions are separate temporary fixtures; listeners are loopback-only.');
+console.log('BROWSER_AUTH_FIXTURE_URL=http://127.0.0.1:' + authPort);
 const php = spawn(
   'php',
   [
@@ -104,7 +114,32 @@ const developerPhp = spawn(
     stdio: 'inherit',
   }
 );
-const phpProcesses = [php, developerPhp];
+const authPhp = spawn(
+  'php',
+  [
+    '-d', 'session.name=BOARDPREP_AUTH_SESSION',
+    '-d', 'session.save_path=' + authSessionStorage,
+    '-S', '127.0.0.1:' + authPort,
+    '-t', path.join(applicationRoot, 'public'),
+    path.join(applicationRoot, 'public', 'router.php'),
+  ],
+  {
+    cwd: applicationRoot,
+    env: {
+      ...process.env,
+      APP_ENV: 'testing',
+      APP_DEBUG: 'false',
+      APP_TIMEZONE: 'Asia/Manila',
+      BUILD_COMMIT: buildCommit,
+      BOARDPREP_ACCOUNTS_ENABLED: 'true',
+      DB_DRIVER: 'json',
+      APP_STORAGE_PATH: authStorage,
+      APP_SESSION_PATH: authSessionStorage,
+    },
+    stdio: 'inherit',
+  }
+);
+const phpProcesses = [php, developerPhp, authPhp];
 
 let shuttingDown = false;
 function cleanup() {

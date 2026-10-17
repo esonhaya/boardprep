@@ -30,8 +30,15 @@ final class LearningProfileController
             Response::redirect('/profile', 303);
         }
         try {
+            $accountPreferences = \App\Services\Accounts\AccountFeatureGate::enabled()
+                && \App\Services\Accounts\AccountSessionService::current() !== null;
             LearnerPreferenceService::save(Request::input());
-            \SessionService::flash('success', 'Your learner preferences were saved for this browser session.');
+            \SessionService::flash(
+                'success',
+                $accountPreferences
+                    ? 'Your learner preferences were saved to your account.'
+                    : 'Your learner preferences were saved for this browser session.'
+            );
         } catch (\InvalidArgumentException $exception) {
             \SessionService::flash('error', $exception->getMessage());
         }
@@ -92,6 +99,7 @@ final class LearningProfileController
                 "studyRecommendations" =>
                     $dashboard["recommendations"],
                 'preferences' => LearnerPreferenceService::get(),
+                'accountPreferences' => \App\Services\Accounts\AccountSessionService::current() !== null,
                 'boards' => BoardViewService::all(),
                 'letSpecializations' => \App\Services\Quiz\LET\LETVariantRegistry::specializations(),
                 'csrfToken' => CsrfTokenService::token(),
