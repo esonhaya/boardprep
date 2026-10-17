@@ -40,8 +40,8 @@ const env = {
   BOARDPREP_EXPLORER_MODE: mode,
   BOARDPREP_EXPLORER_SEED: String(seed),
   BOARDPREP_EXPLORER_EVIDENCE_DIR: evidenceDirectory,
-  BOARDPREP_EXPLORER_MAX_PAGES: process.env.BOARDPREP_EXPLORER_MAX_PAGES || (mode === 'smoke' ? '28' : '90'),
-  BOARDPREP_EXPLORER_MAX_ACTIONS: process.env.BOARDPREP_EXPLORER_MAX_ACTIONS || (mode === 'smoke' ? '110' : '280'),
+  BOARDPREP_EXPLORER_MAX_PAGES: process.env.BOARDPREP_EXPLORER_MAX_PAGES || (mode === 'smoke' ? '60' : '100'),
+  BOARDPREP_EXPLORER_MAX_ACTIONS: process.env.BOARDPREP_EXPLORER_MAX_ACTIONS || (mode === 'smoke' ? '180' : '320'),
   BOARDPREP_EXPLORER_MAX_DURATION_MS: process.env.BOARDPREP_EXPLORER_MAX_DURATION_MS || (mode === 'smoke' ? '180000' : '540000'),
 };
 const args = [

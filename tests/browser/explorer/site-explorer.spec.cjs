@@ -101,8 +101,8 @@ test('bounded stateful BoardPrep journey exploration', async ({ page }, testInfo
 
   const mode = process.env.BOARDPREP_EXPLORER_MODE === 'smoke' ? 'smoke' : 'full';
   const seed = Number.parseInt(process.env.BOARDPREP_EXPLORER_SEED || '691', 10) || 691;
-  const maxPages = Number.parseInt(process.env.BOARDPREP_EXPLORER_MAX_PAGES || (mode === 'smoke' ? '28' : '90'), 10);
-  const maxActions = Number.parseInt(process.env.BOARDPREP_EXPLORER_MAX_ACTIONS || (mode === 'smoke' ? '110' : '280'), 10);
+  const maxPages = Number.parseInt(process.env.BOARDPREP_EXPLORER_MAX_PAGES || (mode === 'smoke' ? '60' : '100'), 10);
+  const maxActions = Number.parseInt(process.env.BOARDPREP_EXPLORER_MAX_ACTIONS || (mode === 'smoke' ? '180' : '320'), 10);
   const maxDurationMs = Number.parseInt(process.env.BOARDPREP_EXPLORER_MAX_DURATION_MS || (mode === 'smoke' ? '180000' : '540000'), 10);
   const started = Date.now();
   const evidenceDir = path.resolve(process.env.BOARDPREP_EXPLORER_EVIDENCE_DIR || path.join(os.tmpdir(), 'boardprep-site-explorer'));
@@ -539,8 +539,23 @@ test('bounded stateful BoardPrep journey exploration', async ({ page }, testInfo
     }
     evidence.boards_covered = [...new Set(evidence.boards_covered)];
     evidence.board_subject_combinations = [...new Set(evidence.board_subject_combinations)];
-    evidence.status = evidence.confirmed_defects.length ? 'FAIL' : 'PASS_WITH_REVIEW_CUES';
-    if (evidence.confirmed_defects.length) throw new Error(`Explorer confirmed ${evidence.confirmed_defects.length} reproducible defect(s); inspect ${path.join(evidenceDir, 'site-explorer.json')}`);
+    const pageLimitExceeded = evidence.routes_visited.length > maxPages;
+    const actionLimitExceeded = evidence.actions_executed > maxActions;
+    if (pageLimitExceeded || actionLimitExceeded) {
+      evidence.untested_paths.push(`Configured exploration bound exceeded: pages=${evidence.routes_visited.length}/${maxPages}, actions=${evidence.actions_executed}/${maxActions}.`);
+    }
+    evidence.status = evidence.confirmed_defects.length
+      ? 'FAIL'
+      : (pageLimitExceeded || actionLimitExceeded
+        ? 'INCOMPLETE'
+        : (evidence.review_cues.length ? 'PASS_WITH_REVIEW_CUES' : 'PASS'));
+    if (evidence.confirmed_defects.length) {
+      console.error(`EXPLORER_CONFIRMED_DEFECTS=${JSON.stringify(evidence.confirmed_defects.map(({ code, observed, route, question_id }) => ({ code, observed, route, question_id })))}`);
+      throw new Error(`Explorer confirmed ${evidence.confirmed_defects.length} reproducible defect(s); inspect ${path.join(evidenceDir, 'site-explorer.json')}`);
+    }
+    if (pageLimitExceeded || actionLimitExceeded) {
+      throw new Error(`Explorer exceeded its configured bound; inspect ${path.join(evidenceDir, 'site-explorer.json')}`);
+    }
     expect(evidence.question_metadata_checks.filter((item) => item.passed).length).toBeGreaterThan(0);
   } catch (error) {
     evidence.status = evidence.confirmed_defects.length ? 'FAIL' : 'INCOMPLETE';
@@ -549,7 +564,9 @@ test('bounded stateful BoardPrep journey exploration', async ({ page }, testInfo
   } finally {
     evidence.elapsed_ms = Date.now() - started;
     evidence.routes_visited = [...new Set(evidence.routes_visited)];
-    fs.writeFileSync(path.join(evidenceDir, 'site-explorer.json'), `${JSON.stringify(evidence, null, 2)}\n`);
+    const serializedEvidence = `${JSON.stringify(evidence, null, 2)}\n`;
+    fs.writeFileSync(path.join(evidenceDir, `site-explorer-attempt-${testInfo.retry + 1}.json`), serializedEvidence);
+    fs.writeFileSync(path.join(evidenceDir, 'site-explorer.json'), serializedEvidence);
     fs.writeFileSync(path.join(evidenceDir, 'site-explorer.md'), markdown(evidence));
     testInfo.attach('site-explorer.json', { path: path.join(evidenceDir, 'site-explorer.json'), contentType: 'application/json' }).catch(() => undefined);
     testInfo.attach('site-explorer.md', { path: path.join(evidenceDir, 'site-explorer.md'), contentType: 'text/markdown' }).catch(() => undefined);
