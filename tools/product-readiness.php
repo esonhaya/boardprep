@@ -249,14 +249,16 @@ $humanAcceptancePath = $root . '/docs/HUMAN_TESTER_READINESS.md';
 $humanAcceptance = (string) @file_get_contents($humanAcceptancePath);
 $humanCases = [];
 preg_match_all('/^\| (MVP-\d{2}) \|.*?HUMAN_STATUS=([A-Z_]+).*?\|$/m', $humanAcceptance, $humanCaseMatches, PREG_SET_ORDER);
+$validHumanStatuses = ['HUMAN_PASS', 'HUMAN_FAIL', 'BLOCKED', 'NOT_RUN', 'NOT_APPLICABLE'];
 foreach ($humanCaseMatches as $match) {
-    $humanCases[$match[1]] = $match[2];
+    $humanCases[$match[1]] = in_array($match[2], $validHumanStatuses, true) ? $match[2] : 'INVALID';
 }
 $expectedHumanCases = array_map(static fn(int $number): string => sprintf('MVP-%02d', $number), range(1, 12));
-$humanAcceptanceInventoryComplete = array_keys($humanCases) === $expectedHumanCases;
+$humanAcceptanceInventoryComplete = array_keys($humanCases) === $expectedHumanCases
+    && count(array_diff($humanCases, $validHumanStatuses)) === 0;
 $humanCasesNotPassed = array_values(array_filter(
     $humanCases,
-    static fn(string $status): bool => $status !== 'PASS'
+    static fn(string $status): bool => $status !== 'HUMAN_PASS'
 ));
 
 $browserValidation = is_array($register['browser_validation'] ?? null)

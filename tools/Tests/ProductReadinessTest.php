@@ -79,6 +79,10 @@ $assert(str_contains($humanGuide, 'MVP-06 uses five') && !str_contains($humanGui
 $assert(($report['critical_capability_checks']['owner_approved_privacy_terms_configured'] ?? true) === false, 'Missing owner privacy approval did not fail closed.');
 $assert(($report['human_acceptance_matrix']['inventory_complete'] ?? false) === true, 'The canonical twelve-case human matrix was not inventoried.');
 $assert(count((array) ($report['human_acceptance_matrix']['not_passed'] ?? [])) === 12, 'Human acceptance was inferred from automation.');
+$humanStatuses = (array) ($report['human_acceptance_matrix']['status_by_case'] ?? []);
+$assert(count($humanStatuses) === 12
+    && count(array_filter($humanStatuses, static fn(mixed $status): bool => $status === 'NOT_RUN')) === 12,
+    'Automated evidence must preserve all twelve human statuses as NOT_RUN until testers record outcomes.');
 $assert(in_array('app/Controllers/DataHandlingController.php', (array) ($report['inventory']['controllers'] ?? []), true), 'Data handling controller is missing from the inventory.');
 $assert(in_array('tools/Tests/StudyLibraryNavigationTest.php', (array) ($report['inventory']['tests'] ?? []), true), 'Study navigation integration test is missing from the inventory.');
 $assert(count((array) ($report['board_assessment'] ?? [])) === 10, 'Board-by-board evidence rows are incomplete.');
