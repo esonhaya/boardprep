@@ -53,7 +53,10 @@ final class AcceptanceFeedbackReport
                 'ACTUAL_BEHAVIOR' => array_values(array_map(static fn(array $item): string => (string) ($item['actual_behavior'] ?? ''), $items)),
                 'SUGGESTED_IMPROVEMENT' => array_values(array_map(static fn(array $item): string => (string) ($item['suggested_improvement'] ?? ''), $items)),
                 'REPRODUCTION_STEPS' => array_values(array_map(static fn(array $item): string => (string) ($item['reproduction_steps'] ?? ''), $items)),
-                'EVIDENCE_REFERENCES' => array_values(array_map(static fn(array $item): string => (string) ($item['evidence_reference'] ?? ''), $items)),
+                'EVIDENCE_REFERENCES' => array_values(array_filter(
+                    array_map(static fn(array $item): string => trim((string) ($item['evidence_reference'] ?? '')), $items),
+                    static fn(string $reference): bool => $reference !== ''
+                )),
                 'OBSERVATIONS' => $items,
             ];
         }

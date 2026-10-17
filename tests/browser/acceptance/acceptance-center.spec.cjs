@@ -131,7 +131,7 @@ test.describe('guided Human Acceptance Center', () => {
     expect(report.CASE_RESULTS[0].OBSERVATIONS[0].expected_behavior).toBe('I expected clear feedback.');
     expect(report.CASE_RESULTS[0].OBSERVATIONS[0].actual_behavior).toBe('I saw no feedback.');
     expect(report.CASE_RESULTS[0].OBSERVATIONS[0].reproduction_steps).toBe('Open the page, then tap the button.');
-    expect(report.CASE_RESULTS[0].EVIDENCE_REFERENCES).toEqual(['']);
+    expect(report.CASE_RESULTS[0].EVIDENCE_REFERENCES).toEqual([]);
     expect(report.VIEWPORT).toMatch(/^\d+x\d+ CSS px$/);
     expect(report.OS_AND_VERSION).toMatch(/\S+/);
     expect(report.BROWSER).toMatch(/\S+/);
