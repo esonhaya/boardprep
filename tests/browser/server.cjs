@@ -4,6 +4,7 @@ const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
 const { spawn, spawnSync } = require('node:child_process');
+const { createBrowserStorageFixture } = require('./storage-fixture.cjs');
 
 const repositoryRoot = path.resolve(__dirname, '../..');
 const temporaryRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'boardprep-browser-'));
@@ -49,17 +50,12 @@ const developerSessionStorage = path.join(temporaryRoot, 'developer-sessions');
 const acceptanceStorage = path.join(temporaryRoot, 'acceptance-feedback');
 const authStorage = path.join(temporaryRoot, 'auth-runtime-storage');
 const authSessionStorage = path.join(temporaryRoot, 'auth-sessions');
-fs.cpSync(path.join(applicationRoot, 'storage'), runtimeStorage, { recursive: true });
-fs.cpSync(path.join(applicationRoot, 'storage'), authStorage, { recursive: true });
+createBrowserStorageFixture(path.join(applicationRoot, 'storage'), runtimeStorage);
+createBrowserStorageFixture(path.join(applicationRoot, 'storage'), authStorage);
 fs.mkdirSync(sessionStorage, { recursive: true });
 fs.mkdirSync(developerSessionStorage, { recursive: true });
 fs.mkdirSync(acceptanceStorage, { recursive: true, mode: 0o700 });
 fs.mkdirSync(authSessionStorage, { recursive: true, mode: 0o700 });
-for (const file of ['attempts.json', 'weakness.json', 'flashcard_state.json', 'question-statistics.json']) {
-  fs.writeFileSync(path.join(authStorage, file), '[]\n', { mode: 0o600 });
-}
-fs.rmSync(path.join(authStorage, 'private', 'learner-accounts'), { recursive: true, force: true });
-
 const port = String(process.env.BOARDPREP_BROWSER_PORT || '4173');
 const developerPort = String(process.env.BOARDPREP_DEVELOPER_BROWSER_PORT || '4174');
 const authPort = String(process.env.BOARDPREP_AUTH_BROWSER_PORT || '4175');

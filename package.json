@@ -10,6 +10,7 @@
   "scripts": {
     "test": "echo \"Use the PHP test suite or npm run test:browser\"",
     "test:browser": "node tools/run-browser-tests.cjs",
+    "test:browser:fixture": "node tests/browser/storage-fixture.test.cjs",
     "test:browser:mobile": "node tools/run-browser-tests.cjs --project=mobile",
     "test:browser:desktop": "node tools/run-browser-tests.cjs --project=desktop",
     "test:explore": "node tools/run-site-explorer.cjs --mode=full",

@@ -9,6 +9,9 @@ on:
       - 'storage/**'
       - 'tests/browser/explorer/**'
       - 'tests/browser/accounts/**'
+      - 'tests/browser/server.cjs'
+      - 'tests/browser/storage-fixture.cjs'
+      - 'tests/browser/storage-fixture.test.cjs'
       - 'tests/browser/playwright.config.cjs'
       - 'tools/run-site-explorer.cjs'
       - 'tools/run-account-explorer.cjs'
@@ -23,6 +26,9 @@ on:
       - 'storage/**'
       - 'tests/browser/explorer/**'
       - 'tests/browser/accounts/**'
+      - 'tests/browser/server.cjs'
+      - 'tests/browser/storage-fixture.cjs'
+      - 'tests/browser/storage-fixture.test.cjs'
       - 'tests/browser/playwright.config.cjs'
       - 'tools/run-site-explorer.cjs'
       - 'tools/run-account-explorer.cjs'
@@ -83,6 +89,9 @@ jobs:
 
       - name: Install JavaScript dependencies
         run: npm ci
+
+      - name: Verify isolated learner storage fixture
+        run: npm run test:browser:fixture
 
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
