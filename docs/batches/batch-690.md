@@ -5,8 +5,8 @@
 ```text
 BATCH=690
 START_TIME=2026-10-17T13:19:38Z (earliest retained task timestamp; invocation time was not captured)
-END_TIME=2026-10-17T14:30Z (rounded closeout time)
-ELAPSED_MINUTES=~70 minutes from the earliest retained task timestamp; invocation time was not captured
+END_TIME=2026-10-17T14:31Z (rounded closeout time)
+ELAPSED_MINUTES=~71 minutes from the earliest retained task timestamp; invocation time was not captured
 HEAD_BEFORE=cfccd6b64d73798f0942485c0ac421f4457ddf2a
 HEAD_AFTER_APPLICATION=28de92ad49e17fd1edaee33b2bc89ddbe5d0337d
 HEAD_AFTER_DOCUMENTATION=25d7fe493537c7393746fa671c7f59ebf85bdb59 (owner handoff and evidence registration; final report closeout follows)
@@ -53,20 +53,20 @@ PRIVACY_OWNER_APPROVAL_STATUS=AWAITING_OWNER_APPROVAL; no owner/legal terms appr
 LIVE_HOSTING_EVIDENCE_STATUS=NOT_VERIFIED; no live deployment was tested
 
 STORAGE_FREE_BEFORE=about 8.53 million KiB (over 8 GiB)
-STORAGE_FREE_AFTER=8,536,340 KiB (~8.14 GiB) at final repository checks
+STORAGE_FREE_AFTER=8,512,456 KiB (~8.12 GiB) at final repository checks
 STORAGE_FLOOR_STATUS=PASS; remained above 1.5 GiB
 CANONICAL_QUESTIONS_BEFORE_AFTER=8,962 / 8,962; IDs, keys, explanations, taxonomy, eligibility, and educational content unchanged
 QUESTION_USAGE_DELTA_STATUS=PASS; 19 pre-existing rows only (timesUsed 19, timesCorrect 18, timesIncorrect 17, updatedAt 19); remained unstaged and unchanged
 PROTECTED_STATE_STATUS=Batch 685 historical manifest retained unmodified; 163/168 snapshot hashes match; five pre-existing deltas are storage/questions.json plus storage/sources.json, storage/study-lessons.json, storage/study-materials.json, and storage/study-question-links.json
 HAYADOCTOR_PIN_STATUS=PASS; dc4fcda730d9a922f726593746e34ca0c9c0e890
 UNRELATED_WORK_PRESERVED=PASS; all pre-existing modified/untracked paths remain unstaged and intact
-PUSH_STATUS=Application and docs/evidence changes pushed with ordinary fast-forward updates; final report-only closeout is being committed
+PUSH_STATUS=Application, docs/evidence, and report closeout pushed using ordinary fast-forward updates
 
 USER_LAUNCH_INSTRUCTIONS=Run ./tools/acceptance/start.sh; open the printed OPEN_THIS_URL in Android Chrome
 REPORT_EXPORT_LOCATION=$PREFIX/share/boardprep/acceptance-center (Termux); private local JSON sessions and report history
 UNRESOLVED_ISSUES=Human acceptance; owner/provider privacy and hosting evidence; real-device share-sheet and screen-reader acceptance; independent academic signoff
 NEXT_SAFE_BATCH=Owner completes MVP-01..12 and BP662-CAP-001 evidence; continue with confirmed feedback and independent academic review
-CLIPBOARD_STATUS=UNVERIFIED in prior nonempty probe (setter returned, readback was zero bytes); final complete-report copy and exact byte comparison attempted after commit, with result reported below
+CLIPBOARD_STATUS=UNVERIFIED; termux-clipboard-set returned 0, but termux-clipboard-get returned 0 bytes and exact comparison failed; saved report: docs/batches/batch-690.md
 ```
 
 The documentation commit is recorded in the terminal report and Git history.
