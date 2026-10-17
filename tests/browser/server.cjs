@@ -46,9 +46,11 @@ const applicationRoot = path.join(temporaryRoot, prefix.replace(/\/$/, ''));
 const runtimeStorage = path.join(temporaryRoot, 'runtime-storage');
 const sessionStorage = path.join(temporaryRoot, 'sessions');
 const developerSessionStorage = path.join(temporaryRoot, 'developer-sessions');
+const acceptanceStorage = path.join(temporaryRoot, 'acceptance-feedback');
 fs.cpSync(path.join(applicationRoot, 'storage'), runtimeStorage, { recursive: true });
 fs.mkdirSync(sessionStorage, { recursive: true });
 fs.mkdirSync(developerSessionStorage, { recursive: true });
+fs.mkdirSync(acceptanceStorage, { recursive: true, mode: 0o700 });
 
 const port = String(process.env.BOARDPREP_BROWSER_PORT || '4173');
 const developerPort = String(process.env.BOARDPREP_DEVELOPER_BROWSER_PORT || '4174');
@@ -80,6 +82,7 @@ const php = spawn(
 const developerPhp = spawn(
   'php',
   [
+    '-d', 'session.name=BOARDPREP_GUIDE_SESSION',
     '-d', `session.save_path=${developerSessionStorage}`,
     '-S', `127.0.0.1:${developerPort}`,
     '-t', path.join(applicationRoot, 'public'),
@@ -95,6 +98,8 @@ const developerPhp = spawn(
       BUILD_COMMIT: buildCommit,
       DB_DRIVER: 'json',
       APP_STORAGE_PATH: runtimeStorage,
+      BOARDPREP_ACCEPTANCE_STORAGE_PATH: acceptanceStorage,
+      BOARDPREP_ACCEPTANCE_LEARNER_BASE_URL: `http://127.0.0.1:${port}`,
     },
     stdio: 'inherit',
   }

@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Controllers\BoardController;
+use App\Controllers\AcceptanceCenterController;
 use App\Controllers\BlueprintController;
 use App\Controllers\BlueprintHealthController;
 use App\Controllers\CoverageController;
@@ -97,6 +98,12 @@ $router->get('/flashcards/review', [FlashcardController::class, 'review']);
 $router->post('/flashcards/review', [FlashcardController::class, 'submitReview']);
 
 if (App::config('environment') !== 'production') {
+
+$router->get('/developer/acceptance', [AcceptanceCenterController::class, 'index']);
+$router->get('/developer/acceptance/data', [AcceptanceCenterController::class, 'data']);
+$router->get('/developer/acceptance/build', [AcceptanceCenterController::class, 'build']);
+$router->get('/developer/acceptance/export', [AcceptanceCenterController::class, 'export']);
+$router->post('/developer/acceptance/update', [AcceptanceCenterController::class, 'update']);
 
 $router->get(
     "/developer",

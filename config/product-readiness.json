@@ -7,7 +7,7 @@
         "STATUS": "EVALUATED_FROM_REGISTERED_GITHUB_RUNS",
         "AUTOMATION_TOOL": "Playwright",
         "AUTOMATION_COMMAND": "npm run test:browser",
-        "OWNER_LOCAL_COMMAND": "node tests/browser/server.cjs",
+        "OWNER_LOCAL_COMMAND": "./tools/acceptance/start.sh",
         "EVIDENCE_ARTIFACT": "GitHub Actions boardprep-chromium-visual-qa artifact: browser results/execution JSON, viewport screenshots, visual audit, and diagnostics",
         "ACCESSIBILITY_ENGINE": "Playwright Chromium role/name and browser DOM semantics; no screen-reader engine",
         "ACCESSIBILITY_SCOPE": "Rendered checks cover form labels, keyboard focus, selected answers, live/status semantics, and responsive primary controls. They do not establish TalkBack/VoiceOver behavior or WCAG conformance.",
