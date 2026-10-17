@@ -432,9 +432,10 @@ test('bounded stateful BoardPrep journey exploration', async ({ page }, testInfo
       const topicOptions = await page.locator('#flashcard-topic option').evaluateAll((options) => options.map((option) => option.value).filter(Boolean));
       if (topicOptions.length > 0) {
         const selectedTopic = topicOptions[seed % topicOptions.length];
+        await page.locator('#flashcard-topic').selectOption(selectedTopic);
         await Promise.all([
           page.waitForNavigation({ waitUntil: 'domcontentloaded' }),
-          page.locator('#flashcard-topic').selectOption(selectedTopic),
+          page.getByRole('button', { name: 'Apply filters' }).click(),
         ]);
         evidence.actions_executed += 1;
         await inspectPage(page.url(), null);
@@ -465,8 +466,24 @@ test('bounded stateful BoardPrep journey exploration', async ({ page }, testInfo
       activeUrl = `${APP}${href}`;
       const response = await page.goto(activeUrl);
       await inspectPage(activeUrl, response);
-      evidence.transitions.push('flashcards: eligible board filter -> review entry');
       evidence.actions_executed += 1;
+      if (await page.locator('.flashcard-prompt').count()) {
+        await Promise.all([
+          page.waitForNavigation({ waitUntil: 'domcontentloaded' }),
+          page.getByRole('link', { name: 'Reveal answer' }).click(),
+        ]);
+        await expect(page.locator('.flashcard-answer')).toBeVisible();
+        await inspectPage(page.url(), null);
+        await Promise.all([
+          page.waitForNavigation({ waitUntil: 'domcontentloaded' }),
+          page.getByRole('button', { name: 'Good Remembered' }).click(),
+        ]);
+        await inspectPage(page.url(), null);
+        evidence.actions_executed += 2;
+        evidence.transitions.push('flashcards: eligible board/subject/topic filter -> prompt -> reveal -> saved Good rating');
+      } else {
+        evidence.untested_paths.push('The isolated flashcard route had no available card prompt, so reveal and rating actions were skipped.');
+      }
     } else {
       evidence.untested_paths.push('Flashcard reveal and rating skipped because the isolated fixture had no available review card.');
     }
