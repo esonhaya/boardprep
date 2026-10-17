@@ -53,7 +53,7 @@ PRIVACY_OWNER_APPROVAL_STATUS=AWAITING_OWNER_APPROVAL; no owner/legal terms appr
 LIVE_HOSTING_EVIDENCE_STATUS=NOT_VERIFIED; no live deployment was tested
 
 STORAGE_FREE_BEFORE=about 8.53 million KiB (over 8 GiB)
-STORAGE_FREE_AFTER=8,512,456 KiB (~8.12 GiB) at final repository checks
+STORAGE_FREE_AFTER=8,505,024 KiB (~8.11 GiB) at final repository checks
 STORAGE_FLOOR_STATUS=PASS; remained above 1.5 GiB
 CANONICAL_QUESTIONS_BEFORE_AFTER=8,962 / 8,962; IDs, keys, explanations, taxonomy, eligibility, and educational content unchanged
 QUESTION_USAGE_DELTA_STATUS=PASS; 19 pre-existing rows only (timesUsed 19, timesCorrect 18, timesIncorrect 17, updatedAt 19); remained unstaged and unchanged
@@ -69,8 +69,10 @@ NEXT_SAFE_BATCH=Owner completes MVP-01..12 and BP662-CAP-001 evidence; continue 
 CLIPBOARD_STATUS=UNVERIFIED; termux-clipboard-set returned 0, but termux-clipboard-get returned 0 bytes and exact comparison failed; saved report: docs/batches/batch-690.md
 ```
 
-The documentation commit is recorded in the terminal report and Git history.
-Including its own hash in the committed contents would change that hash.
+The owner handoff and evidence registration commit is recorded above and in Git
+history. The final report-only closeout commit is reported in the terminal
+response; its own hash is omitted here because including it would change that
+hash.
 
 ## What the owner uses
 
