@@ -17,14 +17,21 @@ $privacy = file_get_contents($root . '/app/Views/data-handling/index.php');
 $focus = file_get_contents($root . '/public/assets/js/quiz-focus.js');
 $css = file_get_contents($root . '/public/assets/css/style.css');
 
+preg_match_all('/<label\b[^>]*\bfor="(quiz-[^"]+)"/is', $settings, $quizLabelMatches);
+preg_match_all('/<(?:input|select|textarea)\b[^>]*\bid="(quiz-[^"]+)"/is', $settings, $quizControlMatches);
+$quizLabelTargets = $quizLabelMatches[1] ?? [];
+$quizControlIds = $quizControlMatches[1] ?? [];
+sort($quizLabelTargets);
+sort($quizControlIds);
+
 $checks = [
     'layout exposes a keyboard skip link' => str_contains($layout, 'href="#main-content"')
         && str_contains($layout, 'id="main-content"'),
     'primary navigation identifies landmark and current page' => str_contains($layout, 'aria-label="Primary navigation"')
         && str_contains($layout, 'aria-current="page"'),
     'document title is escaped' => str_contains($layout, 'htmlspecialchars((string) ($pageTitle'),
-    'quiz settings labels are explicitly associated' => preg_match_all('/<label for="quiz-[^"]+">/', $settings) === 8
-        && preg_match_all('/id="quiz-[^"]+"/', $settings) === 8,
+    'quiz settings labels target their corresponding controls' => count($quizLabelTargets) === 8
+        && $quizLabelTargets === $quizControlIds,
     'answer choices use a labelled fieldset and full-size labels' => str_contains($quiz, '<fieldset class="quiz-choices">')
         && str_contains($quiz, '<legend>Choose one answer</legend>')
         && str_contains($quiz, 'class="quiz-choice" for="answer-'),

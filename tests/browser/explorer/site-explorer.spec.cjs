@@ -10,7 +10,7 @@ const APP = 'http://127.0.0.1:4174';
 const ALLOWED_PATHS = new Set([
   '/', '/exams', '/quiz', '/history', '/history/result', '/study', '/study-library',
   '/flashcards', '/flashcards/review', '/progress', '/profile', '/privacy',
-  '/developer/question-origin',
+  '/dashboard', '/developer', '/developer/question-origin',
 ]);
 const BOARDS = [
   ['LET', 'let'], ['CSE', 'civil-service'], ['CLE', 'criminologist'], ['NLE', 'nursing'],
@@ -250,7 +250,8 @@ test('bounded stateful BoardPrep journey exploration', async ({ page }, testInfo
     await page.goto(profileUrl);
     await page.locator('#profile-cse-level').selectOption('PROFESSIONAL');
     await page.getByRole('button', { name: 'Save exam preferences' }).click();
-    await expect(page.locator('[role="status"]')).toContainText('preferences were saved');
+    await expect(page.locator('[role="status"]')
+      .filter({ hasText: 'Your learner preferences were saved' })).toHaveCount(1);
     evidence.actions_executed += 2;
     evidence.transitions.push('anonymous profile preferences: blank -> CSE PROFESSIONAL');
 

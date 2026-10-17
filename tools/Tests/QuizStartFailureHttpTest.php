@@ -75,16 +75,38 @@ $failed = $simulator->request(
     $cookies
 );
 
-if (!$failed['success'] || $failed['status'] !== 302 || $failed['location'] !== '/quiz') {
+if (!$failed['success'] || $failed['status'] !== 302 || !str_starts_with((string) $failed['location'], '/quiz?')) {
     throw new RuntimeException('empty HTTP generation did not use the safe recovery redirect');
+}
+
+$redirectQuery = [];
+parse_str((string) parse_url((string) $failed['location'], PHP_URL_QUERY), $redirectQuery);
+foreach ([
+    'exam' => 'LET',
+    'subject' => 'Not A Subject',
+    'topic' => 'Not A Topic',
+    'difficulty' => 'hard',
+    'count' => '20',
+    'mode' => 'practice',
+] as $key => $expected) {
+    if ((string) ($redirectQuery[$key] ?? '') !== $expected) {
+        throw new RuntimeException('failed start redirect discarded the learner\'s submitted ' . $key . ' context');
+    }
+}
+
+$recoverySettings = $simulator->request('GET', '/quiz', $redirectQuery, [], [], $cookies);
+if (!$recoverySettings['success']
+    || !str_contains($recoverySettings['output'], 'No questions matched those quiz settings')
+    || !str_contains($recoverySettings['output'], 'active-session-warning')
+    || !str_contains($recoverySettings['output'], 'Resume current session')) {
+    throw new RuntimeException('failed start did not show the preserved settings error and safe active-session option');
 }
 
 $recovery = $simulator->request('GET', '/quiz', [], [], [], $cookies);
 if (!$recovery['success'] || !preg_match('/name="question_id"\s+value="([^"]+)"/', $recovery['output'], $resumedQuestion)
     || $resumedQuestion[1] !== $activeQuestion[1]
-    || !str_contains($recovery['output'], 'No questions matched those quiz settings')
     || !preg_match('/name="answer"\s+value="A"\s+required\s+checked/', $recovery['output'])) {
-    throw new RuntimeException('a failed start discarded the learner\'s active question or hid its recovery message');
+    throw new RuntimeException('a failed start discarded the learner\'s active question or selected answer');
 }
 
 $replacement = $simulator->request('POST', '/quiz', [], [
