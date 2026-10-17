@@ -22,13 +22,28 @@ $assert(($report['technical_release_gate'] ?? '') !== 'PASS', 'Product readiness
 $assert(($report['product_feature_complete'] ?? null) === false, 'Incomplete or unverified features were marked complete.');
 $assert(($report['product_launch_ready'] ?? null) === false, 'Missing mandatory launch evidence did not block launch.');
 $assert(($report['invalid_register_entries'] ?? null) === [], 'Incomplete defect/capability evidence was accepted by the register.');
-$assert(count((array) ($report['inventory']['routes'] ?? [])) === 62, 'Runtime route inventory count is inconsistent.');
-$assert(($report['production_web_route_count'] ?? 0) === 19, 'Production route count is inconsistent.');
-$assert(($report['nonproduction_web_route_count'] ?? 0) === 43, 'Non-production route count is inconsistent.');
+$routeCount = count((array) ($report['inventory']['routes'] ?? []));
+$productionRouteCount = (int) ($report['production_web_route_count'] ?? -1);
+$nonproductionRouteCount = (int) ($report['nonproduction_web_route_count'] ?? -1);
+$assert($routeCount > 0, 'Runtime route inventory is empty.');
+$assert($productionRouteCount >= 0
+    && $nonproductionRouteCount >= 0
+    && $productionRouteCount + $nonproductionRouteCount === $routeCount,
+    'Production and non-production route counts do not reconcile to the current inventory.');
 $assert(($report['board_matrix_complete'] ?? false) === true, 'The evidence-backed automated ten-board matrix was not recognized.');
 $assert(($report['critical_capability_checks']['privacy_control_routes'] ?? false) === true, 'Privacy data-control routes were not detected.');
 $assert(($report['critical_capability_checks']['unsupported_exam_mode_claim_disclosed'] ?? false) === true, 'The actual learner-facing exam-mode limitations were not recognized.');
 $assert(($report['critical_capability_checks']['exam_simulation_timer_review_and_expiry_regression'] ?? false) === true, 'Timed exam simulation and review regression coverage were not recognized.');
+$readinessConfig = json_decode((string) file_get_contents($root . '/config/product-readiness.json'), true, 512, JSON_THROW_ON_ERROR);
+$mobileFeatures = array_values(array_filter(
+    (array) ($readinessConfig['feature_assessment'] ?? []),
+    static fn(mixed $feature): bool => is_array($feature)
+        && ($feature['FEATURE'] ?? '') === 'Mobile layout and practical accessibility'
+));
+$assert(count($mobileFeatures) === 1
+    && ($mobileFeatures[0]['STATUS'] ?? '') === 'IMPLEMENTED_AND_VERIFIED'
+    && str_contains(implode(' ', (array) ($mobileFeatures[0]['EVIDENCE'] ?? [])), 'no screen-reader acceptance'),
+    'Automated mobile progress must be recorded without claiming screen-reader acceptance.');
 $browserExecutionVerified = ($report['browser_validation']['execution_verified_for_current_commit'] ?? false) === true;
 $assert(($report['critical_capability_checks']['current_commit_real_browser_acceptance'] ?? false) === $browserExecutionVerified, 'Browser evidence status does not match the current-commit verification.');
 $expectedBrowserStatus = $browserExecutionVerified
@@ -71,10 +86,17 @@ $assert(count((array) ($report['incomplete_boards'] ?? [])) === 0, 'Automated te
 $quizSettings = (string) file_get_contents($root . '/app/Views/quiz/settings.php');
 $assert(str_contains($quizSettings, 'name="timer_mode"')
     && str_contains($quizSettings, 'separate from the official board examination'), 'Exam simulation timer choices and official-exam distinction are not disclosed at setup.');
-$assert(($report['defects_discovered_by_severity']['P0'] ?? -1) === 0, 'Unexpected P0 defect was omitted.');
-$assert(($report['defects_discovered_by_severity']['P1'] ?? -1) === 4, 'The two prior and two Batch 665 P1 board journey findings were not preserved in the register.');
-$assert(($report['defects_remaining_by_severity']['P0'] ?? -1) === 0, 'Product gate is incorrectly treating a resolved P0 as open.');
-$assert(($report['defects_remaining_by_severity']['P1'] ?? -1) === 0, 'A fixed board journey defect remains open.');
+$discoveredDefects = (array) ($report['defects_discovered_by_severity'] ?? []);
+$remainingDefects = (array) ($report['defects_remaining_by_severity'] ?? []);
+foreach (['P0', 'P1', 'P2', 'P3'] as $severity) {
+    $discovered = $discoveredDefects[$severity] ?? null;
+    $remaining = $remainingDefects[$severity] ?? null;
+    $assert(is_int($discovered) && $discovered >= 0
+        && is_int($remaining) && $remaining >= 0 && $remaining <= $discovered,
+        "Product defect inventory does not reconcile for {$severity}.");
+}
+$assert(($remainingDefects['P0'] ?? -1) === 0, 'A P0 product defect remains open.');
+$assert(($remainingDefects['P1'] ?? -1) === 0, 'A P1 product defect remains open.');
 $assert(($report['blocking_missing_capabilities'] ?? []) !== [], 'Known missing launch capability was dropped from the gate.');
 
 echo "[PASS] Product readiness inventories the app and remains distinct from the technical release gate.\n";

@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const fs = require('node:fs');
+const os = require('node:os');
 const path = require('node:path');
 
 function collectTests(report) {
@@ -57,8 +58,11 @@ function cleanMessage(value, limit = 1200) {
 }
 
 function main() {
-  const repositoryRoot = path.resolve(__dirname, '..');
-  const reportPath = path.join(repositoryRoot, 'test-results', 'browser-results.json');
+  const evidenceDirectory = path.resolve(
+    process.env.BOARDPREP_BROWSER_EVIDENCE_DIR
+      || path.join(os.tmpdir(), `boardprep-browser-evidence-${process.pid}`)
+  );
+  const reportPath = path.join(evidenceDirectory, 'test-results', 'browser-results.json');
   if (!fs.existsSync(reportPath)) {
     const message = 'BROWSER_TEST_SUMMARY=NOT_AVAILABLE (Playwright JSON report was not produced).';
     console.log(message);

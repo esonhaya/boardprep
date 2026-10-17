@@ -34,6 +34,8 @@ jobs:
   browser:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    env:
+      BOARDPREP_BROWSER_EVIDENCE_DIR: ${{ runner.temp }}/boardprep-browser-evidence/${{ github.run_id }}/${{ github.run_attempt }}
     steps:
       - uses: actions/checkout@v4
 
@@ -72,13 +74,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: boardprep-chromium-visual-qa
-          path: |
-            screenshots/
-            visual-audit.md
-            defect-register.md
-            browser-results.json
-            console-errors.txt
-            test-results/
-            playwright-report/
+          path: ${{ runner.temp }}/boardprep-browser-evidence/${{ github.run_id }}/${{ github.run_attempt }}/
           if-no-files-found: ignore
           retention-days: 14

@@ -303,10 +303,19 @@ final class BrowserEvidenceService
             if (hash_equals($sha, $head)) {
                 $relation = 'EXACT';
             } else {
-                $isAncestor = self::git($root, ['merge-base', '--is-ancestor', $sha, $head])['exit'] === 0;
-                if ($isAncestor) {
+                $evidenceCommit = self::git($root, ['cat-file', '-e', $sha . '^{commit}']);
+                $ancestry = $evidenceCommit['exit'] === 0
+                    ? self::git($root, ['merge-base', '--is-ancestor', $sha, $head])
+                    : ['exit' => 128, 'output' => ''];
+                if ($ancestry['exit'] === 0) {
                     $paths = self::changedPathsBetween($root, $sha, $head);
                     $relation = self::classifyRelation(true, $paths);
+                } elseif ($evidenceCommit['exit'] !== 0
+                    || $ancestry['exit'] !== 1
+                    || self::hasIncompleteHistory($root)) {
+                    // A missing object, shallow boundary, or Git error cannot
+                    // prove either ancestry or a genuine unrelated commit.
+                    $relation = 'UNVERIFIED';
                 }
             }
         }
@@ -326,6 +335,9 @@ final class BrowserEvidenceService
         } elseif ($relation === 'STALE') {
             $status = 'STALE';
             $reason = 'The browser-tested commit is an ancestor, but at least one descendant changes application or non-documentation files.';
+        } elseif ($relation === 'UNVERIFIED') {
+            $status = 'UNVERIFIED';
+            $reason = 'The checkout does not contain enough verified Git history to establish the browser commit relationship.';
         } else {
             $status = 'MISMATCH';
             $reason = 'The browser-tested commit is not an ancestor of the assessed commit.';
@@ -373,5 +385,11 @@ final class BrowserEvidenceService
         $output = [];
         exec($command . ' 2>/dev/null', $output, $exit);
         return ['exit' => $exit, 'output' => implode("\n", $output)];
+    }
+
+    private static function hasIncompleteHistory(string $root): bool
+    {
+        $result = self::git($root, ['rev-parse', '--is-shallow-repository']);
+        return $result['exit'] !== 0 || trim($result['output']) !== 'false';
     }
 }

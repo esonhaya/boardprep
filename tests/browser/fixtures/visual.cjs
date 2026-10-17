@@ -1,7 +1,12 @@
 const fs = require('node:fs');
+const os = require('node:os');
 const path = require('node:path');
 
 const { expect } = require('@playwright/test');
+const evidenceDirectory = path.resolve(
+  process.env.BOARDPREP_BROWSER_EVIDENCE_DIR
+    || path.join(os.tmpdir(), `boardprep-browser-evidence-${process.pid}`)
+);
 
 async function waitForVisualStability(page) {
   await page.waitForLoadState('domcontentloaded');
@@ -192,7 +197,7 @@ async function captureVisualState(page, testInfo, name, options = {}) {
       ? 'tablet'
       : 'desktop';
   const screenshotName = `${String(name).replace(/[^a-z0-9_-]+/gi, '-')}-${requestedViewport.width}x${requestedViewport.height}.png`;
-  const publishedScreenshot = path.resolve(process.cwd(), 'screenshots', screenshotCategory, screenshotName);
+  const publishedScreenshot = path.join(evidenceDirectory, 'screenshots', screenshotCategory, screenshotName);
   fs.mkdirSync(path.dirname(publishedScreenshot), { recursive: true });
   fs.copyFileSync(screenshotPath, publishedScreenshot);
   await testInfo.attach(`${name} visual screenshot`, {
@@ -218,7 +223,7 @@ async function captureVisualState(page, testInfo, name, options = {}) {
     ...report,
     screenshotWidth: requestedViewport.width,
     screenshotHeight: requestedViewport.height,
-    screenshot: path.relative(process.cwd(), publishedScreenshot),
+    screenshot: path.relative(evidenceDirectory, publishedScreenshot),
   };
 }
 

@@ -27,7 +27,12 @@ try {
   process.exit(process.env.CI ? 1 : 0);
 }
 
-const evidenceDirectory = fs.mkdtempSync(path.join(os.tmpdir(), 'boardprep-browser-evidence-'));
+const configuredEvidenceDirectory = process.env.BOARDPREP_BROWSER_EVIDENCE_DIR;
+const evidenceDirectory = configuredEvidenceDirectory
+  ? path.resolve(configuredEvidenceDirectory)
+  : fs.mkdtempSync(path.join(os.tmpdir(), 'boardprep-browser-evidence-'));
+const removeEvidenceDirectory = !configuredEvidenceDirectory;
+fs.mkdirSync(evidenceDirectory, { recursive: true });
 const result = spawnSync(process.execPath, [
   cli,
   'test',
@@ -52,7 +57,7 @@ let exitStatus = result.status ?? 1;
 
 if (exitStatus === 0) {
   try {
-    const browserReportPath = path.join(repositoryRoot, 'test-results', 'browser-results.json');
+    const browserReportPath = path.join(evidenceDirectory, 'test-results', 'browser-results.json');
     const browserReport = JSON.parse(fs.readFileSync(browserReportPath, 'utf8'));
     const runtime = readEvidence('runtime');
     const keyboard = readEvidence('keyboard');
@@ -62,6 +67,7 @@ if (exitStatus === 0) {
     const tenBoard = readEvidence('ten-board');
     const viewports = readEvidence('viewports');
     const complexContent = readEvidence('complex-content');
+    const responsiveStates = readEvidence('responsive-states');
     const requiredViewportSizes = ['320x640', '360x800', '390x844', '430x932', '768x1024'];
     const selectedProjects = process.argv.includes('--project=mobile')
       ? ['mobile']
@@ -83,6 +89,18 @@ if (exitStatus === 0) {
       && tenBoard.results.mobile?.boards?.length === 10
       && viewports.projects.includes('mobile')
       && requiredViewportSizes.every((size) => viewports.results.mobile?.sizes?.includes(size))
+      && responsiveStates.projects.includes('mobile')
+      && [
+        'activePractice',
+        'practiceResultReview',
+        'simulatorReview',
+        'flashcardReview',
+        'privacyControls',
+        'errorRecovery',
+        'quizValidationError',
+        'structured_figure',
+        'structured_table',
+      ].every((journey) => requiredViewportSizes.every((size) => responsiveStates.results.mobile?.[journey]?.includes(size)))
       && complexContent.projects.includes('mobile')
       && requiredViewportSizes.every((size) => complexContent.results.mobile?.math?.includes(size))
       && requiredViewportSizes.every((size) => complexContent.results.mobile?.tables?.includes(size))
@@ -118,6 +136,18 @@ if (exitStatus === 0) {
         production_boundary: productionBoundary.projects.length > 0,
         ten_board_journeys: tenBoard.results.mobile?.boards?.length === 10,
         responsive_viewport_sweep: viewports.results.mobile?.sizes?.length === requiredViewportSizes.length,
+        responsive_active_practice_results_simulator_flashcards_privacy_and_errors: responsiveStates.projects.includes('mobile')
+          && [
+            'activePractice',
+            'practiceResultReview',
+            'simulatorReview',
+            'flashcardReview',
+            'privacyControls',
+            'errorRecovery',
+            'quizValidationError',
+            'structured_figure',
+            'structured_table',
+          ].every((journey) => requiredViewportSizes.every((size) => responsiveStates.results.mobile?.[journey]?.includes(size))),
         math_and_table_viewports: complexContent.projects.includes('mobile'),
       },
       results: {
@@ -128,16 +158,21 @@ if (exitStatus === 0) {
       },
       report: 'test-results/browser-results.json',
     };
-    fs.mkdirSync(path.join(repositoryRoot, 'test-results'), { recursive: true });
+    fs.mkdirSync(path.join(evidenceDirectory, 'test-results'), { recursive: true });
     fs.writeFileSync(
-      path.join(repositoryRoot, 'test-results', 'browser-execution.json'),
+      path.join(evidenceDirectory, 'test-results', 'browser-execution.json'),
       `${JSON.stringify(execution, null, 2)}\n`
     );
     console.log(`BROWSER_EXECUTION=${execution.status}`);
+    if (execution.status !== 'BROWSER_EXECUTED_PASS') {
+      console.error('::error title=Browser certification evidence incomplete::Required projects, journeys, viewports, or clean-checkout evidence were not all present.');
+      exitStatus = 1;
+    }
   } catch (error) {
     console.error(`BROWSER_EXECUTION=EVIDENCE_INCOMPLETE (${error.message})`);
+    exitStatus = 1;
   }
 }
 
-if (evidenceDirectory) fs.rmSync(evidenceDirectory, { recursive: true, force: true });
+if (removeEvidenceDirectory) fs.rmSync(evidenceDirectory, { recursive: true, force: true });
 process.exit(exitStatus);

@@ -1,7 +1,14 @@
 const { defineConfig, devices } = require('@playwright/test');
+const fs = require('node:fs');
+const os = require('node:os');
 const path = require('node:path');
 
-const repositoryRoot = path.resolve(__dirname, '../..');
+const evidenceDirectory = path.resolve(
+  process.env.BOARDPREP_BROWSER_EVIDENCE_DIR
+    || path.join(os.tmpdir(), `boardprep-browser-evidence-${process.pid}`)
+);
+const resultsDirectory = path.join(evidenceDirectory, 'test-results');
+fs.mkdirSync(resultsDirectory, { recursive: true });
 
 module.exports = defineConfig({
   testDir: __dirname,
@@ -13,15 +20,16 @@ module.exports = defineConfig({
   fullyParallel: false,
   workers: 1,
   retries: process.env.CI ? 1 : 0,
+  outputDir: resultsDirectory,
   reporter: process.env.CI
     ? [
       ['dot'],
-      ['json', { outputFile: path.join(repositoryRoot, 'test-results', 'browser-results.json') }],
-      ['html', { outputFolder: path.join(repositoryRoot, 'playwright-report'), open: 'never' }],
+      ['json', { outputFile: path.join(resultsDirectory, 'browser-results.json') }],
+      ['html', { outputFolder: path.join(evidenceDirectory, 'playwright-report'), open: 'never' }],
     ]
     : [
       ['list'],
-      ['json', { outputFile: path.join(repositoryRoot, 'test-results', 'browser-results.json') }],
+      ['json', { outputFile: path.join(resultsDirectory, 'browser-results.json') }],
     ],
   use: {
     baseURL: 'http://127.0.0.1:4173',

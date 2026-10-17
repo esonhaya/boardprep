@@ -37,6 +37,14 @@ const fullJourneyBoards = [
   ['CPA', 'cpa'],
 ];
 
+const responsiveViewports = [
+  { width: 320, height: 640 },
+  { width: 360, height: 800 },
+  { width: 390, height: 844 },
+  { width: 430, height: 932 },
+  { width: 768, height: 1024 },
+];
+
 let questions;
 function canonicalQuestions() {
   if (questions) return questions;
@@ -51,6 +59,55 @@ function questionById(id) {
 
 function normalize(value) {
   return String(value || '').replace(/\s+/g, ' ').trim().toLowerCase();
+}
+
+async function assertResponsiveSurface(page, label) {
+  const layout = await page.evaluate(() => {
+    const viewportWidth = document.documentElement.clientWidth;
+    const visible = (element) => {
+      const rect = element.getBoundingClientRect();
+      return rect.width > 0 && rect.height > 0 && getComputedStyle(element).visibility !== 'hidden';
+    };
+    const interactive = [...document.querySelectorAll(
+      'main button, main a, main select, main input:not([type="hidden"]), .mobile-menu-button'
+    )].filter(visible);
+    const touchTargets = [...document.querySelectorAll(
+      'main button, main a.button, main select, .mobile-menu-button, .quiz-choice, .privacy-delete-form label'
+    )].filter(visible);
+    const formFields = [...document.querySelectorAll(
+      'main input:not([type="hidden"]), main select, main textarea'
+    )].filter(visible);
+    return {
+      viewportWidth,
+      documentWidth: document.documentElement.scrollWidth,
+      clippedControls: interactive
+        .filter((element) => {
+          const rect = element.getBoundingClientRect();
+          return rect.left < -1 || rect.right > viewportWidth + 1;
+        })
+        .map((element) => (element.innerText || element.getAttribute('aria-label') || element.tagName).trim().slice(0, 100)),
+      smallTouchTargets: touchTargets
+        .filter((element) => element.getBoundingClientRect().height < 44)
+        .map((element) => (element.innerText || element.getAttribute('aria-label') || element.tagName).trim().slice(0, 100)),
+      unlabeledFields: formFields
+        .filter((element) => !element.labels?.length
+          && !element.getAttribute('aria-label')
+          && !element.getAttribute('aria-labelledby'))
+        .map((element) => element.outerHTML.slice(0, 120)),
+    };
+  });
+  expect(layout.documentWidth, `${label}: horizontal page overflow at ${layout.viewportWidth}px`).toBeLessThanOrEqual(layout.viewportWidth + 2);
+  expect(layout.clippedControls, `${label}: clipped controls at ${layout.viewportWidth}px`).toEqual([]);
+  expect(layout.smallTouchTargets, `${label}: primary touch target below 44px`).toEqual([]);
+  expect(layout.unlabeledFields, `${label}: unlabeled form fields`).toEqual([]);
+}
+
+async function assertVisibleKeyboardFocus(locator) {
+  const visible = await locator.evaluate((element) => {
+    const style = getComputedStyle(element);
+    return (style.outlineStyle !== 'none' && style.outlineWidth !== '0px') || style.boxShadow !== 'none';
+  });
+  expect(visible, 'Keyboard focus should have a visible indicator.').toBeTruthy();
 }
 
 function extractPdfText(buffer) {
@@ -157,6 +214,28 @@ async function inspectStructuredQuestions(page, testInfo, targets, maxQuestions)
       }
       found.add(questionId);
       await assertPageHealthy(page, testInfo, `quiz-${target.name}`);
+      if (testInfo.project.name === 'mobile') {
+        const originalViewport = page.viewportSize();
+        for (const viewport of responsiveViewports) {
+          await page.setViewportSize(viewport);
+          await assertResponsiveSurface(page, `structured ${target.name} question at ${viewport.width}px`);
+          const contentBounds = await page.evaluate(() => [...document.querySelectorAll(
+            '.question-table-wrap, .question-equation, .question-figure img'
+          )].map((element) => {
+            const rect = element.getBoundingClientRect();
+            return { left: rect.left, right: rect.right, scrollWidth: element.scrollWidth, clientWidth: element.clientWidth };
+          }));
+          expect(contentBounds.every((bounds) => bounds.left >= -1 && bounds.right <= viewport.width + 1),
+            `structured ${target.name} content escaped its viewport at ${viewport.width}px`).toBeTruthy();
+          if (viewport.width === 320) {
+            await assertPageHealthy(page, testInfo, `structured-${target.name}-320`, { screenshot: true });
+          }
+        }
+        if (originalViewport) await page.setViewportSize(originalViewport);
+        recordBrowserEvidence('responsive-states', {
+          [`structured_${target.name}`]: responsiveViewports.map(({ width, height }) => `${width}x${height}`),
+        }, testInfo);
+      }
     }
 
     if (found.size === Object.keys(targets).length) return;
@@ -352,6 +431,7 @@ test.describe('BoardPrep learner browser acceptance', () => {
       const mobileExamsLink = page.locator('#learner-nav a[href="/exams"]');
       await expect(mobileExamsLink).toBeVisible();
       await tabToKeyboardFocus(page, mobileExamsLink);
+      await assertVisibleKeyboardFocus(mobileExamsLink);
       await assertPageHealthy(page, testInfo, 'dashboard');
       await page.keyboard.press('Enter');
       await expect(page).toHaveURL(/\/exams/);
@@ -360,6 +440,7 @@ test.describe('BoardPrep learner browser acceptance', () => {
       const desktopExamsLink = page.locator('#learner-nav a[href="/exams"]');
       await expect(desktopExamsLink).toBeVisible();
       await tabToKeyboardFocus(page, desktopExamsLink);
+      await assertVisibleKeyboardFocus(desktopExamsLink);
       await assertPageHealthy(page, testInfo, 'dashboard');
       await page.keyboard.press('Enter');
       await expect(page).toHaveURL(/\/exams/);
@@ -410,11 +491,46 @@ test.describe('BoardPrep learner browser acceptance', () => {
       count: '5',
     });
     await expect(page.locator('.quiz-meta')).toContainText('Question 1 / 5');
+    if (testInfo.project.name === 'mobile') {
+      const originalViewport = page.viewportSize();
+      for (const viewport of responsiveViewports) {
+        await page.setViewportSize(viewport);
+        await assertResponsiveSurface(page, `active practice at ${viewport.width}px`);
+        const optionCount = await page.locator('.quiz-choice').count();
+        expect(optionCount).toBeGreaterThan(1);
+        if (viewport.width === 320) {
+          const firstAnswer = page.locator('input[name="answer"]').first();
+          await firstAnswer.check();
+          await expect(firstAnswer).toBeChecked();
+          await expect(page.locator('.quiz-choice:has(input:checked)')).toHaveCount(1);
+          await assertPageHealthy(page, testInfo, 'active-practice-answer-selected-320', { screenshot: true });
+        }
+      }
+      if (originalViewport) await page.setViewportSize(originalViewport);
+      recordBrowserEvidence('responsive-states', {
+        activePractice: responsiveViewports.map(({ width, height }) => `${width}x${height}`),
+      }, testInfo);
+    }
     await completeQuiz(page, true);
     await expect(page.locator('.result-score .eyebrow')).toHaveText('Score');
     await expect(page.locator('.result-score h2')).toHaveText(/\d+\s*\/\s*\d+/);
     await expect(page.locator('.result-percentage .eyebrow')).toHaveText('Accuracy');
     await expect(page.locator('.result-percentage h3')).toHaveText(/\d+%/);
+    if (testInfo.project.name === 'mobile') {
+      const originalViewport = page.viewportSize();
+      for (const viewport of responsiveViewports) {
+        await page.setViewportSize(viewport);
+        await assertResponsiveSurface(page, `practice result and review at ${viewport.width}px`);
+        await expect(page.locator('.answer-review-explanation').first()).toBeVisible();
+        if (viewport.width === 320) {
+          await assertPageHealthy(page, testInfo, 'practice-result-review-320', { screenshot: true });
+        }
+      }
+      if (originalViewport) await page.setViewportSize(originalViewport);
+      recordBrowserEvidence('responsive-states', {
+        practiceResultReview: responsiveViewports.map(({ width, height }) => `${width}x${height}`),
+      }, testInfo);
+    }
     await assertPageHealthy(page, testInfo, 'quiz-result');
 
     await expect(page.getByRole('link', { name: 'Review missed concepts' })).toBeVisible();
@@ -471,6 +587,21 @@ test.describe('BoardPrep learner browser acceptance', () => {
     await expect(page.locator('#exam-review-heading')).toBeFocused();
     await expect(page.locator('.exam-review-summary')).toContainText('1 of 5 answered');
     await expect(page.locator('.exam-review-summary')).toContainText('4 will be marked unanswered');
+    if (testInfo.project.name === 'mobile') {
+      const originalViewport = page.viewportSize();
+      for (const viewport of responsiveViewports) {
+        await page.setViewportSize(viewport);
+        await assertResponsiveSurface(page, `exam simulator review at ${viewport.width}px`);
+        await expect(page.getByRole('button', { name: 'Submit exam simulation' })).toBeVisible();
+        if (viewport.width === 320) {
+          await assertPageHealthy(page, testInfo, 'exam-simulation-review-320', { screenshot: true });
+        }
+      }
+      if (originalViewport) await page.setViewportSize(originalViewport);
+      recordBrowserEvidence('responsive-states', {
+        simulatorReview: responsiveViewports.map(({ width, height }) => `${width}x${height}`),
+      }, testInfo);
+    }
     await assertPageHealthy(page, testInfo, 'exam-simulation-review', { screenshot: true });
 
     await page.getByRole('button', { name: 'Review question 1' }).click();
@@ -532,6 +663,24 @@ test.describe('BoardPrep learner browser acceptance', () => {
     await page.getByRole('link', { name: 'Reveal answer' }).click();
     await expect(page.locator('.flashcard-answer')).toBeVisible();
     await expect(page.getByRole('button', { name: /Good/ })).toBeVisible();
+    if (testInfo.project.name === 'mobile') {
+      const originalViewport = page.viewportSize();
+      for (const viewport of responsiveViewports) {
+        await page.setViewportSize(viewport);
+        await assertResponsiveSurface(page, `flashcard answer and ratings at ${viewport.width}px`);
+        const ratingWidths = await page.locator('.flashcard-rating').evaluateAll((buttons) => buttons
+          .map((button) => button.getBoundingClientRect().width));
+        expect(ratingWidths).toHaveLength(4);
+        expect(ratingWidths.every((width) => width >= 44), `flashcard ratings are too narrow at ${viewport.width}px`).toBeTruthy();
+        if (viewport.width === 320) {
+          await assertPageHealthy(page, testInfo, 'flashcard-answer-ratings-320', { screenshot: true });
+        }
+      }
+      if (originalViewport) await page.setViewportSize(originalViewport);
+      recordBrowserEvidence('responsive-states', {
+        flashcardReview: responsiveViewports.map(({ width, height }) => `${width}x${height}`),
+      }, testInfo);
+    }
     await assertPageHealthy(page, testInfo, 'flashcards-review-after-reveal');
     await page.getByRole('button', { name: /Good/ }).click();
     await expect(page).toHaveURL(/\/flashcards\/review/);
@@ -546,6 +695,17 @@ test.describe('BoardPrep learner browser acceptance', () => {
     await page.goto('/missing-browser-acceptance-route');
     await expect(page.locator('body')).not.toContainText('Stack trace');
     await expect(page.locator('body')).not.toContainText('Fatal error');
+    if (testInfo.project.name === 'mobile') {
+      const originalViewport = page.viewportSize();
+      for (const viewport of responsiveViewports) {
+        await page.setViewportSize(viewport);
+        await assertResponsiveSurface(page, `not-found recovery page at ${viewport.width}px`);
+      }
+      if (originalViewport) await page.setViewportSize(originalViewport);
+      recordBrowserEvidence('responsive-states', {
+        errorRecovery: responsiveViewports.map(({ width, height }) => `${width}x${height}`),
+      }, testInfo);
+    }
     await assertPageHealthy(page, testInfo, '404', {
       allowHttpErrors: [{
         status: 404,
@@ -555,6 +715,29 @@ test.describe('BoardPrep learner browser acceptance', () => {
         consoleMessage: /^Failed to load resource: the server responded with a status of 404\b/,
       }],
     });
+  });
+
+  test('invalid quiz actions return a visible recovery message', async ({ page }, testInfo) => {
+    await page.goto('/quiz?action=invalid-browser-acceptance-action');
+    await expect(page).toHaveURL(/\/quiz$/);
+    await expect(page.getByRole('alert')).toContainText('That quiz action is invalid or expired. Please try again.');
+    await expect(page.locator('main h1').first()).toHaveText('Choose practice or an exam simulation');
+    if (testInfo.project.name === 'mobile') {
+      const originalViewport = page.viewportSize();
+      for (const viewport of responsiveViewports) {
+        await page.setViewportSize(viewport);
+        await assertResponsiveSurface(page, `invalid quiz action recovery at ${viewport.width}px`);
+        await expect(page.getByRole('alert')).toBeVisible();
+        if (viewport.width === 320) {
+          await assertPageHealthy(page, testInfo, 'quiz-invalid-action-recovery-320', { screenshot: true });
+        }
+      }
+      if (originalViewport) await page.setViewportSize(originalViewport);
+      recordBrowserEvidence('responsive-states', {
+        quizValidationError: responsiveViewports.map(({ width, height }) => `${width}x${height}`),
+      }, testInfo);
+    }
+    await assertPageHealthy(page, testInfo, 'quiz-invalid-action-recovery');
   });
 
   test('privacy export, cancellation, confirmed deletion, and learner isolation work in the browser', async ({ page, browser }, testInfo) => {
@@ -572,6 +755,22 @@ test.describe('BoardPrep learner browser acceptance', () => {
 
     await page.goto('/privacy');
     await expect(page.locator('h1')).toHaveText('Data and privacy');
+    if (testInfo.project.name === 'mobile') {
+      const originalViewport = page.viewportSize();
+      for (const viewport of responsiveViewports) {
+        await page.setViewportSize(viewport);
+        await assertResponsiveSurface(page, `privacy export and delete controls at ${viewport.width}px`);
+        await expect(page.locator('input[name="confirm_clear"]')).toBeVisible();
+        await expect(page.getByRole('button', { name: 'Clear my learning data' })).toBeVisible();
+        if (viewport.width === 320) {
+          await assertPageHealthy(page, testInfo, 'privacy-controls-320', { screenshot: true });
+        }
+      }
+      if (originalViewport) await page.setViewportSize(originalViewport);
+      recordBrowserEvidence('responsive-states', {
+        privacyControls: responsiveViewports.map(({ width, height }) => `${width}x${height}`),
+      }, testInfo);
+    }
     const originalCookies = await page.context().cookies(page.url());
     const originalSession = originalCookies.find((cookie) => cookie.name === 'PHPSESSID');
     expect(originalSession).toBeTruthy();
@@ -654,62 +853,36 @@ test.describe('BoardPrep learner browser acceptance', () => {
 
   test('mobile layouts remain in the viewport at supported narrow widths', async ({ page }, testInfo) => {
     test.skip(testInfo.project.name !== 'mobile', 'Viewport sweep runs once in the mobile project.');
-    const viewports = [
-      { width: 320, height: 640 },
-      { width: 360, height: 800 },
-      { width: 390, height: 844 },
-      { width: 430, height: 932 },
-      { width: 768, height: 1024 },
-    ];
     const routes = [
+      '/',
       '/dashboard',
       '/exams',
+      '/exams?exam=LET',
+      '/study',
       '/study-library?exam=LET',
       '/quiz',
       '/flashcards?include_new=1',
+      '/flashcards/review?include_new=0',
       '/progress',
       '/history',
       '/privacy',
     ];
 
-    for (const viewport of viewports) {
+    for (const viewport of responsiveViewports) {
       await page.setViewportSize(viewport);
       for (const route of routes) {
         await page.goto(route);
-        const layout = await page.evaluate(() => {
-          const viewportWidth = document.documentElement.clientWidth;
-          const interactive = [...document.querySelectorAll(
-            'main button, main a.button, main select, .mobile-menu-button'
-          )].filter((element) => {
-            const rect = element.getBoundingClientRect();
-            return rect.width > 0 && rect.height > 0;
-          });
-          return {
-            viewportWidth,
-            documentWidth: document.documentElement.scrollWidth,
-            clippedControls: interactive
-              .filter((element) => {
-                const rect = element.getBoundingClientRect();
-                return rect.left < -1 || rect.right > viewportWidth + 1;
-              })
-              .map((element) => element.outerHTML.slice(0, 120)),
-            shortTouchTargets: interactive
-              .filter((element) => element.matches('button, a.button, .mobile-menu-button'))
-              .filter((element) => element.getBoundingClientRect().height < 44)
-              .map((element) => element.outerHTML.slice(0, 120)),
-          };
-        });
-        expect(layout.documentWidth, `${route} at ${viewport.width}px`).toBeLessThanOrEqual(viewport.width + 2);
-        expect(layout.clippedControls, `${route} clipped controls at ${viewport.width}px`).toEqual([]);
-        expect(layout.shortTouchTargets, `${route} undersized primary touch controls at ${viewport.width}px`).toEqual([]);
+        await expect(page.locator('main h1').first(), `${route} should have a page heading`).toBeVisible();
+        await assertResponsiveSurface(page, `${route} at ${viewport.width}px`);
       }
     }
     recordBrowserEvidence('viewports', {
-      sizes: viewports.map(({ width, height }) => `${width}x${height}`),
+      sizes: responsiveViewports.map(({ width, height }) => `${width}x${height}`),
       routes,
       horizontalOverflow: 'PASS',
       primaryControlBounds: 'PASS',
       primaryTouchTargetMinimum: 'PASS',
+      formLabels: 'PASS',
     }, testInfo);
   });
 });

@@ -91,7 +91,10 @@ function recordBrowserEvidence(name, evidence, testInfo) {
   record.projects = [...new Set([...(record.projects || []), testInfo.project.name])].sort();
   record.results = {
     ...(record.results || {}),
-    [testInfo.project.name]: evidence,
+    [testInfo.project.name]: {
+      ...(record.results?.[testInfo.project.name] || {}),
+      ...evidence,
+    },
   };
   fs.writeFileSync(evidencePath, JSON.stringify(record, null, 2));
 }

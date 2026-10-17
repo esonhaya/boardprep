@@ -51,14 +51,15 @@ jobs:
       - name: Record exact commit and run Doctor release
         id: doctor
         run: |
-          mkdir -p release-gate-evidence
-          printf '{"gate":"full_doctor_release","commit":"%s","run_id":"%s","run_attempt":"%s"}\n' "$GITHUB_SHA" "$GITHUB_RUN_ID" "$GITHUB_RUN_ATTEMPT" > release-gate-evidence/manifest.json
+          evidence_dir="$RUNNER_TEMP/boardprep-release-gate-evidence/$GITHUB_RUN_ID/$GITHUB_RUN_ATTEMPT/doctor-release"
+          mkdir -p "$evidence_dir"
+          printf '{"gate":"full_doctor_release","commit":"%s","run_id":"%s","run_attempt":"%s"}\n' "$GITHUB_SHA" "$GITHUB_RUN_ID" "$GITHUB_RUN_ATTEMPT" > "$evidence_dir/manifest.json"
           set +e
-          php -d memory_limit=1G tools/doctor.php --release --json > release-gate-evidence/doctor-release.json 2>&1
+          php -d memory_limit=1G tools/doctor.php --release --json > "$evidence_dir/doctor-release.json" 2>&1
           status=$?
-          printf 'exit_code=%s\n' "$status" > release-gate-evidence/doctor-release.status
+          printf 'exit_code=%s\n' "$status" > "$evidence_dir/doctor-release.status"
           if [ "$status" -ne 0 ]; then
-            summary=$(php -d memory_limit=256M -r '$d=json_decode((string)file_get_contents($argv[1]),true); if (!is_array($d)) { echo "doctor_summary_unavailable"; exit(0); } $r=$d["release_readiness"]??[]; $g=$r["release_gate"]??[]; $h=$d["health"]??[]; $hs=$h["summary"]??[]; $failed=[]; foreach (($r["release_domains"]??[]) as $name=>$domain) { if (is_array($domain) && strtoupper((string)($domain["status"]??""))==="FAIL") $failed[]=(string)$name; } printf("gate=%s decision=%s p0=%d health=%s health_fail=%d failed_domains=%s", $g["status"]??"UNKNOWN", $r["release_decision"]??"UNKNOWN", (int)($r["priority_counts"]["P0"]??0), $h["overall_status"]??"UNKNOWN", (int)($hs["fail_count"]??0), implode(",",$failed));' release-gate-evidence/doctor-release.json 2>/dev/null || printf 'doctor_summary_unavailable')
+            summary=$(php -d memory_limit=256M -r '$d=json_decode((string)file_get_contents($argv[1]),true); if (!is_array($d)) { echo "doctor_summary_unavailable"; exit(0); } $r=$d["release_readiness"]??[]; $g=$r["release_gate"]??[]; $h=$d["health"]??[]; $hs=$h["summary"]??[]; $failed=[]; foreach (($r["release_domains"]??[]) as $name=>$domain) { if (is_array($domain) && strtoupper((string)($domain["status"]??""))==="FAIL") $failed[]=(string)$name; } printf("gate=%s decision=%s p0=%d health=%s health_fail=%d failed_domains=%s", $g["status"]??"UNKNOWN", $r["release_decision"]??"UNKNOWN", (int)($r["priority_counts"]["P0"]??0), $h["overall_status"]??"UNKNOWN", (int)($hs["fail_count"]??0), implode(",",$failed));' "$evidence_dir/doctor-release.json" 2>/dev/null || printf 'doctor_summary_unavailable')
             printf '::error file=.github/workflows/release-gates.yml,line=1,title=Doctor release result::%s\n' "$summary"
           fi
           exit "$status"
@@ -68,7 +69,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: boardprep-doctor-release-${{ github.sha }}
-          path: release-gate-evidence/
+          path: ${{ runner.temp }}/boardprep-release-gate-evidence/${{ github.run_id }}/${{ github.run_attempt }}/doctor-release/
           if-no-files-found: warn
           retention-days: 14
 
@@ -107,15 +108,16 @@ jobs:
           TEST_ID: ${{ matrix.test_id }}
           TEST_PATH: ${{ matrix.test_path }}
         run: |
-          mkdir -p release-gate-evidence
-          printf '{"gate":"security_privacy","test_id":"%s","test_path":"%s","commit":"%s","run_id":"%s","run_attempt":"%s"}\n' "$TEST_ID" "$TEST_PATH" "$GITHUB_SHA" "$GITHUB_RUN_ID" "$GITHUB_RUN_ATTEMPT" > release-gate-evidence/manifest.json
+          evidence_dir="$RUNNER_TEMP/boardprep-release-gate-evidence/$GITHUB_RUN_ID/$GITHUB_RUN_ATTEMPT/security-privacy/$TEST_ID"
+          mkdir -p "$evidence_dir"
+          printf '{"gate":"security_privacy","test_id":"%s","test_path":"%s","commit":"%s","run_id":"%s","run_attempt":"%s"}\n' "$TEST_ID" "$TEST_PATH" "$GITHUB_SHA" "$GITHUB_RUN_ID" "$GITHUB_RUN_ATTEMPT" > "$evidence_dir/manifest.json"
           set +e
-          php "$TEST_PATH" > release-gate-evidence/test.log 2>&1
+          php "$TEST_PATH" > "$evidence_dir/test.log" 2>&1
           status=$?
-          cat release-gate-evidence/test.log
-          printf '%s exit_code=%s\n' "$TEST_ID" "$status" > release-gate-evidence/test.status
+          cat "$evidence_dir/test.log"
+          printf '%s exit_code=%s\n' "$TEST_ID" "$status" > "$evidence_dir/test.status"
           if [ "$status" -ne 0 ]; then
-            reason=$(grep -E '^(PHP Fatal error:|Fatal error:|Parse error:|Uncaught (Error|TypeError|RuntimeException))' release-gate-evidence/test.log | tail -n 1 | cut -c1-350 | tr '\r\n' ' ')
+            reason=$(grep -E '^(PHP Fatal error:|Fatal error:|Parse error:|Uncaught (Error|TypeError|RuntimeException))' "$evidence_dir/test.log" | tail -n 1 | cut -c1-350 | tr '\r\n' ' ')
             if [ -z "$reason" ]; then reason='No sanitized PHP fatal or exception line was captured; inspect the run evidence artifact.'; fi
             reason=${reason//'%'/'%25'}
             reason=${reason//$'\r'/'%0D'}
@@ -129,7 +131,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: boardprep-security-privacy-${{ matrix.test_id }}-${{ github.sha }}
-          path: release-gate-evidence/
+          path: ${{ runner.temp }}/boardprep-release-gate-evidence/${{ github.run_id }}/${{ github.run_attempt }}/security-privacy/${{ matrix.test_id }}/
           if-no-files-found: warn
           retention-days: 14
 
@@ -149,12 +151,13 @@ jobs:
 
       - name: Run ten-board HTTP journey
         run: |
-          mkdir -p release-gate-evidence
-          printf '{"gate":"ten_board_http","commit":"%s","run_id":"%s","run_attempt":"%s"}\n' "$GITHUB_SHA" "$GITHUB_RUN_ID" "$GITHUB_RUN_ATTEMPT" > release-gate-evidence/manifest.json
+          evidence_dir="$RUNNER_TEMP/boardprep-release-gate-evidence/$GITHUB_RUN_ID/$GITHUB_RUN_ATTEMPT/ten-board-http"
+          mkdir -p "$evidence_dir"
+          printf '{"gate":"ten_board_http","commit":"%s","run_id":"%s","run_attempt":"%s"}\n' "$GITHUB_SHA" "$GITHUB_RUN_ID" "$GITHUB_RUN_ATTEMPT" > "$evidence_dir/manifest.json"
           set +e
-          php tools/Tests/TenBoardLearnerJourneyHttpTest.php > release-gate-evidence/ten-board-http.log 2>&1
+          php tools/Tests/TenBoardLearnerJourneyHttpTest.php > "$evidence_dir/ten-board-http.log" 2>&1
           status=$?
-          printf 'exit_code=%s\n' "$status" > release-gate-evidence/ten-board-http.status
+          printf 'exit_code=%s\n' "$status" > "$evidence_dir/ten-board-http.status"
           exit "$status"
 
       - name: Upload ten-board HTTP evidence
@@ -162,7 +165,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: boardprep-ten-board-http-${{ github.sha }}
-          path: release-gate-evidence/
+          path: ${{ runner.temp }}/boardprep-release-gate-evidence/${{ github.run_id }}/${{ github.run_attempt }}/ten-board-http/
           if-no-files-found: warn
           retention-days: 14
 
@@ -182,17 +185,18 @@ jobs:
 
       - name: Run preflight and smoke independently
         run: |
-          mkdir -p release-gate-evidence
-          printf '{"gate":"production_preflight_smoke","commit":"%s","run_id":"%s","run_attempt":"%s"}\n' "$GITHUB_SHA" "$GITHUB_RUN_ID" "$GITHUB_RUN_ATTEMPT" > release-gate-evidence/manifest.json
+          evidence_dir="$RUNNER_TEMP/boardprep-release-gate-evidence/$GITHUB_RUN_ID/$GITHUB_RUN_ATTEMPT/production-preflight"
+          mkdir -p "$evidence_dir"
+          printf '{"gate":"production_preflight_smoke","commit":"%s","run_id":"%s","run_attempt":"%s"}\n' "$GITHUB_SHA" "$GITHUB_RUN_ID" "$GITHUB_RUN_ATTEMPT" > "$evidence_dir/manifest.json"
           failed=0
           set +e
-          APP_ENV=production APP_DEBUG=false php tools/doctor.php --preflight --json > release-gate-evidence/production-preflight.json 2>&1
+          APP_ENV=production APP_DEBUG=false php tools/doctor.php --preflight --json > "$evidence_dir/production-preflight.json" 2>&1
           preflight_status=$?
-          printf 'exit_code=%s\n' "$preflight_status" > release-gate-evidence/production-preflight.status
+          printf 'exit_code=%s\n' "$preflight_status" > "$evidence_dir/production-preflight.status"
           if [ "$preflight_status" -ne 0 ]; then failed=1; fi
-          APP_ENV=production APP_DEBUG=false php tools/doctor.php --smoke --json > release-gate-evidence/production-smoke.json 2>&1
+          APP_ENV=production APP_DEBUG=false php tools/doctor.php --smoke --json > "$evidence_dir/production-smoke.json" 2>&1
           smoke_status=$?
-          printf 'exit_code=%s\n' "$smoke_status" > release-gate-evidence/production-smoke.status
+          printf 'exit_code=%s\n' "$smoke_status" > "$evidence_dir/production-smoke.status"
           if [ "$smoke_status" -ne 0 ]; then failed=1; fi
           exit "$failed"
 
@@ -201,7 +205,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: boardprep-production-preflight-${{ github.sha }}
-          path: release-gate-evidence/
+          path: ${{ runner.temp }}/boardprep-release-gate-evidence/${{ github.run_id }}/${{ github.run_attempt }}/production-preflight/
           if-no-files-found: warn
           retention-days: 14
 
@@ -211,6 +215,10 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
+        with:
+          # BrowserEvidenceService must prove commit ancestry; depth-1 cannot distinguish
+          # a documentation-only descendant from missing history.
+          fetch-depth: 0
 
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
@@ -221,14 +229,15 @@ jobs:
 
       - name: Evaluate product readiness
         run: |
-          mkdir -p release-gate-evidence
-          printf '{"gate":"formal_product_readiness","commit":"%s","run_id":"%s","run_attempt":"%s"}\n' "$GITHUB_SHA" "$GITHUB_RUN_ID" "$GITHUB_RUN_ATTEMPT" > release-gate-evidence/manifest.json
+          evidence_dir="$RUNNER_TEMP/boardprep-release-gate-evidence/$GITHUB_RUN_ID/$GITHUB_RUN_ATTEMPT/product-readiness"
+          mkdir -p "$evidence_dir"
+          printf '{"gate":"formal_product_readiness","commit":"%s","run_id":"%s","run_attempt":"%s"}\n' "$GITHUB_SHA" "$GITHUB_RUN_ID" "$GITHUB_RUN_ATTEMPT" > "$evidence_dir/manifest.json"
           set +e
-          php tools/product-readiness.php --json > release-gate-evidence/product-readiness.json 2>&1
+          php tools/product-readiness.php --json > "$evidence_dir/product-readiness.json" 2>&1
           status=$?
-          printf 'exit_code=%s\n' "$status" > release-gate-evidence/product-readiness.status
+          printf 'exit_code=%s\n' "$status" > "$evidence_dir/product-readiness.status"
           if [ "$status" -ne 0 ]; then
-            summary=$(php -r '$d=json_decode((string)file_get_contents($argv[1]),true); if (!is_array($d)) { echo "product_readiness_summary_unavailable"; exit(0); } printf("product_feature_complete=%s product_launch_ready=%s privacy_terms=%s incomplete_features=%d mandatory_evidence_not_passed=%d", !empty($d["product_feature_complete"])?"yes":"no", !empty($d["product_launch_ready"])?"yes":"no", !empty($d["privacy_owner_terms_configured"])?"yes":"no", count((array)($d["incomplete_in_scope_features"]??[])), count((array)($d["mandatory_evidence_not_passed"]??[])));' release-gate-evidence/product-readiness.json 2>/dev/null || printf 'product_readiness_summary_unavailable')
+            summary=$(php -r '$d=json_decode((string)file_get_contents($argv[1]),true); if (!is_array($d)) { echo "product_readiness_summary_unavailable"; exit(0); } printf("product_feature_complete=%s product_launch_ready=%s privacy_terms=%s incomplete_features=%d mandatory_evidence_not_passed=%d", !empty($d["product_feature_complete"])?"yes":"no", !empty($d["product_launch_ready"])?"yes":"no", !empty($d["privacy_owner_terms_configured"])?"yes":"no", count((array)($d["incomplete_in_scope_features"]??[])), count((array)($d["mandatory_evidence_not_passed"]??[])));' "$evidence_dir/product-readiness.json" 2>/dev/null || printf 'product_readiness_summary_unavailable')
             printf '::error file=.github/workflows/release-gates.yml,line=1,title=Product readiness remains blocked::%s\n' "$summary"
           fi
           exit "$status"
@@ -238,6 +247,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: boardprep-product-readiness-${{ github.sha }}
-          path: release-gate-evidence/
+          path: ${{ runner.temp }}/boardprep-release-gate-evidence/${{ github.run_id }}/${{ github.run_attempt }}/product-readiness/
           if-no-files-found: warn
           retention-days: 14

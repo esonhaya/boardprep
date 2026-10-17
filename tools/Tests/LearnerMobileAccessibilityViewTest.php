@@ -9,6 +9,11 @@ $quiz = file_get_contents($root . '/app/Views/quiz/index.php');
 $result = file_get_contents($root . '/app/Views/quiz/result.php');
 $review = file_get_contents($root . '/app/Views/quiz/review.php');
 $studyLibrary = file_get_contents($root . '/app/Views/study/library.php');
+$home = file_get_contents($root . '/app/Views/home/index.php');
+$history = file_get_contents($root . '/app/Views/history/index.php');
+$progress = file_get_contents($root . '/app/Views/progress/index.php');
+$flashcardReview = file_get_contents($root . '/app/Views/flashcards/review.php');
+$privacy = file_get_contents($root . '/app/Views/data-handling/index.php');
 $focus = file_get_contents($root . '/public/assets/js/quiz-focus.js');
 $css = file_get_contents($root . '/public/assets/css/style.css');
 
@@ -38,6 +43,27 @@ $checks = [
     'review correctness has textual and structural state' => str_contains($result, 'Correct answer</strong>')
         && str_contains($result, 'Incorrect answer</strong>')
         && str_contains($result, 'is-correct'),
+    'results group answer, correctness, explanation, and study links' => str_contains($result, 'aria-labelledby="answer-review-heading"')
+        && str_contains($result, 'class="answer-review-explanation"')
+        && str_contains($result, 'class="quiz-study-support"'),
+    'home entry and learner history/progress actions have named destinations' => str_contains($home, 'href="/exams">Start studying</a>')
+        && str_contains($history, 'href="/quiz">Start practice</a>')
+        && str_contains($history, 'No completed quizzes yet')
+        && str_contains($progress, 'href="/flashcards">Review flashcards</a>')
+        && str_contains($progress, 'href="/history">View all history</a>'),
+    'flashcard navigation and ratings expose keyboard-operable named controls' => str_contains($flashcardReview, 'aria-label="Flashcard navigation"')
+        && str_contains($flashcardReview, 'aria-labelledby="flashcard-answer-heading"')
+        && substr_count($flashcardReview, 'class="flashcard-rating flashcard-rating-') === 1
+        && substr_count($flashcardReview, '<button type="submit" class="flashcard-rating') === 1,
+    'privacy export and session deletion are distinct, confirmed, and scoped in the disclosure' => str_contains($privacy, 'Download my saved learning data')
+        && str_contains($privacy, 'name="confirm_clear" value="yes" required')
+        && str_contains($privacy, 'Clear my learning data')
+        && str_contains($css, '.privacy-delete-form .form-field>label{display:flex;align-items:flex-start;gap:10px;min-height:44px')
+        && str_contains($css, '.privacy-delete-form input[type=checkbox]{flex:0 0 20px')
+        && str_contains($privacy, 'Deleting app records does not erase hosting access/error logs')
+        && str_contains($privacy, 'Clearing browser cookies alone does not delete server-side records'),
+    'quiz setup errors use an alert and keep explanatory copy with the settings' => str_contains($settings, 'role="alert"')
+        && str_contains($settings, 'class="form-help mode-disclosure"'),
     'mobile navigation and controls meet touch sizing contract' => str_contains($css, 'grid-template-columns:repeat(2,minmax(0,1fr))')
         && substr_count($css, 'min-height:44px') >= 4,
     'long learner content can wrap safely' => str_contains($css, 'overflow-wrap:anywhere'),

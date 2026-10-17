@@ -1,10 +1,14 @@
 #!/usr/bin/env node
 
 const fs = require('node:fs');
+const os = require('node:os');
 const path = require('node:path');
 
-const repositoryRoot = path.resolve(__dirname, '..');
-const resultsRoot = path.join(repositoryRoot, 'test-results');
+const evidenceDirectory = path.resolve(
+  process.env.BOARDPREP_BROWSER_EVIDENCE_DIR
+    || path.join(os.tmpdir(), `boardprep-browser-evidence-${process.pid}`)
+);
+const resultsRoot = path.join(evidenceDirectory, 'test-results');
 
 function listFiles(directory) {
   if (!fs.existsSync(directory)) return [];
@@ -35,7 +39,7 @@ function errorKey(error) {
 
 fs.mkdirSync(resultsRoot, { recursive: true });
 for (const category of ['mobile', 'tablet', 'desktop']) {
-  fs.mkdirSync(path.join(repositoryRoot, 'screenshots', category), { recursive: true });
+  fs.mkdirSync(path.join(evidenceDirectory, 'screenshots', category), { recursive: true });
 }
 
 const resultFiles = listFiles(resultsRoot);
@@ -47,35 +51,35 @@ for (const file of diagnosticsFiles) {
   try {
     report = JSON.parse(fs.readFileSync(file, 'utf8'));
   } catch {
-    consoleErrors.push(`${path.relative(repositoryRoot, file)}: diagnostics JSON could not be parsed`);
+    consoleErrors.push(`${path.relative(evidenceDirectory, file)}: diagnostics JSON could not be parsed`);
     continue;
   }
   const allowed = new Set((report.allowedConsoleErrors || []).map(errorKey));
   for (const error of report.consoleErrors || []) {
     if (!allowed.has(errorKey(error))) {
-      consoleErrors.push(`${path.relative(repositoryRoot, file)}: ${safeMessage(error.message)}`);
+      consoleErrors.push(`${path.relative(evidenceDirectory, file)}: ${safeMessage(error.message)}`);
     }
   }
   for (const error of report.pageErrors || []) {
-    consoleErrors.push(`${path.relative(repositoryRoot, file)}: page error: ${safeMessage(error.message)}`);
+    consoleErrors.push(`${path.relative(evidenceDirectory, file)}: page error: ${safeMessage(error.message)}`);
   }
   for (const error of report.failedRequests || []) {
-    consoleErrors.push(`${path.relative(repositoryRoot, file)}: failed ${error.method || 'request'} ${locationPath(error.url) || '[URL omitted]'} (${safeMessage(error.error)})`);
+    consoleErrors.push(`${path.relative(evidenceDirectory, file)}: failed ${error.method || 'request'} ${locationPath(error.url) || '[URL omitted]'} (${safeMessage(error.error)})`);
   }
 }
 
 fs.writeFileSync(
-  path.join(repositoryRoot, 'console-errors.txt'),
+  path.join(evidenceDirectory, 'console-errors.txt'),
   `${consoleErrors.length ? consoleErrors.join('\n') : 'No unexpected browser console errors, uncaught page errors, or failed requests were recorded.'}\n`
 );
 
 const auditFiles = resultFiles.filter((file) => path.basename(file) === 'visual-audit.md');
-const screenshotFiles = listFiles(path.join(repositoryRoot, 'screenshots'))
+const screenshotFiles = listFiles(path.join(evidenceDirectory, 'screenshots'))
   .filter((file) => file.toLowerCase().endsWith('.png'))
-  .map((file) => path.relative(repositoryRoot, file))
+  .map((file) => path.relative(evidenceDirectory, file))
   .sort();
 const auditSections = auditFiles.map((file) => (
-  `## ${path.relative(repositoryRoot, file)}\n\n${fs.readFileSync(file, 'utf8').trim()}`
+  `## ${path.relative(evidenceDirectory, file)}\n\n${fs.readFileSync(file, 'utf8').trim()}`
 ));
 const runUrl = process.env.GITHUB_SERVER_URL && process.env.GITHUB_REPOSITORY && process.env.GITHUB_RUN_ID
   ? `${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`
@@ -105,7 +109,7 @@ const visualAudit = [
   'Chromium screenshots do not establish physical Android touch usability, device-specific rendering, screen-reader behavior, or WCAG conformance.',
   '',
 ].join('\n');
-fs.writeFileSync(path.join(repositoryRoot, 'visual-audit.md'), visualAudit);
+fs.writeFileSync(path.join(evidenceDirectory, 'visual-audit.md'), visualAudit);
 
 const defectRegister = [
   '# Current-run browser review record',
@@ -119,10 +123,10 @@ const defectRegister = [
   '- Historical Batch 667 findings are retained at `tests/browser/visual-defect-register.md`; they are not evidence about this run.',
   '',
 ].join('\n');
-fs.writeFileSync(path.join(repositoryRoot, 'defect-register.md'), defectRegister);
+fs.writeFileSync(path.join(evidenceDirectory, 'defect-register.md'), defectRegister);
 
 const browserResultsPath = path.join(resultsRoot, 'browser-results.json');
-const browserResultsOutput = path.join(repositoryRoot, 'browser-results.json');
+const browserResultsOutput = path.join(evidenceDirectory, 'browser-results.json');
 if (fs.existsSync(browserResultsPath)) {
   fs.copyFileSync(browserResultsPath, browserResultsOutput);
 } else {

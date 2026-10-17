@@ -4,16 +4,16 @@
     "baseline_commit": "7a3323135826f40124fe605b59c2fb33e67e2163",
     "release": "v1.0.1",
     "browser_validation": {
-        "STATUS": "TEST_PREPARED_NOT_EXECUTED",
+        "STATUS": "EVALUATED_FROM_REGISTERED_GITHUB_RUNS",
         "AUTOMATION_TOOL": "Playwright",
         "AUTOMATION_COMMAND": "npm run test:browser",
         "OWNER_LOCAL_COMMAND": "node tests/browser/server.cjs",
-        "EVIDENCE_ARTIFACT": "test-results/browser-execution.json",
-        "ACCESSIBILITY_ENGINE": "NOT_INSTALLED",
-        "ACCESSIBILITY_SCOPE": "Prepared browser checks cover form labels, keyboard focus, and primary control names; they do not establish WCAG conformance or screen-reader behavior.",
+        "EVIDENCE_ARTIFACT": "GitHub Actions boardprep-chromium-visual-qa artifact: browser results/execution JSON, viewport screenshots, visual audit, and diagnostics",
+        "ACCESSIBILITY_ENGINE": "Playwright Chromium role/name and browser DOM semantics; no screen-reader engine",
+        "ACCESSIBILITY_SCOPE": "Rendered checks cover form labels, keyboard focus, selected answers, live/status semantics, and responsive primary controls. They do not establish TalkBack/VoiceOver behavior or WCAG conformance.",
         "REQUIRED_PROJECTS": ["mobile", "desktop"],
         "REQUIRED_VIEWPORTS": ["320x640", "360x800", "390x844", "430x932", "768x1024"],
-        "REQUIRED_JOURNEYS": ["keyboard_navigation", "accessibility_semantics", "privacy_export_and_deletion", "production_boundary", "ten_board_journeys", "responsive_viewport_sweep", "math_and_table_viewports"],
+        "REQUIRED_JOURNEYS": ["keyboard_navigation", "accessibility_semantics", "privacy_export_and_deletion", "production_boundary", "ten_board_journeys", "responsive_viewport_sweep", "active_practice_result_review_simulator_flashcards_privacy_error_recovery_at_five_viewports", "math_and_table_viewports"],
         "HUMAN_ACCEPTANCE": "NOT_RUN",
         "LIMITATION": "Termux Android cannot launch the Playwright Chromium executable. Desktop/CI can provide current-commit rendered-browser evidence; this does not establish physical Android behavior, screen-reader behavior, or WCAG conformance."
     },
@@ -109,10 +109,10 @@
         },
         {
             "FEATURE": "Mobile layout and practical accessibility",
-            "STATUS": "IMPLEMENTED_UNVERIFIED",
+            "STATUS": "IMPLEMENTED_AND_VERIFIED",
             "SCOPE_INCLUDED": true,
             "LAUNCH_CRITICAL": true,
-            "EVIDENCE": ["Current-commit desktop/mobile Chromium evidence verifies responsive layouts at five target widths, keyboard navigation, browser accessibility semantics, privacy controls, and all ten board journeys. Automation does not establish screen-reader behavior or WCAG conformance; all twelve owner human acceptance cases remain separate."],
+            "EVIDENCE": ["The current registered Chromium run checks home, exam selection, quiz setup and active practice, simulator review, results, history, progress, study, flashcards, privacy, keyboard focus, labels, answer selection, and empty/error states at the five supported viewport targets. It verifies browser semantics and layout only; no screen-reader acceptance or WCAG conformance is claimed, and all twelve owner human acceptance cases remain separate."],
             "TEST_COVERAGE": ["tools/Tests/LearnerMobileAccessibilityViewTest.php", "tools/Tests/LearnerNavigationUxTest.php", "tests/browser"]
         },
         {
