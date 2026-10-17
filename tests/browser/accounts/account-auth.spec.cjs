@@ -254,7 +254,7 @@ test('isolated mobile account journeys preserve authentication and learner owner
     await page.locator('#preferred-board').selectOption('CSE');
     await page.locator('#profile-cse-level').selectOption('PROFESSIONAL');
     await page.getByRole('button', { name: 'Save exam preferences' }).click();
-    await expect(page.getByRole('status')).toContainText('saved to your account');
+    await expect(page.locator('.alert-success')).toContainText('saved to your account');
     scenario('authenticated-profile-update', '/profile/preferences', 'Candidate preferences save to the account profile.');
 
     await page.goto(AUTH + '/account/profile');
