@@ -663,6 +663,19 @@
     const form = $(`[data-feedback-fields="${general ? 'general' : 'case'}"]`);
     const observation = collectForm(form);
     const isEditing = general ? state.editingGeneral : state.editingObservation;
+    const detailFields = [
+      'comments',
+      'expected_behavior',
+      'actual_behavior',
+      'suggested_improvement',
+      'reproduction_steps',
+      'evidence_reference',
+    ];
+    if (!detailFields.some((field) => String(observation[field] || '').trim() !== '')) {
+      showNotice('Add a comment or another detail before saving this note.', 'warning');
+      $('[data-field="comments"]', form)?.focus();
+      return;
+    }
     window.clearTimeout(general ? state.generalDraftTimer : state.draftTimer);
     await state.saveQueue.catch(() => undefined);
     try {
