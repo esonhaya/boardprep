@@ -36,15 +36,24 @@ $storageState = static function () use ($storageRoot): array {
 };
 
 $before = $storageState();
+$simulatorEnvironment = getenv();
+if (!is_array($simulatorEnvironment)) {
+    $simulatorEnvironment = [];
+}
+// The simulator loads the full question collection into an isolated fixture.
+// Match the bounded 1 GiB Doctor release-runner budget so memory pressure does
+// not turn an otherwise successful isolation check into a false P0 finding.
+$simulatorEnvironment['APP_MEMORY_LIMIT'] = '1024M';
 $process = proc_open(
-    [PHP_BINARY, $root . '/tools/doctor.php', '--simulate'],
+    [PHP_BINARY, '-d', 'memory_limit=1024M', $root . '/tools/doctor.php', '--simulate'],
     [
         0 => ['file', '/dev/null', 'r'],
         1 => ['file', $stdoutPath, 'w'],
         2 => ['file', $stderrPath, 'w'],
     ],
     $pipes,
-    $root
+    $root,
+    $simulatorEnvironment
 );
 if (!is_resource($process)) {
     throw new RuntimeException('Unable to start the isolated Doctor simulator command.');
