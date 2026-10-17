@@ -92,6 +92,20 @@ test.describe('guided Human Acceptance Center', () => {
     await expect(page.locator('#caseOutcomeBadge')).toHaveText('NOT RUN');
   });
 
+  test('warns when the saved session belongs to a different build', async ({ page }) => {
+    await page.route('**/developer/acceptance/data', async (route) => {
+      const response = await route.fetch();
+      const payload = await response.json();
+      payload.current_build_sha = '0'.repeat(40);
+      await route.fulfill({ response, json: payload });
+    });
+    await page.goto(centerUrl);
+    await expect(page.locator('#buildSha')).toHaveText(/^[0-9a-f]{40}$/);
+    await expect(page.locator('#buildWarning')).toBeVisible();
+    await expect(page.locator('#buildWarning')).toContainText('running app is 000000000000');
+    await expect(page.locator('#buildWarning')).toContainText(/session began on/);
+  });
+
   test('saves multiple observations and exports exact feedback as Markdown and JSON', async ({ page }) => {
     await openCenter(page);
     await page.getByRole('button', { name: 'Open test guide' }).click();
