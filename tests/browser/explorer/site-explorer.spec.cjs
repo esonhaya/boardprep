@@ -191,7 +191,7 @@ test('bounded stateful BoardPrep journey exploration', async ({ page }, testInfo
     if (state.missingLabels.length) await addDefect('MISSING_FORM_LABEL', `Visible learner fields have no programmatic label: ${state.missingLabels.join('; ')}.`);
     for (const form of state.forms) {
       const actionPath = (() => { try { return new URL(form.action).pathname; } catch { return ''; } })();
-      if (['/quiz', '/flashcards/review', '/profile/preferences'].includes(actionPath)) {
+      if (['/quiz', '/flashcards', '/flashcards/review', '/profile/preferences'].includes(actionPath)) {
         evidence.forms_exercised.push({ route: url, action: actionPath, method: form.method, fields: form.fields });
       }
     }
@@ -339,10 +339,12 @@ test('bounded stateful BoardPrep journey exploration', async ({ page }, testInfo
         if (!finished) await expect(page.locator('.quiz-answer-form')).toBeVisible();
       }
       await expect(page.locator('h1')).toContainText('Quiz Result');
+      await expect(page.locator('.result-answer-review')).toBeVisible();
+      await expect(page.locator('.question-review')).toHaveCount(5);
+      await inspectPage(page.url(), null);
       evidence.transitions.push(`${selectedBoard}: subject configuration -> five answer submissions -> result`);
       evidence.boards_covered.push(selectedBoard);
       evidence.routes_visited.push(`${APP}/quiz (active ${selectedBoard} practice)`);
-      evidence.actions_executed += 1;
 
       if (evidence.boards_covered.length === 1) {
         await page.goto(`${APP}/history`);
@@ -368,13 +370,19 @@ test('bounded stateful BoardPrep journey exploration', async ({ page }, testInfo
         await page.locator('#quiz-count').selectOption('5');
         await page.locator('#quiz-adaptive').check();
         await page.getByRole('button', { name: 'Start practice' }).click();
-        await page.locator('input[name="answer"]').first().check();
-        await page.getByRole('button', { name: 'Submit answer' }).click();
-        await expect(page.locator('.quiz-feedback')).toBeVisible();
+        for (let attemptQuestion = 0; attemptQuestion < 5; attemptQuestion += 1) {
+          await page.locator('input[name="answer"]').first().check();
+          await page.getByRole('button', { name: 'Submit answer' }).click();
+          await expect(page.locator('.quiz-feedback')).toBeVisible();
+          const last = (await page.locator('.quiz-position').textContent().catch(() => '')).includes('5 / 5');
+          await page.getByRole('button', { name: last ? 'Finish Quiz' : 'Next Question' }).click();
+          if (!last) await expect(page.locator('.quiz-answer-form')).toBeVisible();
+        }
+        await expect(page.locator('h1')).toContainText('Quiz Result');
         await page.goto(`${APP}/history`);
-        await expect(page.locator('.quiz-history-item')).toHaveCount(2);
+        await expect(page.locator('.quiz-history-item')).toHaveCount(evidence.boards_covered.length + 1);
         evidence.transitions.push('LET: second adaptive attempt persisted alongside the first result');
-        evidence.actions_executed += 5;
+        evidence.actions_executed += 18;
 
         await page.goto(`${APP}/quiz?exam=LET&subject=english`);
         await page.locator('#quiz-count').selectOption('5');
@@ -385,8 +393,20 @@ test('bounded stateful BoardPrep journey exploration', async ({ page }, testInfo
         await expect(page.locator('.exam-countdown')).toBeVisible();
         await page.reload();
         await expect(page.locator('.exam-countdown')).toBeVisible();
-        evidence.transitions.push('LET: timed exam simulation started and recovered after refresh');
-        evidence.actions_executed += 6;
+        for (let examQuestion = 0; examQuestion < 5; examQuestion += 1) {
+          await page.locator('input[name="answer"]').first().check();
+          await page.getByRole('button', { name: 'Save answer and continue' }).click();
+          if (examQuestion < 4) {
+            await expect(page.locator('.quiz-position')).toContainText(`${examQuestion + 2} / 5`);
+          }
+        }
+        await expect(page.locator('#exam-review-heading')).toBeVisible();
+        await inspectPage(page.url(), null);
+        await page.getByRole('button', { name: 'Submit exam simulation' }).click();
+        await expect(page.locator('h1')).toContainText('Exam Simulation Result');
+        await expect(page.locator('.question-review')).toHaveCount(5);
+        evidence.transitions.push('LET: timed exam started, recovered after refresh, reviewed all answers, and completed');
+        evidence.actions_executed += 17;
       }
     }
 
@@ -400,6 +420,45 @@ test('bounded stateful BoardPrep journey exploration', async ({ page }, testInfo
     }
     await page.goto(`${APP}/flashcards?board=let`);
     await inspectPage(`${APP}/flashcards?board=let`, null);
+    const subjectOptions = await page.locator('#flashcard-subject option').evaluateAll((options) => options.map((option) => option.value).filter(Boolean));
+    if (subjectOptions.length > 0) {
+      const firstSubject = subjectOptions[seed % subjectOptions.length];
+      await Promise.all([
+        page.waitForNavigation({ waitUntil: 'domcontentloaded' }),
+        page.locator('#flashcard-subject').selectOption(firstSubject),
+      ]);
+      evidence.actions_executed += 1;
+      await inspectPage(page.url(), null);
+      const topicOptions = await page.locator('#flashcard-topic option').evaluateAll((options) => options.map((option) => option.value).filter(Boolean));
+      if (topicOptions.length > 0) {
+        const selectedTopic = topicOptions[seed % topicOptions.length];
+        await Promise.all([
+          page.waitForNavigation({ waitUntil: 'domcontentloaded' }),
+          page.locator('#flashcard-topic').selectOption(selectedTopic),
+        ]);
+        evidence.actions_executed += 1;
+        await inspectPage(page.url(), null);
+        evidence.transitions.push(`flashcards: LET -> ${firstSubject} -> ${selectedTopic}`);
+        const otherSubject = subjectOptions.find((subject) => subject !== firstSubject);
+        if (otherSubject) {
+          await Promise.all([
+            page.waitForNavigation({ waitUntil: 'domcontentloaded' }),
+            page.locator('#flashcard-subject').selectOption(otherSubject),
+          ]);
+          const clearedTopic = await page.locator('#flashcard-topic').inputValue();
+          if (clearedTopic !== '') {
+            await addDefect('FLASHCARD_TOPIC_NOT_CLEARED', `Changing subject from ${firstSubject} to ${otherSubject} retained topic ${clearedTopic}.`);
+          }
+          evidence.transitions.push(`flashcards: changing ${firstSubject} to ${otherSubject} cleared its descendant topic`);
+          evidence.actions_executed += 1;
+          await inspectPage(page.url(), null);
+        }
+      } else {
+        evidence.untested_paths.push(`LET/${firstSubject}: no topic options were available to exercise the descendant filter.`);
+      }
+    } else {
+      evidence.untested_paths.push('LET flashcard setup had no subject options, so dependent-filter behavior was not exercised.');
+    }
     const reviewLink = page.locator('a[href^="/flashcards/review"]:visible').first();
     if (await reviewLink.count()) {
       const href = await reviewLink.getAttribute('href');

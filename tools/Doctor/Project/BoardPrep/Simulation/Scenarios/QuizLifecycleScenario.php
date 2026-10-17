@@ -526,15 +526,30 @@ final class QuizLifecycleScenario extends SimulationScenario
             ->assertStatus(302);
 
         $failedStart = $simulation->context()->get('http');
-        if (!is_array($failedStart) || ($failedStart['location'] ?? null) !== '/quiz') {
+        $failedLocation = is_array($failedStart) ? (string) ($failedStart['location'] ?? '') : '';
+        $failedPath = parse_url($failedLocation, PHP_URL_PATH);
+        $failedQuery = [];
+        parse_str((string) parse_url($failedLocation, PHP_URL_QUERY), $failedQuery);
+        if ($failedPath !== '/quiz'
+            || ($failedQuery['exam'] ?? '') !== 'LET'
+            || ($failedQuery['subject'] ?? '') !== 'Simulation Missing Subject'
+            || ($failedQuery['difficulty'] ?? '') !== 'hard'
+            || (string) ($failedQuery['count'] ?? '') !== '20') {
             throw new \RuntimeException('Failed quiz generation did not use the safe recovery redirect.');
         }
+
+        $simulation
+            ->get($failedLocation)
+            ->execute()
+            ->assertSuccessful()
+            ->assertContains('No questions matched')
+            ->assertContains('active-session-warning')
+            ->assertContains('Resume current session');
 
         $simulation
             ->get('/quiz')
             ->execute()
             ->assertSuccessful()
-            ->assertContains('No questions matched')
             ->assertContains('Question 2 / 2');
 
         $resumedBody = $simulation->context()->get('http')['output'] ?? '';
