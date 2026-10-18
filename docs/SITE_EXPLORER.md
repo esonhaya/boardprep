@@ -64,20 +64,26 @@ npm run test:explore:auth:full
 Smoke covers the five mobile-sized login viewports, anonymous access,
 production-route exclusion, CSRF rejection, registration, duplicate-name
 response, login/session rotation, and logout. Full adds persistent preferences
-across independent sessions, two-account isolation, password-confirmed export,
-recovery-code consumption/replay, password change and stale-session rejection,
-deletion-request lockout, and rate limiting. The suite has a one-worker route
-and page budget and follows only explicitly scripted actions on its two
-loopback origins. Export content is checked in memory and its temporary
-download is deleted.
+across independent sessions, synthetic practice and flashcard review for two
+accounts, password-confirmed exports for both accounts, recovery-code
+consumption/replay, password change and stale-session rejection, encrypted
+backup verification and isolated restore, and full deletion of a separate
+synthetic account. It verifies that the other account, anonymous learner, and
+shared question content remain unchanged. Deletion and restore operate only on
+the isolated fixture. The suite has a one-worker route and page budget and
+follows only explicitly scripted actions on its two loopback origins. Export
+content is checked in memory and its temporary download is deleted.
 
 Sanitized reports are written outside the repository under the selected
 `BOARDPREP_EXPLORER_EVIDENCE_DIR` (or the operating-system temporary directory).
 GitHub Actions runs the full account journey alongside the bounded site
 explorer and uploads only the redacted report and masked failure screenshot.
-These tests verify a local foundation; they do not authorize production
-accounts, prove provider email delivery, complete account deletion, or replace
-independent security review.
+Fixture-path handoff files are private and removed before upload. The test
+checks report text for synthetic passwords, recovery codes, encryption
+passphrases, cookies, account IDs, and learner IDs. These tests verify the
+nonproduction deletion implementation; they do not authorize production
+accounts, prove provider email delivery, or replace independent security
+review.
 
 ### Batch 692 exact-commit result
 
@@ -106,3 +112,19 @@ the browser journey does not wait 30 minutes to simulate idle expiry.
 Run artifact: `boardprep-site-explorer-07711e628b492d8ef47e6e11257f6ac3d13480f2-39070597000`
 (ID `12115550385`). Reports and failure screenshots contain no real learner
 records or credential values.
+
+### Batch 693 hosted lifecycle result
+
+Run `39088111773` tested application commit
+`af27d0b5968bd90d72ea956d07127e2fbcb8825f` with seed `691` and completed the
+full bounded site journey: `PASS`, 100 routes, 290 actions, and all 10 boards.
+The same run completed the account explorer with `PASS` across 32 scenarios,
+including account export, backup/restore fixture validation, recovery replay
+rejection, deletion of a separate synthetic account, and A/B/anonymous data
+isolation. The sole descendant before the final Browser Acceptance run
+(`3efa6aa3694f7b50625916c4c30d769d86af5325`) only initialized the backup test
+fixture repository. The sanitized report artifact is
+`boardprep-site-explorer-af27d0b5968bd90d72ea956d07127e2fbcb8825f-39088111773`
+(artifact `12122000266`). Browser Acceptance run `39088212413` tested
+`3efa6aa` and passed 60 assertions with no failures or flaky tests; its
+verified evidence record is retained in `docs/release-evidence/browser-workflows.json`.

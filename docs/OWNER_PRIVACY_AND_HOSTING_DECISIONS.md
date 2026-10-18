@@ -12,13 +12,17 @@ operator and provider.
 | Operator identity (person or legal entity) | `OWNER TO COMPLETE` |
 | Public learner contact method and monitored address | `OWNER TO COMPLETE` |
 | Privacy-notice reviewer and approval date | `OWNER TO COMPLETE` |
+| Independent security reviewer and review date | `OWNER TO COMPLETE; INDEPENDENTLY_REVIEWED=PENDING` |
 | Application learner-state retention period | `OWNER TO DECIDE; include deletion/expiry behavior` |
 | Server access/error log fields and retention | `VERIFY PROVIDER; include IP/user-agent if collected` |
 | Backup frequency, location, access, and retention | `VERIFY PROVIDER; application deletion does not erase backups` |
+| Provider log/backup deletion commitments | `VERIFY PROVIDER; no application deletion guarantee` |
 | Hosting provider, account region, and data location | `VERIFY LIVE HOST` |
 | HTTPS certificate, redirect, renewal, and proxy behavior | `VERIFY LIVE HOST; require HTTPS for public use` |
 | Learner deletion limitation wording | `OWNER TO REVIEW against logs, backups, and provider copies` |
+| Account recovery policy | `OWNER TO DECIDE; code-only recovery currently` |
 | Final privacy/terms approval | `NOT APPROVED` |
+| Public account launch authorization | `NOT AUTHORIZED; OWNER TO COMPLETE after all gates` |
 
 ## Verified application behavior (not provider promises)
 
@@ -31,6 +35,11 @@ operator and provider.
   external backups, or copies retained outside its own mutable storage.
 - PHP session cookies are configured HttpOnly and SameSite=Lax. The Secure
   flag depends on HTTPS state being correctly passed to PHP by the live host.
+- The application reads HTTPS state from `$_SERVER['HTTPS']`; it does not
+  trust `X-Forwarded-Proto`. A reverse-proxy deployment must block direct
+  origin access, strip client-supplied forwarded-protocol headers, and map
+  TLS state from the approved proxy to PHP's HTTPS server variable. Verify the
+  resulting cookie flags at the live site before public use.
 - Actual log fields/retention, backup behavior, region, TLS, and provider
   handling remain unverified until the owner checks the selected hosting
   account and deployment.
@@ -68,7 +77,7 @@ See [human acceptance instructions](HUMAN_TESTER_READINESS.md) for the safe
 same-device Android preview. It binds only to loopback and is not a public or
 provider deployment test.
 
-## Batch 692 account-preview boundary
+## Account-preview boundary — Batch 693 update
 
 Registration and persistent account profiles are available only in an
 explicitly enabled nonproduction preview. Public production account routes
@@ -80,17 +89,46 @@ implemented.
 
 The preview enforces a 12–128 character password policy and uses PHP's native
 password APIs. Login and sensitive password-confirmation actions are rate
-limited. No breached-password lookup or approved recovery delivery provider is
-configured; decide whether to require those before public account enablement.
+limited. Recovery is code-only; no email delivery is configured or claimed.
+No breached-password lookup is configured; decide whether to require it before
+public account enablement.
 
-An account deletion action currently records a request and locks future sign-in;
-it does not purge account or learner records. The private credential file is
-excluded from release packages and the current backup helper because backups
-are not encrypted. Do not enable accounts publicly until an independent
-security review, owner-approved request/deletion/retention process, protected
-credential backup and restore, and live HTTPS/session/filesystem evidence are
-complete. The remaining requirements are tracked as `BP692-CAP-001` in
-`config/product-readiness.json`.
+Batch 693 adds an account-owned inventory, password-confirmed and CSRF-protected
+deletion, staged idempotent application-record deletion, account export
+manifest, and encrypted account-only backup with isolated restore tooling.
+Deletion removes account-owned attempt, weakness, flashcard, preference,
+password-hash, and recovery-digest records after ownership checks. Its minimal
+tombstone retains pseudonymous account/learner IDs and completion status so
+retries are idempotent and old sessions remain invalid. All
+account sessions fail the account status/version lookup; physical PHP session
+files follow the configured PHP session handler and garbage collection. That
+deployment behavior has not been verified. Application deletion does not erase
+provider logs, historical external backups, or other copies outside mutable
+application storage. No application or backup retention period is set here.
+
+The encrypted backup uses PHP ext-sodium Argon2id and
+XChaCha20-Poly1305-IETF authenticated encryption. It requires a separately
+held passphrase. Restore creates a new private destination and does not
+activate or overwrite an account. The current Termux PHP runtime lacks
+ext-sodium; local checks prove fail-closed behavior, while full cryptographic
+round-trip evidence must come from the hosted Sodium-enabled CI run.
+
+Public production account routes remain absent and public registration stays
+disabled. Technical implementation and automated fixtures do not constitute
+human acceptance, owner approval, provider verification, or independent
+security review. `BP692-CAP-001` remains open in
+`config/product-readiness.json` pending the decisions and live evidence below.
+
+## Evidence status for account security
+
+| Evidence class | Batch 693 status |
+|---|---|
+| `TECHNICALLY_IMPLEMENTED` | Inventory, staged deletion, export manifest, encrypted backup, isolated restore, account recovery/session hardening, and nonproduction-only routes. |
+| `AUTOMATED_VERIFIED` | Isolated JSON and SQLite lifecycle tests; concurrent recovery; account HTTP/security; Sodium-enabled encrypted backup/restore; browser acceptance (60 passed, 0 failed); account explorer (32 scenarios); site explorer (100 routes, 290 actions, 10 boards); Doctor, preflight/smoke, and ten-board HTTP. Exact runs and commits are recorded in `docs/batches/batch-693.md`. |
+| `HUMAN_VERIFIED` | `PENDING`; no live account-provider or production deployment review was performed. |
+| `OWNER_APPROVED` | `PENDING`; operator identity, monitored contact, exact notice, application retention, deletion policy, and public launch authorization remain unanswered. |
+| `PROVIDER_VERIFIED` | `PENDING`; hosting region, logs, backups, PHP session storage/GC, HTTPS/proxy trust, and provider deletion commitments remain unverified. |
+| `INDEPENDENTLY_REVIEWED` | `PENDING`; no independent reviewer has assessed this implementation. |
 
 ## Site-specific deployment verification template
 
