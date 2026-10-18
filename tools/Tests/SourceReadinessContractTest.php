@@ -31,6 +31,11 @@ $records = SourceReadinessService::records($collections);
 $validation = SourceReadinessService::validateCollections($collections);
 $assert(count($records) === 37, 'Expected exactly 37 Criminologist readiness records.');
 $assert(($validation['valid'] ?? false) === true, 'Persisted readiness records do not satisfy the permanent contract.');
+$letReviewBatches = array_values(array_unique(array_map(
+    static fn(array $record): int => (int) ($record['reviewed_at_batch'] ?? 0),
+    (array) ($collections['source-readiness-let'] ?? [])
+)));
+$assert(count($letReviewBatches) > 1 && in_array(695, $letReviewBatches, true), 'Mixed per-leaf review batches were not preserved in the LET readiness collection.');
 $ids = array_map(static fn(array $record): string => (string) ($record['leaf_id'] ?? ''), $records);
 $assert(count($ids) === count(array_unique($ids)), 'Readiness records contain duplicate leaf IDs.');
 $assert(count($ids) === count(SourceReadinessService::nativeLeafCounts($collections, 'criminologist')), 'Readiness records do not cover every active leaf.');

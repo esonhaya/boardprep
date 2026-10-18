@@ -13278,5 +13278,821 @@
             "evidence": "The PRC TOS supports broad Professional Education scope; PPST supports community partnership practice. Specific partnership procedures depend on the applicable school policy and context.",
             "not_official_blueprint_leaf": true
         }
+    },
+    {
+        "id": "ece-responsive-language-scaffolding",
+        "topic_id": "ece-language-and-early-numeracy",
+        "code": "RLS",
+        "name": "Responsive Language Scaffolding",
+        "description": "Build oral-language participation through responsive interaction while valuing the child’s first language.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Responsive Language Scaffolding"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "ece-emergent-number-sense",
+        "topic_id": "ece-language-and-early-numeracy",
+        "code": "ENS",
+        "name": "Emergent Number Sense",
+        "description": "Develop quantity, pattern, number, and measurement understanding through concrete everyday experiences.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Emergent Number Sense"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "ece-dialogic-literacy-practice",
+        "topic_id": "ece-language-and-early-numeracy",
+        "code": "DLP",
+        "name": "Dialogic Early Literacy",
+        "description": "Use shared text, conversation, print awareness, and meaning-making in early literacy.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Dialogic Early Literacy"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "ece-observation-to-responsive-planning",
+        "topic_id": "ece-observation-to-planning",
+        "code": "ORP",
+        "name": "Observation to Responsive Planning",
+        "description": "Use clear, repeated documentation to choose a next teaching experience rather than infer from one event.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Observation to Responsive Planning"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "ece-guided-play-scaffolding",
+        "topic_id": "ece-development-and-learning",
+        "code": "GPS",
+        "name": "Guided Play Scaffolding",
+        "description": "Extend child-initiated play with timely prompts and materials while preserving agency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Guided Play Scaffolding"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "ece-home-language-partnership",
+        "topic_id": "ece-family-culture-language",
+        "code": "HLP",
+        "name": "Home-Language Partnership",
+        "description": "Use family knowledge and familiar language as resources for participation and continuity.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Home-Language Partnership"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "ece-peer-social-emotional-coregulation",
+        "topic_id": "ece-socioemotional-and-safeguarding",
+        "code": "PSEC",
+        "name": "Peer Interaction and Co-Regulation",
+        "description": "Support emotion naming, relational routines, and peer participation through responsive teaching.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Peer Interaction and Co-Regulation"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "ece-inclusive-participation-design",
+        "topic_id": "ece-socioemotional-and-safeguarding",
+        "code": "IPD",
+        "name": "Inclusive Participation Design",
+        "description": "Remove avoidable environmental and response barriers while retaining a shared learning intention.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Inclusive Participation Design"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "ece-safeguarding-response-and-boundaries",
+        "topic_id": "ece-socioemotional-and-safeguarding",
+        "code": "SRB",
+        "name": "Safeguarding Response and Boundaries",
+        "description": "Respond to a child-protection concern calmly, document observable facts, and use school procedures.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Safeguarding Response and Boundaries"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "ece-integrated-developmental-planning",
+        "topic_id": "ece-observation-to-planning",
+        "code": "IDP",
+        "name": "Integrated Developmental Planning",
+        "description": "Connect developmental domains, context, observation, and responsive next steps.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Integrated Developmental Planning"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "sne-udl-flexible-engagement-representation-expression",
+        "topic_id": "sne-udl-and-access",
+        "code": "FERE",
+        "name": "Flexible Engagement, Representation, and Expression",
+        "description": "Anticipate barriers and provide meaningful ways to engage, access information, and express learning.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Flexible Engagement, Representation, and Expression"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "sne-accessible-communication-and-technology",
+        "topic_id": "sne-udl-and-access",
+        "code": "ACT",
+        "name": "Accessible Communication and Assistive Technology",
+        "description": "Choose communication and assistive tools around learner preference, task, and access needs.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Accessible Communication and Assistive Technology"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "sne-assessment-accommodation-validity",
+        "topic_id": "sne-assessment-and-planning",
+        "code": "AAV",
+        "name": "Assessment Accommodation and Validity",
+        "description": "Remove irrelevant access barriers while preserving evidence of the intended competency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Assessment Accommodation and Validity"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "sne-data-informed-individualized-planning",
+        "topic_id": "sne-assessment-and-planning",
+        "code": "DIP",
+        "name": "Data-Informed Individualized Planning",
+        "description": "Combine comprehensive assessment and team input when selecting individualized learner support.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Data-Informed Individualized Planning"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "sne-collaborative-learner-family-planning",
+        "topic_id": "sne-assessment-and-planning",
+        "code": "CLFP",
+        "name": "Collaborative Learner and Family Planning",
+        "description": "Use learner and family expertise and clarify shared roles in planning educational support.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Collaborative Learner and Family Planning"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "sne-positive-behavior-support",
+        "topic_id": "sne-positive-support-and-participation",
+        "code": "PBS",
+        "name": "Positive Behavior Support",
+        "description": "Understand behavior in context and teach/support safer, more effective participation without aversive practice.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Positive Behavior Support"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "sne-environmental-access-and-participation",
+        "topic_id": "sne-udl-and-access",
+        "code": "EAP",
+        "name": "Environmental Access and Participation",
+        "description": "Identify and change physical, sensory, communication, and procedural barriers to participation.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Environmental Access and Participation"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "sne-progress-monitoring-and-adjustment",
+        "topic_id": "sne-positive-support-and-participation",
+        "code": "PMA",
+        "name": "Progress Monitoring and Adjustment",
+        "description": "Use repeated goal-aligned evidence to decide whether instruction or support needs adjustment.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Progress Monitoring and Adjustment"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "sne-dignity-choice-and-learner-voice",
+        "topic_id": "sne-positive-support-and-participation",
+        "code": "DCLV",
+        "name": "Dignity, Choice, and Learner Voice",
+        "description": "Protect agency, privacy, choice, and meaningful participation in support decisions.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Dignity, Choice, and Learner Voice"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "sne-transition-and-community-participation",
+        "topic_id": "sne-positive-support-and-participation",
+        "code": "TCP",
+        "name": "Transition and Community Participation",
+        "description": "Coordinate planned transition supports toward participation and learner-selected goals.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Transition and Community Participation"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "tvted-workplace-standard-to-outcome",
+        "topic_id": "tvted-outcomes-and-instruction",
+        "code": "WSO",
+        "name": "Workplace Standard to Learning Outcome",
+        "description": "Translate a workplace competency standard into observable instructional outcomes and conditions.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Workplace Standard to Learning Outcome"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "tvted-demonstration-and-guided-practice",
+        "topic_id": "tvted-outcomes-and-instruction",
+        "code": "DGP",
+        "name": "Demonstration and Guided Practice",
+        "description": "Model technical process and safety, then scaffold learner practice and transfer.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Demonstration and Guided Practice"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "tvted-evidence-based-performance-assessment",
+        "topic_id": "tvted-evidence-and-assessment",
+        "code": "EBPA",
+        "name": "Evidence-Based Performance Assessment",
+        "description": "Gather sufficient direct evidence and judge demonstrated performance against a standard.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Evidence-Based Performance Assessment"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "tvted-practical-rubric-criteria",
+        "topic_id": "tvted-evidence-and-assessment",
+        "code": "PRC",
+        "name": "Practical Performance Criteria",
+        "description": "Write observable, competency-aligned criteria for process, product, conditions, and safe practice.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Practical Performance Criteria"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "tvted-training-materials-and-checklists",
+        "topic_id": "tvted-outcomes-and-instruction",
+        "code": "TMC",
+        "name": "Training Materials and Checklists",
+        "description": "Sequence learning guides, task sheets, self-checks, and performance checklists around outcomes.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Training Materials and Checklists"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "tvted-hazard-control-and-safe-practice",
+        "topic_id": "tvted-safety-and-workplace",
+        "code": "HCSP",
+        "name": "Hazard Control and Safe Practice",
+        "description": "Recognize hazards, pause unsafe activity, apply controls, and resume only in safe conditions.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Hazard Control and Safe Practice"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "tvted-workplace-learning-coordination",
+        "topic_id": "tvted-safety-and-workplace",
+        "code": "WLC",
+        "name": "Workplace Learning Coordination",
+        "description": "Align supervised workplace experience, roles, and evidence with expected competencies.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Workplace Learning Coordination"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "tvted-feedback-remediation-and-reassessment",
+        "topic_id": "tvted-feedback-and-employability",
+        "code": "FRR",
+        "name": "Feedback, Remediation, and Reassessment",
+        "description": "Give criterion-linked feedback and plan further practice and a fair new performance opportunity.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Feedback, Remediation, and Reassessment"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "tvted-employability-and-enterprise-application",
+        "topic_id": "tvted-feedback-and-employability",
+        "code": "EEA",
+        "name": "Employability and Enterprise Application",
+        "description": "Apply technical competence to customer needs, work quality, employability, and responsible enterprise.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Employability and Enterprise Application"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "cae-cultural-context-and-artistic-evidence",
+        "topic_id": "cae-context-and-heritage",
+        "code": "CCAE",
+        "name": "Cultural Context and Artistic Evidence",
+        "description": "Distinguish direct formal evidence from contextual interpretation of an artistic work.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Cultural Context and Artistic Evidence"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "cae-regional-identity-and-artifact-study",
+        "topic_id": "cae-context-and-heritage",
+        "code": "RIA",
+        "name": "Regional Identity and Artifact Study",
+        "description": "Study specific artistic works with contextual evidence without generalizing one example to a whole community.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Regional Identity and Artifact Study"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "cae-ethical-community-engagement",
+        "topic_id": "cae-ethical-engagement",
+        "code": "ECE",
+        "name": "Ethical Community Engagement",
+        "description": "Seek appropriate knowledge, attribution, and respectful use when teaching living cultural traditions.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Ethical Community Engagement"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "cae-material-and-medium-selection",
+        "topic_id": "cae-making-and-medium",
+        "code": "MMS",
+        "name": "Material and Medium Selection",
+        "description": "Match medium and process to intended meaning, available resources, material properties, and safe use.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Material and Medium Selection"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "cae-iterative-making-and-revision",
+        "topic_id": "cae-making-and-medium",
+        "code": "IMR",
+        "name": "Iterative Making and Revision",
+        "description": "Use observation, experimentation, reflection, and critique to revise creative work.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Iterative Making and Revision"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "cae-performing-arts-interpretation",
+        "topic_id": "cae-performance-and-assessment",
+        "code": "PAI",
+        "name": "Performing Arts Interpretation",
+        "description": "Use musical, movement, and contextual evidence to make and explain performance choices.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Performing Arts Interpretation"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "cae-authentic-arts-assessment",
+        "topic_id": "cae-performance-and-assessment",
+        "code": "AAA",
+        "name": "Authentic Arts Assessment",
+        "description": "Align assessment criteria with artistic process, technique, intention, presentation, and reflection.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Authentic Arts Assessment"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "cae-accessible-arts-learning",
+        "topic_id": "cae-performance-and-assessment",
+        "code": "AAL",
+        "name": "Accessible Arts Learning",
+        "description": "Offer accessible ways to experience, create, and respond while preserving the artistic learning aim.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Accessible Arts Learning"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "cae-contemporary-media-literacy",
+        "topic_id": "cae-making-and-medium",
+        "code": "CML",
+        "name": "Contemporary Media Literacy",
+        "description": "Evaluate how medium, tools, audience, and context shape meaning in contemporary and emerging work.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Contemporary Media Literacy"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "pe-fundamental-movement-analysis",
+        "topic_id": "pe-movement-and-learning",
+        "code": "FMA",
+        "name": "Fundamental Movement Analysis",
+        "description": "Observe movement through body, effort, space, and relationships and select a useful instructional focus.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Fundamental Movement Analysis"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "pe-motor-learning-feedback",
+        "topic_id": "pe-movement-and-learning",
+        "code": "MLF",
+        "name": "Motor Learning Feedback",
+        "description": "Select a manageable cue and use practice evidence to adjust instruction and feedback.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Motor Learning Feedback"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "pe-fitness-component-interpretation",
+        "topic_id": "pe-fitness-assessment-and-progression",
+        "code": "FCI",
+        "name": "Fitness Component Interpretation",
+        "description": "Match a fitness measure and learning response to the component it validly represents.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Fitness Component Interpretation"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "pe-developmentally-safe-progression",
+        "topic_id": "pe-fitness-assessment-and-progression",
+        "code": "DSP",
+        "name": "Developmentally Safe Progression",
+        "description": "Adjust task complexity, workload and practice conditions to learners and the intended outcome.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Developmentally Safe Progression"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "pe-valid-fitness-assessment",
+        "topic_id": "pe-fitness-assessment-and-progression",
+        "code": "VFA",
+        "name": "Valid Fitness Assessment",
+        "description": "Use age-appropriate, criterion-aligned evidence and interpret it within the test’s limits.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Valid Fitness Assessment"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "pe-games-tactical-understanding",
+        "topic_id": "pe-games-dance-and-inclusion",
+        "code": "GTU",
+        "name": "Games and Tactical Understanding",
+        "description": "Use game-centered activities to develop decisions about space, timing, teamwork, and execution.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Games and Tactical Understanding"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "pe-rhythmic-movement-and-dance",
+        "topic_id": "pe-games-dance-and-inclusion",
+        "code": "RMD",
+        "name": "Rhythmic Movement and Dance",
+        "description": "Connect movement qualities and sequences to rhythm, expression, and safe participation.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Rhythmic Movement and Dance"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "pe-inclusive-activity-design",
+        "topic_id": "pe-games-dance-and-inclusion",
+        "code": "IAD",
+        "name": "Inclusive Activity Design",
+        "description": "Adapt space, equipment, rules, grouping, and response options for meaningful participation.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Inclusive Activity Design"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "pe-injury-prevention-and-response",
+        "topic_id": "pe-fitness-assessment-and-progression",
+        "code": "IPR",
+        "name": "Injury Prevention and Response",
+        "description": "Recognize unsafe conditions and respond to injury symptoms using school safety procedures.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Injury Prevention and Response"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "arch-bp344-continuous-accessible-route",
+        "topic_id": "architecture-accessible-route-detailing",
+        "code": "BCAR",
+        "name": "Continuous Accessible Route",
+        "description": "Resolve steps, level changes, and interruptions along a planned accessible route using the current applicable rules.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Continuous Accessible Route"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "arch-bp344-grating-and-cover-detail",
+        "topic_id": "architecture-accessible-route-detailing",
+        "code": "BGCD",
+        "name": "Grating and Channel-Cover Detail",
+        "description": "Coordinate level, slip-resistant grating and flush service covers with controlled openings.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Grating and Channel-Cover Detail"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "arch-bp344-services-away-from-routes",
+        "topic_id": "architecture-accessible-route-detailing",
+        "code": "BSAF",
+        "name": "Services Away from Accessible Routes",
+        "description": "Locate outlets and wiring to avoid trip hazards in accessible paths and corridors.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Services Away from Accessible Routes"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "arch-ra9266-utility-systems-coordination",
+        "topic_id": "architecture-utility-systems-integration",
+        "code": "RUSC",
+        "name": "Utility Systems Coordination",
+        "description": "Coordinate mechanical, electrical, electronic, sanitary, plumbing, and communication layouts within architectural practice.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Utility Systems Coordination"
+            ],
+            "common_misconceptions": []
+        }
     }
 ]

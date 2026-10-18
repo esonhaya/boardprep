@@ -23,7 +23,7 @@
         "sections": [
             {
                 "heading": "1. Percent of a base",
-                "body": "Percent means per hundred. Convert p percent to p\/100, then multiply by the stated base. The base is the whole that the percent describes. For example, 18% of 250 is 0.18 x 250. Read the question for the whole before choosing an operation."
+                "body": "Percent means per hundred. Convert p percent to p/100, then multiply by the stated base. The base is the whole that the percent describes. For example, 18% of 250 is 0.18 x 250. Read the question for the whole before choosing an operation."
             },
             {
                 "heading": "2. Percent change",
@@ -37,9 +37,9 @@
                 "heading": "Essential relationships",
                 "items": [
                     "part = rate as a decimal x base",
-                    "percent change = (new - original) \/ original x 100%",
+                    "percent change = (new - original) / original x 100%",
                     "equivalent ratio: multiply or divide every term by the same nonzero factor",
-                    "unit rate = quantity \/ reference units"
+                    "unit rate = quantity / reference units"
                 ]
             }
         ],
@@ -59,7 +59,7 @@
                 "prompt": "An amount rises from 500 to 575. What is the percent increase?",
                 "steps": [
                     "Change = 575 - 500 = 75.",
-                    "Divide by the original amount: 75 \/ 500 = 0.15.",
+                    "Divide by the original amount: 75 / 500 = 0.15.",
                     "Convert to a percent: 0.15 x 100% = 15%."
                 ],
                 "answer": "The increase is 15% of the original amount.",
@@ -71,7 +71,7 @@
                 "steps": [
                     "The sale price is 100% - 15% = 85% of the original.",
                     "Write 85% as 0.85 and solve original x 0.85 = 680.",
-                    "Original = 680 \/ 0.85 = 800."
+                    "Original = 680 / 0.85 = 800."
                 ],
                 "answer": "The original price was 800.",
                 "check": "A 15% discount on 800 is 120; 800 - 120 = 680. Adding 15% of 680 would use the wrong base."
@@ -130,7 +130,7 @@
             },
             {
                 "heading": "2. Reduce simple resistor groups",
-                "body": "Resistors in a single series path carry the same current and have equivalent resistance R_total = R1 + R2 + .... Resistors connected across the same two nodes are in parallel and have reciprocal equivalent resistance: 1\/R_eq = 1\/R1 + 1\/R2 + .... Verify the node connections before applying either shortcut."
+                "body": "Resistors in a single series path carry the same current and have equivalent resistance R_total = R1 + R2 + .... Resistors connected across the same two nodes are in parallel and have reciprocal equivalent resistance: 1/R_eq = 1/R1 + 1/R2 + .... Verify the node connections before applying either shortcut."
             },
             {
                 "heading": "3. Apply conservation at nodes and loops",
@@ -141,7 +141,7 @@
                 "items": [
                     "Ohm's law: V = I x R",
                     "series resistors: R_eq = sum of resistances",
-                    "parallel resistors: 1\/R_eq = sum of reciprocal resistances",
+                    "parallel resistors: 1/R_eq = sum of reciprocal resistances",
                     "junction rule: sum of currents in = sum of currents out",
                     "loop rule: algebraic sum of voltage changes = 0"
                 ]
@@ -153,7 +153,7 @@
                 "prompt": "A 20 V source feeds 4 ohms and 6 ohms in series. Find the current and each resistor voltage drop.",
                 "steps": [
                     "R_total = 4 + 6 = 10 ohms.",
-                    "I = V\/R_total = 20\/10 = 2 A.",
+                    "I = V/R_total = 20/10 = 2 A.",
                     "The drops are 2 x 4 = 8 V and 2 x 6 = 12 V."
                 ],
                 "answer": "Current = 2 A; voltage drops = 8 V and 12 V.",
@@ -280,7 +280,7 @@
         "source_review": {
             "status": "SOURCE_CHECKED",
             "checked_at": "2026-10-16",
-            "note": "The official scope reference, formative\/summative distinction, validity\/reliability distinction, and worked scenarios were checked against the linked PRC, DepEd, and Cornell references. This status does not imply human editorial sign-off."
+            "note": "The official scope reference, formative/summative distinction, validity/reliability distinction, and worked scenarios were checked against the linked PRC, DepEd, and Cornell references. This status does not imply human editorial sign-off."
         }
     },
     {
@@ -523,7 +523,7 @@
         "source_review": {
             "status": "SOURCE_CHECKED",
             "checked_at": "2026-10-16",
-            "note": "The TOS reference, reliability\/validity distinction, and classical SEM calculation were checked against the registered PRC, AERA\/APA\/NCME, and OpenStax references. This does not imply human academic sign-off."
+            "note": "The TOS reference, reliability/validity distinction, and classical SEM calculation were checked against the registered PRC, AERA/APA/NCME, and OpenStax references. This does not imply human academic sign-off."
         }
     },
     {
@@ -555,11 +555,11 @@
             },
             {
                 "heading": "2. Use shear and moment together",
-                "body": "Under the usual beam sign convention, dM\/dx = V. A stationary moment occurs where shear is zero or changes sign, subject to jumps and boundary conditions. Check moment values at supports and other candidates before naming the maximum."
+                "body": "Under the usual beam sign convention, dM/dx = V. A stationary moment occurs where shear is zero or changes sign, subject to jumps and boundary conditions. Check moment values at supports and other candidates before naming the maximum."
             },
             {
                 "heading": "3. Apply the centered point-load model",
-                "body": "For a simply supported prismatic beam, linear elasticity, small deflection, and a centered load P, delta_max = P L^3\/(48 E I). Use P in newtons, L in metres, E in pascals, and I in m^4; the answer is metres."
+                "body": "For a simply supported prismatic beam, linear elasticity, small deflection, and a centered load P, delta_max = P L^3/(48 E I). Use P in newtons, L in metres, E in pascals, and I in m^4; the answer is metres."
             }
         ],
         "worked_examples": [
@@ -568,7 +568,7 @@
                 "prompt": "A simply supported beam carries a centered 16 kN point load.",
                 "steps": [
                     "Vertical equilibrium: R_A + R_B = 16 kN.",
-                    "Moments about A: R_B L = 16(L\/2), so R_B = 8 kN.",
+                    "Moments about A: R_B L = 16(L/2), so R_B = 8 kN.",
                     "Then R_A = 16 - 8 = 8 kN."
                 ],
                 "answer": "Each support reaction is 8 kN upward.",
@@ -579,7 +579,7 @@
                 "prompt": "P = 8 kN, L = 4 m, E = 200 GPa, I = 3.0 x 10^-5 m^4.",
                 "steps": [
                     "Convert P = 8000 N and E = 200 x 10^9 Pa.",
-                    "Substitute: 8000(4^3)\/(48(200 x 10^9)(3.0 x 10^-5)) = 0.00178 m.",
+                    "Substitute: 8000(4^3)/(48(200 x 10^9)(3.0 x 10^-5)) = 0.00178 m.",
                     "Multiply by 1000 to convert to millimetres."
                 ],
                 "answer": "The deflection magnitude is approximately 1.78 mm.",
@@ -713,15 +713,15 @@
         "sections": [
             {
                 "heading": "1. State the gas model",
-                "body": "For fixed mass of ideal gas, pV = mRT. At fixed volume and mass, p\/T is constant, so p2 = p1(T2\/T1). Use kelvins. The relation does not apply unchanged when mass or volume changes."
+                "body": "For fixed mass of ideal gas, pV = mRT. At fixed volume and mass, p/T is constant, so p2 = p1(T2/T1). Use kelvins. The relation does not apply unchanged when mass or volume changes."
             },
             {
                 "heading": "2. Calculate isothermal work",
-                "body": "For quasi-equilibrium isothermal ideal-gas expansion, work by the gas is W = mRT ln(V2\/V1). With R in kJ\/(kg K), mass in kg, and temperature in K, work is kJ. Expansion is positive work by the gas under this convention; compression reverses the sign."
+                "body": "For quasi-equilibrium isothermal ideal-gas expansion, work by the gas is W = mRT ln(V2/V1). With R in kJ/(kg K), mass in kg, and temperature in K, work is kJ. Expansion is positive work by the gas under this convention; compression reverses the sign."
             },
             {
                 "heading": "3. Account for a cycle",
-                "body": "For a heat-engine cycle, net stored energy change is zero. With heat input Qin and rejected heat Qout, Wnet = Qin - Qout and thermal efficiency eta = Wnet\/Qin. Efficiency is dimensionless; multiply by 100 only when reporting a percent."
+                "body": "For a heat-engine cycle, net stored energy change is zero. With heat input Qin and rejected heat Qout, Wnet = Qin - Qout and thermal efficiency eta = Wnet/Qin. Efficiency is dimensionless; multiply by 100 only when reporting a percent."
             },
             {
                 "heading": "4. Check units and balances",
@@ -733,8 +733,8 @@
                 "heading": "Fixed-volume pressure change",
                 "prompt": "An ideal gas at 150 kPa and 300 K is heated to 450 K at constant mass and volume.",
                 "steps": [
-                    "Use p2\/p1 = T2\/T1.",
-                    "p2 = 150(450\/300) kPa.",
+                    "Use p2/p1 = T2/T1.",
+                    "p2 = 150(450/300) kPa.",
                     "The ratio is 1.5, so p2 = 225 kPa."
                 ],
                 "answer": "Final pressure = 225 kPa.",
@@ -745,7 +745,7 @@
                 "prompt": "A cycle receives 900 kJ and rejects 540 kJ per cycle.",
                 "steps": [
                     "Wnet = 900 - 540 = 360 kJ.",
-                    "eta = 360\/900 = 0.40.",
+                    "eta = 360/900 = 0.40.",
                     "If requested, 0.40 x 100% = 40%."
                 ],
                 "answer": "Net work is 360 kJ per cycle and efficiency is 0.40 (40%).",
@@ -754,7 +754,7 @@
         ],
         "common_misconceptions": [
             "Using Celsius instead of kelvins in a pressure-temperature ratio.",
-            "Using p\/T = constant when volume or gas mass is not fixed.",
+            "Using p/T = constant when volume or gas mass is not fixed.",
             "Treating isothermal ideal-gas expansion work as a rectangular p-V area.",
             "Dividing rejected heat by input heat instead of using net work for engine efficiency."
         ],
@@ -1107,32 +1107,33 @@
         "title": "Early Childhood Learning, Assessment, and Inclusive Practice",
         "material_id": "let-early-childhood-learning-and-inclusion",
         "status": "published",
-        "version": 1,
+        "version": 2,
         "board_id": "let",
         "subject_id": "early-childhood-education",
         "official_scope_source_ids": [
-            "prc-let-enhanced-tos-2025"
+            "prc-resolution-20-2025-annex-a"
         ],
         "instructional_source_ids": [
-            "deped-esep-curriculum-guide",
-            "deped-ra11650-irr"
+            "deped-kindergarten-curriculum-guide-2023",
+            "deped-do-40-2012-child-protection"
         ],
         "scope_note": "Original review of child development, play-based pedagogy, observation, family partnership, inclusion, and developmentally appropriate assessment. Scope is limited to the linked official board outline and curriculum references; this is not an exam prediction.",
         "learning_objectives": [
-            "Connect developmental knowledge to responsive early-years teaching.",
-            "Select observation and assessment evidence appropriate to a stated learning purpose.",
-            "Plan inclusive play and family partnership without treating one child’s behavior as a diagnosis."
+            "Interpret early development as interacting domains shaped by relationships, language, culture, opportunity, and context.",
+            "Plan play, literacy, and numeracy experiences that are developmentally appropriate and responsive to observed learning.",
+            "Use observation and assessment evidence to select a next step without diagnosing from a single behavior.",
+            "Partner with families, include varied learners, and respond to child-protection concerns through school procedures."
         ],
         "sections": [
             {
-                "heading": "1. Development in context",
-                "body": "Early learning reflects interacting physical, language, cognitive, social, and emotional processes. A milestone is a guide for noticing patterns, not a single-child diagnostic cutoff. Interpret a behavior with age, opportunity, language, culture, health, and setting in view. A teaching response should build from what the child can do while offering a reachable next step.",
-                "items": [
-                    "Describe observed behavior before explaining it.",
-                    "Ask what prior experience and support the child has had.",
-                    "Plan one next step and observe the response."
-                ],
                 "id": "1-development-in-context",
+                "heading": "1. Development in context",
+                "body": "Development is integrated: physical, language and communication, cognitive, social-emotional, creative, and values learning influence one another. Children do not show every skill on one schedule, and opportunity, health, home language, relationships, and setting affect what an observation means. Use developmental expectations to notice and plan, never as a stand-alone diagnosis or a rigid cutoff. Start with the child’s strengths and the learning context, then choose a reachable next experience.",
+                "items": [
+                    "Describe what the child did before interpreting what it might mean.",
+                    "Look for patterns across occasions, materials, partners, and settings.",
+                    "Plan an achievable next step while keeping the larger learning goal visible."
+                ],
                 "related_topic_ids": [
                     "ece-development-and-learning"
                 ],
@@ -1143,75 +1144,192 @@
                 ]
             },
             {
-                "heading": "2. Play and guided learning",
-                "body": "Play can support language, symbolic thought, movement, cooperation, and self-regulation when materials and adult prompts fit the learning aim. Guided play preserves meaningful child choice while a teacher notices, models language, asks an open question, or changes a material to extend thinking. A worksheet or adult-directed task may be appropriate for some purposes, but it is not a universal substitute for active exploration.",
-                "items": [
-                    "State the learning aim before selecting materials.",
-                    "Use prompts that extend the child’s idea instead of taking over.",
-                    "Observe whether the activity invites multiple ways to participate."
-                ],
                 "id": "2-play-and-guided-learning",
-                "related_topic_ids": [],
-                "related_concept_ids": []
-            },
-            {
-                "heading": "3. Observation and assessment",
-                "body": "A useful record separates what was seen or heard from the interpretation. A running note, work sample, conversation, and repeated observation can answer different questions. Avoid turning one event into a stable label. Assessment should inform planning and communication, use suitable tools, and protect confidential information. If evidence raises a concern, follow the authorized referral and family communication process.",
+                "heading": "2. Play and guided learning",
+                "body": "The MATATAG Kindergarten Curriculum describes play as a central approach and combines child-initiated activity with teacher support. In guided play, children retain meaningful choice; the teacher watches for a learning opportunity, introduces a useful word, asks an open question, models a strategy, or changes a material. A prompt should extend the child’s thinking rather than turn play into a disguised worksheet. Observe the response and reduce or increase support accordingly.",
                 "items": [
-                    "Record context, task, and observable response.",
-                    "Compare evidence across times or settings when useful.",
-                    "Use an assessment result only for its stated purpose."
+                    "Ask “What else could this block do?” to invite prediction and redesign.",
+                    "Offer a second container when a child is comparing capacity; let the child test it.",
+                    "Pause when teacher talk begins to dominate the child’s exploration."
                 ],
-                "id": "3-observation-and-assessment",
                 "related_topic_ids": [
-                    "ece-observation-and-assessment"
+                    "ece-development-and-learning"
                 ],
                 "related_concept_ids": [
-                    "ece-developmental-observation",
-                    "ece-authentic-assessment"
+                    "ece-guided-play-scaffolding"
                 ]
             },
             {
-                "heading": "4. Family partnership and inclusion",
-                "body": "Families contribute knowledge about a child’s interests, routines, language, strengths, and support needs. Partnership is a two-way exchange, not a request that a family simply endorse a teacher’s conclusion. Identify access barriers in the environment and adjust materials, communication, timing, or response options. Coordinate specialist support through the applicable school process while maintaining the child’s participation and dignity.",
+                "id": "3-observation-and-assessment",
+                "heading": "3. Observation and assessment",
+                "body": "Separate evidence from inference. “Placed three shells in a row and said ‘same’” is observable; “understands patterns” is an interpretation to check. Combine repeated observations, conversation, work samples, portfolios, and suitable checklists. The DepEd guide describes continuing documentation and use of the ECD checklist to identify learners who may need further assessment; a checklist is not a diagnosis. Choose the next activity from evidence, then check whether it helps. Share progress with families respectfully and protect confidential information.",
                 "items": [
-                    "Ask families what has worked and what the child enjoys.",
-                    "Offer more than one accessible way to respond.",
-                    "Check whether an adjustment changed participation."
+                    "Record the setting, prompt, materials, and the child’s words or actions.",
+                    "Use more than one source before making a planning decision.",
+                    "Use assessment to improve instruction, not to rank young children."
                 ],
-                "id": "4-family-partnership-and-inclusion",
                 "related_topic_ids": [
-                    "ece-family-and-inclusion"
+                    "ece-observation-and-assessment",
+                    "ece-observation-to-planning"
+                ],
+                "related_concept_ids": [
+                    "ece-developmental-observation",
+                    "ece-authentic-assessment",
+                    "ece-observation-to-responsive-planning"
+                ]
+            },
+            {
+                "id": "4-family-partnership-and-inclusion",
+                "heading": "4. Family partnership and inclusion",
+                "body": "Families know children’s interests, routines, languages, strengths, and ways of communicating. Ask open questions and use the family’s knowledge to make school experiences more understandable and connected. Identify barriers in the room, schedule, instructions, materials, or response method. Adjust access while preserving the learning intention. Invite participation in ways that respect family circumstances; partnership is reciprocal, not a demand for one specific form of involvement.",
+                "items": [
+                    "Ask which words, routines, or materials help a child join a new activity.",
+                    "Provide more than one way to respond when speech is not the target competency.",
+                    "Review whether an adjustment increases participation and belonging."
+                ],
+                "related_topic_ids": [
+                    "ece-family-and-inclusion",
+                    "ece-family-culture-language"
                 ],
                 "related_concept_ids": [
                     "ece-family-partnership",
-                    "ece-inclusive-environment"
+                    "ece-inclusive-environment",
+                    "ece-home-language-partnership"
+                ]
+            },
+            {
+                "id": "5-oral-language-and-multilingual-learning",
+                "heading": "5. Oral language and multilingual learning",
+                "body": "The MATATAG guide names the child’s first language as a resource for literacy and communication. Build oral language through attentive conversation: listen, acknowledge the meaning, model a slightly expanded sentence, and invite another turn. A child may understand an idea before expressing it in the language used for instruction. Connect a new word to gesture, object, image, action, or familiar language; do not treat difference in language exposure as evidence of low ability.",
+                "items": [
+                    "If a child names an object in a home language, acknowledge the meaning and offer the school-language word alongside it.",
+                    "Use turn-taking, songs, retelling, and purposeful talk rather than requiring repeated isolated pronunciation.",
+                    "Ask families which familiar words or stories can bridge a new classroom concept."
+                ],
+                "related_topic_ids": [
+                    "ece-language-and-early-numeracy"
+                ],
+                "related_concept_ids": [
+                    "ece-responsive-language-scaffolding"
+                ]
+            },
+            {
+                "id": "6-emergent-literacy-and-dialogic-reading",
+                "heading": "6. Emergent literacy and dialogic reading",
+                "body": "Early literacy grows through meaningful encounters with oral language, stories, symbols, environmental print, and shared books. During reading, invite children to notice an illustration, predict what may happen, connect an event to experience, retell a part, or explain an idea. Point out print features when they serve the discussion, but keep comprehension and communication central. Re-reading a valued text can deepen prediction and vocabulary; it does not need to become a rapid drill of letter names.",
+                "items": [
+                    "Pause for a child’s interpretation before supplying the adult answer.",
+                    "Connect a print label to the real object or classroom purpose it represents.",
+                    "Use a child’s retelling as evidence of meaning-making, not as a test of exact wording."
+                ],
+                "related_topic_ids": [
+                    "ece-language-and-early-numeracy"
+                ],
+                "related_concept_ids": [
+                    "ece-dialogic-literacy-practice"
+                ]
+            },
+            {
+                "id": "7-everyday-numeracy",
+                "heading": "7. Everyday numeracy",
+                "body": "The guide presents emergent literacy and basic numeracy as related learning. Build number and quantity ideas with objects children can move, compare, group, and count. Patterns can be noticed in steps, sounds, shells, or repeated classroom routines. Measurement and time make sense when connected to practical questions such as which container holds more or what happens before clean-up. Ask children to show how they know. Keep the representation tied to a real quantity or relation rather than relying on symbol copying alone.",
+                "items": [
+                    "Let children distribute one cup to each classmate and check whether anyone has none or more than one.",
+                    "Compare lengths by aligning objects at a shared starting point.",
+                    "Ask what repeats in a movement or sound sequence before naming the pattern."
+                ],
+                "related_topic_ids": [
+                    "ece-language-and-early-numeracy"
+                ],
+                "related_concept_ids": [
+                    "ece-emergent-number-sense"
+                ]
+            },
+            {
+                "id": "8-relationships-and-social-emotional-learning",
+                "heading": "8. Relationships and social-emotional learning",
+                "body": "Social-emotional learning develops within predictable, responsive relationships. A teacher can name a feeling tentatively, acknowledge a child’s experience, help the child notice a safe choice, and remain nearby while the child regains participation. Routines, visual cues, transition warnings, and calm spaces can reduce unnecessary uncertainty. Peer conflict is an opportunity to teach communication, turn-taking, and repair; public shame or forced apologies do not teach the missing skill.",
+                "items": [
+                    "Model a sentence such as “You both want the truck; let us find a way to take turns.”",
+                    "Use a calm transition signal and a short preview before changing activities.",
+                    "Notice whether a routine helps the child rejoin the group."
+                ],
+                "related_topic_ids": [
+                    "ece-socioemotional-and-safeguarding"
+                ],
+                "related_concept_ids": [
+                    "ece-peer-social-emotional-coregulation"
+                ]
+            },
+            {
+                "id": "9-child-protection-and-safeguarding",
+                "heading": "9. Child protection and safeguarding",
+                "body": "DepEd Order 40 identifies abuse, violence, exploitation, discrimination, bullying, and other forms of abuse as child-protection concerns in school. A teacher should recognize when a classroom issue falls within this scope and use the applicable school child-protection process. This lesson teaches the policy boundary and professional recognition only; exact reporting roles, timing, records, and follow-up must be checked in the current school procedure. Do not treat a covered concern as a routine behavior issue or make unsupported legal conclusions.",
+                "items": [
+                    "Recognize the types of harm named in the policy scope.",
+                    "Use the school’s applicable child-protection process when a concern arises.",
+                    "Verify local procedure rather than relying on a remembered deadline or role."
+                ],
+                "related_topic_ids": [
+                    "ece-socioemotional-and-safeguarding"
+                ],
+                "related_concept_ids": [
+                    "ece-safeguarding-response-and-boundaries"
+                ]
+            },
+            {
+                "id": "10-responsive-planning-and-inclusion",
+                "heading": "10. Responsive planning and inclusion",
+                "body": "Plan from the intended learning and observed barrier. A child may show understanding by speaking, pointing, building, moving, drawing, or using a familiar symbol; choose a response mode that still demonstrates the target skill. Combine domains in an integrated activity when the connections are meaningful, such as sorting natural objects, describing a pattern, and collaborating on a display. If one child is not participating, examine access, clarity, pace, materials, and relationship before attributing the difficulty to the child.",
+                "items": [
+                    "State the learning intention, then identify which task feature may prevent participation.",
+                    "Change the support or representation and observe the learner’s response.",
+                    "Use the result to decide whether the activity, support, or next step needs revision."
+                ],
+                "related_topic_ids": [
+                    "ece-socioemotional-and-safeguarding",
+                    "ece-observation-to-planning"
+                ],
+                "related_concept_ids": [
+                    "ece-inclusive-participation-design",
+                    "ece-integrated-developmental-planning"
                 ]
             }
         ],
         "worked_examples": [
             {
-                "heading": "From observation to next step",
-                "prompt": "During block play, a child sorts pieces by color, then leaves when a peer changes the structure. What should the teacher record and try?",
+                "heading": "Worked example: a shared story in two languages",
+                "prompt": "A child predicts an event in a home language while classmates use Filipino and English. What is a strong next teaching move?",
                 "steps": [
-                    "Record the sequence and setting without labeling the child as inflexible.",
-                    "Ask whether the peer change, language demand, material access, or transition affected participation.",
-                    "Offer a shared planning prompt or duplicate pieces, then observe whether play continues."
+                    "Acknowledge and restate the child’s prediction without treating the language difference as an error.",
+                    "Offer the matching classroom-language word and connect it to the illustration.",
+                    "Invite peers to explain which picture clues support or change their predictions."
                 ],
-                "answer": "Use the observation to test a support, then review further evidence.",
-                "check": "The response changes an accessible condition and avoids inferring a trait from one episode."
+                "answer": "The teacher keeps the idea central, uses the first language as an asset, and expands shared language through meaning.",
+                "check": "Did the child’s contribution advance the same comprehension goal as peers?"
+            },
+            {
+                "heading": "Worked example: interpreting a number routine",
+                "prompt": "A child gives one shell to each of four toy animals, then notices an extra shell. What evidence and next step are useful?",
+                "steps": [
+                    "Record the one-to-one distribution and the child’s response to the extra object.",
+                    "Offer another small distribution task with objects and people.",
+                    "Ask the child to explain or show how to make each group equal."
+                ],
+                "answer": "Repeated concrete action and explanation provide evidence for responsive number learning.",
+                "check": "Do not infer mastery from one successful distribution or diagnose from one error."
             }
         ],
         "common_misconceptions": [
-            "A milestone range is a diagnosis for an individual child.",
-            "Play is unstructured time with no instructional purpose.",
-            "A single observation is enough to infer a stable ability.",
-            "Family partnership means asking parents to accept the school’s interpretation."
+            "A developmental checklist identifies an area for further assessment; it is not a diagnosis.",
+            "Play-based teaching includes intentional teacher observation and support; it is not unplanned free time.",
+            "A child’s first language can support new learning rather than delay it.",
+            "A child-protection concern calls for protective school referral, not teacher-led investigation."
         ],
         "question_patterns": [
-            "Interpret a classroom observation in context.",
-            "Choose a play prompt that preserves child agency.",
-            "Select evidence and next steps for assessment or inclusion."
+            "Choose a next step from observed evidence.",
+            "Distinguish the intended learning target from an access barrier.",
+            "Explain how a teacher prompt extends child thinking without taking over."
         ],
         "practice_question_ids": [
             "5748",
@@ -1255,7 +1373,65 @@
             "9091",
             "9092",
             "9093",
-            "9094"
+            "9094",
+            "9180",
+            "9181",
+            "9182",
+            "9183",
+            "9184",
+            "9185",
+            "9186",
+            "9187",
+            "9188",
+            "9189",
+            "9190",
+            "9191",
+            "9192",
+            "9193",
+            "9194",
+            "9195",
+            "9196",
+            "9197",
+            "9198",
+            "9199",
+            "9200",
+            "9201",
+            "9202",
+            "9203",
+            "9204",
+            "9205",
+            "9206",
+            "9207",
+            "9208",
+            "9209",
+            "9210",
+            "9211",
+            "9212",
+            "9213",
+            "9214",
+            "9215",
+            "9216",
+            "9217",
+            "9218",
+            "9219",
+            "9220",
+            "9221",
+            "9222",
+            "9223",
+            "9224",
+            "9225",
+            "9226",
+            "9227",
+            "9228",
+            "9229",
+            "9230",
+            "9231",
+            "9232",
+            "9233",
+            "9234",
+            "9235",
+            "9236",
+            "9237"
         ],
         "pdf_file": "let-early-childhood-learning-and-inclusion.pdf",
         "taxonomy": {
@@ -1267,7 +1443,7 @@
         "source_review": {
             "status": "SOURCE_CHECKED_HUMAN_REVIEW_PENDING",
             "checked_at": "2026-10-18",
-            "note": "Official scope and listed source records were checked for lesson framing; human academic review and owner approval remain pending. Original BoardPrep instruction, not copied source text."
+            "note": "Official examination scope and instructional source text were inspected and used to write original lesson content. Independent academic review and owner approval remain pending; no external source text is reproduced."
         }
     },
     {
@@ -1275,32 +1451,33 @@
         "title": "Inclusive Education: Access, Participation, and Support",
         "material_id": "let-special-needs-inclusive-education",
         "status": "published",
-        "version": 1,
+        "version": 2,
         "board_id": "let",
         "subject_id": "special-needs-education",
         "official_scope_source_ids": [
-            "prc-let-enhanced-tos-2025"
+            "prc-resolution-20-2025-annex-a"
         ],
         "instructional_source_ids": [
-            "deped-ra11650-irr",
-            "deped-ppst-do-42-2017"
+            "republic-act-11650",
+            "cast-udl-guidelines-3-0-2024"
         ],
         "scope_note": "Original instructional review of inclusive planning, access supports, assessment adjustments, family partnership, and authorized referral. Scope is limited to the linked official board outline and curriculum references; this is not an exam prediction.",
         "learning_objectives": [
-            "Distinguish an access support from a change to the learning standard.",
-            "Analyze barriers in task, environment, communication, and assessment.",
-            "Choose a respectful support and review its effect with the learner and appropriate team."
+            "Identify barriers in goals, materials, communication, environments, assessment, and participation.",
+            "Plan flexible access and response options and distinguish those from changes to intended outcomes.",
+            "Use evidence and learner/family collaboration in individualized planning and progress monitoring.",
+            "Select respectful positive supports, accessible communication, and assistive tools that increase agency."
         ],
         "sections": [
             {
-                "heading": "1. Start with the participation barrier",
-                "body": "Inclusive planning begins with the task and setting: what must the learner understand or do, and which feature creates an avoidable barrier? The barrier may concern access to print, language, movement, time, sensory conditions, directions, or response format. Asking the learner and family what helps is more informative than guessing from a label. A support should be connected to the identified barrier and reviewed for whether it enables meaningful participation.",
-                "items": [
-                    "Separate the learning goal from the way a task is presented.",
-                    "Ask about strengths and useful supports.",
-                    "Check access in the actual activity, not only on paper."
-                ],
                 "id": "1-start-with-the-participation-barrier",
+                "heading": "1. Start with the participation barrier",
+                "body": "Begin with the actual learning task: what does the learner need to understand, communicate, make, or do? Then identify which feature of the setting makes access harder. Barriers may arise from print format, language, movement, sensory conditions, time, instructions, social routines, or response method. Ask the learner and family what helps when appropriate. Avoid assuming a diagnosis predicts a single preference; learners with the same label may need different supports.",
+                "items": [
+                    "Describe the task and the barrier separately.",
+                    "Ask which change would make participation possible while preserving the intended competency.",
+                    "Review the learner’s response after the change."
+                ],
                 "related_topic_ids": [
                     "sne-access-and-accommodations"
                 ],
@@ -1311,14 +1488,14 @@
                 ]
             },
             {
-                "heading": "2. Accommodation, modification, and validity",
-                "body": "An accommodation changes access or response conditions while keeping the intended competency intact. A modification changes the expected learning outcome or level. The distinction matters because support should not accidentally remove the skill being assessed. Extra time, accessible text, or a response device can preserve an objective when appropriate; changing the construct or standard requires a deliberate, authorized decision rather than an informal convenience.",
-                "items": [
-                    "Name the competency before changing a task.",
-                    "Ask whether the adjustment changes access or the target itself.",
-                    "Document an authorized change and communicate its basis."
-                ],
                 "id": "2-accommodation-modification-and-validity",
+                "heading": "2. Accommodation, modification, and validity",
+                "body": "An accommodation changes access or response conditions while retaining the intended outcome; a modification changes the outcome or expected level. Assessment validity depends on whether the task still elicits the intended competency. If handwriting is not being assessed, typing or an assistive response may remove an irrelevant barrier. If handwriting itself is the target, replacing it with oral response changes what the assessment can show. Document and follow the learner’s applicable plan and authorized process.",
+                "items": [
+                    "Name the skill being assessed before selecting a support.",
+                    "Check whether the support changes access, the construct, or both.",
+                    "Interpret the result only within the conditions under which it was gathered."
+                ],
                 "related_topic_ids": [
                     "sne-instruction-and-assessment"
                 ],
@@ -1329,57 +1506,168 @@
                 ]
             },
             {
-                "heading": "3. Universal and individualized planning",
-                "body": "Universal design anticipates varied learners through clear instructions, multiple ways to access information, and varied opportunities to show learning. Universal design does not replace a learner-specific support plan. When a broad design is insufficient, use individualized supports, consult the authorized team, and make the adjustment practical for the learner and teacher. Review outcomes rather than assuming a support works because it is available.",
-                "items": [
-                    "Provide clear directions and more than one response mode where suitable.",
-                    "Use a specific plan when broad access is insufficient.",
-                    "Review participation evidence with the learner."
-                ],
                 "id": "3-universal-and-individualized-planning",
+                "heading": "3. Universal and individualized planning",
+                "body": "Universal Design for Learning anticipates learner variability in the design of goals, materials, engagement, and responses. Offer clear directions, accessible formats, purposeful choice, and more than one route to express learning when consistent with the outcome. Universal design reduces barriers but does not replace an individualized plan or necessary accommodation. Under the PRC LEPT scope, individualized plans such as IEPs, IFSPs, BIPs, and ITPs are built from comprehensive data and collaborative input. Use the applicable team process; do not invent a diagnosis or plan alone.",
+                "items": [
+                    "Design for likely variability before a learner encounters a barrier.",
+                    "If the universal option is insufficient, collaborate on a specific support.",
+                    "Keep goals, supports, responsibility, and progress evidence explicit."
+                ],
                 "related_topic_ids": [],
                 "related_concept_ids": []
             },
             {
-                "heading": "4. Assessment, behavior, and partnership",
-                "body": "Assessment should measure the stated competency without allowing an unrelated access barrier to dominate. A behavior that interrupts learning is information about context and support needs, not by itself a diagnosis or moral judgment. Record antecedents and consequences carefully, protect privacy, and involve qualified personnel through the proper route. Families and learners should receive understandable communication and a chance to contribute to planning.",
-                "items": [
-                    "Use multiple evidence sources when one format blocks access.",
-                    "Describe behavior objectively and inspect context.",
-                    "Share only information needed for the educational purpose."
-                ],
                 "id": "4-assessment-behavior-and-partnership",
+                "heading": "4. Assessment, behavior, and partnership",
+                "body": "An assessment should make the intended learning visible while removing unrelated barriers. A behavior that interrupts learning is information about an interaction between a learner and a situation, not a diagnosis or moral judgment. Record observable antecedents, actions, and outcomes; look for context and unmet access needs. Teach a safer or more effective alternative and reinforce participation. Avoid humiliating, punitive, or aversive approaches. Work with the learner, family, and qualified team members while protecting privacy.",
+                "items": [
+                    "Observe what occurred before, during, and after a behavior.",
+                    "Check communication, sensory, task, and environmental conditions.",
+                    "Use respectful positive support and monitor whether it improves participation."
+                ],
                 "related_topic_ids": [
                     "sne-collaboration"
                 ],
                 "related_concept_ids": [
                     "sne-family-collaboration"
                 ]
+            },
+            {
+                "id": "5-udl-access-and-action",
+                "heading": "5. UDL, access, and action",
+                "body": "CAST UDL Guidelines 3.0 organize design options around engagement, representation, and action and expression. In practice, a science explanation might be available as clear print and audio, while students can respond with a diagram, model, or spoken explanation when the learning target permits. Options should be purposeful, accessible, and equivalent in what they reveal. The goal is learner agency, not giving every learner every possible choice at once. Anticipate barriers, offer a manageable path, and invite learner feedback.",
+                "items": [
+                    "Connect more than one representation to the same core idea.",
+                    "Offer response options that still measure the stated learning objective.",
+                    "Check that tools and formats are accessible to the learner who will use them."
+                ],
+                "related_topic_ids": [
+                    "sne-udl-and-access"
+                ],
+                "related_concept_ids": [
+                    "sne-udl-flexible-engagement-representation-expression",
+                    "sne-environmental-access-and-participation"
+                ]
+            },
+            {
+                "id": "6-assessment-validity-and-accommodations",
+                "heading": "6. Assessment validity and accommodations",
+                "body": "First name the construct and the evidence that would demonstrate it. Then remove conditions that are irrelevant to that construct, such as inaccessible print when the target is mathematical reasoning. A reader, enlarged text, additional processing time, or alternative response tool may be appropriate depending on the learner and authorized plan. The same support is not automatically valid for every task. A support that changes the competency being measured must be recognized and interpreted as a modified outcome, not reported as equivalent evidence.",
+                "items": [
+                    "Separate a barrier to accessing directions from the competency named in the objective.",
+                    "Use the learner’s planned accommodation consistently where required.",
+                    "Record assessment conditions so results are interpreted fairly."
+                ],
+                "related_topic_ids": [
+                    "sne-assessment-and-planning"
+                ],
+                "related_concept_ids": [
+                    "sne-assessment-accommodation-validity"
+                ]
+            },
+            {
+                "id": "7-individualized-planning-and-collaboration",
+                "heading": "7. Individualized planning and collaboration",
+                "body": "Individual planning draws on comprehensive assessment and input from people who know the learner and the learning context. State the learner’s strengths and needs in observable terms, select a functional goal, assign supports and responsibilities, and decide what evidence will show progress. Learner and family knowledge is part of the evidence, not an afterthought. The PRC TOS includes IEP, IFSP, BIP, and ITP planning; use the applicable plan and authorized team rather than treating these names as interchangeable paperwork.",
+                "items": [
+                    "Use multiple data sources rather than a single test score.",
+                    "Connect each support to a functional goal and a responsible person.",
+                    "Schedule a review point and a way to hear the learner’s perspective."
+                ],
+                "related_topic_ids": [
+                    "sne-assessment-and-planning"
+                ],
+                "related_concept_ids": [
+                    "sne-data-informed-individualized-planning",
+                    "sne-collaborative-learner-family-planning"
+                ]
+            },
+            {
+                "id": "8-positive-behavior-and-environment",
+                "heading": "8. Positive behavior and environment",
+                "body": "Support behavior by asking what the learner is communicating and what conditions precede or follow it. Review task difficulty, access to communication, predictability, sensory demands, peer interaction, and reinforcement. Teach a replacement skill that meets the same need more safely, such as requesting a break or asking for help. Adjust the environment and reinforce successful participation. The PRC scope specifically rejects aversive techniques; restraint or punishment is not a teaching strategy. Follow current school safeguarding and support procedures.",
+                "items": [
+                    "Use observable descriptions instead of labels such as “lazy” or “manipulative.”",
+                    "Change a task or cue when evidence shows that it creates an avoidable barrier.",
+                    "Teach, prompt, and reinforce a useful alternative behavior."
+                ],
+                "related_topic_ids": [
+                    "sne-positive-support-and-participation"
+                ],
+                "related_concept_ids": [
+                    "sne-positive-behavior-support"
+                ]
+            },
+            {
+                "id": "9-assistive-and-communication-technology",
+                "heading": "9. Assistive and communication technology",
+                "body": "Select an assistive tool by matching the learner, task, setting, and preferred communication method. A communication board, captioning, screen reader, adapted tool, or switch may support access when it fits the goal and is available consistently. Introduce the tool, teach its use, and check whether the learner can operate it independently or with planned support. Technology is not a substitute for instruction or human interaction; it is one possible route to communication, access, and participation.",
+                "items": [
+                    "Ask what the learner wants to communicate and how the tool supports that message.",
+                    "Check compatibility with the materials, classroom routine, and assessment format.",
+                    "Review access with the learner rather than selecting a device from a label alone."
+                ],
+                "related_topic_ids": [
+                    "sne-udl-and-access"
+                ],
+                "related_concept_ids": [
+                    "sne-accessible-communication-and-technology"
+                ]
+            },
+            {
+                "id": "10-progress-transition-and-learner-voice",
+                "heading": "10. Progress, transition, and learner voice",
+                "body": "Progress monitoring uses repeated, goal-aligned evidence rather than impressions. Look for change over time, check whether the measure captures the intended skill, and adjust instruction when progress stalls. A planned transition identifies what information and supports need to travel with the learner and which receiving people need to coordinate. Invite learner choice and explain support in respectful language. The aim is participation, self-advocacy, learning, and access to the wider community, not compliance for its own sake.",
+                "items": [
+                    "Compare current evidence with the stated goal and prior evidence.",
+                    "Ask the learner what is working and what still blocks participation.",
+                    "Coordinate transition information with appropriate consent and privacy safeguards."
+                ],
+                "related_topic_ids": [
+                    "sne-positive-support-and-participation"
+                ],
+                "related_concept_ids": [
+                    "sne-progress-monitoring-and-adjustment",
+                    "sne-dignity-choice-and-learner-voice",
+                    "sne-transition-and-community-participation"
+                ]
             }
         ],
         "worked_examples": [
             {
-                "heading": "Preserve the learning objective",
-                "prompt": "A learner understands a science explanation but cannot read the small print on the task sheet. The objective is to compare two explanations. What adjustment preserves the target?",
+                "heading": "Worked example: a science explanation",
+                "prompt": "The lesson assesses how learners explain a water-cycle diagram. A learner explains accurately aloud but cannot access the small printed labels. What should the teacher adjust?",
                 "steps": [
-                    "Keep the comparison criterion unchanged.",
-                    "Provide accessible text or an authorized read-aloud format.",
-                    "Check the learner’s comparison using the same conceptual criteria."
+                    "Keep the science explanation as the target competency.",
+                    "Provide accessible labels or an enlarged/reader-compatible diagram.",
+                    "Allow the learner to explain orally or with the planned accessible response format."
                 ],
-                "answer": "Change access to the directions while retaining the comparison standard.",
-                "check": "The response addresses the print barrier without simplifying the science competency."
+                "answer": "Change the inaccessible representation and response conditions while preserving evidence of the science concept.",
+                "check": "Would a correct response still show the stated science objective?"
+            },
+            {
+                "heading": "Worked example: repeated task avoidance",
+                "prompt": "A learner leaves a noisy group task whenever several instructions are given at once. What is a respectful first support decision?",
+                "steps": [
+                    "Record the conditions and the observable response over repeated occasions.",
+                    "Reduce competing noise and present one clear step at a time, checking understanding.",
+                    "Offer a taught way to request help or a brief break and review participation evidence."
+                ],
+                "answer": "Adjust access and communication while gathering evidence; do not infer the cause from a disability label.",
+                "check": "Did the changed environment improve participation without lowering the learning goal?"
             }
         ],
         "common_misconceptions": [
-            "A diagnosis alone determines a useful classroom adjustment.",
-            "Giving every learner the same format is always equitable.",
-            "Any adjustment lowers the academic standard.",
-            "One challenging behavior establishes a disorder or intent."
+            "UDL improves planned access but does not replace individualized support when it is needed.",
+            "An accommodation is only valid when it preserves the competency the assessment is intended to measure.",
+            "A behavior is observable evidence about a situation, not by itself a diagnosis or character judgment.",
+            "Assistive technology should fit the learner’s communication and task rather than be selected from a label."
         ],
         "question_patterns": [
-            "Separate access barrier from competency.",
-            "Choose accommodation or modification based on the stated objective.",
-            "Select a privacy-preserving referral and review step."
+            "Identify the intended construct before choosing an accommodation.",
+            "Use data and learner/family input to plan support.",
+            "Change barriers and teach skills while preserving dignity and participation."
         ],
         "practice_question_ids": [
             "5783",
@@ -1423,7 +1711,65 @@
             "9098",
             "9099",
             "9100",
-            "9101"
+            "9101",
+            "9290",
+            "9291",
+            "9292",
+            "9293",
+            "9294",
+            "9295",
+            "9296",
+            "9297",
+            "9298",
+            "9299",
+            "9300",
+            "9301",
+            "9302",
+            "9303",
+            "9304",
+            "9305",
+            "9306",
+            "9307",
+            "9308",
+            "9309",
+            "9310",
+            "9311",
+            "9312",
+            "9313",
+            "9314",
+            "9315",
+            "9316",
+            "9317",
+            "9318",
+            "9319",
+            "9320",
+            "9321",
+            "9322",
+            "9323",
+            "9324",
+            "9325",
+            "9326",
+            "9327",
+            "9328",
+            "9329",
+            "9330",
+            "9331",
+            "9332",
+            "9333",
+            "9334",
+            "9335",
+            "9336",
+            "9337",
+            "9338",
+            "9339",
+            "9340",
+            "9341",
+            "9342",
+            "9343",
+            "9344",
+            "9345",
+            "9346",
+            "9347"
         ],
         "pdf_file": "let-special-needs-inclusive-education.pdf",
         "taxonomy": {
@@ -1435,7 +1781,7 @@
         "source_review": {
             "status": "SOURCE_CHECKED_HUMAN_REVIEW_PENDING",
             "checked_at": "2026-10-18",
-            "note": "Official scope and listed source records were checked for lesson framing; human academic review and owner approval remain pending. Original BoardPrep instruction, not copied source text."
+            "note": "Official examination scope and instructional source text were inspected and used to write original lesson content. Independent academic review and owner approval remain pending; no external source text is reproduced."
         }
     },
     {
@@ -1443,32 +1789,33 @@
         "title": "Competency-Based Technical and Vocational Teaching",
         "material_id": "let-tvted-competency-based-teaching",
         "status": "published",
-        "version": 1,
+        "version": 2,
         "board_id": "let",
         "subject_id": "technical-vocational-teacher-education",
         "official_scope_source_ids": [
-            "prc-let-enhanced-tos-2025"
+            "prc-resolution-20-2025-annex-a"
         ],
         "instructional_source_ids": [
-            "deped-epp-tle-curriculum-guide",
-            "deped-tle-competency-portal"
+            "tesda-training-regulations-index",
+            "tesda-tvet-glossary-2025"
         ],
         "scope_note": "Original review of competency-based outcomes, demonstration assessment, workshop safety, feedback, and industry-informed learning. Scope is limited to the linked official board outline and curriculum references; this is not an exam prediction.",
         "learning_objectives": [
-            "Translate a competency into observable performance criteria.",
-            "Plan a safe demonstration and practice sequence.",
-            "Give evidence-based feedback and document reassessment fairly."
+            "Translate a workplace competency standard into observable learning outcomes and assessment conditions.",
+            "Demonstrate, scaffold, and assess technical performance using transparent criteria and sufficient evidence.",
+            "Select training materials, equipment, and safety controls that match the task and learners.",
+            "Use feedback, remediation, workplace coordination, and enterprise contexts to support competence and employability."
         ],
         "sections": [
             {
-                "heading": "1. Competency and performance evidence",
-                "body": "A competency describes the integrated knowledge, skill, and judgment required for a work task. Turn it into observable criteria: the product or service standard, process steps, safety behaviors, and conditions. Criteria should distinguish essential performance from cosmetic preference. A learner may know a procedure verbally but still need a practical demonstration; use evidence that matches the stated competency and equipment context.",
-                "items": [
-                    "State the task, conditions, and standard.",
-                    "Choose evidence aligned to the performance claim.",
-                    "Separate safety-critical criteria from refinements."
-                ],
                 "id": "1-competency-and-performance-evidence",
+                "heading": "1. Competency and performance evidence",
+                "body": "A competency integrates the knowledge, skill, attitudes, and judgment needed to perform work to an expected standard. Start with the applicable competency standard or training regulation; identify the task, performance criteria, conditions, tools, and evidence guide. A learner demonstrates competence through performance evidence, not time spent in training alone. Do not replace a workplace outcome with a teacher’s preference for one method if multiple safe, valid methods can meet the standard.",
+                "items": [
+                    "Convert each unit into observable actions and a product or service standard.",
+                    "Include operating conditions and safety practices where they are part of the competency.",
+                    "Distinguish an essential criterion from an optional stylistic preference."
+                ],
                 "related_topic_ids": [
                     "tvted-introductory-vocational-teaching",
                     "tvted-competency-based-training"
@@ -1479,14 +1826,14 @@
                 ]
             },
             {
-                "heading": "2. Demonstrate, practice, coach",
-                "body": "A strong sequence makes expert thinking visible, then gives learners supported practice before independent performance. Demonstration should name decision points, setup checks, and common faults. Practice needs a defined task, sufficient equipment, observation, and corrective feedback. Feedback is most useful when it points to a criterion and an actionable next attempt rather than giving a global judgment about ability.",
-                "items": [
-                    "Model setup and decision checks aloud.",
-                    "Use a short practice task before the full performance.",
-                    "Give feedback tied to one or two criteria."
-                ],
                 "id": "2-demonstrate-practice-coach",
+                "heading": "2. Demonstrate, practice, and coach",
+                "body": "A useful technical demonstration makes process and decision points visible. State the task and hazard controls, model a whole performance or meaningful segment, narrate critical checks, and invite learners to identify why each check matters. Then move to guided practice with feedback, followed by a new performance opportunity. Fade prompts as performance stabilizes. A video or diagram can supplement demonstration, but learners still need an accessible opportunity to perform and receive feedback.",
+                "items": [
+                    "Model the sequence at a pace learners can observe.",
+                    "Ask a learner to identify a quality or safety checkpoint before practice.",
+                    "Move from supported rehearsal toward performance under the competency conditions."
+                ],
                 "related_topic_ids": [
                     "tvted-learning-resources-and-tools"
                 ],
@@ -1495,14 +1842,14 @@
                 ]
             },
             {
-                "heading": "3. Safety is part of competence",
-                "body": "Safety is not an optional add-on to technical quality. Identify hazards, required controls, protective equipment, emergency steps, and stop-work conditions before practice. A paper assessment cannot substitute for a safe workshop routine. When equipment, materials, or supervision are insufficient, defer the hazardous task or use an approved alternative rather than asking learners to improvise.",
-                "items": [
-                    "Inspect the work area and equipment before use.",
-                    "State the control and stop condition for each significant hazard.",
-                    "Record and correct near misses through the proper process."
-                ],
                 "id": "3-safety-is-part-of-competence",
+                "heading": "3. Safety is part of competence",
+                "body": "Safety is an observable part of technical performance whenever the work standard includes it. Before practice, inspect the tool, work area, materials, personal protective equipment, and controls relevant to the task. Stop work if a condition becomes unsafe; correct or isolate the hazard according to the institution’s procedures before resuming. Do not reward a fast output that was produced through an unsafe method. Exact legal procedures, equipment limits, and PPE requirements depend on the current trade-specific standards and local rules.",
+                "items": [
+                    "Brief learners on the actual task hazards and controls before work begins.",
+                    "Correct unsafe conditions rather than relying on a warning alone.",
+                    "Use current trade-specific standards for regulatory details."
+                ],
                 "related_topic_ids": [
                     "tvted-workplace-safety"
                 ],
@@ -1511,14 +1858,14 @@
                 ]
             },
             {
-                "heading": "4. Assessment, remediation, and workplace links",
-                "body": "Use criterion-based assessment with clear evidence, consistent conditions, and a documented result. If a learner is not yet competent, identify the unmet criterion, plan targeted practice, and reassess under suitable conditions. Workplace examples should reflect current tools and actual standards, but a local employer preference should not be presented as a universal competency without evidence.",
-                "items": [
-                    "Report which criterion is and is not demonstrated.",
-                    "Plan practice against the gap and allow fair reassessment.",
-                    "Keep industry examples tied to recognized learning outcomes."
-                ],
                 "id": "4-assessment-remediation-and-workplace-links",
+                "heading": "4. Assessment, remediation, and workplace links",
+                "body": "Assessment should gather sufficient, relevant evidence and compare it with the criteria before making a judgment. A practical assessment may combine direct observation, product inspection, questioning about decisions, and records of performance under specified conditions. Feedback should name the criterion, the observed evidence, and a next practice step. If evidence is incomplete, provide additional opportunity; do not infer competence from attendance or confidence. Workplace learning needs agreed supervision, safe tasks, and clear links between practice and expected competencies.",
+                "items": [
+                    "Choose evidence that directly demonstrates the competency.",
+                    "Explain the gap and next practice opportunity in criterion language.",
+                    "Coordinate workplace roles, observation, and evidence with the training plan."
+                ],
                 "related_topic_ids": [
                     "tvted-assessment-and-feedback",
                     "tvted-workplace-learning",
@@ -1530,32 +1877,142 @@
                     "tvted-workplace-learning",
                     "tvted-industry-alignment",
                     "tvted-entrepreneurship-and-employability"
+                ]
+            },
+            {
+                "id": "5-from-competency-standard-to-learning-outcome",
+                "heading": "5. From competency standard to learning outcome",
+                "body": "TESDA describes competency-based curricula as specifying outcomes, content, learning conditions, methods, and assessment aligned with workplace requirements. Read the performance criteria and evidence guide before designing a lesson. Turn a criterion into a learner-facing outcome that states an observable action and condition. Then sequence the prerequisite knowledge and practice learners need. If a regulation or industry requirement changes, verify the current controlling text before teaching it as mandatory.",
+                "items": [
+                    "Use action verbs tied to visible performance, such as measure, assemble, test, or explain.",
+                    "Preserve the standard’s conditions and performance criteria in the outcome and assessment.",
+                    "Consult current trade or industry evidence when a requirement is time-sensitive."
+                ],
+                "related_topic_ids": [
+                    "tvted-outcomes-and-instruction"
+                ],
+                "related_concept_ids": [
+                    "tvted-workplace-standard-to-outcome"
+                ]
+            },
+            {
+                "id": "6-demonstration-practice-and-transfer",
+                "heading": "6. Demonstration, practice, and transfer",
+                "body": "Technical learning requires deliberate, repeated practice that bridges a model and authentic performance. Break a complex procedure into teachable steps without hiding how the steps work together. Model the task, let learners rehearse under support, then vary materials or conditions so they can transfer the skill. Ask learners to explain decisions and perform critical checks. Keep workspaces and learner groups safe, and ensure each trainee gets direct practice rather than only watching a partner.",
+                "items": [
+                    "Use a brief demonstration, then rotate learners through actual practice.",
+                    "Give feedback on one high-value process feature at a time.",
+                    "Vary the scenario only after foundational performance is sufficiently stable."
+                ],
+                "related_topic_ids": [
+                    "tvted-outcomes-and-instruction"
+                ],
+                "related_concept_ids": [
+                    "tvted-demonstration-and-guided-practice"
+                ]
+            },
+            {
+                "id": "7-performance-evidence-and-assessment",
+                "heading": "7. Performance evidence and assessment",
+                "body": "A competency decision should be based on sufficient evidence directly related to the standard. Observe the learner perform, inspect the product or service, and ask focused questions when they clarify a decision that was not visible. Use clear criteria in a practical rubric: required process, output quality, safety checks, and task conditions. A rubric describes observable levels; it does not disguise personal preference as a standard. If assessors disagree, compare the evidence and the standard rather than relying on seniority.",
+                "items": [
+                    "Map each criterion to a visible action or product feature.",
+                    "State the conditions and resources available during assessment.",
+                    "Record evidence before deciding that a learner is competent or needs more practice."
+                ],
+                "related_topic_ids": [
+                    "tvted-evidence-and-assessment"
+                ],
+                "related_concept_ids": [
+                    "tvted-evidence-based-performance-assessment",
+                    "tvted-practical-rubric-criteria"
+                ]
+            },
+            {
+                "id": "8-learning-materials-and-training-environment",
+                "heading": "8. Learning materials and training environment",
+                "body": "TESDA’s glossary describes competency-based learning materials that can include a learner guide, competency list, learning outcomes, information sheets, self-checks, task or operation sheets, job sheets, and performance checklists. Choose only the materials that support the target outcome and sequence them so learners can prepare, practice, check understanding, and demonstrate performance. Maintain equipment and work areas according to applicable procedures; replace a damaged tool rather than asking learners to work around a hazard.",
+                "items": [
+                    "Use a self-check for retrieval or readiness, not as a substitute for performance evidence.",
+                    "Make task sheets precise enough to support safe practice while preserving learner problem-solving.",
+                    "Keep criteria and required resources visible to learners."
+                ],
+                "related_topic_ids": [
+                    "tvted-outcomes-and-instruction"
+                ],
+                "related_concept_ids": [
+                    "tvted-training-materials-and-checklists"
+                ]
+            },
+            {
+                "id": "9-safety-and-workplace-learning",
+                "heading": "9. Safety and workplace learning",
+                "body": "Workplace learning connects training with authentic practice, but authenticity never excuses uncontrolled hazards or unclear responsibilities. Coordinate the assigned task, supervision, available equipment, safety orientation, and evidence to be collected. The PRC BTVTEd common competencies include occupational health, safety, and ethical values. TESDA circulars and trade standards may change, so verify current requirements for a specific qualification instead of using an old remembered rule. An unsafe task should be stopped and referred through the training site’s procedures.",
+                "items": [
+                    "Confirm that the placement task matches the learner’s training and supervision.",
+                    "Agree which person supervises, gives feedback, and records evidence.",
+                    "Escalate an unsafe or out-of-scope assignment before the learner begins."
+                ],
+                "related_topic_ids": [
+                    "tvted-safety-and-workplace"
+                ],
+                "related_concept_ids": [
+                    "tvted-hazard-control-and-safe-practice",
+                    "tvted-workplace-learning-coordination"
+                ]
+            },
+            {
+                "id": "10-industry-links-feedback-and-employability",
+                "heading": "10. Industry links, feedback, and employability",
+                "body": "Industry input helps keep learning outcomes connected to work, but the curriculum must still remain coherent and teachable. Ask employers or practitioners which performance standards and changing practices matter, then verify them against the current training regulation or documented industry evidence. Feedback should identify a criterion, observed performance, and a useful next step. Enterprise activities can connect technical quality to customer need, cost, reliability, and ethical practice; do not reduce entrepreneurship to selling without understanding the service or product.",
+                "items": [
+                    "Use employer feedback as evidence to review outcomes, not as an unverified new rule.",
+                    "Discuss how quality and safety affect customer trust and employability.",
+                    "Use reassessment to verify improved performance rather than attendance at remediation."
+                ],
+                "related_topic_ids": [
+                    "tvted-feedback-and-employability"
+                ],
+                "related_concept_ids": [
+                    "tvted-feedback-remediation-and-reassessment",
+                    "tvted-employability-and-enterprise-application"
                 ]
             }
         ],
         "worked_examples": [
             {
-                "heading": "Diagnose the performance gap",
-                "prompt": "A learner’s assembly works, but a guard is missing and the final measurement exceeds the stated tolerance. How should feedback and reassessment be planned?",
+                "heading": "Worked example: assessing a plumbing joint",
+                "prompt": "A trainee’s joint holds water during a brief test, but the trainer did not observe preparation or safety steps. Is that enough evidence for the full competency?",
                 "steps": [
-                    "Treat the missing guard as a safety-critical failure and stop use of the assembly.",
-                    "Record the measurement against the published tolerance.",
-                    "Provide supervised practice on guarding and measurement, then reassess the criteria."
+                    "Compare the task with the current unit standard and required conditions.",
+                    "Identify which process and safety criteria were not observed.",
+                    "Arrange a fair additional performance opportunity for the missing evidence."
                 ],
-                "answer": "Document both gaps, correct safety first, and reassess against the same standard.",
-                "check": "A working result does not cancel a safety criterion or make the tolerance optional."
+                "answer": "The visible outcome may be relevant but is insufficient if required process and safety criteria remain unobserved.",
+                "check": "Does the evidence cover every mandatory performance criterion?"
+            },
+            {
+                "heading": "Worked example: matching a learning sheet to a task",
+                "prompt": "Learners are preparing to interpret a technical drawing before a supervised shop task. Which materials help them prepare and self-check?",
+                "steps": [
+                    "State the drawing-reading outcome and the symbols/measurements to interpret.",
+                    "Provide a concise information sheet and worked example.",
+                    "Use a short self-check before the learners apply the skill to the task sheet."
+                ],
+                "answer": "Sequence information and self-checks to prepare learners, then gather direct evidence during authentic performance.",
+                "check": "Does the self-check prepare rather than replace the required performance assessment?"
             }
         ],
         "common_misconceptions": [
-            "A completed product proves that the process was safe.",
-            "Competency assessment is a single pass\/fail observation with no feedback.",
-            "Employer preference alone defines a national competency.",
-            "Remediation means lowering the criterion."
+            "Competence is demonstrated ability under stated conditions, not attendance or time in training.",
+            "A practical rubric should represent observable criteria from the standard, not personal taste.",
+            "Watching a demonstration does not substitute for every learner’s practice and performance evidence.",
+            "Use current trade-specific requirements for regulations and exact PPE or equipment details."
         ],
         "question_patterns": [
-            "Map a task to observable criteria.",
-            "Choose safe practice and demonstration conditions.",
-            "Interpret performance evidence and plan a fair reassessment."
+            "Translate a standard into outcome, practice, and evidence.",
+            "Choose what evidence is missing before making a competency decision.",
+            "Respond to safety or quality gaps with a controlled next action."
         ],
         "practice_question_ids": [
             "6158",
@@ -1605,7 +2062,59 @@
             "9106",
             "9107",
             "9108",
-            "9109"
+            "9109",
+            "9348",
+            "9349",
+            "9350",
+            "9351",
+            "9352",
+            "9353",
+            "9354",
+            "9355",
+            "9356",
+            "9357",
+            "9358",
+            "9359",
+            "9360",
+            "9361",
+            "9362",
+            "9363",
+            "9364",
+            "9365",
+            "9366",
+            "9367",
+            "9368",
+            "9369",
+            "9370",
+            "9371",
+            "9372",
+            "9373",
+            "9374",
+            "9375",
+            "9376",
+            "9377",
+            "9378",
+            "9379",
+            "9380",
+            "9381",
+            "9382",
+            "9383",
+            "9384",
+            "9385",
+            "9386",
+            "9387",
+            "9388",
+            "9389",
+            "9390",
+            "9391",
+            "9392",
+            "9393",
+            "9394",
+            "9395",
+            "9396",
+            "9397",
+            "9398",
+            "9399"
         ],
         "pdf_file": "let-tvted-competency-based-teaching.pdf",
         "taxonomy": {
@@ -1617,7 +2126,7 @@
         "source_review": {
             "status": "SOURCE_CHECKED_HUMAN_REVIEW_PENDING",
             "checked_at": "2026-10-18",
-            "note": "Official scope and listed source records were checked for lesson framing; human academic review and owner approval remain pending. Original BoardPrep instruction, not copied source text."
+            "note": "Official examination scope and instructional source text were inspected and used to write original lesson content. Independent academic review and owner approval remain pending; no external source text is reproduced."
         }
     },
     {
@@ -1625,31 +2134,33 @@
         "title": "Arts Learning: Elements, Making, Context, and Reflection",
         "material_id": "let-culture-arts-learning-foundation",
         "status": "published",
-        "version": 1,
+        "version": 2,
         "board_id": "let",
         "subject_id": "culture-and-arts-education",
         "official_scope_source_ids": [
-            "prc-let-enhanced-tos-2025"
+            "prc-resolution-20-2025-annex-a"
         ],
         "instructional_source_ids": [
-            "deped-arts-curriculum-guide-2020"
+            "deped-matatag-music-arts-2023-g4-g7",
+            "ra-8371-ipra-e-library"
         ],
         "scope_note": "Original study lesson on arts vocabulary, making and responding, cultural context, critique, and accessible arts instruction. Scope is limited to the linked official board outline and curriculum references; this is not an exam prediction.",
         "learning_objectives": [
-            "Use relevant elements and principles to describe an artwork or performance.",
-            "Distinguish observation, interpretation, and evaluation in critique.",
-            "Plan culturally respectful and accessible arts learning."
+            "Interpret art using formal evidence and bounded cultural/historical context.",
+            "Plan and revise creative work with an intentional relationship between idea, medium, process, and audience.",
+            "Teach music, visual art, dance, drama, and contemporary forms through making, performance, reflection, and collaboration.",
+            "Assess artistic process and outcomes while respecting cultural rights, access, and community diversity."
         ],
         "sections": [
             {
-                "heading": "1. Describe before interpreting",
-                "body": "A disciplined arts response begins with observable features: line, color, shape, texture, rhythm, movement, space, material, or arrangement as relevant to the art form. Interpretation then proposes a meaning supported by those features and the context. Evaluation explains how well the work achieves an intended effect using stated criteria. Keeping these steps distinct makes critique more precise and less dependent on whether a learner simply likes the work.",
-                "items": [
-                    "Name visible or audible evidence.",
-                    "Offer an interpretation tied to that evidence.",
-                    "Evaluate against an explicit purpose or criterion."
-                ],
                 "id": "1-describe-before-interpreting",
+                "heading": "1. Describe before interpreting",
+                "body": "Begin critique with observable evidence: line, color, rhythm, texture, movement, composition, material, or performance choice. Then offer an interpretation and explain which evidence supports it. Cultural context can deepen understanding, but one artwork does not speak for a whole region, community, or period. Separate what is visible or audible from what a source or knowledgeable participant tells you about meaning. Ask whose viewpoint is represented and what evidence is missing.",
+                "items": [
+                    "Name a formal feature before making a broad claim about meaning.",
+                    "Use more than one reliable source when placing work in historical or social context.",
+                    "Allow competing interpretations when each is supported by evidence."
+                ],
                 "related_topic_ids": [
                     "cae-art-elements-and-principles"
                 ],
@@ -1658,14 +2169,14 @@
                 ]
             },
             {
-                "heading": "2. Making and revising",
-                "body": "Artistic practice includes experimenting, selecting, composing, reviewing, and revising. A technique is a means, not a guaranteed artistic result. Learners can compare how materials or choices change an effect, explain a revision, and use feedback selectively. Instruction should make room for multiple solutions where the prompt allows them while retaining any specified technical or safety constraints.",
-                "items": [
-                    "Set a focused intention before choosing a technique.",
-                    "Compare two choices and describe their effects.",
-                    "Revise using feedback connected to the intention."
-                ],
                 "id": "2-making-and-revising",
+                "heading": "2. Making and revising",
+                "body": "Creative work develops through idea generation, selection, material exploration, making, reflection, and revision. A medium shapes what can be expressed: a printed image, woven surface, sound collage, movement phrase, or digital composition offers different properties and limits. Ask learners to connect a process choice with an intended effect. Revision is not correction toward one model answer; it is a reasoned change in response to material behavior, audience, or clarified intention.",
+                "items": [
+                    "Prototype a small version before committing limited materials.",
+                    "Change one feature at a time and compare the effect.",
+                    "Document what was revised and why."
+                ],
                 "related_topic_ids": [
                     "cae-creative-process",
                     "cae-media-and-performance"
@@ -1676,14 +2187,14 @@
                 ]
             },
             {
-                "heading": "3. Cultural context and attribution",
-                "body": "Works arise in social, historical, and cultural settings. Identify whose perspective is represented, what evidence supports an interpretation, and whether a practice or image has limits on use. Avoid treating one artist or artifact as the voice of an entire community. When using local knowledge, seek appropriate permission and attribution and follow the curriculum and community guidance.",
-                "items": [
-                    "Situate the work without stereotyping a group.",
-                    "Distinguish source evidence from a personal response.",
-                    "Respect permissions and attribution."
-                ],
                 "id": "3-cultural-context-and-attribution",
+                "heading": "3. Cultural context and attribution",
+                "body": "Works emerge within particular communities, histories, relationships, and purposes. The PRC scope expects analysis of art as social and cultural expression and explicitly includes Indigenous cultural ownership and copyright. The Indigenous Peoples’ Rights Act protects distinct identity and community intellectual rights. In teaching a living tradition, identify the source and limits of your material, seek appropriate community guidance, attribute knowledge, and do not reproduce material presented as restricted. Avoid presenting a single image or artist as representative of all members of a community.",
+                "items": [
+                    "Use precise, sourced descriptions rather than generic labels for distinct communities.",
+                    "Ask who created or shared the material and how it may appropriately be used.",
+                    "Distinguish public documentation from an assumption that all cultural knowledge is unrestricted."
+                ],
                 "related_topic_ids": [
                     "cae-philippine-arts-and-heritage",
                     "cae-cultural-literacy"
@@ -1694,14 +2205,14 @@
                 ]
             },
             {
-                "heading": "4. Critique and access",
-                "body": "Constructive critique identifies evidence, effect, and a possible next step without demeaning the maker. The teacher can offer varied ways to encounter and create art, such as spoken, written, tactile, movement-based, or digital responses when appropriate. Access choices should preserve the learning aim and allow learners to make substantive artistic decisions.",
-                "items": [
-                    "Comment on the work and its criteria, not a person’s worth.",
-                    "Offer accessible ways to participate and respond.",
-                    "Ask what a revision changes in the work."
-                ],
                 "id": "4-critique-and-access",
+                "heading": "4. Critique and access",
+                "body": "Constructive critique identifies evidence, effect, and a possible next step without demeaning the maker. Offer different ways to encounter and create art—spoken, written, tactile, movement-based, or digital—when they support the same artistic intention. Access choices should let learners participate meaningfully and should not remove the artistic competency being assessed. A safe classroom also includes accessible tools, respectful group roles, time to reflect, and permission to revise without ridicule.",
+                "items": [
+                    "Describe the effect of a choice before judging it.",
+                    "Invite the artist to explain intention and what changed during the process.",
+                    "Assess the artistic target, not confidence in public speaking unless that is the target."
+                ],
                 "related_topic_ids": [
                     "cae-arts-pedagogy",
                     "cae-arts-assessment",
@@ -1711,32 +2222,127 @@
                     "cae-arts-pedagogy",
                     "cae-arts-assessment",
                     "cae-arts-ethics-and-inclusion"
+                ]
+            },
+            {
+                "id": "5-context-identity-and-interpretation",
+                "heading": "5. Context, identity, and interpretation",
+                "body": "The MATATAG Music and Arts guide connects creation and interpretation to individual, community, regional, and Filipino identities, while also opening learning to wider artistic expressions. Treat this as an invitation to investigate context, not a formula that every work must represent a single identity. Compare a work’s features with reliable contextual evidence; distinguish artist intention, audience response, and your own interpretation. Acknowledge uncertainty where the available source does not establish a meaning.",
+                "items": [
+                    "Compare two works using specific artistic evidence and specific context.",
+                    "Avoid treating one artifact as the voice of an entire region or people.",
+                    "Let learners explain the identity or experience they choose to express."
+                ],
+                "related_topic_ids": [
+                    "cae-context-and-heritage"
+                ],
+                "related_concept_ids": [
+                    "cae-cultural-context-and-artistic-evidence",
+                    "cae-regional-identity-and-artifact-study"
+                ]
+            },
+            {
+                "id": "6-ethical-cultural-engagement",
+                "heading": "6. Ethical cultural engagement",
+                "body": "When a lesson draws on a living cultural practice, consult appropriate knowledge holders, respect the community’s description of the practice, identify attribution, and clarify what can be shared in a classroom. The rights of Indigenous communities include cultural and intellectual rights; respectful teaching requires more than copying a design or performance without context. Avoid inventing a generic “traditional” pattern. A learner may study a publicly documented example, but public visibility alone does not establish that every use is appropriate.",
+                "items": [
+                    "Use named, verifiable sources and explain who produced them.",
+                    "Invite community participation through appropriate channels and with clear purpose.",
+                    "Offer an alternative study route if the use or representation is uncertain."
+                ],
+                "related_topic_ids": [
+                    "cae-ethical-engagement"
+                ],
+                "related_concept_ids": [
+                    "cae-ethical-community-engagement"
+                ]
+            },
+            {
+                "id": "7-studio-process-media-and-revision",
+                "heading": "7. Studio process, media, and revision",
+                "body": "Make the relationship between idea and medium explicit. A learner designing a poster may test contrast and hierarchy; a sound composition may compare timbre and rhythm; a sculpture may explore balance and material response. Provide a safe, accessible technique demonstration and a chance to experiment. Ask learners to explain how a revision changes meaning or audience effect. Contemporary and emerging media can be studied alongside conventional forms without implying that new tools automatically make a work more meaningful.",
+                "items": [
+                    "Choose materials that are safe, available, and suited to the intended effect.",
+                    "Let learners test a technique before assessing a final work.",
+                    "Use reflection to connect artistic choice with the audience’s experience."
+                ],
+                "related_topic_ids": [
+                    "cae-making-and-medium"
+                ],
+                "related_concept_ids": [
+                    "cae-material-and-medium-selection",
+                    "cae-iterative-making-and-revision",
+                    "cae-contemporary-media-literacy"
+                ]
+            },
+            {
+                "id": "8-performance-and-collaborative-creation",
+                "heading": "8. Performance and collaborative creation",
+                "body": "Music, dance, drama, and interdisciplinary performance require attention to structure, timing, space, relationship, role, and expression. A performer may adapt dynamics, pacing, or movement quality to communicate an interpretation; the teacher should ask for evidence behind that choice. Collaborative creation needs clear roles and shared decision-making, with room for learners to contribute in different capacities. Rehearsal is part of the learning process, not merely preparation for a showcase.",
+                "items": [
+                    "Rehearse a short section and reflect on one expressive decision.",
+                    "Make the performance space and roles accessible to the group.",
+                    "Assess process, listening, collaboration, and interpretation as well as presentation."
+                ],
+                "related_topic_ids": [
+                    "cae-performance-and-assessment"
+                ],
+                "related_concept_ids": [
+                    "cae-performing-arts-interpretation"
+                ]
+            },
+            {
+                "id": "9-critique-assessment-and-access",
+                "heading": "9. Critique, assessment, and access",
+                "body": "Align assessment with the learning target. A rubric may address technique, composition, process decisions, cultural/contextual evidence, collaboration, and reflection when these are taught. Use portfolio pieces, observation, performance, written or spoken analysis, and self-reflection as appropriate. Give formative feedback early enough for revision. Offer accessible response modes where language or motor performance is not the artistic target; maintain the requirement when the target is specifically that mode.",
+                "items": [
+                    "Share criteria before the making or performance task.",
+                    "Use descriptive feedback tied to a criterion and one useful next step.",
+                    "Use portfolios to show change and reflection rather than only polished outcomes."
+                ],
+                "related_topic_ids": [
+                    "cae-performance-and-assessment"
+                ],
+                "related_concept_ids": [
+                    "cae-authentic-arts-assessment",
+                    "cae-accessible-arts-learning"
                 ]
             }
         ],
         "worked_examples": [
             {
-                "heading": "Ground an interpretation",
-                "prompt": "A poster uses repeated high-contrast shapes and a narrow path leading to an empty center. How can a learner support an interpretation that the composition creates isolation?",
+                "heading": "Worked example: interpreting a community textile",
+                "prompt": "A class studies a published textile image with limited information about who made it or how it is used. How can the teacher avoid overclaiming?",
                 "steps": [
-                    "Identify repetition, contrast, and the direction of the path as observable features.",
-                    "Explain how those features guide attention toward the empty center.",
-                    "State isolation as an interpretation and acknowledge other readings if evidence supports them."
+                    "Begin with observable color, pattern, material, and arrangement.",
+                    "State which contextual details are documented and cite their source.",
+                    "Ask what further community-informed knowledge would be needed before making a broader claim."
                 ],
-                "answer": "Connect a proposed meaning to compositional evidence instead of presenting it as the only possible meaning.",
-                "check": "Observation and interpretation are related but not identical."
+                "answer": "Separate formal observation from contextual inference and name the limits of available evidence.",
+                "check": "Did the class avoid assigning a single meaning or community identity without support?"
+            },
+            {
+                "heading": "Worked example: assessing a group performance",
+                "prompt": "A learner contributes to a composition and rehearsal but cannot safely perform the movement sequence. What is a fair assessment approach?",
+                "steps": [
+                    "Identify whether movement execution is part of the stated competency.",
+                    "Provide an accessible role or response option for process, interpretation, or composition where allowed.",
+                    "Assess each learner’s evidence against the shared criteria rather than judging confidence or popularity."
+                ],
+                "answer": "Keep the assessed target clear and provide meaningful accessible participation without assuming all goals are identical.",
+                "check": "Does each score reflect evidence of the stated learning objective?"
             }
         ],
         "common_misconceptions": [
-            "An interpretation is valid only when it matches the artist’s stated intent.",
-            "A strong critique ranks personal taste as objective quality.",
-            "One artifact represents an entire culture.",
-            "Accessibility removes the need for meaningful artistic choice."
+            "A culturally specific artwork should not be treated as representative of an entire people or region.",
+            "A visible image is not automatically unrestricted for every classroom use.",
+            "Revision is a reasoned part of creativity, not proof that the first idea was wrong.",
+            "Arts assessment can include process and reflection as well as final presentation."
         ],
         "question_patterns": [
-            "Distinguish evidence, interpretation, and evaluation.",
-            "Analyze how a formal choice shapes an effect.",
-            "Select culturally respectful, accessible teaching actions."
+            "Distinguish direct artistic evidence from contextual interpretation.",
+            "Choose an ethical, sourced next step when cultural meaning or use is uncertain.",
+            "Align criteria and participation options with the intended arts competency."
         ],
         "practice_question_ids": [
             "5978",
@@ -1786,7 +2392,59 @@
             "9113",
             "9114",
             "9115",
-            "9116"
+            "9116",
+            "9128",
+            "9129",
+            "9130",
+            "9131",
+            "9132",
+            "9133",
+            "9134",
+            "9135",
+            "9136",
+            "9137",
+            "9138",
+            "9139",
+            "9140",
+            "9141",
+            "9142",
+            "9143",
+            "9144",
+            "9145",
+            "9146",
+            "9147",
+            "9148",
+            "9149",
+            "9150",
+            "9151",
+            "9152",
+            "9153",
+            "9154",
+            "9155",
+            "9156",
+            "9157",
+            "9158",
+            "9159",
+            "9160",
+            "9161",
+            "9162",
+            "9163",
+            "9164",
+            "9165",
+            "9166",
+            "9167",
+            "9168",
+            "9169",
+            "9170",
+            "9171",
+            "9172",
+            "9173",
+            "9174",
+            "9175",
+            "9176",
+            "9177",
+            "9178",
+            "9179"
         ],
         "pdf_file": "let-culture-arts-learning-foundation.pdf",
         "taxonomy": {
@@ -1798,7 +2456,7 @@
         "source_review": {
             "status": "SOURCE_CHECKED_HUMAN_REVIEW_PENDING",
             "checked_at": "2026-10-18",
-            "note": "Official scope and listed source records were checked for lesson framing; human academic review and owner approval remain pending. Original BoardPrep instruction, not copied source text."
+            "note": "Official examination scope and instructional source text were inspected and used to write original lesson content. Independent academic review and owner approval remain pending; no external source text is reproduced."
         }
     },
     {
@@ -1806,31 +2464,32 @@
         "title": "Physical Education: Movement, Fitness, Safety, and Assessment",
         "material_id": "let-physical-education-movement-and-safety",
         "status": "published",
-        "version": 1,
+        "version": 2,
         "board_id": "let",
         "subject_id": "physical-education",
         "official_scope_source_ids": [
-            "prc-let-enhanced-tos-2025"
+            "prc-resolution-20-2025-annex-a"
         ],
         "instructional_source_ids": [
-            "deped-pe-curriculum-guide"
+            "deped-matatag-pe-health-2023-g4-g7"
         ],
         "scope_note": "Original review of movement learning, fitness concepts, safe participation, inclusion, and assessment matched to physical-education outcomes. Scope is limited to the linked official board outline and curriculum references; this is not an exam prediction.",
         "learning_objectives": [
-            "Analyze a movement task using an appropriate skill cue.",
-            "Distinguish fitness components and use assessment evidence appropriately.",
-            "Plan safe, inclusive activity with suitable progression and feedback."
+            "Analyze movement through body, effort, space, and relationships and select a useful teaching cue.",
+            "Sequence skill and fitness activities with developmentally appropriate practice and safe conditions.",
+            "Match assessments to movement, fitness, tactical, rhythmic, and participation outcomes.",
+            "Adapt activities to support inclusive participation and respond to unsafe conditions."
         ],
         "sections": [
             {
-                "heading": "1. Movement skill and feedback",
-                "body": "Movement instruction identifies the task, a small number of useful cues, and the conditions under which the learner practices. A cue should direct attention to a controllable feature, such as balance, force, direction, or follow-through. Feedback should be timely and specific enough to guide another attempt. One successful or unsuccessful performance is limited evidence; observe patterns under the intended conditions.",
-                "items": [
-                    "State the movement goal and relevant cue.",
-                    "Change one task condition at a time when diagnosing difficulty.",
-                    "Invite the learner to notice what changed between attempts."
-                ],
                 "id": "1-movement-skill-and-feedback",
+                "heading": "1. Movement skill and feedback",
+                "body": "Identify the movement goal and the feature that most limits performance. Useful cues direct attention to a controllable feature such as balance, pathway, force, timing, or follow-through. Give feedback soon enough to inform another attempt, but do not overload a learner with several corrections at once. Observe whether performance changes after the cue. The PRC scope includes motor learning, growth and maturation, fundamental movement patterns, and evaluation of skill performance.",
+                "items": [
+                    "Describe what the learner did before giving a correction.",
+                    "Use one relevant cue and allow a new attempt.",
+                    "Adjust the task if the cue cannot be practiced in the current conditions."
+                ],
                 "related_topic_ids": [
                     "pe-movement-foundations",
                     "pe-games-and-sports",
@@ -1843,14 +2502,14 @@
                 ]
             },
             {
-                "heading": "2. Fitness concepts and assessment",
-                "body": "Health-related fitness is commonly discussed through cardiorespiratory endurance, muscular strength and endurance, flexibility, and body composition; skill-related fitness includes capacities such as balance, coordination, agility, reaction time, speed, and power. Use a measure only for the construct it actually assesses and consider age, context, access, and safety. A test result is not a complete judgment of health or personal worth.",
-                "items": [
-                    "Name the fitness component before selecting a task.",
-                    "Use consistent instructions and safe conditions.",
-                    "Interpret change with measurement limits and context."
-                ],
                 "id": "2-fitness-concepts-and-assessment",
+                "heading": "2. Fitness concepts and assessment",
+                "body": "Health-related fitness is distinct from skill-related movement capacities. A measure should match the component it claims to assess and the intended criterion. Use current age-appropriate standards and explain their limits; a single performance does not define health or future ability. Fitness learning should include knowledge, participation, reflection, and safe practice, not only ranking students. For health or medical concerns, follow school procedures and qualified guidance rather than improvising a prescription.",
+                "items": [
+                    "State the construct before selecting a measure.",
+                    "Choose a criterion that applies to the learner group and test.",
+                    "Use results to guide learning rather than shame or rank learners."
+                ],
                 "related_topic_ids": [
                     "pe-fitness-and-wellness"
                 ],
@@ -1861,26 +2520,26 @@
                 ]
             },
             {
-                "heading": "3. Safety and progression",
-                "body": "Safe activity requires attention to space, equipment, environmental conditions, readiness, hydration, and the level of exertion. Progression should increase demand in manageable steps and provide recovery. A learner reporting pain, dizziness, or breathing difficulty needs an appropriate pause and school response, not pressure to complete a score. Use relevant school and health guidance for the situation.",
-                "items": [
-                    "Inspect space and equipment.",
-                    "Scale duration, intensity, or complexity deliberately.",
-                    "Stop and follow the applicable procedure when warning signs appear."
-                ],
                 "id": "3-safety-and-progression",
+                "heading": "3. Safety and progression",
+                "body": "Review activity space, surfaces, equipment, weather, directions, learner readiness, and recovery. Progress skill complexity and physical demand in manageable steps. A challenging activity can remain safe when expectations, supervision, space, equipment, and learner preparation fit the group. Stop activity when a learner reports concerning symptoms or a hazard appears, and follow school response procedures. This lesson is educational, not medical guidance; teachers should not diagnose symptoms or recommend treatment.",
+                "items": [
+                    "Inspect the area and equipment before learners begin.",
+                    "Provide a clear stop signal and explain how to ask for help.",
+                    "Pause and follow school procedures when safety is uncertain."
+                ],
                 "related_topic_ids": [],
                 "related_concept_ids": []
             },
             {
-                "heading": "4. Inclusion, rules, and reflection",
-                "body": "Inclusive physical education preserves meaningful participation and the learning purpose while adjusting space, equipment, rules, grouping, or response method as appropriate. Ask learners about barriers and assess whether the adjustment helps. Rules support safe, fair play; they should be explained and applied consistently while allowing documented, appropriate supports. Reflection can help a learner connect practice choices with future goals.",
-                "items": [
-                    "Identify the participation barrier before choosing an adjustment.",
-                    "Explain a rule and its safety or fairness purpose.",
-                    "Review the effect of an adjustment with the learner."
-                ],
                 "id": "4-inclusion-rules-and-reflection",
+                "heading": "4. Inclusion, rules, and reflection",
+                "body": "Inclusive PE makes meaningful participation possible while keeping the learning intention recognizable. Adjust equipment size, distance, pace, grouping, role, space, or rules after identifying a barrier and consulting learners. A change should preserve the skill or decision being learned where possible. Explain rules consistently and use reflection to connect experience with improvement. Do not equate physical difference with lack of interest or capability.",
+                "items": [
+                    "Ask learners which task feature prevents them from joining.",
+                    "Offer an adjustment and observe whether it increases access and challenge.",
+                    "Use reflection to make the next lesson more responsive."
+                ],
                 "related_topic_ids": [
                     "pe-safety-and-inclusion"
                 ],
@@ -1888,31 +2547,123 @@
                     "pe-physical-activity-safety",
                     "pe-assessment-and-inclusion"
                 ]
+            },
+            {
+                "id": "5-movement-analysis-and-motor-learning",
+                "heading": "5. Movement analysis and motor learning",
+                "body": "The DepEd PE guide describes movement through body, effort, space, and relationships. These lenses help a teacher observe a skill instead of giving vague feedback such as “try harder.” For a throwing task, the teacher might notice the learner’s stance, force, direction, and relation to a target. Select the most teachable feature, use a concise cue, and let the learner try again. Movement learning develops through practice and feedback; one observed attempt is limited evidence.",
+                "items": [
+                    "Identify which movement feature connects most directly to the task.",
+                    "Use a cue that tells the learner what to notice or change.",
+                    "Check whether performance evidence improves under the same or a carefully adjusted condition."
+                ],
+                "related_topic_ids": [
+                    "pe-movement-and-learning"
+                ],
+                "related_concept_ids": [
+                    "pe-fundamental-movement-analysis",
+                    "pe-motor-learning-feedback"
+                ]
+            },
+            {
+                "id": "6-fitness-progression-and-assessment",
+                "heading": "6. Fitness, progression, and assessment",
+                "body": "The PRC TOS expects learners to understand fitness and health, bodily response to exercise, and age-appropriate criterion-referenced assessment. Match a measure to the component, use the current applicable standard, and interpret the result as information for instruction. Avoid using one score as a judgment of character or a clinical conclusion. Progress activity with manageable changes, clear purpose, recovery, and supervision. Questions about health status should be handled through qualified school processes.",
+                "items": [
+                    "Check the construct, test method, and learner group before interpreting a score.",
+                    "Use formative observations to adapt the next activity.",
+                    "Do not prescribe medical treatment or training to a learner from a classroom score."
+                ],
+                "related_topic_ids": [
+                    "pe-fitness-assessment-and-progression"
+                ],
+                "related_concept_ids": [
+                    "pe-fitness-component-interpretation",
+                    "pe-valid-fitness-assessment"
+                ]
+            },
+            {
+                "id": "7-safe-progression-and-injury-prevention",
+                "heading": "7. Safe progression and injury prevention",
+                "body": "Safety is part of effective instruction. Before an activity, check the surface, spacing, equipment, heat or weather conditions, directions, and learner preparation. Build complexity after foundational control, and provide recovery and accessible options. Teach learners how to pause and communicate a concern. If pain, dizziness, breathing difficulty, or an injury occurs, stop the activity and follow established school response procedures; do not diagnose, minimize, or tell a learner to push through.",
+                "items": [
+                    "Reduce or pause activity when the conditions do not support safe participation.",
+                    "Follow school first-aid and emergency procedures rather than improvising treatment.",
+                    "Review how the activity design could prevent recurrence."
+                ],
+                "related_topic_ids": [
+                    "pe-fitness-assessment-and-progression"
+                ],
+                "related_concept_ids": [
+                    "pe-developmentally-safe-progression",
+                    "pe-injury-prevention-and-response"
+                ]
+            },
+            {
+                "id": "8-games-rhythm-and-inclusive-participation",
+                "heading": "8. Games, rhythm, and inclusive participation",
+                "body": "Games can teach decisions as well as technique. A small-sided task may help learners notice space, timing, support, and choices while receiving many opportunities to act. Dance and rhythmic activities develop coordination, expressive movement, sequence, and relationship to sound. Adapt the space, equipment, tempo, role, or rules to increase equitable participation while retaining the target. Explain why rules changed and check that the adjusted activity still provides useful challenge.",
+                "items": [
+                    "Use game-centered practice when decision-making is part of the target.",
+                    "Use rhythm and sequence cues to support coordinated movement.",
+                    "Choose adaptations with learner input and monitor both access and learning."
+                ],
+                "related_topic_ids": [
+                    "pe-games-dance-and-inclusion"
+                ],
+                "related_concept_ids": [
+                    "pe-games-tactical-understanding",
+                    "pe-rhythmic-movement-and-dance",
+                    "pe-inclusive-activity-design"
+                ]
+            },
+            {
+                "id": "9-fitness-evidence-and-reflection",
+                "heading": "9. Fitness evidence and reflection",
+                "body": "A thoughtful assessment plan combines evidence that fits the outcome: observed skill, movement performance, fitness evidence, student explanation, portfolio, or reflection. Formative checks should guide teaching while learning is under way; summative evidence summarizes progress at the end of a sequence. Use the measure’s intended construct and current criteria, explain limitations, and protect learner dignity. A result is useful when it informs an achievable next learning step.",
+                "items": [
+                    "Collect more than a single end-point when the outcome includes learning over time.",
+                    "Use observation and learner reflection to interpret performance.",
+                    "Give feedback privately and describe the next action."
+                ],
+                "related_topic_ids": [],
+                "related_concept_ids": []
             }
         ],
         "worked_examples": [
             {
-                "heading": "Adapt without losing the learning goal",
-                "prompt": "The objective is to practice passing accuracy, but a learner cannot grip the standard ball comfortably. What should the teacher do?",
+                "heading": "Worked example: teaching a target game",
+                "prompt": "Learners can throw accurately when stationary but struggle to choose a target during a moving game. What should the next lesson emphasize?",
                 "steps": [
-                    "Keep the accuracy objective explicit.",
-                    "Try an accessible ball or target distance consistent with safe participation.",
-                    "Observe whether the learner can demonstrate direction and control, then refine the adjustment."
+                    "Identify decision-making in space as the gap, not basic throwing form.",
+                    "Use a small-sided task with fewer players and a clear target-choice problem.",
+                    "Observe decisions and give a cue about available space, then replay."
                 ],
-                "answer": "Adapt equipment or conditions to address grip access while still assessing the intended passing skill.",
-                "check": "An adjustment is judged by access to the objective, not by whether the equipment is identical."
+                "answer": "A game-centered practice increases meaningful decisions while keeping the movement challenge manageable.",
+                "check": "Did the task give learners repeated chances to perceive, decide, and act?"
+            },
+            {
+                "heading": "Worked example: interpreting a fitness score",
+                "prompt": "A learner’s score falls below the class median. How should a teacher use that information?",
+                "steps": [
+                    "Check which fitness component the test measures and whether the criterion applies to the learner.",
+                    "Review testing conditions and any access or readiness factors.",
+                    "Discuss an instructional next step privately; refer medical concerns through qualified school channels."
+                ],
+                "answer": "Interpret a valid result as limited learning information and use it to guide safe instruction, not as a diagnosis or ranking label.",
+                "check": "Did the teacher avoid unsupported health conclusions?"
             }
         ],
         "common_misconceptions": [
-            "A fitness score is a complete measure of a learner’s health.",
-            "Equal equipment and rules always create fair participation.",
-            "More exertion always means better instruction.",
-            "One attempt is enough to infer skill mastery."
+            "A fitness score is not a diagnosis or a complete measure of health.",
+            "Progression should match readiness and safe conditions, not merely increase intensity each lesson.",
+            "Inclusive adaptation preserves meaningful learning rather than making an activity automatically easier.",
+            "One cue and a new attempt can teach more effectively than many corrections at once."
         ],
         "question_patterns": [
-            "Select a cue that matches the movement problem.",
-            "Interpret a fitness or skill result within its limits.",
-            "Choose a safe, inclusive task adjustment."
+            "Choose the measure that matches the target construct.",
+            "Use movement evidence to choose one useful cue or task adjustment.",
+            "Respond to safety concerns through established school procedures."
         ],
         "practice_question_ids": [
             "5938",
@@ -1962,7 +2713,59 @@
             "9120",
             "9121",
             "9122",
-            "9123"
+            "9123",
+            "9238",
+            "9239",
+            "9240",
+            "9241",
+            "9242",
+            "9243",
+            "9244",
+            "9245",
+            "9246",
+            "9247",
+            "9248",
+            "9249",
+            "9250",
+            "9251",
+            "9252",
+            "9253",
+            "9254",
+            "9255",
+            "9256",
+            "9257",
+            "9258",
+            "9259",
+            "9260",
+            "9261",
+            "9262",
+            "9263",
+            "9264",
+            "9265",
+            "9266",
+            "9267",
+            "9268",
+            "9269",
+            "9270",
+            "9271",
+            "9272",
+            "9273",
+            "9274",
+            "9275",
+            "9276",
+            "9277",
+            "9278",
+            "9279",
+            "9280",
+            "9281",
+            "9282",
+            "9283",
+            "9284",
+            "9285",
+            "9286",
+            "9287",
+            "9288",
+            "9289"
         ],
         "pdf_file": "let-physical-education-movement-and-safety.pdf",
         "taxonomy": {
@@ -1974,7 +2777,7 @@
         "source_review": {
             "status": "SOURCE_CHECKED_HUMAN_REVIEW_PENDING",
             "checked_at": "2026-10-18",
-            "note": "Official scope and listed source records were checked for lesson framing; human academic review and owner approval remain pending. Original BoardPrep instruction, not copied source text."
+            "note": "Official examination scope and instructional source text were inspected and used to write original lesson content. Independent academic review and owner approval remain pending; no external source text is reproduced."
         }
     },
     {
@@ -1982,45 +2785,45 @@
         "title": "Building Systems, Construction Coordination, and Life Safety",
         "material_id": "architecture-building-systems-and-construction",
         "status": "published",
-        "version": 1,
+        "version": 2,
         "board_id": "architecture",
         "subject_id": "architecture-utilities-and-construction",
         "official_scope_source_ids": [
-            "prc-architecture-syllabi"
+            "prc-architecture-exam-program-june-2026"
         ],
         "instructional_source_ids": [
-            "pd1096-national-building-code",
             "bp344-2024-irr",
-            "ra9514-fire-code-irr"
+            "ra-9266-architecture-act"
         ],
         "scope_note": "Original architecture study guide on envelope and structural coordination, building services, accessibility, construction sequence, and life-safety review. Scope is limited to the linked official board outline and curriculum references; this is not an exam prediction.",
         "learning_objectives": [
-            "Coordinate spatial, structural, and building-service requirements at concept level.",
-            "Recognize the purpose and scope limits of building-code and accessibility checks.",
-            "Identify coordination evidence needed before a construction decision."
+            "Coordinate building systems with structure, circulation, access, construction sequence, and maintenance.",
+            "Check current applicable code provisions rather than rely on remembered thresholds.",
+            "Apply the 2024 BP 344 IRR details relevant to accessible ramps, surfaces, covers, wiring, and gratings.",
+            "Recognize architectural utility layouting and systems integration as professional design responsibilities."
         ],
         "sections": [
             {
-                "heading": "1. Building envelope and climate response",
-                "body": "The envelope mediates weather, daylight, ventilation, acoustics, privacy, and thermal conditions. Design decisions should connect orientation, openings, shading, material transitions, drainage, and maintenance. A detail that performs one function may create a conflict elsewhere: a shaded opening can still obstruct a required route, and a water-shedding joint can fail if its construction sequence is unclear. Evaluate the system and its interfaces rather than treating components as isolated objects.",
-                "items": [
-                    "Trace water, air, and movement paths.",
-                    "Check interfaces between materials and assemblies.",
-                    "Include maintenance access in the design conversation."
-                ],
                 "id": "1-building-envelope-and-climate-response",
+                "heading": "1. Building envelope and climate response",
+                "body": "The envelope mediates weather, daylight, ventilation, acoustics, privacy, and thermal conditions. Connect orientation, openings, shading, material transitions, drainage, and maintenance. A detail that improves one function can create a conflict elsewhere: an exterior shade must not obstruct access or drainage, and an opening must work with the surrounding assembly. Coordinate envelope choices with local climate, construction capability, material performance, and long-term repair.",
+                "items": [
+                    "Trace water, air, heat, and movement across each junction.",
+                    "Review interfaces between selected materials rather than judging a single component alone.",
+                    "Coordinate performance intent with buildable details and maintenance access."
+                ],
                 "related_topic_ids": [],
                 "related_concept_ids": []
             },
             {
-                "heading": "2. Structure and service coordination",
-                "body": "Architectural planning coordinates structural supports with circulation, room use, and mechanical, electrical, plumbing, and fire-protection routes. Early coordination reserves plausible space and access for equipment, shafts, and distribution. Do not infer that a system fits merely because a symbol appears on a plan. Check clearances, access for installation and maintenance, and conflicts in section as well as plan, then consult the responsible engineers for detailed design.",
-                "items": [
-                    "Compare plan and section at congested zones.",
-                    "Check equipment access and service clearances.",
-                    "Record unresolved engineering decisions."
-                ],
                 "id": "2-structure-and-service-coordination",
+                "heading": "2. Structure and service coordination",
+                "body": "Architectural planning coordinates structural supports with room use, circulation, and mechanical, electrical, plumbing, sanitary, and communication routes. Reserve plausible space for equipment, shafts, access panels, and distribution. Compare discipline drawings at interfaces and resolve conflicts before construction. A symbol on a plan does not prove that a system fits, remains maintainable, or avoids an accessible path. Under RA 9266, architectural practice includes utility system layouting; technical specialists and applicable codes still govern detailed design and sign-off.",
+                "items": [
+                    "Overlay service routes with structure, ceiling, and circulation plans.",
+                    "Reserve access for inspection and replacement of maintainable equipment.",
+                    "Record and resolve conflicts with the responsible design professionals."
+                ],
                 "related_topic_ids": [
                     "architecture-systems-coordination"
                 ],
@@ -2032,53 +2835,137 @@
                 ]
             },
             {
-                "heading": "3. Accessibility and life safety",
-                "body": "Accessibility and life-safety review need the applicable, current rule and the project conditions. The reviewer should identify the route, use, occupancy, and technical provision at issue, then verify dimensions and exceptions in the governing text. A general design principle is not a compliance determination. Coordinate accessible circulation with doors, level changes, signage, fire egress, and user needs; keep source citations separate from original explanatory notes.",
-                "items": [
-                    "Locate the applicable provision before stating a requirement.",
-                    "Check route continuity and conflicts at transitions.",
-                    "Escalate unresolved code interpretation to the responsible professional."
-                ],
                 "id": "3-accessibility-and-life-safety",
+                "heading": "3. Accessibility and life safety",
+                "body": "Accessibility review starts with the route and the current applicable provision. The 2024 BP 344 IRR requires level, stable and slip-resistant accessible surfaces; channel covers flush with the floor; no trip hazards from floor projections; and wiring/outlets away from accessible paths and corridors. Gratings must be slip-resistant and level, with spacing no greater than 13 mm. Ramps and other exact dimensions have additional conditions and exceptions, so check the current official table and project context before making a compliance determination. Coordinate accessible circulation with service placement and life-safety paths.",
+                "items": [
+                    "Trace an uninterrupted route and mark every level change, door, cover, grate, and service crossing.",
+                    "Verify exact dimensions against the current rule and its stated conditions.",
+                    "Resolve a conflict in the coordinated drawings rather than leaving it for site improvisation."
+                ],
                 "related_topic_ids": [],
                 "related_concept_ids": []
             },
             {
-                "heading": "4. Construction sequence and quality",
-                "body": "A buildable detail anticipates sequence, tolerances, temporary conditions, inspection, and repair. A drawing communicates intended geometry and performance, while specifications and submittals add material and execution requirements. When a site condition differs from the documents, record the discrepancy and obtain authorized resolution rather than silently improvising. Quality review tests observable work against approved documents and applicable standards.",
-                "items": [
-                    "Ask how the assembly is installed and inspected.",
-                    "Compare field conditions with approved documents.",
-                    "Document changes through the authorized process."
-                ],
                 "id": "4-construction-sequence-and-quality",
+                "heading": "4. Construction sequence and quality",
+                "body": "A buildable detail anticipates sequence, tolerances, temporary conditions, inspection, and repair. Drawings communicate intended geometry and performance, while specifications and submittals add material and execution requirements. When a site condition differs from the documents, record the discrepancy and obtain the responsible professional’s decision before irreversible work proceeds. Protect finished accessible routes from temporary obstruction and reinstate surfaces to the required level and performance.",
+                "items": [
+                    "Check the assembly sequence before approving a detail.",
+                    "Document the location and consequence of a field condition.",
+                    "Verify completed work against drawings, specification, and current rules."
+                ],
+                "related_topic_ids": [],
+                "related_concept_ids": []
+            },
+            {
+                "id": "5-accessible-routes-and-vertical-transitions",
+                "heading": "5. Accessible routes and vertical transitions",
+                "body": "The 2024 BP 344 IRR states that changes in level require an accessible ramp except where a dropped sidewalk, curb ramp, elevator, or other mechanical device serves the change. The route must be considered continuously through the site and building: a compliant entrance followed by a step, blocked corridor, or inaccessible destination does not resolve the route. The official rule includes ramp dimensions, gradients, landings, handrails, tactile warnings, and other conditions; verify each against the current table and its exceptions. Do not infer full compliance from one measured feature.",
+                "items": [
+                    "Mark route continuity from arrival to the intended accessible destination.",
+                    "Identify where a change in level interrupts the route and what permitted transition serves it.",
+                    "Check every relevant ramp condition in the current rule before declaring compliance."
+                ],
+                "related_topic_ids": [
+                    "architecture-accessible-route-detailing"
+                ],
+                "related_concept_ids": [
+                    "arch-bp344-continuous-accessible-route"
+                ]
+            },
+            {
+                "id": "6-accessible-floor-and-service-details",
+                "heading": "6. Accessible floor and service details",
+                "body": "The current NCDA rules require accessible floor surfaces to be level, stable, and slip-resistant in wet and dry conditions. Channel covers should be flush with the floor, with holes no greater than 13 mm; no projection or unexpected level change should create a hazard along the route. Gratings must be level and slip-resistant, and spacing between grates must not exceed 13 mm. Wiring, outlets, and similar elements must not create trip hazards and should be positioned away from accessible paths and corridors. Check finish performance, drainage, maintenance, and service routing together.",
+                "items": [
+                    "Review a grate for levelness, slip resistance, contrast, and opening spacing.",
+                    "Place outlets and wiring so they do not cross or intrude on the accessible route.",
+                    "Coordinate service access without leaving a temporary or permanent trip hazard."
+                ],
+                "related_topic_ids": [
+                    "architecture-accessible-route-detailing"
+                ],
+                "related_concept_ids": [
+                    "arch-bp344-grating-and-cover-detail",
+                    "arch-bp344-services-away-from-routes"
+                ]
+            },
+            {
+                "id": "7-integrated-utilities-and-access-coordination",
+                "heading": "7. Integrated utilities and access coordination",
+                "body": "Use overlay drawings and model reviews to see how services interact with structure, ceiling space, accessible routes, and equipment maintenance. A cable tray, floor outlet, or access hatch may be technically convenient but unsafe or obstructive in its proposed position. Resolve the system route with the relevant consultant and retain a clear, buildable access path. RA 9266 includes utilities layouting within architectural services, so architectural coordination is part of design responsibility; detailed engineering compliance remains subject to the relevant specialist and code.",
+                "items": [
+                    "Identify who owns each design decision and interface.",
+                    "Show the route and maintenance access on coordinated drawings.",
+                    "Verify a proposed relocation still satisfies system performance and applicable requirements."
+                ],
+                "related_topic_ids": [
+                    "architecture-utility-systems-integration"
+                ],
+                "related_concept_ids": [
+                    "arch-ra9266-utility-systems-coordination"
+                ]
+            },
+            {
+                "id": "8-code-checking-and-professional-judgment",
+                "heading": "8. Code checking and professional judgment",
+                "body": "Code applicability depends on project type, use, dimensions, occupancy, and the current effective rule. A remembered number is not a compliance check. Find the current primary rule, identify the exact section and conditions, apply its method to documented project facts, and retain the source in the review record. Where rules or interpretations conflict, refer the issue through the appropriate professional process. Do not claim approval based on an isolated detail or an unverified secondary summary.",
+                "items": [
+                    "Record the source version, section, conditions, and project facts.",
+                    "Check exceptions and interactions with other systems.",
+                    "Escalate unresolved interpretation rather than hide uncertainty in a drawing note."
+                ],
+                "related_topic_ids": [],
+                "related_concept_ids": []
+            },
+            {
+                "id": "9-material-assemblies-and-performance",
+                "heading": "9. Material assemblies and performance",
+                "body": "Material selection affects durability, slip resistance, fire performance, maintenance, accessibility, and construction tolerance. Evaluate the assembly under actual use and environmental conditions. For accessible routes, a finish should remain stable and slip-resistant when wet and dry; a channel cover must be flush; a grate opening must satisfy the current limit. Review sample/submittal evidence and field installation, not just a product name. A substitution that appears similar may change friction, level, or access performance.",
+                "items": [
+                    "Compare manufacturer information with the specified performance requirement.",
+                    "Check installed edges, joints, and surface transitions on site.",
+                    "Document an approved substitution and verify the affected performance criteria."
+                ],
                 "related_topic_ids": [],
                 "related_concept_ids": []
             }
         ],
         "worked_examples": [
             {
-                "heading": "Resolve a service-zone conflict",
-                "prompt": "A duct route crosses a beam zone and would reduce the clear width of an accessible corridor if dropped below the beam. What is the appropriate design action?",
+                "heading": "Worked example: a service trench at a corridor crossing",
+                "prompt": "An electrical service route crosses a required accessible corridor. What is the proper design response?",
                 "steps": [
-                    "Record the conflict in plan and section and verify actual clearance.",
-                    "Coordinate alternatives with the structural and building-services designers.",
-                    "Check the revised route against access, maintenance, fire, and construction needs before documenting it."
+                    "Identify the current BP 344 provisions for wiring, route continuity, and floor covers.",
+                    "Coordinate an alternative service route away from the corridor where feasible.",
+                    "If a crossing remains necessary, detail and verify the cover and installation against the current rule and project conditions."
                 ],
-                "answer": "Resolve the coordinated design and verify the applicable clearances before issuing a detail.",
-                "check": "Moving the duct without coordination can create structural, access, or service problems."
+                "answer": "Resolve the route and accessibility interface in coordinated design; do not leave loose wiring or an unverified cover in the path.",
+                "check": "Is the accessible route clear and is any cover flush, stable, and compliant with its stated opening limit?"
+            },
+            {
+                "heading": "Worked example: reviewing an exterior grate",
+                "prompt": "A grate is level but has a slippery finish when wet and openings wider than the stated maximum. Is level installation sufficient?",
+                "steps": [
+                    "Check the separate requirements for wet/dry slip resistance and grate spacing.",
+                    "Specify a suitable slip-resistant grate and compliant opening spacing.",
+                    "Inspect the installed assembly and surrounding transition."
+                ],
+                "answer": "No; levelness is only one requirement. The detail must satisfy the other applicable surface and spacing provisions too.",
+                "check": "Did the review check each rule separately rather than treating one passing feature as full compliance?"
             }
         ],
         "common_misconceptions": [
-            "A plan symbol proves a service system is coordinated.",
-            "A source citation alone demonstrates code compliance.",
-            "Code dimensions may be recalled without checking the applicable version and conditions.",
-            "A field adjustment can be treated as approved because it seems buildable."
+            "A clear path on an entrance plan does not establish a continuous route to every accessible destination.",
+            "A level grate can still fail slip-resistance or spacing requirements.",
+            "Utility layouting and coordination are architectural responsibilities, while specialist design and code sign-off remain important.",
+            "A remembered code threshold is not a substitute for checking the current text and conditions."
         ],
         "question_patterns": [
-            "Identify a coordination conflict and the right evidence to resolve it.",
-            "Distinguish concept guidance from code-compliance judgment.",
-            "Select a safe documentation and escalation step."
+            "Trace route continuity and find the specific unresolved interface.",
+            "Apply a current provision only to the feature and conditions it governs.",
+            "Coordinate access, utility performance, maintenance, and construction together."
         ],
         "practice_question_ids": [
             "1749",
@@ -2176,7 +3063,11 @@
             "8954",
             "8955",
             "8956",
-            "8962"
+            "8962",
+            "9124",
+            "9125",
+            "9126",
+            "9127"
         ],
         "pdf_file": "architecture-building-systems-and-construction.pdf",
         "taxonomy": {
@@ -2188,7 +3079,7 @@
         "source_review": {
             "status": "SOURCE_CHECKED_HUMAN_REVIEW_PENDING",
             "checked_at": "2026-10-18",
-            "note": "Official scope and listed source records were checked for lesson framing; human academic review and owner approval remain pending. Original BoardPrep instruction, not copied source text."
+            "note": "Official examination scope and instructional source text were inspected and used to write original lesson content. Independent academic review and owner approval remain pending; no external source text is reproduced."
         }
     },
     {

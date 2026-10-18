@@ -967,5 +967,233 @@
         "review_reason": "",
         "reviewed_at_batch": 655,
         "evidence_hash": "f976a3c20760aa3b61b3b7bbffd3df9dc4869d8f60deed01b296a1e541d6d664"
+    },
+    {
+        "leaf_id": "arch-bp344-continuous-accessible-route",
+        "board_id": "architecture",
+        "official_area_id": "arch-area-b",
+        "leaf_name": "Continuous Accessible Route",
+        "current_question_count": 1,
+        "deficit_to_5": 4,
+        "deficit_to_10": 9,
+        "deficit_to_20": 19,
+        "source_ids": [
+            "bp344-2024-irr",
+            "prc-architecture-exam-program-june-2026"
+        ],
+        "source_count": 2,
+        "primary_source_count": 0,
+        "source_authority": "STRONG",
+        "source_currentness": "CURRENT_WITH_LIMITS",
+        "source_scope_fit": "DIRECT",
+        "source_conflict_status": "NONE",
+        "study_material_ids": [
+            "architecture-building-systems-and-construction"
+        ],
+        "study_material_count": 1,
+        "study_coverage": "COMPLETE",
+        "study_source_traceability": "COMPLETE",
+        "supported_depth_min": 1,
+        "supported_depth_max": 2,
+        "distinct_content_families": [
+            "ACCESSIBILITY_OR_CODE_APPLICATION",
+            "BUILDING_SYSTEMS_COORDINATION"
+        ],
+        "distinct_content_family_count": 2,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
+        "allowed_scope": [
+            "arch-bp344-continuous-accessible-route"
+        ],
+        "excluded_scope": [
+            "Adjacent or unlisted concept leaves are excluded.",
+            "Edition-specific or unverified regulatory details are excluded."
+        ],
+        "limitations": [
+            "Authoring was bounded to the source-backed Batch 695 proposition set.",
+            "Independent subject-expert academic review remains pending.",
+            "Subject-matter and curriculum sources do not replace the current PRC examination scope."
+        ],
+        "readiness": "REVIEW",
+        "readiness_reason": "The Batch 695 source-backed plan is applied and its bounded item count is consumed; further authoring needs review of the new evidence and content family.",
+        "review_reason": "Independent academic review is pending; no automatic additional authoring is authorized for this newly expanded leaf.",
+        "defer_reason": "",
+        "max_new_questions": 0,
+        "planned_new_questions": 0,
+        "reviewed_at_batch": 695,
+        "closure_state": "OPEN",
+        "evidence_hash": "f08703315ac498f64d3b3fe0888e26b363d4296d219de14a2b4791c35510ab3a"
+    },
+    {
+        "leaf_id": "arch-bp344-grating-and-cover-detail",
+        "board_id": "architecture",
+        "official_area_id": "arch-area-b",
+        "leaf_name": "Grating and Channel-Cover Detail",
+        "current_question_count": 1,
+        "deficit_to_5": 4,
+        "deficit_to_10": 9,
+        "deficit_to_20": 19,
+        "source_ids": [
+            "bp344-2024-irr",
+            "prc-architecture-exam-program-june-2026"
+        ],
+        "source_count": 2,
+        "primary_source_count": 0,
+        "source_authority": "STRONG",
+        "source_currentness": "CURRENT_WITH_LIMITS",
+        "source_scope_fit": "DIRECT",
+        "source_conflict_status": "NONE",
+        "study_material_ids": [
+            "architecture-building-systems-and-construction"
+        ],
+        "study_material_count": 1,
+        "study_coverage": "COMPLETE",
+        "study_source_traceability": "COMPLETE",
+        "supported_depth_min": 1,
+        "supported_depth_max": 2,
+        "distinct_content_families": [
+            "ACCESSIBILITY_OR_CODE_APPLICATION",
+            "BUILDING_SYSTEMS_COORDINATION"
+        ],
+        "distinct_content_family_count": 2,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
+        "allowed_scope": [
+            "arch-bp344-grating-and-cover-detail"
+        ],
+        "excluded_scope": [
+            "Adjacent or unlisted concept leaves are excluded.",
+            "Edition-specific or unverified regulatory details are excluded."
+        ],
+        "limitations": [
+            "Authoring was bounded to the source-backed Batch 695 proposition set.",
+            "Independent subject-expert academic review remains pending.",
+            "Subject-matter and curriculum sources do not replace the current PRC examination scope."
+        ],
+        "readiness": "REVIEW",
+        "readiness_reason": "The Batch 695 source-backed plan is applied and its bounded item count is consumed; further authoring needs review of the new evidence and content family.",
+        "review_reason": "Independent academic review is pending; no automatic additional authoring is authorized for this newly expanded leaf.",
+        "defer_reason": "",
+        "max_new_questions": 0,
+        "planned_new_questions": 0,
+        "reviewed_at_batch": 695,
+        "closure_state": "OPEN",
+        "evidence_hash": "73fe90370b2c3fb59343fea92dd74545d97494377539b069b2ab1edba3635721"
+    },
+    {
+        "leaf_id": "arch-bp344-services-away-from-routes",
+        "board_id": "architecture",
+        "official_area_id": "arch-area-b",
+        "leaf_name": "Services Away from Accessible Routes",
+        "current_question_count": 1,
+        "deficit_to_5": 4,
+        "deficit_to_10": 9,
+        "deficit_to_20": 19,
+        "source_ids": [
+            "bp344-2024-irr",
+            "prc-architecture-exam-program-june-2026"
+        ],
+        "source_count": 2,
+        "primary_source_count": 0,
+        "source_authority": "STRONG",
+        "source_currentness": "CURRENT_WITH_LIMITS",
+        "source_scope_fit": "DIRECT",
+        "source_conflict_status": "NONE",
+        "study_material_ids": [
+            "architecture-building-systems-and-construction"
+        ],
+        "study_material_count": 1,
+        "study_coverage": "COMPLETE",
+        "study_source_traceability": "COMPLETE",
+        "supported_depth_min": 1,
+        "supported_depth_max": 2,
+        "distinct_content_families": [
+            "ACCESSIBILITY_OR_CODE_APPLICATION",
+            "BUILDING_SYSTEMS_COORDINATION"
+        ],
+        "distinct_content_family_count": 2,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
+        "allowed_scope": [
+            "arch-bp344-services-away-from-routes"
+        ],
+        "excluded_scope": [
+            "Adjacent or unlisted concept leaves are excluded.",
+            "Edition-specific or unverified regulatory details are excluded."
+        ],
+        "limitations": [
+            "Authoring was bounded to the source-backed Batch 695 proposition set.",
+            "Independent subject-expert academic review remains pending.",
+            "Subject-matter and curriculum sources do not replace the current PRC examination scope."
+        ],
+        "readiness": "REVIEW",
+        "readiness_reason": "The Batch 695 source-backed plan is applied and its bounded item count is consumed; further authoring needs review of the new evidence and content family.",
+        "review_reason": "Independent academic review is pending; no automatic additional authoring is authorized for this newly expanded leaf.",
+        "defer_reason": "",
+        "max_new_questions": 0,
+        "planned_new_questions": 0,
+        "reviewed_at_batch": 695,
+        "closure_state": "OPEN",
+        "evidence_hash": "835cc3daab5841151017ab9a74d46f9463d46e1f68f8145054b95001caa8968a"
+    },
+    {
+        "leaf_id": "arch-ra9266-utility-systems-coordination",
+        "board_id": "architecture",
+        "official_area_id": "arch-area-b",
+        "leaf_name": "Utility Systems Coordination",
+        "current_question_count": 1,
+        "deficit_to_5": 4,
+        "deficit_to_10": 9,
+        "deficit_to_20": 19,
+        "source_ids": [
+            "ra-9266-architecture-act",
+            "prc-architecture-exam-program-june-2026"
+        ],
+        "source_count": 2,
+        "primary_source_count": 1,
+        "source_authority": "STRONG",
+        "source_currentness": "CURRENT_WITH_LIMITS",
+        "source_scope_fit": "DIRECT",
+        "source_conflict_status": "NONE",
+        "study_material_ids": [
+            "architecture-building-systems-and-construction"
+        ],
+        "study_material_count": 1,
+        "study_coverage": "COMPLETE",
+        "study_source_traceability": "COMPLETE",
+        "supported_depth_min": 1,
+        "supported_depth_max": 2,
+        "distinct_content_families": [
+            "ACCESSIBILITY_OR_CODE_APPLICATION",
+            "BUILDING_SYSTEMS_COORDINATION"
+        ],
+        "distinct_content_family_count": 2,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
+        "allowed_scope": [
+            "arch-ra9266-utility-systems-coordination"
+        ],
+        "excluded_scope": [
+            "Adjacent or unlisted concept leaves are excluded.",
+            "Edition-specific or unverified regulatory details are excluded."
+        ],
+        "limitations": [
+            "Authoring was bounded to the source-backed Batch 695 proposition set.",
+            "Independent subject-expert academic review remains pending.",
+            "Subject-matter and curriculum sources do not replace the current PRC examination scope."
+        ],
+        "readiness": "REVIEW",
+        "readiness_reason": "The Batch 695 source-backed plan is applied and its bounded item count is consumed; further authoring needs review of the new evidence and content family.",
+        "review_reason": "Independent academic review is pending; no automatic additional authoring is authorized for this newly expanded leaf.",
+        "defer_reason": "",
+        "max_new_questions": 0,
+        "planned_new_questions": 0,
+        "reviewed_at_batch": 695,
+        "closure_state": "OPEN",
+        "evidence_hash": "289524b7ffbbdb08a2e7d9c77ac879d4e89ae15bdd4d52be1c3adeb426dec037"
     }
 ]

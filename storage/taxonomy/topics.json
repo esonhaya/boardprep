@@ -5612,5 +5612,345 @@
             "official_scope_claim": false,
             "official_area_id": "professional-education"
         }
+    },
+    {
+        "id": "ece-language-and-early-numeracy",
+        "domain_id": "early-literacy-and-numeracy",
+        "code": "ELN2",
+        "name": "Language, Literacy, and Everyday Numeracy",
+        "description": "Responsive oral language, emergent print meaning, and concrete everyday number learning.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new professional or classroom scenario."
+            ]
+        }
+    },
+    {
+        "id": "ece-observation-to-planning",
+        "domain_id": "child-development",
+        "code": "OTP",
+        "name": "Observation to Responsive Planning",
+        "description": "Use repeated observation and documented learning evidence to select an appropriate next experience.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new professional or classroom scenario."
+            ]
+        }
+    },
+    {
+        "id": "ece-family-culture-language",
+        "domain_id": "family-engagement",
+        "code": "FCL",
+        "name": "Family, Culture, and Language",
+        "description": "Partner with families and build on the language and knowledge children bring to early learning.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new professional or classroom scenario."
+            ]
+        }
+    },
+    {
+        "id": "ece-socioemotional-and-safeguarding",
+        "domain_id": "health-safety-and-care",
+        "code": "SAS",
+        "name": "Social-Emotional Learning and Safeguarding",
+        "description": "Support co-regulation, safe relationships, protective practice, and inclusive participation.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new professional or classroom scenario."
+            ]
+        }
+    },
+    {
+        "id": "sne-udl-and-access",
+        "domain_id": "inclusive-special-needs-education",
+        "code": "UDA",
+        "name": "Universal Design and Access",
+        "description": "Anticipate barriers and make learning environments, communication, materials, and response options accessible.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new professional or classroom scenario."
+            ]
+        }
+    },
+    {
+        "id": "sne-assessment-and-planning",
+        "domain_id": "assessment-and-identification",
+        "code": "SAP",
+        "name": "Accessible Assessment and Individualized Planning",
+        "description": "Use valid assessment evidence and collaborative learner-centered planning to select support.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new professional or classroom scenario."
+            ]
+        }
+    },
+    {
+        "id": "sne-positive-support-and-participation",
+        "domain_id": "behavior-and-support",
+        "code": "PSP",
+        "name": "Positive Support and Participation",
+        "description": "Support participation, agency, behavior, progress, and transitions without reducing learner dignity.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new professional or classroom scenario."
+            ]
+        }
+    },
+    {
+        "id": "tvted-outcomes-and-instruction",
+        "domain_id": "tvted-common-competencies",
+        "code": "TOI",
+        "name": "Competency Outcomes and Technical Instruction",
+        "description": "Translate workplace competencies into observable outcomes, demonstration, practice, and materials.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new professional or classroom scenario."
+            ]
+        }
+    },
+    {
+        "id": "tvted-evidence-and-assessment",
+        "domain_id": "tvted-common-competencies",
+        "code": "TEA",
+        "name": "Workplace Evidence and Assessment",
+        "description": "Collect and judge performance evidence against transparent competency criteria.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new professional or classroom scenario."
+            ]
+        }
+    },
+    {
+        "id": "tvted-safety-and-workplace",
+        "domain_id": "tvted-common-competencies",
+        "code": "TSW",
+        "name": "Safety and Workplace Learning",
+        "description": "Coordinate safe, supervised learning with authentic workplace requirements.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new professional or classroom scenario."
+            ]
+        }
+    },
+    {
+        "id": "tvted-feedback-and-employability",
+        "domain_id": "tvted-common-competencies",
+        "code": "TFE",
+        "name": "Feedback, Employability, and Enterprise",
+        "description": "Use assessment feedback and technical learning to support employability and responsible enterprise.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new professional or classroom scenario."
+            ]
+        }
+    },
+    {
+        "id": "cae-context-and-heritage",
+        "domain_id": "cae-arts-and-culture",
+        "code": "CCH",
+        "name": "Context, Identity, and Heritage",
+        "description": "Interpret artistic evidence in bounded social, historical, regional, and cultural contexts.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new professional or classroom scenario."
+            ]
+        }
+    },
+    {
+        "id": "cae-ethical-engagement",
+        "domain_id": "cae-arts-and-culture",
+        "code": "CEE",
+        "name": "Ethical Cultural Engagement",
+        "description": "Represent cultural traditions with care, attribution, community voice, and respect for rights.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new professional or classroom scenario."
+            ]
+        }
+    },
+    {
+        "id": "cae-making-and-medium",
+        "domain_id": "cae-arts-and-culture",
+        "code": "CMM",
+        "name": "Making, Media, and Revision",
+        "description": "Select media and processes to develop, revise, and communicate artistic ideas.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new professional or classroom scenario."
+            ]
+        }
+    },
+    {
+        "id": "cae-performance-and-assessment",
+        "domain_id": "cae-arts-and-culture",
+        "code": "CPA",
+        "name": "Performance, Critique, and Assessment",
+        "description": "Interpret performance, support participation, and assess process and artistic decisions.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new professional or classroom scenario."
+            ]
+        }
+    },
+    {
+        "id": "pe-movement-and-learning",
+        "domain_id": "pe-movement-and-fitness",
+        "code": "PML",
+        "name": "Movement Analysis and Motor Learning",
+        "description": "Observe movement qualities and use instruction and feedback to develop skill.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new professional or classroom scenario."
+            ]
+        }
+    },
+    {
+        "id": "pe-fitness-assessment-and-progression",
+        "domain_id": "pe-movement-and-fitness",
+        "code": "PFA",
+        "name": "Fitness Assessment and Safe Progression",
+        "description": "Match evidence to fitness constructs and sequence activity safely and developmentally.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new professional or classroom scenario."
+            ]
+        }
+    },
+    {
+        "id": "pe-games-dance-and-inclusion",
+        "domain_id": "pe-movement-and-fitness",
+        "code": "PGD",
+        "name": "Games, Dance, and Inclusive Participation",
+        "description": "Use tactical and rhythmic movement tasks that support meaningful participation.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new professional or classroom scenario."
+            ]
+        }
+    },
+    {
+        "id": "architecture-accessible-route-detailing",
+        "domain_id": "architecture-utilities-construction",
+        "code": "AARD",
+        "name": "Accessible Routes and Floor Details",
+        "description": "Apply current accessibility provisions to route continuity, surface details, covers, wiring, and gratings.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new professional or classroom scenario."
+            ]
+        }
+    },
+    {
+        "id": "architecture-utility-systems-integration",
+        "domain_id": "architecture-utilities-construction",
+        "code": "AUSI",
+        "name": "Utility Systems Integration",
+        "description": "Coordinate building services and architectural documentation within the professional scope.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new professional or classroom scenario."
+            ]
+        }
     }
 ]

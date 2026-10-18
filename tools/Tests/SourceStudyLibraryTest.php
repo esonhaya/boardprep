@@ -99,6 +99,10 @@ $supportedStandard = [
     'authority' => 'Fixture Standards Body',
 ];
 $assert(SourceRegistryService::validateSnapshot([$supportedStandard])['valid'], 'A supported professional standard source type must validate.');
+$professionalGuidance = SourceRegistryService::find('cast-udl-guidelines-3-0-2024');
+$assert(is_array($professionalGuidance)
+    && ($professionalGuidance['source_type'] ?? '') === 'PROFESSIONAL_GUIDANCE'
+    && SourceRegistryService::validateSnapshot([$professionalGuidance])['valid'], 'A registered professional guidance source type must validate.');
 $invalidSource = $supportedStandard;
 $invalidSource['id'] = 'fixture-invalid-source';
 $invalidSource['source_type'] = 'UNREGISTERED_SOURCE_TYPE';
