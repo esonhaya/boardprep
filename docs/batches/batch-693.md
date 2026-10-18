@@ -90,6 +90,7 @@ tests therefore fail closed with `DEPENDENCY_MISSING`. The hosted PHP 8.3
 Sodium-enabled suite passed the authenticated encryption round trip, wrong
 passphrase/tag/truncation/schema checks, isolated dry-run and commit restore,
 collision rejection, and interrupted-restore rollback on commit `3efa6aa`.
+The hosted backup CLI secret-handling suite also passed on commit `4d44342`.
 
 ## Validation record
 
@@ -102,22 +103,23 @@ Local isolated tests completed during implementation:
 | Encrypted backup local fail-closed check | PASS — missing ext-sodium returns `DEPENDENCY_MISSING` |
 | PHP syntax for backup/restore/inventory/repository/CLI | PASS |
 | Browser explorer JavaScript syntax | PASS |
-| Account security HTTP/session suites | PASS — account security, HTTP boundary, session configuration, and trust-boundary hosted jobs on `3efa6aa` |
-| Hosted encrypted backup/restore suite | PASS — Sodium-enabled authentication, wrong-password/tag/truncation/schema rejection, private-path, atomic restore and interruption tests on `3efa6aa` |
-| Backup/restore CLI secret handling | Local fail-closed path PASS; hosted descriptor, missing-secret, argument rejection, create/verify, restore dry-run, and output-scrub coverage is pending the new exact-commit workflow |
-| Hosted browser acceptance | PASS — 60 passed, 0 failed, 0 flaky, 8 skipped, 0 not run on `3efa6aa`; browser evidence registered from run `39088212413` |
-| Hosted account and site explorers | PASS — 32 account scenarios; site explorer 100 routes, 290 actions, 10 boards on application commit `af27d0b` (the only later commit before `3efa6aa` changed a test fixture) |
-| Doctor release | PASS — full release run `39088212412` on `3efa6aa` |
-| Production preflight/smoke and ten-board HTTP | PASS — run `39088212412` on `3efa6aa` |
-| Product Readiness | BLOCKED — post-evidence run `39088965565` on documentation/evidence commit `7691467` recognizes the verified browser run; `privacy_terms=no`, one in-scope feature remains incomplete, and three mandatory evidence items remain unpassed. Owner/provider and public-launch decisions remain pending. |
+| Account security HTTP/session suites | PASS — account security, HTTP boundary, session configuration, and trust-boundary jobs on `3efa6aa`; all hosted security/privacy jobs passed again on `4d44342` |
+| Hosted encrypted backup/restore suite | PASS — Sodium-enabled authentication, wrong-password/tag/truncation/schema rejection, private-path, atomic restore and interruption tests; Release Gates run `39089492703` |
+| Backup/restore CLI secret handling | PASS — hosted descriptor, missing-secret, visible-argument rejection, create/verify, restore dry-run, and sanitized-output coverage on `4d44342` |
+| Hosted browser acceptance | PASS — 60 passed, 0 failed, 0 flaky, 8 skipped, 0 not run on `4d44342`; exact-commit run `39089492279`, artifact `12122123398`, registered and verified |
+| Hosted account and site explorers | PASS — 32 account scenarios; site explorer 100 routes, 290 actions, 10 boards on application source commit `af27d0b`; later application source remained unchanged |
+| Doctor release | PASS — Release Gates run `39089492703` on exact QA commit `4d44342` |
+| Production preflight/smoke and ten-board HTTP | PASS — Release Gates run `39089492703` on `4d44342` |
+| Product Readiness | BLOCKED — run `39089492703` preceded latest browser evidence registration; the final evidence-aware Release Gates result is recorded after the evidence/docs commit. Owner/provider and public-launch decisions remain pending. |
 
 The first Sodium-enabled backup run exposed an expected-error-category
 ordering assertion for a public-root path; inspection confirmed that the path
 was rejected before any write, and the check order was adjusted to return the
 specific protected-root category first. The next run exposed an undefined
 repository variable in the synthetic test fixture. Both findings were fixed,
-and the complete Sodium-enabled suite passed on `3efa6aa`. No security test
-was turned into a skip or pass-through.
+and the complete Sodium-enabled suite passed on `3efa6aa`. The CLI secret
+handling checks passed on `4d44342`. No security test was turned into a skip
+or pass-through.
 
 ## Security and privacy status
 
@@ -142,17 +144,17 @@ public launch authorization remain unresolved.
 
 ```text
 HEAD_BEFORE=db478533e7bed7da09b7c4604d69c0bda24d8d04
-HEAD_AFTER_APPLICATION=3efa6aa3694f7b50625916c4c30d769d86af5325
+HEAD_AFTER_APPLICATION=af27d0b5968bd90d72ea956d07127e2fbcb8825f
 APPLICATION_CODE_FIX=af27d0b5968bd90d72ea956d07127e2fbcb8825f
-APPLICATION_TEST_FIX=3efa6aa3694f7b50625916c4c30d769d86af5325
-CI_COMMIT=3efa6aa3694f7b50625916c4c30d769d86af5325
-RELEASE_GATES_RUN=39088212412 (Doctor, preflight/smoke, ten-board HTTP, security matrix passed; Product Readiness blocked on pending approvals/evidence)
-BROWSER_ACCEPTANCE_RUN=39088212413 (PASS, 60/0/8; https://github.com/esonhaya/boardprep/actions/runs/39088212413)
+APPLICATION_TEST_COMMIT=4d4434289690dd270c6f618cf6a1ff2caa7d5338
+CI_COMMIT=4d4434289690dd270c6f618cf6a1ff2caa7d5338
+INITIAL_RELEASE_GATES_RUN=39089492703 (all technical jobs passed; Product Readiness preceded latest browser evidence registration)
+BROWSER_ACCEPTANCE_RUN=39089492279 (PASS, 60/0/8; https://github.com/esonhaya/boardprep/actions/runs/39089492279)
 SITE_EXPLORER_RUN=39088111773 (PASS, 100 routes, 290 actions, 10 boards; https://github.com/esonhaya/boardprep/actions/runs/39088111773)
 ACCOUNT_EXPLORER_SCENARIOS=32 PASS (same site-explorer workflow run)
-REGISTERED_BROWSER_EVIDENCE=VERIFIED_PASS, run 39088212413, commit 3efa6aa3694f7b50625916c4c30d769d86af5325
-HEAD_AFTER_DOCUMENTATION=769146776ffccd94cac11708cfa085ba93a66860 (evidence-registration documentation commit; later report/docs-only commit is recorded in the complete final report)
-FINAL_RELEASE_GATES_RUN=39088965565 (documentation commit `7691467`, Product Readiness blocked as listed above)
+REGISTERED_BROWSER_EVIDENCE=VERIFIED_PASS, run 39089492279, commit 4d4434289690dd270c6f618cf6a1ff2caa7d5338
+HEAD_AFTER_DOCUMENTATION=Pending latest evidence/docs commit
+FINAL_RELEASE_GATES_RUN=Pending evidence-aware documentation run
 ```
 
 The complete requested field-by-field status report is saved at

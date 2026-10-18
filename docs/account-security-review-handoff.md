@@ -193,25 +193,27 @@ exploitability and attach exact reproductions to the review record.
 | Ten-board HTTP journey and production exclusion | `tools/Tests/TenBoardLearnerJourneyHttpTest.php`, Doctor production preflight/smoke |
 | Hosted browser account and site journeys | `tests/browser/accounts/account-auth.spec.cjs`, Batch 693 explorer workflow evidence |
 
-CI evidence is tied to exact application commits. The full browser acceptance
-and release-gate suites tested `3efa6aa3694f7b50625916c4c30d769d86af5325`.
-The bounded site and account explorer tested
-`af27d0b5968bd90d72ea956d07127e2fbcb8825f`; the later `3efa6aa` commit only
-initialized a test fixture repository. The browser workflow is registered as
-a verified exact-commit record and can cover documentation-only descendants.
-Add the final documentation SHA and release-gate reference after push:
+CI evidence is tied to exact commits. Application source changes ended at
+`af27d0b5968bd90d72ea956d07127e2fbcb8825f`. The bounded site and account
+explorer tested that source commit. The final browser acceptance and backup
+CLI secret-handling checks tested `4d4434289690dd270c6f618cf6a1ff2caa7d5338`;
+the browser result is registered as a verified exact-commit record. The
+evidence/docs commit triggers a final Release Gates run on a documentation-only
+descendant; its result is added below after completion.
 
 ```text
-APPLICATION_COMMIT=3efa6aa3694f7b50625916c4c30d769d86af5325
-DOCUMENTATION_COMMIT=769146776ffccd94cac11708cfa085ba93a66860
-CI_COMMIT=3efa6aa3694f7b50625916c4c30d769d86af5325
-RELEASE_GATES_RUN=39088965565 (post-documentation; Product Readiness remains blocked) https://github.com/esonhaya/boardprep/actions/runs/39088965565
-BROWSER_ACCEPTANCE_RUN=39088212413 PASS; 60 passed, 0 failed, 8 skipped https://github.com/esonhaya/boardprep/actions/runs/39088212413
+APPLICATION_SOURCE_COMMIT=af27d0b5968bd90d72ea956d07127e2fbcb8825f
+QA_COMMIT=4d4434289690dd270c6f618cf6a1ff2caa7d5338
+DOCUMENTATION_COMMIT=<PENDING_EVIDENCE_COMMIT>
+CI_COMMIT=4d4434289690dd270c6f618cf6a1ff2caa7d5338
+INITIAL_RELEASE_GATES_RUN=39089492703 (technical jobs passed; Product Readiness preceded latest browser evidence registration) https://github.com/esonhaya/boardprep/actions/runs/39089492703
+BROWSER_ACCEPTANCE_RUN=39089492279 PASS; 60 passed, 0 failed, 8 skipped https://github.com/esonhaya/boardprep/actions/runs/39089492279
 SITE_EXPLORER_RUN=39088111773 PASS; 100 routes, 290 actions, 10 boards https://github.com/esonhaya/boardprep/actions/runs/39088111773
 AUTH_EXPLORER_SCENARIOS=32 pass, 0 fail, on site explorer run 39088111773
+FINAL_RELEASE_GATES_RUN=<PENDING_EVIDENCE_COMMIT_RUN>
 INDEPENDENT_REVIEWER=<PENDING>
 INDEPENDENT_REVIEW_STATUS=PENDING
-PRODUCT_READINESS=BLOCKED; privacy terms unconfigured, 1 incomplete in-scope feature, 3 mandatory evidence items not passed
+PRODUCT_READINESS=BLOCKED; owner/provider privacy and launch decisions remain pending
 ```
 
 ## Owner/provider handoff still required

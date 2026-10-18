@@ -121,10 +121,12 @@ full bounded site journey: `PASS`, 100 routes, 290 actions, and all 10 boards.
 The same run completed the account explorer with `PASS` across 32 scenarios,
 including account export, backup/restore fixture validation, recovery replay
 rejection, deletion of a separate synthetic account, and A/B/anonymous data
-isolation. The sole descendant before the final Browser Acceptance run
-(`3efa6aa3694f7b50625916c4c30d769d86af5325`) only initialized the backup test
-fixture repository. The sanitized report artifact is
+isolation. Later commits added backup tests, CI coverage, and documentation
+without changing the application source tested by this explorer. The latest
+hosted Browser Acceptance run `39089492279` tested exact QA commit
+`4d4434289690dd270c6f618cf6a1ff2caa7d5338`; it passed 60 assertions with no
+failures or flaky tests and 8 explicit skips. Its verified evidence record is
+in `docs/release-evidence/browser-workflows.json`. The sanitized explorer report artifact is
 `boardprep-site-explorer-af27d0b5968bd90d72ea956d07127e2fbcb8825f-39088111773`
-(artifact `12122000266`). Browser Acceptance run `39088212413` tested
-`3efa6aa` and passed 60 assertions with no failures or flaky tests; its
-verified evidence record is retained in `docs/release-evidence/browser-workflows.json`.
+(artifact `12122000266`). Browser artifact `12122123398` contains sanitized
+visual and diagnostic evidence for run `39089492279`.
