@@ -85,9 +85,18 @@ try {
     @unlink($unknownFile);
 }
 
+$questionCoverageFile = dirname(__DIR__, 2) . '/app/Services/Shared/QuestionCoverageService.php';
+$questionCoverageLines = file($questionCoverageFile, FILE_IGNORE_NEW_LINES);
+$forwardingCallLines = [];
+foreach ($questionCoverageLines ?: [] as $lineNumber => $sourceLine) {
+    if (preg_match('/taxonomy_orphans.*self::taxonomyOrphans\(\.\.\.\$groups\)/', $sourceLine) === 1) {
+        $forwardingCallLines[] = $lineNumber + 1;
+    }
+}
+$assert(count($forwardingCallLines) === 1, 'the six-group caller remains the sole spread-forwarding path');
 $forwarding = DependencyFindingClassifier::isVerifiedVariadicForwarding(
     './app/Services/Shared/QuestionCoverageService.php',
-    97,
+    $forwardingCallLines[0],
     'App\\Services\\Shared\\QuestionCoverageService',
     'taxonomyOrphans',
     $snapshot->classMap
