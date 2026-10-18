@@ -193,8 +193,10 @@ learner IDs, deleted-account recovery rejection, and concurrent recovery.
 Injected ENOSPC and write-commit failures plus malformed credential JSON
 confirm that previous credential state remains unchanged. Backup tests run a
 full Sodium-enabled round trip in hosted CI and fail closed locally when
-ext-sodium is absent. Restore interruption tests verify that no partial
-destination or source mutation remains.
+ext-sodium is absent. A separate CLI test feeds only synthetic passphrases
+through an inherited descriptor, rejects visible command-line and missing
+secrets, and scans output for credential leaks. Restore interruption tests
+verify that no partial destination or source mutation remains.
 
 On any storage failure, preserve the locked account and its journal, retain the
 sanitized failure category, restore service availability only after a safe

@@ -187,6 +187,7 @@ exploitability and attach exact reproductions to the review record.
 | JSON and SQLite ownership, inventory/export, deletion journal/retry, recovery concurrency, failure injection, identity integrity | `tools/Tests/AccountLifecycleTest.php` and JSON/SQLite wrappers |
 | Testing-only deletion journal recovery CLI | `tools/account-delete.php`, `tools/Tests/AccountDeletionCliTest.php` |
 | Authenticated encryption, randomization, tag/password/truncation/schema rejection, restore rollback/collision | `tools/Tests/AccountBackupTest.php` |
+| CLI secret descriptor enforcement, argument/missing-secret rejection, sanitized output, create/verify/restore dry-run | `tools/Tests/AccountBackupCliTest.php` |
 | Anonymous records and flashcard/quiz ownership | `tools/Tests/AnonymousLearnerPrivacyHttpTest.php`, `tools/Tests/FlashcardHttpTest.php`, `tools/Tests/FlashcardIntegrationTest.php`, quiz result tests |
 | Session cookie configuration and forwarded-header trust | `tools/Tests/SessionConfigurationTest.php`, `tools/Tests/SecurityTrustBoundaryTest.php` |
 | Ten-board HTTP journey and production exclusion | `tools/Tests/TenBoardLearnerJourneyHttpTest.php`, Doctor production preflight/smoke |

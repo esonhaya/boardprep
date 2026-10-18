@@ -105,6 +105,8 @@ jobs:
             test_path: tools/Tests/AccountDeletionCliTest.php
           - test_id: account-encrypted-backup-restore
             test_path: tools/Tests/AccountBackupTest.php
+          - test_id: account-backup-cli-secret-handling
+            test_path: tools/Tests/AccountBackupCliTest.php
           - test_id: simulator-fixture-privacy
             test_path: tools/Tests/SimulationFixturePrivacyIsolationTest.php
     steps:

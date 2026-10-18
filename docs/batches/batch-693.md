@@ -104,6 +104,7 @@ Local isolated tests completed during implementation:
 | Browser explorer JavaScript syntax | PASS |
 | Account security HTTP/session suites | PASS — account security, HTTP boundary, session configuration, and trust-boundary hosted jobs on `3efa6aa` |
 | Hosted encrypted backup/restore suite | PASS — Sodium-enabled authentication, wrong-password/tag/truncation/schema rejection, private-path, atomic restore and interruption tests on `3efa6aa` |
+| Backup/restore CLI secret handling | Local fail-closed path PASS; hosted descriptor, missing-secret, argument rejection, create/verify, restore dry-run, and output-scrub coverage is pending the new exact-commit workflow |
 | Hosted browser acceptance | PASS — 60 passed, 0 failed, 0 flaky, 8 skipped, 0 not run on `3efa6aa`; browser evidence registered from run `39088212413` |
 | Hosted account and site explorers | PASS — 32 account scenarios; site explorer 100 routes, 290 actions, 10 boards on application commit `af27d0b` (the only later commit before `3efa6aa` changed a test fixture) |
 | Doctor release | PASS — full release run `39088212412` on `3efa6aa` |
