@@ -16,6 +16,7 @@ use App\Services\RepositoryHealth\CivilService\CivilServiceCoverageModel;
 use App\Services\RepositoryHealth\Readiness\SourceReadinessService;
 use App\Services\RepositoryHealth\Readiness\ReadinessClosureService;
 use App\Services\Shared\ContentIntegrityService;
+use App\Services\Shared\QuestionCoverageService;
 
 /**
  * Canonical developer-facing repository health facade.
@@ -315,7 +316,7 @@ final class RepositoryHealthEngine
             static fn(array $issue): bool => in_array($issue['status'], ['FAIL', 'WARN', 'REVIEW'], true)
         ));
         $report->healthScore = $run('shared_health_score_aggregation', static fn(): float => self::healthScore($report->issues));
-        $report->statistics = $run('shared_statistics_aggregation', static fn(): RepositoryStatistics => self::statistics($questions, $report->issues, $boardSummaries));
+        $report->statistics = $run('shared_statistics_aggregation', static fn(): RepositoryStatistics => self::statistics($questions, $report->issues, $boardSummaries, $collections));
         if ($profiler !== null) {
             $report->profiling = $profiler->report();
         }
@@ -1295,7 +1296,7 @@ final class RepositoryHealthEngine
     }
 
     /** @param array<int, HealthIssue> $issues */
-    private static function statistics(array $questions, array $issues, array $boards): RepositoryStatistics
+    private static function statistics(array $questions, array $issues, array $boards, array $collections): RepositoryStatistics
     {
         $statistics = new RepositoryStatistics();
         $statistics->totalQuestions = count($questions);
@@ -1327,6 +1328,22 @@ final class RepositoryHealthEngine
             $statistics->totals['effective_declared'] += (int) ($board['effective_declared'] ?? 0);
             $statistics->totals['runtime'] += (int) ($board['runtime'] ?? 0);
         }
+        $eligibilityIndex = new QuestionEligibilityIndex(
+            $collections['question-eligibility'] ?? [],
+            $collections['blueprints'] ?? [],
+            $collections['concept-derived-eligibility'] ?? [],
+            $collections['question-reuse-overrides'] ?? []
+        );
+        $statistics->coverage = QuestionCoverageService::analyze(
+            $questions,
+            $collections['boards'] ?? [],
+            $collections['subjects'] ?? [],
+            $collections['board-subjects'] ?? [],
+            $collections['taxonomy/domains'] ?? [],
+            $collections['taxonomy/topics'] ?? [],
+            $collections['taxonomy/concepts'] ?? [],
+            $eligibilityIndex
+        );
         return $statistics;
     }
 

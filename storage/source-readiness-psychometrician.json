@@ -4,7 +4,7 @@
         "board_id": "psychometrician",
         "official_area_id": "abnormal-psychology",
         "leaf_name": "Psychological Disorders and Specific Symptoms",
-        "current_question_count": 32,
+        "current_question_count": 36,
         "deficit_to_5": 0,
         "deficit_to_10": 0,
         "deficit_to_20": 0,
@@ -54,26 +54,27 @@
             "out_of_leaf_competency"
         ],
         "limitations": [
-            "Identify the classification edition and do not treat one screen, symptom, or cutoff as a complete diagnosis."
+            "Identify the classification edition and do not treat one screen, symptom, or cutoff as a complete diagnosis.",
+            "Batch 694 used source-readiness-bounded additional questions; independent academic review remains pending."
         ],
         "readiness": "READY_WITH_LIMITS",
         "readiness_reason": "The current PRC TOS and linked source-backed study materials support a bounded BoardPrep-derived leaf; scope remains limited to the listed evidence.",
         "review_reason": "",
         "defer_reason": "",
-        "max_new_questions": 14,
+        "max_new_questions": 10,
         "planned_new_questions": 0,
         "reviewed_at_batch": 643,
-        "evidence_hash": "d4aa56637134c3595e34ba21cce862f893833ef94afde39575598602ada22cda"
+        "evidence_hash": "2bd6cb9a6f627ff704cdc3760f9282e93226783f0fafabdd9a955a1022286066"
     },
     {
         "leaf_id": "psych-abnormal-etiology",
         "board_id": "psychometrician",
         "official_area_id": "abnormal-psychology",
         "leaf_name": "Theoretical Approaches to Etiology",
-        "current_question_count": 10,
+        "current_question_count": 14,
         "deficit_to_5": 0,
         "deficit_to_10": 0,
-        "deficit_to_20": 10,
+        "deficit_to_20": 6,
         "source_ids": [
             "apa-ethics-code-2017",
             "apa-psychological-assessment-guidelines-2020",
@@ -118,26 +119,27 @@
             "out_of_leaf_competency"
         ],
         "limitations": [
-            "Theoretical explanations do not by themselves prove causation or determine an individual diagnosis."
+            "Theoretical explanations do not by themselves prove causation or determine an individual diagnosis.",
+            "Batch 694 used source-readiness-bounded additional questions; independent academic review remains pending."
         ],
         "readiness": "READY_WITH_LIMITS",
         "readiness_reason": "The current PRC TOS and linked source-backed study materials support a bounded BoardPrep-derived leaf; scope remains limited to the listed evidence.",
         "review_reason": "",
         "defer_reason": "",
-        "max_new_questions": 8,
+        "max_new_questions": 4,
         "planned_new_questions": 0,
         "reviewed_at_batch": 643,
-        "evidence_hash": "599c5e4d0353db618c8085f9ce1f296561babcc5c530faabaf9a2fa443fa5353"
+        "evidence_hash": "b4307c6d76eb0c275e37c0eb99b5692425fe7e2ad04630bce1c5aa60d8cfbb20"
     },
     {
         "leaf_id": "psych-abnormal-interventions",
         "board_id": "psychometrician",
         "official_area_id": "abnormal-psychology",
         "leaf_name": "Therapeutic Interventions",
-        "current_question_count": 10,
+        "current_question_count": 14,
         "deficit_to_5": 0,
         "deficit_to_10": 0,
-        "deficit_to_20": 10,
+        "deficit_to_20": 6,
         "source_ids": [
             "apa-ethics-code-2017",
             "apa-psychological-assessment-guidelines-2020",
@@ -183,26 +185,27 @@
             "out_of_leaf_competency"
         ],
         "limitations": [
-            "Keep intervention discussion within the psychometrician role and do not prescribe individualized treatment from a brief vignette."
+            "Keep intervention discussion within the psychometrician role and do not prescribe individualized treatment from a brief vignette.",
+            "Batch 694 used source-readiness-bounded additional questions; independent academic review remains pending."
         ],
         "readiness": "READY_WITH_LIMITS",
         "readiness_reason": "The current PRC TOS and linked source-backed study materials support a bounded BoardPrep-derived leaf; scope remains limited to the listed evidence.",
         "review_reason": "",
         "defer_reason": "",
-        "max_new_questions": 5,
+        "max_new_questions": 1,
         "planned_new_questions": 0,
         "reviewed_at_batch": 643,
-        "evidence_hash": "edcae6b6d117abaa8c7c116d2cec252f98e3cd9085d65627c36d5fe347dd77e2"
+        "evidence_hash": "4f2406299be2215ae3044e7061191653d2eca47fd7f84abe45a5ea30e6fb3bea"
     },
     {
         "leaf_id": "psych-abnormal-manifestations",
         "board_id": "psychometrician",
         "official_area_id": "abnormal-psychology",
         "leaf_name": "Normalcy, Abnormalcy, and Manifestations of Behavior",
-        "current_question_count": 12,
+        "current_question_count": 16,
         "deficit_to_5": 0,
         "deficit_to_10": 0,
-        "deficit_to_20": 8,
+        "deficit_to_20": 4,
         "source_ids": [
             "apa-ethics-code-2017",
             "apa-psychological-assessment-guidelines-2020",
@@ -248,16 +251,17 @@
             "out_of_leaf_competency"
         ],
         "limitations": [
-            "Atypicality alone does not establish a disorder; consider context, distress, impairment, duration, and alternative explanations."
+            "Atypicality alone does not establish a disorder; consider context, distress, impairment, duration, and alternative explanations.",
+            "Batch 694 used source-readiness-bounded additional questions; independent academic review remains pending."
         ],
         "readiness": "READY_WITH_LIMITS",
         "readiness_reason": "The current PRC TOS and linked source-backed study materials support a bounded BoardPrep-derived leaf; scope remains limited to the listed evidence.",
         "review_reason": "",
         "defer_reason": "",
-        "max_new_questions": 9,
+        "max_new_questions": 5,
         "planned_new_questions": 0,
         "reviewed_at_batch": 643,
-        "evidence_hash": "a69c88685b17141288f48c90ec5ab031818125d1c4a6e048143e1b985f813482"
+        "evidence_hash": "d62f0327271b0f28e41b747a241980057724f9c98a86c380ad04d022c4c2cd75"
     },
     {
         "leaf_id": "psych-abnormal-mental-health-law",
@@ -321,10 +325,10 @@
         "board_id": "psychometrician",
         "official_area_id": "abnormal-psychology",
         "leaf_name": "Sociocultural Factors and Ethical Principles",
-        "current_question_count": 14,
+        "current_question_count": 19,
         "deficit_to_5": 0,
         "deficit_to_10": 0,
-        "deficit_to_20": 6,
+        "deficit_to_20": 1,
         "source_ids": [
             "apa-ethics-code-2017",
             "apa-psychological-assessment-guidelines-2020",
@@ -371,16 +375,17 @@
             "out_of_leaf_competency"
         ],
         "limitations": [
-            "Do not use a foreign category, label, or ethical summary as a substitute for applicable Philippine law and current classification evidence."
+            "Do not use a foreign category, label, or ethical summary as a substitute for applicable Philippine law and current classification evidence.",
+            "Batch 694 used source-readiness-bounded additional questions; independent academic review remains pending."
         ],
         "readiness": "READY_WITH_LIMITS",
         "readiness_reason": "The current PRC TOS and linked source-backed study materials support a bounded BoardPrep-derived leaf; scope remains limited to the listed evidence.",
         "review_reason": "",
         "defer_reason": "",
-        "max_new_questions": 8,
+        "max_new_questions": 3,
         "planned_new_questions": 0,
         "reviewed_at_batch": 643,
-        "evidence_hash": "12c8236fde15cfccbf46d5d9d67c259a20ce9cecac38f2aabf3f59b57e5de6d1"
+        "evidence_hash": "c407479a07d85327768ac2be68c0988d4c51f171b90353faf32cb187d2f77b84"
     },
     {
         "leaf_id": "psych-assessment-administration-interpretation",
@@ -783,7 +788,7 @@
         "board_id": "psychometrician",
         "official_area_id": "developmental-psychology",
         "leaf_name": "Perspectives on Nature and Nurture",
-        "current_question_count": 36,
+        "current_question_count": 42,
         "deficit_to_5": 0,
         "deficit_to_10": 0,
         "deficit_to_20": 0,
@@ -830,23 +835,25 @@
             "out_of_leaf_competency"
         ],
         "limitations": [
-            "Do not treat a developmental trend or one context-bound observation as a fixed individual trait."
+            "Do not treat a developmental trend or one context-bound observation as a fixed individual trait.",
+            "Batch 694 added bounded source-grounded items; independent academic review remains pending.",
+            "Batch 694 content is source-linked and structurally checked; independent academic review and owner approval remain pending."
         ],
         "readiness": "READY_WITH_LIMITS",
         "readiness_reason": "The current PRC TOS and linked source-backed study materials support a bounded BoardPrep-derived leaf; scope remains limited to the listed evidence.",
         "review_reason": "",
         "defer_reason": "",
-        "max_new_questions": 12,
+        "max_new_questions": 6,
         "planned_new_questions": 0,
         "reviewed_at_batch": 643,
-        "evidence_hash": "9d763d5a20898f7d2e38ea71d63a1e6600cfc8c88f87789fa1649df15c70c840"
+        "evidence_hash": "f3c6f74bcaf43435a65d88c25dc5b7f248062b824f3e801c5fbccc5f042e6a2a"
     },
     {
         "leaf_id": "psych-development-research-ethics",
         "board_id": "psychometrician",
         "official_area_id": "developmental-psychology",
         "leaf_name": "Developmental Research Methods and Ethics",
-        "current_question_count": 22,
+        "current_question_count": 28,
         "deficit_to_5": 0,
         "deficit_to_10": 0,
         "deficit_to_20": 0,
@@ -894,26 +901,28 @@
             "out_of_leaf_competency"
         ],
         "limitations": [
-            "Separate age, period, and cohort effects; do not infer individual change or causation from a one-time group comparison."
+            "Separate age, period, and cohort effects; do not infer individual change or causation from a one-time group comparison.",
+            "Batch 694 added bounded source-grounded items; independent academic review remains pending.",
+            "Batch 694 content is source-linked and structurally checked; independent academic review and owner approval remain pending."
         ],
         "readiness": "READY_WITH_LIMITS",
         "readiness_reason": "The current PRC TOS and linked source-backed study materials support a bounded BoardPrep-derived leaf; scope remains limited to the listed evidence.",
         "review_reason": "",
         "defer_reason": "",
-        "max_new_questions": 9,
+        "max_new_questions": 3,
         "planned_new_questions": 0,
         "reviewed_at_batch": 643,
-        "evidence_hash": "029b1a6e0f6b78678fb30e5af8f4c022b7983177791cdfbab4be892e0d13fc04"
+        "evidence_hash": "68aa30a34c88d4ed823197fdcac45844c1d7f391128f901ebf250fe9f492a485"
     },
     {
         "leaf_id": "psych-development-theories",
         "board_id": "psychometrician",
         "official_area_id": "developmental-psychology",
         "leaf_name": "Developmental Theories",
-        "current_question_count": 18,
+        "current_question_count": 30,
         "deficit_to_5": 0,
         "deficit_to_10": 0,
-        "deficit_to_20": 2,
+        "deficit_to_20": 0,
         "source_ids": [
             "aera-apa-ncme-testing-standards-2014",
             "itc-test-adaptation-guidelines-2017",
@@ -957,26 +966,28 @@
             "out_of_leaf_competency"
         ],
         "limitations": [
-            "Use a theory as an explanatory framework, not as a substitute for observation, assessment, or culturally responsive evidence."
+            "Use a theory as an explanatory framework, not as a substitute for observation, assessment, or culturally responsive evidence.",
+            "Batch 694 added bounded source-grounded items; independent academic review remains pending.",
+            "Batch 694 content is source-linked and structurally checked; independent academic review and owner approval remain pending."
         ],
-        "readiness": "READY_WITH_LIMITS",
+        "readiness": "REVIEW",
         "readiness_reason": "The current PRC TOS and linked source-backed study materials support a bounded BoardPrep-derived leaf; scope remains limited to the listed evidence.",
-        "review_reason": "",
+        "review_reason": "Batch 694 added the bounded source-linked cohort. Further expansion requires independent evidence-depth review; item-level academic approval remains pending.",
         "defer_reason": "",
-        "max_new_questions": 12,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 643,
-        "evidence_hash": "09da81e6a075dc1364e84640e9b167d79829c65ef8d4495334f2f3bf2ac60d24"
+        "evidence_hash": "7eaf188704d52342794b92c729e5eec12fa349df8dfc1beccff7475971d08df8"
     },
     {
         "leaf_id": "psych-industrial-change-development",
         "board_id": "psychometrician",
         "official_area_id": "industrial-organizational",
         "leaf_name": "Organizational Change and Development",
-        "current_question_count": 10,
+        "current_question_count": 13,
         "deficit_to_5": 0,
         "deficit_to_10": 0,
-        "deficit_to_20": 10,
+        "deficit_to_20": 7,
         "source_ids": [
             "aera-apa-ncme-testing-standards-2014",
             "apa-personnel-selection-principles-2018",
@@ -1021,23 +1032,24 @@
             "out_of_leaf_competency"
         ],
         "limitations": [
-            "Evaluate both intended performance effects and unintended effects on workload, fairness, safety, and well-being."
+            "Evaluate both intended performance effects and unintended effects on workload, fairness, safety, and well-being.",
+            "Batch 694 used source-readiness-bounded additional questions; independent academic review remains pending."
         ],
         "readiness": "READY_WITH_LIMITS",
         "readiness_reason": "The current PRC TOS and linked source-backed study materials support a bounded BoardPrep-derived leaf; scope remains limited to the listed evidence.",
         "review_reason": "",
         "defer_reason": "",
-        "max_new_questions": 9,
+        "max_new_questions": 6,
         "planned_new_questions": 0,
         "reviewed_at_batch": 643,
-        "evidence_hash": "c86d81d4885b59b8c40c5b4acb38e0bc7c1bcf318b48b6ad049ccb6ee8de4b3f"
+        "evidence_hash": "1be78c86c456bc66717d57231f556a54c0ad8a018e943e64baf2e71e05e3ddd9"
     },
     {
         "leaf_id": "psych-industrial-hr-development-management",
         "board_id": "psychometrician",
         "official_area_id": "industrial-organizational",
         "leaf_name": "Human Resource Development and Management",
-        "current_question_count": 45,
+        "current_question_count": 48,
         "deficit_to_5": 0,
         "deficit_to_10": 0,
         "deficit_to_20": 0,
@@ -1087,26 +1099,27 @@
             "out_of_leaf_competency"
         ],
         "limitations": [
-            "Selection and performance claims must remain job-relevant, evidence-based, fair, and within applicable local legal boundaries."
+            "Selection and performance claims must remain job-relevant, evidence-based, fair, and within applicable local legal boundaries.",
+            "Batch 694 used source-readiness-bounded additional questions; independent academic review remains pending."
         ],
         "readiness": "READY_WITH_LIMITS",
         "readiness_reason": "The current PRC TOS and linked source-backed study materials support a bounded BoardPrep-derived leaf; scope remains limited to the listed evidence.",
         "review_reason": "",
         "defer_reason": "",
-        "max_new_questions": 14,
+        "max_new_questions": 11,
         "planned_new_questions": 0,
         "reviewed_at_batch": 643,
-        "evidence_hash": "e0946a4ada680db816b03aedeea6b94ead091776362032f2d8f7dd3883d26462"
+        "evidence_hash": "8a8ee2114d83298ead22a001e84768db3857999a94fe585ce0796fc7e88b9c88"
     },
     {
         "leaf_id": "psych-industrial-organization-theory",
         "board_id": "psychometrician",
         "official_area_id": "industrial-organizational",
         "leaf_name": "Organization Theory",
-        "current_question_count": 10,
+        "current_question_count": 13,
         "deficit_to_5": 0,
         "deficit_to_10": 0,
-        "deficit_to_20": 10,
+        "deficit_to_20": 7,
         "source_ids": [
             "aera-apa-ncme-testing-standards-2014",
             "apa-personnel-selection-principles-2018",
@@ -1149,26 +1162,27 @@
             "out_of_leaf_competency"
         ],
         "limitations": [
-            "Use organizational models to explain the stated setting; do not infer universal effects from one workplace metric."
+            "Use organizational models to explain the stated setting; do not infer universal effects from one workplace metric.",
+            "Batch 694 used source-readiness-bounded additional questions; independent academic review remains pending."
         ],
         "readiness": "READY_WITH_LIMITS",
         "readiness_reason": "The current PRC TOS and linked source-backed study materials support a bounded BoardPrep-derived leaf; scope remains limited to the listed evidence.",
         "review_reason": "",
         "defer_reason": "",
-        "max_new_questions": 6,
+        "max_new_questions": 3,
         "planned_new_questions": 0,
         "reviewed_at_batch": 643,
-        "evidence_hash": "693e9ab4faef33d9ce52fdae15c55b695f78a2e51d47a5b5901371d207f8e938"
+        "evidence_hash": "8ce0e96ca35fde519a1a826da25cbce05251a67d1fdbd79a0d93023450178222"
     },
     {
         "leaf_id": "psych-industrial-structures-systems",
         "board_id": "psychometrician",
         "official_area_id": "industrial-organizational",
         "leaf_name": "Organizational Structures and Systems",
-        "current_question_count": 10,
+        "current_question_count": 13,
         "deficit_to_5": 0,
         "deficit_to_10": 0,
-        "deficit_to_20": 10,
+        "deficit_to_20": 7,
         "source_ids": [
             "aera-apa-ncme-testing-standards-2014",
             "apa-personnel-selection-principles-2018",
@@ -1212,26 +1226,27 @@
             "out_of_leaf_competency"
         ],
         "limitations": [
-            "A structure signal must be interpreted with role, resource, workload, and context evidence; do not reduce organizational performance to a single metric."
+            "A structure signal must be interpreted with role, resource, workload, and context evidence; do not reduce organizational performance to a single metric.",
+            "Batch 694 used source-readiness-bounded additional questions; independent academic review remains pending."
         ],
-        "readiness": "READY_WITH_LIMITS",
+        "readiness": "REVIEW",
         "readiness_reason": "The current PRC TOS and linked source-backed study materials support a bounded BoardPrep-derived leaf; scope remains limited to the listed evidence.",
-        "review_reason": "",
+        "review_reason": "Batch 694 consumed the currently source-supported bounded headroom; further authoring requires refreshed evidence and academic review.",
         "defer_reason": "",
-        "max_new_questions": 3,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 643,
-        "evidence_hash": "afdf549a83a88ef646fee4b23647d6867cf8ad07c68d849c63e63825f6d45ead"
+        "evidence_hash": "7f35e689fe128d2ad9bfc6893da615c55f5ce1ae1b28c2d726830b0347b3b2a0"
     },
     {
         "leaf_id": "psych-industrial-team-dynamics",
         "board_id": "psychometrician",
         "official_area_id": "industrial-organizational",
         "leaf_name": "Team Dynamics",
-        "current_question_count": 10,
+        "current_question_count": 13,
         "deficit_to_5": 0,
         "deficit_to_10": 0,
-        "deficit_to_20": 10,
+        "deficit_to_20": 7,
         "source_ids": [
             "aera-apa-ncme-testing-standards-2014",
             "apa-personnel-selection-principles-2018",
@@ -1275,15 +1290,16 @@
             "out_of_leaf_competency"
         ],
         "limitations": [
-            "Do not attribute team outcomes to one member without examining role clarity, resources, context, and group processes."
+            "Do not attribute team outcomes to one member without examining role clarity, resources, context, and group processes.",
+            "Batch 694 used source-readiness-bounded additional questions; independent academic review remains pending."
         ],
         "readiness": "READY_WITH_LIMITS",
         "readiness_reason": "The current PRC TOS and linked source-backed study materials support a bounded BoardPrep-derived leaf; scope remains limited to the listed evidence.",
         "review_reason": "",
         "defer_reason": "",
-        "max_new_questions": 7,
+        "max_new_questions": 4,
         "planned_new_questions": 0,
         "reviewed_at_batch": 643,
-        "evidence_hash": "e3df196f1148820fa028fda06c7f9caaf608085b88cbb97b0fe8d32daf6773df"
+        "evidence_hash": "edf2c7b3b2d097f2ae9549839d1862ebcadeb8477907b84ce2ed24e84e60764d"
     }
 ]

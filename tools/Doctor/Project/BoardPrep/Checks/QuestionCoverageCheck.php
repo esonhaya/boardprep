@@ -19,6 +19,8 @@ final class QuestionCoverageCheck implements CheckInterface
         $health = RepositoryHealthEngine::lastReport() ?? RepositoryHealthEngine::analyze();
         $statistics = $health->statistics->toArray();
         $warnings = 0;
+        $depth = (array) ($statistics['coverage']['subject_depth'] ?? []);
+        $belowTarget = array_values(array_filter((array) ($depth['below_target'] ?? []), 'is_array'));
         $details = [
             sprintf(
                 'Questions: %d total; production eligible counts are exposed per board.',
@@ -30,7 +32,34 @@ final class QuestionCoverageCheck implements CheckInterface
                 $statistics['totals']['effective_declared'] ?? 0,
                 $statistics['totals']['runtime'] ?? 0
             ),
+            sprintf(
+                'Effective board-subject depth: %d active selectors; %d below the %d-question planning target.',
+                (int) ($depth['active_board_subjects'] ?? 0),
+                count($belowTarget),
+                (int) ($depth['target'] ?? 100)
+            ),
         ];
+        $warnings += count($belowTarget);
+        foreach ($belowTarget as $scope) {
+            $details[] = sprintf(
+                'SUBJECT_DEPTH_BELOW_100 %s/%s: %d effective unique questions; deficit %d.',
+                (string) ($scope['board_id'] ?? ''),
+                (string) ($scope['subject_id'] ?? ''),
+                (int) ($scope['effective_eligible_question_count'] ?? 0),
+                (int) ($scope['deficit_to_target'] ?? 0)
+            );
+        }
+        foreach (array_slice((array) ($depth['review_candidates'] ?? []), 0, 10) as $review) {
+            if (!is_array($review)) continue;
+            $details[] = sprintf(
+                '%s %s/%s: %d concepts across %d topics; heuristic review only.',
+                (string) ($review['review_type'] ?? 'SUBJECT_COVERAGE_REVIEW'),
+                (string) ($review['board_id'] ?? ''),
+                (string) ($review['subject_id'] ?? ''),
+                (int) ($review['unique_concept_count'] ?? 0),
+                (int) ($review['unique_topic_count'] ?? 0)
+            );
+        }
         foreach ($health->boardSummaries as $boardId => $board) {
             $thin = (int) ($board['under20'] ?? 0);
             $warnings += $thin + (int) ($board['zero'] ?? 0);

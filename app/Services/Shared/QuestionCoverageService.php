@@ -72,11 +72,76 @@ final class QuestionCoverageService
             self::inspectQuestion($question, $catalog, $eligibleQuestionIds, $inventory, $issues);
         }
         self::finalizeReport($inventory, $issues);
+        $subjectDepth = self::subjectDepth($questions, $boards, $eligibilityIndex);
         return [
             'inventory' => $inventory,
             'issues' => $issues,
+            'subject_depth' => $subjectDepth,
             'blueprints' => self::blueprints($questions, $boards, $subjects, $boardSubjects, $eligibilityIndex),
         ];
+    }
+
+    /**
+     * Compute the learner-facing subject depth through the same effective
+     * eligibility resolver used for board practice. This is a planning signal,
+     * not a claim that every board subject ought to have exactly 100 items.
+     */
+    private static function subjectDepth(array $questions, array $boards, ?QuestionEligibilityIndex $index): array
+    {
+        $target = 100;
+        if ($index === null) return ['target' => $target, 'active_board_subjects' => 0, 'below_target' => [], 'review_candidates' => []];
+        $byScope = [];
+        foreach ($boards as $board) {
+            if (!is_array($board) || !is_scalar($board['id'] ?? null) || strtolower(trim((string) ($board['status'] ?? 'active'))) !== 'active') continue;
+            $boardId = strtolower(trim((string) $board['id']));
+            $boardCode = strtolower(trim((string) ($board['code'] ?? '')));
+            foreach ($questions as $question) {
+                if (!is_array($question) || strtolower(trim((string) ($question['status'] ?? 'active'))) !== 'active') continue;
+                $placement = $index->forExam($question, $boardId);
+                if ($placement === null && $boardCode !== '') $placement = $index->forExam($question, $boardCode);
+                if (!is_array($placement) || !is_scalar($placement['subject_id'] ?? null)) continue;
+                $subjectId = strtolower(trim((string) $placement['subject_id']));
+                $questionId = is_scalar($question['id'] ?? null) ? trim((string) $question['id']) : '';
+                if ($subjectId === '' || $questionId === '') continue;
+                $scope = $boardId . '|' . $subjectId;
+                if (isset($byScope[$scope]['question_ids'][$questionId])) continue;
+                $byScope[$scope]['board_id'] = $boardId;
+                $byScope[$scope]['subject_id'] = $subjectId;
+                $byScope[$scope]['question_ids'][$questionId] = true;
+                $taxonomy = is_array($question['taxonomy'] ?? null) ? $question['taxonomy'] : [];
+                $topic = trim((string) ($taxonomy['topic_id'] ?? $question['topic'] ?? ''));
+                $concept = trim((string) ($taxonomy['concept_id'] ?? $question['concept'] ?? ''));
+                if ($topic !== '') $byScope[$scope]['topics'][$topic] = true;
+                if ($concept !== '') {
+                    $byScope[$scope]['concepts'][$concept] = true;
+                    $byScope[$scope]['concept_counts'][$concept] = ($byScope[$scope]['concept_counts'][$concept] ?? 0) + 1;
+                }
+            }
+        }
+        $below = [];
+        $reviews = [];
+        foreach ($byScope as $scope) {
+            $count = count($scope['question_ids'] ?? []);
+            $topicCount = count($scope['topics'] ?? []);
+            $conceptCounts = (array) ($scope['concept_counts'] ?? []);
+            $largestConcept = $conceptCounts === [] ? 0 : max($conceptCounts);
+            $row = [
+                'board_id' => $scope['board_id'],
+                'subject_id' => $scope['subject_id'],
+                'effective_eligible_question_count' => $count,
+                'unique_concept_count' => count($scope['concepts'] ?? []),
+                'unique_topic_count' => $topicCount,
+                'deficit_to_target' => max(0, $target - $count),
+                'largest_concept_count' => $largestConcept,
+            ];
+            if ($count < $target) $below[] = $row;
+            if (($count >= 20 && $topicCount < 3) || ($count >= 20 && $largestConcept > $count * .4)) {
+                $reviews[] = $row + ['review_type' => $topicCount < 3 && $count >= 20 ? 'SUBJECT_TOPIC_COVERAGE_GAP' : 'SUBJECT_CONCEPT_CONCENTRATION'];
+            }
+        }
+        usort($below, static fn(array $a,array $b): int => [$a['deficit_to_target'] * -1,$a['board_id'],$a['subject_id']] <=> [$b['deficit_to_target'] * -1,$b['board_id'],$b['subject_id']]);
+        usort($reviews, static fn(array $a,array $b): int => [$a['board_id'],$a['subject_id'],$a['review_type']] <=> [$b['board_id'],$b['subject_id'],$b['review_type']]);
+        return ['target' => $target, 'active_board_subjects' => count($byScope), 'below_target' => $below, 'review_candidates' => $reviews];
     }
 
     private static function catalogs(array ...$groups): array

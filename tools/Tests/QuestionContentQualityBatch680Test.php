@@ -27,7 +27,8 @@ $questions = $index(\App\Core\App::storage()->all('questions'));
 $materials = $index(\App\Core\App::storage()->all('study-materials'));
 $sources = $index(\App\Core\App::storage()->all('sources'));
 $links = \App\Core\App::storage()->all('study-question-links');
-$assert(count($questions) === 8962, 'Canonical question count or ID uniqueness changed.');
+$assert(count($questions) >= 8962, 'Canonical question bank lost pre-expansion records.');
+$assert(array_diff(array_map('strval', range(1, 8962)), array_keys($questions)) === [], 'A pre-expansion canonical question identity is missing.');
 
 $expectedAnswers = [
     '1' => 'Participation rose during both changes, but the report cannot isolate either cause.',

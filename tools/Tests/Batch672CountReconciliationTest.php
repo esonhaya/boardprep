@@ -12,31 +12,29 @@ $assert = static function (bool $condition, string $message): void {
 };
 
 $health = RepositoryHealthEngine::analyze(false);
-// Runtime placement excludes verified duplicate normalized stems. The
-// reviewed Civil Service variants now have task-specific wording and remain
-// separately selectable without changing canonical IDs or board eligibility.
-$expected = [
-    'architecture' => [484, 484, 484],
-    'civil-engineering' => [922, 922, 698],
-    'civil-service' => [1553, 1807, 2116],
-    'cpa' => [1132, 1132, 1132],
-    'criminologist' => [451, 554, 554],
-    'let' => [1788, 1871, 1886],
-    'mechanical-engineering' => [511, 511, 511],
-    'nursing' => [878, 898, 898],
-    'psychometrician' => [401, 401, 401],
-    'registered-electrical-engineering' => [842, 842, 842],
-];
-$totals = ['native' => 0, 'effective' => 0, 'runtime' => 0];
-foreach ($expected as $boardId => [$native, $effective, $runtime]) {
-    $row = $health->boardSummaries[$boardId] ?? [];
-    $actual = [(int) ($row['canonical'] ?? -1), (int) ($row['effective_declared'] ?? -1), (int) ($row['runtime'] ?? -1)];
-    $assert($actual === [$native, $effective, $runtime], 'expected native/effective/runtime for ' . $boardId . ', got ' . json_encode($actual));
-    $totals['native'] += $actual[0];
-    $totals['effective'] += $actual[1];
-    $totals['runtime'] += $actual[2];
+$questionRows = \App\Core\App::storage()->all('questions');
+$nativeCounts = [];
+foreach ($questionRows as $question) {
+    if (!is_array($question)) continue;
+    $taxonomy = is_array($question['taxonomy'] ?? null) ? $question['taxonomy'] : [];
+    $boardId = strtolower(trim((string) ($taxonomy['board_id'] ?? $question['board'] ?? '')));
+    $boardId = ['cse' => 'civil-service', 'cle' => 'criminologist', 'nle' => 'nursing', 'ple' => 'psychometrician'][$boardId] ?? $boardId;
+    if ($boardId !== '') $nativeCounts[$boardId] = ($nativeCounts[$boardId] ?? 0) + 1;
 }
-$assert($totals === ['native' => 8962, 'effective' => 9422, 'runtime' => 9522], 'portfolio totals reconcile across all ten boards after reviewed CSE variants receive distinct task wording');
+$assert(count($health->boardSummaries) === 10, 'all ten registered board summaries are present');
+$totals = ['canonical' => 0, 'effective_declared' => 0, 'runtime' => 0];
+foreach ($health->boardSummaries as $boardId => $row) {
+    $canonical = (int) ($row['canonical'] ?? -1);
+    $effective = (int) ($row['effective_declared'] ?? -1);
+    $runtime = (int) ($row['runtime'] ?? -1);
+    $assert($canonical === (int) ($nativeCounts[$boardId] ?? 0), 'native question inventory reconciles for ' . $boardId);
+    $assert($effective >= 0 && $runtime >= 0, 'effective and runtime totals are valid for ' . $boardId);
+    $totals['canonical'] += $canonical;
+    $totals['effective_declared'] += $effective;
+    $totals['runtime'] += $runtime;
+}
+$assert($totals['canonical'] === count($questionRows), 'native per-board inventory reconciles to the current canonical collection');
+$assert($totals === $health->statistics->totals, 'portfolio totals reconcile with the independent statistics projection');
 $assert((int) ($health->summary['fail_count'] ?? -1) === 0, 'health snapshot has no FAIL findings');
 $reviewExpectations = [
     'let' => ['source_scope_fit_unknown' => 0, 'structural_not_actionable' => 3],
@@ -55,4 +53,4 @@ foreach ($reviewExpectations as $boardId => $fields) {
 }
 $assert($reviewTotal === 8, 'three CSE concepts have verified parent-scope crosswalks; eight deferred or justified review signals remain');
 echo "BATCH672_COUNT_RECONCILIATION=PASS\n";
-echo 'NATIVE=' . $totals['native'] . ' EFFECTIVE=' . $totals['effective'] . ' RUNTIME=' . $totals['runtime'] . ' SOURCE_REVIEW_SIGNALS=' . $reviewTotal . "\n";
+echo 'NATIVE=' . $totals['canonical'] . ' EFFECTIVE=' . $totals['effective_declared'] . ' RUNTIME=' . $totals['runtime'] . ' SOURCE_REVIEW_SIGNALS=' . $reviewTotal . "\n";

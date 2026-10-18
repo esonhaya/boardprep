@@ -20,7 +20,9 @@ $materials = $read('storage/study-materials.json');
 $links = $read('storage/study-question-links.json');
 $sourceRows = $read('storage/academic-source-reviews.json');
 $decisions = $read('storage/academic-review-decisions.json');
-$assert(count($questions) === 8962, 'Canonical question identities changed during Batch 686.');
+$questionIds = array_map(static fn(array $question): string => (string) ($question['id'] ?? ''), $questions);
+$assert(count($questionIds) >= 8962 && count(array_unique($questionIds)) === count($questionIds), 'Canonical question identities changed during Batch 686.');
+$assert(array_diff(array_map('strval', range(1, 8962)), $questionIds) === [], 'A pre-expansion canonical question identity is missing.');
 
 $sourceSummary = AcademicSourceReviewService::summarize($questions, $sources, $sourceRows, $links, $materials);
 $assert(($sourceSummary['reviewed_questions'] ?? 0) === 100, 'The source sample is not 100 distinct questions.');

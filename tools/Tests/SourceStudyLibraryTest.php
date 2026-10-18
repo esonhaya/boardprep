@@ -53,7 +53,8 @@ if (count($cse) < 8 || count($let) < 36 || !isset($constitution['exam_focus']['c
 }
 $questions = \App\Core\App::storage()->all('questions');
 $ids = array_map(static fn(array $question): string => (string) ($question['id'] ?? ''), $questions);
-if (count($questions) !== 8962 || count(array_unique($ids)) !== count($questions)) {
+if (count($questions) < 8962 || count(array_unique($ids)) !== count($questions)
+    || array_diff(array_map('strval', range(1, 8962)), $ids) !== []) {
     throw new RuntimeException('source library work changed canonical question identities');
 }
 $constitutionLinks = StudyLibraryService::questionsFor('constitution-review-foundation');

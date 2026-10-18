@@ -39,6 +39,7 @@ final class QuestionEditorialEvidenceAudit
         'evaluation' => ['EVALUATION'],
         'decide' => ['EVALUATION'],
         'professional judgment' => ['EVALUATION'],
+        'instructional judgment' => ['APPLICATION', 'EVALUATION'],
         'instructional decision making' => ['EVALUATION'],
         'modeling' => ['APPLICATION', 'ANALYSIS'],
     ];
@@ -71,7 +72,6 @@ final class QuestionEditorialEvidenceAudit
             if ($id === '') {
                 continue;
             }
-            $questionsById[$id] = $question;
             $taxonomy = is_array($question['taxonomy'] ?? null) ? $question['taxonomy'] : [];
             $board = strtolower(self::text($taxonomy['board_id'] ?? $question['board'] ?? 'unknown'));
             $board = $board !== '' ? $board : 'unknown';
@@ -143,7 +143,17 @@ final class QuestionEditorialEvidenceAudit
                 $stemsByBoard[$board][$normalizedStem][] = $id;
                 $punctuationKey = self::punctuationNormalizedStem($normalizedStem);
                 if ($punctuationKey !== '') {
-                    $punctuationVariantsByBoard[$board][$punctuationKey][$normalizedStem][] = $id;
+                    if (!isset($punctuationVariantsByBoard[$board][$punctuationKey])) {
+                        // Keep one surface form for the overwhelmingly common
+                        // single-form case. Retain all forms only after a real
+                        // punctuation-normalized collision is observed.
+                        $punctuationVariantsByBoard[$board][$punctuationKey] = $normalizedStem;
+                    } elseif (is_array($punctuationVariantsByBoard[$board][$punctuationKey])) {
+                        $punctuationVariantsByBoard[$board][$punctuationKey][$normalizedStem] = true;
+                    } elseif ($punctuationVariantsByBoard[$board][$punctuationKey] !== $normalizedStem) {
+                        $first = $punctuationVariantsByBoard[$board][$punctuationKey];
+                        $punctuationVariantsByBoard[$board][$punctuationKey] = [$first => true, $normalizedStem => true];
+                    }
                 }
             }
             if (preg_match('/\bThe competency focus is\b|\(Review item\s+[^)]*\)/i', $stem) === 1) {
@@ -156,6 +166,22 @@ final class QuestionEditorialEvidenceAudit
                 );
             }
             unset($row);
+        }
+
+        // Retain full records only for exact-stem duplicate candidates. A map
+        // of every decoded question duplicates thousands of array hash tables
+        // and exhausted PHP's normal 128 MiB CLI limit as the canonical bank
+        // grew, even though almost all records are never used by this check.
+        $duplicateCandidateIds = [];
+        foreach ($stemsByBoard as $stemGroups) {
+            foreach ($stemGroups as $ids) if (count($ids) > 1) foreach ($ids as $id) $duplicateCandidateIds[(string) $id] = true;
+        }
+        if ($duplicateCandidateIds !== []) {
+            foreach ($questions as $question) {
+                if (!is_array($question)) continue;
+                $id = self::text($question['id'] ?? '');
+                if ($id !== '' && isset($duplicateCandidateIds[$id])) $questionsById[$id] = $question;
+            }
         }
 
         foreach ($stemsByBoard as $board => $stemGroups) {
@@ -198,12 +224,10 @@ final class QuestionEditorialEvidenceAudit
         }
         foreach ($punctuationVariantsByBoard as $board => $variants) {
             foreach ($variants as $surfaceForms) {
-                if (count($surfaceForms) < 2) {
-                    continue;
-                }
+                if (!is_array($surfaceForms) || count($surfaceForms) < 2) continue;
                 $ids = [];
-                foreach ($surfaceForms as $surfaceIds) {
-                    array_push($ids, ...$surfaceIds);
+                foreach (array_keys($surfaceForms) as $surface) {
+                    array_push($ids, ...($stemsByBoard[$board][$surface] ?? []));
                 }
                 $ids = array_values(array_unique($ids));
                 sort($ids, SORT_NATURAL);

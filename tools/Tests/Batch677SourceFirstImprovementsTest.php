@@ -56,7 +56,8 @@ foreach ($links as $link) {
 }
 
 $assert(count($questionById) === count($questions), 'canonical question IDs remain unique');
-$assert(count($questions) === 8962, 'canonical question count remains stable');
+$assert(count($questions) >= 8962, 'canonical question bank retains its pre-expansion records');
+$assert(array_diff(array_map('strval', range(1, 8962)), array_keys($questionById)) === [], 'all pre-expansion canonical IDs remain present');
 
 $letQuestion = $questionById['135'] ?? [];
 $letMaterial = $materialById['let-assessment-review'] ?? [];

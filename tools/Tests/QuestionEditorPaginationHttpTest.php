@@ -20,8 +20,13 @@ foreach ([1, 2] as $pageNumber) {
     if (strlen($html) > 400_000) {
         throw new RuntimeException('Question editor page ' . $pageNumber . ' exceeded the 400 KB response budget.');
     }
-    if (!str_contains($html, 'Showing 50 of 8962 matching questions · Page ' . $pageNumber . ' of 180')) {
+    if (!preg_match('/Showing 50 of ([0-9]+) matching questions · Page ' . $pageNumber . ' of ([0-9]+)/u', $html, $countMatch)) {
         throw new RuntimeException('Question editor page ' . $pageNumber . ' did not report the expected result count and page.');
+    }
+    $matchingCount = (int) $countMatch[1];
+    $expectedPages = (int) ceil($matchingCount / 50);
+    if ($matchingCount < 8962 || (int) $countMatch[2] !== $expectedPages) {
+        throw new RuntimeException('Question editor pagination does not match the current canonical inventory.');
     }
     if (preg_match_all('/<article class="card inventory-item">.*?<strong>\s*#([^<]+)<\/strong>/s', $html, $matches) !== 50) {
         throw new RuntimeException('Question editor page ' . $pageNumber . ' did not render exactly 50 question cards.');

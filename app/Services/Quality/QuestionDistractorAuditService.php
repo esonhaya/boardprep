@@ -59,6 +59,20 @@ final class QuestionDistractorAuditService
                 }
             }
 
+            $answer = trim((string) ($question['answer'] ?? ''));
+            $answerIndex = array_search($answer, array_map('strval', $choices), true);
+            $negativeLeadCount = 0;
+            $negativeLeadIndexes = [];
+            foreach ($choices as $choiceIndex => $choice) {
+                if (preg_match('/^\s*(?:ignore|avoid|dismiss|exclude|refuse|conceal|hide|withhold|silence|punish|blame|skip|cancel|wait for|do nothing|promise absolute secrecy)\b/iu', (string) $choice) === 1) {
+                    $negativeLeadCount++;
+                    $negativeLeadIndexes[] = $choiceIndex;
+                }
+            }
+            if ($answerIndex !== false && count($choices) === 4 && $negativeLeadCount >= 3 && !in_array($answerIndex, $negativeLeadIndexes, true)) {
+                $findings[] = self::finding($id, 'REVIEW', 'OBVIOUS_POLARITY_CUE', 'At least three distractors begin with an overtly avoidant or punitive action while the keyed option does not; review whether tone reveals the answer.', ['answer_index' => $answerIndex, 'negative_lead_indexes' => $negativeLeadIndexes]);
+            }
+
             $taxonomy = is_array($question['taxonomy'] ?? null) ? $question['taxonomy'] : [];
             $group = strtolower(trim((string) ($taxonomy['board_id'] ?? $question['board'] ?? ''))) . '|' . strtolower(trim((string) ($taxonomy['subject_id'] ?? $question['subject'] ?? '')));
             $answerIndex = array_search(trim((string) ($question['answer'] ?? '')), array_map('strval', $choices), true);

@@ -102,9 +102,7 @@ final class StudyPdfGenerator
             throw new RuntimeException('Unable to create the study PDF output directory.');
         }
         foreach ($outputs as $path => $pdf) {
-            if (!is_file($path) && file_put_contents($path, $pdf, LOCK_EX) !== strlen($pdf)) {
-                throw new RuntimeException('Unable to write generated PDF: ' . basename($path));
-            }
+            self::atomicWrite($path, $pdf);
         }
         self::atomicWrite($manifestPath, $manifestJson);
         return ['status' => 'GENERATED', 'files' => $entries, 'mode' => 'write'];
@@ -251,7 +249,7 @@ final class StudyPdfGenerator
         $temporary = $path . '.tmp-' . bin2hex(random_bytes(4));
         if (file_put_contents($temporary, $contents, LOCK_EX) !== strlen($contents) || !rename($temporary, $path)) {
             @unlink($temporary);
-            throw new RuntimeException('Unable to safely update study PDF manifest.');
+            throw new RuntimeException('Unable to safely update generated study resource: ' . basename($path) . '.');
         }
     }
 

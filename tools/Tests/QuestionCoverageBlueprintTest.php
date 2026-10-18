@@ -6,6 +6,7 @@ require_once dirname(__DIR__, 2) . '/app/Core/Autoloader.php';
 \App\Core\Autoloader::register();
 
 use App\Services\Shared\QuestionCoverageService;
+use App\Services\Question\QuestionEligibilityIndex;
 
 $question = static fn(string $id, string $subject, string $topic, string $difficulty): array => [
     'id' => $id,
@@ -70,6 +71,30 @@ if (($categories['english']['available'] ?? null) !== 3
     throw new RuntimeException('sparse and empty blueprint categories were silently distorted');
 }
 
+$depthQuestions = [];
+for ($i = 1; $i <= 99; $i++) {
+    $row = $question((string) $i, 'english', 'agreement', $i % 2 ? 'medium' : 'hard');
+    $row['status'] = 'active';
+    $depthQuestions[] = $row;
+}
+$depthIndex = new QuestionEligibilityIndex([[
+    'id' => 'depth-test',
+    'question_ids' => array_map(static fn(array $row): string => (string) $row['id'], $depthQuestions),
+    'exam_ids' => ['let'],
+    'subject_ids' => ['let' => 'english'],
+]]);
+$depthReport = QuestionCoverageService::analyze(
+    $depthQuestions, $boards, $subjects, $relations, $domains, $topics, $concepts, $depthIndex
+);
+$below = $depthReport['subject_depth']['below_target'] ?? [];
+if (count($below) !== 1
+    || ($below[0]['board_id'] ?? '') !== 'let'
+    || ($below[0]['subject_id'] ?? '') !== 'english'
+    || ($below[0]['effective_eligible_question_count'] ?? 0) !== 99
+    || ($below[0]['deficit_to_target'] ?? 0) !== 1) {
+    throw new RuntimeException('Doctor subject-depth signal failed to count the effective learner-facing scope.');
+}
+
 $legacy = $questions[0];
 $legacy['id'] = 'legacy';
 $legacy['subject'] = ' English ';
@@ -96,7 +121,9 @@ if (count($selected) !== $report['inventory']['eligible']) {
 $doctor = (new \Tools\Doctor\Project\BoardPrep\Checks\QuestionCoverageCheck())->run();
 if ($doctor->title !== 'Question Coverage'
     || !in_array($doctor->status, ['PASS', 'WARNING'], true)
-    || !str_contains(implode("\n", $doctor->details), 'production eligible')) {
+    || !str_contains(implode("\n", $doctor->details), 'production eligible')
+    || !str_contains(implode("\n", $doctor->details), 'Effective board-subject depth')
+    || !str_contains(implode("\n", $doctor->details), 'SUBJECT_DEPTH_BELOW_100')) {
     throw new RuntimeException('Doctor coverage boundary did not expose repository diagnostics');
 }
 

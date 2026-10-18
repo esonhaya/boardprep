@@ -30,6 +30,15 @@ $questions = [[
         'The teacher should remove every choice from the task.',
     ],
 ], [
+    'id' => 'obvious-polarity-fixture',
+    'answer' => 'Check the facts, hear from those affected, and use the authorized process.',
+    'choices' => [
+        'Check the facts, hear from those affected, and use the authorized process.',
+        'Ignore the report until another person confirms it.',
+        'Avoid asking what happened so no one feels uncomfortable.',
+        'Blame the learner who raised the concern for causing conflict.',
+    ],
+], [
     'id' => 'values-repeat-a', 'answer' => 'A reasoned first response.',
     'taxonomy' => ['board_id' => 'let', 'subject_id' => 'values-education'],
     'choices' => ['A reasoned first response.', 'Do not examine the facts.', 'Use a fair process.', 'Invite respectful discussion.'],
@@ -48,6 +57,7 @@ if (!$has('values-duplicate-fixture', 'EXACT_OR_NORMALIZED_DUPLICATE')) throw ne
 if ($has('decimal-difference-fixture', 'EXACT_OR_NORMALIZED_DUPLICATE')) throw new RuntimeException('Meaningful decimal differences were collapsed into a false duplicate.');
 if (!$has('long-choice-fixture', 'OPTION_LENGTH_OUTLIER')) throw new RuntimeException('The option-length review cue was not recorded.');
 if (!$has('near-choice-fixture', 'NEAR_DUPLICATE_OPTIONS')) throw new RuntimeException('The similar wording review cue was not recorded.');
+if (!$has('obvious-polarity-fixture', 'OBVIOUS_POLARITY_CUE')) throw new RuntimeException('The obvious polarity review cue was not recorded.');
 if (!count(array_filter($audit['findings'], static fn(array $row): bool => ($row['code'] ?? '') === 'REPEATED_DISTRACTOR_TEXT' && ($row['details']['group'] ?? '') === 'let|values-education'))) throw new RuntimeException('Repeated distractor text was not added to the nonbinding review queue.');
 $format = ChoiceDuplicateDetector::validate(['Correct answer!', 'correct answer!']);
 if (($format[0]['severity'] ?? '') !== 'error') throw new RuntimeException('An exact duplicate after case/spacing normalization did not fail deterministic integrity.');

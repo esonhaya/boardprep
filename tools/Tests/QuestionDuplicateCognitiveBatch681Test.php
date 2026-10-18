@@ -62,7 +62,8 @@ $expectedAnswers = [
     '5491' => 'The committee approved the revised procedure.',
     '5492' => 'The file is complete, accurate, and ready for review.',
 ];
-$assert(count($questions) === 8962 && count($questionsById) === 8962, 'Canonical question count or ID uniqueness changed.');
+$assert(count($questions) >= 8962 && count($questionsById) === count($questions), 'Canonical question count or ID uniqueness changed.');
+$assert(array_diff(array_map('strval', range(1, 8962)), array_keys($questionsById)) === [], 'A pre-expansion canonical question identity is missing.');
 $assert(($duplicateReview['summary']['groups_before'] ?? 0) === 88
     && ($duplicateReview['summary']['excess_records_before'] ?? 0) === 236
     && ($duplicateReview['summary']['classifications']['TRUE_DUPLICATE'] ?? 0) === 85
@@ -145,7 +146,9 @@ foreach ($duplicateGroups as $group) {
     $assert(count($intents) === 1, 'Equivalent duplicate copies carry different cognitive labels: ' . (string) ($group['entity_id'] ?? ''));
 }
 $missingIntentCount = count(array_filter($questions, static fn(array $question): bool => trim((string) ($question['cognitive_intent'] ?? '')) === ''));
-$assert(count($duplicateIntentIds) === 309 && $missingIntentCount === 2416, 'Cognitive intent coverage did not improve by 324 conservative, individually reviewed labels.');
+$newUnlabeledCount = count(array_filter($questions, static fn(array $question): bool => (int) ($question['id'] ?? 0) >= 8963 && trim((string) ($question['cognitive_intent'] ?? '')) === ''));
+$assert(count($duplicateIntentIds) === 309 && $newUnlabeledCount === 65 && $missingIntentCount === 2377 + $newUnlabeledCount,
+    'The Batch 692 unlabeled baseline changed or new Values items were not kept explicit for editorial review.');
 $unmappedLiveIntents = array_filter(
     $audit['findings'],
     static fn(array $finding): bool => ($finding['code'] ?? '') === 'UNMAPPED_COGNITIVE_INTENT'

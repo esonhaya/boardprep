@@ -36,13 +36,13 @@ $removeTree = static function (string $directory) use (&$removeTree): void {
     rmdir($directory);
 };
 
-$run = static function (string $command, string $workingDirectory): string {
+$run = static function (string $command, string $workingDirectory, ?array $environment = null): string {
     $descriptor = [
         0 => ['file', '/dev/null', 'r'],
         1 => ['pipe', 'w'],
         2 => ['pipe', 'w'],
     ];
-    $process = proc_open($command, $descriptor, $pipes, $workingDirectory);
+    $process = proc_open($command, $descriptor, $pipes, $workingDirectory, $environment);
     if (!is_resource($process)) {
         throw new RuntimeException('Unable to start release command.');
     }
@@ -159,7 +159,7 @@ try {
     $assert(unlink($packageTwo), 'verified archive could not be removed after extraction');
     $extractedRoot = $extract . '/' . rtrim($packageRoot, '/');
 
-$integrityCode = <<<'PHP'
+    $integrityCode = <<<'PHP'
 putenv('APP_ENV=testing');
 putenv('APP_DEBUG=false');
 require 'app/Core/Autoloader.php';
@@ -169,7 +169,12 @@ $report = App\Services\Shared\ContentIntegrityService::analyzeRepository();
 echo json_encode($report, JSON_THROW_ON_ERROR), PHP_EOL;
 exit(($report['portfolio']['status'] ?? '') === 'FAIL' ? 1 : 0);
 PHP;
-    $result = $run($php . ' -r ' . escapeshellarg($integrityCode), $extractedRoot);
+    $packageEnvironment = getenv();
+    if (!is_array($packageEnvironment)) $packageEnvironment = [];
+    $packageEnvironment['APP_ENV'] = 'testing';
+    $packageEnvironment['APP_DEBUG'] = 'false';
+    $packageEnvironment['APP_STORAGE_PATH'] = $extractedRoot . '/storage';
+    $result = $run($php . ' -r ' . escapeshellarg($integrityCode), $extractedRoot, $packageEnvironment);
     $integrity = json_decode(trim($result), true, 512, JSON_THROW_ON_ERROR);
     $portfolio = $integrity['portfolio'] ?? [];
     $canonicalIds = [];

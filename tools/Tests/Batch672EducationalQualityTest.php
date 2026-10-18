@@ -31,7 +31,8 @@ foreach ($questions as $question) {
     $assert($id !== '' && !isset($questionById[$id]), 'canonical question ID is unique: ' . $id);
     $questionById[$id] = $question;
 }
-$assert(count($questionById) === 8962, 'canonical question total remains 8,962');
+$assert(count($questionById) >= 8962, 'canonical bank retains the Batch 692 question set while allowing reviewed additions');
+$assert(array_diff(array_map('strval', range(1, 8962)), array_keys($questionById)) === [], 'every pre-expansion canonical identity remains present');
 $materialById = [];
 foreach ($materials as $material) {
     if (is_array($material)) $materialById[(string) ($material['id'] ?? '')] = $material;
