@@ -19,6 +19,8 @@ The complete before/after inventories are in [`batch-694-subject-depth-before.js
 | Values lessons substantially expanded | — | 1 |
 | Published downloadable study resources | 11 | 22 |
 
+The selector count fell from 45 to 43 after the classification audit removed two legacy entries that do not correspond to separate blueprint subjects. REE Foundation's 36 questions remain in the valid REE Mathematics selector. Architecture Foundation's 120 questions were routed, 30 each, to Architectural Design and Site Planning, History and Theory, Planning and Practice, and Utilities and Construction. No canonical question IDs were removed.
+
 ## Every selector below 100 at baseline
 
 Counts are unique effective eligible question IDs. The removed REE Foundation pseudo-selector is shown as inactive; its items remain available through the corrected Mathematics selector. Architecture count gains below reflect eligibility corrections and reclassification, not new question authorship.
@@ -80,6 +82,16 @@ Automated checks cover ID preservation and uniqueness, answer membership, four d
 | Owner approved | Pending |
 | Provider verified | Pending/not supplied |
 | Independently reviewed | Pending |
+
+## Hosted verification and release state
+
+The full hosted site explorer passed on the content commit [`0831345`](https://github.com/esonhaya/boardprep/actions/runs/39113273109) with seed 691: 100 routes, 290 actions, all ten boards, zero confirmed defects, zero review cues, and no console, page, HTTP, or internal-request errors. Its account explorer recorded 32 of 32 synthetic scenarios passing. The sanitized explorer report is retained in the run artifact `boardprep-site-explorer-0831345d7089fe7aa15b29842eed323ad2a38d14-39113273109`.
+
+Hosted Chromium acceptance passed on the exact follow-up commit `f7674ef97988cb91a5d90154c0f4f574241ac214`: 60 passed, 0 failed, 8 expected project-specific skips, 0 flaky, and 0 not run. The successful run is [39114896020](https://github.com/esonhaya/boardprep/actions/runs/39114896020). Its run and job responses were fetched from GitHub's API, checked for exact workflow/commit identity and successful conclusion, validated with `BrowserEvidenceService::validateRecord`, hashed, and added to `docs/release-evidence/browser-workflows.json`. The site explorer remains tied to the content commit because the follow-up commit changed only a Doctor test.
+
+The first full Doctor release run found one P0 developer-health failure: `Batch675StaticDoctorPrecisionTest` used a hard-coded source line for the only verified spread-forwarding call, which moved when the new depth check was added. The test now resolves and asserts the unique call's current source line. Its focused rerun passed. The follow-up [release-gate run 39114896046](https://github.com/esonhaya/boardprep/actions/runs/39114896046) passed Full Doctor release with P0=0, P1=0, P2=1, P3=2; `DEVELOPER_HEALTH` passed. All 14 security/privacy tests, the ten-board learner HTTP journey, and production preflight/smoke also passed on that commit.
+
+The first Product Readiness evaluation on `f7674ef` ran before its Chromium workflow completed, so it could not recognize that run as registered evidence. The evidence record is now present and a follow-up release-gate evaluation is triggered by this registration commit. Product Readiness remains blocked until owner privacy terms, human MVP/device review, and live HTTPS/provider evidence are supplied; public account routes remain disabled. This batch does not approve launch or claim independent academic/security review.
 
 Public account registration remains hard-disabled. The batch does not alter account-security implementation, learner attempt/history records, flashcard state, anonymous learner state, user-private files, or the local question-usage delta. Historical owner feedback, stashes, HayaDoctor pin, and unrelated work remain protected.
 
