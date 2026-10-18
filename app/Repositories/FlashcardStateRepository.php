@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Repositories;
 
 use App\Services\Learning\LearnerIdentityService;
+use App\Services\Accounts\AccountLifecycleLock;
 use App\Contracts\StorageInterface;
 use DateTimeImmutable;
 use InvalidArgumentException;
@@ -77,8 +78,13 @@ final class FlashcardStateRepository extends BaseRepository
 
     public function save(array $data): array
     {
-        $cardKey = $this->required($data['card_key'] ?? null, 'card_key');
         $userId = $this->userId();
+        return AccountLifecycleLock::withWritableLearner($userId, fn(): array => $this->saveForLearner($data, $userId));
+    }
+
+    private function saveForLearner(array $data, string $userId): array
+    {
+        $cardKey = $this->required($data['card_key'] ?? null, 'card_key');
         $now = (new DateTimeImmutable('now'))->format(DATE_ATOM);
         $existing = $this->find($cardKey);
 
@@ -115,7 +121,11 @@ final class FlashcardStateRepository extends BaseRepository
 
     public function delete(string $cardKey): bool
     {
-        return parent::delete($this->recordId($cardKey));
+        $userId = $this->userId();
+        return AccountLifecycleLock::withWritableLearner(
+            $userId,
+            fn(): bool => parent::delete($this->recordId($cardKey))
+        );
     }
 
     public function exists(string $cardKey): bool
@@ -138,21 +148,22 @@ final class FlashcardStateRepository extends BaseRepository
     public function replaceAll(array $records): void
     {
         $userId = $this->userId();
-        $others = array_values(array_filter(
-            parent::all(),
-            static fn(mixed $record): bool => is_array($record)
-                && (string) ($record['user_id'] ?? '') !== $userId
-        ));
-        $mine = array_map(fn(array $record): array => $this->saveData($record), $records);
-
-        parent::replaceAll(array_merge($others, $mine));
+        AccountLifecycleLock::withWritableLearner($userId, function () use ($records, $userId): void {
+            $others = array_values(array_filter(
+                parent::all(),
+                static fn(mixed $record): bool => is_array($record)
+                    && (string) ($record['user_id'] ?? '') !== $userId
+            ));
+            $mine = array_map(fn(array $record): array => $this->saveData($record, $userId), $records);
+            parent::replaceAll(array_merge($others, $mine));
+        });
     }
 
-    private function saveData(array $data): array
+    private function saveData(array $data, string $userId): array
     {
         $cardKey = $this->required($data['card_key'] ?? null, 'card_key');
         $data['id'] = $this->recordId($cardKey);
-        $data['user_id'] = $this->userId();
+        $data['user_id'] = $userId;
         return $data;
     }
 

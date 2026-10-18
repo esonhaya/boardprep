@@ -50,6 +50,10 @@ const result = spawnSync(process.execPath, [
   stdio: 'inherit',
 });
 
+try {
+  fs.unlinkSync(path.join(evidenceDirectory, 'account-fixture-private.json'));
+} catch {}
+
 const repositoryRoot = path.resolve(__dirname, '..');
 const evidencePath = (name) => path.join(evidenceDirectory, `${name}.json`);
 const readEvidence = (name) => JSON.parse(fs.readFileSync(evidencePath(name), 'utf8'));
@@ -78,20 +82,29 @@ if (exitStatus === 0) {
       'anonymous-access-and-account-authorization',
       'anonymous-data-linking-disabled',
       'csrf-registration-rejection',
+      'rotated-csrf-replay-rejection',
       'registration-recovery-code-generation',
       'duplicate-registration-enumeration',
       'wrong-password-generic-response',
       'login-and-session-rotation',
       'authenticated-profile-update',
+      'account-practice-history-and-flashcard-progress',
       'account-export-step-up',
+      'encrypted-backup-restore-fixture-integrity',
       'logout-authorization',
       'account-profile-isolation',
+      'account-b-export-isolation',
       'independent-session-profile-persistence',
       'single-use-recovery-code',
       'recovery-replay-rejection',
       'password-change-revokes-other-session',
+      'anonymous-learner-c-remains-separate',
+      'deletion-removes-owned-records-and-revokes-credentials',
       'reauthenticated-deletion-request',
+      'account-a-b-and-anonymous-c-survive-d-deletion',
+      'expired-and-tampered-account-requests-rejected',
       'login-rate-limit',
+      'qa-artifact-secret-exclusion',
     ];
     const commit = spawnSync('git', ['rev-parse', 'HEAD'], {
       cwd: repositoryRoot,

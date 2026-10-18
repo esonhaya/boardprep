@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Services;
 
 use App\Repositories\AttemptRepository;
+use App\Services\Accounts\AccountLifecycleLock;
 use App\Services\Learning\LearnerIdentityService;
 
 class AttemptService
@@ -19,6 +20,13 @@ class AttemptService
     ): array {
         $attempt = $this->normalizeAttempt($attempt);
         $attempt['user_id'] = LearnerIdentityService::current();
+        return AccountLifecycleLock::withWritableLearner($attempt['user_id'], function () use ($attempt): array {
+            return $this->saveForLearner($attempt);
+        });
+    }
+
+    private function saveForLearner(array $attempt): array
+    {
         $sessionId = is_scalar($attempt['session_id'] ?? null)
             ? trim((string) $attempt['session_id'])
             : '';

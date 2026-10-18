@@ -319,7 +319,7 @@ try {
     echo "[PASS] Anonymous identity isolation, persistent cross-session preferences, two-account record/export isolation, recovery replay rejection, deletion lockout, password change, and stale/tampered session rejection.\n";
     echo "[PASS] Concurrent duplicate registration creates one unique account record; concurrent profile mutations lose no updates.\n";
     echo "[PASS] Corrupt account storage fails closed without overwriting the damaged source.\n";
-    echo "[PASS] Unencrypted runtime backup excludes the private credential store until protected backup/restore is designed.\n";
+    echo "[PASS] Unencrypted runtime backup excludes the private credential store; dedicated encrypted account backup is covered separately.\n";
 } finally {
     if (session_status() === PHP_SESSION_ACTIVE) session_write_close();
     $iterator = new RecursiveIteratorIterator(

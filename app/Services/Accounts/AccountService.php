@@ -82,25 +82,32 @@ final class AccountService
             return false;
         }
 
-        $account = $normalized !== null ? $this->repository->findByUsername($normalized) : null;
-        $hash = is_array($account) && is_string($account['password_hash'] ?? null)
-            ? $account['password_hash']
-            : self::dummyHash();
-        $verified = AccountPasswordPolicy::verify($password, $hash);
-        if (!$verified || !is_array($account) || ($account['status'] ?? '') !== 'active') {
-            return false;
-        }
+        return AccountLifecycleLock::withLock(function () use ($normalized, $password): bool {
+            $account = $normalized !== null ? $this->repository->findByUsername($normalized) : null;
+            $hash = is_array($account) && is_string($account['password_hash'] ?? null)
+                ? $account['password_hash']
+                : self::dummyHash();
+            $verified = AccountPasswordPolicy::verify($password, $hash);
+            if (!$verified || !is_array($account) || ($account['status'] ?? '') !== 'active') {
+                return false;
+            }
 
-        if (AccountPasswordPolicy::needsRehash($hash)) {
-            $rehash = AccountPasswordPolicy::hash($password);
-            $account = $this->repository->updateById((string) $account['account_id'], static function (array $current) use ($rehash): array {
-                $current['password_hash'] = $rehash;
-                $current['updated_at'] = gmdate(DATE_ATOM);
-                return $current;
-            }) ?? $account;
-        }
-        AccountSessionService::login($account);
-        return true;
+            if (AccountPasswordPolicy::needsRehash($hash)) {
+                $rehash = AccountPasswordPolicy::hash($password);
+                $account = $this->repository->updateById((string) $account['account_id'], static function (array $current) use ($rehash): array {
+                    if (($current['status'] ?? '') === 'active') {
+                        $current['password_hash'] = $rehash;
+                        $current['updated_at'] = gmdate(DATE_ATOM);
+                    }
+                    return $current;
+                }) ?? $account;
+            }
+            if (($account['status'] ?? '') !== 'active') {
+                return false;
+            }
+            AccountSessionService::login($account);
+            return true;
+        });
     }
 
     public function changePassword(string $currentPassword, string $newPassword): bool
@@ -110,29 +117,37 @@ final class AccountService
             return false;
         }
         AccountPasswordPolicy::validate($newPassword);
-        $account = $this->repository->findById((string) $session['account_id']);
-        if (!is_array($account) || !AccountPasswordPolicy::verify($currentPassword, (string) ($account['password_hash'] ?? ''))) {
-            return false;
-        }
-
-        $hash = AccountPasswordPolicy::hash($newPassword);
-        $changed = false;
-        $updated = $this->repository->updateById((string) $session['account_id'], static function (array $current) use ($currentPassword, $hash, &$changed): array {
-            if (!is_string($current['password_hash'] ?? null)
-                || !AccountPasswordPolicy::verify($currentPassword, $current['password_hash'])) {
-                return $current;
+        return AccountLifecycleLock::withLock(function () use ($session, $currentPassword, $newPassword): bool {
+            $freshSession = AccountSessionService::current();
+            if (!is_array($freshSession) || $freshSession['account_id'] !== $session['account_id']) {
+                return false;
             }
-            $current['password_hash'] = $hash;
-            $current['auth_version'] = (int) ($current['auth_version'] ?? 0) + 1;
-            $current['updated_at'] = gmdate(DATE_ATOM);
-            $changed = true;
-            return $current;
+            $account = $this->repository->findById((string) $session['account_id']);
+            if (!is_array($account) || ($account['status'] ?? '') !== 'active'
+                || !AccountPasswordPolicy::verify($currentPassword, (string) ($account['password_hash'] ?? ''))) {
+                return false;
+            }
+
+            $hash = AccountPasswordPolicy::hash($newPassword);
+            $changed = false;
+            $updated = $this->repository->updateById((string) $session['account_id'], static function (array $current) use ($currentPassword, $hash, &$changed): array {
+                if (($current['status'] ?? '') !== 'active'
+                    || !is_string($current['password_hash'] ?? null)
+                    || !AccountPasswordPolicy::verify($currentPassword, $current['password_hash'])) {
+                    return $current;
+                }
+                $current['password_hash'] = $hash;
+                $current['auth_version'] = (int) ($current['auth_version'] ?? 0) + 1;
+                $current['updated_at'] = gmdate(DATE_ATOM);
+                $changed = true;
+                return $current;
+            });
+            if (!is_array($updated) || !$changed) {
+                return false;
+            }
+            AccountSessionService::refresh($updated);
+            return true;
         });
-        if (!is_array($updated) || !$changed) {
-            return false;
-        }
-        AccountSessionService::refresh($updated);
-        return true;
     }
 
     public function rotateRecoveryCodes(string $currentPassword): ?array
@@ -141,29 +156,36 @@ final class AccountService
         if (!is_array($session) || !$this->reserveReauthentication($session)) {
             return null;
         }
-        $account = $this->repository->findById((string) $session['account_id']);
-        if (!is_array($account) || !AccountPasswordPolicy::verify($currentPassword, (string) ($account['password_hash'] ?? ''))) {
-            return null;
-        }
-        $codes = self::newRecoveryCodes();
-        $hashes = array_map(static fn(string $code): string => hash('sha256', self::normalizeRecoveryCode($code)), $codes);
-        $rotated = false;
-        $updated = $this->repository->updateById((string) $session['account_id'], static function (array $current) use ($currentPassword, $hashes, &$rotated): array {
-            if (($current['status'] ?? '') !== 'active'
-                || !is_string($current['password_hash'] ?? null)
-                || !AccountPasswordPolicy::verify($currentPassword, $current['password_hash'])) {
-                return $current;
+        return AccountLifecycleLock::withLock(function () use ($session, $currentPassword): ?array {
+            $freshSession = AccountSessionService::current();
+            if (!is_array($freshSession) || $freshSession['account_id'] !== $session['account_id']) {
+                return null;
             }
-            $current['recovery_code_hashes'] = $hashes;
-            $current['updated_at'] = gmdate(DATE_ATOM);
-            $rotated = true;
-            return $current;
+            $account = $this->repository->findById((string) $session['account_id']);
+            if (!is_array($account) || ($account['status'] ?? '') !== 'active'
+                || !AccountPasswordPolicy::verify($currentPassword, (string) ($account['password_hash'] ?? ''))) {
+                return null;
+            }
+            $codes = self::newRecoveryCodes();
+            $hashes = array_map(static fn(string $code): string => hash('sha256', self::normalizeRecoveryCode($code)), $codes);
+            $rotated = false;
+            $updated = $this->repository->updateById((string) $session['account_id'], static function (array $current) use ($currentPassword, $hashes, &$rotated): array {
+                if (($current['status'] ?? '') !== 'active'
+                    || !is_string($current['password_hash'] ?? null)
+                    || !AccountPasswordPolicy::verify($currentPassword, $current['password_hash'])) {
+                    return $current;
+                }
+                $current['recovery_code_hashes'] = $hashes;
+                $current['updated_at'] = gmdate(DATE_ATOM);
+                $rotated = true;
+                return $current;
+            });
+            if (!is_array($updated) || !$rotated) {
+                return null;
+            }
+            AccountSessionService::refresh($updated);
+            return $codes;
         });
-        if (!is_array($updated) || !$rotated) {
-            return null;
-        }
-        AccountSessionService::refresh($updated);
-        return $codes;
     }
 
     public function recover(string $usernameInput, string $recoveryCode, string $newPassword): bool
@@ -197,31 +219,33 @@ final class AccountService
         }
 
         $passwordHash = AccountPasswordPolicy::hash($newPassword);
-        $consumed = false;
-        $this->repository->updateByUsername($normalized, static function (array $current) use ($matchHash, $passwordHash, &$consumed): array {
-            if (($current['status'] ?? '') !== 'active') {
-                return $current;
-            }
-            $hashes = (array) ($current['recovery_code_hashes'] ?? []);
-            $index = null;
-            foreach ($hashes as $candidateIndex => $storedHash) {
-                if (is_string($storedHash) && hash_equals($storedHash, $matchHash)) {
-                    $index = $candidateIndex;
-                    break;
+        return AccountLifecycleLock::withLock(function () use ($normalized, $matchHash, $passwordHash): bool {
+            $consumed = false;
+            $this->repository->updateByUsername($normalized, static function (array $current) use ($matchHash, $passwordHash, &$consumed): array {
+                if (($current['status'] ?? '') !== 'active') {
+                    return $current;
                 }
-            }
-            if ($index === null) {
+                $hashes = (array) ($current['recovery_code_hashes'] ?? []);
+                $index = null;
+                foreach ($hashes as $candidateIndex => $storedHash) {
+                    $matches = is_string($storedHash) && hash_equals($storedHash, $matchHash);
+                    if ($matches && $index === null) {
+                        $index = $candidateIndex;
+                    }
+                }
+                if ($index === null) {
+                    return $current;
+                }
+                array_splice($hashes, (int) $index, 1);
+                $current['recovery_code_hashes'] = $hashes;
+                $current['password_hash'] = $passwordHash;
+                $current['auth_version'] = (int) ($current['auth_version'] ?? 0) + 1;
+                $current['updated_at'] = gmdate(DATE_ATOM);
+                $consumed = true;
                 return $current;
-            }
-            array_splice($hashes, (int) $index, 1);
-            $current['recovery_code_hashes'] = $hashes;
-            $current['password_hash'] = $passwordHash;
-            $current['auth_version'] = (int) ($current['auth_version'] ?? 0) + 1;
-            $current['updated_at'] = gmdate(DATE_ATOM);
-            $consumed = true;
-            return $current;
+            });
+            return $consumed;
         });
-        return $consumed;
     }
 
     public function updatePreferences(array $preferences): bool
@@ -230,11 +254,19 @@ final class AccountService
         if (!is_array($session)) {
             return false;
         }
-        return $this->repository->updateById((string) $session['account_id'], static function (array $account) use ($preferences): array {
-            $account['preferences'] = $preferences;
-            $account['updated_at'] = gmdate(DATE_ATOM);
-            return $account;
-        }) !== null;
+        return AccountLifecycleLock::withLock(function () use ($session, $preferences): bool {
+            $freshSession = AccountSessionService::current();
+            if (!is_array($freshSession) || $freshSession['account_id'] !== $session['account_id']) {
+                return false;
+            }
+            return $this->repository->updateById((string) $session['account_id'], static function (array $account) use ($preferences): array {
+                if (($account['status'] ?? '') === 'active') {
+                    $account['preferences'] = $preferences;
+                    $account['updated_at'] = gmdate(DATE_ATOM);
+                }
+                return $account;
+            }) !== null;
+        });
     }
 
     public function requestDeletion(string $currentPassword): bool
@@ -248,20 +280,27 @@ final class AccountService
             return false;
         }
         $requested = false;
-        $updated = $this->repository->updateById((string) $session['account_id'], static function (array $current) use ($currentPassword, &$requested): array {
-            if (($current['status'] ?? '') !== 'active'
-                || !is_string($current['password_hash'] ?? null)
-                || !AccountPasswordPolicy::verify($currentPassword, $current['password_hash'])) {
-                return $current;
+        return AccountLifecycleLock::withLock(function () use ($session, $currentPassword): bool {
+            $requested = false;
+            $freshSession = AccountSessionService::current();
+            if (!is_array($freshSession) || $freshSession['account_id'] !== $session['account_id']) {
+                return false;
             }
-            $current['status'] = 'deletion_requested';
-            $current['deletion_requested_at'] = gmdate(DATE_ATOM);
-            $current['auth_version'] = (int) ($current['auth_version'] ?? 0) + 1;
-            $current['updated_at'] = gmdate(DATE_ATOM);
-            $requested = true;
-            return $current;
+            $updated = $this->repository->updateById((string) $session['account_id'], static function (array $current) use ($currentPassword, &$requested): array {
+                if (($current['status'] ?? '') !== 'active'
+                    || !is_string($current['password_hash'] ?? null)
+                    || !AccountPasswordPolicy::verify($currentPassword, $current['password_hash'])) {
+                    return $current;
+                }
+                $current['status'] = 'deletion_requested';
+                $current['deletion_requested_at'] = gmdate(DATE_ATOM);
+                $current['auth_version'] = (int) ($current['auth_version'] ?? 0) + 1;
+                $current['updated_at'] = gmdate(DATE_ATOM);
+                $requested = true;
+                return $current;
+            });
+            return is_array($updated) && $requested;
         });
-        return is_array($updated) && $requested;
     }
 
     /** Re-authenticate sensitive account actions without allowing unlimited password guesses. */

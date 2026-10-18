@@ -25,12 +25,12 @@
     </form>
     <details class="account-delete-panel">
         <summary>Request account deletion</summary>
-        <p>This records a deletion request and prevents future sign-in. Actual app-record deletion is not completed by this preview; an operator must confirm retention, backup, and request-handling rules first. Hosting logs and provider backups may have separate retention.</p>
+        <p>Confirming permanently removes this account's application records: quiz history may be lost, preferences and flashcard progress are erased, and recovery codes become unusable. Provider logs, historical backups, and external copies are outside this application operation and may persist independently until their verified retention expiry. Their retention details and the owner-approved privacy terms are still pending. This account preview and deletion route are unavailable in production.</p>
         <form method="post" action="/account/deletion-request">
             <input type="hidden" name="csrf_token" value="<?= htmlspecialchars((string) ($csrfToken ?? ''), ENT_QUOTES, 'UTF-8') ?>">
             <div class="form-field"><label for="deletion-current-password">Confirm password</label><input id="deletion-current-password" name="current_password" type="password" autocomplete="current-password" required></div>
-            <div class="form-field"><label for="deletion-confirmation">Type DELETE to request deletion</label><input id="deletion-confirmation" name="confirm_deletion" type="text" autocomplete="off" required></div>
-            <button type="submit" class="button button-danger">Submit deletion request</button>
+            <div class="form-field"><label for="deletion-confirmation">Type DELETE to permanently delete application records</label><input id="deletion-confirmation" name="confirm_deletion" type="text" autocomplete="off" required></div>
+            <button type="submit" class="button button-danger">Delete account and application data</button>
         </form>
     </details>
 </section>

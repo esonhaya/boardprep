@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Services\Learning;
 
 use App\Core\App;
+use App\Services\Accounts\AccountLifecycleLock;
 
 final class WeaknessStorageService
 {
@@ -55,6 +56,13 @@ final class WeaknessStorageService
     public static function save(array $data): void
     {
         $userId = LearnerIdentityService::current();
+        AccountLifecycleLock::withWritableLearner($userId, static function () use ($data, $userId): void {
+            self::saveForLearner($userId, $data);
+        });
+    }
+
+    private static function saveForLearner(string $userId, array $data): void
+    {
         $records = array_values(array_filter(
             App::storage()->all(self::COLLECTION),
             static fn(mixed $record): bool => is_array($record)
@@ -82,14 +90,16 @@ final class WeaknessStorageService
     public static function clear(): void
     {
         $userId = LearnerIdentityService::current();
-        App::storage()->replace(
-            self::COLLECTION,
-            array_values(array_filter(
-                App::storage()->all(self::COLLECTION),
-                static fn(mixed $record): bool => is_array($record)
-                    && (string) ($record['user_id'] ?? '') !== $userId
-            ))
-        );
+        AccountLifecycleLock::withWritableLearner($userId, static function () use ($userId): void {
+            App::storage()->replace(
+                self::COLLECTION,
+                array_values(array_filter(
+                    App::storage()->all(self::COLLECTION),
+                    static fn(mixed $record): bool => is_array($record)
+                        && (string) ($record['user_id'] ?? '') !== $userId
+                ))
+            );
+        });
     }
 
     private static function recordId(string $userId, string $topic): string

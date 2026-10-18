@@ -8,6 +8,7 @@ use App\Core\Request;
 use App\Core\Response;
 use App\Core\View;
 use App\Services\Accounts\AccountDataService;
+use App\Services\Accounts\AccountDeletionService;
 use App\Services\Accounts\AccountFeatureGate;
 use App\Services\Accounts\AccountService;
 use App\Services\Accounts\AccountSessionService;
@@ -263,7 +264,7 @@ final class AccountController
 
     public static function requestDeletion(): void
     {
-        self::requireAccount();
+        $account = self::requireAccount();
         $confirmed = Request::input('confirm_deletion') === 'DELETE';
         $valid = CsrfTokenService::valid(Request::input('csrf_token'))
             && $confirmed
@@ -273,8 +274,16 @@ final class AccountController
             Response::redirect('/account/profile', 303);
         }
         AccountSessionService::logout();
+        $completed = false;
+        try {
+            $result = (new AccountDeletionService())->process((string) $account['account_id']);
+            $completed = ($result['status'] ?? '') === 'deletion_completed';
+        } catch (Throwable) {
+            // The account remains locked and its journal supports a safe retry.
+        }
         self::render('account/deletion-requested', [
-            'pageTitle' => 'Account deletion request recorded | BoardPrep',
+            'pageTitle' => $completed ? 'Account data deleted | BoardPrep' : 'Account deletion needs retry | BoardPrep',
+            'completed' => $completed,
         ]);
     }
 

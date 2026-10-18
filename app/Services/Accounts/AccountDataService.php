@@ -4,46 +4,49 @@ declare(strict_types=1);
 
 namespace App\Services\Accounts;
 
-use App\Core\App;
-use RuntimeException;
-
 final class AccountDataService
 {
-    private const COLLECTIONS = [
-        'attempts' => 'quiz_attempts',
-        'weakness' => 'weakness_summaries',
-        'flashcard_state' => 'flashcard_reviews',
-    ];
-
     public function exportCurrent(): array
     {
-        $account = AccountSessionService::current();
-        if (!is_array($account)) {
-            throw new RuntimeException('Sign in again to export account data.');
+        $inventory = (new AccountDataInventoryService())->inspectAuthenticated();
+        $account = $inventory['account'];
+        $records = [];
+        foreach ($inventory['records'] as $collection => $ownedRecords) {
+            $records[$collection] = array_map(static function (array $record): array {
+                unset($record['user_id'], $record['session_id']);
+                return $record;
+            }, $ownedRecords);
         }
 
-        $userId = (string) $account['learner_id'];
-        $records = [];
-        foreach (self::COLLECTIONS as $collection => $label) {
-            $owned = App::storage()->where($collection, ['user_id' => $userId]);
-            $records[$label] = array_map(static function (array $record) use ($collection): array {
-                unset($record['user_id'], $record['session_id']);
-                if ($collection !== 'attempts') {
-                    unset($record['id']);
-                }
-                return $record;
-            }, array_values(array_filter($owned, 'is_array')));
+        $counts = ['account_profile' => 1];
+        $schemas = ['account_profile' => 1];
+        foreach ($inventory['collections'] as $name => $definition) {
+            $counts[$name] = (int) $definition['count'];
+            $schemas[$name] = (int) $definition['schema_version'];
         }
 
         return [
             'format' => 'boardprep-account-data-v1',
+            'schema_version' => 1,
             'exported_at' => gmdate(DATE_ATOM),
-            'account' => [
-                'username' => $account['username'],
-                'created_at' => $account['created_at'],
-                'preferences' => $account['preferences'],
+            'manifest' => [
+                'included_collections' => array_keys($counts),
+                'record_counts' => $counts,
+                'collection_schema_versions' => $schemas,
+                'excluded_secrets' => $inventory['excluded'],
+                'deletion_limitations' => [
+                    'application_owned_records can be removed by BoardPrep after confirmed deletion and ownership verification',
+                    'provider logs, historical backups, and external copies may persist independently until their verified retention expiry',
+                    'shared question usage aggregates and anonymous learner data are outside this account export and deletion scope',
+                ],
             ],
-            'scope' => 'Saved quiz attempts, derived weakness summaries, flashcard review state, and exam preferences owned by this account.',
+            'account' => [
+                'username' => (string) ($account['username'] ?? ''),
+                'created_at' => (string) ($account['created_at'] ?? ''),
+                'updated_at' => (string) ($account['updated_at'] ?? ''),
+                'preferences' => is_array($account['preferences'] ?? null) ? $account['preferences'] : [],
+            ],
+            'scope' => 'Saved quiz attempts, derived weakness summaries, flashcard review state, and account preferences owned by this account.',
             'records' => $records,
         ];
     }

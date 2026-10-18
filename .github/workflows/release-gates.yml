@@ -97,6 +97,14 @@ jobs:
             test_path: tools/Tests/AccountSecurityTest.php
           - test_id: account-http-boundary
             test_path: tools/Tests/AccountHttpTest.php
+          - test_id: account-lifecycle-json
+            test_path: tools/Tests/AccountLifecycleJsonTest.php
+          - test_id: account-lifecycle-sqlite
+            test_path: tools/Tests/AccountLifecycleSqliteTest.php
+          - test_id: account-deletion-cli
+            test_path: tools/Tests/AccountDeletionCliTest.php
+          - test_id: account-encrypted-backup-restore
+            test_path: tools/Tests/AccountBackupTest.php
           - test_id: simulator-fixture-privacy
             test_path: tools/Tests/SimulationFixturePrivacyIsolationTest.php
     steps:
@@ -106,7 +114,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.3'
-          extensions: json, session, pdo_sqlite, mbstring
+          extensions: json, session, pdo_sqlite, mbstring, sodium
           coverage: none
 
       - name: Run focused security and privacy test

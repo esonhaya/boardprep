@@ -26,6 +26,17 @@ function accountHttpCsrf(string $html): string
     return html_entity_decode($match[1], ENT_QUOTES | ENT_HTML5, 'UTF-8');
 }
 
+function accountHttpRotatedSessionId(string $sessionDirectory, string $accountId): string
+{
+    foreach (glob(rtrim($sessionDirectory, DIRECTORY_SEPARATOR) . '/sess_*') ?: [] as $path) {
+        $contents = is_file($path) ? file_get_contents($path) : false;
+        if (is_string($contents) && str_contains($contents, $accountId)) {
+            return substr(basename($path), strlen('sess_'));
+        }
+    }
+    throw new RuntimeException('The synthetic authenticated session rotation could not be followed.');
+}
+
 $http = new HttpSimulator(dirname(__DIR__, 2) . '/public/index.php');
 $storage = \Tools\Doctor\Project\BoardPrep\Simulation\SimulationStorageFixture::storagePath();
 $cookieA = ['PHPSESSID' => 'batch692-auth-' . bin2hex(random_bytes(8))];
@@ -129,6 +140,50 @@ accountHttpAssert($correctLogin['status'] === 303
     && $correctLogin['location'] === '/account/profile',
     'Correct credentials did not use the account profile redirect.');
 
+$accountState = json_decode((string) file_get_contents($storage . '/private/learner-accounts/accounts.json'), true);
+$accountId = $accountState['accounts']['httpaccount']['account_id'] ?? '';
+accountHttpAssert(is_string($accountId) && $accountId !== '', 'Synthetic HTTP account identifier was unavailable.');
+$cookieA['PHPSESSID'] = accountHttpRotatedSessionId($http->sessionPath(), $accountId);
+$profilePage = $http->request('GET', '/account/profile', [], [], [], $cookieA);
+accountHttpAssert(str_contains($profilePage['output'], 'Provider logs, historical backups, and external copies')
+    && str_contains($profilePage['output'], 'quiz history may be lost'),
+    'Deletion consequences and provider-copy limits were not explained before confirmation.');
+$missingDeleteCsrf = $http->request('POST', '/account/deletion-request', [], [
+    'current_password' => 'Batch692 HTTP recovered password',
+    'confirm_deletion' => 'DELETE',
+], [], $cookieA);
+accountHttpAssert($missingDeleteCsrf['status'] === 303, 'Account deletion accepted a request without CSRF.');
+$accountState = json_decode((string) file_get_contents($storage . '/private/learner-accounts/accounts.json'), true);
+$accountId = $accountState['accounts']['httpaccount']['account_id'] ?? '';
+$learnerId = $accountState['accounts']['httpaccount']['learner_id'] ?? '';
+accountHttpAssert(is_string($accountId) && $accountId !== '' && is_string($learnerId) && $learnerId !== '', 'Synthetic deletion account identity was unavailable.');
+$attemptPath = $storage . '/attempts.json';
+$attemptRecords = is_file($attemptPath) ? json_decode((string) file_get_contents($attemptPath), true) : [];
+accountHttpAssert(is_array($attemptRecords), 'Synthetic attempt collection was malformed before deletion.');
+$attemptRecords[] = ['id' => 'synthetic-http-account-attempt', 'user_id' => $learnerId, 'score' => 7, 'total' => 10];
+$attemptRecords[] = ['id' => 'synthetic-http-anonymous-attempt', 'user_id' => 'learner-' . str_repeat('a', 32), 'score' => 5, 'total' => 10];
+file_put_contents($attemptPath, json_encode($attemptRecords, JSON_PRETTY_PRINT | JSON_THROW_ON_ERROR) . "\n");
+$profilePage = $http->request('GET', '/account/profile', [], [], [], $cookieA);
+$validDelete = $http->request('POST', '/account/deletion-request', [], [
+    'csrf_token' => accountHttpCsrf($profilePage['output']),
+    'current_password' => 'Batch692 HTTP recovered password',
+    'confirm_deletion' => 'DELETE',
+], [], $cookieA);
+accountHttpAssert($validDelete['status'] === 200
+    && str_contains($validDelete['output'], 'Application account data deleted'),
+    'Confirmed password-reauthenticated HTTP deletion did not complete.');
+$accountState = json_decode((string) file_get_contents($storage . '/private/learner-accounts/accounts.json'), true);
+$tombstone = $accountState['accounts']['deleted:' . hash('sha256', $accountId)] ?? null;
+$deletedRecords = json_decode((string) file_get_contents($attemptPath), true);
+accountHttpAssert(is_array($deletedRecords)
+    && !in_array('synthetic-http-account-attempt', array_column($deletedRecords, 'id'), true)
+    && in_array('synthetic-http-anonymous-attempt', array_column($deletedRecords, 'id'), true),
+    'HTTP deletion failed to remove only account-owned attempts.');
+accountHttpAssert(is_array($tombstone) && ($tombstone['status'] ?? null) === 'deletion_completed'
+    && !isset($tombstone['username'], $tombstone['password_hash'], $tombstone['recovery_code_hashes'], $tombstone['preferences'])
+    && !isset($accountState['accounts']['httpaccount']),
+    'HTTP deletion did not replace synthetic credentials with a minimal tombstone.');
+
 putenv('APP_ENV=production');
 $_ENV['APP_ENV'] = 'production';
 $productionRoute = $http->request('GET', '/account/register');
@@ -140,4 +195,4 @@ $_ENV['BOARDPREP_ACCOUNTS_ENABLED'] = 'false';
 $disabledPreview = $http->request('GET', '/account/register');
 accountHttpAssert($disabledPreview['status'] === 404, 'The nonproduction account route ignored its explicit default-off flag.');
 
-echo "[PASS] Account registration/login/recovery HTTP routes enforce CSRF, hide duplicate-user status, consume recovery codes once, and keep production routes absent.\n";
+echo "[PASS] Account registration/login/recovery/deletion HTTP routes enforce CSRF, hide duplicate-user status, explain deletion limits, preserve anonymous records, and keep production routes absent.\n";

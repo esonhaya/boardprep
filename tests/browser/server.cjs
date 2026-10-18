@@ -56,6 +56,11 @@ fs.mkdirSync(sessionStorage, { recursive: true });
 fs.mkdirSync(developerSessionStorage, { recursive: true });
 fs.mkdirSync(acceptanceStorage, { recursive: true, mode: 0o700 });
 fs.mkdirSync(authSessionStorage, { recursive: true, mode: 0o700 });
+const evidenceDirectory = process.env.BOARDPREP_EXPLORER_EVIDENCE_DIR || process.env.BOARDPREP_BROWSER_EVIDENCE_DIR || '';
+if (evidenceDirectory) {
+  fs.mkdirSync(evidenceDirectory, { recursive: true, mode: 0o700 });
+  fs.writeFileSync(path.join(evidenceDirectory, 'account-fixture-private.json'), JSON.stringify({ storage: authStorage }) + '\n', { mode: 0o600 });
+}
 const port = String(process.env.BOARDPREP_BROWSER_PORT || '4173');
 const developerPort = String(process.env.BOARDPREP_DEVELOPER_BROWSER_PORT || '4174');
 const authPort = String(process.env.BOARDPREP_AUTH_BROWSER_PORT || '4175');

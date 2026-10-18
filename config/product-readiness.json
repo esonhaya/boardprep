@@ -112,7 +112,7 @@
             "STATUS": "IMPLEMENTED_UNVERIFIED",
             "SCOPE_INCLUDED": false,
             "LAUNCH_CRITICAL": false,
-            "EVIDENCE": ["Batch 692 adds PHP-native password hashes, one-time recovery codes, locked atomic private account storage, session rotation and expiry, account-scoped learner identities, and persistent preferences. The routes require a nonproduction environment and an explicit default-off flag; public account use remains blocked pending independent review and deployment requirements."],
+            "EVIDENCE": ["Batches 692–693 provide PHP-native password hashes, single-use recovery codes, locked private account storage, session rotation and expiry, account-scoped learner identities, persistent preferences, owned-data inventory, staged application deletion, scoped export, and authenticated encrypted backup with isolated restore. Routes still require nonproduction and an explicit default-off flag; public account use remains blocked pending independent review and deployment requirements."],
             "TEST_COVERAGE": ["tools/Tests/AccountSecurityTest.php", "tools/Tests/AccountHttpTest.php", "tests/browser/accounts/account-auth.spec.cjs"]
         },
         {
@@ -447,15 +447,15 @@
             "ID": "BP692-CAP-001",
             "FEATURE": "Public learner-account enablement and protected operational recovery",
             "USER_IMPACT": "Without reviewed recovery, account deletion, encrypted backup/restore, and deployment-specific privacy/session evidence, public account availability could expose persistent learner records or credentials to avoidable risk.",
-            "EVIDENCE": "Batch 692 account routes are registered only outside production and require BOARDPREP_ACCOUNTS_ENABLED=true (default false). The repository backup helper does not include the private credential store because it is not encrypted. No live identity, email delivery, provider retention, or independent review evidence was supplied.",
+            "EVIDENCE": "Batches 692–693 keep account routes outside production and require BOARDPREP_ACCOUNTS_ENABLED=true (default false). Batch 693 implements staged deletion, account export parity, and dedicated authenticated encrypted backup with isolated restore. No live identity, email delivery, provider retention, owner approval, or independent review evidence was supplied.",
             "REPRODUCTION": "Request /account/register in production or with the flag absent/false: route is unavailable. Inspect the privacy/hosting decision sheet and private account backup scope for unresolved owner/provider requirements.",
             "SEVERITY": "P1",
-            "ROOT_CAUSE": "Public account operations, credential-store backup protection, request handling, and hosting controls require independent review and actual operator/provider decisions.",
+            "ROOT_CAUSE": "Public account operations require independent review of the new credential-backup/deletion safeguards and actual operator/provider decisions about privacy, retention, session storage, and hosting controls.",
             "STATUS": "PARTIAL",
             "FIX_COMMIT": "",
-            "TEST_COVERAGE": "tools/Tests/AccountSecurityTest.php; tools/Tests/AccountHttpTest.php; hosted authentication browser journey; independent security review and live deployment evidence still required",
+            "TEST_COVERAGE": "tools/Tests/AccountSecurityTest.php; tools/Tests/AccountHttpTest.php; tools/Tests/AccountLifecycleJsonTest.php; tools/Tests/AccountLifecycleSqliteTest.php; tools/Tests/AccountDeletionCliTest.php; tools/Tests/AccountBackupTest.php; hosted account/browser explorers; independent security review and live deployment evidence still required",
             "RELEASE_BLOCKING": false,
-            "DEPENDENCIES": ["Independent security review", "Owner-approved privacy/contact/retention/deletion policy", "Encrypted credential backup and restore procedure", "Verified live HTTPS/session/storage configuration", "Reviewed account-recovery operations", "Decide whether production account creation requires a breached-password screening control"]
+            "DEPENDENCIES": ["Independent review of account lifecycle, encrypted backup/restore, and activation safeguards", "Owner-approved privacy/contact/retention/deletion policy", "Verified live HTTPS/session/storage configuration", "Provider verification of PHP session, backup, and log behavior", "Owner-approved recovery operations", "Decide whether production account creation requires a breached-password screening control"]
         }
     ],
     "mandatory_launch_evidence": [

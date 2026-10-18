@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Services\Accounts;
 
 use App\Core\App;
+use Closure;
 use JsonException;
 use RuntimeException;
 
@@ -20,9 +21,12 @@ final class AccountRepository
     private string $directory;
     private string $dataPath;
     private string $lockPath;
+    private ?Closure $writeFault;
 
-    public function __construct(?string $directory = null)
+    /** @param null|callable(string):void $writeFault Test-only atomic-write fault injection. */
+    public function __construct(?string $directory = null, ?callable $writeFault = null)
     {
+        $this->writeFault = $writeFault === null ? null : Closure::fromCallable($writeFault);
         if ($directory === null) {
             $config = (array) App::config('database', []);
             $storage = $config['path'] ?? null;
@@ -74,6 +78,23 @@ final class AccountRepository
             }
             return null;
         });
+    }
+
+    public function findByLearnerId(string $learnerId): ?array
+    {
+        return $this->withLock(LOCK_SH, static function (array $state) use ($learnerId): ?array {
+            foreach ($state['accounts'] as $record) {
+                if (is_array($record) && ($record['learner_id'] ?? null) === $learnerId) {
+                    return $record;
+                }
+            }
+            return null;
+        });
+    }
+
+    public function directoryPath(): string
+    {
+        return $this->directory;
     }
 
     public function create(array $account): bool
@@ -170,7 +191,73 @@ final class AccountRepository
 
     public function countAccounts(): int
     {
-        return $this->withLock(LOCK_SH, static fn(array $state): int => count($state['accounts']));
+        return $this->withLock(LOCK_SH, static fn(array $state): int => count(array_filter(
+            $state['accounts'],
+            static fn(mixed $account): bool => is_array($account) && isset($account['username'])
+        )));
+    }
+
+    /** @return list<array{account_id:string,status:string}> */
+    public function pendingDeletions(): array
+    {
+        return $this->withLock(LOCK_SH, static function (array $state): array {
+            $pending = [];
+            foreach ($state['accounts'] as $account) {
+                if (!is_array($account)
+                    || !in_array(($account['status'] ?? null), ['deletion_requested', 'deletion_processing', 'deletion_failed'], true)
+                    || !is_string($account['account_id'] ?? null)) {
+                    continue;
+                }
+                $pending[] = [
+                    'account_id' => $account['account_id'],
+                    'status' => (string) $account['status'],
+                ];
+            }
+            return $pending;
+        });
+    }
+
+    /** Replace credentials with a minimal tombstone after owned data is verified absent. */
+    public function completeDeletion(string $accountId, string $learnerId): bool
+    {
+        return $this->mutate(static function (array &$state) use ($accountId, $learnerId): bool {
+            foreach ($state['accounts'] as $username => $account) {
+                if (!is_array($account)
+                    || ($account['account_id'] ?? null) !== $accountId
+                    || ($account['learner_id'] ?? null) !== $learnerId) {
+                    continue;
+                }
+                if (($account['status'] ?? null) !== 'deletion_processing') {
+                    return ($account['status'] ?? null) === 'deletion_completed';
+                }
+
+                $normalizedUsername = strtolower(trim((string) ($account['username'] ?? '')));
+                unset($state['accounts'][$username]);
+                $state['accounts']['deleted:' . hash('sha256', $accountId)] = [
+                    'schema_version' => 1,
+                    'account_id' => $accountId,
+                    'learner_id' => $learnerId,
+                    'status' => 'deletion_completed',
+                ];
+                foreach ([
+                    'reauth-account:' . hash('sha256', strtolower($accountId)),
+                    'login-identifier:' . hash('sha256', $normalizedUsername),
+                    'recovery-identifier:' . hash('sha256', $normalizedUsername),
+                ] as $bucket) {
+                    unset($state['rate_limits'][$bucket]);
+                }
+                return true;
+            }
+
+            foreach ($state['accounts'] as $account) {
+                if (is_array($account)
+                    && ($account['account_id'] ?? null) === $accountId
+                    && ($account['status'] ?? null) === 'deletion_completed') {
+                    return true;
+                }
+            }
+            return false;
+        });
     }
 
     private function isOutsideDocumentRoot(string $path): bool
@@ -282,8 +369,17 @@ final class AccountRepository
         }
         try {
             $this->protect($temporary, 0600);
+            if ($this->writeFault !== null) {
+                ($this->writeFault)('before_temporary_write');
+            }
             $written = file_put_contents($temporary, $json . "\n", LOCK_EX);
-            if ($written === false || !rename($temporary, $this->dataPath)) {
+            if ($written === false) {
+                throw new RuntimeException('Private account storage could not write its atomic replacement.');
+            }
+            if ($this->writeFault !== null) {
+                ($this->writeFault)('before_atomic_commit');
+            }
+            if (!rename($temporary, $this->dataPath)) {
                 throw new RuntimeException('Private account storage could not complete an atomic write.');
             }
             $this->protect($this->dataPath, 0600);

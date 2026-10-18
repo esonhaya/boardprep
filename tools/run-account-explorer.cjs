@@ -55,6 +55,12 @@ const result = spawnSync(process.execPath, [
   stdio: 'inherit',
 });
 
+// This private path handoff lets the browser run isolated CLI backup/restore
+// checks without placing fixture locations or records in its public report.
+try {
+  fs.unlinkSync(path.join(evidenceDirectory, 'account-fixture-private.json'));
+} catch {}
+
 const reportPath = path.join(evidenceDirectory, 'account-explorer.json');
 if (!fs.existsSync(reportPath)) {
   console.error('AUTH_EXPLORER_REPORT=MISSING ' + reportPath);
