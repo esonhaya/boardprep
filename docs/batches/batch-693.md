@@ -110,7 +110,14 @@ Local isolated tests completed during implementation:
 | Hosted account and site explorers | PASS — 32 account scenarios; site explorer 100 routes, 290 actions, 10 boards on application source commit `af27d0b`; later application source remained unchanged |
 | Doctor release | PASS — Release Gates run `39089492703` on exact QA commit `4d44342` |
 | Production preflight/smoke and ten-board HTTP | PASS — Release Gates run `39089492703` on `4d44342` |
-| Product Readiness | BLOCKED — run `39089492703` preceded latest browser evidence registration; the final evidence-aware Release Gates result is recorded after the evidence/docs commit. Owner/provider and public-launch decisions remain pending. |
+| Product Readiness | BLOCKED — final evidence-aware run `39090027198`: `privacy_terms=no`, one in-scope feature incomplete, three mandatory evidence items not passed. Owner/provider and public-launch decisions remain pending. |
+
+The final evidence-aware Release Gates run `39090027198` tested commit
+`f51abb7d6a9cea71d240c0e54b152d5fe95ea353`. Doctor, every security/privacy
+matrix job, production preflight/smoke, and the ten-board HTTP journey passed.
+The workflow conclusion is `failure` solely because the formal Product
+Readiness gate correctly rejects the missing owner/provider approvals and
+remaining evidence. No technical security failure was waived.
 
 The first Sodium-enabled backup run exposed an expected-error-category
 ordering assertion for a public-root path; inspection confirmed that the path
@@ -148,13 +155,13 @@ HEAD_AFTER_APPLICATION=af27d0b5968bd90d72ea956d07127e2fbcb8825f
 APPLICATION_CODE_FIX=af27d0b5968bd90d72ea956d07127e2fbcb8825f
 APPLICATION_TEST_COMMIT=4d4434289690dd270c6f618cf6a1ff2caa7d5338
 CI_COMMIT=4d4434289690dd270c6f618cf6a1ff2caa7d5338
-INITIAL_RELEASE_GATES_RUN=39089492703 (all technical jobs passed; Product Readiness preceded latest browser evidence registration)
+RELEASE_GATES_RUN=39090027198 (Doctor, all security/privacy jobs, preflight/smoke, and ten-board HTTP passed; Product Readiness blocked on owner/provider evidence)
 BROWSER_ACCEPTANCE_RUN=39089492279 (PASS, 60/0/8; https://github.com/esonhaya/boardprep/actions/runs/39089492279)
 SITE_EXPLORER_RUN=39088111773 (PASS, 100 routes, 290 actions, 10 boards; https://github.com/esonhaya/boardprep/actions/runs/39088111773)
 ACCOUNT_EXPLORER_SCENARIOS=32 PASS (same site-explorer workflow run)
 REGISTERED_BROWSER_EVIDENCE=VERIFIED_PASS, run 39089492279, commit 4d4434289690dd270c6f618cf6a1ff2caa7d5338
-HEAD_AFTER_DOCUMENTATION=Pending latest evidence/docs commit
-FINAL_RELEASE_GATES_RUN=Pending evidence-aware documentation run
+EVIDENCE_DOCUMENTATION_COMMIT=f51abb7d6a9cea71d240c0e54b152d5fe95ea353
+FINAL_RELEASE_GATES_RUN=39090027198 (https://github.com/esonhaya/boardprep/actions/runs/39090027198)
 ```
 
 The complete requested field-by-field status report is saved at
