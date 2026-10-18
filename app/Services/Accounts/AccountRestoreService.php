@@ -224,6 +224,7 @@ final class AccountRestoreService
         if (!is_string($resolvedParent) || !is_dir($resolvedParent)) {
             throw new RuntimeException('RESTORE_PATH_UNSAFE: private destination parent does not exist.');
         }
+        self::assertOutsideProtectedRoots($resolvedParent);
         $permissions = @fileperms($resolvedParent);
         if (!is_int($permissions) || ($permissions & 0077) !== 0 || !is_writable($resolvedParent)) {
             throw new RuntimeException('RESTORE_PERMISSIONS_UNSAFE: destination parent must be writable and owner-only.');
@@ -232,7 +233,6 @@ final class AccountRestoreService
         if (file_exists($target) || is_link($target)) {
             throw new RuntimeException('RESTORE_DESTINATION_CONFLICT: destination already exists and was not changed.');
         }
-        self::assertOutsideProtectedRoots($resolvedParent);
         return $target;
     }
 

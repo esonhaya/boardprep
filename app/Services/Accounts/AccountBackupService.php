@@ -152,8 +152,8 @@ final class AccountBackupService
         if (!is_string($realParent) || !is_dir($realParent)) {
             throw new RuntimeException('BACKUP_PATH_UNSAFE: the private parent directory does not exist.');
         }
-        self::assertPrivateDirectory($realParent);
         self::assertOutsideProtectedRoots($realParent);
+        self::assertPrivateDirectory($realParent);
         $target = rtrim($realParent, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . basename($path);
         if ($mustNotExist && (file_exists($target) || is_link($target))) {
             throw new RuntimeException('BACKUP_DESTINATION_CONFLICT: output already exists; it was not overwritten.');

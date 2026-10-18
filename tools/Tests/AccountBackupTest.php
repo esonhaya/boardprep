@@ -190,6 +190,11 @@ try {
 
     $destination = $restoreParent . '/restored-account';
     $restore = new AccountRestoreService();
+    $publicRestoreDestination = dirname(__DIR__, 2) . '/public/batch693-synthetic-restore';
+    accountBackupThrows(
+        static fn() => $restore->restore($backupPath, $publicRestoreDestination, $passphrase, true),
+        'RESTORE_PATH_UNSAFE'
+    );
     $dryRun = $restore->restore($backupPath, $destination, $passphrase, true);
     accountBackupAssert($dryRun['dry_run'] && !file_exists($destination), 'Restore dry-run modified its destination.');
     accountBackupThrows(
