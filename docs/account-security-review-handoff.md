@@ -169,6 +169,7 @@ storage.
 | Medium | A previously authenticated PHP session file can remain on disk until its configured handler/GC removes it, although account status/version checks deny it. | Session path, GC, and provider retention are not indexed or verified. |
 | Medium | Theft or weak user-generated backup passphrase enables offline guessing against an encrypted archive. | The CLI enforces minimum length and bounded KDF parameters; operator entropy/storage process needs independent review. |
 | Medium | Loss of every recovery code leaves no verified recovery route. | No email provider or owner recovery policy is configured. |
+| Medium | A recovery code that was copied or stored insecurely remains valid until consumed, rotated, or deleted. | Codes have no automatic expiry in the preview; owner recovery and expiry policy is pending, and public accounts stay disabled. |
 | Medium | A pre-deletion archive can recreate credentials/data in an isolated destination if an operator restores it in a different store without the deletion tombstone. | Restore in the same configured store rejects completed-deletion tombstones and never activates/overwrites. External copies and cross-deployment restore remain governed by the pending owner/provider archive policy. |
 | Low to medium | Passwords are not screened against a breached-password corpus. | Owner/security decision remains open. |
 | Process blocker | No independent review, legal privacy approval, operator contact, provider commitment, or public launch authorization is documented. | All remain pending in the canonical owner decision sheet. |
@@ -201,21 +202,22 @@ Add the final documentation SHA and release-gate reference after push:
 
 ```text
 APPLICATION_COMMIT=3efa6aa3694f7b50625916c4c30d769d86af5325
-DOCUMENTATION_COMMIT=<exact documentation commit>
+DOCUMENTATION_COMMIT=769146776ffccd94cac11708cfa085ba93a66860
 CI_COMMIT=3efa6aa3694f7b50625916c4c30d769d86af5325
-RELEASE_GATES_RUN=39088212412 https://github.com/esonhaya/boardprep/actions/runs/39088212412
+RELEASE_GATES_RUN=39088965565 (post-documentation; Product Readiness remains blocked) https://github.com/esonhaya/boardprep/actions/runs/39088965565
 BROWSER_ACCEPTANCE_RUN=39088212413 PASS; 60 passed, 0 failed, 8 skipped https://github.com/esonhaya/boardprep/actions/runs/39088212413
 SITE_EXPLORER_RUN=39088111773 PASS; 100 routes, 290 actions, 10 boards https://github.com/esonhaya/boardprep/actions/runs/39088111773
 AUTH_EXPLORER_SCENARIOS=32 pass, 0 fail, on site explorer run 39088111773
 INDEPENDENT_REVIEWER=<PENDING>
 INDEPENDENT_REVIEW_STATUS=PENDING
+PRODUCT_READINESS=BLOCKED; privacy terms unconfigured, 1 incomplete in-scope feature, 3 mandatory evidence items not passed
 ```
 
 ## Owner/provider handoff still required
 
 The owner must supply the legal operator identity, monitored learner contact,
-approved privacy wording, application retention/deletion policy, recovery
-policy, backup retention and access policy, and public-launch decision. The
+approved privacy wording, application retention/deletion policy, recovery and
+code-expiry policy, backup retention and access policy, and public-launch decision. The
 provider must supply hosting location/region, PHP/Sodium availability, live
 HTTPS/proxy and cookie evidence, filesystem and session paths/permissions,
 session GC behavior, backup/log retention, and deletion commitments. No

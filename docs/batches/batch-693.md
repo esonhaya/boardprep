@@ -108,7 +108,7 @@ Local isolated tests completed during implementation:
 | Hosted account and site explorers | PASS — 32 account scenarios; site explorer 100 routes, 290 actions, 10 boards on application commit `af27d0b` (the only later commit before `3efa6aa` changed a test fixture) |
 | Doctor release | PASS — full release run `39088212412` on `3efa6aa` |
 | Production preflight/smoke and ten-board HTTP | PASS — run `39088212412` on `3efa6aa` |
-| Product Readiness | BLOCKED — public-launch readiness remains false while owner/provider decisions and required evidence are pending. The pre-evidence run reported one incomplete in-scope feature and four mandatory evidence items not passed. Re-run after browser evidence registration is recorded below. |
+| Product Readiness | BLOCKED — post-evidence run `39088965565` on documentation/evidence commit `7691467` recognizes the verified browser run; `privacy_terms=no`, one in-scope feature remains incomplete, and three mandatory evidence items remain unpassed. Owner/provider and public-launch decisions remain pending. |
 
 The first Sodium-enabled backup run exposed an expected-error-category
 ordering assertion for a public-root path; inspection confirmed that the path
@@ -133,8 +133,9 @@ Application deletion cannot erase provider logs, PHP session files immediately,
 historical backups, external exports, or copies outside application storage.
 The PHP session handler/GC, provider log/backup retention, hosting region,
 HTTPS/proxy configuration, legal operator, monitored support contact,
-privacy-notice approval, application retention period, recovery policy,
-independent reviewer, and public launch authorization remain unresolved.
+privacy-notice approval, application retention period, recovery policy
+(including whether recovery codes should expire), independent reviewer, and
+public launch authorization remain unresolved.
 
 ## Commit and hosted evidence
 
@@ -149,9 +150,9 @@ BROWSER_ACCEPTANCE_RUN=39088212413 (PASS, 60/0/8; https://github.com/esonhaya/bo
 SITE_EXPLORER_RUN=39088111773 (PASS, 100 routes, 290 actions, 10 boards; https://github.com/esonhaya/boardprep/actions/runs/39088111773)
 ACCOUNT_EXPLORER_SCENARIOS=32 PASS (same site-explorer workflow run)
 REGISTERED_BROWSER_EVIDENCE=VERIFIED_PASS, run 39088212413, commit 3efa6aa3694f7b50625916c4c30d769d86af5325
-HEAD_AFTER_DOCUMENTATION=<fill after documentation commit>
-FINAL_RELEASE_GATES_RUN=<fill after documentation commit>
+HEAD_AFTER_DOCUMENTATION=769146776ffccd94cac11708cfa085ba93a66860 (evidence-registration documentation commit; later report/docs-only commit is recorded in the complete final report)
+FINAL_RELEASE_GATES_RUN=39088965565 (documentation commit `7691467`, Product Readiness blocked as listed above)
 ```
 
 The complete requested field-by-field status report is saved at
-`docs/batches/batch-693-final-report.txt` after validation and push.
+`/data/data/com.termux/files/usr/tmp/boardprep-batch-693-final-report.txt`.

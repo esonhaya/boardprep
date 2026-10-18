@@ -20,7 +20,7 @@ operator and provider.
 | Hosting provider, account region, and data location | `VERIFY LIVE HOST` |
 | HTTPS certificate, redirect, renewal, and proxy behavior | `VERIFY LIVE HOST; require HTTPS for public use` |
 | Learner deletion limitation wording | `OWNER TO REVIEW against logs, backups, and provider copies` |
-| Account recovery policy | `OWNER TO DECIDE; code-only recovery currently` |
+| Account recovery and code expiry policy | `OWNER TO DECIDE; code-only recovery, preview codes do not automatically expire` |
 | Final privacy/terms approval | `NOT APPROVED` |
 | Public account launch authorization | `NOT AUTHORIZED; OWNER TO COMPLETE after all gates` |
 

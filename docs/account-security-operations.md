@@ -167,9 +167,11 @@ reauthentication and invalidates all previous codes. Recovery is
 identifier/IP-rate-limited and consumes the matching digest under the account
 lifecycle lock; one concurrent attempt wins. Successful recovery increments
 the authorization version, invalidating previous sessions. There is no email
-recovery provider. Loss of all recovery codes currently requires an operator
-decision; a delivery or identity-verification process must be approved before
-public use.
+recovery provider. Recovery codes do not automatically expire in this preview;
+rotation and completed deletion revoke remaining codes. The owner must decide
+the expiry and recovery policy before public enablement. Loss of all recovery
+codes currently requires an operator decision; a delivery or
+identity-verification process must be approved before public use.
 
 Password changes also require CSRF and current-password reauthentication and
 increment the authorization version. Sign-in and logout rotate the PHP
