@@ -80,7 +80,8 @@ try {
 
     $password = 'Batch693 synthetic backup account password';
     $registered = (new AccountService())->register('batch693-backup', $password);
-    $account = (new AccountRepository())->findByUsername('batch693-backup');
+    $repository = new AccountRepository();
+    $account = $repository->findByUsername('batch693-backup');
     accountBackupAssert(is_array($registered['account']) && is_array($account), 'Synthetic backup account could not be created.');
     $learnerId = (string) $account['learner_id'];
     App::storage()->create('attempts', [
