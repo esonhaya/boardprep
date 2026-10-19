@@ -13,6 +13,10 @@ use App\Services\RepositoryHealth\Engine\RepositoryHealthEvidenceService;
 
 Autoloader::register();
 
+// The dashboard and Doctor API are intentionally absent in production. Make
+// this route contract test independent of the caller's shell environment.
+putenv('APP_ENV=testing');
+
 $root = dirname(__DIR__, 2);
 $protectedState = static function () use ($root): array {
     $paths = [
@@ -99,7 +103,13 @@ if (
 $dashboard = $dashboardSimulator->request('GET', '/developer/doctor');
 
 if ($dashboard['status'] !== 200 || $dashboard['exitCode'] !== 0) {
-    throw new RuntimeException('Doctor dashboard production route failed.');
+    throw new RuntimeException(sprintf(
+        'Doctor dashboard production route failed: HTTP %d, process exit %d, %.3fs; stderr: %s',
+        $dashboard['status'],
+        $dashboard['exitCode'],
+        $dashboard['duration'],
+        substr(trim((string) $dashboard['stderr']), -1200)
+    ));
 }
 
 if (!str_contains($dashboard['output'], 'BoardPrep Doctor')) {

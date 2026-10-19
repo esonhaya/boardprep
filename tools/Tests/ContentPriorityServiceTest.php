@@ -136,10 +136,19 @@ $view = file_get_contents(dirname(__DIR__, 2) . '/app/Views/developer/dashboard.
 $assert($controller !== false && str_contains($controller, 'ContentPriorityService'), 'Developer Tools controller does not consume the shared service');
 $assert($view !== false && str_contains($view, 'Content Investment Priorities'), 'Developer Tools view does not render priorities');
 
+// Developer reporting routes are intentionally unavailable in production.
+$_ENV['APP_ENV'] = 'testing';
+putenv('APP_ENV=testing');
 require_once dirname(__DIR__) . '/Doctor/Project/BoardPrep/Simulation/HttpSimulator.php';
 $simulator = new \Tools\Doctor\Project\BoardPrep\Simulation\HttpSimulator(dirname(__DIR__, 2) . '/public/index.php');
 $reportResponse = $simulator->request('GET', '/developer/content-intelligence');
-$assert(($reportResponse['status'] ?? 0) === 200, 'Content Intelligence report route did not render');
+$assert(($reportResponse['status'] ?? 0) === 200, sprintf(
+    'Content Intelligence report route did not render: HTTP %d, process exit %d, %.3fs; stderr: %s',
+    (int) ($reportResponse['status'] ?? 0),
+    (int) ($reportResponse['exitCode'] ?? 1),
+    (float) ($reportResponse['duration'] ?? 0),
+    substr(trim((string) ($reportResponse['stderr'] ?? '')), -1200)
+));
 $assert(($reportResponse['exitCode'] ?? 1) === 0, 'Content Intelligence report route exited with an error');
 $assert(str_contains((string) ($reportResponse['output'] ?? ''), 'Content Intelligence'), 'Content Intelligence report title was not rendered');
 $assert(str_contains((string) ($reportResponse['output'] ?? ''), 'Portfolio QA'), 'Content Intelligence report omitted the shared QA queue');

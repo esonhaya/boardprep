@@ -7,66 +7,28 @@ final class QuestionPoolFilter
 {
     public static function filter(array $questions, SelectionRequest $request, ?\App\Services\Question\QuestionEligibilityIndex $eligibilityIndex = null): array
     {
-        $civilServiceLevel = null;
-        if (in_array(strtolower(trim((string) $request->exam)), ['civil-service', 'cse'], true) && $request->civilServiceLevel !== null) {
-            $civilServiceLevel = strtoupper(trim($request->civilServiceLevel));
-            if (!in_array($civilServiceLevel, ['PROFESSIONAL', 'SUBPROFESSIONAL'], true)) {
-                throw new InvalidArgumentException('Civil Service level must be PROFESSIONAL or SUBPROFESSIONAL.');
-            }
-        }
+        $civilServiceLevel = self::civilServiceLevel($request);
         $eligible=[]; $seenIds=[]; $seenTexts=[];
+        $subjectAliases = $request->subject === '*'
+            ? []
+            : self::taxonomyMatchAliases('subjects', $request->subject);
+        $domainAliases = $request->domain === null
+            ? []
+            : self::taxonomyMatchAliases('domains', $request->domain);
+        $topicAliases = $request->topic === null
+            ? []
+            : self::taxonomyMatchAliases('topics', $request->topic);
         foreach ($questions as $question) {
             if (!is_array($question)) continue;
-            if ($request->exam !== null
-                && $eligibilityIndex !== null
-                && !$eligibilityIndex->mayBeEligibleForExam($question, $request->exam)) {
-                continue;
-            }
-            $question=self::normalizeRuntimeFields($question);
-            if (!self::hasValidRuntimeContent($question)) continue;
-            $taxonomy=is_array($question['taxonomy']??null)?$question['taxonomy']:[];
-            $examEligibility = $request->exam === null ? null : \App\Services\Question\QuestionEligibilityService::forExam($question, $request->exam, $eligibilityIndex);
-            if ($request->exam !== null && $examEligibility === null
-                && (array_key_exists('board', $question) || array_key_exists('taxonomy', $question))) continue;
-            if ($request->exam !== null && trim((string) ($examEligibility['subject_id'] ?? '')) === '') {
-                // A board-level record without a verifiable destination
-                // subject cannot satisfy an explicit exam-scoped request.
-                continue;
-            }
-            if ($civilServiceLevel !== null) {
-                $subjectForLevel = trim((string) ($examEligibility['subject_id'] ?? ''));
-                if ($subjectForLevel === '') {
-                    $subjectForLevel = trim((string) ($taxonomy['subject_id'] ?? $question['subject'] ?? ''));
-                }
-                $subjectForLevel = strtolower($subjectForLevel);
-                $declaredLevels = $question['civil_service_levels'] ?? null;
-                if (is_array($declaredLevels) && !in_array($civilServiceLevel, array_map(static fn(mixed $v): string => strtoupper(trim((string) $v)), $declaredLevels), true)) continue;
-                if ($civilServiceLevel === 'PROFESSIONAL' && in_array($subjectForLevel, ['clerical-ability', 'clerical ability'], true)) continue;
-            }
-            if (strtolower(trim((string) $request->exam)) === 'let') {
-                $matchedLetPlacement = LETVariantRegistry::placementForConfiguration(
-                    $question,
-                    $request->letVariant,
-                    $request->letComponent,
-                    $examEligibility
-                );
-                if ($matchedLetPlacement === null) {
-                    continue;
-                }
-                if (strtoupper((string) ($matchedLetPlacement['component'] ?? '')) === LETVariantRegistry::SPECIALIZATION) {
-                    $question['let_placement'] = $matchedLetPlacement;
-                }
-            }
-            $subject=$examEligibility !== null
-                ? $examEligibility['subject_id']
-                : ($taxonomy['subject_id']??$question['subject']??null);
-            $domain=$taxonomy['domain_id']??$question['domain']??null;
-            $topic=$taxonomy['topic_id']??$question['topic']??null;
-            $status=strtolower(trim((string)($question['status']??'active')));
-            $matches=in_array($status,['active','approved'],true)
-                && ($request->subject === '*' || self::sameTaxonomy($subject,$request->subject,'subjects'))
-                && ($request->domain===null||self::sameTaxonomy($domain,$request->domain,'domains'))
-                && ($request->topic===null||self::sameTaxonomy($topic,$request->topic,'topics'));
+            $prepared = self::prepareQuestion($question, $request, $eligibilityIndex, $civilServiceLevel);
+            if ($prepared === null) continue;
+            $question = $prepared['question'];
+            $subject = $prepared['subject'];
+            $domain = $prepared['domain'];
+            $topic = $prepared['topic'];
+            $matches=($request->subject === '*' || self::matchesTaxonomyAliases($subject, $subjectAliases))
+                && ($request->domain===null||self::matchesTaxonomyAliases($domain, $domainAliases))
+                && ($request->topic===null||self::matchesTaxonomyAliases($topic, $topicAliases));
             if (!$matches) continue;
             $id=trim((string)$question['id']);
             $text=self::normalizedText((string)$question['question']);
@@ -74,6 +36,121 @@ final class QuestionPoolFilter
             $seenIds[$id]=true; $seenTexts[$text]=true; $eligible[]=$question;
         }
         return $eligible;
+    }
+
+    /**
+     * Count each subject's independently filtered pool in one pass. Deduplication
+     * remains scoped to the requested subject, matching separate filter calls.
+     *
+     * @param array<string, string> $subjects subject ID => display name
+     * @return array<string, int>
+     */
+    public static function countBySubject(
+        array $questions,
+        array $subjects,
+        SelectionRequest $request,
+        ?\App\Services\Question\QuestionEligibilityIndex $eligibilityIndex = null
+    ): array {
+        if ($request->subject !== '*' || $request->domain !== null || $request->topic !== null) {
+            throw new InvalidArgumentException('Subject pool counts require an unscoped base request.');
+        }
+        $civilServiceLevel = self::civilServiceLevel($request);
+        $aliasesBySubject = [];
+        foreach ($subjects as $subjectId => $subjectName) {
+            if (is_string($subjectName)) {
+                $aliasesBySubject[(string) $subjectId] = self::taxonomyMatchAliases('subjects', $subjectName);
+            }
+        }
+        $counts = array_fill_keys(array_keys($aliasesBySubject), 0);
+        $seenIds = [];
+        $seenTexts = [];
+        foreach ($questions as $question) {
+            if (!is_array($question)) continue;
+            $prepared = self::prepareQuestion($question, $request, $eligibilityIndex, $civilServiceLevel);
+            if ($prepared === null) continue;
+            $id = trim((string) $prepared['question']['id']);
+            $text = self::normalizedText((string) $prepared['question']['question']);
+            foreach ($aliasesBySubject as $subjectId => $aliases) {
+                if (!self::matchesTaxonomyAliases($prepared['subject'], $aliases)
+                    || isset($seenIds[$subjectId][$id])
+                    || isset($seenTexts[$subjectId][$text])) {
+                    continue;
+                }
+                $seenIds[$subjectId][$id] = true;
+                $seenTexts[$subjectId][$text] = true;
+                $counts[$subjectId]++;
+            }
+        }
+        return $counts;
+    }
+
+    private static function civilServiceLevel(SelectionRequest $request): ?string
+    {
+        if (!in_array(strtolower(trim((string) $request->exam)), ['civil-service', 'cse'], true)
+            || $request->civilServiceLevel === null) {
+            return null;
+        }
+        $level = strtoupper(trim($request->civilServiceLevel));
+        if (!in_array($level, ['PROFESSIONAL', 'SUBPROFESSIONAL'], true)) {
+            throw new InvalidArgumentException('Civil Service level must be PROFESSIONAL or SUBPROFESSIONAL.');
+        }
+        return $level;
+    }
+
+    private static function prepareQuestion(
+        array $question,
+        SelectionRequest $request,
+        ?\App\Services\Question\QuestionEligibilityIndex $eligibilityIndex,
+        ?string $civilServiceLevel
+    ): ?array {
+        if ($request->exam !== null
+            && $eligibilityIndex !== null
+            && !$eligibilityIndex->mayBeEligibleForExam($question, $request->exam)) {
+            return null;
+        }
+        $question = self::normalizeRuntimeFields($question);
+        if (!self::hasValidRuntimeContent($question)) return null;
+        $taxonomy = is_array($question['taxonomy'] ?? null) ? $question['taxonomy'] : [];
+        $examEligibility = $request->exam === null
+            ? null
+            : \App\Services\Question\QuestionEligibilityService::forExam($question, $request->exam, $eligibilityIndex);
+        if ($request->exam !== null && $examEligibility === null
+            && (array_key_exists('board', $question) || array_key_exists('taxonomy', $question))) return null;
+        if ($request->exam !== null && trim((string) ($examEligibility['subject_id'] ?? '')) === '') {
+            return null;
+        }
+        if ($civilServiceLevel !== null) {
+            $subjectForLevel = trim((string) ($examEligibility['subject_id'] ?? ''));
+            if ($subjectForLevel === '') {
+                $subjectForLevel = trim((string) ($taxonomy['subject_id'] ?? $question['subject'] ?? ''));
+            }
+            $subjectForLevel = strtolower($subjectForLevel);
+            $declaredLevels = $question['civil_service_levels'] ?? null;
+            if (is_array($declaredLevels) && !in_array($civilServiceLevel, array_map(static fn(mixed $v): string => strtoupper(trim((string) $v)), $declaredLevels), true)) return null;
+            if ($civilServiceLevel === 'PROFESSIONAL' && in_array($subjectForLevel, ['clerical-ability', 'clerical ability'], true)) return null;
+        }
+        if (strtolower(trim((string) $request->exam)) === 'let') {
+            $matchedLetPlacement = LETVariantRegistry::placementForConfiguration(
+                $question,
+                $request->letVariant,
+                $request->letComponent,
+                $examEligibility
+            );
+            if ($matchedLetPlacement === null) return null;
+            if (strtoupper((string) ($matchedLetPlacement['component'] ?? '')) === LETVariantRegistry::SPECIALIZATION) {
+                $question['let_placement'] = $matchedLetPlacement;
+            }
+        }
+        $status = strtolower(trim((string) ($question['status'] ?? 'active')));
+        if (!in_array($status, ['active', 'approved'], true)) return null;
+        return [
+            'question' => $question,
+            'subject' => $examEligibility !== null
+                ? $examEligibility['subject_id']
+                : ($taxonomy['subject_id'] ?? $question['subject'] ?? null),
+            'domain' => $taxonomy['domain_id'] ?? $question['domain'] ?? null,
+            'topic' => $taxonomy['topic_id'] ?? $question['topic'] ?? null,
+        ];
     }
 
     private static function normalizeRuntimeFields(array $question): array
@@ -140,20 +217,26 @@ final class QuestionPoolFilter
         return strtolower($text);
     }
 
-    private static function sameTaxonomy(mixed $actual,?string $expected,string $dimension): bool
+    private static function taxonomyMatchAliases(string $dimension, string $expected): array
     {
-        if (!is_scalar($actual)||$expected===null) return false;
-        $actual=trim((string)$actual); $expected=trim($expected);
-        if (strcasecmp($actual,$expected)===0) return true;
-        $method=$dimension;
-        foreach (\App\Services\Shared\TaxonomyStorageService::{$method}() as $record) {
+        $expected = trim($expected);
+        $aliases = [strtolower($expected) => true];
+        foreach (\App\Services\Shared\TaxonomyStorageService::{$dimension}() as $record) {
             if (!is_array($record)) continue;
             $id=is_scalar($record['id']??null)?trim((string)$record['id']):'';
             $name=is_scalar($record['name']??null)?trim((string)$record['name']):'';
-            if (($id!==''||$name!=='')
-                && (strcasecmp($actual,$id)===0||strcasecmp($actual,$name)===0)
-                && (strcasecmp($expected,$id)===0||strcasecmp($expected,$name)===0)) return true;
+            if (($id !== '' || $name !== '')
+                && (strcasecmp($expected, $id) === 0 || strcasecmp($expected, $name) === 0)) {
+                $aliases[strtolower($id)] = true;
+                $aliases[strtolower($name)] = true;
+            }
         }
-        return false;
+        return $aliases;
+    }
+
+    private static function matchesTaxonomyAliases(mixed $actual, array $aliases): bool
+    {
+        return is_scalar($actual)
+            && isset($aliases[strtolower(trim((string) $actual))]);
     }
 }

@@ -24,64 +24,98 @@ final class ProductionReadinessService
         $root ??= dirname(__DIR__, 3);
         $checks = [];
         $profile = self::loadProfile($root, $checks);
+        self::configureMemoryLimit($profile);
+        self::checkEnvironmentFile($root, $checks);
+        self::checkRuntimeVersion($profile, $checks);
+        self::checkMemoryLimit($profile, $checks);
+        self::checkRequiredExtensions($profile, $checks);
+        $environment = self::checkDeploymentMode($checks);
+        $storagePath = self::checkStoragePaths($root, $profile, $checks);
+        self::checkCanonicalContent($profile, $storagePath, $checks);
+        self::checkCanonicalJson($profile, $storagePath, $checks);
+        self::checkMutableJson($profile, $storagePath, $checks);
+        $driver = self::checkDatabaseRuntime($root, $profile, $checks);
+        self::checkSessionStorage($checks);
+        $release = self::checkReleaseIdentity($root, $profile, $checks);
+        self::checkOperationalSafety($root, $checks);
 
-        $configuredMemory = trim((string) (Environment::get('APP_MEMORY_LIMIT', (string) ($profile['php_memory_limit'] ?? '512M')) ?? '512M'));
-        if ($configuredMemory !== '') {
-            @ini_set('memory_limit', $configuredMemory);
+        return self::preflightSummary($root, $release, $environment, $driver, $storagePath, $checks);
+    }
+
+    /** @param array<string,mixed> $profile */
+    private static function configureMemoryLimit(array $profile): void
+    {
+        $configured = trim((string) (Environment::get('APP_MEMORY_LIMIT', (string) ($profile['php_memory_limit'] ?? '512M')) ?? '512M'));
+        if ($configured !== '') {
+            @ini_set('memory_limit', $configured);
         }
+    }
 
+    /** @param array<string,mixed> $checks */
+    private static function checkEnvironmentFile(string $root, array &$checks): void
+    {
         try {
             Environment::load($root . '/.env');
-            $environmentLoad = 'PASS';
-        } catch (Throwable $exception) {
-            $environmentLoad = 'FAIL';
+        } catch (Throwable) {
             self::check($checks, 'ENVIRONMENT_FILE', 'FAIL', 'Environment configuration could not be read.', []);
+            return;
         }
-        if ($environmentLoad === 'PASS' && !isset($checks['ENVIRONMENT_FILE'])) {
+        if (!isset($checks['ENVIRONMENT_FILE'])) {
             self::check($checks, 'ENVIRONMENT_FILE', 'PASS', 'Environment file is optional; process environment and .env values are readable.', []);
         }
+    }
 
-        $minimumPhp = (string) ($profile['php_min_version'] ?? '8.1.0');
+    /** @param array<string,mixed> $profile @param array<string,mixed> $checks */
+    private static function checkRuntimeVersion(array $profile, array &$checks): void
+    {
+        $minimum = (string) ($profile['php_min_version'] ?? '8.1.0');
+        $supported = version_compare(PHP_VERSION, $minimum, '>=');
         self::check(
             $checks,
             'PHP_VERSION',
-            version_compare(PHP_VERSION, $minimumPhp, '>=') ? 'PASS' : 'FAIL',
-            version_compare(PHP_VERSION, $minimumPhp, '>=')
-                ? 'PHP runtime meets the deployment minimum.'
-                : 'PHP runtime is below the documented deployment minimum.',
-            ['running' => PHP_VERSION, 'required' => $minimumPhp]
+            $supported ? 'PASS' : 'FAIL',
+            $supported ? 'PHP runtime meets the deployment minimum.' : 'PHP runtime is below the documented deployment minimum.',
+            ['running' => PHP_VERSION, 'required' => $minimum]
         );
+    }
 
-        $requiredMemory = (string) ($profile['php_memory_limit'] ?? '512M');
-        $currentMemoryBytes = self::memoryLimitBytes((string) ini_get('memory_limit'));
-        $requiredMemoryBytes = self::memoryLimitBytes($requiredMemory);
+    /** @param array<string,mixed> $profile @param array<string,mixed> $checks */
+    private static function checkMemoryLimit(array $profile, array &$checks): void
+    {
+        $required = (string) ($profile['php_memory_limit'] ?? '512M');
+        $currentBytes = self::memoryLimitBytes((string) ini_get('memory_limit'));
+        $requiredBytes = self::memoryLimitBytes($required);
+        $supported = $currentBytes === -1 || $currentBytes >= $requiredBytes;
         self::check(
             $checks,
             'PHP_MEMORY_LIMIT',
-            $currentMemoryBytes === -1 || $currentMemoryBytes >= $requiredMemoryBytes ? 'PASS' : 'FAIL',
-            $currentMemoryBytes === -1 || $currentMemoryBytes >= $requiredMemoryBytes ? 'PHP memory limit meets the documented production floor.' : 'PHP memory limit is below the documented production floor.',
-            ['running' => (string) ini_get('memory_limit'), 'required' => $requiredMemory]
+            $supported ? 'PASS' : 'FAIL',
+            $supported ? 'PHP memory limit meets the documented production floor.' : 'PHP memory limit is below the documented production floor.',
+            ['running' => (string) ini_get('memory_limit'), 'required' => $required]
         );
+    }
 
-        $missingExtensions = [];
-        $requiredExtensions = array_values(array_unique(array_merge(
-            ['mbstring'],
-            (array) ($profile['required_extensions'] ?? [])
-        )));
-        foreach ($requiredExtensions as $extension) {
+    /** @param array<string,mixed> $profile @param array<string,mixed> $checks */
+    private static function checkRequiredExtensions(array $profile, array &$checks): void
+    {
+        $missing = [];
+        $required = array_values(array_unique(array_merge(['mbstring'], (array) ($profile['required_extensions'] ?? []))));
+        foreach ($required as $extension) {
             $extension = (string) $extension;
-            if ($extension !== '' && !extension_loaded($extension)) {
-                $missingExtensions[] = $extension;
-            }
+            if ($extension !== '' && !extension_loaded($extension)) $missing[] = $extension;
         }
         self::check(
             $checks,
             'REQUIRED_EXTENSIONS',
-            $missingExtensions === [] ? 'PASS' : 'FAIL',
-            $missingExtensions === [] ? 'Required PHP extensions are loaded.' : 'Required PHP extensions are missing.',
-            ['missing' => $missingExtensions]
+            $missing === [] ? 'PASS' : 'FAIL',
+            $missing === [] ? 'Required PHP extensions are loaded.' : 'Required PHP extensions are missing.',
+            ['missing' => $missing]
         );
+    }
 
+    /** @param array<string,mixed> $checks */
+    private static function checkDeploymentMode(array &$checks): string
+    {
         $environment = strtolower((string) (Environment::get('APP_ENV', 'production') ?? 'production'));
         $debugRaw = (string) (Environment::get('APP_DEBUG', 'false') ?? 'false');
         $debug = filter_var($debugRaw, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
@@ -99,86 +133,91 @@ final class ProductionReadinessService
             $debug === false ? 'APP_DEBUG is disabled.' : 'APP_DEBUG must be false for production.',
             []
         );
-
         $timezone = (string) (Environment::get('APP_TIMEZONE', 'UTC') ?? 'UTC');
+        $validTimezone = in_array($timezone, timezone_identifiers_list(), true);
         self::check(
             $checks,
             'TIMEZONE',
-            in_array($timezone, timezone_identifiers_list(), true) ? 'PASS' : 'FAIL',
-            in_array($timezone, timezone_identifiers_list(), true) ? 'Configured timezone is valid.' : 'APP_TIMEZONE is not a valid timezone identifier.',
+            $validTimezone ? 'PASS' : 'FAIL',
+            $validTimezone ? 'Configured timezone is valid.' : 'APP_TIMEZONE is not a valid timezone identifier.',
             ['timezone' => $timezone]
         );
+        return $environment;
+    }
 
+    /** @param array<string,mixed> $profile @param array<string,mixed> $checks */
+    private static function checkStoragePaths(string $root, array $profile, array &$checks): string
+    {
         $documentRoot = $root . '/' . ltrim((string) ($profile['document_root'] ?? 'public'), '/');
         $frontController = $root . '/' . ltrim((string) ($profile['front_controller'] ?? 'public/index.php'), '/');
+        $documentRootPresent = is_dir($documentRoot) && is_file($frontController);
         self::check(
             $checks,
             'DOCUMENT_ROOT',
-            is_dir($documentRoot) && is_file($frontController) ? 'PASS' : 'FAIL',
-            is_dir($documentRoot) && is_file($frontController) ? 'public/ document root and front controller are present.' : 'Document root or front controller is missing.',
+            $documentRootPresent ? 'PASS' : 'FAIL',
+            $documentRootPresent ? 'public/ document root and front controller are present.' : 'Document root or front controller is missing.',
             []
         );
 
         $storagePath = self::configuredStoragePath($root);
+        $storageUsable = is_dir($storagePath) && is_readable($storagePath) && is_writable($storagePath);
         self::check(
             $checks,
             'STORAGE_DIRECTORY',
-            is_dir($storagePath) && is_readable($storagePath) && is_writable($storagePath) ? 'PASS' : 'FAIL',
-            is_dir($storagePath) && is_readable($storagePath) && is_writable($storagePath)
-                ? 'Configured storage is readable and writable.'
-                : 'Configured storage must exist and be readable and writable.',
+            $storageUsable ? 'PASS' : 'FAIL',
+            $storageUsable ? 'Configured storage is readable and writable.' : 'Configured storage must exist and be readable and writable.',
             ['configured' => self::pathLabel($storagePath, $root)]
         );
+        self::checkPublicDataIsolation($root, $storagePath, $checks);
+        return $storagePath;
+    }
 
+    /** @param array<string,mixed> $checks */
+    private static function checkPublicDataIsolation(string $root, string $storagePath, array &$checks): void
+    {
         $driver = strtolower((string) (Environment::get('DB_DRIVER', 'json') ?? 'json'));
-        $configuredPublicPath = trim((string) (Environment::get('APP_PUBLIC_PATH', '') ?? ''));
-        $publicPath = $configuredPublicPath !== ''
-            ? self::absolutePath($configuredPublicPath, $root)
-            : $root . '/public';
-        $exposedPaths = [];
-        if (!is_dir($publicPath)) {
-            $exposedPaths[] = 'public_root_missing';
-        }
-        if (self::pathIsWithin($root, $publicPath)) {
-            $exposedPaths[] = 'application_root';
-        }
-        if (self::pathIsWithin($storagePath, $publicPath)) {
-            $exposedPaths[] = 'storage';
-        }
-        if ($driver === 'sqlite' && self::pathIsWithin(self::configuredSqlitePath($root), $publicPath)) {
-            $exposedPaths[] = 'sqlite';
-        }
+        $configured = trim((string) (Environment::get('APP_PUBLIC_PATH', '') ?? ''));
+        $publicPath = $configured !== '' ? self::absolutePath($configured, $root) : $root . '/public';
+        $exposed = [];
+        if (!is_dir($publicPath)) $exposed[] = 'public_root_missing';
+        if (self::pathIsWithin($root, $publicPath)) $exposed[] = 'application_root';
+        if (self::pathIsWithin($storagePath, $publicPath)) $exposed[] = 'storage';
+        if ($driver === 'sqlite' && self::pathIsWithin(self::configuredSqlitePath($root), $publicPath)) $exposed[] = 'sqlite';
         $environmentFile = $root . '/.env';
-        if (is_file($environmentFile) && self::pathIsWithin($environmentFile, $publicPath)) {
-            $exposedPaths[] = 'environment_file';
-        }
+        if (is_file($environmentFile) && self::pathIsWithin($environmentFile, $publicPath)) $exposed[] = 'environment_file';
         self::check(
             $checks,
             'PUBLIC_DATA_ISOLATION',
-            $exposedPaths === [] ? 'PASS' : 'FAIL',
-            $exposedPaths === []
+            $exposed === [] ? 'PASS' : 'FAIL',
+            $exposed === []
                 ? 'Writable state and configuration are outside the configured public document root.'
                 : 'Writable state or configuration overlaps the configured public document root.',
-            ['affected' => $exposedPaths]
+            ['affected' => $exposed]
         );
+    }
 
-        $canonicalMissing = [];
+    /** @param array<string,mixed> $profile @param array<string,mixed> $checks */
+    private static function checkCanonicalContent(array $profile, string $storagePath, array &$checks): void
+    {
+        $missing = [];
         foreach ((array) ($profile['canonical_content'] ?? []) as $relative) {
             $relative = ltrim((string) $relative, '/');
             $name = str_starts_with($relative, 'storage/') ? substr($relative, 8) : $relative;
-            if (!is_file($storagePath . '/' . $name)) {
-                $canonicalMissing[] = $relative;
-            }
+            if (!is_file($storagePath . '/' . $name)) $missing[] = $relative;
         }
         self::check(
             $checks,
             'CANONICAL_CONTENT',
-            $canonicalMissing === [] ? 'PASS' : 'FAIL',
-            $canonicalMissing === [] ? 'Required canonical content files are present.' : 'Required canonical content files are missing from configured storage.',
-            ['missing' => $canonicalMissing]
+            $missing === [] ? 'PASS' : 'FAIL',
+            $missing === [] ? 'Required canonical content files are present.' : 'Required canonical content files are missing from configured storage.',
+            ['missing' => $missing]
         );
+    }
 
-        $jsonErrors = [];
+    /** @param array<string,mixed> $profile @param array<string,mixed> $checks */
+    private static function checkCanonicalJson(array $profile, string $storagePath, array &$checks): void
+    {
+        $errors = [];
         foreach ((array) ($profile['canonical_content'] ?? []) as $relative) {
             $relative = ltrim((string) $relative, '/');
             $name = str_starts_with($relative, 'storage/') ? substr($relative, 8) : $relative;
@@ -186,142 +225,164 @@ final class ProductionReadinessService
             if (!is_file($path)) continue;
             try {
                 $data = json_decode((string) file_get_contents($path), true, 512, JSON_THROW_ON_ERROR);
-                if (!is_array($data) || !array_is_list($data)) {
-                    $jsonErrors[] = $relative . ':expected-list';
-                }
+                if (!is_array($data) || !array_is_list($data)) $errors[] = $relative . ':expected-list';
             } catch (JsonException) {
-                $jsonErrors[] = $relative . ':malformed';
+                $errors[] = $relative . ':malformed';
             }
         }
         self::check(
             $checks,
             'CANONICAL_JSON',
-            $jsonErrors === [] ? 'PASS' : 'FAIL',
-            $jsonErrors === [] ? 'Canonical JSON collections parse with the expected list shape.' : 'One or more canonical JSON collections are invalid.',
-            ['errors' => $jsonErrors]
+            $errors === [] ? 'PASS' : 'FAIL',
+            $errors === [] ? 'Canonical JSON collections parse with the expected list shape.' : 'One or more canonical JSON collections are invalid.',
+            ['errors' => $errors]
         );
+    }
 
-        $mutableJsonErrors = [];
-        $mutableJsonPresent = [];
-        foreach (array_merge(
+    /** @param array<string,mixed> $profile @param array<string,mixed> $checks */
+    private static function checkMutableJson(array $profile, string $storagePath, array &$checks): void
+    {
+        $errors = [];
+        $present = [];
+        $stores = array_merge(
             (array) ($profile['json_mutable_stores'] ?? []),
             (array) ($profile['json_optional_mutable_stores'] ?? [])
-        ) as $relative) {
+        );
+        foreach ($stores as $relative) {
             $relative = ltrim((string) $relative, '/');
             $path = $storagePath . '/' . $relative;
-            if (!is_file($path)) {
-                continue;
-            }
-            $mutableJsonPresent[] = $relative;
+            if (!is_file($path)) continue;
+            $present[] = $relative;
             try {
                 $data = json_decode((string) file_get_contents($path), true, 512, JSON_THROW_ON_ERROR);
-                if (!is_array($data) || !array_is_list($data)) {
-                    $mutableJsonErrors[] = $relative . ':expected-list';
-                }
+                if (!is_array($data) || !array_is_list($data)) $errors[] = $relative . ':expected-list';
             } catch (JsonException) {
-                $mutableJsonErrors[] = $relative . ':malformed';
+                $errors[] = $relative . ':malformed';
             }
         }
         self::check(
             $checks,
             'MUTABLE_JSON',
-            $mutableJsonErrors === [] ? 'PASS' : 'FAIL',
-            $mutableJsonErrors === []
-                ? 'Present mutable JSON stores parse with the expected list shape.'
-                : 'One or more present mutable JSON stores are invalid.',
-            ['present' => $mutableJsonPresent, 'errors' => $mutableJsonErrors]
+            $errors === [] ? 'PASS' : 'FAIL',
+            $errors === [] ? 'Present mutable JSON stores parse with the expected list shape.' : 'One or more present mutable JSON stores are invalid.',
+            ['present' => $present, 'errors' => $errors]
         );
+    }
 
+    /** @param array<string,mixed> $profile @param array<string,mixed> $checks */
+    private static function checkDatabaseRuntime(string $root, array $profile, array &$checks): string
+    {
+        $driver = strtolower((string) (Environment::get('DB_DRIVER', 'json') ?? 'json'));
         $profileDrivers = array_map('strtolower', array_map('strval', (array) ($profile['database_modes'] ?? ['json', 'sqlite'])));
         $allowedDrivers = array_values(array_intersect($profileDrivers, ['json', 'sqlite']));
+        $supported = in_array($driver, $allowedDrivers, true);
         self::check(
             $checks,
             'DATABASE_DRIVER',
-            in_array($driver, $allowedDrivers, true) ? 'PASS' : 'FAIL',
-            in_array($driver, $allowedDrivers, true) ? 'Configured database mode is supported.' : 'DB_DRIVER is not supported by this release.',
+            $supported ? 'PASS' : 'FAIL',
+            $supported ? 'Configured database mode is supported.' : 'DB_DRIVER is not supported by this release.',
             ['driver' => $driver]
         );
-
         self::databaseCheck($checks, $root, $driver);
+        return $driver;
+    }
 
+    /** @param array<string,mixed> $checks */
+    private static function checkSessionStorage(array &$checks): void
+    {
         $sessionPath = (string) (session_save_path() ?: sys_get_temp_dir());
         if (str_contains($sessionPath, ';')) {
             $parts = explode(';', $sessionPath);
             $sessionPath = (string) end($parts);
         }
+        $writable = is_dir($sessionPath) && is_writable($sessionPath);
         self::check(
             $checks,
             'SESSION_STORAGE',
-            is_dir($sessionPath) && is_writable($sessionPath) ? 'PASS' : 'FAIL',
-            is_dir($sessionPath) && is_writable($sessionPath) ? 'PHP session storage is writable.' : 'PHP session storage is not writable.',
+            $writable ? 'PASS' : 'FAIL',
+            $writable ? 'PHP session storage is writable.' : 'PHP session storage is not writable.',
             []
         );
+    }
 
+    /** @param array<string,mixed> $profile @param array<string,mixed> $checks @return array<string,mixed> */
+    private static function checkReleaseIdentity(string $root, array $profile, array &$checks): array
+    {
         $release = ReleaseIdentity::current($root);
+        $hasBuildCommit = preg_match('/^[0-9a-f]{40}$/', $release['build_commit']) === 1;
         self::check(
             $checks,
             'RELEASE_IDENTITY',
-            preg_match('/^[0-9a-f]{40}$/', $release['build_commit']) === 1 ? 'PASS' : 'WARN',
-            preg_match('/^[0-9a-f]{40}$/', $release['build_commit']) === 1 ? 'Product and build identity are discoverable.' : 'Product identity is available but no committed build identity was found.',
+            $hasBuildCommit ? 'PASS' : 'WARN',
+            $hasBuildCommit ? 'Product and build identity are discoverable.' : 'Product identity is available but no committed build identity was found.',
             ['product_version' => $release['product_version'], 'release_tag' => $release['release_tag']]
         );
-        $expectedProductVersion = trim((string) ($profile['product_version'] ?? ''));
-        $expectedReleaseTag = trim((string) ($profile['release_tag'] ?? ''));
-        $identityContractPasses = ($expectedProductVersion === '' || $release['product_version'] === $expectedProductVersion)
-            && ($expectedReleaseTag === '' || $release['release_tag'] === $expectedReleaseTag);
+        $expectedVersion = trim((string) ($profile['product_version'] ?? ''));
+        $expectedTag = trim((string) ($profile['release_tag'] ?? ''));
+        $matches = ($expectedVersion === '' || $release['product_version'] === $expectedVersion)
+            && ($expectedTag === '' || $release['release_tag'] === $expectedTag);
         self::check(
             $checks,
             'RELEASE_IDENTITY_CONTRACT',
-            $identityContractPasses ? 'PASS' : 'FAIL',
-            $identityContractPasses
-                ? 'Product version and release tag match the deployment profile.'
-                : 'Product version or release tag does not match the deployment profile.',
+            $matches ? 'PASS' : 'FAIL',
+            $matches ? 'Product version and release tag match the deployment profile.' : 'Product version or release tag does not match the deployment profile.',
             [
-                'expected_product_version' => $expectedProductVersion,
+                'expected_product_version' => $expectedVersion,
                 'actual_product_version' => $release['product_version'],
-                'expected_release_tag' => $expectedReleaseTag,
+                'expected_release_tag' => $expectedTag,
                 'actual_release_tag' => $release['release_tag'],
             ]
         );
+        return $release;
+    }
 
+    /** @param array<string,mixed> $checks */
+    private static function checkOperationalSafety(string $root, array &$checks): void
+    {
+        self::checkRuntimeErrorSafety($root, $checks);
+        $configurationPresent = is_file($root . '/.env.example');
+        self::check(
+            $checks,
+            'CONFIG_TEMPLATE',
+            $configurationPresent ? 'PASS' : 'FAIL',
+            $configurationPresent ? 'Configuration template is present.' : 'Configuration template is missing.',
+            []
+        );
+        $baselinePresent = is_file($root . '/config/deployment-profile.json') && is_file($root . '/docs/RELEASE_RUNBOOK_V1.md');
+        self::check(
+            $checks,
+            'OPERATIONAL_BASELINE',
+            $baselinePresent ? 'PASS' : 'FAIL',
+            $baselinePresent ? 'Deployment profile and runbook are available.' : 'Deployment profile or runbook is missing.',
+            []
+        );
+    }
+
+    /** @param array<string,mixed> $checks */
+    private static function checkRuntimeErrorSafety(string $root, array &$checks): void
+    {
         $frontControllerText = is_file($root . '/public/index.php') ? (string) file_get_contents($root . '/public/index.php') : '';
         $frontControllerGuard = str_contains($frontControllerText, "ini_set('display_errors', '0')");
-        $dangerous = filter_var(ini_get('display_errors'), FILTER_VALIDATE_BOOLEAN) && !$frontControllerGuard
-            ? ['display_errors']
-            : [];
+        $displayErrors = filter_var(ini_get('display_errors'), FILTER_VALIDATE_BOOLEAN);
+        $dangerous = $displayErrors && !$frontControllerGuard ? ['display_errors'] : [];
         self::check(
             $checks,
             'RUNTIME_ERROR_SAFETY',
             $dangerous === [] ? 'PASS' : 'WARN',
             $dangerous === [] ? 'Production entrypoint disables runtime error display.' : 'Runtime error display is enabled without a front-controller guard.',
-            ['cli_display_errors' => filter_var(ini_get('display_errors'), FILTER_VALIDATE_BOOLEAN), 'front_controller_guard' => $frontControllerGuard]
+            ['cli_display_errors' => $displayErrors, 'front_controller_guard' => $frontControllerGuard]
         );
+    }
 
-        self::check(
-            $checks,
-            'CONFIG_TEMPLATE',
-            is_file($root . '/.env.example') ? 'PASS' : 'FAIL',
-            is_file($root . '/.env.example') ? 'Configuration template is present.' : 'Configuration template is missing.',
-            []
-        );
-
-        self::check(
-            $checks,
-            'OPERATIONAL_BASELINE',
-            is_file($root . '/config/deployment-profile.json') && is_file($root . '/docs/RELEASE_RUNBOOK_V1.md') ? 'PASS' : 'FAIL',
-            is_file($root . '/config/deployment-profile.json') && is_file($root . '/docs/RELEASE_RUNBOOK_V1.md')
-                ? 'Deployment profile and runbook are available.'
-                : 'Deployment profile or runbook is missing.',
-            []
-        );
-
+    /** @param array<string,mixed> $checks @return array<string,mixed> */
+    private static function preflightSummary(string $root, array $release, string $environment, string $driver, string $storagePath, array $checks): array
+    {
         $failures = [];
         $warnings = [];
         foreach ($checks as $code => $check) {
             if (($check['status'] ?? '') === 'FAIL') $failures[] = $code;
             if (($check['status'] ?? '') === 'WARN') $warnings[] = $code;
         }
-
         return [
             'status' => $failures !== [] ? 'FAIL' : ($warnings !== [] ? 'WARN' : 'PASS'),
             'product' => $release['product'],

@@ -43,7 +43,10 @@ final class QuestionCoverageService
         array $domains,
         array $topics,
         array $concepts,
-        ?QuestionEligibilityIndex $eligibilityIndex = null
+        ?QuestionEligibilityIndex $eligibilityIndex = null,
+        array $candidateQuestionsByBoard = [],
+        ?callable $profileHook = null,
+        ?callable $counterHook = null
     ): array {
         $catalog = self::catalogs($boards, $subjects, $domains, $topics, $concepts);
         $inventory = self::emptyInventory(count($questions));
@@ -55,6 +58,7 @@ final class QuestionCoverageService
             $topics,
             $concepts
         );
+        $phaseStartedAt = $profileHook === null ? 0 : hrtime(true);
         // The previous implementation called QuestionPoolFilter once for
         // every question. That made the normal Doctor path quadratic over the
         // repository. The production filter is still the source of truth; we
@@ -68,17 +72,49 @@ final class QuestionCoverageService
                 $eligibleQuestionIds[(string) $eligibleQuestion['id']] = true;
             }
         }
+        self::finishProfilePhase($profileHook, 'coverage.inventory_eligibility_filter', $phaseStartedAt);
+        if ($counterHook !== null) {
+            $counterHook('coverage_inventory_filter_executions', 1);
+            $counterHook('coverage_inventory_filter_question_visits', count($questions));
+        }
         foreach ($questions as $question) {
             self::inspectQuestion($question, $catalog, $eligibleQuestionIds, $inventory, $issues);
         }
         self::finalizeReport($inventory, $issues);
-        $subjectDepth = self::subjectDepth($questions, $boards, $eligibilityIndex);
+        self::finishProfilePhase($profileHook, 'coverage.inventory_taxonomy_scan', $phaseStartedAt);
+        $subjectDepth = self::subjectDepth(
+            $questions,
+            $boards,
+            $eligibilityIndex,
+            $candidateQuestionsByBoard,
+            $counterHook
+        );
+        self::finishProfilePhase($profileHook, 'coverage.subject_depth', $phaseStartedAt);
+        $blueprints = self::blueprints(
+            $questions,
+            $boards,
+            $subjects,
+            $boardSubjects,
+            $eligibilityIndex,
+            $candidateQuestionsByBoard,
+            $counterHook
+        );
+        self::finishProfilePhase($profileHook, 'coverage.blueprint_availability', $phaseStartedAt);
         return [
             'inventory' => $inventory,
             'issues' => $issues,
             'subject_depth' => $subjectDepth,
-            'blueprints' => self::blueprints($questions, $boards, $subjects, $boardSubjects, $eligibilityIndex),
+            'blueprints' => $blueprints,
         ];
+    }
+
+    private static function finishProfilePhase(?callable $profileHook, string $operation, int &$phaseStartedAt): void
+    {
+        if ($profileHook === null) {
+            return;
+        }
+        $profileHook($operation, $phaseStartedAt, []);
+        $phaseStartedAt = hrtime(true);
     }
 
     /**
@@ -86,38 +122,127 @@ final class QuestionCoverageService
      * eligibility resolver used for board practice. This is a planning signal,
      * not a claim that every board subject ought to have exactly 100 items.
      */
-    private static function subjectDepth(array $questions, array $boards, ?QuestionEligibilityIndex $index): array
+    private static function subjectDepth(
+        array $questions,
+        array $boards,
+        ?QuestionEligibilityIndex $index,
+        array $candidateQuestionsByBoard,
+        ?callable $counterHook
+    ): array
     {
         $target = 100;
-        if ($index === null) return ['target' => $target, 'active_board_subjects' => 0, 'below_target' => [], 'review_candidates' => []];
+        if ($index === null) {
+            return ['target' => $target, 'active_board_subjects' => 0, 'below_target' => [], 'review_candidates' => []];
+        }
+
+        $byScope = self::subjectDepthByScope($questions, $boards, $index, $candidateQuestionsByBoard, $counterHook);
+        return self::subjectDepthSummary($byScope, $target);
+    }
+
+    private static function subjectDepthByScope(
+        array $questions,
+        array $boards,
+        QuestionEligibilityIndex $index,
+        array $candidateQuestionsByBoard,
+        ?callable $counterHook
+    ): array {
         $byScope = [];
         foreach ($boards as $board) {
-            if (!is_array($board) || !is_scalar($board['id'] ?? null) || strtolower(trim((string) ($board['status'] ?? 'active'))) !== 'active') continue;
+            if (!is_array($board)
+                || !is_scalar($board['id'] ?? null)
+                || strtolower(trim((string) ($board['status'] ?? 'active'))) !== 'active') {
+                continue;
+            }
             $boardId = strtolower(trim((string) $board['id']));
             $boardCode = strtolower(trim((string) ($board['code'] ?? '')));
-            foreach ($questions as $question) {
-                if (!is_array($question) || strtolower(trim((string) ($question['status'] ?? 'active'))) !== 'active') continue;
-                $placement = $index->forExam($question, $boardId);
-                if ($placement === null && $boardCode !== '') $placement = $index->forExam($question, $boardCode);
-                if (!is_array($placement) || !is_scalar($placement['subject_id'] ?? null)) continue;
-                $subjectId = strtolower(trim((string) $placement['subject_id']));
-                $questionId = is_scalar($question['id'] ?? null) ? trim((string) $question['id']) : '';
-                if ($subjectId === '' || $questionId === '') continue;
-                $scope = $boardId . '|' . $subjectId;
-                if (isset($byScope[$scope]['question_ids'][$questionId])) continue;
-                $byScope[$scope]['board_id'] = $boardId;
-                $byScope[$scope]['subject_id'] = $subjectId;
-                $byScope[$scope]['question_ids'][$questionId] = true;
-                $taxonomy = is_array($question['taxonomy'] ?? null) ? $question['taxonomy'] : [];
-                $topic = trim((string) ($taxonomy['topic_id'] ?? $question['topic'] ?? ''));
-                $concept = trim((string) ($taxonomy['concept_id'] ?? $question['concept'] ?? ''));
-                if ($topic !== '') $byScope[$scope]['topics'][$topic] = true;
-                if ($concept !== '') {
-                    $byScope[$scope]['concepts'][$concept] = true;
-                    $byScope[$scope]['concept_counts'][$concept] = ($byScope[$scope]['concept_counts'][$concept] ?? 0) + 1;
+            $boardQuestions = $candidateQuestionsByBoard[$boardId] ?? $questions;
+            if ($counterHook !== null) {
+                $counterHook('coverage_subject_depth_question_visits', count($boardQuestions));
+                if (!array_key_exists($boardId, $candidateQuestionsByBoard)) {
+                    $counterHook('coverage_candidate_fallbacks', 1);
                 }
             }
+            self::collectBoardSubjectDepth(
+                $byScope,
+                $boardQuestions,
+                $boardId,
+                $boardCode,
+                $index
+            );
         }
+
+        return $byScope;
+    }
+
+    private static function collectBoardSubjectDepth(
+        array &$byScope,
+        array $questions,
+        string $boardId,
+        string $boardCode,
+        QuestionEligibilityIndex $index
+    ): void {
+        foreach ($questions as $question) {
+            if (!is_array($question)
+                || strtolower(trim((string) ($question['status'] ?? 'active'))) !== 'active') {
+                continue;
+            }
+
+            $placement = self::subjectDepthPlacement($question, $boardId, $boardCode, $index);
+            if (!is_array($placement) || !is_scalar($placement['subject_id'] ?? null)) {
+                continue;
+            }
+            self::recordSubjectDepthQuestion($byScope, $question, $boardId, (string) $placement['subject_id']);
+        }
+    }
+
+    private static function subjectDepthPlacement(
+        array $question,
+        string $boardId,
+        string $boardCode,
+        QuestionEligibilityIndex $index
+    ): ?array {
+        $placement = $index->mayBeEligibleForExam($question, $boardId)
+            ? $index->forExam($question, $boardId)
+            : null;
+        if ($placement === null && $boardCode !== ''
+            && $index->mayBeEligibleForExam($question, $boardCode)) {
+            $placement = $index->forExam($question, $boardCode);
+        }
+
+        return $placement;
+    }
+
+    private static function recordSubjectDepthQuestion(
+        array &$byScope,
+        array $question,
+        string $boardId,
+        string $subjectId
+    ): void {
+        $subjectId = strtolower(trim($subjectId));
+        $questionId = is_scalar($question['id'] ?? null) ? trim((string) $question['id']) : '';
+        if ($subjectId === '' || $questionId === '') {
+            return;
+        }
+
+        $scope = $boardId . '|' . $subjectId;
+        if (isset($byScope[$scope]['question_ids'][$questionId])) {
+            return;
+        }
+        $byScope[$scope]['board_id'] = $boardId;
+        $byScope[$scope]['subject_id'] = $subjectId;
+        $byScope[$scope]['question_ids'][$questionId] = true;
+        $taxonomy = is_array($question['taxonomy'] ?? null) ? $question['taxonomy'] : [];
+        $topic = trim((string) ($taxonomy['topic_id'] ?? $question['topic'] ?? ''));
+        $concept = trim((string) ($taxonomy['concept_id'] ?? $question['concept'] ?? ''));
+        if ($topic !== '') $byScope[$scope]['topics'][$topic] = true;
+        if ($concept !== '') {
+            $byScope[$scope]['concepts'][$concept] = true;
+            $byScope[$scope]['concept_counts'][$concept] = ($byScope[$scope]['concept_counts'][$concept] ?? 0) + 1;
+        }
+    }
+
+    private static function subjectDepthSummary(array $byScope, int $target): array
+    {
         $below = [];
         $reviews = [];
         foreach ($byScope as $scope) {
@@ -206,7 +331,9 @@ final class QuestionCoverageService
         array $boards,
         array $subjects,
         array $relations,
-        ?QuestionEligibilityIndex $eligibilityIndex = null
+        ?QuestionEligibilityIndex $eligibilityIndex = null,
+        array $candidateQuestionsByBoard = [],
+        ?callable $counterHook = null
     ): array {
         $subjectNames = [];
         foreach ($subjects as $subject) {
@@ -240,14 +367,28 @@ final class QuestionCoverageService
                 continue;
             }
             $allocations = \RuntimeAllocationService::allocate(100, $weights);
+            $subjectsForBoard = [];
+            foreach ($weights as $subjectId => $_weight) {
+                $subjectsForBoard[$subjectId] = $subjectNames[$subjectId];
+            }
+            $boardQuestions = $candidateQuestionsByBoard[$boardId] ?? $questions;
+            if ($counterHook !== null) {
+                $counterHook('coverage_blueprint_batch_executions', 1);
+                $counterHook('coverage_blueprint_batch_question_visits', count($boardQuestions));
+                $counterHook('coverage_blueprint_subject_pools', count($subjectsForBoard));
+                if (!array_key_exists($boardId, $candidateQuestionsByBoard)) {
+                    $counterHook('coverage_candidate_fallbacks', 1);
+                }
+            }
+            $availableBySubject = \QuestionPoolFilter::countBySubject(
+                $boardQuestions,
+                $subjectsForBoard,
+                new \SelectionRequest('*', null, [], 1, null, null, $boardId),
+                $eligibilityIndex
+            );
             $categories = [];
             foreach ($allocations as $subjectId => $required) {
-                $name = $subjectNames[$subjectId];
-                $available = count(\QuestionPoolFilter::filter(
-                    $questions,
-                    new \SelectionRequest($name, null, [], $required, null, null, $boardId),
-                    $eligibilityIndex
-                ));
+                $available = (int) ($availableBySubject[$subjectId] ?? 0);
                 $categories[] = [
                     'subject' => $subjectId,
                     'required_per_100' => $required,

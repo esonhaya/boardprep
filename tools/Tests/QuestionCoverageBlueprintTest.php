@@ -95,6 +95,28 @@ if (count($below) !== 1
     throw new RuntimeException('Doctor subject-depth signal failed to count the effective learner-facing scope.');
 }
 
+$foreignBoardQuestion = $question('foreign-board', 'english', 'agreement', 'medium');
+$foreignBoardQuestion['taxonomy']['board_id'] = 'nursing';
+$fullQuestionSet = [...$depthQuestions, $foreignBoardQuestion];
+$fullCoverage = QuestionCoverageService::analyze(
+    $fullQuestionSet, $boards, $subjects, $relations, $domains, $topics, $concepts, $depthIndex
+);
+$candidateCoverage = QuestionCoverageService::analyze(
+    $fullQuestionSet,
+    $boards,
+    $subjects,
+    $relations,
+    $domains,
+    $topics,
+    $concepts,
+    $depthIndex,
+    ['let' => $depthQuestions]
+);
+if ($candidateCoverage['subject_depth'] !== $fullCoverage['subject_depth']
+    || $candidateCoverage['blueprints'] !== $fullCoverage['blueprints']) {
+    throw new RuntimeException('Reusing ordered board candidates changed coverage or blueprint counts.');
+}
+
 $legacy = $questions[0];
 $legacy['id'] = 'legacy';
 $legacy['subject'] = ' English ';

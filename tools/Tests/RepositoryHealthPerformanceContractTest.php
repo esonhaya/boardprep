@@ -102,6 +102,22 @@ unset($normal['generated_at'], $profiled['generated_at']);
 b645_assert(b645_normalize($normal) === b645_normalize($profiled), 'Profiling changed normalized health findings or counts.');
 b645_assert(!array_key_exists('profiling', $profiled), 'Volatile profiling metadata leaked into the stable HealthReport payload.');
 $profile = $profiledReport->profiling ?? [];
+b645_assert(
+    (int) ($profile['execution_counts']['eligibility_index_builds'] ?? 0) === 1,
+    'A health scan rebuilt the same immutable eligibility index for separate consumers.'
+);
+b645_assert(
+    (int) ($profile['execution_counts']['coverage_inventory_filter_executions'] ?? 0) === 1,
+    'Coverage profiling did not count its production eligibility filter.'
+);
+b645_assert(
+    (int) ($profile['execution_counts']['coverage_candidate_fallbacks'] ?? 0) === 0,
+    'Coverage unexpectedly fell back to full question collections when building candidate sets.'
+);
+$coverageOperations = array_column((array) ($profile['operations'] ?? []), 'operation');
+foreach (['coverage.inventory_eligibility_filter', 'coverage.inventory_taxonomy_scan', 'coverage.subject_depth', 'coverage.blueprint_availability'] as $operation) {
+    b645_assert(in_array($operation, $coverageOperations, true), "Coverage profile omitted {$operation}.");
+}
 $expectedChecks = RepositoryHealthCheckCatalog::definitions();
 $timings = [];
 foreach ((array) ($profile['check_timings'] ?? []) as $check) {

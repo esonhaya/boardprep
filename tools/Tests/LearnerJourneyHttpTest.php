@@ -12,6 +12,11 @@ use App\Services\Learning\WeaknessService;
 use App\Services\Learning\WeaknessStorageService;
 use Tools\Doctor\Project\BoardPrep\Simulation\HttpSimulator;
 
+// Doctor flow checks run route simulations in testing mode. Keep direct runs
+// on that same documented contract instead of inheriting production CSRF.
+$_ENV['APP_ENV'] = 'testing';
+putenv('APP_ENV=testing');
+
 $root = dirname(__DIR__, 2);
 $configuredStorage = trim((string) (getenv('APP_STORAGE_PATH') ?: ''));
 $storagePath = $configuredStorage !== '' ? rtrim($configuredStorage, '/') : $root . '/storage';
@@ -37,7 +42,16 @@ $complete = static function (array $query, bool $exerciseStaleForm = false) use 
     unset($start['action']);
     $page = $http->request('POST', '/quiz', [], ['action' => 'start'] + $start, [], $cookies);
     if (!$page['success'] || !preg_match('/Question 1 \/ (\d+)/', $page['output'], $totalMatch)) {
-        throw new RuntimeException('targeted quiz did not start through normalized production path');
+        $body = preg_replace('/\s+/', ' ', strip_tags((string) ($page['output'] ?? ''))) ?? '';
+        throw new RuntimeException(sprintf(
+            'targeted quiz did not start through normalized production path: HTTP %d, exit %d, %.3fs, location %s; stderr: %s; body: %s',
+            (int) ($page['status'] ?? 0),
+            (int) ($page['exitCode'] ?? 1),
+            (float) ($page['duration'] ?? 0),
+            (string) ($page['location'] ?? ''),
+            substr(trim((string) ($page['stderr'] ?? '')), -1000),
+            substr($body, 0, 1000)
+        ));
     }
     $total = (int) $totalMatch[1];
     $firstQuestionId = null;

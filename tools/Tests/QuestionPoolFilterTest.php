@@ -29,6 +29,34 @@ if (count($filtered) !== 1 || ($filtered[0]['id'] ?? '') !== 'topic-priority-fix
     throw new RuntimeException('Topic selection did not prioritize the canonical taxonomy ID.');
 }
 
+$subjectNames = array_column(\App\Services\Shared\TaxonomyStorageService::subjects(), 'name', 'id');
+if (!is_string($subjectNames['mathematics'] ?? null)) {
+    throw new RuntimeException('The subject-pool fixture requires the configured Mathematics subject.');
+}
+$englishDuplicate = $question;
+$englishDuplicate['id'] = 'same-prompt-english';
+$englishDuplicate['question'] = 'Shared prompt across two subject pools?';
+$mathematicsQuestion = $englishDuplicate;
+$mathematicsQuestion['id'] = 'same-prompt-mathematics';
+$mathematicsQuestion['taxonomy']['subject_id'] = 'mathematics';
+$mathematicsDuplicate = $mathematicsQuestion;
+$mathematicsDuplicate['id'] = 'duplicate-prompt-mathematics';
+$subjectPool = [$englishDuplicate, $mathematicsQuestion, $mathematicsDuplicate];
+$subjectPoolRequest = new SelectionRequest('*', null, [], 1);
+$batchedSubjectCounts = QuestionPoolFilter::countBySubject(
+    $subjectPool,
+    ['english' => 'English', 'mathematics' => $subjectNames['mathematics']],
+    $subjectPoolRequest
+);
+$separateSubjectCounts = [
+    'english' => count(QuestionPoolFilter::filter($subjectPool, new SelectionRequest('English', null, [], 1))),
+    'mathematics' => count(QuestionPoolFilter::filter($subjectPool, new SelectionRequest($subjectNames['mathematics'], null, [], 1))),
+];
+if ($batchedSubjectCounts !== $separateSubjectCounts
+    || $batchedSubjectCounts !== ['english' => 1, 'mathematics' => 1]) {
+    throw new RuntimeException('Batched subject counts changed independent pool deduplication semantics.');
+}
+
 $wrongLegacyRequest = new SelectionRequest('*', null, [], 1, 'Subject-Verb Agreement');
 if (QuestionPoolFilter::filter([$question], $wrongLegacyRequest) !== []) {
     throw new RuntimeException('A stale legacy topic label still selects a question under the wrong concept.');
@@ -52,6 +80,20 @@ $crossBoardRequest = new SelectionRequest('*', null, [], 1, exam: 'LET');
 $crossBoardFiltered = QuestionPoolFilter::filter([$crossBoardQuestion], $crossBoardRequest, $eligibilityIndex);
 if (count($crossBoardFiltered) !== 1 || ($crossBoardFiltered[0]['id'] ?? '') !== 'cross-board-eligibility-fixture') {
     throw new RuntimeException('Candidate prefilter rejected a valid explicit cross-board eligibility placement.');
+}
+$batchedCrossBoardCounts = QuestionPoolFilter::countBySubject(
+    [$crossBoardQuestion],
+    ['english' => 'English'],
+    $crossBoardRequest,
+    $eligibilityIndex
+);
+$separateCrossBoardCount = count(QuestionPoolFilter::filter(
+    [$crossBoardQuestion],
+    new SelectionRequest('English', null, [], 1, exam: 'LET'),
+    $eligibilityIndex
+));
+if ($batchedCrossBoardCounts !== ['english' => $separateCrossBoardCount]) {
+    throw new RuntimeException('Batched subject counts changed explicit cross-board eligibility placement.');
 }
 
 $excludedIndex = new \App\Services\Question\QuestionEligibilityIndex([], [], [], [[
