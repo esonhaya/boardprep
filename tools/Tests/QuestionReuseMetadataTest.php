@@ -36,6 +36,12 @@ $storage->replace('question-reuse-metadata', [['id' => 'reuse-q1', 'question_id'
 $repository = new QuestionRepository($storage);
 $hydrated = $repository->find('q1');
 $assert(is_array($hydrated['reuse'] ?? null), 'repository did not hydrate reuse metadata');
+$updatedMetadata = $metadata;
+$updatedMetadata['reuse_policy'] = 'AUTO';
+$updatedMetadata['required_depth'] = 1;
+$repository->persistReuseMetadata($hydrated, $updatedMetadata);
+$reloaded = $repository->find('q1');
+$assert(($reloaded['reuse']['reuse_policy'] ?? null) === 'AUTO', 'repository lookup cache hid updated reuse metadata');
 
 $built = QuestionBuilderService::build(0, [
     'board_id' => 'let', 'subject_id' => 'english', 'domain_id' => 'grammar',

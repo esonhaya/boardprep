@@ -56,7 +56,7 @@ final class FlashcardDerivationService
     /** @return list<array<string,mixed>> */
     public function forQuestionIds(array $questionIds): array
     {
-        $questions = [];
+        $ids = [];
         $seen = [];
         foreach ($questionIds as $questionId) {
             if (!is_scalar($questionId)) {
@@ -67,9 +67,14 @@ final class FlashcardDerivationService
                 continue;
             }
             $seen[$id] = true;
-            $question = $this->questions?->find($id);
-            if ($question !== null) {
-                $questions[] = $question;
+            $ids[] = $id;
+        }
+
+        $questionsById = $this->questions?->findMany($ids) ?? [];
+        $questions = [];
+        foreach ($ids as $id) {
+            if (isset($questionsById[$id])) {
+                $questions[] = $questionsById[$id];
             }
         }
 

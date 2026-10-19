@@ -41,6 +41,38 @@ try {
     httpCheck($landing['status'] === 200 && str_contains($landing['output'], '<h1>Flashcards</h1'), 'landing page did not render');
     httpCheck(str_contains($landing['output'], 'Review filters') && str_contains($landing['output'], 'Start review'), 'landing filters or action missing');
 
+    $includeNew = $simulator->request('GET', '/flashcards', ['include_new' => '1'], [], [], $cookie);
+    httpCheck($includeNew['status'] === 200
+        && str_contains($includeNew['output'], 'id="flashcard-include-new" type="checkbox" name="include_new" value="1" checked'),
+        'include-new flashcard route did not preserve its selected setting');
+
+    $validScoped = $simulator->request('GET', '/flashcards', [
+        'board' => 'let',
+        'subject' => 'english',
+    ], [], [], $cookie);
+    httpCheck($validScoped['status'] === 200
+        && str_contains($validScoped['output'], '<option value="let" selected')
+        && str_contains($validScoped['output'], '<option value="english" selected')
+        && !str_contains($validScoped['output'], 'temporarily unavailable'),
+        'valid LET English scope did not render with the selected filters');
+
+    $validTopic = $simulator->request('GET', '/flashcards', [
+        'board' => 'let',
+        'subject' => 'english',
+        'topic' => 'subject-verb-agreement',
+        'include_new' => '1',
+    ], [], [], $cookie);
+    httpCheck($validTopic['status'] === 200
+        && str_contains($validTopic['output'], '<option value="subject-verb-agreement" selected')
+        && !str_contains($validTopic['output'], 'do not belong to the selected board'),
+        'valid LET English topic was rejected or lost in the route');
+
+    $noNewReview = $simulator->request('GET', '/flashcards/review', ['include_new' => '0'], [], [], $cookie);
+    httpCheck($noNewReview['status'] === 200
+        && str_contains($noNewReview['output'], 'No review card is available')
+        && !str_contains($noNewReview['output'], 'flashcard-prompt'),
+        'review with new cards disabled did not preserve its empty state');
+
     $review = $simulator->request('GET', '/flashcards/review', [], [], [], $cookie);
     httpCheck($review['status'] === 200 && str_contains($review['output'], 'Recall before revealing'), 'review page did not render');
     httpCheck(!str_contains($review['output'], 'flashcard-answer')

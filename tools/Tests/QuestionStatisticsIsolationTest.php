@@ -18,6 +18,32 @@ $questions = [
     ['id' => 'q1', 'status' => 'approved', 'timesUsed' => 2, 'timesCorrect' => 1],
     ['id' => 'q2', 'status' => 'approved', 'timesUsed' => 4, 'timesIncorrect' => 3],
 ];
+$verifyLookupMutations = static function (QuestionRepository $repository, string $backend): void {
+    $found = $repository->findMany(['q2', 'q1', 'missing']);
+    if (array_keys($found) !== ['q2', 'q1']) {
+        throw new RuntimeException($backend . ' batched lookup changed request order or returned a missing record');
+    }
+
+    $repository->create(['id' => 'q3', 'question' => 'Created']);
+    if (($repository->find('q3')['question'] ?? null) !== 'Created') {
+        throw new RuntimeException($backend . ' lookup cache hid a created question');
+    }
+
+    $repository->update('q3', ['question' => 'Updated']);
+    if (($repository->find('q3')['question'] ?? null) !== 'Updated') {
+        throw new RuntimeException($backend . ' lookup cache hid an updated question');
+    }
+
+    $repository->replaceAll([['id' => 'q4', 'question' => 'Replacement']]);
+    if ($repository->find('q3') !== null
+        || ($repository->find('q4')['question'] ?? null) !== 'Replacement') {
+        throw new RuntimeException($backend . ' lookup cache survived a collection replacement');
+    }
+
+    if (!$repository->delete('q4') || $repository->find('q4') !== null) {
+        throw new RuntimeException($backend . ' lookup cache survived a question deletion');
+    }
+};
 
 mkdir($jsonPath, 0777, true);
 $json = new JsonStorage($jsonPath);
@@ -40,6 +66,7 @@ try {
     if (($jsonView['timesUsed'] ?? null) !== 4 || ($jsonView['timesCorrect'] ?? null) !== 2) {
         throw new RuntimeException('JSON statistics were not overlaid for production reads');
     }
+    $verifyLookupMutations($jsonRepository, 'JSON');
 
     $database = new Database([
         'driver' => 'sqlite',
@@ -60,8 +87,9 @@ try {
     if (($sqliteView['timesUsed'] ?? null) !== 3 || ($sqliteView['timesCorrect'] ?? null) !== 2) {
         throw new RuntimeException('SQLite statistics were not overlaid for production reads');
     }
+    $verifyLookupMutations($sqliteRepository, 'SQLite');
 
-    echo "[PASS] question statistics stay mutable and backend-scoped without canonical question mutation.\n";
+    echo "[PASS] JSON/SQLite question lookup batching, mutation freshness, and statistics overlays passed.\n";
 } finally {
     $iterator = new RecursiveIteratorIterator(
         new RecursiveDirectoryIterator($root, FilesystemIterator::SKIP_DOTS),

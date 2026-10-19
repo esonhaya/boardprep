@@ -10,8 +10,8 @@ use App\Services\Question\QuestionReuseMetadataService;
 class QuestionRepository extends BaseRepository
 {
     protected string $collection = 'questions';
-    /** @var array<string, array>|null */
-    private ?array $byId = null;
+    /** @var array<string, array|null> */
+    private array $byId = [];
 
     public function __construct(
         StorageInterface $storage
@@ -76,38 +76,160 @@ class QuestionRepository extends BaseRepository
 
     public function find(string $id): ?array
     {
-        if ($this->byId === null) {
-            $this->byId = [];
-            foreach ($this->all() as $record) {
-                $recordId = $record['id'] ?? null;
-                if (is_scalar($recordId)
-                    && !array_key_exists((string) $recordId, $this->byId)) {
-                    $this->byId[(string) $recordId] = $record;
-                }
+        return $this->findMany([$id])[$id] ?? null;
+    }
+
+    /** @param list<string|int> $ids @return array<string, array> */
+    public function findMany(array $ids): array
+    {
+        $requested = $this->normalizeLookupIds($ids);
+        $missing = $this->missingLookupIds($requested);
+        if ($missing !== []) {
+            $questions = $this->loadQuestionRecords($missing);
+            if ($questions !== []) {
+                $this->hydrateSelectedQuestions($questions);
+            }
+            $this->cacheRequestedQuestions($requested, $questions);
+        }
+
+        return $this->cachedQuestions($requested);
+    }
+
+    /** @param list<string|int> $ids @return array<string, true> */
+    private function normalizeLookupIds(array $ids): array
+    {
+        $requested = [];
+        foreach ($ids as $candidate) {
+            if (is_scalar($candidate) && (string) $candidate !== '') {
+                $requested[(string) $candidate] = true;
             }
         }
 
-        return $this->byId[$id] ?? null;
+        return $requested;
+    }
+
+    /** @param array<string, true> $requested @return array<string, true> */
+    private function missingLookupIds(array $requested): array
+    {
+        $missing = [];
+        foreach ($requested as $id => $_) {
+            if (!array_key_exists($id, $this->byId)) {
+                $missing[$id] = true;
+            }
+        }
+
+        return $missing;
+    }
+
+    /** @param array<string, true> $missing @return array<string, array> */
+    private function loadQuestionRecords(array $missing): array
+    {
+        $questions = [];
+        $records = $this->storage->all($this->collection);
+        foreach ($records as $record) {
+            if (!is_array($record) || !is_scalar($record['id'] ?? null)) {
+                continue;
+            }
+            $id = (string) $record['id'];
+            if (isset($missing[$id])) {
+                $questions[$id] = $record;
+                unset($missing[$id]);
+                if ($missing === []) {
+                    break;
+                }
+            }
+        }
+        unset($records, $record);
+
+        return $questions;
+    }
+
+    /** @param array<string, array> $questions */
+    private function hydrateSelectedQuestions(array &$questions): void
+    {
+        $selectedIds = array_fill_keys(array_keys($questions), true);
+        $reuseByQuestion = [];
+        foreach ($this->storage->all('question-reuse-metadata') as $record) {
+            if (!is_array($record) || !is_scalar($record['question_id'] ?? null)) {
+                continue;
+            }
+            $id = (string) $record['question_id'];
+            $metadata = $record['reuse'] ?? $record;
+            if (isset($selectedIds[$id]) && is_array($metadata)
+                && QuestionReuseMetadataService::validate($metadata) === []) {
+                $reuseByQuestion[$id] = $metadata;
+            }
+        }
+
+        $statistics = [];
+        foreach ($this->storage->all('question-statistics') as $record) {
+            if (is_array($record) && is_scalar($record['id'] ?? null)
+                && isset($selectedIds[(string) $record['id']])) {
+                $statistics[(string) $record['id']] = $record;
+            }
+        }
+
+        foreach ($questions as $id => &$question) {
+            if (!array_key_exists('reuse', $question) && isset($reuseByQuestion[$id])) {
+                $question['reuse'] = $reuseByQuestion[$id];
+            }
+            foreach (['timesUsed', 'timesCorrect', 'timesIncorrect', 'updatedAt'] as $field) {
+                if (array_key_exists($field, $statistics[$id] ?? [])) {
+                    $question[$field] = $statistics[$id][$field];
+                }
+            }
+        }
+        unset($question);
+    }
+
+    /** @param array<string, true> $requested @param array<string, array> $questions */
+    private function cacheRequestedQuestions(array $requested, array $questions): void
+    {
+        foreach ($requested as $id => $_) {
+            if (!array_key_exists($id, $this->byId)) {
+                $this->byId[$id] = $questions[$id] ?? null;
+            }
+        }
+    }
+
+    /** @param array<string, true> $requested @return array<string, array> */
+    private function cachedQuestions(array $requested): array
+    {
+        $found = [];
+        foreach ($requested as $id => $_) {
+            if (is_array($this->byId[$id] ?? null)) {
+                $found[$id] = $this->byId[$id];
+            }
+        }
+
+        return $found;
     }
 
     public function create(array $data): array
     {
         $created = parent::create($data);
-        $this->byId = null;
+        $this->byId = [];
         return $created;
     }
 
     public function update(string $id, array $data): ?array
     {
         $updated = parent::update($id, $data);
-        $this->byId = null;
+        $this->byId = [];
         return $updated;
     }
 
     public function replaceAll(array $records): void
     {
         parent::replaceAll($records);
-        $this->byId = null;
+        $this->byId = [];
+    }
+
+    public function delete(string $id): bool
+    {
+        $deleted = parent::delete($id);
+        $this->byId = [];
+        return $deleted;
     }
 
     public function where(array $criteria): array
@@ -244,5 +366,6 @@ class QuestionRepository extends BaseRepository
             ];
         }
         $this->storage->replace('question-reuse-metadata', $records);
+        $this->byId = [];
     }
 }
