@@ -126,25 +126,8 @@ final class FlashcardService
     /** @return array{cards:list<array<string,mixed>>,due_count:int,new_count:int,total_count:int} */
     public function selectionForQuestionIds(array $questionIds, int $limit = 20, ?DateTimeImmutable $now = null): array
     {
-        $cards = [];
-        $seen = [];
-        foreach ($questionIds as $questionId) {
-            if (!is_scalar($questionId)) {
-                continue;
-            }
-            $id = trim((string) $questionId);
-            if ($id === '' || isset($seen[$id])) {
-                continue;
-            }
-            $seen[$id] = true;
-            $card = $this->derivation->forQuestionId($id);
-            if ($card !== null) {
-                $cards[] = $card;
-            }
-        }
-
         return $this->selectFromCards(
-            $cards,
+            $this->derivation->forQuestionIds($questionIds),
             $this->statesByKey(),
             true,
             true,

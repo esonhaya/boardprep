@@ -46,28 +46,134 @@ final class FlashcardDerivationService
     {
         $question = $this->questions?->find($questionId);
 
-        return $question === null ? null : $this->derive($question);
+        if ($question === null) {
+            return null;
+        }
+
+        return $this->deriveMany([$question])[0] ?? null;
+    }
+
+    /** @return list<array<string,mixed>> */
+    public function forQuestionIds(array $questionIds): array
+    {
+        $questions = [];
+        $seen = [];
+        foreach ($questionIds as $questionId) {
+            if (!is_scalar($questionId)) {
+                continue;
+            }
+            $id = trim((string) $questionId);
+            if ($id === '' || isset($seen[$id])) {
+                continue;
+            }
+            $seen[$id] = true;
+            $question = $this->questions?->find($id);
+            if ($question !== null) {
+                $questions[] = $question;
+            }
+        }
+
+        return $this->deriveMany($questions);
     }
 
     public function all(array $filters = [], array $topicIds = []): array
     {
-        $cards = [];
+        $questions = $this->questions->all();
+        $selectedIndexes = [];
+        $boardsByQuestion = [];
         $topicIds = array_fill_keys(array_values(array_filter(
             array_map(static fn(mixed $id): string => is_scalar($id) ? trim((string) $id) : '', $topicIds)
         )), true);
 
-        foreach ($this->questions->all() as $question) {
+        foreach ($questions as $index => $question) {
             if (!$this->matchesFilters($question, $filters)
                 || ($topicIds !== [] && !isset($topicIds[$this->topicId($question)]))) {
                 continue;
             }
-            $card = $this->derive($question);
+
+            $selectedIndexes[] = $index;
+            if (!$this->useSharedStudyLibrary) {
+                continue;
+            }
+
+            $questionId = is_scalar($question['id'] ?? null) ? trim((string) $question['id']) : '';
+            if ($questionId === '') {
+                continue;
+            }
+            $cacheKey = self::statusCacheKey($question);
+            if (array_key_exists($cacheKey, $this->cardCache)
+                || !$this->derivationStatusForKey($question, $cacheKey)['derivable']) {
+                continue;
+            }
+            $taxonomy = is_array($question['taxonomy'] ?? null) ? $question['taxonomy'] : [];
+            $board = $taxonomy['board_id'] ?? $question['board'] ?? null;
+            $boardsByQuestion[$questionId] = is_scalar($board) ? (string) $board : null;
+        }
+
+        $referencesByQuestion = $this->useSharedStudyLibrary
+            ? StudyLibraryService::forQuestionsByBoard($boardsByQuestion)
+            : [];
+        $cards = [];
+        foreach ($selectedIndexes as $index) {
+            $question = $questions[$index];
+            $questionId = is_scalar($question['id'] ?? null) ? trim((string) $question['id']) : '';
+            $card = $this->useSharedStudyLibrary
+                ? $this->deriveWithStudyReferences($question, $referencesByQuestion[$questionId] ?? [])
+                : $this->derive($question);
             if ($card !== null) {
                 $cards[] = $card;
             }
         }
 
         return $cards;
+    }
+
+    /** @param array<int, array<string, mixed>> $questions @return list<array<string,mixed>> */
+    private function deriveMany(array $questions): array
+    {
+        $referencesByQuestion = [];
+        if ($this->useSharedStudyLibrary) {
+            $boardsByQuestion = [];
+            foreach ($questions as $question) {
+                $questionId = is_scalar($question['id'] ?? null) ? trim((string) $question['id']) : '';
+                if ($questionId === '') {
+                    continue;
+                }
+                $cacheKey = self::statusCacheKey($question);
+                if (array_key_exists($cacheKey, $this->cardCache)
+                    || !$this->derivationStatusForKey($question, $cacheKey)['derivable']) {
+                    continue;
+                }
+                $taxonomy = is_array($question['taxonomy'] ?? null) ? $question['taxonomy'] : [];
+                $board = $taxonomy['board_id'] ?? $question['board'] ?? null;
+                $boardsByQuestion[$questionId] = is_scalar($board) ? (string) $board : null;
+            }
+            $referencesByQuestion = StudyLibraryService::forQuestionsByBoard($boardsByQuestion);
+        }
+
+        $cards = [];
+        foreach ($questions as $question) {
+            $questionId = is_scalar($question['id'] ?? null) ? trim((string) $question['id']) : '';
+            $card = $this->useSharedStudyLibrary
+                ? $this->deriveWithStudyReferences($question, $referencesByQuestion[$questionId] ?? [])
+                : $this->derive($question);
+            if ($card !== null) {
+                $cards[] = $card;
+            }
+        }
+
+        return $cards;
+    }
+
+    private function deriveWithStudyReferences(array $question, array $references): ?array
+    {
+        $cacheKey = self::statusCacheKey($question);
+        if (array_key_exists($cacheKey, $this->cardCache)) {
+            return $this->cardCache[$cacheKey];
+        }
+
+        $status = $this->derivationStatusForKey($question, $cacheKey);
+        return $this->deriveCardForStatus($question, $cacheKey, $status, $references);
     }
 
     private function topicId(array $question): string
@@ -119,7 +225,7 @@ final class FlashcardDerivationService
     /**
      * @param array{derivable:bool,justified:bool,eligible:bool,reason:string,exclusion:?array} $status
      */
-    private function deriveCardForStatus(array $question, string $cacheKey, array $status): ?array
+    private function deriveCardForStatus(array $question, string $cacheKey, array $status, ?array $studyReferences = null): ?array
     {
         if (!$status['derivable']) {
             $this->cardCache[$cacheKey] = null;
@@ -149,7 +255,7 @@ final class FlashcardDerivationService
             'difficulty' => (string) ($question['difficulty'] ?? ''),
             'revision' => $revision,
             'source_ids' => $this->sourceIds($question),
-            'study_references' => $this->studyReferences($question),
+            'study_references' => $studyReferences ?? $this->studyReferences($question),
             'content_blocks' => is_array($question['content_blocks'] ?? null)
                 ? $question['content_blocks']
                 : [],

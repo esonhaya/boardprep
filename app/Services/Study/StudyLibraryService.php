@@ -152,20 +152,51 @@ final class StudyLibraryService
 
     public static function forQuestions(array $questionIds, ?string $boardId = null, ?string $subjectId = null): array
     {
-        $questionIds = array_fill_keys(array_values(array_filter(array_map(
+        $questionIds = array_values(array_filter(array_map(
             static fn(mixed $id): string => is_scalar($id) ? trim((string) $id) : '',
             $questionIds
-        ))), true);
-        if ($questionIds === []) {
-            return [];
+        )));
+        $contexts = [];
+        foreach ($questionIds as $questionId) {
+            $contexts[$questionId] = [
+                'board_id' => $boardId,
+                'subject_id' => $subjectId,
+            ];
         }
 
-        $contextBoard = $boardId === null ? '' : (self::normalizeExam($boardId) ?? '');
-        $contextSubject = $subjectId === null ? '' : strtolower(trim($subjectId));
-        if ($contextSubject === '*') {
-            $contextSubject = '';
+        return $contexts === [] ? [] : self::resolveQuestionReferences($contexts);
+    }
+
+    /**
+     * Resolve references for question-specific board contexts in one storage pass.
+     *
+     * @param array<string, mixed> $boardByQuestionId
+     * @return array<string, array<int, array<string, mixed>>>
+     */
+    public static function forQuestionsByBoard(array $boardByQuestionId): array
+    {
+        $contexts = [];
+        foreach ($boardByQuestionId as $rawQuestionId => $boardId) {
+            $questionId = trim((string) $rawQuestionId);
+            if ($questionId === '') {
+                continue;
+            }
+            $contexts[$questionId] = [
+                'board_id' => is_scalar($boardId) ? (string) $boardId : null,
+                'subject_id' => null,
+            ];
         }
 
+        return $contexts === [] ? [] : self::resolveQuestionReferences($contexts);
+    }
+
+    /**
+     * @param array<string, array{board_id:?string,subject_id:?string}> $contexts
+     * @return array<string, array<int, array<string, mixed>>>
+     */
+    private static function resolveQuestionReferences(array $contexts): array
+    {
+        $questionIds = array_fill_keys(array_keys($contexts), true);
         $materials = [];
         $materialExams = [];
         foreach (App::storage()->all('study-materials') as $material) {
@@ -191,6 +222,7 @@ final class StudyLibraryService
         }
 
         $references = [];
+        $resolvedSubjects = [];
         foreach (App::storage()->all('study-question-links') as $link) {
             if (!is_array($link)) {
                 continue;
@@ -199,6 +231,16 @@ final class StudyLibraryService
             $materialId = is_scalar($link['material_id'] ?? null) ? trim((string) $link['material_id']) : '';
             if ($questionId === '' || !isset($questionIds[$questionId]) || !isset($materials[$materialId])) {
                 continue;
+            }
+            $context = $contexts[$questionId];
+            $contextBoard = is_string($context['board_id'] ?? null)
+                ? (self::normalizeExam($context['board_id']) ?? '')
+                : '';
+            $contextSubject = is_string($context['subject_id'] ?? null)
+                ? strtolower(trim($context['subject_id']))
+                : '';
+            if ($contextSubject === '*') {
+                $contextSubject = '';
             }
             $reviewGuidance = is_scalar($link['review_guidance'] ?? null)
                 ? trim((string) $link['review_guidance'])
@@ -211,7 +253,11 @@ final class StudyLibraryService
                         continue;
                     }
                     $lessonSubject = strtolower(trim((string) ($lesson['subject_id'] ?? '')));
-                    $resolvedSubject = self::effectiveSubjectForQuestion($questionId, $contextBoard);
+                    $subjectKey = $questionId . "\0" . $contextBoard;
+                    if (!array_key_exists($subjectKey, $resolvedSubjects)) {
+                        $resolvedSubjects[$subjectKey] = self::effectiveSubjectForQuestion($questionId, $contextBoard);
+                    }
+                    $resolvedSubject = $resolvedSubjects[$subjectKey];
                     if ($resolvedSubject === '' || $resolvedSubject !== $lessonSubject
                         || ($contextSubject !== '' && $contextSubject !== $resolvedSubject)) {
                         continue;
