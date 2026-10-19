@@ -1,0 +1,131 @@
+%PDF-1.4
+%BoardPrep
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [5 0 R 7 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 6 0 R >>
+endobj
+6 0 obj
+<< /Length 4971>>
+stream
+BT /F2 19.0 Tf 50.0 790.0 Td (REE Mathematics: Linear Systems, Complex Models,) Tj ET
+BT /F2 19.0 Tf 50.0 765.0 Td (and Data) Tj ET
+BT /F1 8.0 Tf 50.0 740.0 Td (REGISTERED-ELECTRICAL-ENGINEERING · registered-electrical-engineering-mathematics · BoardPrep) Tj ET
+BT /F1 8.0 Tf 50.0 728.0 Td (lesson v1) Tj ET
+BT /F2 13.0 Tf 50.0 711.0 Td (Official examination scope) Tj ET
+BT /F1 10.0 Tf 50.0 690.0 Td (PRC’s current REE TOS and examination program guide subject scope. This original module) Tj ET
+BT /F1 10.0 Tf 50.0 676.0 Td (connects selected algebra, calculus, phasor, transform, probability, and economic methods; it) Tj ET
+BT /F1 10.0 Tf 50.0 662.0 Td (is not a complete REE mathematics course.) Tj ET
+BT /F2 13.0 Tf 50.0 643.0 Td (Learning objectives) Tj ET
+BT /F1 10.0 Tf 58.0 622.0 Td (- Solve a simultaneous linear model and verify every original equation.) Tj ET
+BT /F1 10.0 Tf 58.0 608.0 Td (- Relate derivatives and differential equations to change over time.) Tj ET
+BT /F1 10.0 Tf 58.0 594.0 Td (- Explain when complex and transform methods represent periodic or dynamic behavior.) Tj ET
+BT /F2 13.0 Tf 50.0 575.0 Td (1. Linear equations, matrices, and determinants) Tj ET
+BT /F1 10.0 Tf 50.0 554.0 Td (A system of linear equations represents several constraints on the same unknowns. Elimination,) Tj ET
+BT /F1 10.0 Tf 50.0 540.0 Td (substitution, or matrix methods can solve the system when the coefficient structure supports a) Tj ET
+BT /F1 10.0 Tf 50.0 526.0 Td (unique solution. After calculating, substitute the result into every original equation; a) Tj ET
+BT /F1 10.0 Tf 50.0 512.0 Td (check can reveal arithmetic or transcription errors. A determinant helps diagnose) Tj ET
+BT /F1 10.0 Tf 50.0 498.0 Td (invertibility for a square matrix, but numerical conditioning matters when inputs are) Tj ET
+BT /F1 10.0 Tf 50.0 484.0 Td (approximate. In an engineering interpretation, variables retain their units and the equations) Tj ET
+BT /F1 10.0 Tf 50.0 470.0 Td (must represent compatible physical relationships.) Tj ET
+BT /F2 13.0 Tf 50.0 451.0 Td (2. Calculus, rates, and differential equations) Tj ET
+BT /F1 10.0 Tf 50.0 430.0 Td (A derivative models instantaneous change with respect to a defined variable; its units are the) Tj ET
+BT /F1 10.0 Tf 50.0 416.0 Td (dependent quantity’s units divided by the independent quantity’s units. Integration) Tj ET
+BT /F1 10.0 Tf 50.0 402.0 Td (accumulates a rate over an interval, subject to bounds and initial conditions. Differential) Tj ET
+BT /F1 10.0 Tf 50.0 388.0 Td (equations express how a system’s state changes and require conditions that identify a) Tj ET
+BT /F1 10.0 Tf 50.0 374.0 Td (particular solution. Interpret an equation alongside the physical meaning of its variables and) Tj ET
+BT /F1 10.0 Tf 50.0 360.0 Td (sign convention; a mathematically correct result can describe the wrong circuit or boundary) Tj ET
+BT /F1 10.0 Tf 50.0 346.0 Td (condition if the model was set up incorrectly.) Tj ET
+BT /F2 13.0 Tf 50.0 327.0 Td (3. Complex numbers, phasors, Fourier, and Laplace methods) Tj ET
+BT /F1 10.0 Tf 50.0 306.0 Td (Complex numbers combine real and imaginary components; magnitude and angle offer a useful) Tj ET
+BT /F1 10.0 Tf 50.0 292.0 Td (representation for sinusoidal steady-state quantities. A phasor is tied to a common frequency) Tj ET
+BT /F1 10.0 Tf 50.0 278.0 Td (and convention, and it does not describe arbitrary transient behavior by itself. Fourier) Tj ET
+BT /F1 10.0 Tf 50.0 264.0 Td (methods represent periodic content through frequency components, while Laplace transforms can) Tj ET
+BT /F1 10.0 Tf 50.0 250.0 Td (solve linear differential systems with specified initial conditions. Keep transform variables,) Tj ET
+BT /F1 10.0 Tf 50.0 236.0 Td (units, and initial-value terms visible. Check whether the problem asks for steady state,) Tj ET
+BT /F1 10.0 Tf 50.0 222.0 Td (transient response, or a periodic decomposition before selecting a method.) Tj ET
+BT /F2 13.0 Tf 50.0 203.0 Td (4. Probability, geometry, and economic comparisons) Tj ET
+BT /F1 10.0 Tf 50.0 182.0 Td (Probability and statistics quantify uncertainty using a defined sample space, data collection) Tj ET
+BT /F1 10.0 Tf 50.0 168.0 Td (process, and model. Check assumptions before applying a distribution or interpreting a) Tj ET
+BT /F1 10.0 Tf 50.0 154.0 Td (confidence measure. Trigonometry and analytic geometry connect angles, lengths, and) Tj ET
+BT /F1 10.0 Tf 50.0 140.0 Td (coordinates; label the reference angle and units. Engineering-economics calculations compare) Tj ET
+BT /F1 10.0 Tf 50.0 126.0 Td (alternatives using timing, interest, service horizon, and stated costs. A present-worth result) Tj ET
+BT /F1 10.0 Tf 50.0 112.0 Td (is conditional on the inputs and does not make a safety or ethical tradeoff automatically) Tj ET
+BT /F1 10.0 Tf 50.0 98.0 Td (acceptable.) Tj ET
+BT /F2 13.0 Tf 50.0 79.0 Td (Solve a two-equation current model) Tj ET
+BT /F1 8 Tf 500 28 Td (BoardPrep | 1 / 2) Tj ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 8 0 R >>
+endobj
+8 0 obj
+<< /Length 3644>>
+stream
+BT /F1 10.0 Tf 50.0 790.0 Td (Question: A feeder model gives 2x + y = 11 and x - y = 1, where x and y are branch currents in) Tj ET
+BT /F1 10.0 Tf 50.0 776.0 Td (amperes. Find x.) Tj ET
+BT /F1 10.0 Tf 50.0 762.0 Td (1. Add the equations to eliminate y: 3x = 12.) Tj ET
+BT /F1 10.0 Tf 50.0 748.0 Td (2. Divide by 3 to get x = 4 A.) Tj ET
+BT /F1 10.0 Tf 50.0 734.0 Td (3. Substitute into x - y = 1 to obtain y = 3 A, then verify 2\(4\) + 3 = 11.) Tj ET
+BT /F1 10.0 Tf 50.0 720.0 Td (Answer: x = 4 A.) Tj ET
+BT /F1 10.0 Tf 50.0 706.0 Td (Check: Both unknowns satisfy both original equations.) Tj ET
+BT /F2 13.0 Tf 50.0 687.0 Td (Common misconceptions) Tj ET
+BT /F1 10.0 Tf 58.0 666.0 Td (- A solved equation system is correct without substitution.) Tj ET
+BT /F1 10.0 Tf 58.0 652.0 Td (- A phasor represents every time-varying waveform.) Tj ET
+BT /F1 10.0 Tf 58.0 638.0 Td (- More displayed digits mean greater measurement accuracy.) Tj ET
+BT /F2 13.0 Tf 50.0 619.0 Td (Practice patterns) Tj ET
+BT /F1 10.0 Tf 58.0 598.0 Td (- Check every original constraint after solving.) Tj ET
+BT /F1 10.0 Tf 58.0 584.0 Td (- Match the mathematical method to the time behavior.) Tj ET
+BT /F1 10.0 Tf 58.0 570.0 Td (- Name model, units, and assumptions for data or economic analysis.) Tj ET
+BT /F2 13.0 Tf 50.0 551.0 Td (Official scope references) Tj ET
+BT /F1 10.0 Tf 50.0 530.0 Td (Official scope: Enhanced Tables of Specifications for REE — Annex A — Professional Regulatory) Tj ET
+BT /F1 10.0 Tf 50.0 516.0 Td (Board of Electrical Engineering, Professional Regulation Commission —) Tj ET
+BT /F1 10.0 Tf 50.0 502.0 Td (https://www.prc.gov.ph/sites/default/files/2024-40%20Annex%20A.pdf) Tj ET
+BT /F1 10.0 Tf 50.0 488.0 Td (Official scope: Program of the September 2026 Registered Electrical Engineers Licensure) Tj ET
+BT /F1 10.0 Tf 50.0 474.0 Td (Examination — Professional Regulation Commission; Professional Regulatory Board of Electrical) Tj ET
+BT /F1 10.0 Tf 50.0 460.0 Td (Engineering —) Tj ET
+BT /F1 10.0 Tf 50.0 446.0 Td (https://www.prc.gov.ph/sites/default/files/Program%20September%202026%20Electrical%20Engineers) Tj ET
+BT /F1 10.0 Tf 50.0 432.0 Td (.pdf) Tj ET
+BT /F2 13.0 Tf 50.0 413.0 Td (Instructional references) Tj ET
+BT /F1 10.0 Tf 50.0 392.0 Td (Instructional reference: Precalculus 2e — OpenStax, Rice University —) Tj ET
+BT /F1 10.0 Tf 50.0 378.0 Td (https://openstax.org/details/books/precalculus-2e) Tj ET
+BT /F1 10.0 Tf 50.0 364.0 Td (Instructional reference: Calculus Volume 1 — OpenStax, Rice University —) Tj ET
+BT /F1 10.0 Tf 50.0 350.0 Td (https://openstax.org/details/books/calculus-volume-1) Tj ET
+BT /F1 10.0 Tf 50.0 336.0 Td (Instructional reference: MIT OpenCourseWare 18.03SC — Fourier Series and Laplace Transform —) Tj ET
+BT /F1 10.0 Tf 50.0 322.0 Td (Massachusetts Institute of Technology OpenCourseWare —) Tj ET
+BT /F1 10.0 Tf 50.0 308.0 Td (https://ocw.mit.edu/courses/18-03sc-differential-equations-fall-2011/pages/unit-iii-fourier-se) Tj ET
+BT /F1 10.0 Tf 50.0 294.0 Td (ries-and-laplace-transform/) Tj ET
+BT /F1 10.0 Tf 50.0 280.0 Td (Instructional reference: NIST/SEMATECH Engineering Statistics Handbook — National Institute of) Tj ET
+BT /F1 10.0 Tf 50.0 266.0 Td (Standards and Technology; SEMATECH —) Tj ET
+BT /F1 10.0 Tf 50.0 252.0 Td (https://www.nist.gov/programs-projects/nistsematech-engineering-statistics-handbook) Tj ET
+BT /F1 8.0 Tf 50.0 238.0 Td (BoardPrep lesson material is original instruction. It is not an official examination document.) Tj ET
+BT /F1 8.0 Tf 50.0 226.0 Td (No claim about question frequency or examination weighting is made.) Tj ET
+BT /F1 8 Tf 500 28 Td (BoardPrep | 2 / 2) Tj ET
+endstream
+endobj
+xref
+0 9
+0000000000 65535 f 
+0000000020 00000 n 
+0000000069 00000 n 
+0000000132 00000 n 
+0000000229 00000 n 
+0000000331 00000 n 
+0000000467 00000 n 
+0000005488 00000 n 
+0000005624 00000 n 
+trailer
+<< /Size 9 /Root 1 0 R >>
+startxref
+9318
+%%EOF

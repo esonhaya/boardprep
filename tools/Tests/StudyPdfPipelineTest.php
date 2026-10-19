@@ -12,15 +12,19 @@ $assert = static function (bool $condition, string $message): void {
     if (!$condition) throw new RuntimeException($message);
 };
 $check = StudyPdfGenerator::build($root, true);
-$assert(($check['status'] ?? '') === 'PASS' && count($check['files'] ?? []) === 20, 'The source-first generated PDF set did not pass its deterministic check.');
 $manifest = json_decode((string) file_get_contents($root . '/public/study-resources/manifest.json'), true, 512, JSON_THROW_ON_ERROR);
-$assert(($manifest['content_policy'] ?? '') === 'Original BoardPrep instructional text with source attribution; external source documents are not reproduced.', 'The PDF manifest does not state its original-content policy.');
 $lessons = json_decode((string) file_get_contents($root . '/storage/study-lessons.json'), true, 512, JSON_THROW_ON_ERROR);
+$publishedLessonCount = count(array_filter($lessons, static fn(mixed $lesson): bool => is_array($lesson) && ($lesson['status'] ?? '') === 'published'));
+$assert(($check['status'] ?? '') === 'PASS'
+    && count($check['files'] ?? []) === $publishedLessonCount
+    && count($manifest['files'] ?? []) === $publishedLessonCount,
+    'All published lesson PDFs must match the deterministic generator and manifest.');
+$assert(($manifest['content_policy'] ?? '') === 'Original BoardPrep instructional text with source attribution; external source documents are not reproduced.', 'The PDF manifest does not state its original-content policy.');
 $expectedBoards = ['let', 'civil-service', 'criminologist', 'nursing', 'psychometrician', 'civil-engineering', 'cpa', 'mechanical-engineering', 'registered-electrical-engineering', 'architecture'];
 $lessonBoards = array_values(array_unique(array_map(static fn(array $lesson): string => (string) ($lesson['board_id'] ?? ''), $lessons)));
 sort($expectedBoards);
 sort($lessonBoards);
-$assert(count($lessons) === 20 && $lessonBoards === $expectedBoards, 'Every supported board must retain source-backed lessons while focused subject lessons are added.');
+$assert($publishedLessonCount === count($lessons) && $lessonBoards === $expectedBoards, 'Every supported board must retain source-backed lessons while focused subject lessons are added.');
 $questionLinks = json_decode((string) file_get_contents($root . '/storage/study-question-links.json'), true, 512, JSON_THROW_ON_ERROR);
 $linkedPairs = [];
 foreach ($questionLinks as $link) {

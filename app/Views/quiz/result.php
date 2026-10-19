@@ -112,11 +112,12 @@ $taxonomyLabel = static fn(string $collection, mixed $id): string => \App\Servic
                     <?php foreach ($studyReferences as $reference): ?>
                         <?php
                         $materialId = is_scalar($reference['material_id'] ?? null) ? (string) $reference['material_id'] : '';
+                        $studyUrl = is_scalar($reference['url'] ?? null) ? (string) $reference['url'] : '/study-library?material=' . rawurlencode($materialId);
                         $reviewGuidance = is_scalar($reference['review_guidance'] ?? null) ? trim((string) $reference['review_guidance']) : '';
                         ?>
                         <?php if ($materialId !== ''): ?>
                             <li>
-                                <a href="/study-library?material=<?= rawurlencode($materialId) ?>"><?= htmlspecialchars((string) ($reference['title'] ?? 'Source-backed study material'), ENT_QUOTES, 'UTF-8') ?></a>
+                                <a href="<?= htmlspecialchars($studyUrl, ENT_QUOTES, 'UTF-8') ?>"><?= htmlspecialchars((string) ($reference['title'] ?? 'Source-backed study material'), ENT_QUOTES, 'UTF-8') ?></a>
                                 <?php if ($reviewGuidance !== ''): ?>
                                     <p class="quiz-review-guidance"><?= htmlspecialchars($reviewGuidance, ENT_QUOTES, 'UTF-8') ?></p>
                                 <?php endif; ?>

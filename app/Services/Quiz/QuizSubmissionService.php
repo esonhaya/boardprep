@@ -193,6 +193,17 @@ class QuizSubmissionService
         ?string $mode = null
     ): void {
 
+        $quizContext = SessionService::get('quiz_session', []);
+        $quizContext = is_array($quizContext) ? $quizContext : [];
+        $studyReferences = [];
+        if (SessionService::get('feedback') !== null) {
+            $studyReferences = StudyLibraryService::forQuestion(
+                self::questionId($question),
+                is_scalar($quizContext['board'] ?? null) ? (string) $quizContext['board'] : null,
+                is_scalar($quizContext['subject'] ?? null) ? (string) $quizContext['subject'] : null
+            );
+        }
+
         View::render(
             "quiz/index",
             [
@@ -218,9 +229,7 @@ class QuizSubmissionService
                         "feedback"
                     ),
 
-                "studyReferences" => SessionService::get("feedback") !== null
-                    ? StudyLibraryService::forQuestion(self::questionId($question))
-                    : [],
+                "studyReferences" => $studyReferences,
             ]
         );
     }

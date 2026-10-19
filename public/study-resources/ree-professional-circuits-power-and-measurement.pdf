@@ -1,0 +1,132 @@
+%PDF-1.4
+%BoardPrep
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [5 0 R 7 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 6 0 R >>
+endobj
+6 0 obj
+<< /Length 5014>>
+stream
+BT /F2 19.0 Tf 50.0 790.0 Td (REE Professional Subjects: Circuits, Power,) Tj ET
+BT /F2 19.0 Tf 50.0 765.0 Td (Machines, and Measurement) Tj ET
+BT /F1 8.0 Tf 50.0 740.0 Td (REGISTERED-ELECTRICAL-ENGINEERING · electrical-engineering-professional-subjects · BoardPrep) Tj ET
+BT /F1 8.0 Tf 50.0 728.0 Td (lesson v1) Tj ET
+BT /F2 13.0 Tf 50.0 711.0 Td (Official examination scope) Tj ET
+BT /F1 10.0 Tf 50.0 690.0 Td (PRC’s enhanced REE TOS and September 2026 exam program are the official scope references. This) Tj ET
+BT /F1 10.0 Tf 50.0 676.0 Td (guide develops selected electrical principles; current Philippine Electrical Code provisions,) Tj ET
+BT /F1 10.0 Tf 50.0 662.0 Td (grid rules, equipment ratings, and safety requirements must be checked in the applicable) Tj ET
+BT /F1 10.0 Tf 50.0 648.0 Td (current primary text.) Tj ET
+BT /F2 13.0 Tf 50.0 629.0 Td (Learning objectives) Tj ET
+BT /F1 10.0 Tf 58.0 608.0 Td (- Interpret a simple calibrated sensor relation and verify its units.) Tj ET
+BT /F1 10.0 Tf 58.0 594.0 Td (- Explain how circuit, machine, and power-system models connect.) Tj ET
+BT /F1 10.0 Tf 58.0 580.0 Td (- Recognize where a conceptual calculation stops and current code review begins.) Tj ET
+BT /F2 13.0 Tf 50.0 561.0 Td (1. Circuit models and steady-state reasoning) Tj ET
+BT /F1 10.0 Tf 50.0 540.0 Td (A circuit model states element relations, connections, reference directions, and sources.) Tj ET
+BT /F1 10.0 Tf 50.0 526.0 Td (Apply Kirchhoff’s current law at a node and voltage law around a loop, then check whether the) Tj ET
+BT /F1 10.0 Tf 50.0 512.0 Td (solved currents and voltages satisfy each element relation. For sinusoidal steady state,) Tj ET
+BT /F1 10.0 Tf 50.0 498.0 Td (phasors represent magnitude and phase at a common frequency; complex impedance allows) Tj ET
+BT /F1 10.0 Tf 50.0 484.0 Td (resistive and reactive effects to be combined. Keep RMS and peak quantities distinct, use a) Tj ET
+BT /F1 10.0 Tf 50.0 470.0 Td (consistent phase reference, and state the assumed frequency and linear model before) Tj ET
+BT /F1 10.0 Tf 50.0 456.0 Td (interpreting the result.) Tj ET
+BT /F2 13.0 Tf 50.0 437.0 Td (2. Three-phase power, machines, and system behavior) Tj ET
+BT /F1 10.0 Tf 50.0 416.0 Td (Three-phase quantities depend on whether the system and measurement are line-to-line or phase) Tj ET
+BT /F1 10.0 Tf 50.0 402.0 Td (values and whether the connection is wye or delta. Power calculations require a consistent) Tj ET
+BT /F1 10.0 Tf 50.0 388.0 Td (voltage, current, power-factor, and RMS convention. Transformers and rotating machines convert) Tj ET
+BT /F1 10.0 Tf 50.0 374.0 Td (electrical and magnetic energy; equivalent circuits help analyze voltage, current, losses,) Tj ET
+BT /F1 10.0 Tf 50.0 360.0 Td (torque, and speed within their assumptions. Power-system analysis adds network topology,) Tj ET
+BT /F1 10.0 Tf 50.0 346.0 Td (operating conditions, demand, and fault behavior. Do not move from a simplified model to a) Tj ET
+BT /F1 10.0 Tf 50.0 332.0 Td (field rating without equipment data and system studies.) Tj ET
+BT /F2 13.0 Tf 50.0 313.0 Td (3. Instrumentation, feedback, and calibration) Tj ET
+BT /F1 10.0 Tf 50.0 292.0 Td (A measurement chain includes the physical quantity, sensor, conditioning, conversion, display) Tj ET
+BT /F1 10.0 Tf 50.0 278.0 Td (or recording, and a calibration relationship. Check zero, span, units, range, resolution,) Tj ET
+BT /F1 10.0 Tf 50.0 264.0 Td (uncertainty, and the conditions under which calibration was performed. Feedback compares a) Tj ET
+BT /F1 10.0 Tf 50.0 250.0 Td (measured output with a reference and acts on the difference; stability and response depend on) Tj ET
+BT /F1 10.0 Tf 50.0 236.0 Td (system dynamics and controller settings. For a linear calibration, use the supplied points) Tj ET
+BT /F1 10.0 Tf 50.0 222.0 Td (only within the stated range unless linearity outside it is justified. A reading without an) Tj ET
+BT /F1 10.0 Tf 50.0 208.0 Td (uncertainty or calibration context can overstate precision.) Tj ET
+BT /F2 13.0 Tf 50.0 189.0 Td (4. Protection, utilization, and current rules) Tj ET
+BT /F1 10.0 Tf 50.0 168.0 Td (Protection coordinates detection and interruption of abnormal conditions while grounding and) Tj ET
+BT /F1 10.0 Tf 50.0 154.0 Td (bonding manage fault-current paths and touch-risk. Wiring, illumination, and utilization) Tj ET
+BT /F1 10.0 Tf 50.0 140.0 Td (choices depend on load characteristics, equipment, location, and the applicable code edition.) Tj ET
+BT /F1 10.0 Tf 50.0 126.0 Td (Legal and professional responsibilities also matter: verify the current TOS, electrical law,) Tj ET
+BT /F1 10.0 Tf 50.0 112.0 Td (Board issuances, Philippine Electrical Code provisions, and utility or grid requirements) Tj ET
+BT /F1 10.0 Tf 50.0 98.0 Td (before stating a design limit. This lesson teaches how to identify the right check; it does) Tj ET
+BT /F1 10.0 Tf 50.0 84.0 Td (not supply code tables or certify an installation.) Tj ET
+BT /F1 8 Tf 500 28 Td (BoardPrep | 1 / 2) Tj ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 8 0 R >>
+endobj
+8 0 obj
+<< /Length 3994>>
+stream
+BT /F2 13.0 Tf 50.0 790.0 Td (Interpolate a sensor calibration) Tj ET
+BT /F1 10.0 Tf 50.0 769.0 Td (Question: A sensor calibration gives 1 V at 10 units and 3 V at 30 units. Assuming a linear) Tj ET
+BT /F1 10.0 Tf 50.0 755.0 Td (relation over that interval, what voltage corresponds to 20 units?) Tj ET
+BT /F1 10.0 Tf 50.0 741.0 Td (1. The change is 2 V over 20 units, so the slope is 0.1 V per unit.) Tj ET
+BT /F1 10.0 Tf 50.0 727.0 Td (2. From 10 to 20 units is 10 units, adding 1 V to the 1 V reference.) Tj ET
+BT /F1 10.0 Tf 50.0 713.0 Td (3. Check that 20 units is between the two calibration points.) Tj ET
+BT /F1 10.0 Tf 50.0 699.0 Td (Answer: 2.0 V under the stated linear interpolation assumption.) Tj ET
+BT /F1 10.0 Tf 50.0 685.0 Td (Check: This does not validate extrapolation outside the calibration interval or the sensor’s) Tj ET
+BT /F1 10.0 Tf 50.0 671.0 Td (uncertainty.) Tj ET
+BT /F2 13.0 Tf 50.0 652.0 Td (Common misconceptions) Tj ET
+BT /F1 10.0 Tf 58.0 631.0 Td (- A calibration line is valid outside its measured range by default.) Tj ET
+BT /F1 10.0 Tf 58.0 617.0 Td (- An RMS value and peak value can be substituted without conversion.) Tj ET
+BT /F1 10.0 Tf 58.0 603.0 Td (- A calculation proves compliance with the current installation code.) Tj ET
+BT /F2 13.0 Tf 50.0 584.0 Td (Practice patterns) Tj ET
+BT /F1 10.0 Tf 58.0 563.0 Td (- State reference direction, connection, and RMS convention.) Tj ET
+BT /F1 10.0 Tf 58.0 549.0 Td (- Keep calibration range and uncertainty visible.) Tj ET
+BT /F1 10.0 Tf 58.0 535.0 Td (- Name the primary code or system document needed for a compliance claim.) Tj ET
+BT /F2 13.0 Tf 50.0 516.0 Td (Official scope references) Tj ET
+BT /F1 10.0 Tf 50.0 495.0 Td (Official scope: Enhanced Tables of Specifications for REE — Annex A — Professional Regulatory) Tj ET
+BT /F1 10.0 Tf 50.0 481.0 Td (Board of Electrical Engineering, Professional Regulation Commission —) Tj ET
+BT /F1 10.0 Tf 50.0 467.0 Td (https://www.prc.gov.ph/sites/default/files/2024-40%20Annex%20A.pdf) Tj ET
+BT /F1 10.0 Tf 50.0 453.0 Td (Official scope: Program of the September 2026 Registered Electrical Engineers Licensure) Tj ET
+BT /F1 10.0 Tf 50.0 439.0 Td (Examination — Professional Regulation Commission; Professional Regulatory Board of Electrical) Tj ET
+BT /F1 10.0 Tf 50.0 425.0 Td (Engineering —) Tj ET
+BT /F1 10.0 Tf 50.0 411.0 Td (https://www.prc.gov.ph/sites/default/files/Program%20September%202026%20Electrical%20Engineers) Tj ET
+BT /F1 10.0 Tf 50.0 397.0 Td (.pdf) Tj ET
+BT /F2 13.0 Tf 50.0 378.0 Td (Instructional references) Tj ET
+BT /F1 10.0 Tf 50.0 357.0 Td (Instructional reference: MIT OpenCourseWare 6.002 Circuits and Electronics — Massachusetts) Tj ET
+BT /F1 10.0 Tf 50.0 343.0 Td (Institute of Technology OpenCourseWare —) Tj ET
+BT /F1 10.0 Tf 50.0 329.0 Td (https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/) Tj ET
+BT /F1 10.0 Tf 50.0 315.0 Td (Instructional reference: MIT OpenCourseWare 6.061 Introduction to Electric Power Systems —) Tj ET
+BT /F1 10.0 Tf 50.0 301.0 Td (Massachusetts Institute of Technology OpenCourseWare —) Tj ET
+BT /F1 10.0 Tf 50.0 287.0 Td (https://ocw.mit.edu/courses/6-061-introduction-to-electric-power-systems-spring-2011/) Tj ET
+BT /F1 10.0 Tf 50.0 273.0 Td (Instructional reference: MIT OpenCourseWare 6.685 Electric Machines — Massachusetts Institute) Tj ET
+BT /F1 10.0 Tf 50.0 259.0 Td (of Technology OpenCourseWare — https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/) Tj ET
+BT /F1 10.0 Tf 50.0 245.0 Td (Instructional reference: University Physics Volume 1 — OpenStax, Rice University —) Tj ET
+BT /F1 10.0 Tf 50.0 231.0 Td (https://openstax.org/details/books/university-physics-volume-1) Tj ET
+BT /F1 8.0 Tf 50.0 217.0 Td (BoardPrep lesson material is original instruction. It is not an official examination document.) Tj ET
+BT /F1 8.0 Tf 50.0 205.0 Td (No claim about question frequency or examination weighting is made.) Tj ET
+BT /F1 8 Tf 500 28 Td (BoardPrep | 2 / 2) Tj ET
+endstream
+endobj
+xref
+0 9
+0000000000 65535 f 
+0000000020 00000 n 
+0000000069 00000 n 
+0000000132 00000 n 
+0000000229 00000 n 
+0000000331 00000 n 
+0000000467 00000 n 
+0000005531 00000 n 
+0000005667 00000 n 
+trailer
+<< /Size 9 /Root 1 0 R >>
+startxref
+9711
+%%EOF

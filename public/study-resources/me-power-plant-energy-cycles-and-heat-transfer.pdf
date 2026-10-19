@@ -1,0 +1,121 @@
+%PDF-1.4
+%BoardPrep
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [5 0 R 7 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 6 0 R >>
+endobj
+6 0 obj
+<< /Length 4835>>
+stream
+BT /F2 19.0 Tf 50.0 790.0 Td (Power Plant Engineering: Energy Balances, Cycles,) Tj ET
+BT /F2 19.0 Tf 50.0 765.0 Td (and Heat Transfer) Tj ET
+BT /F1 8.0 Tf 50.0 740.0 Td (MECHANICAL-ENGINEERING · power-plant-engineering · BoardPrep lesson v1) Tj ET
+BT /F2 13.0 Tf 50.0 723.0 Td (Official examination scope) Tj ET
+BT /F1 10.0 Tf 50.0 702.0 Td (The August 2026 PRC MELE program assigns Power Plant Engineering its own subject and relative) Tj ET
+BT /F1 10.0 Tf 50.0 688.0 Td (weight. This lesson teaches selected energy and heat-transfer reasoning; actual plant) Tj ET
+BT /F1 10.0 Tf 50.0 674.0 Td (operation, safety, emissions, and design require current applicable rules and qualified) Tj ET
+BT /F1 10.0 Tf 50.0 660.0 Td (engineering review.) Tj ET
+BT /F2 13.0 Tf 50.0 641.0 Td (Learning objectives) Tj ET
+BT /F1 10.0 Tf 58.0 620.0 Td (- Apply an energy balance with a clearly defined system boundary.) Tj ET
+BT /F1 10.0 Tf 58.0 606.0 Td (- Calculate heat transfer through series thermal resistances.) Tj ET
+BT /F1 10.0 Tf 58.0 592.0 Td (- Compare cycle performance without confusing ideal and actual plant behavior.) Tj ET
+BT /F2 13.0 Tf 50.0 573.0 Td (1. System boundaries and energy balances) Tj ET
+BT /F1 10.0 Tf 50.0 552.0 Td (Choose the system boundary before writing an energy balance. For a steady-flow device, account) Tj ET
+BT /F1 10.0 Tf 50.0 538.0 Td (for heat transfer, shaft work, mass flow, and changes in enthalpy, kinetic energy, and) Tj ET
+BT /F1 10.0 Tf 50.0 524.0 Td (potential energy as relevant. State whether a term is neglected and why. A boiler, turbine,) Tj ET
+BT /F1 10.0 Tf 50.0 510.0 Td (condenser, pump, and feedwater path have different energy interactions even though they belong) Tj ET
+BT /F1 10.0 Tf 50.0 496.0 Td (to one plant. Keep mass and energy balances distinct, preserve consistent units, and compare) Tj ET
+BT /F1 10.0 Tf 50.0 482.0 Td (the computed result with the expected direction of heat or work transfer.) Tj ET
+BT /F2 13.0 Tf 50.0 463.0 Td (2. Heat transfer and thermal resistance) Tj ET
+BT /F1 10.0 Tf 50.0 442.0 Td (For a steady one-dimensional resistance model, heat rate equals temperature difference divided) Tj ET
+BT /F1 10.0 Tf 50.0 428.0 Td (by total thermal resistance. Series resistances add when the same heat rate passes through) Tj ET
+BT /F1 10.0 Tf 50.0 414.0 Td (each layer and contact conditions fit the model. Parallel paths combine differently. The) Tj ET
+BT /F1 10.0 Tf 50.0 400.0 Td (formula is an engineering analogy to conduction and does not by itself describe transient) Tj ET
+BT /F1 10.0 Tf 50.0 386.0 Td (storage, radiation, convection correlations, or two-dimensional heat flow. Verify units:) Tj ET
+BT /F1 10.0 Tf 50.0 372.0 Td (kelvins divided by kelvins per watt gives watts. Check whether surface and fluid-film) Tj ET
+BT /F1 10.0 Tf 50.0 358.0 Td (resistances are included in the stated data.) Tj ET
+BT /F2 13.0 Tf 50.0 339.0 Td (3. Cycles, efficiency, and plant performance) Tj ET
+BT /F1 10.0 Tf 50.0 318.0 Td (A thermal cycle converts supplied heat into work while rejecting some energy to a) Tj ET
+BT /F1 10.0 Tf 50.0 304.0 Td (lower-temperature sink. Thermal efficiency is net useful work divided by heat input for the) Tj ET
+BT /F1 10.0 Tf 50.0 290.0 Td (stated boundary and cycle. Ideal cycle relations help compare limits; actual performance also) Tj ET
+BT /F1 10.0 Tf 50.0 276.0 Td (reflects component inefficiency, pressure drop, heat loss, off-design operation, and auxiliary) Tj ET
+BT /F1 10.0 Tf 50.0 262.0 Td (loads. Compare efficiencies only when system boundaries and input definitions match. A plant) Tj ET
+BT /F1 10.0 Tf 50.0 248.0 Td (heat rate or load curve may include operating constraints that a simple thermodynamic cycle) Tj ET
+BT /F1 10.0 Tf 50.0 234.0 Td (omits.) Tj ET
+BT /F2 13.0 Tf 50.0 215.0 Td (4. Fluid machinery, HVAC, and hydroelectric systems) Tj ET
+BT /F1 10.0 Tf 50.0 194.0 Td (Pumps and turbines exchange shaft work with a fluid; their analysis relates flow, head,) Tj ET
+BT /F1 10.0 Tf 50.0 180.0 Td (pressure, elevation, and losses. Fans and compressors also require a state model appropriate) Tj ET
+BT /F1 10.0 Tf 50.0 166.0 Td (to the fluid and process. Refrigeration transfers heat from a colder region to a warmer one by) Tj ET
+BT /F1 10.0 Tf 50.0 152.0 Td (supplying work; psychrometric loads depend on both temperature and moisture. Hydroelectric) Tj ET
+BT /F1 10.0 Tf 50.0 138.0 Td (power draws on water flow and head, with conversion losses and environmental and operational) Tj ET
+BT /F1 10.0 Tf 50.0 124.0 Td (constraints. Actual equipment selection requires system curves, operating ranges, manufacturer) Tj ET
+BT /F1 10.0 Tf 50.0 110.0 Td (data, and applicable rules.) Tj ET
+BT /F2 13.0 Tf 50.0 91.0 Td (Calculate heat rate across two resistances) Tj ET
+BT /F1 8 Tf 500 28 Td (BoardPrep | 1 / 2) Tj ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 8 0 R >>
+endobj
+8 0 obj
+<< /Length 2880>>
+stream
+BT /F1 10.0 Tf 50.0 790.0 Td (Question: Two thermal resistances of 0.20 K/W and 0.30 K/W are in series across a 50 K) Tj ET
+BT /F1 10.0 Tf 50.0 776.0 Td (temperature difference. Find the heat rate in the stated steady model.) Tj ET
+BT /F1 10.0 Tf 50.0 762.0 Td (1. Total resistance = 0.20 + 0.30 = 0.50 K/W.) Tj ET
+BT /F1 10.0 Tf 50.0 748.0 Td (2. Heat rate = T/R = 50 K ÷ 0.50 K/W.) Tj ET
+BT /F1 10.0 Tf 50.0 734.0 Td (3. Check that units reduce to watts.) Tj ET
+BT /F1 10.0 Tf 50.0 720.0 Td (Answer: 100 W.) Tj ET
+BT /F1 10.0 Tf 50.0 706.0 Td (Check: This assumes the supplied resistances are the complete series path and the process is) Tj ET
+BT /F1 10.0 Tf 50.0 692.0 Td (steady.) Tj ET
+BT /F2 13.0 Tf 50.0 673.0 Td (Common misconceptions) Tj ET
+BT /F1 10.0 Tf 58.0 652.0 Td (- Cycle efficiency can be interpreted without defining heat input and work output.) Tj ET
+BT /F1 10.0 Tf 58.0 638.0 Td (- Series and parallel thermal paths use the same resistance rule.) Tj ET
+BT /F1 10.0 Tf 58.0 624.0 Td (- An ideal-cycle result predicts actual plant operation exactly.) Tj ET
+BT /F2 13.0 Tf 50.0 605.0 Td (Practice patterns) Tj ET
+BT /F1 10.0 Tf 58.0 584.0 Td (- Draw the control volume and sign convention.) Tj ET
+BT /F1 10.0 Tf 58.0 570.0 Td (- Write every resistance and its unit before combining.) Tj ET
+BT /F1 10.0 Tf 58.0 556.0 Td (- Name losses and operating conditions omitted from an ideal model.) Tj ET
+BT /F2 13.0 Tf 50.0 537.0 Td (Official scope references) Tj ET
+BT /F1 10.0 Tf 50.0 516.0 Td (Official scope: August 2026 Mechanical Engineers Licensure Examination Program — Professional) Tj ET
+BT /F1 10.0 Tf 50.0 502.0 Td (Regulation Commission; Professional Regulatory Board of Mechanical Engineering —) Tj ET
+BT /F1 10.0 Tf 50.0 488.0 Td (https://www.prc.gov.ph/sites/default/files/exam%20program%20aug%202026%20mele%20signed.pdf) Tj ET
+BT /F2 13.0 Tf 50.0 469.0 Td (Instructional references) Tj ET
+BT /F1 10.0 Tf 50.0 448.0 Td (Instructional reference: Introduction to Engineering Thermodynamics — Claire Yu Yan; BCcampus) Tj ET
+BT /F1 10.0 Tf 50.0 434.0 Td (Open Education — https://pressbooks.bccampus.ca/thermo1/) Tj ET
+BT /F1 10.0 Tf 50.0 420.0 Td (Instructional reference: University Physics Volume 2 — OpenStax, Rice University —) Tj ET
+BT /F1 10.0 Tf 50.0 406.0 Td (https://openstax.org/details/books/university-physics-volume-2) Tj ET
+BT /F1 10.0 Tf 50.0 392.0 Td (Instructional reference: How Hydropower Works — U.S. Department of Energy, Water Power) Tj ET
+BT /F1 10.0 Tf 50.0 378.0 Td (Technologies Office — https://www.energy.gov/cmei/water/how-hydropower-works) Tj ET
+BT /F1 8.0 Tf 50.0 364.0 Td (BoardPrep lesson material is original instruction. It is not an official examination document.) Tj ET
+BT /F1 8.0 Tf 50.0 352.0 Td (No claim about question frequency or examination weighting is made.) Tj ET
+BT /F1 8 Tf 500 28 Td (BoardPrep | 2 / 2) Tj ET
+endstream
+endobj
+xref
+0 9
+0000000000 65535 f 
+0000000020 00000 n 
+0000000069 00000 n 
+0000000132 00000 n 
+0000000229 00000 n 
+0000000331 00000 n 
+0000000467 00000 n 
+0000005352 00000 n 
+0000005488 00000 n 
+trailer
+<< /Size 9 /Root 1 0 R >>
+startxref
+8418
+%%EOF

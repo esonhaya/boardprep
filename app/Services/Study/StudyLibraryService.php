@@ -8,6 +8,10 @@ use App\Core\App;
 
 final class StudyLibraryService
 {
+    private static ?\App\Services\Question\QuestionEligibilityIndex $eligibilityIndex = null;
+    private static ?array $questionIndex = null;
+    private static ?array $examAliasIndex = null;
+
     public static function all(?string $exam = null): array
     {
         $materials = self::publishedMaterials(App::storage()->all('study-materials'));
@@ -136,17 +140,17 @@ final class StudyLibraryService
         ));
     }
 
-    public static function forQuestion(string $questionId): array
+    public static function forQuestion(string $questionId, ?string $boardId = null, ?string $subjectId = null): array
     {
         $questionId = trim($questionId);
         if ($questionId === '') {
             return [];
         }
 
-        return self::forQuestions([$questionId])[$questionId] ?? [];
+        return self::forQuestions([$questionId], $boardId, $subjectId)[$questionId] ?? [];
     }
 
-    public static function forQuestions(array $questionIds): array
+    public static function forQuestions(array $questionIds, ?string $boardId = null, ?string $subjectId = null): array
     {
         $questionIds = array_fill_keys(array_values(array_filter(array_map(
             static fn(mixed $id): string => is_scalar($id) ? trim((string) $id) : '',
@@ -156,7 +160,14 @@ final class StudyLibraryService
             return [];
         }
 
+        $contextBoard = $boardId === null ? '' : (self::normalizeExam($boardId) ?? '');
+        $contextSubject = $subjectId === null ? '' : strtolower(trim($subjectId));
+        if ($contextSubject === '*') {
+            $contextSubject = '';
+        }
+
         $materials = [];
+        $materialExams = [];
         foreach (App::storage()->all('study-materials') as $material) {
             if (!is_array($material) || ($material['status'] ?? 'published') !== 'published') {
                 continue;
@@ -164,6 +175,18 @@ final class StudyLibraryService
             $materialId = is_scalar($material['id'] ?? null) ? trim((string) $material['id']) : '';
             if ($materialId !== '') {
                 $materials[$materialId] = (string) ($material['title'] ?? 'Source-backed study material');
+                $materialExams[$materialId] = array_values(array_filter((array) ($material['exams'] ?? []), 'is_scalar'));
+            }
+        }
+
+        $lessonsByMaterial = [];
+        foreach (App::storage()->all('study-lessons') as $lesson) {
+            if (!is_array($lesson) || ($lesson['status'] ?? '') !== 'published') {
+                continue;
+            }
+            $materialId = is_scalar($lesson['material_id'] ?? null) ? trim((string) $lesson['material_id']) : '';
+            if ($materialId !== '' && !isset($lessonsByMaterial[$materialId])) {
+                $lessonsByMaterial[$materialId] = $lesson;
             }
         }
 
@@ -180,11 +203,60 @@ final class StudyLibraryService
             $reviewGuidance = is_scalar($link['review_guidance'] ?? null)
                 ? trim((string) $link['review_guidance'])
                 : '';
-            $referenceKey = $materialId . "\0" . $reviewGuidance;
+            $lesson = $lessonsByMaterial[$materialId] ?? null;
+            $lessonId = is_array($lesson) && is_scalar($lesson['id'] ?? null) ? trim((string) $lesson['id']) : '';
+            if ($contextBoard !== '') {
+                if (is_array($lesson)) {
+                    if (self::normalizeExam((string) ($lesson['board_id'] ?? '')) !== $contextBoard) {
+                        continue;
+                    }
+                    $lessonSubject = strtolower(trim((string) ($lesson['subject_id'] ?? '')));
+                    $resolvedSubject = self::effectiveSubjectForQuestion($questionId, $contextBoard);
+                    if ($resolvedSubject === '' || $resolvedSubject !== $lessonSubject
+                        || ($contextSubject !== '' && $contextSubject !== $resolvedSubject)) {
+                        continue;
+                    }
+                } else {
+                    $materialMatchesBoard = false;
+                    foreach ($materialExams[$materialId] ?? [] as $materialExam) {
+                        if (self::normalizeExam((string) $materialExam) === $contextBoard) {
+                            $materialMatchesBoard = true;
+                            break;
+                        }
+                    }
+                    if (!$materialMatchesBoard) {
+                        continue;
+                    }
+                }
+            }
+            $sectionId = is_scalar($link['section_id'] ?? $link['lesson_section_id'] ?? null)
+                ? trim((string) ($link['section_id'] ?? $link['lesson_section_id']))
+                : '';
+            $lessonIdOnLink = is_scalar($link['lesson_id'] ?? null) ? trim((string) $link['lesson_id']) : '';
+            $sectionExists = false;
+            if ($lessonId !== '' && ($lessonIdOnLink === '' || $lessonIdOnLink === $lessonId) && $sectionId !== '') {
+                foreach ((array) ($lesson['sections'] ?? []) as $section) {
+                    if (is_array($section) && (string) ($section['id'] ?? '') === $sectionId) {
+                        $sectionExists = true;
+                        break;
+                    }
+                }
+            }
+            $url = '/study-library?material=' . rawurlencode($materialId);
+            if ($lessonId !== '') {
+                $url .= '#' . ($sectionExists
+                    ? self::lessonSectionAnchorId($lessonId, $sectionId)
+                    : 'boardprep-lesson-' . rawurlencode($lessonId));
+            }
+            $referenceKey = $materialId . "\0" . $reviewGuidance . "\0" . ($sectionExists ? $sectionId : '');
             $references[$questionId][$referenceKey] = [
                 'material_id' => $materialId,
                 'title' => $materials[$materialId],
                 'review_guidance' => $reviewGuidance,
+                'source_ids' => array_values(array_filter((array) ($link['source_ids'] ?? []), static fn(mixed $id): bool => is_scalar($id) && trim((string) $id) !== '')),
+                'lesson_id' => $lessonId,
+                'section_id' => $sectionExists ? $sectionId : '',
+                'url' => $url,
             ];
         }
 
@@ -195,13 +267,70 @@ final class StudyLibraryService
         return $references;
     }
 
+    private static function effectiveSubjectForQuestion(string $questionId, string $boardId): string
+    {
+        if (self::$questionIndex === null) {
+            self::$questionIndex = [];
+            foreach (App::storage()->all('questions') as $question) {
+                if (is_array($question) && is_scalar($question['id'] ?? null)) {
+                    self::$questionIndex[(string) $question['id']] ??= $question;
+                }
+            }
+        }
+        $question = self::$questionIndex[$questionId] ?? null;
+        if (!is_array($question)) {
+            return '';
+        }
+        if (self::$eligibilityIndex === null) {
+            $storage = App::storage();
+            self::$eligibilityIndex = new \App\Services\Question\QuestionEligibilityIndex(
+                $storage->all('question-eligibility'),
+                $storage->all('blueprints'),
+                \App\Services\Question\QuestionReuseEligibilityResolver::productionDerivedRelationships(),
+                $storage->all('question-reuse-overrides')
+            );
+        }
+        $resolved = \App\Services\Question\QuestionEligibilityService::forExam(
+            $question,
+            $boardId,
+            self::$eligibilityIndex
+        );
+        return is_array($resolved) ? strtolower(trim((string) ($resolved['subject_id'] ?? ''))) : '';
+    }
+
+    public static function lessonSectionAnchorId(string $lessonId, string $sectionId): string
+    {
+        $value = 'boardprep-lesson-' . trim($lessonId) . '-' . trim($sectionId);
+        $slug = preg_replace('/[^A-Za-z0-9_-]+/', '-', $value) ?? 'boardprep-lesson-section';
+        return trim($slug, '-') . '-' . substr(hash('sha256', $value), 0, 8);
+    }
+
     private static function normalizeExam(?string $exam): ?string
     {
         if ($exam === null) {
             return null;
         }
-        $exam = strtolower(trim($exam));
-        return ['cse' => 'civil-service', 'cle' => 'criminologist', 'nle' => 'nursing', 'ple' => 'psychometrician'][$exam] ?? $exam;
+        $normalize = static fn(string $value): string => strtolower(trim((string) preg_replace('/[\\s_]+/', '-', $value)));
+        $exam = $normalize($exam);
+        if (self::$examAliasIndex === null) {
+            self::$examAliasIndex = [];
+            foreach (App::storage()->all('boards') as $board) {
+                if (!is_array($board)) continue;
+                $boardId = $normalize((string) ($board['id'] ?? ''));
+                if ($boardId === '') continue;
+                self::$examAliasIndex[$boardId] = $boardId;
+                foreach (['code', 'slug', 'short_code'] as $field) {
+                    if (is_scalar($board[$field] ?? null) && trim((string) $board[$field]) !== '') {
+                        self::$examAliasIndex[$normalize((string) $board[$field])] = $boardId;
+                    }
+                }
+            }
+            foreach (['cse' => 'civil-service', 'cle' => 'criminologist', 'nle' => 'nursing', 'ple' => 'psychometrician'] as $alias => $boardId) {
+                self::$examAliasIndex[$alias] = $boardId;
+            }
+        }
+
+        return self::$examAliasIndex[$exam] ?? $exam;
     }
 
     public static function validate(): array

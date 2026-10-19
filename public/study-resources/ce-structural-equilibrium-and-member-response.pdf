@@ -1,0 +1,122 @@
+%PDF-1.4
+%BoardPrep
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [5 0 R 7 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 6 0 R >>
+endobj
+6 0 obj
+<< /Length 5048>>
+stream
+BT /F2 19.0 Tf 50.0 790.0 Td (Structural Equilibrium, Member Response, and) Tj ET
+BT /F2 19.0 Tf 50.0 765.0 Td (Design Evidence) Tj ET
+BT /F1 8.0 Tf 50.0 740.0 Td (CIVIL-ENGINEERING · ce-structural · BoardPrep lesson v1) Tj ET
+BT /F2 13.0 Tf 50.0 723.0 Td (Official examination scope) Tj ET
+BT /F1 10.0 Tf 50.0 702.0 Td (PRC lists engineering mechanics, strength of materials, theory of structures,) Tj ET
+BT /F1 10.0 Tf 50.0 688.0 Td (reinforced-concrete and prestressed members, steel members and connections, footings,) Tj ET
+BT /F1 10.0 Tf 50.0 674.0 Td (construction-material testing, and governing codes. The examples here teach analysis) Tj ET
+BT /F1 10.0 Tf 50.0 660.0 Td (principles; they do not provide current member capacities or code design limits.) Tj ET
+BT /F2 13.0 Tf 50.0 641.0 Td (Learning objectives) Tj ET
+BT /F1 10.0 Tf 58.0 620.0 Td (- Use equilibrium to check reactions for a simply supported beam.) Tj ET
+BT /F1 10.0 Tf 58.0 606.0 Td (- Relate load, section properties, stress, and deformation within stated assumptions.) Tj ET
+BT /F1 10.0 Tf 58.0 592.0 Td (- Trace a load path and distinguish analysis from code-based design.) Tj ET
+BT /F2 13.0 Tf 50.0 573.0 Td (1. Equilibrium before member formulas) Tj ET
+BT /F1 10.0 Tf 50.0 552.0 Td (A structure is in static equilibrium when the sum of forces and moments is zero in the chosen) Tj ET
+BT /F1 10.0 Tf 50.0 538.0 Td (coordinate system. Draw a free-body diagram that isolates the member and shows applied) Tj ET
+BT /F1 10.0 Tf 50.0 524.0 Td (actions, support reactions, distances, and sign convention. Solve independent equilibrium) Tj ET
+BT /F1 10.0 Tf 50.0 510.0 Td (equations, then substitute the reactions back into them as a check. Symmetry can simplify a) Tj ET
+BT /F1 10.0 Tf 50.0 496.0 Td (result only when geometry and loading are actually symmetric. A correct reaction calculation) Tj ET
+BT /F1 10.0 Tf 50.0 482.0 Td (is a boundary condition for later shear and moment analysis; it does not establish that the) Tj ET
+BT /F1 10.0 Tf 50.0 468.0 Td (member is adequately sized.) Tj ET
+BT /F2 13.0 Tf 50.0 449.0 Td (2. Stress, section properties, and deformation) Tj ET
+BT /F1 10.0 Tf 50.0 428.0 Td (For a prismatic elastic member under idealized axial load, average normal stress is P/A. In) Tj ET
+BT /F1 10.0 Tf 50.0 414.0 Td (elementary elastic bending, the flexure relation = My/I connects bending moment, distance from) Tj ET
+BT /F1 10.0 Tf 50.0 400.0 Td (the neutral axis, and section second moment of area. Deflection formulas require their stated) Tj ET
+BT /F1 10.0 Tf 50.0 386.0 Td (support, load, geometry, and linear-elastic assumptions. Use consistent force and length) Tj ET
+BT /F1 10.0 Tf 50.0 372.0 Td (units, and check whether the requested output is stress, force, or displacement. A formula is) Tj ET
+BT /F1 10.0 Tf 50.0 358.0 Td (not a substitute for checking stability, shear, serviceability, connection behavior, or) Tj ET
+BT /F1 10.0 Tf 50.0 344.0 Td (applicable design provisions.) Tj ET
+BT /F2 13.0 Tf 50.0 325.0 Td (3. Load path, structural systems, and materials) Tj ET
+BT /F1 10.0 Tf 50.0 304.0 Td (Loads move through connected members to supports and foundations. At each interface, identify) Tj ET
+BT /F1 10.0 Tf 50.0 290.0 Td (the action transferred, the connection that carries it, and the next resisting element.) Tj ET
+BT /F1 10.0 Tf 50.0 276.0 Td (Reinforced concrete relies on composite action between concrete and reinforcement; steel) Tj ET
+BT /F1 10.0 Tf 50.0 262.0 Td (framing depends on member and connection behavior; prestressing introduces a deliberate force) Tj ET
+BT /F1 10.0 Tf 50.0 248.0 Td (state that changes service response. Material tests provide measured evidence under a method) Tj ET
+BT /F1 10.0 Tf 50.0 234.0 Td (and specimen condition; results should be interpreted with the test’s limits. Do not infer a) Tj ET
+BT /F1 10.0 Tf 50.0 220.0 Td (full structural capacity from one material property or one isolated member calculation.) Tj ET
+BT /F2 13.0 Tf 50.0 201.0 Td (4. From analysis to design review) Tj ET
+BT /F1 10.0 Tf 50.0 180.0 Td (Design requires the applicable current code, load combinations, material specifications,) Tj ET
+BT /F1 10.0 Tf 50.0 166.0 Td (detailing rules, and project conditions. A classroom analysis can expose an equilibrium error) Tj ET
+BT /F1 10.0 Tf 50.0 152.0 Td (or explain a member response, but it cannot certify compliance. Track code edition and project) Tj ET
+BT /F1 10.0 Tf 50.0 138.0 Td (jurisdiction, check assumptions against the drawings, and seek the responsible professional) Tj ET
+BT /F1 10.0 Tf 50.0 124.0 Td (review when the model or loading is uncertain. Independent checks should target likely failure) Tj ET
+BT /F1 10.0 Tf 50.0 110.0 Td (paths: units, sign convention, support conditions, section axis, load combinations, and) Tj ET
+BT /F1 10.0 Tf 50.0 96.0 Td (whether a reported demand and capacity use compatible definitions.) Tj ET
+BT /F2 13.0 Tf 50.0 77.0 Td (Find the reactions of a symmetric beam) Tj ET
+BT /F1 8 Tf 500 28 Td (BoardPrep | 1 / 2) Tj ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 8 0 R >>
+endobj
+8 0 obj
+<< /Length 2862>>
+stream
+BT /F1 10.0 Tf 50.0 790.0 Td (Question: A simply supported beam carries a 10 kN point load at midspan over a 6 m span. Find) Tj ET
+BT /F1 10.0 Tf 50.0 776.0 Td (each support reaction.) Tj ET
+BT /F1 10.0 Tf 50.0 762.0 Td (1. Draw the free-body diagram with vertical reactions RA and RB.) Tj ET
+BT /F1 10.0 Tf 50.0 748.0 Td (2. Use vertical equilibrium: RA + RB - 10 = 0 kN.) Tj ET
+BT /F1 10.0 Tf 50.0 734.0 Td (3. Take moments about A: RB\(6\) - 10\(3\) = 0, so RB = 5 kN; then RA = 5 kN.) Tj ET
+BT /F1 10.0 Tf 50.0 720.0 Td (Answer: Each support reaction is 5 kN upward.) Tj ET
+BT /F1 10.0 Tf 50.0 706.0 Td (Check: The reactions sum to 10 kN and their moments balance about either support.) Tj ET
+BT /F2 13.0 Tf 50.0 687.0 Td (Common misconceptions) Tj ET
+BT /F1 10.0 Tf 58.0 666.0 Td (- A symmetric answer is justified when the loading or supports are not symmetric.) Tj ET
+BT /F1 10.0 Tf 58.0 652.0 Td (- Passing an equilibrium check proves the member is safe.) Tj ET
+BT /F1 10.0 Tf 58.0 638.0 Td (- A material test value is itself a design resistance.) Tj ET
+BT /F2 13.0 Tf 50.0 619.0 Td (Practice patterns) Tj ET
+BT /F1 10.0 Tf 58.0 598.0 Td (- Sketch the free body and sign convention before solving.) Tj ET
+BT /F1 10.0 Tf 58.0 584.0 Td (- Check force and moment balance independently.) Tj ET
+BT /F1 10.0 Tf 58.0 570.0 Td (- Name the code and assumptions needed before claiming a design result.) Tj ET
+BT /F2 13.0 Tf 50.0 551.0 Td (Official scope references) Tj ET
+BT /F1 10.0 Tf 50.0 530.0 Td (Official scope: Revised Program of the Civil Engineers Licensure Examination March 2026 —) Tj ET
+BT /F1 10.0 Tf 50.0 516.0 Td (Professional Regulation Commission; Professional Regulatory Board of Civil Engineering —) Tj ET
+BT /F1 10.0 Tf 50.0 502.0 Td (https://www.prc.gov.ph/sites/default/files/RevisedExamProgramMarch2026CivilEngg.pdf) Tj ET
+BT /F2 13.0 Tf 50.0 483.0 Td (Instructional references) Tj ET
+BT /F1 10.0 Tf 50.0 462.0 Td (Instructional reference: Analysis of Structural Member Systems — Jerome J. Connor; MIT) Tj ET
+BT /F1 10.0 Tf 50.0 448.0 Td (OpenCourseWare —) Tj ET
+BT /F1 10.0 Tf 50.0 434.0 Td (https://ocw.mit.edu/courses/1-571-structural-analysis-and-control-spring-2004/resources/open-t) Tj ET
+BT /F1 10.0 Tf 50.0 420.0 Td (extbooks/) Tj ET
+BT /F1 10.0 Tf 50.0 406.0 Td (Instructional reference: Structural Engineering Design Lecture Notes — Oral Buyukozturk; MIT) Tj ET
+BT /F1 10.0 Tf 50.0 392.0 Td (OpenCourseWare —) Tj ET
+BT /F1 10.0 Tf 50.0 378.0 Td (https://ocw.mit.edu/courses/1-051-structural-engineering-design-fall-2003/pages/lecture-notes/) Tj ET
+BT /F1 8.0 Tf 50.0 364.0 Td (BoardPrep lesson material is original instruction. It is not an official examination document.) Tj ET
+BT /F1 8.0 Tf 50.0 352.0 Td (No claim about question frequency or examination weighting is made.) Tj ET
+BT /F1 8 Tf 500 28 Td (BoardPrep | 2 / 2) Tj ET
+endstream
+endobj
+xref
+0 9
+0000000000 65535 f 
+0000000020 00000 n 
+0000000069 00000 n 
+0000000132 00000 n 
+0000000229 00000 n 
+0000000331 00000 n 
+0000000467 00000 n 
+0000005565 00000 n 
+0000005701 00000 n 
+trailer
+<< /Size 9 /Root 1 0 R >>
+startxref
+8613
+%%EOF

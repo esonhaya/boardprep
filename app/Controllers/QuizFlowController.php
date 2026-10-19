@@ -288,7 +288,10 @@ final class QuizFlowController
                 ? ($item['question']['id'] ?? null)
                 : null,
             $review
-        ));
+        ),
+            is_scalar($session['board'] ?? null) ? (string) $session['board'] : null,
+            is_scalar($session['subject'] ?? null) ? (string) $session['subject'] : null
+        );
 
         View::render(
             'quiz/result',

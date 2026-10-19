@@ -11599,5 +11599,1594 @@
         "version": 1,
         "updated_at": "2026-10-18",
         "batch_marker": "batch694"
+    },
+    {
+        "id": "ce-applied-methods-layout-and-delivery",
+        "title": "Applied Civil Engineering: Models, Surveying, Transport, and Construction",
+        "summary": "Original instructional lesson with selected worked examples; the scope note identifies competencies not covered by this short module.",
+        "notes": [
+            [
+                "1. Models, units, and engineering data",
+                "A quantitative result is meaningful only when the model matches the question and every quantity has compatible units. Start by sketching the physical situation, naming knowns and unknowns, and writing the governing relationship before substituting numbers. Convert units before arithmetic, carry units through intermediate steps, and estimate the order of magnitude. Engineering data also need context: sample size, measurement method, spread, and the conditions under which observations were collected. A precise calculation based on a wrong model or unrepresentative data is still a poor decision."
+            ],
+            [
+                "2. Surveying, layout, and quantities",
+                "Surveying turns a reference system and field observations into positions, elevations, distances, and layout decisions. A level loop should close against a known benchmark or another defensible check; a closure difference is evidence to investigate, not a value to hide by arbitrary adjustment. For quantity work, define the measurement boundary, units, drawing revision, and assumptions before multiplying dimensions. Reconcile field conditions with the controlled plans and record the source of each quantity. Measurement uncertainty, waste allowances, and pay-item rules must be distinguished rather than blended into one unexplained factor."
+            ],
+            [
+                "3. Transportation and construction decisions",
+                "Transportation questions connect movement, capacity, travel time, safety, and land use. Compare alternatives with the same time period and denominator: a count is not a rate, and an average can conceal variation by location or time. Construction planning similarly aligns work sequence, labor and equipment, materials, inspection points, and hazards. Identify the activity, exposure, and people affected before choosing a control; do not treat a checklist as proof that a hazard is controlled. Current law, contract requirements, and site conditions govern actual work."
+            ],
+            [
+                "4. Cost, schedule, and a defensible recommendation",
+                "A project comparison should state the alternatives, service period, included costs, assumptions, and any constraints that change the result. Present value, equivalent worth, or a simple payback comparison can support a decision, but none removes uncertainty about demand, maintenance, or delivery risk. A schedule is a network of precedence relationships and durations; a critical path identifies activities whose delay can move the completion date under the modeled logic. Update assumptions when actual progress differs, preserve the reason for a change, and avoid reporting a forecast as a guaranteed finish date."
+            ]
+        ],
+        "source_ids": [
+            "prc-cele-program-march-2026",
+            "openstax-calculus-volume-1",
+            "nist-semtech-engineering-statistics-handbook",
+            "noaa-geodetic-leveling-manual",
+            "fhwa-traffic-flow-theory",
+            "fhwa-construction-program-management-inspection",
+            "fhwa-field-materials-manual",
+            "mit-structural-engineering-design-notes"
+        ],
+        "exams": [
+            "civil-engineering"
+        ],
+        "taxonomy": {
+            "subject_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "b633-ce-applied-mathematics",
+            "topic_ids": [
+                "applied-engineering"
+            ],
+            "concept_ids": [
+                "b633-ce-applied-mathematics",
+                "b633-ce-engineering-data",
+                "b633-ce-surveying-layout",
+                "b633-ce-construction-quantity-productivity",
+                "b633-ce-transportation-highway",
+                "b633-ce-construction-safety-quality",
+                "b633-ce-engineering-economics-scheduling"
+            ]
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-10-19"
+    },
+    {
+        "id": "ce-hydraulics-soil-and-foundation-reasoning",
+        "title": "Civil Engineering Hydraulics and Geotechnical Reasoning",
+        "summary": "Original instructional lesson with selected worked examples; the scope note identifies competencies not covered by this short module.",
+        "notes": [
+            [
+                "1. Fluid pressure, head, and flow",
+                "For a static fluid of constant density, gauge pressure increases with depth according to p = ρgh; absolute pressure adds the local atmospheric pressure. Pressure is force per area, while hydraulic head expresses energy per unit weight as a length. For steady incompressible flow in a closed system, continuity relates discharge to area and average velocity, Q = AV. Bernoulli-type energy accounting also requires the correct elevation, pressure, velocity, pump, turbine, and loss terms. The simplified relations are useful only when their assumptions fit the flow; real channels and networks require appropriate resistance and boundary information."
+            ],
+            [
+                "2. Soil phases, water, and effective stress",
+                "Soil behavior depends on the relationships among solids, water, and air, not on a single label such as sand or clay. Water content, void ratio, degree of saturation, and unit weight describe different properties and must not be substituted for one another. For saturated soil under the usual soil-mechanics convention, effective stress σ′ = σ − u, where σ is total stress and u is pore-water pressure. Changes in pore pressure can therefore change the stress carried by the soil skeleton even when the overlying load is unchanged. The convention and drainage conditions should be stated before interpreting strength or settlement."
+            ],
+            [
+                "3. Bearing, settlement, and slope stability",
+                "Bearing checks begin with a clearly defined load and contact area; q = P\/A gives average contact pressure only for the assumed distribution. An allowable pressure already embeds assumptions supplied by the problem or governing geotechnical report, so it is not a universal soil constant. Settlement is a deformation problem whose magnitude and time depend on compressibility, drainage path, and stress change. Lateral earth pressure and slope stability likewise depend on geometry, water, soil strength, and construction sequence. Distinguish an ultimate failure calculation from a serviceability limit and do not infer site capacity from a classroom example."
+            ],
+            [
+                "4. Investigation, compaction, and interpretation",
+                "A soil description is a hypothesis supported by sampling, testing, and field observations. Classification organizes material using observed and measured properties; it does not replace a strength or compressibility test for a design decision. Compaction changes density by reducing air voids, and the useful moisture-density relationship is established through a stated test method. For seepage, identify the hydraulic boundary and flow path before applying a gradient or discharge model. Record test method, sample disturbance, groundwater conditions, and limitations so another engineer can see how the interpretation was reached."
+            ]
+        ],
+        "source_ids": [
+            "prc-cele-program-march-2026",
+            "usace-hydraulic-design-open-channel",
+            "usgs-manual-surface-water-hydrology",
+            "fhwa-soils-foundations-reference"
+        ],
+        "exams": [
+            "civil-engineering"
+        ],
+        "taxonomy": {
+            "subject_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "b633-ce-hydraulics-fluid-flow",
+            "topic_ids": [
+                "hydraulics-geotechnical"
+            ],
+            "concept_ids": [
+                "b633-ce-hydraulics-fluid-flow",
+                "b633-ce-water-supply-drainage",
+                "b633-ce-soil-properties-classification",
+                "b633-ce-soil-effective-stress-strength",
+                "b633-ce-foundations-bearing",
+                "b633-ce-settlement-stability"
+            ]
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-10-19"
+    },
+    {
+        "id": "ce-structural-equilibrium-and-member-response",
+        "title": "Structural Equilibrium, Member Response, and Design Evidence",
+        "summary": "Original instructional lesson with selected worked examples; the scope note identifies competencies not covered by this short module.",
+        "notes": [
+            [
+                "1. Equilibrium before member formulas",
+                "A structure is in static equilibrium when the sum of forces and moments is zero in the chosen coordinate system. Draw a free-body diagram that isolates the member and shows applied actions, support reactions, distances, and sign convention. Solve independent equilibrium equations, then substitute the reactions back into them as a check. Symmetry can simplify a result only when geometry and loading are actually symmetric. A correct reaction calculation is a boundary condition for later shear and moment analysis; it does not establish that the member is adequately sized."
+            ],
+            [
+                "2. Stress, section properties, and deformation",
+                "For a prismatic elastic member under idealized axial load, average normal stress is P\/A. In elementary elastic bending, the flexure relation σ = My\/I connects bending moment, distance from the neutral axis, and section second moment of area. Deflection formulas require their stated support, load, geometry, and linear-elastic assumptions. Use consistent force and length units, and check whether the requested output is stress, force, or displacement. A formula is not a substitute for checking stability, shear, serviceability, connection behavior, or applicable design provisions."
+            ],
+            [
+                "3. Load path, structural systems, and materials",
+                "Loads move through connected members to supports and foundations. At each interface, identify the action transferred, the connection that carries it, and the next resisting element. Reinforced concrete relies on composite action between concrete and reinforcement; steel framing depends on member and connection behavior; prestressing introduces a deliberate force state that changes service response. Material tests provide measured evidence under a method and specimen condition; results should be interpreted with the test’s limits. Do not infer a full structural capacity from one material property or one isolated member calculation."
+            ],
+            [
+                "4. From analysis to design review",
+                "Design requires the applicable current code, load combinations, material specifications, detailing rules, and project conditions. A classroom analysis can expose an equilibrium error or explain a member response, but it cannot certify compliance. Track code edition and project jurisdiction, check assumptions against the drawings, and seek the responsible professional review when the model or loading is uncertain. Independent checks should target likely failure paths: units, sign convention, support conditions, section axis, load combinations, and whether a reported demand and capacity use compatible definitions."
+            ]
+        ],
+        "source_ids": [
+            "prc-cele-program-march-2026",
+            "mit-structural-analysis-member-systems",
+            "mit-structural-engineering-design-notes"
+        ],
+        "exams": [
+            "civil-engineering"
+        ],
+        "taxonomy": {
+            "subject_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "b633-ce-structural-mechanics",
+            "topic_ids": [
+                "structural-mechanics"
+            ],
+            "concept_ids": [
+                "b633-ce-structural-mechanics",
+                "b633-ce-strength-materials",
+                "b633-ce-structural-concrete-steel",
+                "b633-ce-structural-prestressed-concrete",
+                "b633-ce-structural-testing",
+                "b633-ce-structural-governing-codes"
+            ]
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-10-19"
+    },
+    {
+        "id": "cse-analytical-reasoning-evidence-and-patterns",
+        "title": "Civil Service Analytical Ability: Assumptions, Logic, and Evidence",
+        "summary": "Original instructional lesson with selected worked examples; the scope note identifies competencies not covered by this short module.",
+        "notes": [
+            [
+                "1. Claims, assumptions, and evidence",
+                "A conclusion is the claim an argument asks you to accept; premises are the reasons offered for it. An assumption is an unstated bridge that must hold for the reasons to support the conclusion. To find it, ask what must be true for the proposed action to work, then test a counterexample. Prefer a necessary, modest assumption over an attractive extra claim. Evidence that two events occurred together supports a description of association, not automatically a causal explanation. Identify alternative causes, changes in measurement, and who entered the comparison before accepting a causal conclusion."
+            ],
+            [
+                "2. Conditional rules and categories",
+                "Translate “if P, then Q” as a one-way rule: P is sufficient for Q, and Q is necessary for P. From P you may infer Q; from not-Q you may infer not-P. Q by itself does not prove P, and not-P does not prove not-Q. For category statements, track “all,” “none,” and “some” precisely. “Some” guarantees at least one, not most or all. In a syllogism, test whether the conclusion follows in every case allowed by the premises rather than relying on a familiar real-world association."
+            ],
+            [
+                "3. Relationships, sequences, and transformations",
+                "A word analogy is a relation between pairs, not a test of whether two words feel similar. State the relation in a short sentence—such as tool-to-purpose or part-to-whole—then check that it works in the same direction for the second pair. For a number or symbol sequence, test simple differences, ratios, alternating groups, and consistent positional operations. A good rule explains every supplied term with few exceptions. Avoid overfitting one transition or changing rules mid-sequence to force a preferred answer."
+            ],
+            [
+                "4. Data interpretation and comparison",
+                "Before comparing figures, identify the unit, denominator, time window, and group being measured. Counts and rates answer different questions; a larger count may simply reflect a larger population. For a change, calculate the difference and choose the stated baseline before calculating a percentage. Check whether a chart’s scale starts at zero or whether categories overlap. State what the data show, what they do not show, and what additional comparison would be needed to support a causal or generalized conclusion."
+            ]
+        ],
+        "source_ids": [
+            "csc-cse-ppt-scope-2026",
+            "open-textbook-logic-critical-thinking",
+            "openstax-introductory-statistics-2e"
+        ],
+        "exams": [
+            "civil-service"
+        ],
+        "taxonomy": {
+            "subject_id": "analytical-logical",
+            "topic_id": "analytical-assumptions",
+            "concept_id": "analytical-assumption-identification",
+            "topic_ids": [
+                "analytical-assumptions",
+                "analytical-analogy",
+                "analytical-sequences",
+                "analytical-data"
+            ],
+            "concept_ids": [
+                "analytical-assumption-identification",
+                "analytical-conclusion-validity",
+                "cse-assumptions-conclusions",
+                "cse-evidence-strength",
+                "cse-logical-conditions",
+                "cse-syllogistic-reasoning",
+                "cse-conditional-logic",
+                "cse-word-analogy",
+                "analytical-analogy-structure",
+                "analytical-sequence-rule",
+                "cse-symbolic-abstract",
+                "cse-abstract-transformations",
+                "cse-sequence-inference",
+                "analytical-data-comparison",
+                "cse-data-interpretation",
+                "cse-data-trends"
+            ]
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-10-19"
+    },
+    {
+        "id": "cse-clerical-records-filing-and-proofreading",
+        "title": "Civil Service Clerical Ability: Filing, Exact Comparison, and Proofreading",
+        "summary": "Original instructional lesson with selected worked examples; the scope note identifies competencies not covered by this short module.",
+        "notes": [
+            [
+                "1. Filing order starts with the filing key",
+                "First identify the rule the question supplies: surname, organization name, title, or a specified filing code. Compare the first filing unit, then move character by character to the first difference. If the initial strings match, the shorter complete key normally precedes the longer one unless the stated local rule says otherwise. Treat spaces, punctuation, initials, and suffixes according to the instructions rather than inventing a convention. When an office uses a particular filing standard, follow that documented standard and record the key used so the order can be repeated."
+            ],
+            [
+                "2. Compare two records without guessing",
+                "An exact comparison asks whether two strings or records match, not whether they probably refer to the same person. Compare fields in a stable order: identifier, name, date, address, and document version. Mark the first differing character or field, then check whether the task expects exact identity, a likely match, or a spelling correction. Preserve the source value until the responsible record owner authorizes a correction. This distinction prevents a near match from being filed as a confirmed duplicate and keeps the audit trail visible."
+            ],
+            [
+                "3. Spelling and proofreading in context",
+                "Proofreading works best in deliberate passes. Read once for meaning and missing words, once for spelling and word forms, and once for punctuation or repeated material. Check a doubtful spelling against a trusted dictionary or the supplied reference; do not rely only on the visual shape of a familiar word. Context can distinguish homophones and inflected forms, but a sentence should not be “corrected” by changing its intended meaning. In clerical work, accuracy also includes reproducing names, numbers, and source wording exactly when transcription is required."
+            ]
+        ],
+        "source_ids": [
+            "csc-cse-ppt-scope-2026",
+            "purdue-owl-grammar",
+            "purdue-owl-proofreading-errors"
+        ],
+        "exams": [
+            "civil-service"
+        ],
+        "taxonomy": {
+            "subject_id": "clerical-ability",
+            "topic_id": "filing-and-alphabetizing",
+            "concept_id": "cse-filing",
+            "topic_ids": [
+                "filing-and-alphabetizing",
+                "spelling-and-word-forms"
+            ],
+            "concept_ids": [
+                "cse-filing",
+                "cse-filing-system-selection",
+                "cse-alphabetical-order",
+                "cse-record-comparison",
+                "cse-spelling",
+                "cse-proofreading"
+            ]
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-10-19"
+    },
+    {
+        "id": "cse-civic-rights-ethics-and-environment",
+        "title": "Civil Service General Information: Constitution, Ethics, Rights, and Environment",
+        "summary": "Original instructional lesson with selected worked examples; the scope note identifies competencies not covered by this short module.",
+        "notes": [
+            [
+                "1. Constitutional structure and rights",
+                "The Constitution establishes public institutions, distributes authority, and states rights and duties. Read a civic scenario by identifying who is acting, what authority is claimed, which person or public interest is affected, and what constitutional provision or law is relevant. Do not treat a broad principle as a substitute for the controlling text or a court’s interpretation. Rights analysis also asks what state action is involved and what process or limitation the Constitution and law provide. A disciplined answer separates the rule stated in the source from a personal view about what the rule should be."
+            ],
+            [
+                "2. Public service, conflicts, and accountability",
+                "Republic Act No. 6713 places public interest above personal interest and describes standards such as professionalism, political neutrality, responsiveness, and simple living. In a scenario, identify the official duty, the personal or outside interest, the decision affected, and the disclosure or review that protects impartial service. A conflict risk is not proof of misconduct by itself; it is a condition that must be handled under the applicable rule. A useful record names the relevant decision, responsible official, evidence, and next accountability step rather than relying on a slogan."
+            ],
+            [
+                "3. Human dignity, rights, and environmental public interest",
+                "Human-rights reasoning begins with the person or group affected, the right at issue, and the public body or actor responsible under the applicable framework. The Universal Declaration of Human Rights is an international declaration; it should not be described as a Philippine statute. Environmental questions likewise require a named issue and source: air pollution, solid waste, and ecological management are addressed by different laws. Separate an observed condition from its cause, identify who can verify it, and connect the proposed response to the actual legal or policy instrument."
+            ]
+        ],
+        "source_ids": [
+            "csc-cse-ppt-scope-2026",
+            "1987-philippine-constitution",
+            "republic-act-6713",
+            "universal-declaration-human-rights",
+            "republic-act-8749",
+            "republic-act-9003"
+        ],
+        "exams": [
+            "civil-service"
+        ],
+        "taxonomy": {
+            "subject_id": "general-information",
+            "topic_id": "cse-constitutional-civics",
+            "concept_id": "cse-constitutional-principles",
+            "topic_ids": [
+                "cse-constitutional-civics",
+                "cse-public-service-ethics",
+                "cse-environmental-stewardship"
+            ],
+            "concept_ids": [
+                "cse-constitutional-principles",
+                "cse-government-functions",
+                "cse-bill-of-rights",
+                "cse-civic-participation",
+                "cse-ethical-public-service",
+                "cse-public-accountability",
+                "cse-conflict-of-interest",
+                "cse-public-interest",
+                "cse-human-rights-dignity",
+                "cse-environmental-stewardship",
+                "cse-environmental-public-interest"
+            ]
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-10-19"
+    },
+    {
+        "id": "cse-verbal-reading-grammar-and-cohesion",
+        "title": "Civil Service Verbal Ability: Reading, Grammar, and Cohesion",
+        "summary": "Original instructional lesson with selected worked examples; the scope note identifies competencies not covered by this short module.",
+        "notes": [
+            [
+                "1. Central idea, evidence, and careful inference",
+                "Read the question first to know whether it asks for a stated detail, central idea, inference, purpose, or evaluation. A central idea explains what the passage as a whole is doing; a detail supports one part. For inference, combine the text with the smallest necessary assumption and reject options that add facts the author never supplies. A change observed after an action does not by itself prove the action caused it. In Filipino, distinguish the pangunahing diwa from pantulong na detalye and make a hinuha that stays within the tekstong binasa."
+            ],
+            [
+                "2. Vocabulary from context",
+                "When a word is unfamiliar, reread the sentence and its neighboring sentences. Look for a definition, contrast, example, cause, or repeated idea that narrows the meaning. Substitute a candidate meaning and check whether the sentence still makes sense without changing the author’s claim. In Filipino, inspect affixes and the word’s role in the sentence, then consult a reliable Filipino dictionary when context remains ambiguous. A plausible dictionary meaning may still be wrong for this sentence if it does not fit the surrounding argument."
+            ],
+            [
+                "3. Grammar as a meaning check",
+                "For English subject–verb agreement, locate the grammatical subject rather than the nearest noun; intervening phrases do not change the subject’s number. A pronoun should have a clear antecedent and agree in number and reference. Parallel items should use matching grammatical forms. In Filipino, identify the panaguri and simuno in the actual sentence and use the appropriate pang-ugnay and word form; do not impose English agreement patterns where Filipino grammar works differently. Revision should make the intended relationship clearer, not merely sound more formal."
+            ],
+            [
+                "4. Paragraph order and cohesion",
+                "A coherent paragraph gives each sentence a job: introduce the point, explain it, support it, or connect it to the next idea. Track reference words, time markers, contrast, and cause-and-effect signals. A sentence that begins with “however” needs a genuine contrast; a pronoun should point to a clear noun; a concluding sentence should follow from the evidence already given. Test a paragraph order by reading the transitions aloud and checking whether the logic remains clear without adding an unstated premise."
+            ]
+        ],
+        "source_ids": [
+            "csc-cse-ppt-scope-2026",
+            "purdue-owl-grammar",
+            "openstax-reading-writing",
+            "deped-filipino-curriculum-guide",
+            "kwf-balarila-pambansa",
+            "kwf-diksiyonaryo"
+        ],
+        "exams": [
+            "civil-service"
+        ],
+        "taxonomy": {
+            "subject_id": "verbal-ability",
+            "topic_id": "cse-reading-comprehension-topic",
+            "concept_id": "cse-reading-comprehension",
+            "topic_ids": [
+                "cse-reading-comprehension-topic",
+                "critical-reading",
+                "english-inference",
+                "filipino-pagbasa",
+                "vocabulary-and-word-meaning",
+                "grammar-and-usage",
+                "filipino-gramatika"
+            ],
+            "concept_ids": [
+                "cse-reading-comprehension",
+                "cse-paragraph-organization",
+                "critical-reading-evidence-quality",
+                "english-inference-evidence",
+                "filipino-pagbasa-pangunahing-diwan",
+                "cse-word-meaning",
+                "cse-contextual-inference",
+                "cse-filipino-word-usage",
+                "cse-error-recognition",
+                "cse-sentence-structure",
+                "cse-grammar-application",
+                "cse-pronoun-reference",
+                "cse-parallel-structure",
+                "filipino-gramatika-wastong-gamit",
+                "cse-paragraph-cohesion"
+            ]
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-10-19"
+    },
+    {
+        "id": "cpa-advanced-accounting-ownership-and-consolidation",
+        "title": "Advanced Accounting: Ownership, Profit Allocation, and Consolidation",
+        "summary": "Original instructional lesson with selected worked examples; the scope note identifies competencies not covered by this short module.",
+        "notes": [
+            [
+                "1. Partnership agreements and profit allocation",
+                "A partnership allocation problem is an ordered calculation, not an automatic equal split. Read the agreement for salaries, interest on capital, preferred amounts, and the residual-sharing ratio; then determine whether the stated allowances are distributions of profit or expenses in a particular accounting context. Compute the total allowances first, compare them with available profit, and allocate the remaining amount using the stated ratio. If allowances exceed the available profit, do not force a positive residual; follow the agreement’s loss or deficit rule. State every assumption so a reviewer can reproduce the allocation."
+            ],
+            [
+                "2. Business combinations and control",
+                "A business-combination analysis first identifies the acquirer and acquisition date, then considers the identifiable assets and liabilities and the consideration under the applicable standard. Consolidated reporting depends on control rather than the mere existence of an investment or a common brand. The investor assesses power over relevant activities, exposure or rights to variable returns, and the ability to use power to affect those returns under IFRS 10’s control model. Apply the standards adopted in the Philippines for the reporting period, and distinguish an acquisition calculation from later-period consolidation."
+            ],
+            [
+                "3. Intercompany eliminations and foreign operations",
+                "Consolidated statements combine like items of the parent and subsidiaries, then remove intragroup balances and transactions so the group does not report activity with itself as an external result. Identify the originating entities, transaction direction, reporting date, and whether profit remains in group assets. Foreign-operation translation adds another layer: distinguish the entity’s functional currency from the presentation currency and apply the relevant standard to assets, liabilities, income, and translation differences. These are not interchangeable topics; use the applicable IFRS requirements and source records for the specific case."
+            ],
+            [
+                "4. Other advanced-accounting pathways",
+                "Branch accounting, joint arrangements, liquidation, withdrawal, dividends, and asset transfers each require a transaction model that fits the legal arrangement and accounting policy. Begin with the parties, their rights and obligations, the reporting entity, and the event being measured. Keep a schedule that reconciles opening balances, current activity, allocations, eliminations, and ending balances. This broad introduction does not teach the recognition details of every pathway; consult the current LECPA TOS and applicable Philippine-adopted standards before treating a topic as covered."
+            ]
+        ],
+        "source_ids": [
+            "prc-accountancy-board-page",
+            "ifrs-conceptual-framework",
+            "ifrs-ifrs-3-business-combinations",
+            "ifrs-ifrs-10-consolidated-financial-statements",
+            "openstax-principles-managerial-accounting"
+        ],
+        "exams": [
+            "cpa"
+        ],
+        "taxonomy": {
+            "subject_id": "cpa-advanced-accounting",
+            "topic_id": "cpa-advanced-accounting-partnerships",
+            "concept_id": "cpa-advanced-accounting-partnerships-core",
+            "topic_ids": [
+                "cpa-advanced-accounting-partnerships",
+                "cpa-advanced-accounting-profit-allocation",
+                "cpa-advanced-accounting-agreement",
+                "cpa-advanced-accounting-measurement",
+                "cpa-advanced-accounting-combinations",
+                "cpa-advanced-accounting-consolidation",
+                "cpa-advanced-accounting-nci",
+                "cpa-advanced-accounting-intercompany",
+                "cpa-advanced-accounting-elimination",
+                "cpa-advanced-accounting-intercompany-balances",
+                "cpa-advanced-accounting-foreign-currency",
+                "cpa-advanced-accounting-translation",
+                "cpa-advanced-accounting-branch",
+                "cpa-advanced-accounting-joint-arrangements",
+                "cpa-advanced-accounting-liquidation",
+                "cpa-advanced-accounting-withdrawal",
+                "cpa-advanced-accounting-dividends",
+                "cpa-advanced-accounting-fixed-assets",
+                "cpa-advanced-accounting-branch-inventory",
+                "cpa-advanced-accounting-profit-attribution"
+            ],
+            "concept_ids": [
+                "cpa-advanced-accounting-partnerships-core",
+                "cpa-advanced-accounting-profit-allocation-core",
+                "cpa-advanced-accounting-agreement-core",
+                "cpa-advanced-accounting-measurement-core",
+                "cpa-advanced-accounting-combinations-core",
+                "cpa-advanced-accounting-consolidation-core",
+                "cpa-advanced-accounting-nci-core",
+                "cpa-advanced-accounting-intercompany-core",
+                "cpa-advanced-accounting-elimination-core",
+                "cpa-advanced-accounting-intercompany-balances-core",
+                "cpa-advanced-accounting-foreign-currency-core",
+                "cpa-advanced-accounting-translation-core",
+                "cpa-advanced-accounting-branch-core",
+                "cpa-advanced-accounting-joint-arrangements-core",
+                "cpa-advanced-accounting-liquidation-core",
+                "cpa-advanced-accounting-withdrawal-core",
+                "cpa-advanced-accounting-dividends-core",
+                "cpa-advanced-accounting-fixed-assets-core",
+                "cpa-advanced-accounting-branch-inventory-core",
+                "cpa-advanced-accounting-profit-attribution-core"
+            ]
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-10-19"
+    },
+    {
+        "id": "cpa-financial-accounting-recognition-measurement-and-reporting",
+        "title": "Financial Accounting: Recognition, Measurement, and Reporting Checks",
+        "summary": "Original instructional lesson with selected worked examples; the scope note identifies competencies not covered by this short module.",
+        "notes": [
+            [
+                "1. Accruals, cut-off, and customer advances",
+                "Accrual accounting records the economic event in the period it occurs, subject to the applicable recognition requirements, rather than simply following cash movement. An incurred but unpaid utility expense belongs to the period of use; an expired portion of prepaid insurance is an expense; a customer advance remains a liability until the relevant performance or earning conditions are met. At period end, identify the service or right received, the time interval, supporting documents, and whether an amount is earned, incurred, paid, or still deferred. Cut-off errors often arise when these states are treated as synonyms."
+            ],
+            [
+                "2. Assets, inventory, revenue, and measurement",
+                "Recognition asks whether an item belongs in the statements under the applicable standard; measurement asks which amount and subsequent measurement basis apply. Inventory, property and equipment, revenue, leases, and financial instruments each have their own criteria and measurement mechanics. Do not generalize one standard’s model across every asset or contract. Trace the transaction from contract or purchase evidence to the account, estimate, and note disclosure; verify the current adopted text and effective date. A carrying amount is not automatically recoverable simply because it was recorded at cost, and revenue timing follows the relevant performance obligations rather than cash collection alone."
+            ],
+            [
+                "3. Estimates, impairment, and cash-flow interpretation",
+                "Estimates use available evidence at a measurement date and may need revision when conditions or information change. A provision requires the criteria in the applicable standard; uncertainty alone does not justify recording any desired reserve. An impairment assessment compares carrying amounts with the measure required by the relevant standard and unit of account. Cash-flow analysis then reconciles opening and closing cash through operating, investing, and financing activity, while keeping noncash transactions separate. Tie reported changes back to ledgers, disclosures, and prior-period comparatives before drawing a conclusion about performance or liquidity."
+            ],
+            [
+                "4. Presentation and a reviewable audit trail",
+                "Financial statements tell a connected story: assets and liabilities at a date, income and expenses over a period, and cash movements across that period. Classification and presentation should follow the standard and reporting context rather than a convenient ratio. Maintain a trail from source document to journal entry, calculation schedule, general ledger, statement line, and disclosure. When two sources disagree, resolve the underlying fact and document the judgment; do not force the ledger to match an unsupported expectation."
+            ]
+        ],
+        "source_ids": [
+            "prc-accountancy-board-page",
+            "ifrs-conceptual-framework",
+            "ifrs-ias-2-inventories",
+            "ifrs-ias-16-property-plant-equipment",
+            "ifrs-ifrs-15-revenue",
+            "ifrs-ias-37-provisions",
+            "ifrs-ias-36-impairment",
+            "ifrs-ias-7-cash-flow-statements",
+            "ifrs-ifrs-16-leases"
+        ],
+        "exams": [
+            "cpa"
+        ],
+        "taxonomy": {
+            "subject_id": "cpa-financial-accounting",
+            "topic_id": "cpa-financial-accounting-accruals",
+            "concept_id": "cpa-financial-accounting-accruals-core",
+            "topic_ids": [
+                "cpa-financial-accounting-accruals",
+                "cpa-financial-accounting-transactions",
+                "cpa-financial-accounting-liabilities",
+                "cpa-financial-accounting-inventory",
+                "cpa-financial-accounting-ppe",
+                "cpa-financial-accounting-revenue",
+                "cpa-financial-accounting-leases",
+                "cpa-financial-accounting-allowance",
+                "cpa-financial-accounting-provisions",
+                "cpa-financial-accounting-estimates",
+                "cpa-financial-accounting-impairment",
+                "cpa-financial-accounting-cash-flow",
+                "cpa-financial-accounting-analysis",
+                "cpa-financial-accounting-interpretation",
+                "cpa-financial-accounting-presentation",
+                "cpa-financial-accounting-equity",
+                "cpa-financial-accounting-classification"
+            ],
+            "concept_ids": [
+                "cpa-financial-accounting-accruals-core",
+                "cpa-financial-accounting-transactions-core",
+                "cpa-financial-accounting-liabilities-core",
+                "cpa-financial-accounting-inventory-core",
+                "cpa-financial-accounting-ppe-core",
+                "cpa-financial-accounting-revenue-core",
+                "cpa-financial-accounting-leases-core",
+                "cpa-financial-accounting-allowance-core",
+                "cpa-financial-accounting-provisions-core",
+                "cpa-financial-accounting-estimates-core",
+                "cpa-financial-accounting-impairment-core",
+                "cpa-financial-accounting-cash-flow-core",
+                "cpa-financial-accounting-analysis-core",
+                "cpa-financial-accounting-interpretation-core",
+                "cpa-financial-accounting-presentation-core",
+                "cpa-financial-accounting-equity-core",
+                "cpa-financial-accounting-classification-core"
+            ]
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-10-19"
+    },
+    {
+        "id": "cpa-management-services-cvp-and-decisions",
+        "title": "Management Services: Contribution, Break-Even, and Decision Models",
+        "summary": "Original instructional lesson with selected worked examples; the scope note identifies competencies not covered by this short module.",
+        "notes": [
+            [
+                "1. Contribution margin and break-even",
+                "For one product under a linear cost-volume-profit model, unit contribution margin equals selling price per unit less variable cost per unit. Fixed cost divided by unit contribution gives break-even units; fixed cost divided by contribution-margin ratio gives break-even sales dollars. At break-even, total contribution exactly covers fixed cost and operating income is zero. Keep units and currency consistent, and distinguish the contribution from gross margin or cash flow. For a multi-product setting, a weighted mix assumption matters because products may have different contribution margins."
+            ],
+            [
+                "2. Test assumptions and sensitivity",
+                "CVP results are conditional estimates. Common simplifying assumptions include a stable selling price, linear variable cost, fixed cost within a relevant range, and known sales mix. A change in capacity, overtime, discounting, product mix, or inventory can break those assumptions. Sensitivity analysis changes one or more inputs transparently and recomputes contribution and break-even; it does not guarantee the forecast. A margin-of-safety measure compares expected or actual sales with break-even, and operating leverage describes how a change in sales can affect operating income under the modeled cost structure."
+            ],
+            [
+                "3. Relevant costs, budgets, and variance questions",
+                "A decision-relevant cost differs between alternatives and relates to a future consequence. A sunk cost is already incurred and cannot be changed by the current choice, while an avoidable future cost may matter. Compare alternatives on consistent units and horizon, then include capacity, quality, delivery, safety, and strategic constraints that the arithmetic omits. Budget variances are signals to investigate: define the benchmark, actual measure, flexible volume basis, and cause before calling a variance favorable or unfavorable. Responsibility accounting should focus on items a manager can reasonably influence."
+            ]
+        ],
+        "source_ids": [
+            "prc-accountancy-board-page",
+            "openstax-principles-managerial-accounting",
+            "openstax-introductory-statistics-2e"
+        ],
+        "exams": [
+            "cpa"
+        ],
+        "taxonomy": {
+            "subject_id": "cpa-management-services",
+            "topic_id": "cpa-management-services-cvp",
+            "concept_id": "cpa-management-services-cvp-core",
+            "topic_ids": [
+                "cpa-management-services-cvp",
+                "cpa-management-services-sales-mix",
+                "cpa-management-services-constraints",
+                "cpa-management-services-performance",
+                "cpa-management-services-relevant-costing",
+                "cpa-management-services-budgeting",
+                "cpa-management-services-variance",
+                "cpa-management-services-sunk-cost",
+                "cpa-management-services-standard-costing"
+            ],
+            "concept_ids": [
+                "cpa-management-services-cvp-core",
+                "cpa-management-services-sales-mix-core",
+                "cpa-management-services-constraints-core",
+                "cpa-management-services-performance-core",
+                "cpa-management-services-relevant-costing-core",
+                "cpa-management-services-budgeting-core",
+                "cpa-management-services-variance-core",
+                "cpa-management-services-sunk-cost-core",
+                "cpa-management-services-standard-costing-core"
+            ]
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-10-19"
+    },
+    {
+        "id": "cpa-regulatory-framework-law-ethics-and-evidence",
+        "title": "CPA Regulatory Framework: Authority, Ethics, Contracts, and Audit Evidence",
+        "summary": "Original instructional lesson with selected worked examples; the scope note identifies competencies not covered by this short module.",
+        "notes": [
+            [
+                "1. Professional authority and ethical duties",
+                "Start a regulatory question by naming the profession, the act or decision, the authority responsible, and the date relevant to the case. Republic Act No. 9298 establishes the Philippine accountancy regulatory framework; PRC and Board of Accountancy resolutions, applicable laws, and professional pronouncements provide additional requirements within their scope. Ethical analysis identifies the fundamental principle at risk, the relevant relationship or pressure, and safeguards required by the applicable Philippine Code of Ethics. A general ethical value is not a substitute for the actual rule, independence requirement, or effective date."
+            ],
+            [
+                "2. Contract questions: order the facts, then check the rule",
+                "For a contract problem, write the dated sequence of offer, acceptance, communication, revocation, and any stated condition. Then consult the relevant Civil Code provisions and determine which act was legally effective and when. Do not assume a time limit, delivery method, or jurisdiction-specific deadline unless the problem or source supplies it. The distinction between dispatch and receipt can matter for communications. If an essential fact is missing, state the conditional conclusion rather than filling the gap with an unstated rule. This method makes an answer traceable and protects against overconfident legal generalization."
+            ],
+            [
+                "3. Corporate authority and entity evidence",
+                "Corporate analysis begins by identifying the entity, its governing documents, the decision-maker, and the act at issue. The Revised Corporation Code distinguishes corporate forms and assigns requirements for organizational and governance acts; special laws may also apply. For an accounting or audit task, connect a recorded transaction to minutes, contracts, ownership records, bank evidence, or other relevant documentation. A corporate record is evidence to evaluate, not proof by title alone. Check amendments and current SEC rules before advising on a live corporate act."
+            ],
+            [
+                "4. Audit standards and assertion-directed evidence",
+                "Audit procedures should respond to assessed risk and the assertion being tested, such as existence, completeness, valuation, rights and obligations, or presentation. Evidence quality depends on relevance and reliability in context; one document may support one assertion while leaving another untested. Read the applicable Philippine Auditing Standard, including its effective date and adoption source, before treating a procedure as required. A sample reconciliation or analytical procedure is a learning example, not a complete audit program or assurance conclusion."
+            ]
+        ],
+        "source_ids": [
+            "prc-accountancy-board-page",
+            "philippines-accountancy-act",
+            "philippine-cpa-code-of-ethics",
+            "philippines-civil-code-business-law",
+            "philippines-revised-corporation-code",
+            "prc-accountancy-auditing-standards-2026"
+        ],
+        "exams": [
+            "cpa"
+        ],
+        "taxonomy": {
+            "subject_id": "cpa-regulatory-framework",
+            "topic_id": "cpa-regulatory-framework-professional-law",
+            "concept_id": "cpa-regulatory-framework-professional-law-core",
+            "topic_ids": [
+                "cpa-regulatory-framework-professional-law",
+                "cpa-regulatory-framework-conflict",
+                "cpa-regulatory-framework-confidentiality",
+                "cpa-regulatory-framework-contracts",
+                "cpa-regulatory-framework-obligations",
+                "cpa-regulatory-framework-validity",
+                "cpa-regulatory-framework-formalities",
+                "cpa-regulatory-framework-corporate-law",
+                "cpa-regulatory-framework-governance",
+                "cpa-regulatory-framework-records",
+                "cpa-regulatory-framework-disclosure",
+                "cpa-regulatory-framework-interpretation"
+            ],
+            "concept_ids": [
+                "cpa-regulatory-framework-professional-law-core",
+                "cpa-regulatory-framework-conflict-core",
+                "cpa-regulatory-framework-confidentiality-core",
+                "cpa-regulatory-framework-contracts-core",
+                "cpa-regulatory-framework-obligations-core",
+                "cpa-regulatory-framework-validity-core",
+                "cpa-regulatory-framework-formalities-core",
+                "cpa-regulatory-framework-corporate-law-core",
+                "cpa-regulatory-framework-governance-core",
+                "cpa-regulatory-framework-records-core",
+                "cpa-regulatory-framework-disclosure-core",
+                "cpa-regulatory-framework-interpretation-core"
+            ]
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-10-19"
+    },
+    {
+        "id": "cpa-taxation-computation-and-current-law-workflow",
+        "title": "Taxation: Computation Workflow and Current-Law Verification",
+        "summary": "Original instructional lesson with selected worked examples; the scope note identifies competencies not covered by this short module.",
+        "notes": [
+            [
+                "1. Begin with the taxpayer, transaction, and source date",
+                "Before calculating, identify the taxpayer, tax type, transaction date, place, accounting period, and facts that affect classification. Then locate the controlling provision in the National Internal Revenue Code as amended and the applicable BIR regulation, revenue memorandum, or other issuance. Check publication, effectivity, amendments, transition rules, and whether the source covers this taxpayer and transaction. A summary page or old reviewer can help you find a provision but cannot establish a current rate or deadline. Preserve the source and date behind each assumption in the computation."
+            ],
+            [
+                "2. Build a tax base from stated components",
+                "A tax-base calculation begins with the gross amount identified by the problem, then applies only inclusions, exclusions, deductions, credits, or adjustments that are supported by the stated facts and governing rule. Keep separate columns for the source amount, treatment, rule citation, and arithmetic. A permitted cost may reduce a base only if it qualifies under the applicable rules and evidence; the word “cost” by itself does not prove deductibility. When an examination item supplies a tax schedule, use the supplied treatment for that exercise and label the result as conditional on that schedule."
+            ],
+            [
+                "3. Indirect taxes, documentation, and compliance",
+                "Indirect-tax problems may turn on transaction type, place of supply, registration, exemptions, timing, documentation, and the rule effective on the transaction date. Separate output tax, input tax, tax-inclusive amounts, and cash remittance rather than combining them prematurely. BIR issuances can implement statutory changes and contain transition details, so confirm the exact issuance and its status. For filing and payment, verify the current form, channel, due date, and taxpayer category with an official BIR source. A worked classroom amount does not establish a real person’s filing obligation."
+            ],
+            [
+                "4. Review and reconcile the computation",
+                "A reviewable computation exposes its assumptions, units, tax period, rate source, rounding rule, and supporting records. Recalculate the base independently, reconcile it to books or source documents, and test whether each adjustment is included once. Separate a book-to-tax adjustment from a cash payment and from a return line. If a required rule or fact is missing, identify that gap rather than filling it from memory. For a live transaction, the responsible professional must verify current law and case facts before relying on a study example."
+            ]
+        ],
+        "source_ids": [
+            "prc-accountancy-board-page",
+            "philippines-national-internal-revenue-code",
+            "bir-tax-issuances-reference",
+            "philippines-ease-of-paying-taxes-act",
+            "bir-digital-services-vat-guidance"
+        ],
+        "exams": [
+            "cpa"
+        ],
+        "taxonomy": {
+            "subject_id": "cpa-taxation",
+            "topic_id": "cpa-taxation-tax-basics",
+            "concept_id": "cpa-taxation-tax-basics-core",
+            "topic_ids": [
+                "cpa-taxation-tax-basics",
+                "cpa-taxation-current-law",
+                "cpa-taxation-administration",
+                "cpa-taxation-tax-base",
+                "cpa-taxation-deductions",
+                "cpa-taxation-substantiation",
+                "cpa-taxation-vat",
+                "cpa-taxation-filing",
+                "cpa-taxation-withholding",
+                "cpa-taxation-compliance",
+                "cpa-taxation-reconciliation",
+                "cpa-taxation-records",
+                "cpa-taxation-ethics"
+            ],
+            "concept_ids": [
+                "cpa-taxation-tax-basics-core",
+                "cpa-taxation-current-law-core",
+                "cpa-taxation-administration-core",
+                "cpa-taxation-tax-base-core",
+                "cpa-taxation-deductions-core",
+                "cpa-taxation-substantiation-core",
+                "cpa-taxation-vat-core",
+                "cpa-taxation-filing-core",
+                "cpa-taxation-withholding-core",
+                "cpa-taxation-compliance-core",
+                "cpa-taxation-reconciliation-core",
+                "cpa-taxation-records-core",
+                "cpa-taxation-ethics-core"
+            ]
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-10-19"
+    },
+    {
+        "id": "let-english-reading-language-and-composition",
+        "title": "LET English: Reading Evidence, Grammar, and Composition",
+        "summary": "Original instructional lesson with selected worked examples; the scope note identifies competencies not covered by this short module.",
+        "notes": [
+            [
+                "1. Read a claim through its evidence",
+                "A reader should distinguish what a passage states, what it suggests, and what remains unknown. Identify the central claim, the evidence offered, and the connection between them. Then ask whether the evidence actually supports the conclusion or merely occurs at the same time. In teaching and assessment, a response that cites relevant details and explains their connection is stronger than one that repeats a claim without evidence. Use an original passage as a shared text, then ask learners to justify one inference and identify an alternative explanation."
+            ],
+            [
+                "2. Grammar, agreement, and clear reference",
+                "When revising a sentence, locate its main subject and verb, then check whether their forms agree. A phrase between subject and verb may be informative but does not normally become the subject. Pronouns need an identifiable antecedent and a clear number reference; modifiers should sit close to what they describe. A grammatical correction should preserve the intended proposition. Read the revised sentence in context to make sure a local edit has not changed the writer’s meaning or obscured the relationship between ideas."
+            ],
+            [
+                "3. Vocabulary, purpose, and text structure",
+                "Use context clues as evidence rather than as a guess: nearby definitions, examples, contrasts, and cause-and-effect relationships narrow a word’s meaning. Text structure can signal whether a writer is comparing ideas, explaining a sequence, or describing a problem and response. Purpose and tone should be inferred from the whole passage, including word choice and the intended audience. A single loaded word is not enough to label the tone if the rest of the passage points elsewhere."
+            ],
+            [
+                "4. Composition, cohesion, and feedback",
+                "A useful paragraph makes one claim, supports it with relevant detail, and explains why that detail matters. Cohesion comes from clear reference, logical sequencing, and transitions that accurately express the relationship between sentences. In a classroom response, feedback should point to the evidence or sentence move that needs revision and give the learner a chance to try again. A polished surface is not enough if the paragraph’s reasoning is unsupported; likewise, a useful draft can be improved without erasing the writer’s voice."
+            ]
+        ],
+        "source_ids": [
+            "prc-let-enhanced-tos-2025",
+            "prc-lept-alignment-guidance-2025",
+            "deped-k12-english-curriculum-guide",
+            "openstax-reading-writing",
+            "purdue-owl-grammar"
+        ],
+        "exams": [
+            "let"
+        ],
+        "taxonomy": {
+            "subject_id": "english",
+            "topic_id": "critical-reading",
+            "concept_id": "critical-reading-evidence-quality",
+            "topic_ids": [
+                "critical-reading",
+                "english-inference",
+                "inference",
+                "main-idea-and-support",
+                "subject-verb-agreement",
+                "pronouns",
+                "modifiers",
+                "parallelism",
+                "verb-tenses",
+                "context-clues",
+                "text-structure",
+                "authors-purpose-and-tone",
+                "cse-reading-comprehension-topic",
+                "grammar-and-usage"
+            ],
+            "concept_ids": [
+                "critical-reading-evidence-quality",
+                "english-inference-evidence",
+                "inference-evidence-based-conclusions",
+                "main-idea-and-support-central-idea",
+                "main-idea-and-support-supporting-evidence",
+                "subject-verb-agreement-compound-subjects",
+                "pronouns-pronoun-reference",
+                "pronouns-pronoun-antecedent-agreement",
+                "modifiers-misplaced-modifiers",
+                "parallelism-parallel-items",
+                "verb-tenses-tense-consistency",
+                "context-clues-inference-clues",
+                "context-clues-contrast-clues",
+                "context-clues-definition-clues",
+                "text-structure-sequence",
+                "text-structure-problem-and-solution",
+                "text-structure-cause-and-effect",
+                "authors-purpose-and-tone-purpose",
+                "authors-purpose-and-tone-tone",
+                "cse-paragraph-organization",
+                "cse-paragraph-cohesion",
+                "cse-sentence-structure",
+                "cse-grammar-application"
+            ]
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-10-19"
+    },
+    {
+        "id": "let-filipino-pagbasa-wika-at-pagsulat",
+        "title": "LET Filipino: Pagbasa, Wastong Gamit, at Pagbuo ng Teksto",
+        "summary": "Original instructional lesson with selected worked examples; the scope note identifies competencies not covered by this short module.",
+        "notes": [
+            [
+                "1. Pangunahing diwa at ebidensiya",
+                "Basahin muna kung ang tanong ay tungkol sa tuwirang detalye, pangunahing diwa, layunin, o hinuha. Ang pangunahing diwa ang ideyang pinag-uugnay ng mahahalagang pangungusap; hindi ito basta pinakamadalas na salitang lumilitaw. Itala ang detalyeng sumusuporta rito at suriin kung talagang pinatutunayan ng detalye ang pahayag. Kapag may dalawang pagbabagong naganap kasabay ng pagtaas o pagbaba, huwag magtakda agad ng iisang sanhi kung walang paghahambing na naghihiwalay sa epekto."
+            ],
+            [
+                "2. Hinuha mula sa konteksto",
+                "Ang hinuha ay konklusyong binubuo mula sa tekstuwal na pahiwatig at makatwirang ugnayan; hindi ito opinyong walang batayan. Hanapin ang pahayag, halimbawa, pangatnig, at kundisyong inilalahad ng may-akda. Pagkatapos, sabihin kung ano ang ipinahihiwatig at kung anong impormasyon ang hindi pa tiyak. Para sa salitang di-pamilyar, gamitin ang depinisyon, paghahambing, kasalungat, o halimbawa sa paligid nito. Kung may maraming posibleng kahulugan, tingnan ang gamit nito sa pangungusap at sumangguni sa mapagkakatiwalaang diksiyonaryo."
+            ],
+            [
+                "3. Wastong gamit, gramatika, at estruktura",
+                "Suriin ang gampanin ng bawat salita sa pangungusap bago pumili ng anyo o pang-ugnay. Tingnan kung malinaw ang simuno at panaguri, kung ang panghalip ay may tiyak na tinutukoy, at kung lohikal ang ugnayan ng mga sugnay. Ang wastong gamit ay nakabatay sa kahulugan at tuntunin sa Filipino, hindi sa tuwirang paglilipat ng tuntunin sa Ingles. Gamitin ang Balarila at iba pang sanggunian bilang batayan, ngunit isaalang-alang din ang rehistro, konteksto, at layunin ng pahayag."
+            ],
+            [
+                "4. Panitikan at organisadong pagsulat",
+                "Sa pagsusuri ng akda, ihiwalay ang nakikitang detalye sa interpretasyon: sino ang nagsasalaysay, ano ang nagaganap, anong tunggalian ang lumilitaw, at anong tema ang sinusuportahan ng mga pangyayari. Isaalang-alang ang panahon, pamayanan, at pananaw nang hindi ipinapalagay na iisa ang karanasan ng lahat. Sa buod, piliin lamang ang mahahalagang ideya at panatilihin ang ugnayan ng mga ito; huwag magdagdag ng bagong paghuhusga. Sa talatang nagpapaliwanag, ayusin ang pahayag, patunay, at paliwanag sa lohikal na pagkakasunod-sunod."
+            ]
+        ],
+        "source_ids": [
+            "prc-let-enhanced-tos-2025",
+            "prc-lept-alignment-guidance-2025",
+            "deped-filipino-curriculum-guide",
+            "kwf-balarila-pambansa",
+            "kwf-diksiyonaryo"
+        ],
+        "exams": [
+            "let"
+        ],
+        "taxonomy": {
+            "subject_id": "filipino",
+            "topic_id": "filipino-pagbasa",
+            "concept_id": "filipino-pagbasa-pangunahing-diwan",
+            "topic_ids": [
+                "filipino-pagbasa",
+                "filipino-pagsulat",
+                "filipino-talasalitaan",
+                "filipino-gramatika",
+                "filipino-komunikasyon",
+                "filipino-panitikan"
+            ],
+            "concept_ids": [
+                "filipino-pagbasa-pangunahing-diwan",
+                "filipino-pagsulat-buod",
+                "filipino-talasalitaan-kasingkahulugan",
+                "filipino-talasalitaan-konteksto",
+                "filipino-gramatika-wastong-gamit",
+                "filipino-komunikasyon-angkop-na-wika",
+                "filipino-panitikan-tauhan",
+                "filipino-panitikan-tema",
+                "filipino-pagsulat-organisasyon"
+            ]
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-10-19"
+    },
+    {
+        "id": "let-mathematics-models-and-quantitative-reasoning",
+        "title": "LET Mathematics: Number Sense, Models, and Data Reasoning",
+        "summary": "Original instructional lesson with selected worked examples; the scope note identifies competencies not covered by this short module.",
+        "notes": [
+            [
+                "1. Number sense, operations, and units",
+                "Estimate before calculating so an answer with an impossible sign or scale is easy to notice. Keep the unit attached to each quantity and convert to a common unit before adding or comparing. Fractions, decimals, and percentages are alternate representations of a relationship; choose the one that makes the calculation transparent. In multi-step problems, state what each intermediate value represents instead of copying numbers into an unexplained expression. A reasonable estimate and a reverse check can reveal errors that a calculator will not."
+            ],
+            [
+                "2. Equations, patterns, and functions",
+                "Translate a verbal condition into an equation by naming the unknown and defining each term. Solve with equivalent operations, then substitute the result into the original statement. A pattern suggests a rule; verify the rule against every given term before extending it. A function describes how an output depends on an input under a defined relationship, and a graph can show where the relationship rises, falls, or changes. Distinguish a model’s prediction from an observed measurement, and state the range where the model makes sense."
+            ],
+            [
+                "3. Geometry and measurement",
+                "Geometry problems are easier when you draw and label the figure before selecting a formula. Identify the requested quantity—length, perimeter, area, angle, or volume—and check that the formula matches the shape. Use the stated units consistently and remember that area uses square units. A diagram may not be drawn to scale, so use the given measurements and relationships rather than visual appearance. For angle or shape relationships, write the rule that connects the parts and test whether the values meet the full condition."
+            ],
+            [
+                "4. Summaries, probability, and data",
+                "Before summarizing a data set, identify the population or sample, variable, and unit of observation. The mean uses all values and can move under an extreme observation; the median is the middle ordered value and may better represent a skewed set. Probability describes a defined event within a stated sample space; it is not a guarantee about one outcome. When comparing totals or rates, use the same time window and denominator. Explain what the data support and avoid extending the result to a population or cause that was not studied."
+            ]
+        ],
+        "source_ids": [
+            "prc-let-enhanced-tos-2025",
+            "prc-lept-alignment-guidance-2025",
+            "openstax-precalculus-2e",
+            "openstax-calculus-volume-1",
+            "nist-semtech-engineering-statistics-handbook"
+        ],
+        "exams": [
+            "let"
+        ],
+        "taxonomy": {
+            "subject_id": "mathematics",
+            "topic_id": "math-number-sense",
+            "concept_id": "math-number-sense-operations",
+            "topic_ids": [
+                "math-number-sense",
+                "math-measurement",
+                "math-algebra",
+                "math-problem-solving",
+                "math-geometry",
+                "math-statistics"
+            ],
+            "concept_ids": [
+                "math-number-sense-operations",
+                "math-number-sense-fractions",
+                "math-measurement-unit-conversion",
+                "math-algebra-linear-equations",
+                "math-algebra-patterns",
+                "math-algebra-functions",
+                "math-problem-solving-modeling",
+                "math-geometry-area-perimeter",
+                "math-geometry-angle-relationships",
+                "math-statistics-mean-median",
+                "math-statistics-probability"
+            ]
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-10-19"
+    },
+    {
+        "id": "let-science-inquiry-systems-and-evidence",
+        "title": "LET Science: Inquiry, Systems, and Evidence-Based Explanations",
+        "summary": "Original instructional lesson with selected worked examples; the scope note identifies competencies not covered by this short module.",
+        "notes": [
+            [
+                "1. Inquiry, variables, and evidence",
+                "A scientific explanation connects observations to a model and makes clear what evidence could support or challenge it. In an investigation, define the question, independent variable, measured outcome, and conditions held comparable. Repeat measurements where appropriate and record uncertainty rather than hiding variation. A conclusion should follow from the data and design; a single uncontrolled observation rarely establishes cause. Models are useful representations, not literal copies of nature, and their limits should be stated when applying them to a new situation."
+            ],
+            [
+                "2. Cells, particles, and movement across membranes",
+                "Particles in matter are in continuous motion. Diffusion is the net movement of particles from a region of higher concentration toward lower concentration; it does not require a cell to spend energy for that net movement. Osmosis refers specifically to water moving across a selectively permeable membrane under a concentration difference. Active transport uses cellular energy to move substances against a gradient. A diagram should be read for what is moving, which direction it moves, and whether energy is shown before choosing a process name."
+            ],
+            [
+                "3. Motion, forces, and energy models",
+                "Position change over time describes motion; a distance–time or position–time graph shows how that change varies. The slope of a position–time graph represents velocity under the graph’s chosen axes. A net force changes an object’s motion, while balanced forces can coexist with motion at constant velocity. Energy accounting tracks transfers and transformations without treating energy as destroyed in an ideal closed model. Check sign, unit, direction, and the conditions of a model before interpreting a graph or calculation."
+            ],
+            [
+                "4. Earth, ecosystems, and environmental reasoning",
+                "Earth and life-science patterns reflect interacting systems. Relative rock-layer order can support an age sequence where the layers have not been disturbed, but it does not by itself provide a calendar date. In an ecosystem, energy flows through trophic relationships while matter cycles; population patterns depend on resources, interactions, and environmental conditions. Environmental claims should identify the measured outcome, spatial scale, and time period, then distinguish evidence from a proposed cause. Connect local examples to the curriculum without assuming one community represents all settings."
+            ]
+        ],
+        "source_ids": [
+            "prc-let-enhanced-tos-2025",
+            "prc-lept-alignment-guidance-2025",
+            "deped-science-curriculum-guide",
+            "openstax-biology-2e",
+            "openstax-chemistry-2e",
+            "openstax-university-physics-volume-1"
+        ],
+        "exams": [
+            "let"
+        ],
+        "taxonomy": {
+            "subject_id": "science",
+            "topic_id": "science-inquiry",
+            "concept_id": "science-inquiry-evidence",
+            "topic_ids": [
+                "science-inquiry",
+                "science-data-graphs",
+                "science-biology",
+                "science-chemistry-matter",
+                "science-physics-motion",
+                "science-electricity-circuits",
+                "science-optics-rays",
+                "science-earth-processes",
+                "science-ecology-systems",
+                "cse-environmental-stewardship",
+                "environmental-stewardship"
+            ],
+            "concept_ids": [
+                "science-inquiry-evidence",
+                "science-data-evidence",
+                "science-biology-cells",
+                "science-chemistry-matter-particles",
+                "science-physics-motion-graphs",
+                "science-physics-force-balance",
+                "science-electricity-series-parallel",
+                "science-optics-reflection",
+                "science-earth-stratigraphy",
+                "science-ecology-population",
+                "cse-environmental-public-interest",
+                "environmental-stewardship-protection"
+            ]
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-10-19"
+    },
+    {
+        "id": "let-social-studies-source-civic-and-historical-reasoning",
+        "title": "LET Social Studies: Historical Sources, Civic Duties, and Context",
+        "summary": "Original instructional lesson with selected worked examples; the scope note identifies competencies not covered by this short module.",
+        "notes": [
+            [
+                "1. Historical sources and provenance",
+                "A primary source was created in the period or context being studied, but it is not automatically complete or unbiased. Ask who created it, when, for whom, why, and what the creator could directly observe. A later textbook is a secondary account that may synthesize many sources; it also has an author, evidence base, and interpretive purpose. When accounts disagree, compare provenance and look for independent corroboration before deciding which claim is better supported. Keep what a source says distinct from what the historian infers from it."
+            ],
+            [
+                "2. Context, change, and multiple perspectives",
+                "Historical explanation connects people’s choices to institutions, resources, beliefs, geography, and events at a particular time. Avoid explaining the past only through today’s categories or assuming that a single group experienced an event uniformly. Compare perspectives and consequences, identify what changed and what persisted, and ask whose account is missing from the available record. A causal claim should identify a mechanism and support it with evidence that addresses plausible alternatives. Context helps explain a choice without automatically excusing or condemning it."
+            ],
+            [
+                "3. Civic rights, duties, and the public good",
+                "Civic questions should be grounded in the relevant constitutional text, law, institution, and facts. Identify which right, duty, or public responsibility is involved and who has authority to act. The phrase “public good” does not erase individual rights or replace fair process. For an environmental or community issue, name the affected group, observed condition, applicable source, and decision process. Distinguish an ethical recommendation from a legal requirement, and verify current rules before interpreting a real case."
+            ]
+        ],
+        "source_ids": [
+            "prc-let-enhanced-tos-2025",
+            "prc-lept-alignment-guidance-2025",
+            "deped-araling-panlipunan-curriculum-guide",
+            "1987-philippine-constitution",
+            "nhcp-rizal-memory-collection",
+            "republic-act-10533"
+        ],
+        "exams": [
+            "let"
+        ],
+        "taxonomy": {
+            "subject_id": "social-studies",
+            "topic_id": "social-history",
+            "concept_id": "social-history-primary-sources",
+            "topic_ids": [
+                "social-history",
+                "let-rizal-works",
+                "let-global-interdependence",
+                "let-self-concept",
+                "social-civics",
+                "cse-constitutional-civics",
+                "let-ethical-reasoning"
+            ],
+            "concept_ids": [
+                "social-history-primary-sources",
+                "social-history-context-and-causation",
+                "let-rizal-context",
+                "let-global-local-effects",
+                "let-self-identity",
+                "social-civics-public-good",
+                "cse-constitutional-principles",
+                "social-civics-rights-and-duties",
+                "social-civics-evidence-and-claims",
+                "let-ethical-duties"
+            ]
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-10-19"
+    },
+    {
+        "id": "let-tle-safety-competency-and-practice",
+        "title": "LET TLE: Safety, Measurement, Competency, and Applied Practice",
+        "summary": "Original instructional lesson with selected worked examples; the scope note identifies competencies not covered by this short module.",
+        "notes": [
+            [
+                "1. Safety starts with the hazard",
+                "Before choosing a tool or procedure, inspect the workspace and identify the hazard, who may be exposed, and how harm could occur. Apply appropriate controls in a deliberate order, use required personal protective equipment, keep the work area organized, and stop when conditions are unsafe. A warning sign or checklist alone does not remove a hazard. Actual workplace requirements depend on current Philippine law, the applicable DOLE rules, equipment instructions, and the task risk assessment; verify those sources before making a compliance claim."
+            ],
+            [
+                "2. Measurement, quality, and process control",
+                "A measurement needs a defined feature, unit, instrument, and tolerance or acceptance criterion. Check the instrument’s condition and resolution, use it consistently, and record the result rather than rounding away a meaningful difference. Quality control compares evidence from the product or process with the stated requirement and triggers investigation when they differ. Do not call a result acceptable without a criterion, and do not treat a single measurement as proof that every item in a batch conforms."
+            ],
+            [
+                "3. Competency-based teaching and assessment",
+                "A competency statement describes work a learner can demonstrate under defined conditions and to a stated performance standard. TESDA Training Regulations provide qualification-specific competency standards and assessment arrangements; a school lesson should not claim that one activity grants a TESDA qualification. Teach the process through explanation, demonstration, guided practice, feedback, and a performance task. Collect evidence that the learner can repeat the safe, accurate process, then target feedback to the missing step rather than awarding competence for attendance alone."
+            ],
+            [
+                "4. Transfer principles across TLE specializations",
+                "Agriculture, home economics, ICT, and industrial arts use different tools, materials, risks, and technical standards. Shared habits—plan, identify risk, select resources, measure, document, evaluate quality, and reflect on improvement—transfer, but the specific procedure does not. For example, an ICT network task needs privacy and cybersecurity checks, while food preparation needs hygienic handling and a machine operation needs guarding and energy isolation. Consult the current DepEd curriculum and the matching TESDA or occupational reference for the specialization actually being taught."
+            ]
+        ],
+        "source_ids": [
+            "prc-let-enhanced-tos-2025",
+            "prc-lept-alignment-guidance-2025",
+            "deped-epp-tle-curriculum-guide",
+            "tesda-competency-standards",
+            "tesda-training-regulations-index",
+            "ra-11058-occupational-safety",
+            "dole-do-252-25-osh-revised-irr-ra-11058"
+        ],
+        "exams": [
+            "let"
+        ],
+        "taxonomy": {
+            "subject_id": "technology-and-livelihood-education",
+            "topic_id": "tle-occupational-safety",
+            "concept_id": "tle-occupational-safety",
+            "topic_ids": [
+                "tle-occupational-safety",
+                "tle-ia-tools-and-machines-safety",
+                "tle-measurement-and-quality",
+                "tle-ia-technical-drawing",
+                "tle-ia-materials-and-processes",
+                "tle-design-process",
+                "tle-technology-literacy",
+                "tle-resource-and-entrepreneurship",
+                "tle-afa-crop-production",
+                "tle-he-food-preparation-and-safety",
+                "tle-ict-digital-citizenship",
+                "tle-ia-basic-electricity",
+                "tle-ia-carpentry-and-construction"
+            ],
+            "concept_ids": [
+                "tle-occupational-safety",
+                "tle-ia-tools-and-machines-safety",
+                "tle-measurement-and-quality",
+                "tle-ia-technical-drawing",
+                "tle-ia-materials-and-processes",
+                "tle-design-process",
+                "tle-technology-literacy",
+                "tle-resource-and-entrepreneurship",
+                "tle-afa-crop-production",
+                "tle-he-food-preparation-and-safety",
+                "tle-ict-digital-citizenship",
+                "tle-ia-basic-electricity",
+                "tle-ia-carpentry-and-construction"
+            ]
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-10-19"
+    },
+    {
+        "id": "me-machine-design-stress-materials-and-shop",
+        "title": "Machine Design: Stress, Materials, Measurement, and Shop Practice",
+        "summary": "Original instructional lesson with selected worked examples; the scope note identifies competencies not covered by this short module.",
+        "notes": [
+            [
+                "1. Forces, moments, and load paths",
+                "Begin a machine-element problem with a free-body diagram that shows applied loads, supports, geometry, and axes. Resolve a force into components using the angle’s stated reference direction, then apply force and moment equilibrium. Trace the load through connected parts so the analysis includes the shaft, key, fastener, bearing, and housing that carry the action. A force component has the same units as the original force, and a moment has force times distance. A correct diagram often prevents a sign or geometry error before calculation begins."
+            ],
+            [
+                "2. Stress, fatigue, and stability",
+                "For a rectangular section bent about its strong axis, the elastic section modulus is S = bd²\/6 and the elementary bending-stress magnitude is σ = M\/S. The result depends on orientation, units, elastic behavior, and a suitable beam model. Repeated or fluctuating loads introduce fatigue questions; slender compression members may need a stability analysis rather than a simple material-strength comparison. A factor of safety or allowable value must come from the applicable design basis, not from an invented universal number. Separate a classroom stress estimate from a complete component design."
+            ],
+            [
+                "3. Materials, tolerances, and manufacturing",
+                "Material choice should follow the service environment, loading, temperature, wear, corrosion, manufacturability, and inspection plan. A material label alone does not establish the condition, heat treatment, or measured property of a specific component. Tolerances define acceptable variation; fits relate mating dimensions and assembly function. Select a measurement method with suitable range and resolution, then record the datum, temperature or setup when relevant, and observed value. Manufacturing processes introduce characteristic surface, dimensional, and defect risks that should be inspected against the drawing and acceptance criteria."
+            ],
+            [
+                "4. Quality, maintenance, and shop safety",
+                "Reliability and maintenance decisions use failure history, operating conditions, criticality, and inspection evidence. A failure mode helps organize cause and consequence, but a ranking tool is only as good as the team’s evidence and assumptions. Before maintenance or machining, identify stored energy and hazardous motion, isolate equipment under the applicable workplace procedure, and verify the safe state. Shop practice also includes guarding, correct tooling, housekeeping, and material handling. Verify current Philippine occupational-safety rules and machine instructions; this general discussion does not prescribe a site-specific control plan."
+            ]
+        ],
+        "source_ids": [
+            "prc-mechanical-engineering-2026-program",
+            "open-mechanical-design-manufacturing",
+            "open-manufacturing-processes-4-5",
+            "openstax-university-physics-volume-1",
+            "nist-semtech-engineering-statistics-handbook"
+        ],
+        "exams": [
+            "mechanical-engineering"
+        ],
+        "taxonomy": {
+            "subject_id": "machine-design-materials-shop-practice",
+            "topic_id": "b644-me-topic-machine-mechanics",
+            "concept_id": "b644-me-engineering-mechanics",
+            "topic_ids": [
+                "b644-me-topic-machine-mechanics",
+                "b644-me-topic-machine-elements",
+                "b644-me-topic-machine-kinematics",
+                "b644-me-topic-machine-strength",
+                "b644-me-topic-machine-materials",
+                "b644-me-topic-machine-production",
+                "b644-me-topic-machine-drawing",
+                "b644-me-topic-machine-maintenance"
+            ],
+            "concept_ids": [
+                "b644-me-engineering-mechanics",
+                "b644-me-machine-power-transmission",
+                "b644-me-mechanism-kinematics",
+                "b644-me-machine-design-stress-analysis",
+                "b644-me-stability-fatigue",
+                "b644-me-pressure-components",
+                "b644-me-materials-properties",
+                "b644-me-tolerances-metrology",
+                "b644-me-manufacturing-shop-practice",
+                "b644-me-engineering-drawing-practice",
+                "b644-me-quality-reliability-maintenance",
+                "b644-me-shop-safety-practice",
+                "b644-me-production-systems",
+                "b644-me-bearings-lubrication"
+            ]
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-10-19"
+    },
+    {
+        "id": "me-mathematics-engineering-models-and-units",
+        "title": "Mechanical Engineering Mathematics: Vectors, Models, and Data",
+        "summary": "Original instructional lesson with selected worked examples; the scope note identifies competencies not covered by this short module.",
+        "notes": [
+            [
+                "1. Vectors and coordinate models",
+                "A vector has magnitude and direction. Resolve it into components along a defined coordinate system before combining it with other vectors. Perpendicular components form a right triangle, while nonperpendicular components require the appropriate trigonometric or vector operation. Distinguish a displacement vector from the total path length: they answer different questions. State the positive axis directions, preserve units, and check whether a sign indicates direction rather than a negative physical magnitude."
+            ],
+            [
+                "2. Algebra, calculus, and differential models",
+                "Algebra solves relationships under equivalent transformations; substitute a solution into the original equation to catch sign and arithmetic errors. A function represents how an output depends on an input, while a derivative describes local rate of change under the chosen variables. Definite integration can accumulate a rate over an interval. A differential equation connects a quantity and its rates of change, and its solution depends on the model and initial or boundary conditions. Check domain, units, and assumptions before interpreting a symbolic result physically."
+            ],
+            [
+                "3. Statistics, numerical methods, and economics",
+                "A data summary depends on how observations were collected and what population they represent. Use a suitable measure of center and spread, inspect plots and outliers, and distinguish association from causation. Numerical methods approximate solutions; report method, tolerance, convergence check, and the effect of rounding. Engineering economics compares alternatives over time with compatible cash-flow timing and stated assumptions about service, cost, and interest. A calculated ranking is conditional on those inputs and should not be presented as a universal preference."
+            ],
+            [
+                "4. Engineering science and dimensional checks",
+                "Dimensional analysis tests whether both sides of an equation have compatible physical dimensions and can reveal a missing conversion or exponent. It cannot prove a model is physically appropriate, so pair it with a free-body diagram, energy balance, or governing relationship. Track base and derived units throughout calculations. For stress, pressure, flow, and temperature, check the exact definition and reference state rather than relying on a familiar symbol. A result should be interpreted in its physical context and validated against a limiting case when possible."
+            ]
+        ],
+        "source_ids": [
+            "prc-mechanical-engineering-2026-program",
+            "openstax-precalculus-2e",
+            "openstax-calculus-volume-1",
+            "nist-semtech-engineering-statistics-handbook",
+            "ualberta-introduction-engineering-economics"
+        ],
+        "exams": [
+            "mechanical-engineering"
+        ],
+        "taxonomy": {
+            "subject_id": "mathematics",
+            "topic_id": "b644-me-topic-math-foundations",
+            "concept_id": "b644-me-math-vectors-linear-algebra",
+            "topic_ids": [
+                "b644-me-topic-math-foundations",
+                "b644-me-topic-math-calculus",
+                "b644-me-topic-math-engineering-sciences",
+                "b644-me-topic-math-statistics",
+                "b644-me-topic-math-economics"
+            ],
+            "concept_ids": [
+                "b644-me-math-vectors-linear-algebra",
+                "b644-me-math-analytic-geometry",
+                "b644-me-math-algebra-trigonometry",
+                "b644-me-math-calculus-models",
+                "b644-me-basic-engineering-sciences",
+                "b644-me-strength-materials",
+                "b644-me-math-statistics-numerical-methods",
+                "b644-me-engineering-economics",
+                "b644-me-fluid-mechanics",
+                "b644-me-thermodynamics"
+            ]
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-10-19"
+    },
+    {
+        "id": "me-power-plant-energy-cycles-and-heat-transfer",
+        "title": "Power Plant Engineering: Energy Balances, Cycles, and Heat Transfer",
+        "summary": "Original instructional lesson with selected worked examples; the scope note identifies competencies not covered by this short module.",
+        "notes": [
+            [
+                "1. System boundaries and energy balances",
+                "Choose the system boundary before writing an energy balance. For a steady-flow device, account for heat transfer, shaft work, mass flow, and changes in enthalpy, kinetic energy, and potential energy as relevant. State whether a term is neglected and why. A boiler, turbine, condenser, pump, and feedwater path have different energy interactions even though they belong to one plant. Keep mass and energy balances distinct, preserve consistent units, and compare the computed result with the expected direction of heat or work transfer."
+            ],
+            [
+                "2. Heat transfer and thermal resistance",
+                "For a steady one-dimensional resistance model, heat rate equals temperature difference divided by total thermal resistance. Series resistances add when the same heat rate passes through each layer and contact conditions fit the model. Parallel paths combine differently. The formula is an engineering analogy to conduction and does not by itself describe transient storage, radiation, convection correlations, or two-dimensional heat flow. Verify units: kelvins divided by kelvins per watt gives watts. Check whether surface and fluid-film resistances are included in the stated data."
+            ],
+            [
+                "3. Cycles, efficiency, and plant performance",
+                "A thermal cycle converts supplied heat into work while rejecting some energy to a lower-temperature sink. Thermal efficiency is net useful work divided by heat input for the stated boundary and cycle. Ideal cycle relations help compare limits; actual performance also reflects component inefficiency, pressure drop, heat loss, off-design operation, and auxiliary loads. Compare efficiencies only when system boundaries and input definitions match. A plant heat rate or load curve may include operating constraints that a simple thermodynamic cycle omits."
+            ],
+            [
+                "4. Fluid machinery, HVAC, and hydroelectric systems",
+                "Pumps and turbines exchange shaft work with a fluid; their analysis relates flow, head, pressure, elevation, and losses. Fans and compressors also require a state model appropriate to the fluid and process. Refrigeration transfers heat from a colder region to a warmer one by supplying work; psychrometric loads depend on both temperature and moisture. Hydroelectric power draws on water flow and head, with conversion losses and environmental and operational constraints. Actual equipment selection requires system curves, operating ranges, manufacturer data, and applicable rules."
+            ]
+        ],
+        "source_ids": [
+            "prc-mechanical-engineering-2026-program",
+            "ubc-introduction-engineering-thermodynamics",
+            "openstax-university-physics-volume-2",
+            "doe-hydropower-how-it-works"
+        ],
+        "exams": [
+            "mechanical-engineering"
+        ],
+        "taxonomy": {
+            "subject_id": "power-plant-engineering",
+            "topic_id": "b644-me-topic-power-generation",
+            "concept_id": "b644-me-power-cycles",
+            "topic_ids": [
+                "b644-me-topic-power-generation",
+                "b644-me-topic-power-thermal",
+                "b644-me-topic-power-elements",
+                "b644-me-topic-power-fluid"
+            ],
+            "concept_ids": [
+                "b644-me-power-cycles",
+                "b644-me-steam-power-boilers",
+                "b644-me-internal-combustion-engines",
+                "b644-me-gas-combined-cycle",
+                "b644-me-heat-transfer",
+                "b644-me-power-load-performance",
+                "b644-me-power-fuels-combustion",
+                "b644-me-fluid-machinery",
+                "b644-me-hvac-refrigeration",
+                "b644-me-hydroelectric-plants"
+            ]
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-10-19"
+    },
+    {
+        "id": "psych-assessment-evidence-validity-and-fair-use",
+        "title": "Psychological Assessment: Evidence, Validity, and Responsible Use",
+        "summary": "Original instructional lesson with selected worked examples; the scope note identifies competencies not covered by this short module.",
+        "notes": [
+            [
+                "1. Construct, purpose, and validity evidence",
+                "Start an assessment with the intended purpose and the construct or decision it is meant to inform. Validity concerns the evidence and theory supporting a particular interpretation and use of scores; it is not a permanent stamp attached to a test for every setting. Review content representation, response processes, internal structure, relationships with other variables, and consequences as relevant to the inference. A narrow sample of a broad trait can yield consistent scores while still leaving the intended construct underrepresented. State what the instrument can and cannot support."
+            ],
+            [
+                "2. Reliability, measurement error, and precision",
+                "Reliability describes consistency under specified conditions, such as internal consistency, inter-rater agreement, or test–retest stability. It does not establish that a test measures the intended construct. Under classical test theory, a simplified standard error of measurement is SEM = SD × √(1 − r), where SD and reliability estimate r are appropriate to the same score interpretation. An SEM communicates expected score imprecision under the model; it is not a precise prediction for an individual’s true score. Report the reliability method, population, and context."
+            ],
+            [
+                "3. Select, administer, and interpret within scope",
+                "Choose measures whose evidence fits the referral question, language, age, accessibility needs, population, and decision stakes. Standardized administration supports comparability, while accommodations may be needed to reduce construct-irrelevant barriers; document changes and interpret their effects. Review norms, scoring, confidence or uncertainty, and the limits of the reference group before comparing a person with others. Combine test results with interviews, records, observations, and relevant contextual evidence rather than treating one score as a complete description of a person."
+            ],
+            [
+                "4. Ethics, fairness, and communication",
+                "Responsible assessment protects confidentiality, informed participation, test security, competence boundaries, and fair interpretation. Consider whether language, disability, culture, access, or testing conditions affect the inference. Explain findings in accessible terms, identify uncertainty, and make recommendations only within one’s competence and the instrument’s evidence. Legal scope in the Philippines is governed by the Psychology Act and current professional rules; standards from AERA, APA, and NCME are professional guidance, not Philippine statutes. Refer a question outside scope to the appropriate qualified professional."
+            ]
+        ],
+        "source_ids": [
+            "prc-psychometrician-enhanced-tos-2023",
+            "apa-psychological-assessment-guidelines-2020",
+            "aera-apa-ncme-testing-standards-2014",
+            "openstax-psychology-2e",
+            "openstax-introductory-statistics-2e",
+            "lawphil-ra10029"
+        ],
+        "exams": [
+            "psychometrician"
+        ],
+        "taxonomy": {
+            "subject_id": "psychological-assessment",
+            "topic_id": "ple-measurement",
+            "concept_id": "psych-assessment-properties-principles",
+            "topic_ids": [
+                "ple-measurement"
+            ],
+            "concept_ids": [
+                "psych-assessment-properties-principles",
+                "psych-assessment-uses-limitations",
+                "psych-assessment-selection-tools",
+                "psych-assessment-research-statistics",
+                "psych-assessment-administration-interpretation",
+                "psych-assessment-ethics-standards"
+            ]
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-10-19"
+    },
+    {
+        "id": "ree-professional-circuits-power-and-measurement",
+        "title": "REE Professional Subjects: Circuits, Power, Machines, and Measurement",
+        "summary": "Original instructional lesson with selected worked examples; the scope note identifies competencies not covered by this short module.",
+        "notes": [
+            [
+                "1. Circuit models and steady-state reasoning",
+                "A circuit model states element relations, connections, reference directions, and sources. Apply Kirchhoff’s current law at a node and voltage law around a loop, then check whether the solved currents and voltages satisfy each element relation. For sinusoidal steady state, phasors represent magnitude and phase at a common frequency; complex impedance allows resistive and reactive effects to be combined. Keep RMS and peak quantities distinct, use a consistent phase reference, and state the assumed frequency and linear model before interpreting the result."
+            ],
+            [
+                "2. Three-phase power, machines, and system behavior",
+                "Three-phase quantities depend on whether the system and measurement are line-to-line or phase values and whether the connection is wye or delta. Power calculations require a consistent voltage, current, power-factor, and RMS convention. Transformers and rotating machines convert electrical and magnetic energy; equivalent circuits help analyze voltage, current, losses, torque, and speed within their assumptions. Power-system analysis adds network topology, operating conditions, demand, and fault behavior. Do not move from a simplified model to a field rating without equipment data and system studies."
+            ],
+            [
+                "3. Instrumentation, feedback, and calibration",
+                "A measurement chain includes the physical quantity, sensor, conditioning, conversion, display or recording, and a calibration relationship. Check zero, span, units, range, resolution, uncertainty, and the conditions under which calibration was performed. Feedback compares a measured output with a reference and acts on the difference; stability and response depend on system dynamics and controller settings. For a linear calibration, use the supplied points only within the stated range unless linearity outside it is justified. A reading without an uncertainty or calibration context can overstate precision."
+            ],
+            [
+                "4. Protection, utilization, and current rules",
+                "Protection coordinates detection and interruption of abnormal conditions while grounding and bonding manage fault-current paths and touch-risk. Wiring, illumination, and utilization choices depend on load characteristics, equipment, location, and the applicable code edition. Legal and professional responsibilities also matter: verify the current TOS, electrical law, Board issuances, Philippine Electrical Code provisions, and utility or grid requirements before stating a design limit. This lesson teaches how to identify the right check; it does not supply code tables or certify an installation."
+            ]
+        ],
+        "source_ids": [
+            "prc-ree-enhanced-tos-annex-a-2024",
+            "prc-ree-exam-program-september-2026",
+            "mit-ocw-6-002-circuits-electronics",
+            "mit-ocw-6-061-electric-power-systems",
+            "mit-ocw-6-685-electric-machines",
+            "openstax-university-physics-volume-1"
+        ],
+        "exams": [
+            "registered-electrical-engineering"
+        ],
+        "taxonomy": {
+            "subject_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-circuits",
+            "concept_id": "b633-ree-pro-dc-networks",
+            "topic_ids": [
+                "ree-pro-circuits",
+                "ree-pro-ac",
+                "ree-pro-machines",
+                "ree-pro-power",
+                "ree-pro-controls"
+            ],
+            "concept_ids": [
+                "b633-ree-pro-dc-networks",
+                "b633-ree-pro-ac-impedance",
+                "b633-ree-pro-transients",
+                "b633-ree-pro-three-phase",
+                "b633-ree-pro-transformers",
+                "b633-ree-pro-rotating-machines",
+                "b633-ree-pro-generators-conversion",
+                "b633-ree-pro-transmission-distribution",
+                "b633-ree-pro-power-analysis",
+                "b633-ree-allied-instrumentation",
+                "b633-ree-pro-control-systems",
+                "b633-ree-pro-protection-relaying",
+                "b633-ree-pro-wiring-utilization",
+                "b633-ree-pro-power-electronics",
+                "b633-ree-pro-telecommunications",
+                "b633-ree-pro-computer-power-applications"
+            ]
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-10-19"
+    },
+    {
+        "id": "ree-allied-mechanics-thermal-electronics-and-practice",
+        "title": "REE Allied Subjects: Mechanics, Thermal Science, Electronics, and Practice",
+        "summary": "Original instructional lesson with selected worked examples; the scope note identifies competencies not covered by this short module.",
+        "notes": [
+            [
+                "1. Mechanics, free-body diagrams, and materials",
+                "For a body of known mass, Newton’s second law relates net force to acceleration, Fnet = ma. Draw a free-body diagram that includes only forces acting on the selected system, choose axes, and keep each force component in newtons. Equal and opposite interaction forces act on different bodies, so they do not cancel on one body’s diagram. Materials behavior adds stress, strain, and temperature or time effects; use properties measured for the relevant condition rather than assuming one nominal value describes every specimen."
+            ],
+            [
+                "2. Thermodynamics, heat transfer, and fluid behavior",
+                "A thermal analysis needs a system boundary, state properties, heat-transfer direction, and work terms. Energy balances track transfers and changes in state; heat is energy in transit, not a stored property. Fluid models relate pressure, density, velocity, elevation, and losses, with assumptions that vary between static fluids, idealized flows, and real networks. Check units and identify neglected terms before solving. A result from a simplified model should not be turned into an equipment rating without the appropriate data and standard."
+            ],
+            [
+                "3. Semiconductor, analog, digital, and computing foundations",
+                "Electronic circuits use device models that are valid over particular bias and frequency ranges. A semiconductor junction or amplifier is not an ideal switch or gain block under every condition. Digital logic represents states using defined voltage thresholds and timing assumptions; conversion and measurement add resolution and quantization limits. For a programming or computer-application problem, define inputs, operations, expected outputs, and error cases before choosing an implementation. Verify behavior with a transparent test rather than trusting a plausible-looking output."
+            ],
+            [
+                "4. Law, contracts, safety, and professional boundaries",
+                "Republic Act No. 7920 defines the Philippine legal framework for electrical engineering practice and professional registration; current regulations and Board issuances add detail. A contract or specification communicates scope and obligations but does not replace safety duties or the current code. Identify who has authority, what work is within competence, which document version controls, and who must approve a deviation. For safety, follow the current Philippine occupational-safety rules and project procedures; this lesson does not provide a site-specific hazard assessment or legal opinion."
+            ]
+        ],
+        "source_ids": [
+            "prc-ree-enhanced-tos-annex-a-2024",
+            "prc-ree-exam-program-september-2026",
+            "openstax-university-physics-volume-1",
+            "openstax-university-physics-volume-2",
+            "openstax-chemistry-2e",
+            "mit-ocw-6-002-circuits-electronics",
+            "supreme-court-ra-7920-electrical-engineering-law"
+        ],
+        "exams": [
+            "registered-electrical-engineering"
+        ],
+        "taxonomy": {
+            "subject_id": "engineering-sciences-and-allied-subjects",
+            "topic_id": "ree-allied-mechanics",
+            "concept_id": "b633-ree-allied-mechanics",
+            "topic_ids": [
+                "ree-allied-mechanics",
+                "ree-allied-thermal",
+                "ree-allied-electronics",
+                "ree-allied-safety"
+            ],
+            "concept_ids": [
+                "b633-ree-allied-mechanics",
+                "b633-ree-allied-materials",
+                "b633-ree-allied-thermodynamics",
+                "b633-ree-allied-fluid-mechanics",
+                "b633-ree-allied-electronics-semiconductor",
+                "b633-ree-allied-electronics-analog",
+                "b633-ree-allied-electronics-digital",
+                "b633-ree-allied-computer-programming",
+                "b633-ree-allied-safety-code",
+                "b633-ree-allied-law-code-ethics",
+                "b633-ree-allied-contracts-specifications"
+            ]
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-10-19"
+    },
+    {
+        "id": "ree-mathematics-linear-systems-complex-models-and-data",
+        "title": "REE Mathematics: Linear Systems, Complex Models, and Data",
+        "summary": "Original instructional lesson with selected worked examples; the scope note identifies competencies not covered by this short module.",
+        "notes": [
+            [
+                "1. Linear equations, matrices, and determinants",
+                "A system of linear equations represents several constraints on the same unknowns. Elimination, substitution, or matrix methods can solve the system when the coefficient structure supports a unique solution. After calculating, substitute the result into every original equation; a check can reveal arithmetic or transcription errors. A determinant helps diagnose invertibility for a square matrix, but numerical conditioning matters when inputs are approximate. In an engineering interpretation, variables retain their units and the equations must represent compatible physical relationships."
+            ],
+            [
+                "2. Calculus, rates, and differential equations",
+                "A derivative models instantaneous change with respect to a defined variable; its units are the dependent quantity’s units divided by the independent quantity’s units. Integration accumulates a rate over an interval, subject to bounds and initial conditions. Differential equations express how a system’s state changes and require conditions that identify a particular solution. Interpret an equation alongside the physical meaning of its variables and sign convention; a mathematically correct result can describe the wrong circuit or boundary condition if the model was set up incorrectly."
+            ],
+            [
+                "3. Complex numbers, phasors, Fourier, and Laplace methods",
+                "Complex numbers combine real and imaginary components; magnitude and angle offer a useful representation for sinusoidal steady-state quantities. A phasor is tied to a common frequency and convention, and it does not describe arbitrary transient behavior by itself. Fourier methods represent periodic content through frequency components, while Laplace transforms can solve linear differential systems with specified initial conditions. Keep transform variables, units, and initial-value terms visible. Check whether the problem asks for steady state, transient response, or a periodic decomposition before selecting a method."
+            ],
+            [
+                "4. Probability, geometry, and economic comparisons",
+                "Probability and statistics quantify uncertainty using a defined sample space, data collection process, and model. Check assumptions before applying a distribution or interpreting a confidence measure. Trigonometry and analytic geometry connect angles, lengths, and coordinates; label the reference angle and units. Engineering-economics calculations compare alternatives using timing, interest, service horizon, and stated costs. A present-worth result is conditional on the inputs and does not make a safety or ethical tradeoff automatically acceptable."
+            ]
+        ],
+        "source_ids": [
+            "prc-ree-enhanced-tos-annex-a-2024",
+            "prc-ree-exam-program-september-2026",
+            "openstax-precalculus-2e",
+            "openstax-calculus-volume-1",
+            "mit-ocw-18-03sc-fourier-laplace",
+            "nist-semtech-engineering-statistics-handbook"
+        ],
+        "exams": [
+            "registered-electrical-engineering"
+        ],
+        "taxonomy": {
+            "subject_id": "registered-electrical-engineering-mathematics",
+            "topic_id": "ree-math-algebra",
+            "concept_id": "b633-ree-math-algebra-linear",
+            "topic_ids": [
+                "ree-math-algebra",
+                "ree-math-calculus",
+                "ree-math-complex",
+                "ree-math-probability",
+                "ree-math-discrete"
+            ],
+            "concept_ids": [
+                "b633-ree-math-algebra-linear",
+                "b633-ree-math-matrices-determinants",
+                "b633-ree-math-calculus-differential",
+                "b633-ree-math-complex-phasors",
+                "b633-ree-math-fourier-laplace",
+                "b633-ree-math-sequences-series",
+                "b633-ree-math-probability-statistics",
+                "b633-ree-math-discrete-economics",
+                "b633-ree-math-trigonometry-analytic-geometry"
+            ]
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-10-19"
     }
 ]

@@ -9,6 +9,7 @@ use App\Repositories\QuestionRepository;
 use App\Services\Shared\QuestionValidationService;
 use App\Services\Question\QuestionEligibilityIndex;
 use App\Services\Question\QuestionEligibilityService;
+use App\Services\Study\StudyLibraryService;
 
 final class FlashcardDerivationService
 {
@@ -26,6 +27,7 @@ final class FlashcardDerivationService
 
     private FlashcardExclusionRegistry $exclusions;
     private ?QuestionEligibilityIndex $eligibilityIndex = null;
+    private bool $useSharedStudyLibrary;
 
     public function __construct(
         private ?QuestionRepository $questions = null,
@@ -34,6 +36,7 @@ final class FlashcardDerivationService
         ?array $exclusions = null
     )
     {
+        $this->useSharedStudyLibrary = $studyMaterials === null && $studyLinks === null;
         $this->studyMaterials = $studyMaterials === null ? null : self::indexStudyMaterials($studyMaterials);
         $this->studyLinksByQuestion = $studyLinks === null ? null : self::indexStudyLinks($studyLinks);
         $this->exclusions = new FlashcardExclusionRegistry($exclusions);
@@ -146,7 +149,7 @@ final class FlashcardDerivationService
             'difficulty' => (string) ($question['difficulty'] ?? ''),
             'revision' => $revision,
             'source_ids' => $this->sourceIds($question),
-            'study_references' => $this->studyReferences((string) $question['id']),
+            'study_references' => $this->studyReferences($question),
             'content_blocks' => is_array($question['content_blocks'] ?? null)
                 ? $question['content_blocks']
                 : [],
@@ -271,8 +274,21 @@ final class FlashcardDerivationService
         ));
     }
 
-    private function studyReferences(string $questionId): array
+    private function studyReferences(array $question): array
     {
+        $questionId = is_scalar($question['id'] ?? null) ? trim((string) $question['id']) : '';
+        if ($questionId === '') {
+            return [];
+        }
+        if ($this->useSharedStudyLibrary) {
+            $taxonomy = is_array($question['taxonomy'] ?? null) ? $question['taxonomy'] : [];
+            $boardValue = $taxonomy['board_id'] ?? $question['board'] ?? null;
+            $boardId = is_scalar($boardValue)
+                ? (string) $boardValue
+                : null;
+            return StudyLibraryService::forQuestion($questionId, $boardId);
+        }
+
         if ($this->studyMaterials === null) {
             $this->studyMaterials = self::indexStudyMaterials(App::storage()->all('study-materials'));
         }

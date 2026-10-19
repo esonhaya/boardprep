@@ -28,6 +28,13 @@ foreach ($materials as $material) {
         $materialsById[(string) $material['id']] = $material;
     }
 }
+$lessonsByMaterial = [];
+foreach ($source->all('study-lessons') as $lesson) {
+    if (is_array($lesson) && ($lesson['status'] ?? '') === 'published') {
+        $materialId = is_scalar($lesson['material_id'] ?? null) ? (string) $lesson['material_id'] : '';
+        if ($materialId !== '') $lessonsByMaterial[$materialId] ??= $lesson;
+    }
+}
 $linksByQuestion = [];
 foreach ($questionLinks as $link) {
     if (is_array($link) && is_scalar($link['question_id'] ?? null)) {
@@ -71,6 +78,29 @@ foreach ($boards as $board) {
         if (!is_array($placement) || trim((string) ($placement['subject_id'] ?? '')) === '') {
             continue;
         }
+        $hasContextualStudyReference = false;
+        foreach ($linksByQuestion[$questionId] ?? [] as $link) {
+            $materialId = (string) ($link['material_id'] ?? '');
+            $material = $materialsById[$materialId] ?? null;
+            if (!is_array($material)) continue;
+            $lesson = $lessonsByMaterial[$materialId] ?? null;
+            if (is_array($lesson)) {
+                $hasContextualStudyReference = strtolower((string) ($lesson['board_id'] ?? '')) === strtolower($boardId)
+                    && strtolower((string) ($lesson['subject_id'] ?? '')) === strtolower((string) ($placement['subject_id'] ?? ''));
+            } else {
+                foreach ((array) ($material['exams'] ?? []) as $exam) {
+                    if (!is_scalar($exam)) continue;
+                    $normalizedExam = strtolower(trim((string) $exam));
+                    $normalizedExam = ['cse'=>'civil-service','cle'=>'criminologist','nle'=>'nursing','ple'=>'psychometrician'][$normalizedExam] ?? $normalizedExam;
+                    if ($normalizedExam === strtolower($boardId)) {
+                        $hasContextualStudyReference = true;
+                        break;
+                    }
+                }
+            }
+            if ($hasContextualStudyReference) break;
+        }
+        if (!$hasContextualStudyReference) continue;
         $selected = $question;
         $selectedQuestions[] = $question;
         $selectedById[$questionId] = true;
@@ -262,13 +292,18 @@ try {
         if (!preg_match('~href="/study-library\?material=([^\"]+)"~', $submission['output'], $materialMatch)) {
             throw new RuntimeException('Question explanation has no follow-through study resource for ' . $boardCode . '.');
         }
-        $materialId = rawurldecode($materialMatch[1]);
+        $studyTarget = rawurldecode($materialMatch[1]);
+        [$materialPath, $sectionFragment] = array_pad(explode('#', $studyTarget, 2), 2, '');
+        $materialId = $materialPath;
         $materialPage = $http->request('GET', '/study-library', ['material' => $materialId], [], [], $cookies);
         $expectedMaterial = $materialsById[$materialId] ?? null;
         if (!$materialPage['success'] || !is_array($expectedMaterial)
             || !str_contains($materialPage['output'], htmlspecialchars((string) ($expectedMaterial['title'] ?? ''), ENT_QUOTES, 'UTF-8'))
             || !str_contains($materialPage['output'], 'Sources')) {
             throw new RuntimeException('Question study reference did not open its published source material for ' . $boardCode . '.');
+        }
+        if ($sectionFragment !== '' && !str_contains($materialPage['output'], 'id="' . htmlspecialchars($sectionFragment, ENT_QUOTES, 'UTF-8') . '"')) {
+            throw new RuntimeException('Question study reference did not resolve its exact lesson section for ' . $boardCode . '.');
         }
 
         $finish = $http->request('POST', '/quiz', [], ['action' => 'finish', 'csrf_token' => $csrfToken], [], $cookies);

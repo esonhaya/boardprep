@@ -1,0 +1,16 @@
+WARNING: linker: Warning: "/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)
+BOARDPREP PRODUCT READINESS
+TECHNICAL_RELEASE_READY=RUN_SEPARATELY
+PRODUCT_FEATURE_COMPLETE=NO
+PRODUCT_LAUNCH_READY=NO
+PRODUCTION_WEB_ROUTES=20
+NONPRODUCTION_WEB_ROUTES=63
+BOARD_MATRIX_COMPLETE=YES
+PRIVACY_CONTROLS=YES
+REAL_BROWSER_ACCEPTANCE=UNVERIFIED_EVIDENCE
+OWNER_PRIVACY_TERMS=MISSING_OR_UNAPPROVED
+HUMAN_ACCEPTANCE_CASES=12/12; NOT_PASSED=12
+OPEN_P0_P1=0
+BLOCKING_CAPABILITIES=1
+MANDATORY_EVIDENCE_NOT_PASSED=4
+NEXT_EVIDENCE=Human acceptance MVP-01 through MVP-12 on a real browser/device | Real-browser mobile visual, overflow, keyboard, and accessibility behavior | Site-specific privacy terms, operator contact, retention, and deletion process | Live HTTPS deployment, provider PHP/extensions, session cookie, filesystem permissions, and routes

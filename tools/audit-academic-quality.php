@@ -28,6 +28,12 @@ foreach ($questions as $question) if (is_array($question)) $questionById[(string
 $lessons = $storage->all('study-lessons');
 $materials = $storage->all('study-materials');
 $links = $storage->all('study-question-links');
+$linksByQuestion = [];
+foreach ($links as $link) {
+    if (is_array($link) && is_scalar($link['question_id'] ?? null)) {
+        $linksByQuestion[(string) $link['question_id']][] = $link;
+    }
+}
 $contentFitByQuestion = [];
 foreach (array_values(array_filter($storage->all('content-fit-audits'), 'is_array')) as $fitAudit) {
     $contentFitByQuestion[(string) ($fitAudit['question_id'] ?? '')][] = $fitAudit;
@@ -35,11 +41,14 @@ foreach (array_values(array_filter($storage->all('content-fit-audits'), 'is_arra
 $index = \App\Services\Question\QuestionEligibilityService::index();
 $lessonByScope = [];
 $lessonById = [];
+$lessonByMaterial = [];
 foreach ($lessons as $lesson) {
     if (!is_array($lesson) || ($lesson['status'] ?? '') !== 'published') continue;
     $scope = strtolower((string) ($lesson['board_id'] ?? '')) . '|' . strtolower((string) ($lesson['subject_id'] ?? ''));
     $lessonByScope[$scope][] = $lesson;
     $lessonById[(string) ($lesson['id'] ?? '')] = $lesson;
+    $materialId = (string) ($lesson['material_id'] ?? '');
+    if ($materialId !== '') $lessonByMaterial[$materialId] ??= $lesson;
 }
 $materialById = [];
 foreach ($materials as $material) if (is_array($material)) $materialById[(string) ($material['id'] ?? '')] = $material;
@@ -91,7 +100,19 @@ foreach ($questionById as $id => $question) {
         $scopedQuestionIds[$scope][$id] = true;
         $isBatch694 = ($question['batch_marker'] ?? '') === 'batch694';
         $isDeficient = (int) ($scopeRows[$scope]['effective_eligible_question_count'] ?? 0) < 100;
-        if (!$isBatch694 && !$isDeficient) continue;
+        $hasBatch696SectionLink = false;
+        foreach ($linksByQuestion[$id] ?? [] as $link) {
+            if (!is_array($link)) continue;
+            $targetLesson = $lessonByMaterial[(string) ($link['material_id'] ?? '')] ?? null;
+            if (is_array($targetLesson)
+                && strtolower((string) ($targetLesson['board_id'] ?? '')) === $board
+                && strtolower((string) ($targetLesson['subject_id'] ?? '')) === $subject
+                && str_starts_with((string) ($link['id'] ?? ''), 'batch696-')) {
+                $hasBatch696SectionLink = true;
+                break;
+            }
+        }
+        if (!$isBatch694 && !$isDeficient && !$hasBatch696SectionLink) continue;
         $hasLesson = false;
         foreach ($lessonByScope[$scope] ?? [] as $lesson) {
             if (!in_array($id, array_map('strval', (array) ($lesson['practice_question_ids'] ?? [])), true)) continue;
@@ -113,9 +134,40 @@ foreach ($questionById as $id => $question) {
             }
             break;
         }
+        foreach ($linksByQuestion[$id] ?? [] as $link) {
+            if (!is_array($link)) continue;
+            $targetLesson = $lessonByMaterial[(string) ($link['material_id'] ?? '')] ?? null;
+            if (!is_array($targetLesson)
+                || strtolower((string) ($targetLesson['board_id'] ?? '')) !== $board
+                || strtolower((string) ($targetLesson['subject_id'] ?? '')) !== $subject) continue;
+            $hasLesson = true;
+            $sectionId = (string) ($link['section_id'] ?? $link['lesson_section_id'] ?? '');
+            $foundSection = null;
+            foreach ((array) ($targetLesson['sections'] ?? []) as $section) {
+                if (is_array($section) && (string) ($section['id'] ?? '') === $sectionId) {
+                    $foundSection = $section;
+                    break;
+                }
+            }
+            if ($sectionId === '' || !is_array($foundSection)) {
+                $add('QUESTION_LESSON_SECTION_MISSING','DETERMINISTIC','ERROR',$board,$subject,(string) ($question['taxonomy']['topic_id'] ?? ''),$id,'The question-study link does not resolve an exact section in its same-scope lesson.','Repair the material, lesson, and section relationship.',['lesson_id'=>$targetLesson['id']??'','material_id'=>$link['material_id']??'','section_id'=>$sectionId]);
+                continue;
+            }
+            $tax = (array) ($question['taxonomy'] ?? []);
+            $relatedTopics = array_map('strval',(array) ($foundSection['related_topic_ids'] ?? []));
+            $relatedConcepts = array_map('strval',(array) ($foundSection['related_concept_ids'] ?? []));
+            $topic = (string) ($tax['topic_id'] ?? '');
+            $concept = (string) ($tax['concept_id'] ?? '');
+            if (($topic !== '' && !in_array($topic,$relatedTopics,true)) || ($concept !== '' && !in_array($concept,$relatedConcepts,true))) {
+                $add('QUESTION_LESSON_CONCEPT_MISMATCH','DETERMINISTIC','ERROR',$board,$subject,$topic,$id,'The exact linked section omits the question taxonomy topic or concept from its explicit crosswalk.','Review the section content and its taxonomy crosswalk.',['lesson_id'=>$targetLesson['id']??'','section_id'=>$sectionId,'concept_id'=>$concept]);
+            }
+            if (str_contains(strtoupper((string) ($link['semantic_review_status'] ?? '')), 'PENDING')) {
+                $add('QUESTION_LESSON_SEMANTIC_REVIEW','HEURISTIC_REVIEW','REVIEW',$board,$subject,$topic,$id,'Section and source pointers exist, but the link explicitly awaits independent semantic academic review.','Compare question wording, answer, explanation, lesson text, and source evidence; retain pending status until reviewed.',['lesson_id'=>$targetLesson['id']??'','section_id'=>$sectionId,'link_id'=>$link['id']??'']);
+            }
+        }
         if (!$hasLesson) {
             $hasSourceLink = false;
-            foreach ($links as $link) if (is_array($link) && (string) ($link['question_id'] ?? '') === $id) { $hasSourceLink = true; break; }
+            $hasSourceLink = ($linksByQuestion[$id] ?? []) !== [];
             $add($hasSourceLink ? 'STUDY_MATERIAL_SOURCE_ONLY' : 'QUESTION_LESSON_MISSING','DETERMINISTIC','ERROR',$board,$subject,(string) ($question['taxonomy']['topic_id'] ?? ''),$id,$hasSourceLink ? 'A source/citation link exists but no matching instructional lesson practice link resolves.' : 'Question is in a newly authored or still-deficient active subject but has no matching published lesson practice link.',$hasSourceLink ? 'Create or link an instructional section; a citation is not a lesson.' : 'Link the question to the lesson section that teaches its tested concept.');
         }
         foreach ($contentFitByQuestion[$id] ?? [] as $fitAudit) {
@@ -172,7 +224,9 @@ $checkCatalog = [
     'QUESTION_AMBIGUOUS_ANSWER_REVIEW'=>'HUMAN_REVIEW_REQUIRED; AUTOMATION_CANNOT_PROVE_UNIQUE_BEST_ANSWER',
     'QUESTION_SOURCE_SEMANTIC_MISMATCH'=>'STORED_FIT_AUDITS_CHECKED; SEMANTIC_REVIEW_REMAINS_HUMAN',
     'QUESTION_LESSON_MISSING'=>'STRUCTURAL_LINK_CHECKED',
+    'QUESTION_LESSON_SECTION_MISSING'=>'DETERMINISTIC_EXACT_SECTION_CHECKED',
     'QUESTION_LESSON_CONCEPT_MISMATCH'=>'STRUCTURAL_CROSSWALK_CHECKED',
+    'QUESTION_LESSON_SEMANTIC_REVIEW'=>'HEURISTIC_CANDIDATE; HUMAN_REVIEW_REQUIRED',
     'STUDY_MATERIAL_MISSING'=>'STRUCTURAL_SCOPE_CHECKED',
     'STUDY_MATERIAL_BROKEN'=>'PATH_AND_HASH_CHECKED',
     'STUDY_MATERIAL_SOURCE_ONLY'=>'LESSON_VERSUS_CITATION_CHECKED',
@@ -183,7 +237,7 @@ foreach (['json'=>'JSON','markdown'=>'Markdown'] as $key=>$format) {
     $path = $options[$key];
     if ($format === 'JSON') $contents = json_encode($report,JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_THROW_ON_ERROR)."\n";
     else {
-        $lines = ['# Batch 694 Academic Quality Audit','',"Generated: `{$report['generated_at']}`",'', '## Summary','', '- Deterministic structural errors: ' . $summary['deterministic_errors'], '- Deterministic release warnings: ' . $summary['deterministic_warnings'], '- Heuristic academic review candidates: ' . $summary['heuristic_review_candidates'], '- Semantic source fit: HUMAN_REVIEW_PENDING', '- Ambiguous-answer review: HUMAN_REVIEW_PENDING', '', 'Heuristic findings are not confirmed academic defects. The tool cannot establish curriculum validity or that one answer is uniquely best.', '', '## Automated check coverage','', '| Check | Status and limit |','|---|---|'];
+        $lines = ['# Academic Quality Audit','',"Generated: `{$report['generated_at']}`",'', '## Summary','', '- Deterministic structural errors: ' . $summary['deterministic_errors'], '- Deterministic release warnings: ' . $summary['deterministic_warnings'], '- Heuristic academic review candidates: ' . $summary['heuristic_review_candidates'], '- Semantic source fit: HUMAN_REVIEW_PENDING', '- Ambiguous-answer review: HUMAN_REVIEW_PENDING', '', 'Heuristic findings are not confirmed academic defects. The tool cannot establish curriculum validity or that one answer is uniquely best.', '', '## Automated check coverage','', '| Check | Status and limit |','|---|---|'];
         foreach ($checkCatalog as $code=>$status) $lines[] = '| '.$code.' | '.$status.' |';
         $lines = array_merge($lines, ['', '## Findings', '']);
         $grouped = [];

@@ -46,7 +46,10 @@ final class HistoryController
                     ? ($item['question']['id'] ?? null)
                     : null,
                 $result['review']
-            )),
+            ),
+                is_scalar($result['attempt']['board'] ?? null) ? (string) $result['attempt']['board'] : null,
+                is_scalar($result['attempt']['subject'] ?? null) ? (string) $result['attempt']['subject'] : null
+            ),
             'actions' => $result['actions'],
             'historical' => true,
             'completedAt' => $result['completedAt'],

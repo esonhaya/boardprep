@@ -1,0 +1,126 @@
+%PDF-1.4
+%BoardPrep
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [5 0 R 7 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 6 0 R >>
+endobj
+6 0 obj
+<< /Length 4989>>
+stream
+BT /F2 19.0 Tf 50.0 790.0 Td (Machine Design: Stress, Materials, Measurement,) Tj ET
+BT /F2 19.0 Tf 50.0 765.0 Td (and Shop Practice) Tj ET
+BT /F1 8.0 Tf 50.0 740.0 Td (MECHANICAL-ENGINEERING · machine-design-materials-shop-practice · BoardPrep lesson v1) Tj ET
+BT /F2 13.0 Tf 50.0 723.0 Td (Official examination scope) Tj ET
+BT /F1 10.0 Tf 50.0 702.0 Td (The PRC August 2026 MELE program identifies Machine Design, Materials and Shop Practice as a) Tj ET
+BT /F1 10.0 Tf 50.0 688.0 Td (distinct subject. This guide teaches selected mechanics and design reasoning; it does not) Tj ET
+BT /F1 10.0 Tf 50.0 674.0 Td (provide current code allowables, certify a component, or cover every manufacturing process.) Tj ET
+BT /F2 13.0 Tf 50.0 655.0 Td (Learning objectives) Tj ET
+BT /F1 10.0 Tf 58.0 634.0 Td (- Resolve a force into components and maintain equilibrium.) Tj ET
+BT /F1 10.0 Tf 58.0 620.0 Td (- Use section modulus for an idealized bending-stress estimate.) Tj ET
+BT /F1 10.0 Tf 58.0 606.0 Td (- Select a material or manufacturing check using stated requirements and evidence.) Tj ET
+BT /F2 13.0 Tf 50.0 587.0 Td (1. Forces, moments, and load paths) Tj ET
+BT /F1 10.0 Tf 50.0 566.0 Td (Begin a machine-element problem with a free-body diagram that shows applied loads, supports,) Tj ET
+BT /F1 10.0 Tf 50.0 552.0 Td (geometry, and axes. Resolve a force into components using the angle’s stated reference) Tj ET
+BT /F1 10.0 Tf 50.0 538.0 Td (direction, then apply force and moment equilibrium. Trace the load through connected parts so) Tj ET
+BT /F1 10.0 Tf 50.0 524.0 Td (the analysis includes the shaft, key, fastener, bearing, and housing that carry the action. A) Tj ET
+BT /F1 10.0 Tf 50.0 510.0 Td (force component has the same units as the original force, and a moment has force times) Tj ET
+BT /F1 10.0 Tf 50.0 496.0 Td (distance. A correct diagram often prevents a sign or geometry error before calculation begins.) Tj ET
+BT /F2 13.0 Tf 50.0 477.0 Td (2. Stress, fatigue, and stability) Tj ET
+BT /F1 10.0 Tf 50.0 456.0 Td (For a rectangular section bent about its strong axis, the elastic section modulus is S = bd²/6) Tj ET
+BT /F1 10.0 Tf 50.0 442.0 Td (and the elementary bending-stress magnitude is = M/S. The result depends on orientation,) Tj ET
+BT /F1 10.0 Tf 50.0 428.0 Td (units, elastic behavior, and a suitable beam model. Repeated or fluctuating loads introduce) Tj ET
+BT /F1 10.0 Tf 50.0 414.0 Td (fatigue questions; slender compression members may need a stability analysis rather than a) Tj ET
+BT /F1 10.0 Tf 50.0 400.0 Td (simple material-strength comparison. A factor of safety or allowable value must come from the) Tj ET
+BT /F1 10.0 Tf 50.0 386.0 Td (applicable design basis, not from an invented universal number. Separate a classroom stress) Tj ET
+BT /F1 10.0 Tf 50.0 372.0 Td (estimate from a complete component design.) Tj ET
+BT /F2 13.0 Tf 50.0 353.0 Td (3. Materials, tolerances, and manufacturing) Tj ET
+BT /F1 10.0 Tf 50.0 332.0 Td (Material choice should follow the service environment, loading, temperature, wear, corrosion,) Tj ET
+BT /F1 10.0 Tf 50.0 318.0 Td (manufacturability, and inspection plan. A material label alone does not establish the) Tj ET
+BT /F1 10.0 Tf 50.0 304.0 Td (condition, heat treatment, or measured property of a specific component. Tolerances define) Tj ET
+BT /F1 10.0 Tf 50.0 290.0 Td (acceptable variation; fits relate mating dimensions and assembly function. Select a) Tj ET
+BT /F1 10.0 Tf 50.0 276.0 Td (measurement method with suitable range and resolution, then record the datum, temperature or) Tj ET
+BT /F1 10.0 Tf 50.0 262.0 Td (setup when relevant, and observed value. Manufacturing processes introduce characteristic) Tj ET
+BT /F1 10.0 Tf 50.0 248.0 Td (surface, dimensional, and defect risks that should be inspected against the drawing and) Tj ET
+BT /F1 10.0 Tf 50.0 234.0 Td (acceptance criteria.) Tj ET
+BT /F2 13.0 Tf 50.0 215.0 Td (4. Quality, maintenance, and shop safety) Tj ET
+BT /F1 10.0 Tf 50.0 194.0 Td (Reliability and maintenance decisions use failure history, operating conditions, criticality,) Tj ET
+BT /F1 10.0 Tf 50.0 180.0 Td (and inspection evidence. A failure mode helps organize cause and consequence, but a ranking) Tj ET
+BT /F1 10.0 Tf 50.0 166.0 Td (tool is only as good as the team’s evidence and assumptions. Before maintenance or machining,) Tj ET
+BT /F1 10.0 Tf 50.0 152.0 Td (identify stored energy and hazardous motion, isolate equipment under the applicable workplace) Tj ET
+BT /F1 10.0 Tf 50.0 138.0 Td (procedure, and verify the safe state. Shop practice also includes guarding, correct tooling,) Tj ET
+BT /F1 10.0 Tf 50.0 124.0 Td (housekeeping, and material handling. Verify current Philippine occupational-safety rules and) Tj ET
+BT /F1 10.0 Tf 50.0 110.0 Td (machine instructions; this general discussion does not prescribe a site-specific control plan.) Tj ET
+BT /F2 13.0 Tf 50.0 91.0 Td (Estimate elastic bending stress) Tj ET
+BT /F1 8 Tf 500 28 Td (BoardPrep | 1 / 2) Tj ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 8 0 R >>
+endobj
+8 0 obj
+<< /Length 3422>>
+stream
+BT /F1 10.0 Tf 50.0 790.0 Td (Question: A rectangular section is 0.10 m wide and 0.20 m deep under a 2 kN·m bending moment.) Tj ET
+BT /F1 10.0 Tf 50.0 776.0 Td (Using S = bd²/6, estimate the bending stress.) Tj ET
+BT /F1 10.0 Tf 50.0 762.0 Td (1. Compute S = 0.10\(0.20²\)/6 = 0.0006667 m³.) Tj ET
+BT /F1 10.0 Tf 50.0 748.0 Td (2. Convert moment to N·m: M = 2,000 N·m.) Tj ET
+BT /F1 10.0 Tf 50.0 734.0 Td (3. Compute = M/S = 2,000/0.0006667 3.0 × 10 N/m².) Tj ET
+BT /F1 10.0 Tf 50.0 720.0 Td (Answer: Approximately 3 MPa under the stated elastic bending model.) Tj ET
+BT /F1 10.0 Tf 50.0 706.0 Td (Check: The result is a nominal stress estimate; it does not include stress concentrations,) Tj ET
+BT /F1 10.0 Tf 50.0 692.0 Td (fatigue, shear, or design allowables.) Tj ET
+BT /F2 13.0 Tf 50.0 673.0 Td (Common misconceptions) Tj ET
+BT /F1 10.0 Tf 58.0 652.0 Td (- A large calculated safety factor makes assumptions irrelevant.) Tj ET
+BT /F1 10.0 Tf 58.0 638.0 Td (- A nominal material grade proves a component’s installed condition.) Tj ET
+BT /F1 10.0 Tf 58.0 624.0 Td (- One average stress captures fatigue and local stress concentration.) Tj ET
+BT /F2 13.0 Tf 50.0 605.0 Td (Practice patterns) Tj ET
+BT /F1 10.0 Tf 58.0 584.0 Td (- Draw the load path and resolve components before calculating.) Tj ET
+BT /F1 10.0 Tf 58.0 570.0 Td (- Confirm the section axis and units in a bending calculation.) Tj ET
+BT /F1 10.0 Tf 58.0 556.0 Td (- Match inspection evidence to the drawing requirement.) Tj ET
+BT /F2 13.0 Tf 50.0 537.0 Td (Official scope references) Tj ET
+BT /F1 10.0 Tf 50.0 516.0 Td (Official scope: August 2026 Mechanical Engineers Licensure Examination Program — Professional) Tj ET
+BT /F1 10.0 Tf 50.0 502.0 Td (Regulation Commission; Professional Regulatory Board of Mechanical Engineering —) Tj ET
+BT /F1 10.0 Tf 50.0 488.0 Td (https://www.prc.gov.ph/sites/default/files/exam%20program%20aug%202026%20mele%20signed.pdf) Tj ET
+BT /F2 13.0 Tf 50.0 469.0 Td (Instructional references) Tj ET
+BT /F1 10.0 Tf 50.0 448.0 Td (Instructional reference: Introduction to Mechanical Design and Manufacturing — David Jensen;) Tj ET
+BT /F1 10.0 Tf 50.0 434.0 Td (University of Arkansas —) Tj ET
+BT /F1 10.0 Tf 50.0 420.0 Td (https://open.umn.edu/opentextbooks/textbooks/introduction-to-mechanical-design-and-manufacturi) Tj ET
+BT /F1 10.0 Tf 50.0 406.0 Td (ng) Tj ET
+BT /F1 10.0 Tf 50.0 392.0 Td (Instructional reference: Manufacturing Processes 4–5 — LamNgeun Virasak; Open Oregon) Tj ET
+BT /F1 10.0 Tf 50.0 378.0 Td (Educational Resources — https://open.umn.edu/opentextbooks/textbooks/645) Tj ET
+BT /F1 10.0 Tf 50.0 364.0 Td (Instructional reference: University Physics Volume 1 — OpenStax, Rice University —) Tj ET
+BT /F1 10.0 Tf 50.0 350.0 Td (https://openstax.org/details/books/university-physics-volume-1) Tj ET
+BT /F1 10.0 Tf 50.0 336.0 Td (Instructional reference: NIST/SEMATECH Engineering Statistics Handbook — National Institute of) Tj ET
+BT /F1 10.0 Tf 50.0 322.0 Td (Standards and Technology; SEMATECH —) Tj ET
+BT /F1 10.0 Tf 50.0 308.0 Td (https://www.nist.gov/programs-projects/nistsematech-engineering-statistics-handbook) Tj ET
+BT /F1 8.0 Tf 50.0 294.0 Td (BoardPrep lesson material is original instruction. It is not an official examination document.) Tj ET
+BT /F1 8.0 Tf 50.0 282.0 Td (No claim about question frequency or examination weighting is made.) Tj ET
+BT /F1 8 Tf 500 28 Td (BoardPrep | 2 / 2) Tj ET
+endstream
+endobj
+xref
+0 9
+0000000000 65535 f 
+0000000020 00000 n 
+0000000069 00000 n 
+0000000132 00000 n 
+0000000229 00000 n 
+0000000331 00000 n 
+0000000467 00000 n 
+0000005506 00000 n 
+0000005642 00000 n 
+trailer
+<< /Size 9 /Root 1 0 R >>
+startxref
+9114
+%%EOF
