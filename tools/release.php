@@ -26,7 +26,11 @@ foreach (array_slice($argv, 1) as $argument) {
         $outputArgument = substr($argument, 9);
         continue;
     }
-    fwrite(STDERR, "Unknown release option: {$argument}\n");
+    if (str_starts_with($argument, '--evidence=')) {
+        $evidenceArgument = substr($argument, 11);
+        continue;
+    }
+    fwrite(STDERR, "Unknown release option: {$argument}\nUsage: php tools/release.php [--output=/path/package.zip] [--evidence=/path/build-evidence.json]\n");
     exit(2);
 }
 
@@ -97,6 +101,11 @@ $output = str_replace('\\', '/', $output);
 if (file_exists($output)) {
     releaseFail("Refusing to overwrite existing package: {$output}");
 }
+$evidenceOutput = $evidenceArgument ?? ($output . '.evidence.json');
+if (!str_starts_with($evidenceOutput, '/')) $evidenceOutput = getcwd() . '/' . $evidenceOutput;
+$evidenceOutput = str_replace('\\', '/', $evidenceOutput);
+if ($evidenceOutput === $output) releaseFail('Package and build evidence must use separate paths.');
+if (file_exists($evidenceOutput)) releaseFail("Refusing to overwrite existing package evidence: {$evidenceOutput}");
 if (!is_dir(dirname($output)) && !mkdir(dirname($output), 0777, true) && !is_dir(dirname($output))) {
     releaseFail('Unable to create package output directory.');
 }
@@ -193,6 +202,57 @@ try {
 
     $questions = json_decode((string) file_get_contents($tree . '/storage/questions.json'), true, 512, JSON_THROW_ON_ERROR);
     $boards = json_decode((string) file_get_contents($tree . '/storage/boards.json'), true, 512, JSON_THROW_ON_ERROR);
+    $lessons = json_decode((string) file_get_contents($tree . '/storage/study-lessons.json'), true, 512, JSON_THROW_ON_ERROR);
+    $pdfManifestPath = $tree . '/public/study-resources/manifest.json';
+    $pdfManifest = json_decode((string) file_get_contents($pdfManifestPath), true, 512, JSON_THROW_ON_ERROR);
+    if (!is_array($questions) || !is_array($boards) || !is_array($lessons) || !is_array($pdfManifest['files'] ?? null)) {
+        releaseFail('Canonical content or study PDF manifest is malformed.');
+    }
+
+    $lessonsById = [];
+    $expectedPdfLessons = [];
+    foreach ($lessons as $lesson) {
+        if (!is_array($lesson) || !is_scalar($lesson['id'] ?? null)) continue;
+        $lessonId = (string) $lesson['id'];
+        $lessonsById[$lessonId] = $lesson;
+        if (is_scalar($lesson['pdf_file'] ?? null) && trim((string) $lesson['pdf_file']) !== '') $expectedPdfLessons[$lessonId] = true;
+    }
+
+    $studyPdfs = [];
+    $seenPdfLessons = [];
+    foreach ($pdfManifest['files'] as $entry) {
+        if (!is_array($entry)) releaseFail('Study PDF manifest contains a malformed entry.');
+        $lessonId = is_scalar($entry['lesson_id'] ?? null) ? (string) $entry['lesson_id'] : '';
+        $relativePath = is_scalar($entry['path'] ?? null) ? (string) $entry['path'] : '';
+        $expectedHash = is_string($entry['sha256'] ?? null) ? strtolower($entry['sha256']) : '';
+        $lesson = $lessonsById[$lessonId] ?? null;
+        if (!is_array($lesson) || !isset($expectedPdfLessons[$lessonId]) || isset($seenPdfLessons[$lessonId])
+            || !preg_match('#\\Apublic/study-resources/[A-Za-z0-9._-]+\\.pdf\\z#', $relativePath)
+            || basename($relativePath) !== (string) ($lesson['pdf_file'] ?? '')
+            || !preg_match('/\\A[a-f0-9]{64}\\z/', $expectedHash)) {
+            releaseFail('Study PDF manifest does not map uniquely to a known lesson resource.');
+        }
+        $pdfPath = $tree . '/' . $relativePath;
+        if (!is_file($pdfPath) || !hash_equals($expectedHash, (string) hash_file('sha256', $pdfPath))) {
+            releaseFail("Study PDF failed its committed manifest hash: {$relativePath}");
+        }
+        $seenPdfLessons[$lessonId] = true;
+        $studyPdfs[] = ['lesson_id' => $lessonId, 'path' => $relativePath, 'sha256' => $expectedHash, 'bytes' => filesize($pdfPath) ?: 0];
+    }
+    if (array_diff_key($expectedPdfLessons, $seenPdfLessons) !== []) releaseFail('One or more lessons with a PDF are missing from the committed PDF manifest.');
+
+    $staticAssets = [];
+    foreach ($includedFiles as $path) {
+        if (!str_starts_with($path, 'public/assets/')) continue;
+        $assetPath = $tree . '/' . $path;
+        $staticAssets[] = ['path' => $path, 'sha256' => hash_file('sha256', $assetPath) ?: '', 'bytes' => filesize($assetPath) ?: 0];
+    }
+    $supportedBoards = [];
+    foreach ($boards as $board) {
+        if (!is_array($board) || !is_scalar($board['id'] ?? null)) continue;
+        $supportedBoards[] = ['id' => (string) $board['id'], 'code' => (string) ($board['code'] ?? ''), 'name' => (string) ($board['name'] ?? '')];
+    }
+
     $manifest = [
         'product' => 'BoardPrep',
         'release' => $releaseName,
@@ -206,7 +266,26 @@ try {
         'supported_release_profiles' => ['JSON', 'SQLite'],
         'mysql_release_status' => 'NOT_CLAIMED',
         'canonical_questions' => count(is_array($questions) ? $questions : []),
+        'canonical_questions_sha256' => hash_file('sha256', $tree . '/storage/questions.json'),
         'registered_boards' => count(is_array($boards) ? $boards : []),
+        'supported_boards' => $supportedBoards,
+        'study_lessons' => [
+            'count' => count($lessonsById),
+            'sha256' => hash_file('sha256', $tree . '/storage/study-lessons.json'),
+        ],
+        'study_pdfs' => [
+            'count' => count($studyPdfs),
+            'manifest_sha256' => hash_file('sha256', $pdfManifestPath),
+            'files' => $studyPdfs,
+        ],
+        'static_assets' => $staticAssets,
+        'package_validation' => [
+            'canonical_content' => 'STRUCTURE_PARSED_NOT_SEMANTICALLY_AUDITED',
+            'study_pdf_integrity' => 'PASS',
+            'static_asset_hashes' => 'PASS',
+            'deployment_status' => 'NOT_DEPLOYED',
+            'product_readiness' => 'NOT_EVALUATED_BY_PACKAGE_BUILDER',
+        ],
         'included_files' => array_merge($includedFiles, ['RELEASE_MANIFEST.json']),
     ];
     $manifestJson = json_encode($manifest, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR) . PHP_EOL;
@@ -233,7 +312,41 @@ try {
         releaseFail('Unable to finalize package archive.');
     }
 
+    $buildEvidence = [
+        'schema_version' => 1,
+        'generated_at' => gmdate(DATE_ATOM),
+        'source_sha' => $head,
+        'build_sha' => $head,
+        'source_commit_timestamp' => $commitDate,
+        'package' => [
+            'filename' => basename($output),
+            'bytes' => filesize($output) ?: 0,
+            'sha256' => hash_file('sha256', $output),
+            'release_manifest_sha256' => hash('sha256', $manifestJson),
+        ],
+        'inventory' => [
+            'canonical_questions' => $manifest['canonical_questions'],
+            'canonical_questions_sha256' => $manifest['canonical_questions_sha256'],
+            'supported_boards' => $manifest['supported_boards'],
+            'study_lessons' => $manifest['study_lessons'],
+            'study_pdfs' => ['count' => $manifest['study_pdfs']['count'], 'manifest_sha256' => $manifest['study_pdfs']['manifest_sha256']],
+            'static_asset_count' => count($staticAssets),
+        ],
+        'environment_classification' => 'LOCAL_PACKAGE_BUILD',
+        'deployment_status' => 'NOT_DEPLOYED',
+        'hosted_verification' => 'NOT_RUN_BY_PACKAGE_BUILDER',
+    ];
+    $evidenceJson = json_encode($buildEvidence, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR) . PHP_EOL;
+    $evidenceDirectory = dirname($evidenceOutput);
+    if (!is_dir($evidenceDirectory) && !mkdir($evidenceDirectory, 0777, true) && !is_dir($evidenceDirectory)) releaseFail('Unable to create package evidence directory.');
+    $evidenceTemporary = $evidenceOutput . '.tmp-' . bin2hex(random_bytes(4));
+    if (file_put_contents($evidenceTemporary, $evidenceJson, LOCK_EX) === false || !rename($evidenceTemporary, $evidenceOutput)) {
+        @unlink($evidenceTemporary);
+        releaseFail('Unable to write package build evidence.');
+    }
+
     printf("PACKAGE=%s\nPRODUCT_VERSION=%s\nCOMMIT=%s\nFILES=%d\nQUESTIONS=%d\nBOARDS=%d\n", $output, $productVersion, $shortHead, count($manifest['included_files']), $manifest['canonical_questions'], $manifest['registered_boards']);
+    printf("BUILD_EVIDENCE=%s\nPACKAGE_SHA256=%s\nBUILT_AT=%s\n", $evidenceOutput, $buildEvidence['package']['sha256'], $buildEvidence['generated_at']);
 } finally {
     releaseRemoveTree($temporary);
 }

@@ -16,6 +16,7 @@ $temporaryRoot = trim((string) (getenv('APP_SESSION_PATH') ?: ''));
 if ($temporaryRoot === '' || !is_dir($temporaryRoot)) $temporaryRoot = sys_get_temp_dir();
 $temporary = rtrim($temporaryRoot, DIRECTORY_SEPARATOR) . '/boardprep-release-test-' . bin2hex(random_bytes(4));
 $packageOne = $temporary . '/build-one.zip';
+$evidenceOne = $packageOne . '.evidence.json';
 $packageTwo = $temporary . '/build-two.zip';
 
 $removeTree = static function (string $directory) use (&$removeTree): void {
@@ -87,6 +88,13 @@ try {
 
     $run("{$php} {$tool} --output=" . escapeshellarg($packageOne), $root);
     [$shaOne, $entriesOne] = $inspectPackage($packageOne);
+    $assert(is_file($evidenceOne), 'release builder did not write its external build-evidence manifest');
+    $buildEvidence = json_decode((string) file_get_contents($evidenceOne), true, 512, JSON_THROW_ON_ERROR);
+    $assert(($buildEvidence['source_sha'] ?? null) === trim((string) shell_exec('git -C ' . escapeshellarg($root) . ' rev-parse HEAD')), 'build evidence source SHA does not match the committed package tree');
+    $assert(($buildEvidence['package']['sha256'] ?? null) === $shaOne, 'build evidence package digest does not match the actual archive');
+    $assert(($buildEvidence['package']['bytes'] ?? null) === filesize($packageOne), 'build evidence package byte count does not match the archive');
+    $assert(($buildEvidence['deployment_status'] ?? '') === 'NOT_DEPLOYED'
+        && ($buildEvidence['hosted_verification'] ?? '') === 'NOT_RUN_BY_PACKAGE_BUILDER', 'package builder overstated deployment or hosted evidence');
     $assert(unlink($packageOne), 'first release package could not be removed after its digest was captured');
     $run("{$php} {$tool} --output=" . escapeshellarg($packageTwo), $root);
     [$shaTwo, $entriesTwo] = $inspectPackage($packageTwo);
@@ -148,6 +156,23 @@ try {
     $expectedBoards = is_array($packagedBoards) ? count($packagedBoards) : 0;
     $assert(($manifest['canonical_questions'] ?? null) === $expectedCanonical, 'release manifest canonical count does not match packaged question storage');
     $assert(($manifest['registered_boards'] ?? null) === $expectedBoards, 'release manifest board count does not match packaged board storage');
+    $packagedLessons = json_decode((string) $packageArchive->getFromName($packageRoot . 'storage/study-lessons.json'), true, 512, JSON_THROW_ON_ERROR);
+    $packagedPdfManifest = json_decode((string) $packageArchive->getFromName($packageRoot . 'public/study-resources/manifest.json'), true, 512, JSON_THROW_ON_ERROR);
+    $assert(($manifest['canonical_questions_sha256'] ?? null) === ($entriesOne[$packageRoot . 'storage/questions.json'] ?? null), 'release manifest question fingerprint does not match the archived canonical file');
+    $assert(($manifest['study_lessons']['count'] ?? null) === count($packagedLessons), 'release manifest lesson count does not match packaged lesson data');
+    $assert(($manifest['study_lessons']['sha256'] ?? null) === ($entriesOne[$packageRoot . 'storage/study-lessons.json'] ?? null), 'release manifest lesson fingerprint does not match packaged lessons');
+    $assert(($manifest['study_pdfs']['count'] ?? null) === count($packagedPdfManifest['files'] ?? []), 'release manifest PDF count does not match the packaged PDF manifest');
+    $assert(($manifest['study_pdfs']['manifest_sha256'] ?? null) === ($entriesOne[$packageRoot . 'public/study-resources/manifest.json'] ?? null), 'release manifest PDF inventory fingerprint does not match');
+    $assert(count($manifest['supported_boards'] ?? []) === $expectedBoards, 'supported board identity list does not match packaged board storage');
+    $assert(($manifest['package_validation']['canonical_content'] ?? '') === 'STRUCTURE_PARSED_NOT_SEMANTICALLY_AUDITED'
+        && ($manifest['package_validation']['study_pdf_integrity'] ?? '') === 'PASS'
+        && ($manifest['package_validation']['deployment_status'] ?? '') === 'NOT_DEPLOYED', 'embedded manifest omitted the content audit limit, asset result, or deployment status');
+    foreach ((array) ($manifest['study_pdfs']['files'] ?? []) as $pdf) {
+        $assert(is_array($pdf) && ($entriesOne[$packageRoot . ($pdf['path'] ?? '')] ?? null) === ($pdf['sha256'] ?? null), 'release manifest PDF hash does not match packaged content');
+    }
+    foreach ((array) ($manifest['static_assets'] ?? []) as $asset) {
+        $assert(is_array($asset) && ($entriesOne[$packageRoot . ($asset['path'] ?? '')] ?? null) === ($asset['sha256'] ?? null), 'release manifest static asset hash does not match packaged content');
+    }
 
     $packageArchive->close();
 
