@@ -52,10 +52,17 @@ $readSession = static function (string $sessionId) use ($sessionPath): array {
 };
 
 try {
+    $settings = $http->request('GET', '/quiz', [], [], [], $cookies);
+    if (!$settings['success'] || $settings['status'] !== 200
+        || !preg_match('/name="csrf_token" value="([^"]+)"/', $settings['output'], $csrfMatch)) {
+        throw new RuntimeException('Quiz settings did not provide a CSRF token for exam simulation.');
+    }
+    $csrfToken = $csrfMatch[1];
+
     $start = $http->request('POST', '/quiz', [], [
         'action' => 'start', 'exam' => 'LET', 'subject' => 'English',
         'mode' => 'exam', 'timer_mode' => 'timed', 'time_limit_minutes' => 5,
-        'difficulty' => 'mixed', 'count' => 3,
+        'difficulty' => 'mixed', 'count' => 3, 'csrf_token' => $csrfToken,
     ], [], $cookies);
     if (!$start['success'] || !str_contains($start['output'], 'Question 1 / 3')
         || !str_contains($start['output'], 'Time remaining')
@@ -84,15 +91,15 @@ try {
     }
 
     $firstAnswer = $http->request('POST', '/quiz', [], [
-        'action' => 'submit', 'question_id' => $match[1], 'answer' => 'A',
+        'action' => 'submit', 'question_id' => $match[1], 'answer' => 'A', 'csrf_token' => $csrfToken,
     ], [], $cookies);
     if (!$firstAnswer['success'] || !str_contains($firstAnswer['output'], 'Question 2 / 3')
         || preg_match('/<section[^>]*class="[^"]*\bquiz-feedback\b/i', $firstAnswer['output']) === 1) {
         throw new RuntimeException('Exam simulation did not advance without rendering its immediate answer-feedback component.');
     }
 
-    $skipSecond = $http->request('POST', '/quiz', [], ['action' => 'next'], [], $cookies);
-    $skipLast = $http->request('POST', '/quiz', [], ['action' => 'next'], [], $cookies);
+    $skipSecond = $http->request('POST', '/quiz', [], ['action' => 'next', 'csrf_token' => $csrfToken], [], $cookies);
+    $skipLast = $http->request('POST', '/quiz', [], ['action' => 'next', 'csrf_token' => $csrfToken], [], $cookies);
     if (!$skipSecond['success'] || !str_contains($skipSecond['output'], 'Question 3 / 3')
         || $skipLast['status'] !== 303 || $skipLast['location'] !== '/quiz?action=review') {
         throw new RuntimeException('Question navigation did not preserve skips or open review at the final question.');
@@ -104,18 +111,18 @@ try {
         throw new RuntimeException('Pre-submit review did not identify unanswered questions.');
     }
 
-    $jumpBack = $http->request('POST', '/quiz', [], ['action' => 'jump', 'index' => 0], [], $cookies);
+    $jumpBack = $http->request('POST', '/quiz', [], ['action' => 'jump', 'index' => 0, 'csrf_token' => $csrfToken], [], $cookies);
     if (!$jumpBack['success'] || !preg_match('/name="answer"\s+value="A"\s+required\s+checked/', $jumpBack['output'])) {
         throw new RuntimeException('Returning to an answered question did not restore its saved selection.');
     }
     $changeAnswer = $http->request('POST', '/quiz', [], [
-        'action' => 'submit', 'question_id' => $match[1], 'answer' => 'B',
+        'action' => 'submit', 'question_id' => $match[1], 'answer' => 'B', 'csrf_token' => $csrfToken,
     ], [], $cookies);
     if (!$changeAnswer['success'] || !str_contains($changeAnswer['output'], 'Question 2 / 3')) {
         throw new RuntimeException('Exam simulation did not allow a learner to change an answer before submission.');
     }
 
-    $earlyFinish = $http->request('POST', '/quiz', [], ['action' => 'finish'], [], $cookies);
+    $earlyFinish = $http->request('POST', '/quiz', [], ['action' => 'finish', 'csrf_token' => $csrfToken], [], $cookies);
     if ($earlyFinish['status'] !== 303 || $earlyFinish['location'] !== '/quiz?action=review') {
         throw new RuntimeException('The final submit action bypassed a review after the answer set changed.');
     }
@@ -125,8 +132,8 @@ try {
     }
 
     $concurrentFinishes = $http->requestsConcurrently([
-        ['method' => 'POST', 'path' => '/quiz', 'post' => ['action' => 'finish'], 'cookies' => $cookies],
-        ['method' => 'POST', 'path' => '/quiz', 'post' => ['action' => 'finish'], 'cookies' => $cookies],
+        ['method' => 'POST', 'path' => '/quiz', 'post' => ['action' => 'finish', 'csrf_token' => $csrfToken], 'cookies' => $cookies],
+        ['method' => 'POST', 'path' => '/quiz', 'post' => ['action' => 'finish', 'csrf_token' => $csrfToken], 'cookies' => $cookies],
     ]);
     $finish = $concurrentFinishes[0] ?? [];
     $secondFinish = $concurrentFinishes[1] ?? [];
@@ -138,7 +145,7 @@ try {
     $result = $http->request('GET', '/quiz', ['action' => 'result'], [], [], $cookies);
     $repeat = $http->request('GET', '/quiz', ['action' => 'result'], [], [], $cookies);
     $duplicateSubmit = $http->request('POST', '/quiz', [], [
-        'action' => 'submit', 'question_id' => $match[1], 'answer' => 'A',
+        'action' => 'submit', 'question_id' => $match[1], 'answer' => 'A', 'csrf_token' => $csrfToken,
     ], [], $cookies);
     $resultText = preg_replace('/\s+/', ' ', strip_tags($result['output'])) ?? '';
     if ($finish['status'] !== 303 || !$result['success'] || !$repeat['success']
@@ -176,6 +183,7 @@ try {
 
     $retry = $http->request('POST', '/quiz', [], [
         'action' => 'start', 'subject' => 'English', 'mode' => 'practice', 'count' => 1,
+        'csrf_token' => $csrfToken,
     ], [], $cookies);
     $retryText = preg_replace('/\s+/', ' ', strip_tags($retry['output'])) ?? '';
     if (!$retry['success'] || !str_contains($retryText, 'Mode: Practice')) {
@@ -183,10 +191,14 @@ try {
     }
 
 $expiryCookies = ['PHPSESSID' => 'batch676-expired-exam-' . bin2hex(random_bytes(8))];
+    $expirySettings = $http->request('GET', '/quiz', [], [], [], $expiryCookies);
+    if (!$expirySettings['success'] || !preg_match('/name="csrf_token" value="([^"]+)"/', $expirySettings['output'], $expiryCsrfMatch)) {
+        throw new RuntimeException('Quiz settings did not provide a CSRF token for expired-timer coverage.');
+    }
     $expiryStart = $http->request('POST', '/quiz', [], [
         'action' => 'start', 'exam' => 'LET', 'subject' => 'English',
         'mode' => 'exam', 'timer_mode' => 'timed', 'time_limit_minutes' => 1,
-        'difficulty' => 'mixed', 'count' => 2,
+        'difficulty' => 'mixed', 'count' => 2, 'csrf_token' => $expiryCsrfMatch[1],
     ], [], $expiryCookies);
     if (!$expiryStart['success'] || !str_contains($expiryStart['output'], 'Question 1 / 2')) {
         throw new RuntimeException('A second timed simulation could not start for expiration coverage.');

@@ -8,6 +8,12 @@ use Tools\Doctor\Project\BoardPrep\Simulation\HttpSimulator;
 
 $simulator = new HttpSimulator(dirname(__DIR__, 2) . '/public/index.php');
 $cookies = ['PHPSESSID' => 'batch676-failed-start-' . bin2hex(random_bytes(8))];
+$settings = $simulator->request('GET', '/quiz', [], [], [], $cookies);
+if (!$settings['success'] || $settings['status'] !== 200
+    || !preg_match('/name="csrf_token" value="([^"]+)"/', $settings['output'], $csrfMatch)) {
+    throw new RuntimeException('quiz settings did not provide a CSRF token for failure-recovery coverage');
+}
+$csrfToken = $csrfMatch[1];
 
 $valid = $simulator->request(
     'POST',
@@ -20,6 +26,7 @@ $valid = $simulator->request(
         'mode' => 'practice',
         'difficulty' => 'mixed',
         'count' => 5,
+        'csrf_token' => $csrfToken,
     ],
     [],
     $cookies
@@ -43,6 +50,7 @@ $answeredActive = $simulator->request('POST', '/quiz', [], [
     'action' => 'submit',
     'question_id' => $activeQuestion[1],
     'answer' => 'A',
+    'csrf_token' => $csrfToken,
 ], [], $cookies);
 if (!$answeredActive['success'] || !str_contains($answeredActive['output'], 'quiz-feedback')) {
     throw new RuntimeException('could not save an answer before testing active-session recovery');
@@ -70,6 +78,7 @@ $failed = $simulator->request(
         'mode' => 'practice',
         'difficulty' => 'hard',
         'count' => 20,
+        'csrf_token' => $csrfToken,
     ],
     [],
     $cookies
@@ -116,6 +125,7 @@ $replacement = $simulator->request('POST', '/quiz', [], [
     'mode' => 'practice',
     'difficulty' => 'mixed',
     'count' => 1,
+    'csrf_token' => $csrfToken,
 ], [], $cookies);
 if (!$replacement['success']
     || !str_contains($replacement['output'], 'Licensure Examination for Certified Public Accountants')
