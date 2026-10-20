@@ -74,6 +74,7 @@ final class ContentIntegrityService
         self::validateTaxonomyParents($analysis, $profileHook, $phaseStartedAt);
         self::analyzeFlashcardDerivations(
             $analysis,
+            $collections,
             $deriveOverride,
             $statusOverride,
             $counterHook,
@@ -366,9 +367,13 @@ final class ContentIntegrityService
         self::finishProfilePhase($profileHook, 'integrity.taxonomy_parent_validation', $phaseStartedAt, ['TAXONOMY']);
     }
 
-    /** @param array<string, mixed> $analysis */
+    /**
+     * @param array<string, mixed> $analysis
+     * @param array<string, array> $collections
+     */
     private static function analyzeFlashcardDerivations(
         array &$analysis,
+        array $collections,
         ?callable $deriveOverride,
         ?callable $statusOverride,
         ?callable $counterHook,
@@ -378,7 +383,15 @@ final class ContentIntegrityService
         $derive = $deriveOverride;
         $statusForQuestion = $statusOverride;
         if ($derive === null) {
-            $deriver = App::container()->get(FlashcardDerivationService::class);
+            // Keep derivation within the same immutable collection snapshot as
+            // the integrity scan. The shared-library deriver resolves study
+            // references with a full storage read for each question.
+            $deriver = new FlashcardDerivationService(
+                null,
+                is_array($collections['study-materials'] ?? null) ? $collections['study-materials'] : [],
+                is_array($collections['study-question-links'] ?? null) ? $collections['study-question-links'] : [],
+                is_array($collections['flashcard-exclusions'] ?? null) ? $collections['flashcard-exclusions'] : []
+            );
             $derive = static fn(array $question): ?array => $deriver->derive($question);
             $statusForQuestion = static fn(array $question): array => $deriver->derivationStatus($question);
         }

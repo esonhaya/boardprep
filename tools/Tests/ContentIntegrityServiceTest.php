@@ -71,6 +71,7 @@ $assert($clean['portfolio']['total_accidental_non_derivable'] === 0, 'clean port
 $assert($statusCalls === count($nonDerivableIds) && $statusCalls === 18, 'status lookup was not limited to non-derivable cards');
 $assert($clean['portfolio']['status'] !== 'FAIL', 'clean portfolio failed integrity');
 unset($clean);
+unset($cleanDeriver);
 gc_collect_cycles();
 
 $ownedId = (string) $collections['questions'][0]['id'];
@@ -142,7 +143,12 @@ $assert($invalidAnswerReport['portfolio']['total_invalid_answer_keys'] > 0, 'inv
 unset($invalidAnswer, $invalidAnswerReport);
 gc_collect_cycles();
 
-$deriver = App::container()->get(FlashcardDerivationService::class);
+$deriver = new FlashcardDerivationService(
+    null,
+    $collections['study-materials'],
+    $collections['study-question-links'],
+    $collections['flashcard-exclusions']
+);
 $pairedQuestion = null;
 $pairedDerivation = null;
 foreach ($collections['questions'] as $candidate) {
