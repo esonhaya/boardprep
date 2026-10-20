@@ -55,6 +55,8 @@ $assert(str_contains($releaseSource, 'createFlowTestStorage')
     && str_contains($releaseSource, 'temporaryDirectoryInventory')
     && str_contains($releaseSource, "['APP_STORAGE_PATH']"),
     'Release flow tests no longer rebuild isolated storage with free-space and interruption safeguards.');
+$assert(str_contains($releaseSource, 'tools/Tests/BackupManifestPathSafetyTest.php'),
+    'The backup restore path traversal regression is not registered in release security validation.');
 
 $production = ReleaseReadinessService::productionConfiguration(dirname(__DIR__, 2));
 $assert(($production['status'] ?? '') === 'PASS', 'Production configuration contract did not pass.');

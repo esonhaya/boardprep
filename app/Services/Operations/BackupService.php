@@ -17,6 +17,17 @@ use Throwable;
  */
 final class BackupService
 {
+    /** @var list<string> */
+    private const JSON_BACKUP_FILES = [
+        'attempts.json',
+        'weakness.json',
+        'question-statistics.json',
+        'flashcard_state.json',
+        'blueprints.json',
+    ];
+
+    private const SQLITE_BACKUP_FILE = 'sqlite/boardprep.sqlite';
+
     /** @return array<string,mixed> */
     public static function create(string $root, string $output, bool $dryRun = false): array
     {
@@ -36,7 +47,7 @@ final class BackupService
                 throw new RuntimeException('Unable to acquire a consistent JSON storage snapshot lock.');
             }
             try {
-                foreach (['attempts.json', 'weakness.json', 'question-statistics.json', 'flashcard_state.json', 'blueprints.json'] as $name) {
+                foreach (self::JSON_BACKUP_FILES as $name) {
                     $source = $storagePath . '/' . $name;
                     if (!is_file($source)) continue;
                     $files[] = ['source_path' => $source, 'source' => self::label($source, $root), 'relative' => 'json/' . $name, 'bytes' => filesize($source) ?: 0, 'sha256' => hash_file('sha256', $source) ?: ''];
@@ -103,7 +114,7 @@ final class BackupService
     {
         $backup = self::absolute($backup, $root);
         $manifestPath = $backup . '/backup-manifest.json';
-        if (!is_file($manifestPath)) throw new RuntimeException('Backup manifest is missing.');
+        if (is_link($backup) || is_link($manifestPath) || !is_file($manifestPath)) throw new RuntimeException('Backup manifest is missing or unsafe.');
         try {
             $manifest = json_decode((string) file_get_contents($manifestPath), true, 512, JSON_THROW_ON_ERROR);
         } catch (JsonException $exception) {
@@ -111,13 +122,50 @@ final class BackupService
         }
         if (!is_array($manifest)) throw new RuntimeException('Backup manifest must be an object.');
         $errors = [];
-        foreach ((array) ($manifest['files'] ?? []) as $file) {
-            if (!is_array($file)) continue;
-            $path = $backup . '/' . ltrim((string) ($file['relative'] ?? ''), '/');
-            if (!is_file($path)) { $errors[] = (string) ($file['relative'] ?? ''); continue; }
-            if (hash_file('sha256', $path) !== (string) ($file['sha256'] ?? '')) $errors[] = (string) ($file['relative'] ?? '');
+        $backupReal = realpath($backup);
+        $mode = $manifest['storage_mode'] ?? null;
+        $files = $manifest['files'] ?? null;
+        if (!is_string($mode) || !in_array($mode, ['json', 'sqlite'], true)) {
+            $errors[] = 'storage_mode';
         }
-        return ['status' => $errors === [] ? 'PASS' : 'FAIL', 'manifest' => $manifest, 'errors' => $errors];
+        if (!is_array($files) || $files === []) {
+            $errors[] = 'files';
+            $files = [];
+        }
+        $allowed = $mode === 'json' ? array_map(static fn (string $name): string => 'json/' . $name, self::JSON_BACKUP_FILES)
+            : ($mode === 'sqlite' ? [self::SQLITE_BACKUP_FILE] : []);
+        $seen = [];
+        foreach ($files as $file) {
+            if (!is_array($file)) {
+                $errors[] = 'file_entry';
+                continue;
+            }
+            $relative = $file['relative'] ?? null;
+            $hash = $file['sha256'] ?? null;
+            $bytes = $file['bytes'] ?? null;
+            if (!is_string($relative) || !in_array($relative, $allowed, true) || isset($seen[$relative])) {
+                $errors[] = is_string($relative) ? $relative : 'relative';
+                continue;
+            }
+            $seen[$relative] = true;
+            if (!is_string($hash) || preg_match('/\A[a-f0-9]{64}\z/i', $hash) !== 1 || !is_int($bytes) || $bytes < 0) {
+                $errors[] = $relative;
+                continue;
+            }
+            $path = $backup . '/' . $relative;
+            $directory = dirname($path);
+            $realPath = realpath($path);
+            $insideBackup = $backupReal !== false && $realPath !== false
+                && str_starts_with($realPath, rtrim($backupReal, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR);
+            if (is_link($directory) || is_link($path) || !is_file($path) || !$insideBackup) {
+                $errors[] = $relative;
+                continue;
+            }
+            if (filesize($path) !== $bytes || hash_file('sha256', $path) !== strtolower($hash)) {
+                $errors[] = $relative;
+            }
+        }
+        return ['status' => $errors === [] ? 'PASS' : 'FAIL', 'manifest' => $manifest, 'errors' => array_values(array_unique($errors))];
     }
 
     /** @return array<string,mixed> */
@@ -132,15 +180,21 @@ final class BackupService
         $manifest = (array) ($verification['manifest'] ?? []);
         $plan = [];
         foreach ((array) ($manifest['files'] ?? []) as $file) {
-            if (!is_array($file)) continue;
+            if (!is_array($file) || !is_string($file['relative'] ?? null)) {
+                throw new RuntimeException('Backup verification failed; restore refused.');
+            }
             $relative = (string) ($file['relative'] ?? '');
-            $targetRelative = str_starts_with($relative, 'json/') ? substr($relative, 5) : (str_starts_with($relative, 'sqlite/') ? 'boardprep.sqlite' : basename($relative));
+            $targetRelative = in_array($relative, array_map(static fn (string $name): string => 'json/' . $name, self::JSON_BACKUP_FILES), true)
+                ? substr($relative, 5)
+                : ($relative === self::SQLITE_BACKUP_FILE ? 'boardprep.sqlite' : '');
+            if ($targetRelative === '') throw new RuntimeException('Backup verification failed; restore refused.');
             $plan[] = ['source' => $relative, 'target' => $targetRelative];
         }
         if ($dryRun) return ['status' => 'PASS', 'dry_run' => true, 'destination' => self::label($destination, $root), 'plan' => $plan];
         foreach ($plan as $item) {
             $source = $backup . '/' . $item['source'];
             $target = $destination . '/' . $item['target'];
+            if (is_link($source) || is_link($target) || is_link(dirname($target))) throw new RuntimeException('Symlinked backup or restore paths are not allowed.');
             if (is_file($target) && !$confirmLive) throw new RuntimeException('Restore target exists; use a fresh destination or explicit confirmation.');
             if (!is_dir(dirname($target)) && !mkdir(dirname($target), 0770, true) && !is_dir(dirname($target))) throw new RuntimeException('Unable to create restore directory.');
             if (!copy($source, $target)) throw new RuntimeException('Unable to restore persistent state.');
