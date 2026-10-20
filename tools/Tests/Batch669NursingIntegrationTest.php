@@ -56,6 +56,12 @@ putenv('APP_ENV=testing');
 putenv('APP_DEBUG=false');
 App::boot();
 $questionRepository = App::container()->get(QuestionRepository::class);
+$lookupIds = [];
+foreach ($mapping as $row) {
+    $lookupIds[] = (string) ($row['canonical_nursing_question_id'] ?? '');
+    $lookupIds[] = (string) ($row['source_question_id'] ?? '');
+}
+$questionsById = $questionRepository->findMany($lookupIds);
 foreach ($mapping as $row) {
     $sourceId = (int) ($row['source_question_id'] ?? 0);
     $canonicalId = (int) ($row['canonical_nursing_question_id'] ?? 0);
@@ -71,8 +77,8 @@ foreach ($mapping as $row) {
     $assert(($collision['classification'] ?? '') === 'DISTINCT_QUESTIONS_SHARED_ID', 'A shared numeric ID was incorrectly treated as identical content.');
     $assert(($nursing['content_equal_except_id_and_mutable_counters'] ?? false) === true, 'Incoming Nursing record does not match its retained canonical record.');
     $assert(($nursing['references_equal'] ?? false) === true, 'Nursing eligibility, sources, study links, or reuse metadata differ.');
-    $canonicalQuestion = $questionRepository->find((string) $canonicalId);
-    $collisionQuestion = $questionRepository->find((string) $sourceId);
+    $canonicalQuestion = $questionsById[(string) $canonicalId] ?? null;
+    $collisionQuestion = $questionsById[(string) $sourceId] ?? null;
     $assert(is_array($canonicalQuestion), 'A mapped Nursing canonical record is missing from the current question bank.');
     $assert(QuestionIdMigrationService::boardForQuestion($canonicalQuestion) === 'nursing', 'A mapped canonical record has leaked onto another board.');
     $assert($stemHash($canonicalQuestion) === ($nursing['canonical_stem_sha256'] ?? null), 'The current canonical Nursing stem differs from its verified crosswalk fingerprint.');
