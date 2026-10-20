@@ -6,9 +6,9 @@ const path = require('node:path');
 const { spawnSync } = require('node:child_process');
 
 if (process.platform === 'android') {
-  console.log('BROWSER_ACCEPTANCE=DEPENDENCY_MISSING');
-  console.log('Playwright Chromium is not supported by the local Termux Node runtime.');
-  process.exit(process.env.CI ? 1 : 0);
+  console.log('BROWSER_ACCEPTANCE=BROWSER_BLOCKED');
+  console.log('REASON=Playwright Chromium does not support the Android/Termux Node runtime.');
+  process.exit(process.env.CI ? 1 : 2);
 }
 
 let cli;
@@ -16,15 +16,17 @@ try {
   const packageRoot = path.dirname(require.resolve('@playwright/test/package.json'));
   const { chromium } = require('@playwright/test');
   if (!fs.existsSync(chromium.executablePath())) {
-    console.log('BROWSER_ACCEPTANCE=DEPENDENCY_MISSING');
-    console.log('Install Chromium with: npm run test:browser:install');
-    process.exit(process.env.CI ? 1 : 0);
+    console.log('BROWSER_ACCEPTANCE=BROWSER_BLOCKED');
+    console.log('REASON=The lockfile-pinned Playwright Chromium executable is not installed.');
+    console.log('NEXT=On a supported desktop host, run npm ci && npm run test:browser:install.');
+    process.exit(process.env.CI ? 1 : 2);
   }
   cli = path.join(packageRoot, 'cli.js');
 } catch (error) {
-  console.log('BROWSER_ACCEPTANCE=DEPENDENCY_MISSING');
+  console.log('BROWSER_ACCEPTANCE=BROWSER_BLOCKED');
+  console.log('REASON=The lockfile-pinned Playwright dependency is unavailable.');
   console.log(String(error && error.message ? error.message : error));
-  process.exit(process.env.CI ? 1 : 0);
+  process.exit(process.env.CI ? 1 : 2);
 }
 
 const configuredEvidenceDirectory = process.env.BOARDPREP_BROWSER_EVIDENCE_DIR;
@@ -111,7 +113,8 @@ if (exitStatus === 0) {
       encoding: 'utf8',
     }).stdout.trim();
     const responsiveStates = readEvidence('responsive-states');
-    const requiredViewportSizes = ['320x640', '360x800', '390x844', '430x932', '768x1024'];
+    const requiredViewportSizes = ['320x568', '360x800', '390x844', '412x915', '768x1024'];
+    const requiredDesktopViewport = { width: 1366, height: 768 };
     const selectedProjects = process.argv.includes('--project=mobile')
       ? ['mobile']
       : process.argv.includes('--project=desktop')
@@ -121,7 +124,11 @@ if (exitStatus === 0) {
       runtime.projects.includes(project)
       && runtime.results[project]?.engine === 'chromium'
       && runtime.results[project]?.version
-    ));
+    ))
+      && runtime.results.desktop?.viewport?.width === requiredDesktopViewport.width
+      && runtime.results.desktop?.viewport?.height === requiredDesktopViewport.height
+      && runtime.results.mobile?.viewport?.width === 390
+      && runtime.results.mobile?.viewport?.height === 844;
     const completeBrowserEvidence = selectedProjects.length === 2
       && actualProjectEvidence
       && ['desktop', 'mobile'].every((project) => keyboard.projects.includes(project))
@@ -170,6 +177,7 @@ if (exitStatus === 0) {
       engine: 'chromium',
       engine_versions: Object.fromEntries(Object.entries(runtime.results).map(([project, item]) => [project, item.version])),
       projects: selectedProjects,
+      desktop_viewport_executed: runtime.results.desktop?.viewport || null,
       viewports_executed: viewports.results.mobile?.sizes || [],
       journey_evidence: {
         keyboard_navigation: keyboard.projects.length > 0,

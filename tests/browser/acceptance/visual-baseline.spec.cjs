@@ -147,10 +147,10 @@ async function capture(page, testInfo, entries, name, options = {}) {
 
 async function inspectQuestionAtMobileWidths(page, selector, captureAtSize = null) {
   const sizes = [
-    { width: 320, height: 640 },
+    { width: 320, height: 568 },
     { width: 360, height: 800 },
     { width: 390, height: 844 },
-    { width: 430, height: 932 },
+    { width: 412, height: 915 },
     { width: 768, height: 1024 },
   ];
   const evidence = [];
@@ -460,10 +460,10 @@ test.describe('BoardPrep deterministic visual baseline', () => {
     if (mobile) {
       await page.goto('/dashboard');
       for (const size of [
-        { width: 320, height: 640 },
+        { width: 320, height: 568 },
         { width: 360, height: 800 },
         { width: 390, height: 844 },
-        { width: 430, height: 932 },
+        { width: 412, height: 915 },
         { width: 768, height: 1024 },
       ]) {
         await page.setViewportSize(size);

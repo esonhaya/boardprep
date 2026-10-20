@@ -38,10 +38,10 @@ const fullJourneyBoards = [
 ];
 
 const responsiveViewports = [
-  { width: 320, height: 640 },
+  { width: 320, height: 568 },
   { width: 360, height: 800 },
   { width: 390, height: 844 },
-  { width: 430, height: 932 },
+  { width: 412, height: 915 },
   { width: 768, height: 1024 },
 ];
 
