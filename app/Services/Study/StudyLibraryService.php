@@ -267,7 +267,7 @@ final class StudyLibraryService
      * @param array<string, mixed> $boardByQuestionId
      * @return array<string, array<int, array<string, mixed>>>
      */
-    public static function forQuestionsByBoard(array $boardByQuestionId): array
+    public static function forQuestionsByBoard(array $boardByQuestionId, ?array $questionSnapshot = null): array
     {
         $contexts = [];
         foreach ($boardByQuestionId as $rawQuestionId => $boardId) {
@@ -281,16 +281,25 @@ final class StudyLibraryService
             ];
         }
 
-        return $contexts === [] ? [] : self::resolveQuestionReferences($contexts);
+        return $contexts === [] ? [] : self::resolveQuestionReferences($contexts, $questionSnapshot);
     }
 
     /**
      * @param array<string, array{board_id:?string,subject_id:?string}> $contexts
      * @return array<string, array<int, array<string, mixed>>>
      */
-    private static function resolveQuestionReferences(array $contexts): array
+    private static function resolveQuestionReferences(array $contexts, ?array $questionSnapshot = null): array
     {
         $questionIds = array_fill_keys(array_keys($contexts), true);
+        $snapshotById = null;
+        if ($questionSnapshot !== null) {
+            $snapshotById = [];
+            foreach ($questionSnapshot as $question) {
+                if (!is_array($question) || !is_scalar($question['id'] ?? null)) continue;
+                $id = (string) $question['id'];
+                if (isset($questionIds[$id])) $snapshotById[$id] = $question;
+            }
+        }
         $materials = [];
         $materialExams = [];
         foreach (App::storage()->all('study-materials') as $material) {
@@ -349,7 +358,7 @@ final class StudyLibraryService
                     $lessonSubject = strtolower(trim((string) ($lesson['subject_id'] ?? '')));
                     $subjectKey = $questionId . "\0" . $contextBoard;
                     if (!array_key_exists($subjectKey, $resolvedSubjects)) {
-                        $resolvedSubjects[$subjectKey] = self::effectiveSubjectForQuestion($questionId, $contextBoard);
+                        $resolvedSubjects[$subjectKey] = self::effectiveSubjectForQuestion($questionId, $contextBoard, $snapshotById);
                     }
                     $resolvedSubject = $resolvedSubjects[$subjectKey];
                     if ($resolvedSubject === '' || $resolvedSubject !== $lessonSubject
@@ -407,9 +416,9 @@ final class StudyLibraryService
         return $references;
     }
 
-    private static function effectiveSubjectForQuestion(string $questionId, string $boardId): string
+    private static function effectiveSubjectForQuestion(string $questionId, string $boardId, ?array $snapshotById = null): string
     {
-        if (self::$questionIndex === null) {
+        if ($snapshotById === null && self::$questionIndex === null) {
             self::$questionIndex = [];
             foreach (App::storage()->all('questions') as $question) {
                 if (is_array($question) && is_scalar($question['id'] ?? null)) {
@@ -417,7 +426,7 @@ final class StudyLibraryService
                 }
             }
         }
-        $question = self::$questionIndex[$questionId] ?? null;
+        $question = ($snapshotById ?? self::$questionIndex)[$questionId] ?? null;
         if (!is_array($question)) {
             return '';
         }

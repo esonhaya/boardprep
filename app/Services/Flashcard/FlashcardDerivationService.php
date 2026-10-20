@@ -116,7 +116,7 @@ final class FlashcardDerivationService
         }
 
         $referencesByQuestion = $this->useSharedStudyLibrary
-            ? StudyLibraryService::forQuestionsByBoard($boardsByQuestion)
+            ? StudyLibraryService::forQuestionsByBoard($boardsByQuestion, $questions)
             : [];
         $cards = [];
         foreach ($selectedIndexes as $index) {
@@ -153,7 +153,7 @@ final class FlashcardDerivationService
                 $board = $taxonomy['board_id'] ?? $question['board'] ?? null;
                 $boardsByQuestion[$questionId] = is_scalar($board) ? (string) $board : null;
             }
-            $referencesByQuestion = StudyLibraryService::forQuestionsByBoard($boardsByQuestion);
+            $referencesByQuestion = StudyLibraryService::forQuestionsByBoard($boardsByQuestion, $questions);
         }
 
         $cards = [];

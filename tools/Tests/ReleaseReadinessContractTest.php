@@ -57,6 +57,9 @@ $assert(str_contains($releaseSource, 'createFlowTestStorage')
     'Release flow tests no longer rebuild isolated storage with free-space and interruption safeguards.');
 $assert(str_contains($releaseSource, 'tools/Tests/BackupManifestPathSafetyTest.php'),
     'The backup restore path traversal regression is not registered in release security validation.');
+$assert(str_contains($releaseSource, 'tools/Tests/FlashcardControllerReadPathTest.php')
+    && str_contains($releaseSource, 'tools/Tests/FlashcardHttpTest.php'),
+    'Flashcard read-count and public HTTP route regressions are not registered in release study validation.');
 
 $production = ReleaseReadinessService::productionConfiguration(dirname(__DIR__, 2));
 $assert(($production['status'] ?? '') === 'PASS', 'Production configuration contract did not pass.');

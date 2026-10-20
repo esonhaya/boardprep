@@ -38,7 +38,9 @@ final class FlashcardController
         $boards = $subjects = $topics = [];
         try {
             $boards = self::options(TaxonomyStorageService::boards());
-            [$subjects, $topics] = self::filterOptions($parsed['filters']);
+            [$subjects, $topics] = is_array($parsed['filter_options'] ?? null)
+                ? $parsed['filter_options']
+                : self::filterOptions($parsed['filters']);
         } catch (\Throwable) {
             $error ??= 'Flashcard filters are temporarily unavailable. Please try again.';
         }
@@ -199,7 +201,7 @@ final class FlashcardController
         return App::container()->get(FlashcardService::class);
     }
 
-    /** @return array{filters:array<string,mixed>,error:?string} */
+    /** @return array{filters:array<string,mixed>,mode:string,error:?string,filter_options:?array} */
     private static function filters(mixed $input): array
     {
         $input = is_array($input) ? $input : [];
@@ -222,6 +224,7 @@ final class FlashcardController
         $filters = ['include_new' => true];
         $mode = 'normal';
         $error = null;
+        $filterOptions = null;
         try {
             $boardRows = self::options(TaxonomyStorageService::boards());
             $boardAliases = [];
@@ -280,13 +283,15 @@ final class FlashcardController
         } catch (\Throwable) {
             return [
                 'filters' => ['include_new' => false, 'board' => '__invalid__'],
+                'mode' => 'normal',
                 'error' => 'Flashcard filters are temporarily unavailable. Please try again.',
+                'filter_options' => null,
             ];
         }
 
         if (array_key_exists('mode', $input)) {
             if (!is_scalar($input['mode']) || !in_array((string) $input['mode'], ['normal', 'weakness', 'missed'], true)) {
-                return ['filters' => $filters, 'mode' => 'normal', 'error' => 'Please choose a valid flashcard review mode.'];
+                return ['filters' => $filters, 'mode' => 'normal', 'error' => 'Please choose a valid flashcard review mode.', 'filter_options' => null];
             }
             $mode = (string) $input['mode'];
         }
@@ -323,13 +328,14 @@ final class FlashcardController
         }
 
         if ($error === null && (isset($filters['board']) || isset($filters['subject']) || isset($filters['topic']))) {
-            $compatible = self::filterCompatibility($filters);
+            $filterOptions = self::filterOptions($filters);
+            $compatible = self::filterCompatibility($filters, $filterOptions);
             if ($compatible === false) {
                 $error = 'That subject and topic do not belong to the selected board. Choose a compatible filter combination.';
             }
         }
 
-        return ['filters' => $filters, 'mode' => $mode, 'error' => $error];
+        return ['filters' => $filters, 'mode' => $mode, 'error' => $error, 'filter_options' => $filterOptions];
     }
 
     /** @return array{cards:list<array<string,mixed>>,due_count:int,new_count:int,total_count:int} */
@@ -455,9 +461,9 @@ final class FlashcardController
         return $card;
     }
 
-    private static function filterCompatibility(array $filters): bool
+    private static function filterCompatibility(array $filters, array $options): bool
     {
-        [$subjects, $topics] = self::filterOptions($filters);
+        [$subjects, $topics] = $options;
         if (isset($filters['subject']) && !in_array(strtolower((string) $filters['subject']), array_map(static fn(array $row): string => strtolower((string) ($row['id'] ?? '')), $subjects), true)) return false;
         if (isset($filters['topic']) && !in_array(strtolower((string) $filters['topic']), array_map(static fn(array $row): string => strtolower((string) ($row['id'] ?? '')), $topics), true)) return false;
         return true;
