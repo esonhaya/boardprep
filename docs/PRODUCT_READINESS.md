@@ -140,14 +140,16 @@ repositories, JSON storage files, templates, assets, and tests. Main areas are:
 | Resume/reload, stale requests and retry | `IMPLEMENTED_AND_VERIFIED` in HTTP/simulation tests | Anonymous session continuity remains cookie-based. The nonproduction account preview supports cross-session learner identity but is not enabled in production. |
 | Learner registration, sign-in, and persistent profile | `IMPLEMENTED_UNVERIFIED` for nonproduction preview; public routes disabled | PHP-native password hashing, one-time hashed recovery codes, saved preferences, rate limits, session rotation/expiry, and account-scoped learner data have focused coverage. Independent security review, encrypted account backup/restore, owner recovery/deletion policy, and live-host evidence remain before public enablement. Anonymous histories are not linked. |
 | Empty/error states | `IMPLEMENTED_AND_VERIFIED` structurally and in focused paths | Existing empty-state, invalid-action, shortage, and start-failure tests cover key paths; no claim that every copy has human acceptance. |
-| Mobile, visual layout, keyboard and assistive technology | `IMPLEMENTED_UNVERIFIED` | Current-commit desktop/mobile Chromium evidence covers five viewports, keyboard navigation, browser accessibility semantics, privacy controls, and all ten board journeys. Human device acceptance, screen-reader behavior, and WCAG conformance remain unverified. |
+| Mobile, visual layout, keyboard and assistive technology | `IMPLEMENTED_UNVERIFIED` | Batch 699 could not execute Chromium on Android/Termux (`BROWSER_BLOCKED`); no current-candidate rendered-browser evidence is recorded. The runner is configured for five mobile/tablet viewports, keyboard checks, privacy controls, and ten-board journeys. Human device acceptance, screen-reader behavior, and WCAG conformance remain unverified. |
 | Anonymous data visibility, export, deletion and returning learner state | `PARTIAL` | `AnonymousLearnerPrivacyHttpTest.php` verifies session-scoped export/deletion, CSRF, confirmation, session rotation, idempotence, and JSON/SQLite isolation. Owner-approved terms and external log/backup retention remain outstanding. |
 
 The feature rows reconcile their implementation status separately from
-current-commit browser evidence and owner acceptance. Automated Chromium
-evidence can pass without changing the human matrix or asserting screen-reader
-or WCAG coverage. This is distinct
-from the ten-board matrix and from the technical release gate.
+current-commit browser evidence and owner acceptance. The current Batch 699
+browser preflight is blocked on Android/Termux; configured projects and test
+files are not execution evidence. When supported desktop Chromium evidence is
+available, it can pass without changing the human matrix or asserting
+screen-reader or WCAG coverage. This is distinct from the ten-board matrix and
+from the technical release gate.
 
 `tools/Tests/` has meaningful feature and HTTP tests, but the count of tests is
 not proof of coverage. Some legacy tests are source/contract assertions. The

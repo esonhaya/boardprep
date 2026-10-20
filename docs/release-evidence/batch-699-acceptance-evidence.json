@@ -1,0 +1,845 @@
+{
+  "schema_version": 1,
+  "report_type": "BATCH_699_CANONICAL_ACCEPTANCE_EVIDENCE",
+  "batch": "699",
+  "recorded_at": "2026-10-20T21:39:18Z",
+  "application_commit": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+  "browser_harness_commit": "24f630a6f9d9793cd816bda9fb84dbd6d531c24f",
+  "worktree_at_http_execution": "clean; browser/tool changes were added only after the HTTP test group",
+  "environment": {
+    "os": "Android / Termux",
+    "kernel": "Linux 4.19.152-perf+",
+    "architecture": "aarch64 / arm64",
+    "node": "v26.4.0",
+    "npm": "12.0.2",
+    "php": "8.5.1"
+  },
+  "browser_execution": {
+    "status": "BLOCKED",
+    "command": "node tools/run-browser-tests.cjs",
+    "tested_sha": "24f630a6f9d9793cd816bda9fb84dbd6d531c24f",
+    "exit_code": 2,
+    "reason": "Existing Playwright runner explicitly rejects process.platform=android. The pinned @playwright/test 1.63.0 package and bundled Chromium are not installed; Android Chrome/Brave/PI Browser are installed apps but no ADB, DevTools transport, or usable UI automation bridge is available.",
+    "viewport_targets": {
+      "mobile_emulation": [
+        "320x568",
+        "360x800",
+        "390x844",
+        "412x915",
+        "768x1024"
+      ],
+      "desktop_emulation": [
+        "1366x768"
+      ],
+      "execution": "NOT_RUN"
+    },
+    "screenshots_captured": 0,
+    "console_errors": "NOT_CAPTURED; no browser process launched",
+    "physical_android": "NOT_RUN"
+  },
+  "cases": [
+    {
+      "id": "MVP-01",
+      "precondition": "`/`; fresh session",
+      "action": "Open Exams, choose LET, review its subjects/actions, and open **Configure practice**",
+      "automated_coverage": "Home/exam navigation and rendered setup routes",
+      "expected_behavior": "Main next steps and board links are understandable and reachable",
+      "failure_signal": "Dead link, missing action, or unclear entry path",
+      "recorded_at": "2026-10-20T21:39:18Z",
+      "build_sha": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+      "environment": {
+        "http": "Termux on Android arm64; isolated PHP HTTP fixtures; PHP 8.5.1; 512 MiB used for full-bank tests when required.",
+        "browser": "Termux Android runtime; Node 26.4.0 (android/arm64); Playwright Chromium not executable.",
+        "human": "NOT_RUN; no tester device or browser session was supplied."
+      },
+      "automated_http": {
+        "status": "PASS",
+        "tested_sha": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+        "execution_window_utc": "2026-10-20T21:32:23Z/2026-10-20T21:38:55Z",
+        "tests": [
+          {
+            "test": "tools/Tests/TenBoardLearnerJourneyHttpTest.php",
+            "result": "PASS",
+            "tested_sha": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+            "evidence_note": "Command completed successfully in the Batch 699 worktree."
+          }
+        ],
+        "limitation": null
+      },
+      "supplemental_static_view": {
+        "status": "NOT_APPLICABLE",
+        "test": null,
+        "assertions": null,
+        "tested_sha": null,
+        "limitation": null
+      },
+      "automated_browser": {
+        "status": "BLOCKED",
+        "tested_sha": "24f630a6f9d9793cd816bda9fb84dbd6d531c24f",
+        "timestamp": "2026-10-20T21:39:18Z",
+        "command": "node tools/run-browser-tests.cjs",
+        "artifact": "docs/release-evidence/batch-699-browser-preflight.json",
+        "failure_evidence": null,
+        "blocking_reason": "Playwright Chromium does not support the Android/Termux Node runtime; native Android browsers have no usable ADB/DevTools or UI automation bridge in this environment."
+      },
+      "human_tester": {
+        "status": "NOT_RUN",
+        "timestamp": null,
+        "build_sha": null,
+        "environment": null,
+        "failure_evidence": null,
+        "blocking_reason": "No genuine human tester execution has been recorded."
+      },
+      "failure_evidence": null,
+      "blocking_reason": "Browser rendering remains blocked; human acceptance remains not run."
+    },
+    {
+      "id": "MVP-02",
+      "precondition": "`/quiz?exam=LET`; fresh session",
+      "action": "Choose an available subject and five questions, then press **Start practice**",
+      "automated_coverage": "Quiz setup labels, mode controls, and practice question rendering",
+      "expected_behavior": "A question, choices, and current/total progress appear",
+      "failure_signal": "No question, wrong board context, or blank/incomplete controls",
+      "recorded_at": "2026-10-20T21:39:18Z",
+      "build_sha": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+      "environment": {
+        "http": "Termux on Android arm64; isolated PHP HTTP fixtures; PHP 8.5.1; 512 MiB used for full-bank tests when required.",
+        "browser": "Termux Android runtime; Node 26.4.0 (android/arm64); Playwright Chromium not executable.",
+        "human": "NOT_RUN; no tester device or browser session was supplied."
+      },
+      "automated_http": {
+        "status": "PASS",
+        "tested_sha": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+        "execution_window_utc": "2026-10-20T21:32:23Z/2026-10-20T21:38:55Z",
+        "tests": [
+          {
+            "test": "tools/Tests/TenBoardLearnerJourneyHttpTest.php",
+            "result": "PASS",
+            "tested_sha": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+            "evidence_note": "Command completed successfully in the Batch 699 worktree."
+          }
+        ],
+        "limitation": null
+      },
+      "supplemental_static_view": {
+        "status": "NOT_APPLICABLE",
+        "test": null,
+        "assertions": null,
+        "tested_sha": null,
+        "limitation": null
+      },
+      "automated_browser": {
+        "status": "BLOCKED",
+        "tested_sha": "24f630a6f9d9793cd816bda9fb84dbd6d531c24f",
+        "timestamp": "2026-10-20T21:39:18Z",
+        "command": "node tools/run-browser-tests.cjs",
+        "artifact": "docs/release-evidence/batch-699-browser-preflight.json",
+        "failure_evidence": null,
+        "blocking_reason": "Playwright Chromium does not support the Android/Termux Node runtime; native Android browsers have no usable ADB/DevTools or UI automation bridge in this environment."
+      },
+      "human_tester": {
+        "status": "NOT_RUN",
+        "timestamp": null,
+        "build_sha": null,
+        "environment": null,
+        "failure_evidence": null,
+        "blocking_reason": "No genuine human tester execution has been recorded."
+      },
+      "failure_evidence": null,
+      "blocking_reason": "Browser rendering remains blocked; human acceptance remains not run."
+    },
+    {
+      "id": "MVP-03",
+      "precondition": "Active practice question",
+      "action": "Select one answer, press **Submit answer**, read feedback, then choose **Next Question**",
+      "automated_coverage": "Answer selection state, feedback, keyboard focus, and next-question flow",
+      "expected_behavior": "Selection is visible; response, feedback, and next item are clear",
+      "failure_signal": "Lost selection, duplicate/skip, hidden feedback, or stuck navigation",
+      "recorded_at": "2026-10-20T21:39:18Z",
+      "build_sha": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+      "environment": {
+        "http": "Termux on Android arm64; isolated PHP HTTP fixtures; PHP 8.5.1; 512 MiB used for full-bank tests when required.",
+        "browser": "Termux Android runtime; Node 26.4.0 (android/arm64); Playwright Chromium not executable.",
+        "human": "NOT_RUN; no tester device or browser session was supplied."
+      },
+      "automated_http": {
+        "status": "PASS",
+        "tested_sha": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+        "execution_window_utc": "2026-10-20T21:32:23Z/2026-10-20T21:38:55Z",
+        "tests": [
+          {
+            "test": "tools/Tests/TenBoardLearnerJourneyHttpTest.php",
+            "result": "PASS",
+            "tested_sha": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+            "evidence_note": "Command completed successfully in the Batch 699 worktree."
+          },
+          {
+            "test": "tools/Tests/ExamSimulationHttpTest.php",
+            "result": "PASS",
+            "tested_sha": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+            "evidence_note": "Command completed successfully in the Batch 699 worktree."
+          }
+        ],
+        "limitation": null
+      },
+      "supplemental_static_view": {
+        "status": "NOT_APPLICABLE",
+        "test": null,
+        "assertions": null,
+        "tested_sha": null,
+        "limitation": null
+      },
+      "automated_browser": {
+        "status": "BLOCKED",
+        "tested_sha": "24f630a6f9d9793cd816bda9fb84dbd6d531c24f",
+        "timestamp": "2026-10-20T21:39:18Z",
+        "command": "node tools/run-browser-tests.cjs",
+        "artifact": "docs/release-evidence/batch-699-browser-preflight.json",
+        "failure_evidence": null,
+        "blocking_reason": "Playwright Chromium does not support the Android/Termux Node runtime; native Android browsers have no usable ADB/DevTools or UI automation bridge in this environment."
+      },
+      "human_tester": {
+        "status": "NOT_RUN",
+        "timestamp": null,
+        "build_sha": null,
+        "environment": null,
+        "failure_evidence": null,
+        "blocking_reason": "No genuine human tester execution has been recorded."
+      },
+      "failure_evidence": null,
+      "blocking_reason": "Browser rendering remains blocked; human acceptance remains not run."
+    },
+    {
+      "id": "MVP-04",
+      "precondition": "Active practice attempt",
+      "action": "Complete the attempt with **Finish Quiz**; inspect score, denominator, explanations, and missed-answer review",
+      "automated_coverage": "Result score, answer review, explanation, and result navigation",
+      "expected_behavior": "Result reflects submitted answers and offers usable review",
+      "failure_signal": "Incorrect score/denominator, missing explanation, or dead-end result",
+      "recorded_at": "2026-10-20T21:39:18Z",
+      "build_sha": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+      "environment": {
+        "http": "Termux on Android arm64; isolated PHP HTTP fixtures; PHP 8.5.1; 512 MiB used for full-bank tests when required.",
+        "browser": "Termux Android runtime; Node 26.4.0 (android/arm64); Playwright Chromium not executable.",
+        "human": "NOT_RUN; no tester device or browser session was supplied."
+      },
+      "automated_http": {
+        "status": "PASS",
+        "tested_sha": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+        "execution_window_utc": "2026-10-20T21:32:23Z/2026-10-20T21:38:55Z",
+        "tests": [
+          {
+            "test": "tools/Tests/TenBoardLearnerJourneyHttpTest.php",
+            "result": "PASS",
+            "tested_sha": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+            "evidence_note": "Command completed successfully in the Batch 699 worktree."
+          },
+          {
+            "test": "tools/Tests/QuizCompletionHttpTest.php",
+            "result": "PASS",
+            "tested_sha": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+            "evidence_note": "Command completed successfully in the Batch 699 worktree."
+          }
+        ],
+        "limitation": null
+      },
+      "supplemental_static_view": {
+        "status": "NOT_APPLICABLE",
+        "test": null,
+        "assertions": null,
+        "tested_sha": null,
+        "limitation": null
+      },
+      "automated_browser": {
+        "status": "BLOCKED",
+        "tested_sha": "24f630a6f9d9793cd816bda9fb84dbd6d531c24f",
+        "timestamp": "2026-10-20T21:39:18Z",
+        "command": "node tools/run-browser-tests.cjs",
+        "artifact": "docs/release-evidence/batch-699-browser-preflight.json",
+        "failure_evidence": null,
+        "blocking_reason": "Playwright Chromium does not support the Android/Termux Node runtime; native Android browsers have no usable ADB/DevTools or UI automation bridge in this environment."
+      },
+      "human_tester": {
+        "status": "NOT_RUN",
+        "timestamp": null,
+        "build_sha": null,
+        "environment": null,
+        "failure_evidence": null,
+        "blocking_reason": "No genuine human tester execution has been recorded."
+      },
+      "failure_evidence": null,
+      "blocking_reason": "Browser rendering remains blocked; human acceptance remains not run."
+    },
+    {
+      "id": "MVP-05",
+      "precondition": "Completed attempt",
+      "action": "Refresh/reopen the result; visit Quiz history, Progress, Study Dashboard, Study materials, Flashcards, and Data and privacy",
+      "automated_coverage": "Result revisit, history/progress navigation, study and privacy routes",
+      "expected_behavior": "One attempt remains consistent across learner pages",
+      "failure_signal": "Attempt disappears, duplicates, or disagrees across pages",
+      "recorded_at": "2026-10-20T21:39:18Z",
+      "build_sha": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+      "environment": {
+        "http": "Termux on Android arm64; isolated PHP HTTP fixtures; PHP 8.5.1; 512 MiB used for full-bank tests when required.",
+        "browser": "Termux Android runtime; Node 26.4.0 (android/arm64); Playwright Chromium not executable.",
+        "human": "NOT_RUN; no tester device or browser session was supplied."
+      },
+      "automated_http": {
+        "status": "PASS",
+        "tested_sha": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+        "execution_window_utc": "2026-10-20T21:32:23Z/2026-10-20T21:38:55Z",
+        "tests": [
+          {
+            "test": "tools/Tests/TenBoardLearnerJourneyHttpTest.php",
+            "result": "PASS",
+            "tested_sha": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+            "evidence_note": "Command completed successfully in the Batch 699 worktree."
+          },
+          {
+            "test": "tools/Tests/GuidedLearningJourneyHttpTest.php",
+            "result": "PASS",
+            "tested_sha": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+            "evidence_note": "Command completed successfully in the Batch 699 worktree."
+          },
+          {
+            "test": "tools/Tests/AnonymousLearnerPrivacyHttpTest.php",
+            "result": "PASS",
+            "tested_sha": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+            "evidence_note": "Command completed successfully in the Batch 699 worktree."
+          }
+        ],
+        "limitation": null
+      },
+      "supplemental_static_view": {
+        "status": "NOT_APPLICABLE",
+        "test": null,
+        "assertions": null,
+        "tested_sha": null,
+        "limitation": null
+      },
+      "automated_browser": {
+        "status": "BLOCKED",
+        "tested_sha": "24f630a6f9d9793cd816bda9fb84dbd6d531c24f",
+        "timestamp": "2026-10-20T21:39:18Z",
+        "command": "node tools/run-browser-tests.cjs",
+        "artifact": "docs/release-evidence/batch-699-browser-preflight.json",
+        "failure_evidence": null,
+        "blocking_reason": "Playwright Chromium does not support the Android/Termux Node runtime; native Android browsers have no usable ADB/DevTools or UI automation bridge in this environment."
+      },
+      "human_tester": {
+        "status": "NOT_RUN",
+        "timestamp": null,
+        "build_sha": null,
+        "environment": null,
+        "failure_evidence": null,
+        "blocking_reason": "No genuine human tester execution has been recorded."
+      },
+      "failure_evidence": null,
+      "blocking_reason": "Browser rendering remains blocked; human acceptance remains not run."
+    },
+    {
+      "id": "MVP-06",
+      "precondition": "`/quiz?exam=LET`; fresh session or after MVP-05",
+      "action": "Choose **Exam simulation**, try both timer choices, answer and skip questions, review, change one answer, and submit",
+      "automated_coverage": "Timer resume/expiry, answer review, unanswered scoring, and exact-once result",
+      "expected_behavior": "Timer and answers persist; unanswered items are clear; wording separates the simulator from the official exam",
+      "failure_signal": "Timer resets, answer loss, premature feedback, wrong result, or official-exam implication",
+      "recorded_at": "2026-10-20T21:39:18Z",
+      "build_sha": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+      "environment": {
+        "http": "Termux on Android arm64; isolated PHP HTTP fixtures; PHP 8.5.1; 512 MiB used for full-bank tests when required.",
+        "browser": "Termux Android runtime; Node 26.4.0 (android/arm64); Playwright Chromium not executable.",
+        "human": "NOT_RUN; no tester device or browser session was supplied."
+      },
+      "automated_http": {
+        "status": "PASS",
+        "tested_sha": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+        "execution_window_utc": "2026-10-20T21:32:23Z/2026-10-20T21:38:55Z",
+        "tests": [
+          {
+            "test": "tools/Tests/ExamSimulationHttpTest.php",
+            "result": "PASS",
+            "tested_sha": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+            "evidence_note": "Command completed successfully in the Batch 699 worktree."
+          }
+        ],
+        "limitation": null
+      },
+      "supplemental_static_view": {
+        "status": "NOT_APPLICABLE",
+        "test": null,
+        "assertions": null,
+        "tested_sha": null,
+        "limitation": null
+      },
+      "automated_browser": {
+        "status": "BLOCKED",
+        "tested_sha": "24f630a6f9d9793cd816bda9fb84dbd6d531c24f",
+        "timestamp": "2026-10-20T21:39:18Z",
+        "command": "node tools/run-browser-tests.cjs",
+        "artifact": "docs/release-evidence/batch-699-browser-preflight.json",
+        "failure_evidence": null,
+        "blocking_reason": "Playwright Chromium does not support the Android/Termux Node runtime; native Android browsers have no usable ADB/DevTools or UI automation bridge in this environment."
+      },
+      "human_tester": {
+        "status": "NOT_RUN",
+        "timestamp": null,
+        "build_sha": null,
+        "environment": null,
+        "failure_evidence": null,
+        "blocking_reason": "No genuine human tester execution has been recorded."
+      },
+      "failure_evidence": null,
+      "blocking_reason": "Browser rendering remains blocked; human acceptance remains not run."
+    },
+    {
+      "id": "MVP-07",
+      "precondition": "Completed result from MVP-05",
+      "action": "Complete a second practice attempt; revisit Quiz history and the first result",
+      "automated_coverage": "Ten-board practice completion, retry, persistence, and learner isolation",
+      "expected_behavior": "Two distinct attempts appear and the first result stays unchanged",
+      "failure_signal": "First attempt is replaced, duplicated, or altered",
+      "recorded_at": "2026-10-20T21:39:18Z",
+      "build_sha": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+      "environment": {
+        "http": "Termux on Android arm64; isolated PHP HTTP fixtures; PHP 8.5.1; 512 MiB used for full-bank tests when required.",
+        "browser": "Termux Android runtime; Node 26.4.0 (android/arm64); Playwright Chromium not executable.",
+        "human": "NOT_RUN; no tester device or browser session was supplied."
+      },
+      "automated_http": {
+        "status": "PASS",
+        "tested_sha": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+        "execution_window_utc": "2026-10-20T21:32:23Z/2026-10-20T21:38:55Z",
+        "tests": [
+          {
+            "test": "tools/Tests/TenBoardLearnerJourneyHttpTest.php",
+            "result": "PASS",
+            "tested_sha": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+            "evidence_note": "Command completed successfully in the Batch 699 worktree."
+          },
+          {
+            "test": "tools/Tests/QuizCompletionHttpTest.php",
+            "result": "PASS",
+            "tested_sha": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+            "evidence_note": "Command completed successfully in the Batch 699 worktree."
+          }
+        ],
+        "limitation": null
+      },
+      "supplemental_static_view": {
+        "status": "NOT_APPLICABLE",
+        "test": null,
+        "assertions": null,
+        "tested_sha": null,
+        "limitation": null
+      },
+      "automated_browser": {
+        "status": "BLOCKED",
+        "tested_sha": "24f630a6f9d9793cd816bda9fb84dbd6d531c24f",
+        "timestamp": "2026-10-20T21:39:18Z",
+        "command": "node tools/run-browser-tests.cjs",
+        "artifact": "docs/release-evidence/batch-699-browser-preflight.json",
+        "failure_evidence": null,
+        "blocking_reason": "Playwright Chromium does not support the Android/Termux Node runtime; native Android browsers have no usable ADB/DevTools or UI automation bridge in this environment."
+      },
+      "human_tester": {
+        "status": "NOT_RUN",
+        "timestamp": null,
+        "build_sha": null,
+        "environment": null,
+        "failure_evidence": null,
+        "blocking_reason": "No genuine human tester execution has been recorded."
+      },
+      "failure_evidence": null,
+      "blocking_reason": "Browser rendering remains blocked; human acceptance remains not run."
+    },
+    {
+      "id": "MVP-08",
+      "precondition": "Active attempt with one answer submitted",
+      "action": "Refresh, use browser Back/Forward, revisit the question, and retry Submit/Finish only when the UI offers a safe action",
+      "automated_coverage": "Session resume, duplicate/stale action protection, and lifecycle recovery",
+      "expected_behavior": "Active state recovers or gives a clear safe return without a duplicate attempt",
+      "failure_signal": "Lost/corrupt state, accidental duplicate, or unrecoverable dead end",
+      "recorded_at": "2026-10-20T21:39:18Z",
+      "build_sha": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+      "environment": {
+        "http": "Termux on Android arm64; isolated PHP HTTP fixtures; PHP 8.5.1; 512 MiB used for full-bank tests when required.",
+        "browser": "Termux Android runtime; Node 26.4.0 (android/arm64); Playwright Chromium not executable.",
+        "human": "NOT_RUN; no tester device or browser session was supplied."
+      },
+      "automated_http": {
+        "status": "PASS",
+        "tested_sha": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+        "execution_window_utc": "2026-10-20T21:32:23Z/2026-10-20T21:38:55Z",
+        "tests": [
+          {
+            "test": "tools/Tests/QuizExperienceResilienceTest.php",
+            "result": "PASS",
+            "tested_sha": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+            "evidence_note": "Command completed successfully in the Batch 699 worktree."
+          },
+          {
+            "test": "tools/Tests/QuizSessionResilienceTest.php",
+            "result": "PASS",
+            "tested_sha": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+            "evidence_note": "Command completed successfully in the Batch 699 worktree."
+          },
+          {
+            "test": "tools/Tests/ExamSimulationHttpTest.php",
+            "result": "PASS",
+            "tested_sha": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+            "evidence_note": "Command completed successfully in the Batch 699 worktree."
+          }
+        ],
+        "limitation": null
+      },
+      "supplemental_static_view": {
+        "status": "NOT_APPLICABLE",
+        "test": null,
+        "assertions": null,
+        "tested_sha": null,
+        "limitation": null
+      },
+      "automated_browser": {
+        "status": "BLOCKED",
+        "tested_sha": "24f630a6f9d9793cd816bda9fb84dbd6d531c24f",
+        "timestamp": "2026-10-20T21:39:18Z",
+        "command": "node tools/run-browser-tests.cjs",
+        "artifact": "docs/release-evidence/batch-699-browser-preflight.json",
+        "failure_evidence": null,
+        "blocking_reason": "Playwright Chromium does not support the Android/Termux Node runtime; native Android browsers have no usable ADB/DevTools or UI automation bridge in this environment."
+      },
+      "human_tester": {
+        "status": "NOT_RUN",
+        "timestamp": null,
+        "build_sha": null,
+        "environment": null,
+        "failure_evidence": null,
+        "blocking_reason": "No genuine human tester execution has been recorded."
+      },
+      "failure_evidence": null,
+      "blocking_reason": "Browser rendering remains blocked; human acceptance remains not run."
+    },
+    {
+      "id": "MVP-09",
+      "precondition": "Completed attempt; browser history available",
+      "action": "Use Back to revisit a stale question/result action; inspect unavailable-content recovery",
+      "automated_coverage": "Stale action revalidation, invalid-action alert, and safe recovery route",
+      "expected_behavior": "Stale action is rejected safely with a clear recovery path",
+      "failure_signal": "Stale request changes history/progress or creates a false result",
+      "recorded_at": "2026-10-20T21:39:18Z",
+      "build_sha": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+      "environment": {
+        "http": "Termux on Android arm64; isolated PHP HTTP fixtures; PHP 8.5.1; 512 MiB used for full-bank tests when required.",
+        "browser": "Termux Android runtime; Node 26.4.0 (android/arm64); Playwright Chromium not executable.",
+        "human": "NOT_RUN; no tester device or browser session was supplied."
+      },
+      "automated_http": {
+        "status": "PASS",
+        "tested_sha": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+        "execution_window_utc": "2026-10-20T21:32:23Z/2026-10-20T21:38:55Z",
+        "tests": [
+          {
+            "test": "tools/Tests/QuizExperienceResilienceTest.php",
+            "result": "PASS",
+            "tested_sha": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+            "evidence_note": "Command completed successfully in the Batch 699 worktree."
+          },
+          {
+            "test": "tools/Tests/TenBoardLearnerJourneyHttpTest.php",
+            "result": "PASS",
+            "tested_sha": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+            "evidence_note": "Command completed successfully in the Batch 699 worktree."
+          }
+        ],
+        "limitation": null
+      },
+      "supplemental_static_view": {
+        "status": "NOT_APPLICABLE",
+        "test": null,
+        "assertions": null,
+        "tested_sha": null,
+        "limitation": null
+      },
+      "automated_browser": {
+        "status": "BLOCKED",
+        "tested_sha": "24f630a6f9d9793cd816bda9fb84dbd6d531c24f",
+        "timestamp": "2026-10-20T21:39:18Z",
+        "command": "node tools/run-browser-tests.cjs",
+        "artifact": "docs/release-evidence/batch-699-browser-preflight.json",
+        "failure_evidence": null,
+        "blocking_reason": "Playwright Chromium does not support the Android/Termux Node runtime; native Android browsers have no usable ADB/DevTools or UI automation bridge in this environment."
+      },
+      "human_tester": {
+        "status": "NOT_RUN",
+        "timestamp": null,
+        "build_sha": null,
+        "environment": null,
+        "failure_evidence": null,
+        "blocking_reason": "No genuine human tester execution has been recorded."
+      },
+      "failure_evidence": null,
+      "blocking_reason": "Browser rendering remains blocked; human acceptance remains not run."
+    },
+    {
+      "id": "MVP-10",
+      "precondition": "Fresh isolated session; no content edits",
+      "action": "Request the no-match LET topic, open invalid quiz action, and inspect empty flashcard review",
+      "automated_coverage": "Empty flashcard state, invalid-action alert, 404 recovery, and short-pool safeguards",
+      "expected_behavior": "Clear recovery is offered; no blank, stale, or fabricated quiz appears",
+      "failure_signal": "Blank/error detail, wrong-board content, or no way back to valid choices",
+      "recorded_at": "2026-10-20T21:39:18Z",
+      "build_sha": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+      "environment": {
+        "http": "Termux on Android arm64; isolated PHP HTTP fixtures; PHP 8.5.1; 512 MiB used for full-bank tests when required.",
+        "browser": "Termux Android runtime; Node 26.4.0 (android/arm64); Playwright Chromium not executable.",
+        "human": "NOT_RUN; no tester device or browser session was supplied."
+      },
+      "automated_http": {
+        "status": "PASS",
+        "tested_sha": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+        "execution_window_utc": "2026-10-20T21:32:23Z/2026-10-20T21:38:55Z",
+        "tests": [
+          {
+            "test": "tools/Tests/QuizStartFailureHttpTest.php",
+            "result": "PASS",
+            "tested_sha": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+            "evidence_note": "Command completed successfully in the Batch 699 worktree."
+          },
+          {
+            "test": "tools/Tests/QuestionSelectionScopeRegressionTest.php",
+            "result": "PASS",
+            "tested_sha": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+            "evidence_note": "Command completed successfully in the Batch 699 worktree."
+          },
+          {
+            "test": "tools/Tests/FlashcardHttpTest.php",
+            "result": "PASS",
+            "tested_sha": "6550ef1cc39d4d7d13d44f0b413442bb36df7a07",
+            "evidence_note": "Batch 698 committed results; application code is unchanged at Batch 699."
+          }
+        ],
+        "limitation": null
+      },
+      "supplemental_static_view": {
+        "status": "NOT_APPLICABLE",
+        "test": null,
+        "assertions": null,
+        "tested_sha": null,
+        "limitation": null
+      },
+      "automated_browser": {
+        "status": "BLOCKED",
+        "tested_sha": "24f630a6f9d9793cd816bda9fb84dbd6d531c24f",
+        "timestamp": "2026-10-20T21:39:18Z",
+        "command": "node tools/run-browser-tests.cjs",
+        "artifact": "docs/release-evidence/batch-699-browser-preflight.json",
+        "failure_evidence": null,
+        "blocking_reason": "Playwright Chromium does not support the Android/Termux Node runtime; native Android browsers have no usable ADB/DevTools or UI automation bridge in this environment."
+      },
+      "human_tester": {
+        "status": "NOT_RUN",
+        "timestamp": null,
+        "build_sha": null,
+        "environment": null,
+        "failure_evidence": null,
+        "blocking_reason": "No genuine human tester execution has been recorded."
+      },
+      "failure_evidence": null,
+      "blocking_reason": "Browser rendering remains blocked; human acceptance remains not run."
+    },
+    {
+      "id": "MVP-11",
+      "precondition": "Android phone; portrait",
+      "action": "Open Exams, Study, Practice, Flashcards, a completed Result, History, Progress, and Privacy; tap menu, answer choices, buttons, and deletion confirmation",
+      "automated_coverage": "Five viewport targets, page overflow, clipped controls, primary target sizing, and privacy controls",
+      "expected_behavior": "No clipped primary control or unexpected horizontal page scroll; touch actions are controllable",
+      "failure_signal": "Clipping, overlap, accidental submit, or unusable touch target",
+      "recorded_at": "2026-10-20T21:39:18Z",
+      "build_sha": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+      "environment": {
+        "http": "Termux on Android arm64; isolated PHP HTTP fixtures; PHP 8.5.1; 512 MiB used for full-bank tests when required.",
+        "browser": "Termux Android runtime; Node 26.4.0 (android/arm64); Playwright Chromium not executable.",
+        "human": "NOT_RUN; no tester device or browser session was supplied."
+      },
+      "automated_http": {
+        "status": "PASS",
+        "tested_sha": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+        "execution_window_utc": "2026-10-20T21:32:23Z/2026-10-20T21:38:55Z",
+        "tests": [
+          {
+            "test": "tools/Tests/TenBoardLearnerJourneyHttpTest.php",
+            "result": "PASS",
+            "tested_sha": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+            "evidence_note": "Command completed successfully in the Batch 699 worktree."
+          },
+          {
+            "test": "tools/Tests/GuidedLearningJourneyHttpTest.php",
+            "result": "PASS",
+            "tested_sha": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+            "evidence_note": "Command completed successfully in the Batch 699 worktree."
+          }
+        ],
+        "limitation": "HTTP and static view contracts passed; no viewport rendering or touch interaction was executed."
+      },
+      "supplemental_static_view": {
+        "status": "PASS",
+        "test": "tools/Tests/LearnerMobileAccessibilityViewTest.php",
+        "assertions": 18,
+        "tested_sha": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+        "limitation": "Static template assertions do not establish rendered layout, touchscreen operation, keyboard traversal, or assistive-technology behavior."
+      },
+      "automated_browser": {
+        "status": "BLOCKED",
+        "tested_sha": "24f630a6f9d9793cd816bda9fb84dbd6d531c24f",
+        "timestamp": "2026-10-20T21:39:18Z",
+        "command": "node tools/run-browser-tests.cjs",
+        "artifact": "docs/release-evidence/batch-699-browser-preflight.json",
+        "failure_evidence": null,
+        "blocking_reason": "Playwright Chromium does not support the Android/Termux Node runtime; native Android browsers have no usable ADB/DevTools or UI automation bridge in this environment."
+      },
+      "human_tester": {
+        "status": "NOT_RUN",
+        "timestamp": null,
+        "build_sha": null,
+        "environment": null,
+        "failure_evidence": null,
+        "blocking_reason": "No genuine human tester execution has been recorded."
+      },
+      "failure_evidence": null,
+      "blocking_reason": "Browser rendering remains blocked; human acceptance remains not run."
+    },
+    {
+      "id": "MVP-12",
+      "precondition": "Keyboard available; learner page",
+      "action": "Use keyboard through navigation, quiz settings/choices, answer submission, flashcards, and privacy confirmation; inspect focus, labels, headings, and errors",
+      "automated_coverage": "Chromium focus visibility, browser DOM roles/names, form labels, and status/error semantics",
+      "expected_behavior": "Focus order and announcements are understandable; controls work with the available input method",
+      "failure_signal": "Keyboard trap, invisible focus, unlabeled control, or silent validation failure",
+      "recorded_at": "2026-10-20T21:39:18Z",
+      "build_sha": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+      "environment": {
+        "http": "Termux on Android arm64; isolated PHP HTTP fixtures; PHP 8.5.1; 512 MiB used for full-bank tests when required.",
+        "browser": "Termux Android runtime; Node 26.4.0 (android/arm64); Playwright Chromium not executable.",
+        "human": "NOT_RUN; no tester device or browser session was supplied."
+      },
+      "automated_http": {
+        "status": "NOT_APPLICABLE",
+        "tested_sha": null,
+        "execution_window_utc": "2026-10-20T21:32:23Z/2026-10-20T21:38:55Z",
+        "tests": [],
+        "limitation": "Keyboard interaction is a browser modality; static view semantics are reported separately."
+      },
+      "supplemental_static_view": {
+        "status": "PASS",
+        "test": "tools/Tests/LearnerMobileAccessibilityViewTest.php",
+        "assertions": 18,
+        "tested_sha": "d9c628ab23b0e8f7520ca1f43564f1cc968dbac7",
+        "limitation": "Static template assertions do not establish rendered layout, touchscreen operation, keyboard traversal, or assistive-technology behavior."
+      },
+      "automated_browser": {
+        "status": "BLOCKED",
+        "tested_sha": "24f630a6f9d9793cd816bda9fb84dbd6d531c24f",
+        "timestamp": "2026-10-20T21:39:18Z",
+        "command": "node tools/run-browser-tests.cjs",
+        "artifact": "docs/release-evidence/batch-699-browser-preflight.json",
+        "failure_evidence": null,
+        "blocking_reason": "Playwright Chromium does not support the Android/Termux Node runtime; native Android browsers have no usable ADB/DevTools or UI automation bridge in this environment."
+      },
+      "human_tester": {
+        "status": "NOT_RUN",
+        "timestamp": null,
+        "build_sha": null,
+        "environment": null,
+        "failure_evidence": null,
+        "blocking_reason": "No genuine human tester execution has been recorded."
+      },
+      "failure_evidence": null,
+      "blocking_reason": "Browser rendering remains blocked; human acceptance remains not run."
+    }
+  ],
+  "open_gates": [
+    {
+      "id": "academic-review",
+      "requirement": "Independent academic review and source traceability",
+      "owner": "Independent subject-matter reviewer",
+      "status": "PENDING / REVIEW",
+      "closure_criteria": "Review lesson/question scope and source traceability against authoritative evidence; record reviewer, sources, disposition, and date. Keep partial-coverage wording until approved."
+    },
+    {
+      "id": "batch-695-276",
+      "requirement": "Batch 695 pending 276 questions",
+      "owner": "Independent academic reviewers",
+      "status": "PENDING",
+      "closure_criteria": "Review on batch-695-academic-review using its existing review workflow; preserve identities and manifest; do not merge until approvals are recorded."
+    },
+    {
+      "id": "human-mvp-01-12",
+      "requirement": "Twelve human acceptance cases",
+      "owner": "Actual alpha testers and owner reviewing reports",
+      "status": "NOT_RUN",
+      "closure_criteria": "Run all twelve canonical cases on a real user device; record case, exact build SHA, browser/device, observed result, notes, and sanitized evidence. Human outcomes stay separate from automation."
+    },
+    {
+      "id": "physical-android",
+      "requirement": "Physical Android rendering and touch behavior",
+      "owner": "Android tester",
+      "status": "NOT_RUN",
+      "closure_criteria": "Use the same-device loopback guide on Android Chrome; record model, Android version, Chrome version, actual viewport, and real touch outcomes. Do not infer from desktop emulation."
+    },
+    {
+      "id": "privacy-terms",
+      "requirement": "Approved deployed privacy terms",
+      "owner": "Owner / legal reviewer",
+      "status": "AWAITING_OWNER_APPROVAL",
+      "closure_criteria": "Approve the exact deployed notice; attach reviewer and date; describe only verified collection, use, retention, and deletion limits."
+    },
+    {
+      "id": "operator-contact",
+      "requirement": "Operator identity and monitored learner contact",
+      "owner": "Owner",
+      "status": "AWAITING_OWNER_APPROVAL",
+      "closure_criteria": "Name responsible operating person/entity and a monitored support/deletion contact the owner can service."
+    },
+    {
+      "id": "retention-deletion",
+      "requirement": "Retention and deletion scope",
+      "owner": "Owner with hosting provider",
+      "status": "AWAITING_OWNER_APPROVAL",
+      "closure_criteria": "Document application/session expiry, logs, backup expiry, external copies, and deletion exclusions; verify live deletion scope."
+    },
+    {
+      "id": "hosting-provider",
+      "requirement": "Provider, region, private storage and backup safeguards",
+      "owner": "Owner / provider",
+      "status": "NOT_VERIFIED",
+      "closure_criteria": "Record provider, region, PHP/runtime extensions, document-root separation, writable-path permissions, storage driver, logging, backup access/retention, and isolated restore evidence."
+    },
+    {
+      "id": "https-cookies",
+      "requirement": "Live HTTPS and secure session cookie behavior",
+      "owner": "Owner / hosting provider",
+      "status": "NOT_VERIFIED",
+      "closure_criteria": "On selected host verify valid HTTPS/renewal, trusted proxy configuration, redirect behavior, and Secure/HttpOnly/SameSite=Lax cookies."
+    },
+    {
+      "id": "hosted-exact-sha",
+      "requirement": "Hosted exact-commit CI, smoke, browser, and explorer evidence",
+      "owner": "Release owner after deliberate publication",
+      "status": "NOT_RUN",
+      "closure_criteria": "Publish only the approved candidate, then collect Doctor, preflight/smoke, ten-board, security/privacy, browser, and explorer results all matching the same full SHA."
+    },
+    {
+      "id": "product-readiness",
+      "requirement": "Product launch gate",
+      "owner": "Owner and readiness evidence reviewers",
+      "status": "NO",
+      "closure_criteria": "Resolve every mandatory human, deployment, privacy, browser, board-journey, and owner-evidence item in the canonical Product Readiness gate."
+    }
+  ],
+  "notes": [
+    "HTTP assertions and browser execution are separate evidence. A browser BLOCKED result does not invalidate a passing HTTP check or become a human pass.",
+    "Batch 698 evidence is preserved. Flashcard HTTP coverage is reused at its recorded source SHA 6550ef1cc39d4d7d13d44f0b413442bb36df7a07; B698 also smoke-tested the d9c628a preview.",
+    "The 18 static accessibility/view contracts do not verify rendered viewports, Android touch, interactive keyboard traversal, screen readers, or WCAG conformance."
+  ]
+}

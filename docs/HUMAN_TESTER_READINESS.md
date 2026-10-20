@@ -76,10 +76,13 @@ cookies, or learner records.
 
 This local run does not test live HTTPS, a hosting provider, approved privacy
 terms, or screen-reader behavior. Playwright is a separate desktop/CI run
-(`npm ci`, then `npm run test:browser`); the Android Termux Node runtime cannot
-launch its Chromium binary. Use supported desktop/CI for automated browser
-checks and the same-device Chrome preview for human phone checks. Playwright is
-not human acceptance, TalkBack acceptance, or WCAG conformance.
+(`npm ci`, `npm run test:browser:preflight`, then `npm run test:browser`). The
+Batch 699 Termux runtime cannot launch Playwright Chromium. Android Chrome is
+installed on the phone, but this Termux session has no ADB/DevTools or usable
+UI automation bridge; the browser must be opened manually for human testing.
+Use supported desktop/CI for rendered automated checks and the same-device
+Chrome preview for real phone checks. Playwright is not human acceptance,
+TalkBack acceptance, or WCAG conformance.
 
 ## Six short stages
 
@@ -115,9 +118,10 @@ not human acceptance, TalkBack acceptance, or WCAG conformance.
 
 MVP-06 uses five questions because that is the smallest count exposed by the
 settings page; older instructions to start a three-question quiz did not match
-the UI. On mobile, inspect all five targets used by automation: `320x640`,
-`360x800`, `390x844`, `430x932`, and `768x1024`. Record the phone's actual
-viewport separately from these automated targets.
+the UI. The browser automation targets five mobile/tablet emulations:
+`320x568`, `360x800`, `390x844`, `412x915`, and `768x1024`; its desktop project
+uses `1366x768`. These are desktop-browser emulations. Record the phone's actual
+viewport separately; they are not physical Android test results.
 
 ## Canonical MVP acceptance checklist
 
@@ -137,13 +141,12 @@ bounded assertions; they do not substitute for the listed human judgment.
 | MVP-08 | Active attempt with one answer submitted | Refresh, use browser Back/Forward, revisit the question, and retry Submit/Finish only when the UI offers a safe action | Session resume, duplicate/stale action protection, and lifecycle recovery | `AUTOMATED_STATUS=AUTOMATED_PASS` | Active state recovers or gives a clear safe return without a duplicate attempt | Lost/corrupt state, accidental duplicate, or unrecoverable dead end | `HUMAN_STATUS=NOT_RUN` |
 | MVP-09 | Completed attempt; browser history available | Use Back to revisit a stale question/result action; inspect unavailable-content recovery | Stale action revalidation, invalid-action alert, and safe recovery route | `AUTOMATED_STATUS=AUTOMATED_PASS` | Stale action is rejected safely with a clear recovery path | Stale request changes history/progress or creates a false result | `HUMAN_STATUS=NOT_RUN` |
 | MVP-10 | Fresh isolated session; no content edits | Request the no-match LET topic, open invalid quiz action, and inspect empty flashcard review | Empty flashcard state, invalid-action alert, 404 recovery, and short-pool safeguards | `AUTOMATED_STATUS=AUTOMATED_PASS` | Clear recovery is offered; no blank, stale, or fabricated quiz appears | Blank/error detail, wrong-board content, or no way back to valid choices | `HUMAN_STATUS=NOT_RUN` |
-| MVP-11 | Android phone; portrait | Open Exams, Study, Practice, Flashcards, a completed Result, History, Progress, and Privacy; tap menu, answer choices, buttons, and deletion confirmation | Five viewport targets, page overflow, clipped controls, primary target sizing, and privacy controls | `AUTOMATED_STATUS=BLOCKED` | No clipped primary control or unexpected horizontal page scroll; touch actions are controllable | Clipping, overlap, accidental submit, or unusable touch target | `HUMAN_STATUS=NOT_RUN` |
+| MVP-11 | Android phone; portrait | Open Exams, Study, Practice, Flashcards, a completed Result, History, Progress, and Privacy; tap menu, answer choices, buttons, and deletion confirmation | Five mobile/tablet viewport targets plus desktop, page overflow, clipped controls, primary target sizing, and privacy controls | `AUTOMATED_STATUS=BLOCKED` | No clipped primary control or unexpected horizontal page scroll; touch actions are controllable | Clipping, overlap, accidental submit, or unusable touch target | `HUMAN_STATUS=NOT_RUN` |
 | MVP-12 | Keyboard available; learner page | Use keyboard through navigation, quiz settings/choices, answer submission, flashcards, and privacy confirmation; inspect focus, labels, headings, and errors | Chromium focus visibility, browser DOM roles/names, form labels, and status/error semantics | `AUTOMATED_STATUS=BLOCKED` | Focus order and announcements are understandable; controls work with the available input method | Keyboard trap, invisible focus, unlabeled control, or silent validation failure | `HUMAN_STATUS=NOT_RUN` |
 
 For Batch 698, MVP-01 through MVP-10 have bounded local HTTP and lifecycle
 automation on the source checkpoint recorded below. MVP-11 and MVP-12 remain
-`BLOCKED` for rendered browser checks because this Termux environment has no
-Chromium or Playwright installation. The 18 accessibility view assertions
+`BLOCKED` for rendered browser checks. The 18 accessibility view assertions
 passed, but they do not establish viewport rendering or interactive keyboard
 behavior. The older Batch 689 browser run below is historical and does not
 verify the Batch 698 candidate. Automation cannot change `HUMAN_STATUS`.
@@ -185,6 +188,45 @@ For a failure, record the URL, exact steps, expected and actual results, visible
 message, viewport/device, and a screenshot reference. Add a short recording for
 a mobile/interaction defect when practical. Never attach cookies, credentials,
 or real learner records.
+
+For a confusing or possibly incorrect question/explanation, choose the existing
+`CONTENT_ISSUE` or `CONFUSING_UX` feedback category. Include the board/subject,
+the question reference shown on screen if available, the exact wording that was
+confusing, and what you expected to understand. Do not guess a replacement
+answer or claim academic correction. The Center stores notes and report text,
+not screenshot files; keep any sanitized screenshot in the owner's approved
+private handoff location and put only its reference in the note.
+
+The Android protocol is same-device only: the tester must use the phone running
+Termux and open the printed loopback URL in Android Chrome. The preview binds to
+`127.0.0.1`; do not change it to `0.0.0.0`, forward the port, or expose it to
+the internet. Record the device model, Android version, Chrome version from
+Chrome's About page, and actual viewport. Brave and other installed Android
+browsers have not been tested by this batch.
+
+## Batch 699 browser acceptance record
+
+```text
+APPLICATION_COMMIT=d9c628ab23b0e8f7520ca1f43564f1cc968dbac7
+BROWSER_HARNESS_COMMIT=24f630a6f9d9793cd816bda9fb84dbd6d531c24f
+BROWSER_ACCEPTANCE=BROWSER_BLOCKED
+BROWSER_REASON=Termux Node reports android/arm64; Playwright Chromium does not support this runtime.
+ANDROID_ALTERNATIVE=Android Chrome, Brave, and PI Browser packages are installed, but ADB/DevTools and usable UI automation are unavailable to Termux.
+PREFLIGHT=Node loopback PASS; local server shutdown PASS; driver, Chromium launch, browser navigation, and browser shutdown BLOCKED.
+MOBILE_VIEWPORTS=320x568,360x800,390x844,412x915,768x1024; not rendered in this environment
+DESKTOP_VIEWPORT=1366x768; not rendered in this environment
+SCREENSHOTS=0; CONSOLE_ERRORS=NOT_CAPTURED
+PHYSICAL_ANDROID=NOT_RUN; HUMAN_ACCEPTANCE=NOT_RUN
+```
+
+The exact preflight output is
+[`batch-699-browser-preflight.json`](release-evidence/batch-699-browser-preflight.json).
+The case-by-case HTTP/browser/human evidence and open owner gates are in
+[`batch-699-acceptance-evidence.json`](release-evidence/batch-699-acceptance-evidence.json).
+MVP-01 through MVP-10 received current bounded HTTP/lifecycle checks; their
+browser results remain `BLOCKED`. MVP-11 route/static checks do not establish
+rendering or touch behavior. MVP-12 interactive keyboard behavior was not
+tested. All twelve human statuses remain `NOT_RUN`.
 
 ## Historical Batch 689 automation record
 

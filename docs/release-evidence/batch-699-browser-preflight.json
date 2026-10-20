@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-10-20T21:38:03.739Z",
+  "commit": "24f630a6f9d9793cd816bda9fb84dbd6d531c24f",
+  "tracked_worktree_clean": true,
+  "environment": {
+    "platform": "android",
+    "release": "4.19.152-perf+",
+    "architecture": "arm64",
+    "node": "v26.4.0",
+    "termux": true
+  },
+  "pinned_playwright_version": "1.63.0",
+  "system_browser_candidates": [],
+  "checks": {
+    "node_runtime": {
+      "status": "PASS",
+      "platform": "android",
+      "architecture": "arm64"
+    },
+    "playwright_driver_compatibility": {
+      "status": "BLOCKED",
+      "reason": "The project browser runner supports desktop Node platforms; this runtime reports android/arm64."
+    },
+    "playwright_package": {
+      "status": "BLOCKED",
+      "installed_version": null,
+      "expected_version": "1.63.0",
+      "reason": "Run npm ci on a supported desktop host to install the lockfile-pinned test driver.",
+      "detail": "Cannot find module '@playwright/test/package.json'"
+    },
+    "chromium_executable": {
+      "status": "BLOCKED",
+      "reason": "The Playwright package is unavailable."
+    },
+    "loopback_connectivity": {
+      "status": "PASS",
+      "bind_address": "127.0.0.1"
+    },
+    "browser_launch": {
+      "status": "BLOCKED",
+      "reason": "Platform, pinned driver, or executable precondition is unavailable."
+    },
+    "browser_loopback_navigation": {
+      "status": "BLOCKED",
+      "reason": "No compatible browser could be launched."
+    },
+    "browser_clean_shutdown": {
+      "status": "BLOCKED",
+      "reason": "No compatible browser process was launched."
+    },
+    "loopback_server_shutdown": {
+      "status": "PASS"
+    }
+  },
+  "status": "BLOCKED"
+}
