@@ -63,8 +63,9 @@ try {
     ]);
     $resultHtml = (string) ob_get_clean();
     if (!str_contains($resultHtml, '/study-library?material=let-english-communication-review')
-        || !str_contains($resultHtml, 'English Communication Essentials')) {
-        throw new RuntimeException('Result review did not render the question-linked study material.');
+        || !str_contains($resultHtml, 'Open source reference: English Communication Essentials')
+        || !str_contains($resultHtml, 'it is not a BoardPrep lesson mapping')) {
+        throw new RuntimeException('Result review did not distinguish the question-linked source reference from lesson instruction.');
     }
 
     echo "[PASS] Practice explanations and result review link to the exact published study materials for linked questions.\n";

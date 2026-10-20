@@ -30,13 +30,14 @@ final class QuizStartSessionWriter
         object $specification,
         array $questions,
         array $coverage = [],
-        array $issues = []
+        array $issues = [],
+        array $studyContext = []
     ): void
     {
         self::clear();
         \SessionService::set(
             'quiz_session',
-            QuizStartSessionPayloadFactory::create($specification, $questions, $coverage, $issues)
+            QuizStartSessionPayloadFactory::create($specification, $questions, $coverage, $issues, $studyContext)
         );
         \SessionService::set('questions', $questions);
         \SessionService::set('answers', []);

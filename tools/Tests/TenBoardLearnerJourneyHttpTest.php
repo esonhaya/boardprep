@@ -229,6 +229,20 @@ try {
         if (!$boardHasSubjectQuestion) {
             throw new RuntimeException('Board practice link does not target a fixture-eligible subject for ' . $boardCode . '.');
         }
+        if (!str_contains($detail['output'], '/study-library?exam=' . $boardId . '&amp;subject=' . $subjectId)) {
+            throw new RuntimeException('Board subject selection has no matching study-library destination for ' . $boardCode . '.');
+        }
+        $subjectStudy = $http->request('GET', '/study-library', [
+            'exam' => $boardId,
+            'subject' => $subjectId,
+        ], [], [], $cookies);
+        if (!$subjectStudy['success'] || $subjectStudy['status'] !== 200
+            || str_contains($subjectStudy['output'], 'This board and subject combination is unavailable')
+            || !str_contains($subjectStudy['output'], 'Published lesson availability is partial coverage')) {
+            throw new RuntimeException('Subject-specific study discovery failed for ' . $boardCode . '/' . $subjectId
+                . ': HTTP ' . $subjectStudy['status'] . ', location=' . ($subjectStudy['location'] ?? '')
+                . ', body=' . substr(preg_replace('/\s+/', ' ', strip_tags((string) $subjectStudy['output'])) ?? '', 0, 280));
+        }
 
         $study = $http->request('GET', '/study-library', ['exam' => $boardId], [], [], $cookies);
         if (!$study['success'] || !str_contains($study['output'], 'Study Library · ' . strtoupper($boardId))

@@ -170,6 +170,14 @@ main#main-content:focus{outline:none}
 .ui-performance-row>span{flex:0 0 auto}
 .study-material-card{min-width:0;line-height:1.7}
 .study-material-card h2,.study-material-card h3{overflow-wrap:anywhere}
+.study-material-card,.boardprep-study-lesson,.study-lesson-section{overflow-wrap:anywhere;word-break:normal}
+.study-lesson-context{color:var(--muted);font-weight:700;text-transform:capitalize}
+.study-lesson-toc{margin:16px 0;padding:14px 18px;border:1px solid var(--border);border-radius:var(--radius-md);background:var(--surface-soft,#f7f9fc)}
+.study-lesson-toc h4{margin:0 0 8px}
+.study-lesson-toc ol{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:6px 18px;margin:0;padding-inline-start:22px}
+.study-lesson-section{scroll-margin-top:7rem;min-width:0}
+.study-lesson-section :is(p,li,a){overflow-wrap:anywhere}
+.study-material-card table{display:block;max-width:100%;overflow-x:auto}
 .study-material-notes section{padding:12px 0;border-top:1px solid var(--border)}
 .study-material-notes section:first-child{border-top:0}
 .study-material-card a{overflow-wrap:anywhere}

@@ -25,6 +25,100 @@ final class StudyLibraryService
         return self::enrichMaterials($materials);
     }
 
+    /** @return array<string, array{lesson_count:int,practice_available:bool,resources_available:bool}> */
+    public static function lessonAvailabilityBySubject(string $boardId): array
+    {
+        $publishedMaterials = [];
+        foreach (App::storage()->all('study-materials') as $material) {
+            if (is_array($material) && ($material['status'] ?? 'published') === 'published'
+                && is_scalar($material['id'] ?? null)) {
+                $publishedMaterials[(string) $material['id']] = $material;
+                $taxonomy = is_array($material['taxonomy'] ?? null) ? $material['taxonomy'] : [];
+                $subjectId = strtolower(trim((string) ($taxonomy['subject_id'] ?? '')));
+                if ($subjectId !== '' && self::materialIncludesExam($material, $boardId)) {
+                    $availability[$subjectId] ??= ['lesson_count' => 0, 'practice_available' => false, 'resources_available' => false];
+                    $availability[$subjectId]['resources_available'] = true;
+                }
+            }
+        }
+
+        $availability ??= [];
+        foreach (App::storage()->all('study-lessons') as $lesson) {
+            if (!is_array($lesson) || ($lesson['status'] ?? '') !== 'published'
+                || strtolower(trim((string) ($lesson['board_id'] ?? ''))) !== strtolower(trim($boardId))
+                || !isset($publishedMaterials[(string) ($lesson['material_id'] ?? '')])) {
+                continue;
+            }
+            $subjectId = strtolower(trim((string) ($lesson['subject_id'] ?? '')));
+            if ($subjectId === '') {
+                continue;
+            }
+            $availability[$subjectId] ??= ['lesson_count' => 0, 'practice_available' => false, 'resources_available' => false];
+            $availability[$subjectId]['lesson_count']++;
+            $availability[$subjectId]['resources_available'] = true;
+            $availability[$subjectId]['practice_available'] = $availability[$subjectId]['practice_available']
+                || !empty($lesson['practice_question_ids']);
+        }
+
+        return $availability;
+    }
+
+    private static function materialIncludesExam(array $material, string $boardId): bool
+    {
+        foreach ((array) ($material['exams'] ?? []) as $exam) {
+            if (is_scalar($exam) && self::normalizeExam((string) $exam) === self::normalizeExam($boardId)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /** @return list<string> */
+    public static function practiceQuestionIds(array $material, string $sectionId = ''): array
+    {
+        $lesson = is_array($material['lesson'] ?? null) ? $material['lesson'] : [];
+        if (($lesson['status'] ?? '') !== 'published') {
+            return [];
+        }
+
+        $lessonQuestionIds = [];
+        foreach ((array) ($lesson['practice_question_ids'] ?? []) as $questionId) {
+            if (is_scalar($questionId) && trim((string) $questionId) !== '') {
+                $lessonQuestionIds[(string) $questionId] = true;
+            }
+        }
+        if ($sectionId === '') {
+            return array_keys($lessonQuestionIds);
+        }
+
+        $sectionExists = false;
+        foreach ((array) ($lesson['sections'] ?? []) as $section) {
+            if (is_array($section) && (string) ($section['id'] ?? '') === $sectionId) {
+                $sectionExists = true;
+                break;
+            }
+        }
+        if (!$sectionExists) {
+            return [];
+        }
+
+        $questionIds = [];
+        foreach ((array) ($material['question_links'] ?? []) as $link) {
+            if (!is_array($link)
+                || (string) ($link['section_id'] ?? $link['lesson_section_id'] ?? '') !== $sectionId
+                || (is_scalar($link['lesson_id'] ?? null) && trim((string) $link['lesson_id']) !== ''
+                    && (string) $link['lesson_id'] !== (string) ($lesson['id'] ?? ''))) {
+                continue;
+            }
+            $questionId = is_scalar($link['question_id'] ?? null) ? trim((string) $link['question_id']) : '';
+            if ($questionId !== '' && isset($lessonQuestionIds[$questionId])) {
+                $questionIds[$questionId] = true;
+            }
+        }
+
+        return array_keys($questionIds);
+    }
+
     public static function find(string $id): ?array
     {
         foreach (self::publishedMaterials(App::storage()->all('study-materials')) as $material) {

@@ -10,7 +10,8 @@ final class QuizStartSessionPayloadFactory
         object $specification,
         array $questions,
         array $coverage = [],
-        array $issues = []
+        array $issues = [],
+        array $studyContext = []
     ): array
     {
         $timeLimitMinutes = $specification->mode === 'exam'
@@ -61,6 +62,10 @@ final class QuizStartSessionPayloadFactory
             'blueprint_coverage' => $coverage,
             'blueprint_issues' => $issues,
             'selection_notice' => $selectionNotice,
+            'study_return_url' => is_scalar($studyContext['return_url'] ?? null)
+                && str_starts_with((string) $studyContext['return_url'], '/study-library?material=')
+                ? (string) $studyContext['return_url']
+                : '',
         ];
     }
 }

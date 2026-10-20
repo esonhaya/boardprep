@@ -83,6 +83,7 @@ $router->get(
     [StudyDashboardController::class, "index"]
 );
 $router->get("/study-library", [StudyLibraryController::class, "index"]);
+$router->get("/study-library/practice", [StudyLibraryController::class, "practice"]);
 
 $router->get(
     "/profile",
