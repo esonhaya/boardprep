@@ -10,6 +10,7 @@
   "scripts": {
     "test": "echo \"Use the PHP test suite or npm run test:browser\"",
     "test:browser": "node tools/run-browser-tests.cjs",
+    "test:browser:contract": "node --test tests/browser/browser-ci-contract.test.cjs tests/browser/server-lifecycle.test.cjs",
     "test:browser:preflight": "node tools/browser-preflight.cjs",
     "test:browser:fixture": "node tests/browser/storage-fixture.test.cjs",
     "test:browser:mobile": "node tools/run-browser-tests.cjs --project=mobile",
@@ -35,6 +36,6 @@
   },
   "homepage": "https://github.com/esonhaya/boardprep#readme",
   "devDependencies": {
-    "@playwright/test": "^1.63.0"
+    "@playwright/test": "1.63.0"
   }
 }

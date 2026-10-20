@@ -32,7 +32,7 @@ permissions:
 
 jobs:
   browser:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
@@ -53,17 +53,36 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 22.23.3
           cache: npm
 
       - name: Install JavaScript dependencies
         run: npm ci
+
+      - name: Verify browser CI and evidence contracts
+        run: npm run test:browser:contract
+
+      - name: Run focused learner, privacy, and restore regressions
+        run: |
+          php tools/Tests/BackupManifestPathSafetyTest.php
+          php tools/Tests/ProductionQuizCsrfTest.php
+          php tools/Tests/AnonymousLearnerPrivacyHttpTest.php
+          php tools/Tests/SessionConfigurationTest.php
+          php tools/Tests/SecurityTrustBoundaryTest.php
+          php tools/Tests/FlashcardControllerReadPathTest.php
+          php tools/Tests/FlashcardHttpTest.php
 
       - name: Verify isolated learner storage fixture
         run: npm run test:browser:fixture
 
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
+
+      - name: Verify browser driver, executable, loopback, and shutdown
+        shell: bash
+        run: |
+          set -o pipefail
+          node tools/browser-preflight.cjs | tee "$BOARDPREP_BROWSER_EVIDENCE_DIR/browser-preflight.json"
 
       - name: Run browser acceptance
         run: npm run test:browser
@@ -75,6 +94,10 @@ jobs:
       - name: Collect browser evidence artifacts
         if: always()
         run: node tools/collect-browser-artifacts.cjs
+
+      - name: Write exact-SHA browser provenance
+        if: always()
+        run: node tools/write-browser-ci-manifest.cjs
 
       - name: Upload browser visual and diagnostic artifacts
         if: always()

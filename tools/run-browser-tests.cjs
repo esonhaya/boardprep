@@ -158,6 +158,7 @@ if (exitStatus === 0) {
       && accountExplorer.tested_commit === commit
       && accountScenarioIds.every((id) => accountExplorer.scenarios?.some((item) => item.id === id && item.result === 'PASS'))
       && browserReport.stats?.unexpected === 0
+      && browserReport.stats?.flaky === 0
       && browserReport.stats?.expected > 0
       && !process.argv.includes('--update-snapshots')
       && process.env.VISUAL_REGRESSION !== '1';
@@ -228,5 +229,9 @@ if (exitStatus === 0) {
   }
 }
 
-if (removeEvidenceDirectory) fs.rmSync(evidenceDirectory, { recursive: true, force: true });
+if (removeEvidenceDirectory && exitStatus === 0) {
+  fs.rmSync(evidenceDirectory, { recursive: true, force: true });
+} else if (removeEvidenceDirectory) {
+  console.error(`BROWSER_EVIDENCE_DIR=${evidenceDirectory}`);
+}
 process.exit(exitStatus);

@@ -57,6 +57,10 @@ function cleanMessage(value, limit = 1200) {
   return String(value || '').replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g, '').slice(0, limit);
 }
 
+function summaryStatus(summary) {
+  return summary.failed > 0 || summary.flaky > 0 || summary.not_run > 0 ? 'FAILED' : 'COMPLETED';
+}
+
 function main() {
   const evidenceDirectory = path.resolve(
     process.env.BOARDPREP_BROWSER_EVIDENCE_DIR
@@ -80,7 +84,7 @@ function main() {
     return;
   }
 
-  const status = summary.failed > 0 || summary.not_run > 0 ? 'FAILED' : 'COMPLETED';
+  const status = summaryStatus(summary);
   const lines = [
     '## Browser acceptance assertion summary',
     '',
@@ -99,6 +103,6 @@ function main() {
   if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `\n${output}`);
 }
 
-module.exports = { collectTests, summarize };
+module.exports = { collectTests, summarize, summaryStatus };
 
 if (require.main === module) main();

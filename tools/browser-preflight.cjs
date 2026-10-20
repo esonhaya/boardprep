@@ -11,6 +11,7 @@ const root = path.resolve(__dirname, '..');
 const lock = JSON.parse(fs.readFileSync(path.join(root, 'package-lock.json'), 'utf8'));
 const expectedPlaywright = lock.packages?.['node_modules/@playwright/test']?.version || null;
 const supportedPlatforms = ['linux', 'darwin', 'win32'];
+const termuxRuntime = Boolean(process.env.PREFIX && process.env.PREFIX.includes('/com.termux/'));
 const report = {
   schema_version: 1,
   checked_at: new Date().toISOString(),
@@ -36,7 +37,7 @@ const report = {
     release: os.release(),
     architecture: process.arch,
     node: process.version,
-    termux: Boolean(process.env.PREFIX && process.env.PREFIX.includes('/com.termux/')),
+    termux: termuxRuntime,
   },
   pinned_playwright_version: expectedPlaywright,
   system_browser_candidates: [],
@@ -90,9 +91,9 @@ async function closeServer(server) {
 async function main() {
   const androidRuntime = process.platform === 'android';
   record('node_runtime', 'PASS', { platform: process.platform, architecture: process.arch });
-  if (androidRuntime || !supportedPlatforms.includes(process.platform)) {
+  if (androidRuntime || termuxRuntime || !supportedPlatforms.includes(process.platform)) {
     record('playwright_driver_compatibility', 'BLOCKED', {
-      reason: `The project browser runner supports desktop Node platforms; this runtime reports ${process.platform}/${process.arch}.`,
+      reason: `The project browser runner requires a supported desktop host; this runtime reports ${process.platform}/${process.arch}${termuxRuntime ? ' under Termux' : ''}.`,
     });
   } else {
     record('playwright_driver_compatibility', 'PASS', { platform: process.platform });

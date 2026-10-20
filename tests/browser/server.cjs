@@ -143,25 +143,66 @@ const authPhp = spawn(
 const phpProcesses = [php, developerPhp, authPhp];
 
 let shuttingDown = false;
-function cleanup() {
-  if (shuttingDown) return;
-  shuttingDown = true;
-  for (const phpChild of phpProcesses) if (!phpChild.killed) phpChild.kill('SIGTERM');
-  fs.rmSync(temporaryRoot, { recursive: true, force: true });
+let cleanupPromise = null;
+
+function hasExited(child) {
+  return child.exitCode !== null || child.signalCode !== null;
 }
 
-process.on('SIGINT', () => {
-  cleanup();
-  process.exit(130);
-});
-process.on('SIGTERM', () => {
-  cleanup();
-  process.exit(143);
-});
-process.on('exit', cleanup);
-for (const phpChild of phpProcesses) phpChild.on('exit', (code, signal) => {
-  if (!shuttingDown) {
-    cleanup();
-    process.exit(code ?? (signal ? 1 : 0));
+function exited(child) {
+  if (hasExited(child)) return Promise.resolve();
+  return new Promise((resolve) => child.once('exit', resolve));
+}
+
+async function stopPhpChildren() {
+  let active = phpProcesses.filter((child) => !hasExited(child));
+  if (!active.length) return;
+  const gracefulExits = active.map(exited);
+  for (const child of active) child.kill('SIGTERM');
+  let deadline;
+  await Promise.race([
+    Promise.all(gracefulExits),
+    new Promise((resolve) => { deadline = setTimeout(resolve, 3000); deadline.unref(); }),
+  ]);
+  clearTimeout(deadline);
+
+  active = phpProcesses.filter((child) => !hasExited(child));
+  if (!active.length) return;
+  const forcedExits = active.map(exited);
+  for (const child of active) child.kill('SIGKILL');
+  let forcedDeadline;
+  await Promise.race([
+    Promise.all(forcedExits),
+    new Promise((resolve) => { forcedDeadline = setTimeout(resolve, 1000); forcedDeadline.unref(); }),
+  ]);
+  clearTimeout(forcedDeadline);
+}
+
+function cleanup() {
+  if (cleanupPromise) return cleanupPromise;
+  shuttingDown = true;
+  cleanupPromise = (async () => {
+    await stopPhpChildren();
+    fs.rmSync(temporaryRoot, { recursive: true, force: true });
+  })();
+  return cleanupPromise;
+}
+
+async function shutdown(exitCode) {
+  await cleanup();
+  process.exit(exitCode);
+}
+
+process.once('SIGINT', () => { void shutdown(130); });
+process.once('SIGTERM', () => { void shutdown(143); });
+process.on('exit', () => {
+  // Synchronous fallback for a fatal parent-process exit. Normal shutdown
+  // awaits child termination before this point.
+  if (!cleanupPromise) {
+    for (const child of phpProcesses) if (!hasExited(child)) child.kill('SIGTERM');
+    fs.rmSync(temporaryRoot, { recursive: true, force: true });
   }
+});
+for (const phpChild of phpProcesses) phpChild.on('exit', (code, signal) => {
+  if (!shuttingDown) void shutdown(code ?? (signal ? 1 : 0));
 });
