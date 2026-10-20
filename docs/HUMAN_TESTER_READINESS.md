@@ -27,13 +27,14 @@ while any required human case is `NOT_RUN`, `HUMAN_FAIL`, `BLOCKED`, or
 ## Prepare a test session
 
 For the automated prerequisite, check the latest GitHub Release Gates run and
-its Doctor result for the build SHA under test. The local
-`php tools/doctor.php --simulate` command is optional and is not a human
-acceptance result. In the current Termux environment it exceeded PHP's default
-512 MiB memory limit while constructing an existing Doctor fixture; the
-supported GitHub Doctor release job passed for this build. The Acceptance
-Center launcher creates its own fresh isolated learner fixture. Use a phone in
-portrait orientation for the mobile cases.
+its Doctor result for the exact build SHA under test. Batch 698's local
+candidate source checkpoint `6550ef1cc39d4d7d13d44f0b413442bb36df7a07` passed
+the Full Doctor release; its complete report is
+[`batch-698-doctor-release.json`](reports/batch-698-doctor-release.json). The
+local simulator also passed its storage-isolation check. Neither result is a
+human acceptance result. The Acceptance Center launcher creates its own fresh
+isolated learner fixture. Use a phone in portrait orientation for the mobile
+cases.
 
 The Acceptance Center records the committed build SHA, UTC date, environment,
 browser, detected operating system, and current viewport. Enter a tester alias
@@ -136,13 +137,37 @@ bounded assertions; they do not substitute for the listed human judgment.
 | MVP-08 | Active attempt with one answer submitted | Refresh, use browser Back/Forward, revisit the question, and retry Submit/Finish only when the UI offers a safe action | Session resume, duplicate/stale action protection, and lifecycle recovery | `AUTOMATED_STATUS=AUTOMATED_PASS` | Active state recovers or gives a clear safe return without a duplicate attempt | Lost/corrupt state, accidental duplicate, or unrecoverable dead end | `HUMAN_STATUS=NOT_RUN` |
 | MVP-09 | Completed attempt; browser history available | Use Back to revisit a stale question/result action; inspect unavailable-content recovery | Stale action revalidation, invalid-action alert, and safe recovery route | `AUTOMATED_STATUS=AUTOMATED_PASS` | Stale action is rejected safely with a clear recovery path | Stale request changes history/progress or creates a false result | `HUMAN_STATUS=NOT_RUN` |
 | MVP-10 | Fresh isolated session; no content edits | Request the no-match LET topic, open invalid quiz action, and inspect empty flashcard review | Empty flashcard state, invalid-action alert, 404 recovery, and short-pool safeguards | `AUTOMATED_STATUS=AUTOMATED_PASS` | Clear recovery is offered; no blank, stale, or fabricated quiz appears | Blank/error detail, wrong-board content, or no way back to valid choices | `HUMAN_STATUS=NOT_RUN` |
-| MVP-11 | Android phone; portrait | Open Exams, Study, Practice, Flashcards, a completed Result, History, Progress, and Privacy; tap menu, answer choices, buttons, and deletion confirmation | Five viewport targets, page overflow, clipped controls, primary target sizing, and privacy controls | `AUTOMATED_STATUS=AUTOMATED_PASS` | No clipped primary control or unexpected horizontal page scroll; touch actions are controllable | Clipping, overlap, accidental submit, or unusable touch target | `HUMAN_STATUS=NOT_RUN` |
-| MVP-12 | Keyboard available; learner page | Use keyboard through navigation, quiz settings/choices, answer submission, flashcards, and privacy confirmation; inspect focus, labels, headings, and errors | Chromium focus visibility, browser DOM roles/names, form labels, and status/error semantics | `AUTOMATED_STATUS=AUTOMATED_PASS` | Focus order and announcements are understandable; controls work with the available input method | Keyboard trap, invisible focus, unlabeled control, or silent validation failure | `HUMAN_STATUS=NOT_RUN` |
+| MVP-11 | Android phone; portrait | Open Exams, Study, Practice, Flashcards, a completed Result, History, Progress, and Privacy; tap menu, answer choices, buttons, and deletion confirmation | Five viewport targets, page overflow, clipped controls, primary target sizing, and privacy controls | `AUTOMATED_STATUS=BLOCKED` | No clipped primary control or unexpected horizontal page scroll; touch actions are controllable | Clipping, overlap, accidental submit, or unusable touch target | `HUMAN_STATUS=NOT_RUN` |
+| MVP-12 | Keyboard available; learner page | Use keyboard through navigation, quiz settings/choices, answer submission, flashcards, and privacy confirmation; inspect focus, labels, headings, and errors | Chromium focus visibility, browser DOM roles/names, form labels, and status/error semantics | `AUTOMATED_STATUS=BLOCKED` | Focus order and announcements are understandable; controls work with the available input method | Keyboard trap, invisible focus, unlabeled control, or silent validation failure | `HUMAN_STATUS=NOT_RUN` |
 
-The automated statuses above are populated only by the Batch 689 CI evidence
-recorded below. For later builds, rerun automation and replace each automated
-status with `AUTOMATED_PASS`, `BLOCKED`, `NOT_RUN`, or `NOT_APPLICABLE` with its
-run/build reference. Automation cannot change `HUMAN_STATUS`.
+For Batch 698, MVP-01 through MVP-10 have bounded local HTTP and lifecycle
+automation on the source checkpoint recorded below. MVP-11 and MVP-12 remain
+`BLOCKED` for rendered browser checks because this Termux environment has no
+Chromium or Playwright installation. The 18 accessibility view assertions
+passed, but they do not establish viewport rendering or interactive keyboard
+behavior. The older Batch 689 browser run below is historical and does not
+verify the Batch 698 candidate. Automation cannot change `HUMAN_STATUS`.
+
+## Batch 698 local automation record
+
+```text
+APPLICATION_SOURCE_SHA=6550ef1cc39d4d7d13d44f0b413442bb36df7a07
+LOCAL_MVP_01_TO_10=AUTOMATED_PASS; production HTTP, quiz lifecycle, simulator, study, flashcard, history/progress, and privacy checks listed in docs/batches/batch-698.md
+MVP_11_AUTOMATION=BLOCKED; no local Chromium/Playwright; 18 static view contracts passed but five viewport rendering was not run
+MVP_12_AUTOMATION=BLOCKED; no local Chromium/Playwright; static focus/label contracts passed but browser keyboard interaction was not run
+FULL_DOCTOR_PROCESS_EXIT=0
+FULL_DOCTOR_RELEASE_GATE=PASS; P0=0; P1=0
+LOCAL_BROWSER=DEPENDENCY_MISSING
+HOSTED_BROWSER=NOT_RUN
+HUMAN_ACCEPTANCE=NOT_RUN; all 12 HUMAN_STATUS values remain NOT_RUN
+```
+
+The Acceptance Center test verified the canonical twelve-case order, isolated
+session persistence, draft recovery, honest outcomes, note editing, and report
+export. Its launcher displayed the committed build identity, bound both
+preview servers to `127.0.0.1`, and served the learner preview in production
+mode. For a tester session, use the SHA printed by the launcher as the exact
+build identity and record it in the exported report.
 
 ## Record a result
 
@@ -161,7 +186,7 @@ message, viewport/device, and a screenshot reference. Add a short recording for
 a mobile/interaction defect when practical. Never attach cookies, credentials,
 or real learner records.
 
-## Batch 689 automation record
+## Historical Batch 689 automation record
 
 ```text
 APPLICATION_BUILD_SHA=f9fc2d0e44fa54a2403fe3548aa0837a2526c837
