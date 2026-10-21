@@ -6437,5 +6437,245 @@
             "checked_at": "2026-10-19",
             "note": "Scope and the cited instructional claims were checked against the registered official or academic sources documented in the Batch 696 source-evidence report. Source checking is not independent academic review or human learner-effectiveness evidence."
         }
+    },
+    {
+        "id": "nursing-prioritization-and-team-handoff",
+        "title": "Prioritize Changing Risk and Communicate the Handoff",
+        "material_id": "nle-np-v-foundation",
+        "status": "published",
+        "version": 1,
+        "board_id": "nursing",
+        "subject_id": "nursing-foundations",
+        "official_scope_source_ids": [
+            "prc-nursing-enhanced-tos-2025",
+            "prc-nursing-program-aug-2026"
+        ],
+        "instructional_source_ids": [
+            "openrn-nursing-fundamentals",
+            "who-basic-emergency-care"
+        ],
+        "scope_note": "The PRC Enhanced TOS and August 2026 NLE program establish the examination scope, not a topic-weight forecast. This bounded lesson practices acute change recognition, priority, communication, and reassessment; it does not represent complete NP V instruction. Follow the current Philippine scope of practice, emergency response pathway, and facility protocol. It is a study aid, not a clinical directive.",
+        "learning_objectives": [
+            "Compare a new finding with the patient’s baseline, timing, and trend before drawing a conclusion.",
+            "Prioritize a worsening time-sensitive change over routine work, then assess and escalate within role and local protocol.",
+            "Communicate the observed change, relevant trend, actions, response, and follow-up need, and reassess after action."
+        ],
+        "sections": [
+            {
+                "id": "nle-v-notice-and-validate-change",
+                "heading": "1. Notice and validate a change",
+                "body": "Start with what the patient reports, what you observe, and what the record shows. Confirm the time and context of a measurement, compare it with the patient’s known baseline, and look for a pattern across related findings. A new change in breathing, circulation, or responsiveness is a cue for focused assessment; it is not, by itself, proof of a diagnosis or cause. If the information conflicts, verify it when safe and state what remains unknown.",
+                "related_concept_ids": [
+                    "nle-np-v-acuity"
+                ]
+            },
+            {
+                "id": "nle-v-prioritize-changing-risk",
+                "heading": "2. Prioritize changing risk",
+                "body": "Prioritize the patient with a new or worsening threat over a stable patient with a routine request. Rapidly assess immediate risks, use the current setting’s escalation pathway when deterioration is possible, and do not delay a safety response to complete a full history. ABCDE is a useful structure in an acute first assessment, but no mnemonic substitutes for scene safety, the patient’s presentation, and local protocol. After action, check whether the patient’s condition changed and whether more help is needed.",
+                "related_concept_ids": [
+                    "nle-np-v-acuity"
+                ]
+            },
+            {
+                "id": "nle-v-report-change-and-reassess",
+                "heading": "3. Report the trend and close the loop",
+                "body": "A concise handoff distinguishes observed facts from interpretation. Include the relevant baseline, what changed and when, the direction of the trend, focused findings, actions taken, the patient’s response, and the specific help or follow-up needed. Confirm that the receiving clinician heard the time-sensitive request; repeat or escalate through the appropriate pathway if the risk is not addressed. A handoff supports care continuity but does not replace immediate assessment or treatment within role.",
+                "related_concept_ids": [
+                    "nle-np-v-teamwork"
+                ]
+            }
+        ],
+        "worked_examples": [
+            {
+                "heading": "Worked example: choose the first assessment",
+                "prompt": "One patient has new worsening breathing difficulty; another stable patient asks about routine discharge paperwork. What should guide the first action?",
+                "steps": [
+                    "Confirm which patient and finding you are responding to and note when the change occurred.",
+                    "Assess the patient with worsening breathing first because a new deterioration can be time-sensitive; obtain focused findings within role and the local pathway.",
+                    "Call for the appropriate help promptly if the assessment indicates deterioration. Do not assume a cause from the symptom alone.",
+                    "Communicate the change and findings, then reassess the response and report any continued or worsening concern."
+                ],
+                "answer": "Prioritize and assess the patient with worsening breathing, escalate according to the current protocol, and reassess. The facts do not establish a diagnosis or a specific treatment.",
+                "check": "The priority is supported by new deterioration versus routine need; it is not based on a fixed queue or unsupported score."
+            },
+            {
+                "heading": "Worked example: make a trend useful to the team",
+                "prompt": "A patient becomes newly confused and the blood-pressure trend is falling. What information makes the report actionable?",
+                "steps": [
+                    "Check and record the relevant time, baseline, and current findings using the approved measurement process.",
+                    "Report the new confusion and direction of the pressure trend as observations; do not label the cause without evidence.",
+                    "State what focused assessment or safety action has already occurred and how the patient responded.",
+                    "Request the needed review or escalation using the local pathway, confirm the message was received, and continue reassessment."
+                ],
+                "answer": "Give a time-linked description of the mental-status and hemodynamic change, actions, response, and the help needed.",
+                "check": "A complete handoff conveys trend and urgency while keeping an unconfirmed cause separate from observed facts."
+            }
+        ],
+        "common_misconceptions": [
+            "An isolated abnormal observation establishes a diagnosis; it is a cue that must be interpreted with context and follow-up.",
+            "A priority mnemonic always decides the order of care; immediate threats, scene safety, the patient’s condition, and local protocol still matter.",
+            "Calling or handing off ends the task; the nurse reassesses and escalates again when the patient does not improve.",
+            "A concise report may omit timing and change from baseline; these details make a trend interpretable."
+        ],
+        "question_patterns": [
+            "Choose which patient needs assessment first when one has new deterioration and another has a routine request.",
+            "Communicate a changing patient status with objective findings, time, and trend rather than a vague label.",
+            "Separate the next immediate safety action from an unconfirmed diagnosis."
+        ],
+        "practice_question_ids": [
+            "1011",
+            "1012"
+        ],
+        "pdf_file": "nursing-prioritization-and-team-handoff.pdf",
+        "source_review": {
+            "status": "SOURCE_CHECKED",
+            "checked_at": "2026-10-22",
+            "note": "Scope was checked against the cited PRC Nursing TOS/program. Assessment, acute prioritization, and handoff claims were checked against Open RN Nursing Fundamentals and WHO-ICRC Basic Emergency Care. These checks do not establish independent Philippine nursing-expert review or local facility approval."
+        }
+    },
+    {
+        "id": "nursing-medication-safety-and-calculation",
+        "title": "Medication Safety: Verify, Calculate, Reconcile, and Explain",
+        "material_id": "nle-pharmacology-safety",
+        "status": "published",
+        "version": 1,
+        "board_id": "nursing",
+        "subject_id": "nursing-foundations",
+        "official_scope_source_ids": [
+            "prc-nursing-enhanced-tos-2025",
+            "prc-nursing-program-aug-2026"
+        ],
+        "instructional_source_ids": [
+            "openrn-pharmacology2e-medication-safety",
+            "openrn-nursing-dosage-calculations",
+            "who-medication-without-harm-5-moments",
+            "openrn-nursing-fundamentals"
+        ],
+        "scope_note": "The PRC Enhanced TOS and August 2026 NLE program establish scope, not topic weight. This selected lesson covers medication verification, unit-based arithmetic, reconciliation, and patient understanding; it is not comprehensive pharmacology. All worked numbers are educational arithmetic, not patient-specific dosing guidance. A correct calculation does not validate an order. Follow current Philippine law, scope, a complete authorized order, product instructions, and facility checks; stop and clarify uncertainty. Independent nursing review remains pending.",
+        "learning_objectives": [
+            "Verify the patient, current order, selected medication and product, route, indication, allergies, relevant assessment, and required monitoring before administration.",
+            "Set up dose and rate calculations with compatible units, explain how the units cancel, and identify when the result cannot be safely converted.",
+            "Reconcile what the patient actually takes with current orders at transitions, resolve discrepancies with the responsible team, and check understanding of verified changes."
+        ],
+        "sections": [
+            {
+                "id": "nle-medication-order-and-product-verification",
+                "heading": "1. Verify the order and product before preparation",
+                "body": "Use the locally approved patient identifiers and compare the complete authorized order with the medication and product selected. Verify the intended medication, dose, route, time, reason, allergies, relevant assessment, product strength or concentration, and monitoring plan. A missing route, conflicting information, unclear unit, or product with multiple possible concentrations is a stop point: hold preparation or administration as appropriate and clarify through the prescriber or pharmacist pathway. A barcode or checklist can support verification but cannot resolve an alert or replace the clinical check. Do not guess, independently change a prescription, or rely on appearance or workflow pressure.",
+                "related_concept_ids": [
+                    "nle-np-iv-medication"
+                ]
+            },
+            {
+                "id": "nle-medication-concentration-calculation",
+                "heading": "2. Keep dose and concentration units visible",
+                "body": "For a simple quantity calculation, write the ordered amount and the amount contained in the labeled unit, then multiply by the matching volume or count: ordered amount ÷ available amount × labeled quantity. Example: an exercise order for 300 mg with a label of 200 mg per 4 mL gives (300 mg ÷ 200 mg) × 4 mL = 6 mL. The milligrams cancel and the result is milliliters. Check the stated concentration and magnitude before recording the arithmetic. This example does not establish that a medication or dose is appropriate for any patient.",
+                "related_concept_ids": [
+                    "nle-np-iv-medication"
+                ]
+            },
+            {
+                "id": "nle-medication-weight-based-rate-units",
+                "heading": "3. Distinguish a dose rate from a volume rate",
+                "body": "Keep the rate units in the equation. For a practice calculation of 0.2 mg/kg/hour for a 30 kg client, 0.2 mg/kg/hour × 30 kg = 6 mg/hour; kilograms cancel. A result in mg/hour is not an infusion volume in mL/hour. A verified concentration, complete order, and any required pump or independent-check process are needed before converting or programming a real infusion. Stop if units, concentration, or order instructions do not agree.",
+                "related_concept_ids": [
+                    "nle-np-iv-medication"
+                ]
+            },
+            {
+                "id": "nle-medication-reconcile-at-transition",
+                "heading": "4. Reconcile the actual medication history",
+                "body": "At admission, transfer, or discharge, ask what the patient actually takes, including nonprescription or complementary products, and compare that history with current orders using at least one reliable information source. Identify omissions, duplications, dose or schedule differences, and medicines the patient cannot identify. A discrepancy is not automatically an error or an intended change: resolve it with the responsible prescriber or pharmacist, document the verified result, and communicate changes and reasons to the patient and next care team. Do not independently stop or restart treatment.",
+                "related_concept_ids": [
+                    "nle-np-iv-medication"
+                ]
+            },
+            {
+                "id": "nle-medication-change-teachback",
+                "heading": "5. Explain verified changes and check understanding",
+                "body": "Use a current, verified medication list to explain what continues, starts, changes, or stops and why, in language the patient or caregiver can use. Ask them to describe the plan in their own words or show how they will follow it; treat confusion as a reason to clarify the instructions, not as failure by the patient. Invite the patient and caregiver to identify missing or conflicting information, then resolve it with the responsible care team before presenting the list as final. Patient partnership supports medication safety but does not replace a valid order or professional verification.",
+                "related_concept_ids": [
+                    "nle-np-iv-medication",
+                    "nle-np-i-education"
+                ]
+            }
+        ],
+        "worked_examples": [
+            {
+                "heading": "Worked example: calculate a liquid quantity",
+                "prompt": "A practice order is 300 mg. The label states 200 mg in 4 mL. What volume corresponds to the arithmetic?",
+                "steps": [
+                    "Write the relationship: 300 mg ÷ 200 mg × 4 mL.",
+                    "Compute 300 ÷ 200 = 1.5, then 1.5 × 4 mL = 6 mL.",
+                    "Check that mg cancels and the requested result is mL.",
+                    "Confirm the actual product, full order, route, device, and required verification before any clinical use."
+                ],
+                "answer": "6 mL for this arithmetic exercise only.",
+                "check": "The answer follows the stated concentration. It does not approve a dose, order, or patient-specific administration."
+            },
+            {
+                "heading": "Worked example: preserve units in a weight-based rate",
+                "prompt": "For an arithmetic exercise, calculate 0.2 mg/kg/hour for 30 kg.",
+                "steps": [
+                    "Multiply 0.2 mg/kg/hour by 30 kg.",
+                    "Cancel kg and calculate 0.2 × 30 = 6.",
+                    "Keep the unit as mg/hour; no concentration was supplied to calculate mL/hour."
+                ],
+                "answer": "6 mg/hour, not mL/hour.",
+                "check": "The result cannot be programmed as a volume rate without the complete verified solution concentration and order."
+            },
+            {
+                "heading": "Worked example: stop at an incomplete order",
+                "prompt": "An order omits the route and the available product has more than one concentration.",
+                "steps": [
+                    "Do not select a common route or choose a concentration by habit.",
+                    "Hold preparation or administration as appropriate and obtain clarification through the responsible prescriber or pharmacist pathway.",
+                    "Recheck the completed order against the selected product and required patient-specific checks before proceeding."
+                ],
+                "answer": "Clarify the complete order and product before preparing the medication.",
+                "check": "Calculation cannot repair an incomplete or ambiguous prescription."
+            },
+            {
+                "heading": "Worked example: resolve a discharge-list discrepancy",
+                "prompt": "A patient’s prior medication list and the discharge list differ, and the patient cannot tell which item was stopped.",
+                "steps": [
+                    "Ask what the patient actually takes and compare the old and new lists with a reliable record.",
+                    "Identify the exact discrepancy and verify the intended change with the responsible prescriber or pharmacist.",
+                    "Update and communicate the verified list and reason for the change through the approved process.",
+                    "Ask the patient or caregiver to explain the final instructions; clarify any remaining conflict before treating the list as settled."
+                ],
+                "answer": "Reconcile, verify, communicate, and check understanding; do not guess which medicine stopped.",
+                "check": "Patient engagement is part of safe transition work and does not authorize independent medication changes."
+            }
+        ],
+        "common_misconceptions": [
+            "A correct arithmetic result proves that the medication order is appropriate; it proves only the arithmetic under the stated assumptions.",
+            "The number of milligrams in a container is the same as milligrams per milliliter; use the printed concentration and preserve units.",
+            "A missing route, ambiguous concentration, or conflicting order can be filled in from what is usual; stop and clarify.",
+            "A dose rate in mg/hour can be entered as mL/hour; a verified concentration is needed for that conversion.",
+            "Medication reconciliation is copying a prior list or silently resolving a difference; the patient’s actual use and a reliable source must be compared with current orders.",
+            "Teach-back transfers treatment decisions to the patient; it checks how clearly the verified plan was communicated and understood."
+        ],
+        "question_patterns": [
+            "Identify the verification step required when an order is incomplete or the product is ambiguous.",
+            "Calculate a quantity from a stated order and concentration, showing unit cancellation and a reasonableness check.",
+            "Distinguish a weight-based dose rate from a pump volume rate.",
+            "Resolve a medication-history discrepancy at admission or discharge and confirm the patient understands verified changes."
+        ],
+        "practice_question_ids": [
+            "4094",
+            "4096",
+            "4097",
+            "4102",
+            "5104",
+            "5187"
+        ],
+        "pdf_file": "nursing-medication-safety-and-calculation.pdf",
+        "source_review": {
+            "status": "SOURCE_CHECKED",
+            "checked_at": "2026-10-22",
+            "note": "Scope was checked against the cited PRC Nursing TOS/program. Verification and monitoring claims were checked against Open RN Nursing Pharmacology 2e; calculation method against WisTech Open Nursing Dosage Calculations; transition and patient-partnership claims against WHO Medication Without Harm and Open RN Nursing Fundamentals. Arithmetic was independently recomputed. These checks do not establish independent Philippine nursing-expert review or facility approval."
+        }
     }
 ]

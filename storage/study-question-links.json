@@ -5210,16 +5210,28 @@
         "material_id": "nle-np-v-foundation",
         "question_id": "1011",
         "source_ids": [
-            "prc-nursing-enhanced-tos-2025"
-        ]
+            "prc-nursing-enhanced-tos-2025",
+            "openrn-nursing-fundamentals",
+            "who-basic-emergency-care"
+        ],
+        "lesson_id": "nursing-prioritization-and-team-handoff",
+        "section_id": "nle-v-prioritize-changing-risk",
+        "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+        "review_guidance": "Question stem, answer, explanation, selected section, and listed source references were compared. This is a technically scoped candidate mapping; independent nursing academic review remains pending."
     },
     {
         "id": "study-link-b485-1012",
         "material_id": "nle-np-v-foundation",
         "question_id": "1012",
         "source_ids": [
-            "prc-nursing-enhanced-tos-2025"
-        ]
+            "prc-nursing-enhanced-tos-2025",
+            "openrn-nursing-fundamentals",
+            "who-basic-emergency-care"
+        ],
+        "lesson_id": "nursing-prioritization-and-team-handoff",
+        "section_id": "nle-v-report-change-and-reassess",
+        "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+        "review_guidance": "Question stem, answer, explanation, selected section, and listed source references were compared. This is a technically scoped candidate mapping; independent nursing academic review remains pending."
     },
     {
         "id": "study-link-b485-1013",
@@ -112283,5 +112295,80 @@
         "section_id": "linear-systems-and-matrices",
         "review_guidance": "Review the exact lesson section: 1. Linear equations, matrices, and determinants",
         "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW"
+    },
+    {
+        "id": "study-link-b702-nursing-4094",
+        "material_id": "nle-pharmacology-safety",
+        "question_id": "4094",
+        "source_ids": [
+            "openrn-pharmacology2e-medication-safety"
+        ],
+        "lesson_id": "nursing-medication-safety-and-calculation",
+        "section_id": "nle-medication-order-and-product-verification",
+        "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+        "review_guidance": "Question stem, answer, explanation, selected section, and listed source references were compared. This is a technically scoped candidate mapping; independent nursing academic review remains pending."
+    },
+    {
+        "id": "study-link-b702-nursing-4096",
+        "material_id": "nle-pharmacology-safety",
+        "question_id": "4096",
+        "source_ids": [
+            "openrn-pharmacology2e-medication-safety"
+        ],
+        "lesson_id": "nursing-medication-safety-and-calculation",
+        "section_id": "nle-medication-order-and-product-verification",
+        "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+        "review_guidance": "Question stem, answer, explanation, selected section, and listed source references were compared. This is a technically scoped candidate mapping; independent nursing academic review remains pending."
+    },
+    {
+        "id": "study-link-b702-nursing-4097",
+        "material_id": "nle-pharmacology-safety",
+        "question_id": "4097",
+        "source_ids": [
+            "openrn-pharmacology2e-medication-safety",
+            "openrn-nursing-dosage-calculations"
+        ],
+        "lesson_id": "nursing-medication-safety-and-calculation",
+        "section_id": "nle-medication-concentration-calculation",
+        "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+        "review_guidance": "Question stem, answer, explanation, selected section, and listed source references were compared. This is a technically scoped candidate mapping; independent nursing academic review remains pending."
+    },
+    {
+        "id": "study-link-b702-nursing-4102",
+        "material_id": "nle-pharmacology-safety",
+        "question_id": "4102",
+        "source_ids": [
+            "openrn-nursing-dosage-calculations"
+        ],
+        "lesson_id": "nursing-medication-safety-and-calculation",
+        "section_id": "nle-medication-weight-based-rate-units",
+        "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+        "review_guidance": "Question stem, answer, explanation, selected section, and listed source references were compared. This is a technically scoped candidate mapping; independent nursing academic review remains pending."
+    },
+    {
+        "id": "study-link-b702-nursing-5104",
+        "material_id": "nle-pharmacology-safety",
+        "question_id": "5104",
+        "source_ids": [
+            "who-medication-without-harm-5-moments",
+            "openrn-pharmacology2e-medication-safety"
+        ],
+        "lesson_id": "nursing-medication-safety-and-calculation",
+        "section_id": "nle-medication-reconcile-at-transition",
+        "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+        "review_guidance": "Question stem, answer, explanation, selected section, and listed source references were compared. This is a technically scoped candidate mapping; independent nursing academic review remains pending."
+    },
+    {
+        "id": "study-link-b702-nursing-5187",
+        "material_id": "nle-pharmacology-safety",
+        "question_id": "5187",
+        "source_ids": [
+            "who-medication-without-harm-5-moments",
+            "openrn-nursing-fundamentals"
+        ],
+        "lesson_id": "nursing-medication-safety-and-calculation",
+        "section_id": "nle-medication-change-teachback",
+        "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+        "review_guidance": "Question stem, answer, explanation, selected section, and listed source references were compared. This is a technically scoped candidate mapping; independent nursing academic review remains pending."
     }
 ]

@@ -2898,15 +2898,15 @@
             },
             {
                 "heading": "Assessment and interpretation",
-                "body": "Cluster relevant cues, compare trends with the patient's baseline, identify immediate threats, and state what information is missing before choosing an intervention."
+                "body": "Collect the patient’s report, observed findings, chart information, and handoff context. Confirm timing and measurement context; compare the change with the patient’s baseline and trend rather than treating one value as a diagnosis. If a finding suggests immediate deterioration, begin a focused assessment and the appropriate local escalation while identifying information still missing."
             },
             {
                 "heading": "Nursing action and rationale",
-                "body": "Choose the least harmful effective action within role and orders, protect privacy and infection safety, reassess the response, and escalate promptly when deterioration or uncertainty remains."
+                "body": "Prioritize new or worsening threats over routine work. Act within role and current facility protocol, seek help promptly when instability is possible, and reassess the response after an intervention. ABCDE can organize an acute first assessment; it does not replace immediate scene safety, patient context, or the locally approved pathway."
             },
             {
                 "heading": "Teaching and common mistakes",
-                "body": "Use plain-language teaching, verify understanding, document response, and avoid treating an isolated number, label, routine, or mnemonic as a substitute for assessment and current policy."
+                "body": "For a change report, state the relevant baseline, what changed, when it changed, the observed trend, actions taken, response, and the help or follow-up needed. Separate observation from interpretation, confirm the receiving team understood the critical request, and update the report when the patient changes."
             }
         ],
         "source_ids": [
@@ -2927,7 +2927,11 @@
         },
         "taxonomy": {
             "subject_id": "nursing-foundations",
-            "domain_id": "nle-mental-health"
+            "domain_id": "nle-mental-health",
+            "concept_ids": [
+                "nle-np-v-acuity",
+                "nle-np-v-teamwork"
+            ]
         },
         "status": "published",
         "version": 2,
@@ -3009,15 +3013,15 @@
             },
             {
                 "heading": "Assessment and interpretation",
-                "body": "Cluster relevant cues, compare trends with the patient's baseline, identify immediate threats, and state what information is missing before choosing an intervention."
+                "body": "Before preparation, compare the patient and complete current order with the selected product, strength or concentration, indication, route, allergies, relevant assessment, and monitoring plan. Stop to clarify an omitted route, conflicting order, or ambiguous product; do not infer a dose from routine or appearance."
             },
             {
                 "heading": "Nursing action and rationale",
-                "body": "Choose the least harmful effective action within role and orders, protect privacy and infection safety, reassess the response, and escalate promptly when deterioration or uncertainty remains."
+                "body": "Keep units visible through every calculation. For example, 300 mg ÷ 200 mg × 4 mL = 6 mL when the label states 200 mg per 4 mL; mg cancels and mL remains. This is an arithmetic example only. Independently verify the actual order, product, measurement device, and any required check before clinical use."
             },
             {
                 "heading": "Teaching and common mistakes",
-                "body": "Use plain-language teaching, verify understanding, document response, and avoid treating an isolated number, label, routine, or mnemonic as a substitute for assessment and current policy."
+                "body": "At a care transition, compare what the patient actually takes with the current prescribed list using the patient and at least one reliable information source. Resolve discrepancies with the responsible prescriber or pharmacist, communicate the verified changes and reasons, and ask the patient or caregiver to explain the resulting plan in their own words. Never silently stop, restart, or double a medicine."
             },
             {
                 "heading": "Patient partnership with medication safety",
@@ -3029,7 +3033,9 @@
             "prc-nursing-program-aug-2026",
             "who-medication-without-harm-5-moments",
             "openrn-pharmacology",
-            "openrn-nursing-fundamentals"
+            "openrn-nursing-fundamentals",
+            "openrn-pharmacology2e-medication-safety",
+            "openrn-nursing-dosage-calculations"
         ],
         "exams": [
             "nursing"
@@ -3044,7 +3050,8 @@
             "subject_id": "nursing-foundations",
             "concept_ids": [
                 "nle-np-iv-medication",
-                "nle-np-iv-endocrine"
+                "nle-np-iv-endocrine",
+                "nle-np-i-education"
             ]
         },
         "status": "published",
