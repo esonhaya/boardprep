@@ -10,8 +10,9 @@ UNRELATED_WORK_PRESERVED=YES; dirty Batch 695 checkout, other worktrees, all ref
 
 === RECOVERY ===
 LAST_VERIFIED_COMMIT=d4018000ecd1286384b7dbbaec76bf46fe0b6332
-COMPLETED_WORKSTREAMS=Backup restore path safety; browser CI provenance and lifecycle contracts; flashcard scoped reads; release integrity manifests; guided learning and cross-board safeguards inherited
-PARTIAL_WORKSTREAMS=Source-first instructional breadth; semantic review of exact lesson links; human and hosted-browser acceptance
+COMPLETED_WORKSTREAMS=A gap assessment; D practice-to-learning; E cross-board safety; F content integrity/Doctor evidence; G flashcard checks; I release stability; J review handoff; K validation; L readiness decision
+PARTIAL_WORKSTREAMS=B instructional breadth; C semantic review of exact lesson links; H human confirmation of learner clarity; J independent academic/human acceptance
+UNSTARTED_WORKSTREAMS=No additional subject-specific content was authored in the recovered Batch 700 commits; no new source, lesson, or question data was introduced
 REMAINING_WORKSTREAMS=Independent academic review, 12 human cases, hosted browser run, owner privacy/hosting decisions
 UNCOMMITTED_CHANGES_PRESERVED=All original untracked files retained; no tracked learner/content changes made during recovery
 INTERRUPTED_PROCESSES=None survived inspection; the prior post-submodule Doctor JSON was 0 bytes
@@ -25,7 +26,7 @@ LESSON_LINKS=982 current records have exact section IDs; 24 are explicitly pendi
 CROSS_BOARD_SAFETY=PASS; 10 boards and 9,123 unique canonical question IDs; no Batch 695 question IDs merged
 FLASHCARD_INTEGRITY=PASS; Doctor study/flashcard domains and scoped read-path regressions pass
 ACADEMIC_REVIEW_PACKET=Batch 695's 276 pending questions remain isolated on its review branch; untouched
-FILES_CHANGED=Existing Batch 700 work changes 21 files (+901/-56) across 4 commits; recovery adds this report and verified Doctor/preflight evidence only
+FILES_CHANGED=Existing Batch 700 work changes 21 files (+901/-56) across 4 commits; recovery adds verified Doctor/preflight evidence and a report-only workstream clarification
 
 === VALIDATION ===
 FOCUSED_TESTS=8 prior Doctor failures now PASS; browser workflow/lifecycle contracts 5/5 PASS
@@ -51,11 +52,11 @@ DATA_PRESERVED=YES; storage tree fingerprint unchanged; 9,123 canonical question
 
 === DIFF STAT ===
 BATCH700_BEFORE_RECOVERY=21 files changed, 901 insertions, 56 deletions across 4 existing commits
-RECOVERY_COMMIT=5 documentation/evidence files; no application, question, lesson, or learner-state edits
+RECOVERY_COMMITS=5 documentation/evidence files plus one report-only clarification; no application, question, lesson, or learner-state edits
 
 === COMMIT ===
-COMMITS=cbf8498, eb9f6b1, 746ae0c, d401800, plus local recovery evidence commit
-HEAD_AFTER=Local recovery report commit; exact SHA is printed in the delivery output
+COMMITS=cbf8498, eb9f6b1, 746ae0c, d401800, plus local recovery evidence/report commits
+HEAD_AFTER=Local recovery report descendant; exact SHA is printed in the delivery output
 PUSH_STATUS=NOT_PUSHED
 
 === CHECKPOINT ===
