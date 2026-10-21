@@ -13,8 +13,27 @@ final class StudyPdfGenerator
     private const OUTPUT_DIR = '/public/study-resources';
     private const MANIFEST = 'manifest.json';
 
-    public static function build(string $root, bool $checkOnly = false): array
+    /**
+     * Build all published PDFs, or a selected lesson set while safely reusing
+     * verified manifest entries for unchanged lessons.
+     *
+     * @param list<string>|null $lessonIds Null selects every published lesson.
+     */
+    public static function build(string $root, bool $checkOnly = false, ?array $lessonIds = null): array
     {
+        $selectedLessonIds = null;
+        if ($lessonIds !== null) {
+            $selectedLessonIds = [];
+            foreach ($lessonIds as $lessonId) {
+                if (is_scalar($lessonId) && trim((string) $lessonId) !== '') {
+                    $selectedLessonIds[trim((string) $lessonId)] = true;
+                }
+            }
+            if ($selectedLessonIds === []) {
+                throw new RuntimeException('A selected PDF build requires at least one lesson id.');
+            }
+        }
+
         $lessons = self::readJson($root . '/storage/study-lessons.json');
         $sources = self::readJson($root . '/storage/sources.json');
         $sourceById = [];
@@ -36,6 +55,7 @@ final class StudyPdfGenerator
 
         $entries = [];
         $outputs = [];
+        $selectedFound = [];
         foreach ($lessons as $lesson) {
             if (!is_array($lesson) || ($lesson['status'] ?? '') !== 'published') {
                 continue;
@@ -44,6 +64,22 @@ final class StudyPdfGenerator
             $filename = self::requiredText($lesson['pdf_file'] ?? null, 'PDF filename');
             if (preg_match('/\A[a-z0-9][a-z0-9-]*\.pdf\z/', $filename) !== 1) {
                 throw new RuntimeException("Unsafe PDF filename for lesson {$id}.");
+            }
+            $relative = 'public/study-resources/' . $filename;
+            if ($selectedLessonIds !== null && !isset($selectedLessonIds[$id])) {
+                $oldEntry = $previousByPath[$relative] ?? null;
+                $path = $directory . '/' . $filename;
+                if (!is_array($oldEntry)
+                    || !is_file($path)
+                    || !hash_equals((string) ($oldEntry['sha256'] ?? ''), (string) hash_file('sha256', $path))
+                    || !hash_equals((string) ($oldEntry['lesson_sha256'] ?? ''), hash('sha256', self::canonicalJson($lesson)))) {
+                    throw new RuntimeException("Cannot reuse unverified PDF evidence for unselected lesson {$id}; include it in the selected build.");
+                }
+                $entries[] = $oldEntry;
+                continue;
+            }
+            if ($selectedLessonIds !== null) {
+                $selectedFound[$id] = true;
             }
             $sourceRows = [];
             foreach (array_merge((array) ($lesson['official_scope_source_ids'] ?? []), (array) ($lesson['instructional_source_ids'] ?? [])) as $sourceId) {
@@ -56,7 +92,6 @@ final class StudyPdfGenerator
             $pdf = self::render($lesson, $sourceRows);
             self::validatePdf($pdf);
             $path = $directory . '/' . $filename;
-            $relative = 'public/study-resources/' . $filename;
             $oldEntry = $previousByPath[$relative] ?? null;
             if (is_file($path)) {
                 $currentHash = hash_file('sha256', $path);
@@ -82,6 +117,13 @@ final class StudyPdfGenerator
             ];
             $entries[] = $entry;
             $outputs[$path] = $pdf;
+        }
+
+        if ($selectedLessonIds !== null) {
+            $missingIds = array_diff_key($selectedLessonIds, $selectedFound);
+            if ($missingIds !== []) {
+                throw new RuntimeException('Selected PDF build references unknown or unpublished lesson ids: ' . implode(', ', array_keys($missingIds)) . '.');
+            }
         }
 
         $manifest = [

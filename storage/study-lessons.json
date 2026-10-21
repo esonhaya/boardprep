@@ -4,7 +4,7 @@
         "title": "Percent and Ratio Reasoning",
         "material_id": "cse-numerical-foundation",
         "status": "published",
-        "version": 1,
+        "version": 2,
         "board_id": "civil-service",
         "subject_id": "numerical-ability",
         "official_scope_source_ids": [
@@ -16,31 +16,51 @@
         ],
         "scope_note": "CSC Examination Announcement No. 03 s. 2026 lists basic operations, number sequence, and word problems under Numerical Ability. This lesson practices percent and ratio applications within basic operations and word problems. It does not estimate item frequency or section weight; check current CSC notices before an exam.",
         "learning_objectives": [
-            "Identify the original whole, part, and rate before calculating a percent.",
-            "Compute a percent of an amount and a percent change using the correct base.",
-            "Solve a proportion or rate question and check that units and totals make sense."
+            "Identify the whole, part, rate, and units before choosing an operation in a word problem.",
+            "Solve percent-of, percent-change, ratio, proportion, and unit-rate questions with visible steps.",
+            "Check the base, ratio order, units, and estimated size of an answer before selecting it."
         ],
         "sections": [
             {
                 "heading": "1. Percent of a base",
-                "body": "Percent means per hundred. Convert p percent to p\/100, then multiply by the stated base. The base is the whole that the percent describes. For example, 18% of 250 is 0.18 x 250. Read the question for the whole before choosing an operation."
+                "body": "Prerequisite: convert a percent p% to the decimal p/100. Label the whole as the base, the percentage as the rate, and the result as the part. Then use part = rate × base. If the part and rate are known but the base is not, solve base = part ÷ rate. For a discount, calculate the discount from the original price and subtract it; do not add the discount rate to the sale price to reverse the calculation. Keep currency or item units beside the numbers.",
+                "id": "cse-percent-of-base",
+                "related_concept_ids": [
+                    "cse-basic-operations",
+                    "cse-word-problems",
+                    "cse-percentages"
+                ]
             },
             {
                 "heading": "2. Percent change",
-                "body": "Find the change first: new amount minus original amount. Divide that change by the original amount, then multiply by 100%. A decrease can be reported as a positive decrease when the question asks for its magnitude. The original amount remains the denominator because it is the comparison base."
+                "body": "For an increase or decrease, calculate the change first and compare it with the original amount: percent change = change ÷ original × 100%. The original amount is the base because the question asks how much the value changed relative to where it began. State whether the result is an increase or decrease. If a question gives the final amount after a percentage change, set up an equation using the final rate of the original rather than applying the percentage to the final amount.",
+                "id": "cse-percent-change",
+                "related_concept_ids": [
+                    "cse-word-problems",
+                    "cse-percentages"
+                ]
             },
             {
                 "heading": "3. Ratios and rates",
-                "body": "An equivalent ratio scales every part by the same factor. A unit rate divides the measured quantity by the reference units, such as forms per hour. Convert units to a common basis before comparing rates. Keep the unit beside each intermediate value so a reversed ratio or mismatched time period is easier to catch."
+                "body": "Write a ratio in the order named in the question, then scale both terms by the same factor. A unit rate divides one quantity by its reference units, such as cases per hour. For combined work, add rates only when workers act independently at steady rates on the same kind of task; multiply the combined rate by time to get output. Convert units to one common basis before comparing.",
+                "id": "cse-ratios-unit-rates",
+                "related_concept_ids": [
+                    "cse-word-problems",
+                    "cse-ratios-proportions",
+                    "cse-rates-work"
+                ]
             },
             {
                 "heading": "Essential relationships",
                 "items": [
                     "part = rate as a decimal x base",
-                    "percent change = (new - original) \/ original x 100%",
+                    "percent change = (new - original) / original x 100%",
                     "equivalent ratio: multiply or divide every term by the same nonzero factor",
-                    "unit rate = quantity \/ reference units"
-                ]
+                    "unit rate = quantity / reference units"
+                ],
+                "id": "cse-reasonableness-checks",
+                "body": "Before choosing an answer, estimate its size and check the units. A percentage greater than 100% can be valid, but a discount amount should not exceed its original base. For a ratio, verify that both parts were scaled equally and that the order matches the question. If the result is a rate, write the numerator and denominator units explicitly. These checks catch a misplaced decimal, reversed ratio, or wrong percent base.",
+                "related_concept_ids": []
             }
         ],
         "worked_examples": [
@@ -59,7 +79,7 @@
                 "prompt": "An amount rises from 500 to 575. What is the percent increase?",
                 "steps": [
                     "Change = 575 - 500 = 75.",
-                    "Divide by the original amount: 75 \/ 500 = 0.15.",
+                    "Divide by the original amount: 75 / 500 = 0.15.",
                     "Convert to a percent: 0.15 x 100% = 15%."
                 ],
                 "answer": "The increase is 15% of the original amount.",
@@ -71,10 +91,21 @@
                 "steps": [
                     "The sale price is 100% - 15% = 85% of the original.",
                     "Write 85% as 0.85 and solve original x 0.85 = 680.",
-                    "Original = 680 \/ 0.85 = 800."
+                    "Original = 680 / 0.85 = 800."
                 ],
                 "answer": "The original price was 800.",
                 "check": "A 15% discount on 800 is 120; 800 - 120 = 680. Adding 15% of 680 would use the wrong base."
+            },
+            {
+                "heading": "Combine two steady work rates",
+                "prompt": "Worker A processes 36 files per hour and worker B processes 24 files per hour. If they work independently at steady rates for 2.5 hours, how many files do they process together?",
+                "steps": [
+                    "Add the compatible rates: 36 + 24 = 60 files per hour.",
+                    "Multiply by time: 60 files per hour × 2.5 hours = 150 files.",
+                    "Check that hours cancel and the remaining unit is files."
+                ],
+                "answer": "Together they process 150 files under the stated steady, independent-work assumptions.",
+                "check": "If the workers share a bottleneck or work sequentially, adding their rates would not be justified."
             }
         ],
         "common_misconceptions": [
@@ -84,10 +115,9 @@
             "Scaling only one term of a ratio or comparing rates with different time units."
         ],
         "question_patterns": [
-            "Compute a stated percent of a supplied base.",
-            "Find a percent increase or decrease from an original and a new amount.",
-            "Recover an original amount from a discounted or retained percentage.",
-            "Scale a ratio, find a missing part, or compare unit rates after matching units."
+            "For percent problems, label the original base before calculating the part or change.",
+            "For ratio problems, preserve the order and scale every term by the same factor.",
+            "For rate and work problems, write units, state the constant-rate assumption, then estimate the result."
         ],
         "practice_question_ids": [
             "616",
@@ -130,7 +160,7 @@
             },
             {
                 "heading": "2. Reduce simple resistor groups",
-                "body": "Resistors in a single series path carry the same current and have equivalent resistance R_total = R1 + R2 + .... Resistors connected across the same two nodes are in parallel and have reciprocal equivalent resistance: 1\/R_eq = 1\/R1 + 1\/R2 + .... Verify the node connections before applying either shortcut."
+                "body": "Resistors in a single series path carry the same current and have equivalent resistance R_total = R1 + R2 + .... Resistors connected across the same two nodes are in parallel and have reciprocal equivalent resistance: 1/R_eq = 1/R1 + 1/R2 + .... Verify the node connections before applying either shortcut."
             },
             {
                 "heading": "3. Apply conservation at nodes and loops",
@@ -141,7 +171,7 @@
                 "items": [
                     "Ohm's law: V = I x R",
                     "series resistors: R_eq = sum of resistances",
-                    "parallel resistors: 1\/R_eq = sum of reciprocal resistances",
+                    "parallel resistors: 1/R_eq = sum of reciprocal resistances",
                     "junction rule: sum of currents in = sum of currents out",
                     "loop rule: algebraic sum of voltage changes = 0"
                 ]
@@ -153,7 +183,7 @@
                 "prompt": "A 20 V source feeds 4 ohms and 6 ohms in series. Find the current and each resistor voltage drop.",
                 "steps": [
                     "R_total = 4 + 6 = 10 ohms.",
-                    "I = V\/R_total = 20\/10 = 2 A.",
+                    "I = V/R_total = 20/10 = 2 A.",
                     "The drops are 2 x 4 = 8 V and 2 x 6 = 12 V."
                 ],
                 "answer": "Current = 2 A; voltage drops = 8 V and 12 V.",
@@ -200,38 +230,55 @@
         "title": "Assessment Evidence and Feedback",
         "material_id": "let-assessment-review",
         "status": "published",
-        "version": 1,
+        "version": 2,
         "board_id": "let",
         "subject_id": "professional-education",
         "official_scope_source_ids": [
             "prc-let-enhanced-tos-2025"
         ],
         "instructional_source_ids": [
-            "deped-classroom-assessment-do-8-2015",
+            "cmu-assessment-formative-summative",
+            "berkeley-design-effective-assessments",
             "cornell-bloom-taxonomy"
         ],
-        "scope_note": "The PRC Professional Teachers page lists the 2025 amendment to the LEPT Enhanced Table of Specifications. Consult the official TOS for current subject and competency boundaries. This lesson uses DepEd classroom-assessment guidance to teach assessment concepts; it does not claim a particular item frequency or weight.",
+        "scope_note": "The PRC Professional Teachers page lists the 2025 amendment to the LEPT Enhanced Table of Specifications; consult the current official TOS for examination boundaries. This lesson teaches general assessment principles with university teaching-center references. It is not a statement of current Philippine classroom-assessment policy, and it claims no item frequency or weight.",
         "learning_objectives": [
-            "Distinguish formative use of evidence during learning from summative reporting at a defined point.",
-            "Separate validity of an interpretation from reliability or consistency of scores.",
-            "Choose an instructional next step that responds to evidence and preserves the target competency."
+            "Classify assessment by how evidence is used during learning or at a defined reporting point.",
+            "Distinguish score consistency from whether evidence supports the intended interpretation.",
+            "Use criteria and learner work to plan a proportionate next step and check its effect."
         ],
         "sections": [
             {
                 "heading": "1. Start with the purpose and use",
-                "body": "Assessment is formative when evidence is used during learning to adjust teaching or learning. A quiz is not formative solely because it is short or ungraded; its purpose and use matter. Summative assessment summarizes achievement at a defined point. The same task can serve different purposes depending on how its evidence is interpreted and used."
+                "body": "Start with the decision the evidence must support. Assessment is formative when information is used while learning is underway to adjust instruction or learner action; a short or ungraded quiz is not formative by length alone. Summative assessment summarizes achievement at a defined point. The same task can serve either purpose depending on when it is given, what the result is compared with, and how the evidence is used.",
+                "id": "let-assessment-purpose-and-use",
+                "related_concept_ids": [
+                    "let-assessment-evidence-use"
+                ]
             },
             {
                 "heading": "2. Validity and reliability answer different questions",
-                "body": "Validity asks whether evidence supports the intended interpretation or decision. Reliability concerns consistency across comparable occasions, raters, or conditions. A scoring process may be consistent while measuring the wrong target. Conversely, a well-aligned task can still need clearer criteria or rater calibration. Neither term is a substitute for the other."
+                "body": "Validity concerns whether evidence supports the intended interpretation or decision for the stated purpose. Reliability concerns consistency across comparable occasions, raters, or conditions. A scoring process can be consistent yet measure the wrong target; an aligned task can still need clearer criteria or rater calibration. Ask separately: does the task represent the intended competency, and would comparable work receive consistent judgments under the stated criteria?",
+                "id": "let-validity-and-reliability",
+                "related_concept_ids": [
+                    "prof-assessment-validity"
+                ]
             },
             {
                 "heading": "3. Turn evidence into a next step",
-                "body": "Compare learner work with the intended competency and explicit criteria. Look for a pattern in the reasoning, not only a right-or-wrong total. Select a short response such as reteaching one misconception, changing a representation, or giving criterion-linked feedback. Then collect new evidence to see whether the response helped."
+                "body": "Compare learner work with the intended competency and explicit criteria. Separate the answer from the reasoning or performance evidence, then look for a pattern across responses rather than treating one error as a fixed learner trait. Choose a limited response—such as clarifying one misconception, changing a representation, or giving criterion-linked feedback—and collect new evidence to see whether that response helped.",
+                "id": "let-evidence-to-next-step",
+                "related_concept_ids": [
+                    "let-assessment-evidence-use"
+                ]
             },
             {
                 "heading": "4. Triangulate when the competency is broad",
-                "body": "A complex competency may require more than one evidence source, such as a product, observed performance, and learner explanation. Check whether the sources address the same intended target. Multiple sources do not automatically make a decision valid, but they can reveal gaps that a single score hides."
+                "body": "A broad competency may require a product, an observed performance, and the learner’s explanation. Check that each source addresses the same intended target and note any disagreement. Multiple sources can reveal a gap that one score hides, but they do not automatically make a decision valid: the criteria, task conditions, accessibility, and interpretation still matter.",
+                "id": "let-triangulating-broad-competencies",
+                "related_concept_ids": [
+                    "let-assessment-evidence-use"
+                ]
             }
         ],
         "worked_examples": [
@@ -256,6 +303,17 @@
                 ],
                 "answer": "The task has a validity alignment problem. Reliability of scoring is a separate question.",
                 "check": "A consistent spelling score would not repair the mismatch between the rubric and the target competency."
+            },
+            {
+                "heading": "Separate validity from scoring consistency",
+                "prompt": "Two raters give similar scores, but the task is meant to assess evidence-based reasoning and its rubric scores spelling only. What should be addressed?",
+                "steps": [
+                    "Name the intended competency: interpret evidence and justify a conclusion.",
+                    "Compare that target with the rubric criteria and the work actually scored.",
+                    "Treat consistent scoring as evidence about reliability, then revise or review the interpretation because the rubric misses the intended reasoning."
+                ],
+                "answer": "The scores may be consistent, but the rubric does not support the intended validity claim.",
+                "check": "Reliability and validity answer different questions; one does not guarantee the other."
             }
         ],
         "common_misconceptions": [
@@ -265,10 +323,9 @@
             "Making a lasting judgment about a learner from one response or one evidence source."
         ],
         "question_patterns": [
-            "Identify assessment purpose from when and how the teacher uses results.",
-            "Distinguish score consistency from evidence-to-construct alignment.",
-            "Select a next teaching step from a stated pattern in learner evidence.",
-            "Identify whether criteria and evidence represent the intended competency."
+            "For formative-assessment items, identify how the evidence changes a next teaching or learning action.",
+            "For validity and reliability items, name the target interpretation separately from score consistency.",
+            "For performance tasks, compare criteria, learner work, and evidence sources before judging the competency."
         ],
         "practice_question_ids": [
             "62",
@@ -279,8 +336,8 @@
         "pdf_file": "let-assessment-evidence-and-feedback.pdf",
         "source_review": {
             "status": "SOURCE_CHECKED",
-            "checked_at": "2026-10-16",
-            "note": "The official scope reference, formative\/summative distinction, validity\/reliability distinction, and worked scenarios were checked against the linked PRC, DepEd, and Cornell references. This status does not imply human editorial sign-off."
+            "checked_at": "2026-10-21",
+            "note": "The PRC 2025 scope reference, general formative/summative assessment guidance, validity/reliability distinction, and learning-objective framework were checked against the linked PRC, Carnegie Mellon, UC Berkeley, and Cornell references. DepEd Order 8 s. 2015 is superseded for the new K-12 framework by DepEd Order 15 s. 2026 and is not cited by this lesson. This status does not imply human editorial sign-off."
         }
     },
     {
@@ -288,7 +345,7 @@
         "title": "Crime-Scene Documentation and Evidence Custody",
         "material_id": "cle-investigation-foundation",
         "status": "published",
-        "version": 1,
+        "version": 2,
         "board_id": "criminologist",
         "subject_id": "criminal-justice-foundations",
         "official_scope_source_ids": [
@@ -301,26 +358,48 @@
         ],
         "scope_note": "The PRC enhanced Criminology TOS defines licensure competencies; consult its current annex for exact boundaries. This lesson teaches scene documentation, evidence preservation, and custody records using NIJ guidance. It does not estimate item frequency or replace applicable Philippine law and agency procedures.",
         "learning_objectives": [
-            "Preserve scene context and record observable conditions before collection changes them.",
-            "Trace an item's identity, recovery, condition, package, seal, and transfers.",
-            "Distinguish a custody-record gap from proof that evidence was altered."
+            "Sequence scene access control, observation, documentation, and evidence collection without losing context.",
+            "Trace an item through identification, condition, packaging, seal, authorized examination, and transfer records.",
+            "Describe a documentation or custody gap accurately without inferring alteration or legal admissibility from the record alone."
         ],
         "sections": [
             {
                 "heading": "1. Secure, observe, and document",
-                "body": "Protect people first and control access so the scene is not unnecessarily disturbed. Record the condition on arrival and the relationship between traces and their surroundings. Notes, photographs, measurements, and sketches preserve different details. Separate direct observations from later interpretations."
+                "body": "Protect people first and control access under the applicable agency procedures. Record the scene condition on arrival before avoidable changes occur. Use notes, photographs, measurements, and sketches to preserve different details and relationships; identify the scale and location when the method requires them. Separate what was directly observed from later interpretation. Do not treat a single photograph or a list of collected objects as a complete record of scene context.",
+                "id": "cle-secure-observe-document",
+                "related_concept_ids": [
+                    "cle-investigation-scene",
+                    "cle-forensics-documentation",
+                    "cle-investigation-evidence"
+                ]
             },
             {
                 "heading": "2. Preserve context before collection",
-                "body": "A trace can lose meaning if its location or relationship to other objects is undocumented. Record and photograph it in context, then collect it using the approved method. When evidence is vulnerable to weather or loss, protect it promptly while assigning parallel tasks where staffing allows. Follow agency and laboratory guidance for packaging and preservation."
+                "body": "Document an item in its surrounding context before collection when circumstances allow. Record its location and relationship to other traces, then use the approved collection method for that item. If weather or loss creates urgency, protect vulnerable material promptly and document the sequence while parallel tasks are assigned where staffing permits. Packaging, preservation, and collection details depend on the evidence type, laboratory requirements, safety, and agency protocol.",
+                "id": "cle-preserve-context-before-collection",
+                "related_concept_ids": [
+                    "cle-investigation-evidence",
+                    "cle-forensics-documentation"
+                ]
             },
             {
                 "heading": "3. Maintain custody continuity",
-                "body": "Give each item a unique identifier and record its description, condition, recovery location, date and time, collector, package, and seal. Each transfer should identify the giver, receiver, date and time, and purpose, with a receipt or secure electronic record. If an authorized examination opens a package, document the event and replacement seal under policy."
+                "body": "Give each item a unique identifier and record its description, condition, recovery location, date and time, collector, package, and seal. For each transfer, record who released and received it, when, and for what purpose. Follow secure storage and laboratory rules. If an authorized examination opens a package, record the event and replacement seal under policy; do not reconstruct undocumented details from memory as though they were contemporaneous observations.",
+                "id": "cle-maintain-custody-continuity",
+                "related_concept_ids": [
+                    "cle-investigation-evidence",
+                    "cle-forensic-integrity"
+                ]
             },
             {
                 "heading": "4. Review gaps without overclaiming",
-                "body": "An unexplained broken seal or incomplete resealing entry is a traceability problem requiring investigation. The record alone does not establish who caused the gap or whether an item changed. Preserve the original record, seek authorized explanations and corroboration, and report any unresolved limitation accurately."
+                "body": "A missing transfer entry, broken seal, or incomplete resealing record is a traceability discrepancy that needs review. The record alone does not identify who caused a gap or prove that the item changed. Preserve the original record, compare authorized laboratory notes and receipts, seek an accountable explanation, and document unresolved limits. This instructional method does not decide Philippine admissibility, criminal liability, or the legal effect of any particular defect.",
+                "id": "cle-review-gaps-without-overclaiming",
+                "related_concept_ids": [
+                    "cle-investigation-evidence",
+                    "cle-forensic-integrity",
+                    "cle-forensics-limits"
+                ]
             }
         ],
         "worked_examples": [
@@ -334,6 +413,17 @@
                 ],
                 "answer": "The resealing event is insufficiently documented and requires explanation and corroboration.",
                 "check": "The conclusion preserves the evidentiary concern without claiming a proven alteration."
+            },
+            {
+                "heading": "Review two different seal records",
+                "prompt": "Package A has a broken seal with an authorized laboratory opening and resealing event documented. Package B has a broken seal but no recorded event. What should the reviewer do?",
+                "steps": [
+                    "Treat the documented laboratory event for A as traceable, while checking the replacement seal record under policy.",
+                    "Flag B as an unexplained integrity discrepancy and preserve the original log.",
+                    "Check transfer receipts and authorized examination records before drawing a conclusion about cause or effect."
+                ],
+                "answer": "B requires immediate discrepancy review; the log alone does not prove tampering.",
+                "check": "A complete, contemporaneous record supports traceability; it does not replace applicable legal or laboratory review."
             }
         ],
         "common_misconceptions": [
@@ -343,9 +433,9 @@
             "Guidance must be applied with local law, agency policy, safety, and laboratory requirements."
         ],
         "question_patterns": [
-            "Choose what to document or protect first when a scene feature may change.",
-            "Identify missing information in a collection, transfer, opening, or resealing record.",
-            "Separate a supportable custody conclusion from an unsupported accusation."
+            "For scene questions, preserve context and relationships before collection unless an urgent risk requires protection.",
+            "For custody questions, trace identifier, condition, package, seal, transfer, and authorized opening records.",
+            "For a broken-seal scenario, distinguish an unexplained gap from proof of tampering or a legal conclusion."
         ],
         "practice_question_ids": [
             "757",
@@ -365,7 +455,7 @@
         "title": "Standard Precautions, Transmission Risk, and Safe Injections",
         "material_id": "nle-np-iii-foundation",
         "status": "published",
-        "version": 1,
+        "version": 2,
         "board_id": "nursing",
         "subject_id": "nursing-foundations",
         "official_scope_source_ids": [
@@ -380,26 +470,42 @@
         ],
         "scope_note": "PRC Resolution No. 10 s. 2025 adopts the enhanced Nurses Licensure Examination TOS for November 2025 and later schedules. This lesson selects infection-prevention principles for nursing practice. Follow current public-health guidance, patient condition, product instructions, and facility policy; no frequency claim is made.",
         "learning_objectives": [
-            "Apply Standard Precautions to all patient care and assess exposure before selecting PPE.",
-            "Recognize when transmission-based precautions add measures to Standard Precautions.",
-            "Explain how hand hygiene and single-use sterile injection equipment interrupt avoidable transmission."
+            "Apply Standard Precautions to every patient encounter and match PPE to anticipated exposure.",
+            "Determine when a suspected or confirmed transmission risk requires added precautions under current guidance.",
+            "Protect patients by maintaining hand hygiene, equipment controls, and single-use sterile injection technique."
         ],
         "sections": [
             {
                 "heading": "1. Start with Standard Precautions",
-                "body": "Standard Precautions apply to every patient in every care setting, regardless of known infection status. They include hand hygiene, safe injection practices, environmental and equipment controls, respiratory hygiene, and exposure-based PPE. Gloves do not replace hand hygiene. Follow the indicated care moments and clean hands after removing PPE."
+                "body": "Prerequisite: assess the task and likely contact with blood, body fluids, mucous membranes, non-intact skin, contaminated equipment, and the care environment. Standard Precautions apply to all patients in every care setting, regardless of known infection status. They include hand hygiene, safe injection practices, environmental and equipment controls, respiratory hygiene, and PPE selected for anticipated exposure. Gloves do not replace hand hygiene; clean hands at the indicated care moments and after PPE removal.",
+                "id": "nle-standard-precautions",
+                "related_concept_ids": [
+                    "nle-np-iii-infection"
+                ]
             },
             {
                 "heading": "2. Add measures for transmission risk",
-                "body": "Use current transmission-based guidance when a suspected or confirmed condition warrants additional contact, droplet, or airborne controls. Check the required pathway, room controls, respiratory protection, equipment, and transport plan. Exact precautions depend on the organism, task, setting, and current guidance."
+                "body": "When a suspected or confirmed condition calls for additional controls, add the current contact, droplet, or airborne pathway to Standard Precautions. Confirm the clinical syndrome or organism, setting, room controls, respiratory protection, equipment plan, and transport instructions in the current facility protocol. Requirements can vary with the pathogen and task; do not infer a complete PPE or room plan from a disease label alone.",
+                "id": "nle-transmission-based-precautions",
+                "related_concept_ids": [
+                    "nle-np-iii-infection"
+                ]
             },
             {
                 "heading": "3. Match PPE and equipment to the task",
-                "body": "Before suctioning or close care, consider contact with secretions, contaminated surfaces, and splash or aerosol exposure. Prepare the required PPE and dedicated or reprocessed equipment, then plan safe disposal and hand hygiene. A procedure name alone does not replace the risk assessment or isolation pathway."
+                "body": "Before suctioning, close care, or handling contaminated equipment, identify the anticipated exposure and splash or aerosol risks, then prepare the indicated PPE, hand hygiene, equipment, disposal, and reprocessing steps. Use dedicated equipment or clean and reprocess reusable items as required. A procedure name alone does not determine the entire plan; follow the patient’s current precautions and facility procedure.",
+                "id": "nle-task-based-ppe-and-equipment",
+                "related_concept_ids": [
+                    "nle-np-iii-infection"
+                ]
             },
             {
                 "heading": "4. Keep injections aseptic",
-                "body": "Use a new sterile needle and syringe for each patient and each injection. Never reuse a syringe or use a used needle to enter a medication vial or solution container. Follow product labeling and facility policy for vial access, storage, and discard."
+                "body": "Use a new sterile needle and syringe for each patient and each injection. Never reuse a syringe or use a used needle to enter a medication vial or solution container. Use aseptic technique for vial access and follow product labeling and facility rules for storage and discard. A multidose vial does not make used injection equipment safe to reuse.",
+                "id": "nle-safe-injection-practices",
+                "related_concept_ids": [
+                    "nle-np-iii-infection"
+                ]
             }
         ],
         "worked_examples": [
@@ -424,6 +530,17 @@
                 ],
                 "answer": "Use single-use sterile injection equipment and an aseptic vial-access process.",
                 "check": "Needle and syringe are not shared between patients or reused for another vial entry."
+            },
+            {
+                "heading": "Plan transport for a patient on added precautions",
+                "prompt": "A patient with suspected airborne infection must go to imaging. Which checks belong in the plan?",
+                "steps": [
+                    "Confirm the current isolation pathway and room controls with the responsible clinical team.",
+                    "Select the required respiratory protection and hand-hygiene steps under current facility guidance.",
+                    "Coordinate the route, receiving area, patient source-control instructions, and equipment handling as required."
+                ],
+                "answer": "Use the current condition- and facility-specific pathway and coordinate safe transport; do not apply a generic PPE list.",
+                "check": "The CDC distinction is that Standard Precautions apply to all patients and Transmission-Based Precautions add controls when indicated."
             }
         ],
         "common_misconceptions": [
@@ -433,12 +550,11 @@
             "A multidose vial makes used injection equipment safe to reuse."
         ],
         "question_patterns": [
-            "Select preparation steps from a stated task and exposure risk.",
-            "Combine Standard Precautions with indicated transmission-based controls.",
-            "Identify unsafe medication or injection practices."
+            "For infection-control scenarios, start with Standard Precautions, then identify whether the stated risk requires added measures.",
+            "For PPE questions, connect the task and expected exposure to the current facility pathway.",
+            "For injections, verify new sterile equipment for each patient and injection and follow local vial-handling policy."
         ],
         "practice_question_ids": [
-            "3853",
             "4004",
             "4005",
             "4006"
@@ -523,7 +639,7 @@
         "source_review": {
             "status": "SOURCE_CHECKED",
             "checked_at": "2026-10-16",
-            "note": "The TOS reference, reliability\/validity distinction, and classical SEM calculation were checked against the registered PRC, AERA\/APA\/NCME, and OpenStax references. This does not imply human academic sign-off."
+            "note": "The TOS reference, reliability/validity distinction, and classical SEM calculation were checked against the registered PRC, AERA/APA/NCME, and OpenStax references. This does not imply human academic sign-off."
         }
     },
     {
@@ -555,11 +671,11 @@
             },
             {
                 "heading": "2. Use shear and moment together",
-                "body": "Under the usual beam sign convention, dM\/dx = V. A stationary moment occurs where shear is zero or changes sign, subject to jumps and boundary conditions. Check moment values at supports and other candidates before naming the maximum."
+                "body": "Under the usual beam sign convention, dM/dx = V. A stationary moment occurs where shear is zero or changes sign, subject to jumps and boundary conditions. Check moment values at supports and other candidates before naming the maximum."
             },
             {
                 "heading": "3. Apply the centered point-load model",
-                "body": "For a simply supported prismatic beam, linear elasticity, small deflection, and a centered load P, delta_max = P L^3\/(48 E I). Use P in newtons, L in metres, E in pascals, and I in m^4; the answer is metres."
+                "body": "For a simply supported prismatic beam, linear elasticity, small deflection, and a centered load P, delta_max = P L^3/(48 E I). Use P in newtons, L in metres, E in pascals, and I in m^4; the answer is metres."
             }
         ],
         "worked_examples": [
@@ -568,7 +684,7 @@
                 "prompt": "A simply supported beam carries a centered 16 kN point load.",
                 "steps": [
                     "Vertical equilibrium: R_A + R_B = 16 kN.",
-                    "Moments about A: R_B L = 16(L\/2), so R_B = 8 kN.",
+                    "Moments about A: R_B L = 16(L/2), so R_B = 8 kN.",
                     "Then R_A = 16 - 8 = 8 kN."
                 ],
                 "answer": "Each support reaction is 8 kN upward.",
@@ -579,7 +695,7 @@
                 "prompt": "P = 8 kN, L = 4 m, E = 200 GPa, I = 3.0 x 10^-5 m^4.",
                 "steps": [
                     "Convert P = 8000 N and E = 200 x 10^9 Pa.",
-                    "Substitute: 8000(4^3)\/(48(200 x 10^9)(3.0 x 10^-5)) = 0.00178 m.",
+                    "Substitute: 8000(4^3)/(48(200 x 10^9)(3.0 x 10^-5)) = 0.00178 m.",
                     "Multiply by 1000 to convert to millimetres."
                 ],
                 "answer": "The deflection magnitude is approximately 1.78 mm.",
@@ -614,7 +730,7 @@
         "title": "Audit Evidence Quality and Assertion-Directed Procedures",
         "material_id": "batch622-cpa-auditing-evidence",
         "status": "published",
-        "version": 1,
+        "version": 2,
         "board_id": "cpa",
         "subject_id": "cpa-auditing",
         "official_scope_source_ids": [
@@ -629,26 +745,44 @@
         ],
         "scope_note": "The PRC Board of Accountancy page and 2026 program identify current LECPA subjects; PRC Board Resolution No. 3 s. 2026 adopts Philippine auditing and assurance standards. This lesson teaches selected ISA 500 concepts. Consult current PRC and adopted standards; no frequency claim is made.",
         "learning_objectives": [
-            "Distinguish evidence appropriateness (quality) from sufficiency (quantity).",
-            "Select a procedure direction that tests the stated financial-statement assertion.",
-            "Investigate contradictory evidence and document the resulting professional judgment."
+            "Distinguish evidence appropriateness (quality) from sufficiency (quantity) in relation to risk and purpose.",
+            "Choose a procedure direction that can address the stated financial-statement assertion.",
+            "Investigate contradictory evidence and document the procedures, judgments, and unresolved issues."
         ],
         "sections": [
             {
                 "heading": "1. Separate evidence quality and amount",
-                "body": "Appropriateness concerns evidence quality, including relevance to the assertion and reliability of its source and form. Sufficiency concerns amount. More low-relevance or unreliable evidence may not resolve a gap. Evaluate both dimensions in relation to assessed risks and the conclusion."
+                "body": "Appropriateness concerns the quality of evidence, including its relevance to the assertion and the reliability of its source and form. Sufficiency concerns the amount. More low-relevance or unreliable evidence may not resolve an evidential gap. Assess both dimensions in relation to the risk, the procedure’s purpose, and the conclusion being supported, using the applicable current Philippine auditing standards and firm methodology.",
+                "id": "cpa-evidence-quality-and-amount",
+                "related_concept_ids": [
+                    "cpa-auditing-evidence-core"
+                ]
             },
             {
                 "heading": "2. Let the assertion determine direction",
-                "body": "To test occurrence of recorded revenue, select entries from the accounting records and trace to shipping or customer-acceptance support. To test completeness of purchases, begin with a source population such as receiving reports and trace forward to the purchases journal and liabilities. Direction changes which omissions or unsupported records the procedure can detect."
+                "body": "Let the assertion determine where the procedure starts. To test occurrence of recorded revenue, select recorded entries and trace them to shipping or customer-acceptance support. To test completeness of purchases, start from source events such as receiving reports and trace forward to the journal and liabilities. The direction affects which unsupported records or omissions the procedure can reveal; also check the population, period, and documents involved.",
+                "id": "cpa-assertion-determines-direction",
+                "related_concept_ids": [
+                    "cpa-auditing-assertions-core",
+                    "cpa-auditing-completeness-core"
+                ]
             },
             {
                 "heading": "3. Investigate contradictory evidence",
-                "body": "An external confirmation may be persuasive, but a conflict with management's schedule requires investigation. Consider reliability, the reason for the difference, corroborating evidence, and whether risks or procedures should change. Document the conflict, work performed, and conclusion."
+                "body": "When an external confirmation conflicts with a management schedule, establish what differs and which assertion the evidence addresses. Assess the source and timing, obtain corroborating or alternative evidence, and determine whether risk assessments or further procedures should change. Do not average conflicting values, defer automatically to management, or treat one source as dispositive without investigation.",
+                "id": "cpa-investigate-contradictory-evidence",
+                "related_concept_ids": [
+                    "cpa-auditing-evidence-core",
+                    "cpa-auditing-assertions-core"
+                ]
             },
             {
                 "heading": "4. Keep skepticism and documentation active",
-                "body": "Assess evidence in context. Inquiry alone may not support a conclusion when stronger corroboration is needed. Record procedures, sources, results, judgments, and how inconsistencies were resolved. The objective is sufficient appropriate evidence, not a predetermined document count."
+                "body": "Maintain professional skepticism and document the procedures performed, sources and results, significant judgments, contradictory evidence, and how inconsistencies were resolved. Inquiry alone may not support a conclusion when corroboration is needed. The objective is sufficient appropriate evidence for the conclusion, not a predetermined document count. Apply the current adopted Philippine standards; this lesson does not reproduce standards text or replace current professional requirements.",
+                "id": "cpa-documentation-and-skepticism",
+                "related_concept_ids": [
+                    "cpa-auditing-documentation-core"
+                ]
             }
         ],
         "worked_examples": [
@@ -662,6 +796,17 @@
                 ],
                 "answer": "The procedure primarily tests completeness of purchases and related liabilities.",
                 "check": "Starting with recorded purchases and tracing backward would more directly address occurrence."
+            },
+            {
+                "heading": "Trace receiving reports into year-end purchases",
+                "prompt": "A reviewer selects receiving reports issued just before year-end and traces them into the purchases journal and payable records. Which assertion is the procedure primarily designed to test?",
+                "steps": [
+                    "Begin with evidence that goods were received, independent of whether the accounting entry exists.",
+                    "Trace each receipt forward into the journal and related liability records.",
+                    "Investigate any receipt with no corresponding entry and evaluate the period and amount using additional evidence."
+                ],
+                "answer": "The procedure primarily addresses completeness of purchases and related liabilities.",
+                "check": "Starting from recorded entries and tracing backward would answer a different question, such as occurrence."
             }
         ],
         "common_misconceptions": [
@@ -671,14 +816,13 @@
             "A contradiction can be ignored when one source agrees with management."
         ],
         "question_patterns": [
-            "Classify an evidence-quality issue as appropriateness or sufficiency.",
-            "Choose the assertion tested by the direction of tracing or vouching.",
-            "Identify a sound response to evidence that conflicts with management."
+            "For assertion questions, identify the population and the direction of tracing before naming the objective.",
+            "For evidence questions, assess relevance and reliability separately from amount.",
+            "For contradictions, investigate, corroborate, reassess the procedure, and document the resolution."
         ],
         "practice_question_ids": [
             "1338",
             "4238",
-            "4239",
             "4248"
         ],
         "pdf_file": "cpa-audit-evidence-and-assertion-testing.pdf",
@@ -713,15 +857,15 @@
         "sections": [
             {
                 "heading": "1. State the gas model",
-                "body": "For fixed mass of ideal gas, pV = mRT. At fixed volume and mass, p\/T is constant, so p2 = p1(T2\/T1). Use kelvins. The relation does not apply unchanged when mass or volume changes."
+                "body": "For fixed mass of ideal gas, pV = mRT. At fixed volume and mass, p/T is constant, so p2 = p1(T2/T1). Use kelvins. The relation does not apply unchanged when mass or volume changes."
             },
             {
                 "heading": "2. Calculate isothermal work",
-                "body": "For quasi-equilibrium isothermal ideal-gas expansion, work by the gas is W = mRT ln(V2\/V1). With R in kJ\/(kg K), mass in kg, and temperature in K, work is kJ. Expansion is positive work by the gas under this convention; compression reverses the sign."
+                "body": "For quasi-equilibrium isothermal ideal-gas expansion, work by the gas is W = mRT ln(V2/V1). With R in kJ/(kg K), mass in kg, and temperature in K, work is kJ. Expansion is positive work by the gas under this convention; compression reverses the sign."
             },
             {
                 "heading": "3. Account for a cycle",
-                "body": "For a heat-engine cycle, net stored energy change is zero. With heat input Qin and rejected heat Qout, Wnet = Qin - Qout and thermal efficiency eta = Wnet\/Qin. Efficiency is dimensionless; multiply by 100 only when reporting a percent."
+                "body": "For a heat-engine cycle, net stored energy change is zero. With heat input Qin and rejected heat Qout, Wnet = Qin - Qout and thermal efficiency eta = Wnet/Qin. Efficiency is dimensionless; multiply by 100 only when reporting a percent."
             },
             {
                 "heading": "4. Check units and balances",
@@ -733,8 +877,8 @@
                 "heading": "Fixed-volume pressure change",
                 "prompt": "An ideal gas at 150 kPa and 300 K is heated to 450 K at constant mass and volume.",
                 "steps": [
-                    "Use p2\/p1 = T2\/T1.",
-                    "p2 = 150(450\/300) kPa.",
+                    "Use p2/p1 = T2/T1.",
+                    "p2 = 150(450/300) kPa.",
                     "The ratio is 1.5, so p2 = 225 kPa."
                 ],
                 "answer": "Final pressure = 225 kPa.",
@@ -745,7 +889,7 @@
                 "prompt": "A cycle receives 900 kJ and rejects 540 kJ per cycle.",
                 "steps": [
                     "Wnet = 900 - 540 = 360 kJ.",
-                    "eta = 360\/900 = 0.40.",
+                    "eta = 360/900 = 0.40.",
                     "If requested, 0.40 x 100% = 40%."
                 ],
                 "answer": "Net work is 360 kJ per cycle and efficiency is 0.40 (40%).",
@@ -754,7 +898,7 @@
         ],
         "common_misconceptions": [
             "Using Celsius instead of kelvins in a pressure-temperature ratio.",
-            "Using p\/T = constant when volume or gas mass is not fixed.",
+            "Using p/T = constant when volume or gas mass is not fixed.",
             "Treating isothermal ideal-gas expansion work as a rectangular p-V area.",
             "Dividing rejected heat by input heat instead of using net work for engine efficiency."
         ],
@@ -781,7 +925,7 @@
         "title": "Site Analysis: From Environmental Evidence to Design Response",
         "material_id": "architecture-4-1-foundation",
         "status": "published",
-        "version": 1,
+        "version": 2,
         "board_id": "architecture",
         "subject_id": "architecture-architectural-design-and-site-planning",
         "official_scope_source_ids": [
@@ -793,26 +937,45 @@
         ],
         "scope_note": "The PRC June 2026 Architects program assigns 40% to Architectural Design and Site Planning for that cycle; it does not weight this lesson topic. This lesson combines original instruction with MIT course references. Confirm future program changes and applicable Philippine accessibility, safety, and building rules.",
         "learning_objectives": [
-            "Build a site analysis from physical, environmental, access, use, and service evidence.",
-            "Compare orientation, shading, daylight, and circulation against stated user and climate needs.",
-            "Explain why a response follows from supplied evidence without making it a universal rule."
+            "Separate measured site conditions, observations, and assumptions before choosing a design response.",
+            "Compare orientation, access, adjacency, circulation, and site capacity against a stated user or program need.",
+            "Explain a design choice with evidence, trade-offs, and the checks still required for compliance."
         ],
         "sections": [
             {
                 "heading": "1. Map relationships before placing functions",
-                "body": "Record contours, drainage, sun, prevailing wind, vegetation, views, noise, access, adjacent uses, hazards, and existing services. Separate measured conditions from assumptions. A boundary and north arrow are not a complete site analysis; program needs and surrounding context also shape design."
+                "body": "Begin with the north arrow, scale, contours or spot elevations, arrival points, neighboring uses, vegetation, drainage, and stated hazards. Mark which observations are measured, supplied, or assumed. A circulation sketch shows how people and service access move; an adjacency sketch shows which functions need to connect or stay apart. Keep the evidence visible beside the proposed layout so a reviewer can trace each choice back to a site fact. A diagram does not establish soil stability, drainage performance, accessible grades, or code compliance.",
+                "id": "architecture-site-evidence-map",
+                "related_concept_ids": [
+                    "b633-arch-site-spatial-analysis",
+                    "b633-arch-site-circulation"
+                ]
             },
             {
                 "heading": "2. Translate evidence into comparisons",
-                "body": "For each use, compare daylight, glare, heat, ventilation, privacy, noise, safety, and arrival. Orientation and shading are tools to test, not fixed answers. A shaded edge may support one use while another edge better serves access, views, or another condition."
+                "body": "For each proposed use, compare when sunlight reaches an edge, shade, usable daylight, glare, ventilation, view, noise, and privacy. Use the time, season, and climate details supplied in the problem; compass direction alone is not a universal answer. Test orientation, openings, and shading together because reducing direct sun can also reduce daylight or views. State which condition the proposed response improves and what still needs measurement or simulation.",
+                "id": "architecture-environmental-comparisons",
+                "related_concept_ids": [
+                    "b633-arch-site-climate"
+                ]
             },
             {
                 "heading": "3. Resolve trade-offs explicitly",
-                "body": "State the user need, site constraint, proposed response, and remaining checks. Test effects on circulation, adjacent functions, outdoor space, and safe access. Apply current accessibility and building rules; a diagram does not demonstrate code compliance."
+                "body": "Compare a small number of layout options against program fit, usable area, public and service circulation, accessible route continuity, adjacency, grade, drainage, hazards, and any stated site limits. A flat location may still be unsafe or poorly connected. Name the constraint each option addresses and the trade-off it creates. Check zoning, setbacks, fire safety, accessibility, utilities, and structural requirements against the applicable local rules and qualified professionals; this lesson does not determine compliance.",
+                "id": "architecture-circulation-and-tradeoffs",
+                "related_concept_ids": [
+                    "b633-arch-site-circulation",
+                    "b633-arch-site-capacity",
+                    "b633-arch-site-spatial-analysis"
+                ]
             },
             {
                 "heading": "4. Communicate a reasoned proposal",
-                "body": "Tie a program decision to observable site evidence and acknowledge trade-offs. A north-side reading room might reduce a stated west-glare concern, but still needs daylight, access, ventilation, and adjacency checks. Do not generalize one orientation to every building or climate."
+                "body": "Use a decision chain: supplied evidence, user or program need, design response, then verification. Label assumptions and show circulation, environmental conditions, and functional relationships in diagrams that answer the actual question. Compare options using explicit criteria instead of unlabeled preference. If the scenario lacks information needed for a final choice, state which fact would change the decision rather than claiming the proposal is universally best.",
+                "id": "architecture-reasoned-proposal",
+                "related_concept_ids": [
+                    "b633-arch-site-spatial-analysis"
+                ]
             }
         ],
         "worked_examples": [
@@ -826,6 +989,17 @@
                 ],
                 "answer": "Test a north-side location and shading against daylight, glare, and east-side arrival.",
                 "check": "The proposal follows the supplied schedule and is not a universal orientation rule."
+            },
+            {
+                "heading": "Compare two access routes on a sloping site",
+                "prompt": "The entrance is on the east side. One route follows the contour with a longer path; a shorter route crosses the slope directly. What should the designer compare?",
+                "steps": [
+                    "Mark the entrance, destinations, contour direction, drainage path, and any known hazards.",
+                    "Compare route continuity, grade changes, landings, visibility, drainage, and distance for both options.",
+                    "Check the applicable accessibility requirements and site measurements before calling either route compliant."
+                ],
+                "answer": "Choose the route that best supports a continuous, legible, usable connection after the required measurements and code checks.",
+                "check": "The shorter route is not automatically better, and following a contour is not proof of compliance."
             }
         ],
         "common_misconceptions": [
@@ -835,9 +1009,9 @@
             "Calling a diagram complete after mapping only the boundary and north arrow."
         ],
         "question_patterns": [
-            "Choose which evidence to map before placing a building.",
-            "Evaluate an entrance or function using actual arrival, climate, and use.",
-            "Compare solar exposure and shade with daylight, glare, and circulation needs."
+            "For site scenarios, underline the supplied site facts and user need before selecting a response.",
+            "For orientation questions, compare sun, shade, access, and use together; do not apply a fixed compass rule.",
+            "For route or zoning questions, check safety, accessibility, adjacency, drainage, and program trade-offs."
         ],
         "practice_question_ids": [
             "1779",
@@ -1548,7 +1722,7 @@
         ],
         "common_misconceptions": [
             "A completed product proves that the process was safe.",
-            "Competency assessment is a single pass\/fail observation with no feedback.",
+            "Competency assessment is a single pass/fail observation with no feedback.",
             "Employer preference alone defines a national competency.",
             "Remediation means lowering the criterion."
         ],
@@ -3343,7 +3517,7 @@
             "fhwa-field-materials-manual",
             "mit-structural-engineering-design-notes"
         ],
-        "scope_note": "The March 2026 PRC CELE program identifies applied mathematics, engineering data, surveying and layout, transportation\/highways, quantity surveying, construction safety, and construction management. This original guide teaches selected shared methods and is not a complete CE reviewer or a substitute for current project specifications.",
+        "scope_note": "The March 2026 PRC CELE program identifies applied mathematics, engineering data, surveying and layout, transportation/highways, quantity surveying, construction safety, and construction management. This original guide teaches selected shared methods and is not a complete CE reviewer or a substitute for current project specifications.",
         "learning_objectives": [
             "Translate an engineering situation into a dimensional model and check the result.",
             "Explain how field observations, quantities, and assumptions affect a construction decision.",
@@ -3405,10 +3579,10 @@
         "worked_examples": [
             {
                 "heading": "Check a dimensional model",
-                "prompt": "A simply supported beam has span 4 m, center load 8 kN, E = 200 GPa, and I = 3.0 × 10⁻⁵ m⁴. Using the supplied relation δ = PL³\/(48EI), find midspan deflection.",
+                "prompt": "A simply supported beam has span 4 m, center load 8 kN, E = 200 GPa, and I = 3.0 × 10⁻⁵ m⁴. Using the supplied relation δ = PL³/(48EI), find midspan deflection.",
                 "steps": [
-                    "Convert P to 8,000 N and E to 200 × 10⁹ N\/m²; keep L in metres and I in m⁴.",
-                    "Substitute: δ = 8,000(4³)\/(48 × 200 × 10⁹ × 3.0 × 10⁻⁵) = 0.00178 m.",
+                    "Convert P to 8,000 N and E to 200 × 10⁹ N/m²; keep L in metres and I in m⁴.",
+                    "Substitute: δ = 8,000(4³)/(48 × 200 × 10⁹ × 3.0 × 10⁻⁵) = 0.00178 m.",
                     "Convert metres to millimetres by multiplying by 1,000."
                 ],
                 "answer": "Approximately 1.78 mm under the stated idealized model.",
@@ -3487,7 +3661,7 @@
             {
                 "id": "bearing-settlement-and-stability",
                 "heading": "3. Bearing, settlement, and slope stability",
-                "body": "Bearing checks begin with a clearly defined load and contact area; q = P\/A gives average contact pressure only for the assumed distribution. An allowable pressure already embeds assumptions supplied by the problem or governing geotechnical report, so it is not a universal soil constant. Settlement is a deformation problem whose magnitude and time depend on compressibility, drainage path, and stress change. Lateral earth pressure and slope stability likewise depend on geometry, water, soil strength, and construction sequence. Distinguish an ultimate failure calculation from a serviceability limit and do not infer site capacity from a classroom example.",
+                "body": "Bearing checks begin with a clearly defined load and contact area; q = P/A gives average contact pressure only for the assumed distribution. An allowable pressure already embeds assumptions supplied by the problem or governing geotechnical report, so it is not a universal soil constant. Settlement is a deformation problem whose magnitude and time depend on compressibility, drainage path, and stress change. Lateral earth pressure and slope stability likewise depend on geometry, water, soil strength, and construction sequence. Distinguish an ultimate failure calculation from a serviceability limit and do not infer site capacity from a classroom example.",
                 "items": [],
                 "related_concept_ids": [
                     "b633-ce-foundations-bearing",
@@ -3516,8 +3690,8 @@
                 "heading": "Estimate a footing area",
                 "prompt": "A footing carries 900 kN on soil with an allowable bearing pressure of 150 kPa. What minimum plan area follows from the stated average-pressure model?",
                 "steps": [
-                    "Use q = P\/A and rearrange A = P\/q.",
-                    "Remember 1 kPa = 1 kN\/m², so A = 900 kN ÷ 150 kN\/m².",
+                    "Use q = P/A and rearrange A = P/q.",
+                    "Remember 1 kPa = 1 kN/m², so A = 900 kN ÷ 150 kN/m².",
                     "Check that force divided by pressure leaves square metres."
                 ],
                 "answer": "6 m² minimum area under the supplied allowable-pressure assumption.",
@@ -3581,7 +3755,7 @@
             {
                 "id": "stress-section-and-deformation",
                 "heading": "2. Stress, section properties, and deformation",
-                "body": "For a prismatic elastic member under idealized axial load, average normal stress is P\/A. In elementary elastic bending, the flexure relation σ = My\/I connects bending moment, distance from the neutral axis, and section second moment of area. Deflection formulas require their stated support, load, geometry, and linear-elastic assumptions. Use consistent force and length units, and check whether the requested output is stress, force, or displacement. A formula is not a substitute for checking stability, shear, serviceability, connection behavior, or applicable design provisions.",
+                "body": "For a prismatic elastic member under idealized axial load, average normal stress is P/A. In elementary elastic bending, the flexure relation σ = My/I connects bending moment, distance from the neutral axis, and section second moment of area. Deflection formulas require their stated support, load, geometry, and linear-elastic assumptions. Use consistent force and length units, and check whether the requested output is stress, force, or displacement. A formula is not a substitute for checking stability, shear, serviceability, connection behavior, or applicable design provisions.",
                 "items": [],
                 "related_concept_ids": [
                     "b633-ce-strength-materials"
@@ -4202,7 +4376,7 @@
                 "steps": [
                     "Salary allowances total ₱200,000; capital-interest allowances are ₱40,000 and ₱20,000, so total allowances are ₱260,000.",
                     "Residual profit is ₱360,000 − ₱260,000 = ₱100,000.",
-                    "A receives 3\/5 of the residual, or ₱60,000; add A’s salary ₱120,000 and interest ₱40,000."
+                    "A receives 3/5 of the residual, or ₱60,000; add A’s salary ₱120,000 and interest ₱40,000."
                 ],
                 "answer": "A’s total allocation is ₱220,000.",
                 "check": "The partners receive ₱360,000 in total: ₱220,000 for A and ₱140,000 for B."
@@ -4251,7 +4425,7 @@
         ],
         "scope_note": "The current PRC LECPA TOS is the official scope reference. This lesson organizes selected accrual, measurement, presentation, and analysis methods; use the Philippine-adopted version and effective date of each standard for a reporting period. It does not replace the standards text.",
         "learning_objectives": [
-            "Apply accrual timing to expenses and unearned\/earned customer amounts.",
+            "Apply accrual timing to expenses and unearned/earned customer amounts.",
             "Distinguish recognition from measurement and presentation.",
             "Use reconciliation checks when interpreting financial-statement effects."
         ],
@@ -4488,7 +4662,7 @@
             "philippines-revised-corporation-code",
             "prc-accountancy-auditing-standards-2026"
         ],
-        "scope_note": "The PRC Board of Accountancy publishes current LECPA TOS and Philippine professional issuances. This introductory lesson teaches source-checking and selected legal\/audit reasoning; law and standards change, and the current primary text and effective date govern an actual professional decision.",
+        "scope_note": "The PRC Board of Accountancy publishes current LECPA TOS and Philippine professional issuances. This introductory lesson teaches source-checking and selected legal/audit reasoning; law and standards change, and the current primary text and effective date govern an actual professional decision.",
         "learning_objectives": [
             "Identify which primary authority and date control a regulatory question.",
             "Analyze a basic contract sequence from the facts given without inventing missing terms.",
@@ -5111,7 +5285,7 @@
         "learning_objectives": [
             "Distinguish an observation from an inference and a testable question.",
             "Explain diffusion using particle movement and a concentration gradient.",
-            "Use a model and evidence to interpret motion or an Earth\/life-science pattern."
+            "Use a model and evidence to interpret motion or an Earth/life-science pattern."
         ],
         "sections": [
             {
@@ -5338,7 +5512,7 @@
             "ra-11058-occupational-safety",
             "dole-do-252-25-osh-revised-irr-ra-11058"
         ],
-        "scope_note": "PRC’s LEPT TOS and DepEd EPP\/TLE curriculum define the teacher-education scope; TESDA standards and training regulations describe particular vocational qualifications and assessment arrangements. This lesson covers shared applied principles, not every AFA, HE, ICT, and Industrial Arts specialization or a substitute for current occupational-safety rules.",
+        "scope_note": "PRC’s LEPT TOS and DepEd EPP/TLE curriculum define the teacher-education scope; TESDA standards and training regulations describe particular vocational qualifications and assessment arrangements. This lesson covers shared applied principles, not every AFA, HE, ICT, and Industrial Arts specialization or a substitute for current occupational-safety rules.",
         "learning_objectives": [
             "Identify a hazard and select controls before beginning a task.",
             "Use measurement and quality evidence to check a work product.",
@@ -5488,7 +5662,7 @@
             {
                 "id": "stress-fatigue-and-stability",
                 "heading": "2. Stress, fatigue, and stability",
-                "body": "For a rectangular section bent about its strong axis, the elastic section modulus is S = bd²\/6 and the elementary bending-stress magnitude is σ = M\/S. The result depends on orientation, units, elastic behavior, and a suitable beam model. Repeated or fluctuating loads introduce fatigue questions; slender compression members may need a stability analysis rather than a simple material-strength comparison. A factor of safety or allowable value must come from the applicable design basis, not from an invented universal number. Separate a classroom stress estimate from a complete component design.",
+                "body": "For a rectangular section bent about its strong axis, the elastic section modulus is S = bd²/6 and the elementary bending-stress magnitude is σ = M/S. The result depends on orientation, units, elastic behavior, and a suitable beam model. Repeated or fluctuating loads introduce fatigue questions; slender compression members may need a stability analysis rather than a simple material-strength comparison. A factor of safety or allowable value must come from the applicable design basis, not from an invented universal number. Separate a classroom stress estimate from a complete component design.",
                 "items": [],
                 "related_concept_ids": [
                     "b644-me-machine-design-stress-analysis",
@@ -5537,11 +5711,11 @@
         "worked_examples": [
             {
                 "heading": "Estimate elastic bending stress",
-                "prompt": "A rectangular section is 0.10 m wide and 0.20 m deep under a 2 kN·m bending moment. Using S = bd²\/6, estimate the bending stress.",
+                "prompt": "A rectangular section is 0.10 m wide and 0.20 m deep under a 2 kN·m bending moment. Using S = bd²/6, estimate the bending stress.",
                 "steps": [
-                    "Compute S = 0.10(0.20²)\/6 = 0.0006667 m³.",
+                    "Compute S = 0.10(0.20²)/6 = 0.0006667 m³.",
                     "Convert moment to N·m: M = 2,000 N·m.",
-                    "Compute σ = M\/S = 2,000\/0.0006667 ≈ 3.0 × 10⁶ N\/m²."
+                    "Compute σ = M/S = 2,000/0.0006667 ≈ 3.0 × 10⁶ N/m²."
                 ],
                 "answer": "Approximately 3 MPa under the stated elastic bending model.",
                 "check": "The result is a nominal stress estimate; it does not include stress concentrations, fatigue, shear, or design allowables."
@@ -5767,10 +5941,10 @@
         "worked_examples": [
             {
                 "heading": "Calculate heat rate across two resistances",
-                "prompt": "Two thermal resistances of 0.20 K\/W and 0.30 K\/W are in series across a 50 K temperature difference. Find the heat rate in the stated steady model.",
+                "prompt": "Two thermal resistances of 0.20 K/W and 0.30 K/W are in series across a 50 K temperature difference. Find the heat rate in the stated steady model.",
                 "steps": [
-                    "Total resistance = 0.20 + 0.30 = 0.50 K\/W.",
-                    "Heat rate = ΔT\/R = 50 K ÷ 0.50 K\/W.",
+                    "Total resistance = 0.20 + 0.30 = 0.50 K/W.",
+                    "Heat rate = ΔT/R = 50 K ÷ 0.50 K/W.",
                     "Check that units reduce to watts."
                 ],
                 "answer": "100 W.",
@@ -5815,7 +5989,7 @@
             "openstax-introductory-statistics-2e",
             "lawphil-ra10029"
         ],
-        "scope_note": "PRC’s Psychologists and Psychometricians TOS is the examination-scope reference currently registered in this repository; currentness must be checked on the PRC board page before an exam. AERA\/APA\/NCME’s 2014 Standards remain versioned and the sponsors have begun revision work. This lesson is educational and not an individual test-interpretation or clinical recommendation.",
+        "scope_note": "PRC’s Psychologists and Psychometricians TOS is the examination-scope reference currently registered in this repository; currentness must be checked on the PRC board page before an exam. AERA/APA/NCME’s 2014 Standards remain versioned and the sponsors have begun revision work. This lesson is educational and not an individual test-interpretation or clinical recommendation.",
         "learning_objectives": [
             "Distinguish reliability evidence from validity evidence.",
             "Explain a standard error of measurement in a hypothetical score example.",
@@ -6119,11 +6293,11 @@
         "worked_examples": [
             {
                 "heading": "Find net force from acceleration",
-                "prompt": "A 10 kg instrument carriage accelerates at 2 m\/s². What net force acts on the carriage?",
+                "prompt": "A 10 kg instrument carriage accelerates at 2 m/s². What net force acts on the carriage?",
                 "steps": [
-                    "Identify mass m = 10 kg and acceleration a = 2 m\/s².",
+                    "Identify mass m = 10 kg and acceleration a = 2 m/s².",
                     "Apply Fnet = ma = 10 × 2.",
-                    "Check units: kg·m\/s² = N."
+                    "Check units: kg·m/s² = N."
                 ],
                 "answer": "20 N in the direction of the acceleration.",
                 "check": "This is the net force; the applied force may be different when friction or other forces act."

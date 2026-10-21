@@ -10,7 +10,7 @@ $storage = sys_get_temp_dir() . '/boardprep-question-study-' . bin2hex(random_by
 if (!mkdir($storage, 0700, true)) {
     throw new RuntimeException('Unable to create isolated question-study fixture.');
 }
-foreach (['study-materials.json', 'study-question-links.json'] as $file) {
+foreach (['study-materials.json', 'study-question-links.json', 'sources.json'] as $file) {
     if (!copy($root . '/storage/' . $file, $storage . '/' . $file)) {
         throw new RuntimeException('Unable to seed question-study fixture.');
     }
@@ -44,9 +44,9 @@ try {
         'studyReferences' => $questionReferences,
     ]);
     $practiceHtml = (string) ob_get_clean();
-    if (!str_contains($practiceHtml, '/study-library?material=let-english-communication-review')
-        || !str_contains($practiceHtml, 'English Communication Essentials')) {
-        throw new RuntimeException('Practice feedback did not render the question-linked study material.');
+    if (!str_contains($practiceHtml, 'Open source reference: Purdue Online Writing Lab')
+        || !str_contains($practiceHtml, 'no exact lesson section is mapped to this question')) {
+        throw new RuntimeException('Practice feedback did not distinguish registered source references from lesson-section mappings.');
     }
 
     ob_start();
@@ -62,13 +62,12 @@ try {
         'studyReferencesByQuestion' => $referencesByQuestion,
     ]);
     $resultHtml = (string) ob_get_clean();
-    if (!str_contains($resultHtml, '/study-library?material=let-english-communication-review')
-        || !str_contains($resultHtml, 'Open source reference: English Communication Essentials')
-        || !str_contains($resultHtml, 'it is not a BoardPrep lesson mapping')) {
+    if (!str_contains($resultHtml, 'Open source reference: Purdue Online Writing Lab')
+        || !str_contains($resultHtml, 'no exact lesson section is mapped to this question')) {
         throw new RuntimeException('Result review did not distinguish the question-linked source reference from lesson instruction.');
     }
 
-    echo "[PASS] Practice explanations and result review link to the exact published study materials for linked questions.\n";
+    echo "[PASS] Practice and answer review distinguish registered source references from exact lesson-section mappings.\n";
 } finally {
     foreach (glob($storage . '/*') ?: [] as $file) {
         if (is_file($file)) {

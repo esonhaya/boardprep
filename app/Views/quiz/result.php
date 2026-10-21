@@ -112,21 +112,25 @@ $taxonomyLabel = static fn(string $collection, mixed $id): string => \App\Servic
                     <?php foreach ($studyReferences as $reference): ?>
                         <?php
                         $materialId = is_scalar($reference['material_id'] ?? null) ? (string) $reference['material_id'] : '';
-                        $studyUrl = is_scalar($reference['url'] ?? null) ? (string) $reference['url'] : '/study-library?material=' . rawurlencode($materialId);
                         $reviewGuidance = is_scalar($reference['review_guidance'] ?? null) ? trim((string) $reference['review_guidance']) : '';
                         $lessonId = is_scalar($reference['lesson_id'] ?? null) ? trim((string) $reference['lesson_id']) : '';
                         $sectionId = is_scalar($reference['section_id'] ?? null) ? trim((string) $reference['section_id']) : '';
+                        $sourceReferences = array_values(array_filter((array) ($reference['source_references'] ?? []), static fn(mixed $source): bool => is_array($source) && trim((string) ($source['url'] ?? '')) !== ''));
                         ?>
                         <?php if ($materialId !== ''): ?>
                             <li>
-                                <a href="<?= htmlspecialchars($studyUrl, ENT_QUOTES, 'UTF-8') ?>"><?= htmlspecialchars(
-                                    $sectionId !== '' ? 'Open supporting lesson section: ' . (string) ($reference['title'] ?? 'Study lesson')
-                                        : ($lessonId !== '' ? 'Open supporting lesson: ' . (string) ($reference['title'] ?? 'Study lesson')
-                                            : 'Open source reference: ' . (string) ($reference['title'] ?? 'Registered source')),
-                                    ENT_QUOTES,
-                                    'UTF-8'
-                                ) ?></a>
-                                <?php if ($lessonId === ''): ?><p class="quiz-review-guidance">This is a source reference linked to the question; it is not a BoardPrep lesson mapping.</p><?php endif; ?>
+                                <?php if ($sectionId !== '' && $lessonId !== '' && is_scalar($reference['url'] ?? null)): ?>
+                                    <a href="<?= htmlspecialchars((string) $reference['url'], ENT_QUOTES, 'UTF-8') ?>">Open supporting lesson section: <?= htmlspecialchars((string) ($reference['title'] ?? 'Study lesson'), ENT_QUOTES, 'UTF-8') ?></a>
+                                <?php elseif ($sourceReferences !== []): ?>
+                                    <p class="quiz-review-guidance">Source references are available; no exact lesson section is mapped to this question.</p>
+                                    <ul>
+                                        <?php foreach ($sourceReferences as $source): ?>
+                                            <li><a href="<?= htmlspecialchars((string) $source['url'], ENT_QUOTES, 'UTF-8') ?>" target="_blank" rel="noopener">Open source reference: <?= htmlspecialchars((string) ($source['title'] ?? 'Registered source'), ENT_QUOTES, 'UTF-8') ?></a><?php if (trim((string) ($source['authority'] ?? '')) !== ''): ?> · <?= htmlspecialchars((string) $source['authority'], ENT_QUOTES, 'UTF-8') ?><?php endif; ?></li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                <?php else: ?>
+                                    <span>Source or exact lesson-section mapping is under review.</span>
+                                <?php endif; ?>
                                 <?php if ($reviewGuidance !== ''): ?>
                                     <p class="quiz-review-guidance"><?= htmlspecialchars($reviewGuidance, ENT_QUOTES, 'UTF-8') ?></p>
                                 <?php endif; ?>

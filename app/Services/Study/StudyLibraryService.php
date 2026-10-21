@@ -300,6 +300,11 @@ final class StudyLibraryService
                 if (isset($questionIds[$id])) $snapshotById[$id] = $question;
             }
         }
+        $sourcesById = [];
+        foreach (SourceRegistryService::all() as $source) {
+            if (!is_array($source) || !is_scalar($source['id'] ?? null)) continue;
+            $sourcesById[(string) $source['id']] ??= $source;
+        }
         $materials = [];
         $materialExams = [];
         foreach (App::storage()->all('study-materials') as $material) {
@@ -392,18 +397,30 @@ final class StudyLibraryService
                 }
             }
             $url = '/study-library?material=' . rawurlencode($materialId);
-            if ($lessonId !== '') {
-                $url .= '#' . ($sectionExists
-                    ? self::lessonSectionAnchorId($lessonId, $sectionId)
-                    : 'boardprep-lesson-' . rawurlencode($lessonId));
+            if ($lessonId !== '' && $sectionExists) {
+                $url .= '#' . self::lessonSectionAnchorId($lessonId, $sectionId);
             }
             $referenceKey = $materialId . "\0" . $reviewGuidance . "\0" . ($sectionExists ? $sectionId : '');
+            $sourceIds = array_values(array_filter((array) ($link['source_ids'] ?? []), static fn(mixed $id): bool => is_scalar($id) && trim((string) $id) !== ''));
+            $sourceReferences = [];
+            foreach ($sourceIds as $sourceId) {
+                $source = $sourcesById[(string) $sourceId] ?? null;
+                if (!is_array($source) || !is_string($source['url'] ?? null) || trim($source['url']) === '') continue;
+                $sourceReferences[] = [
+                    'id' => (string) $sourceId,
+                    'title' => (string) ($source['title'] ?? 'Registered source'),
+                    'url' => (string) $source['url'],
+                    'authority' => (string) ($source['authority'] ?? ''),
+                    'version' => (string) ($source['version'] ?? ''),
+                ];
+            }
             $references[$questionId][$referenceKey] = [
                 'material_id' => $materialId,
                 'title' => $materials[$materialId],
                 'review_guidance' => $reviewGuidance,
-                'source_ids' => array_values(array_filter((array) ($link['source_ids'] ?? []), static fn(mixed $id): bool => is_scalar($id) && trim((string) $id) !== '')),
-                'lesson_id' => $lessonId,
+                'source_ids' => $sourceIds,
+                'source_references' => $sourceReferences,
+                'lesson_id' => $sectionExists ? $lessonId : '',
                 'section_id' => $sectionExists ? $sectionId : '',
                 'url' => $url,
             ];

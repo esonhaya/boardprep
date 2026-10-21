@@ -135,7 +135,27 @@ Explanation:
 <?php if ($studyReferences !== []): ?>
 <section class="quiz-study-support" aria-label="Related study materials">
 <h4>Study support</h4>
-<ul><?php foreach ($studyReferences as $reference): ?><?php $materialId = is_scalar($reference['material_id'] ?? null) ? (string) $reference['material_id'] : ''; ?><?php $studyUrl = is_scalar($reference['url'] ?? null) ? (string) $reference['url'] : '/study-library?material=' . rawurlencode($materialId); ?><?php if ($materialId !== ''): ?><li><a href="<?= htmlspecialchars($studyUrl, ENT_QUOTES, 'UTF-8') ?>"><?= htmlspecialchars((string) ($reference['title'] ?? 'Source-backed study material'), ENT_QUOTES, 'UTF-8') ?></a></li><?php endif; ?><?php endforeach; ?></ul>
+<ul>
+<?php foreach ($studyReferences as $reference): ?>
+    <?php
+    $materialId = is_scalar($reference['material_id'] ?? null) ? (string) $reference['material_id'] : '';
+    $lessonId = is_scalar($reference['lesson_id'] ?? null) ? trim((string) $reference['lesson_id']) : '';
+    $sectionId = is_scalar($reference['section_id'] ?? null) ? trim((string) $reference['section_id']) : '';
+    $sourceReferences = array_values(array_filter((array) ($reference['source_references'] ?? []), static fn(mixed $source): bool => is_array($source) && trim((string) ($source['url'] ?? '')) !== ''));
+    ?>
+    <?php if ($materialId === '') continue; ?>
+    <li>
+        <?php if ($lessonId !== '' && $sectionId !== '' && is_scalar($reference['url'] ?? null)): ?>
+            <a href="<?= htmlspecialchars((string) $reference['url'], ENT_QUOTES, 'UTF-8') ?>">Open supporting lesson section: <?= htmlspecialchars((string) ($reference['title'] ?? 'Study lesson'), ENT_QUOTES, 'UTF-8') ?></a>
+        <?php elseif ($sourceReferences !== []): ?>
+            <p class="quiz-review-guidance">Registered source references are available; no exact lesson section is mapped to this question.</p>
+            <ul><?php foreach ($sourceReferences as $source): ?><li><a href="<?= htmlspecialchars((string) $source['url'], ENT_QUOTES, 'UTF-8') ?>" target="_blank" rel="noopener">Open source reference: <?= htmlspecialchars((string) ($source['title'] ?? 'Registered source'), ENT_QUOTES, 'UTF-8') ?></a></li><?php endforeach; ?></ul>
+        <?php else: ?>
+            <span>No exact lesson-section mapping or resolvable source reference is available.</span>
+        <?php endif; ?>
+    </li>
+<?php endforeach; ?>
+</ul>
 </section>
 <?php endif; ?>
 
