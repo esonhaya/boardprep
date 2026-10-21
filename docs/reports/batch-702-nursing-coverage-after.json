@@ -1,0 +1,99 @@
+{
+  "report_type": "BATCH702_FOCUSED_COVERAGE_DELTA",
+  "generated_at": "2026-10-22",
+  "tested_implementation_sha": "bb4d183",
+  "baseline": {
+    "batch701_final_sha": "c12d67e5f1a0fbd49f1ba179db0598c5973f27bd",
+    "coverage_report": "docs/reports/batch-701-coverage-after.json",
+    "coverage_snapshot_sha": "4433db6f10476556e2db331220f0fd537e6f4378",
+    "coverage_report_sha256": "b646a6c948d3b19f02b1963dae5d6447a8311a08400540b89e0aabd71b05a952",
+    "scope_note": "Reconciles the B701 full inventory snapshot with a targeted Nursing-only content/link delta. The full-bank coverage generator was not rerun; question-bank identity and all unselected subject data are unchanged."
+  },
+  "count_semantics": {
+    "concept_instruction": "Structural substantive-section association, not independent academic review, competency mastery, or full topical coverage.",
+    "exact_mapping": "Question has a stable published lesson_id and section_id; independent academic approval is separately pending.",
+    "source_only": "Baseline subject-placement classification with no section instruction; the eight mapped Nursing placements are reclassified structurally, not academically approved."
+  },
+  "nursing_before": {
+    "supported_boards": 10,
+    "active_subject_selectors": 43,
+    "canonical_questions": 9123,
+    "published_nursing_subject_materials": 20,
+    "published_lessons": 1,
+    "note_only_materials": 19,
+    "lesson_sections": 4,
+    "substantive_lesson_sections": 3,
+    "study_pdfs": 1,
+    "concepts_with_structural_instruction": 1,
+    "concepts_total": 40,
+    "concepts_without_structural_instruction": 39,
+    "instructional_concept_ids": [
+      "nle-np-iii-infection"
+    ],
+    "lesson_linked_question_ids": 100,
+    "source_only_question_ids": 798,
+    "exact_lesson_section_mappings": 3
+  },
+  "diagnosis": {
+    "substantive_preexisting_lesson_concept_ids": [
+      "nle-np-iii-infection"
+    ],
+    "note_only_material_count": 19,
+    "note_depth": "Topic-specific prose exists across several note-only materials, including batch-625 clinical-reasoning notes; a number also reuse generic assessment/action/teaching boilerplate. Without stable lesson sections and concept associations these notes are not counted as mapped substantive coverage.",
+    "concept_level_limit": "The 39 concepts were gaps in structurally mapped substantive instruction, not 39 claims that no prose exists. Remaining concept prose/source sufficiency was not recast as empty or verified by loose keyword matches.",
+    "source_evidence_limit": "The four added concepts have checked general instructional references and official exam-scope references. Philippine facility protocols, local scope interpretation, and nursing-expert acceptance remain review items; this batch does not claim source sufficiency for the other 35 concepts."
+  },
+  "nursing_after": {
+    "published_nursing_subject_materials": 20,
+    "published_lessons": 3,
+    "note_only_materials": 17,
+    "lesson_sections": 12,
+    "substantive_lesson_sections": 11,
+    "study_pdfs": 3,
+    "concepts_with_structural_instruction": 5,
+    "concepts_total": 40,
+    "concepts_without_structural_instruction": 35,
+    "instructional_concept_ids": [
+      "nle-np-i-education",
+      "nle-np-iii-infection",
+      "nle-np-iv-medication",
+      "nle-np-v-acuity",
+      "nle-np-v-teamwork"
+    ],
+    "new_structural_concept_ids": [
+      "nle-np-v-acuity",
+      "nle-np-v-teamwork",
+      "nle-np-iv-medication",
+      "nle-np-i-education"
+    ],
+    "lesson_linked_question_ids": 108,
+    "source_only_question_ids": 790,
+    "exact_lesson_section_mappings": 11,
+    "exact_mappings_added_or_upgraded": 8,
+    "independent_academic_review_pending": 11
+  },
+  "portfolio_after": {
+    "supported_boards": 10,
+    "active_subject_selectors": 43,
+    "canonical_questions": 9123,
+    "published_study_pdfs": 49,
+    "concepts_with_structural_instruction": 382,
+    "concepts_without_structural_instruction": 264,
+    "exact_lesson_section_mapping_rows": 1013,
+    "exact_rows_pending_independent_academic_review": 55,
+    "lesson_linked_subject_question_placements": 1818,
+    "source_only_subject_question_placements": 8089
+  },
+  "new_mapping_question_ids": [
+    1011,
+    1012,
+    4094,
+    4096,
+    4097,
+    4102,
+    5104,
+    5187
+  ],
+  "review_status": "SOURCE_CHECKED; SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+  "release_status": "Restricted review candidate only; not independently approved, product launch ready, or authorized for public release."
+}
