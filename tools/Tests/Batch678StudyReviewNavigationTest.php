@@ -88,6 +88,12 @@ try {
     }
 
     $references = \App\Services\Study\StudyLibraryService::forQuestions(['6811']);
+    $reference = $references['6811'][0] ?? null;
+    $sourceUrl = is_array($reference) ? (string) (($reference['source_references'][0]['url'] ?? '')) : '';
+    if (!is_array($reference) || $sourceUrl === '' || ($reference['lesson_id'] ?? '') !== '' || ($reference['section_id'] ?? '') !== '') {
+        throw new RuntimeException('The source-only question was presented as an exact lesson mapping or lost its registered source.');
+    }
+    $sourceLink = 'href="' . htmlspecialchars($sourceUrl, ENT_QUOTES, 'UTF-8') . '"';
     ob_start();
     \App\Core\View::render('quiz/result', [
         'summary' => ['score' => 0, 'total' => 1, 'percentage' => 0],
@@ -106,10 +112,12 @@ try {
         'studyReferencesByQuestion' => $references,
     ]);
     $html = (string) ob_get_clean();
-    if (!str_contains($html, '/study-library?material=cse-numerical-foundation')
+    if (!str_contains($html, $sourceLink)
+        || str_contains($html, 'href="/study-library?material=cse-numerical-foundation')
+        || !str_contains($html, 'no exact lesson section is mapped to this question')
         || !str_contains($html, 'Use the distributive property')
         || !str_contains($html, 'quiz-review-guidance')) {
-        throw new RuntimeException('Submitted answer review did not render its exact linked study material and explanation.');
+        throw new RuntimeException('Submitted answer review did not preserve the question explanation while distinguishing the registered source from an exact lesson mapping.');
     }
 
     ob_start();
@@ -133,10 +141,12 @@ try {
         'historicalContext' => ['board' => 'civil-service', 'mode' => 'practice'],
     ]);
     $historicalHtml = (string) ob_get_clean();
-    if (!str_contains($historicalHtml, '/study-library?material=cse-numerical-foundation')
+    if (!str_contains($historicalHtml, $sourceLink)
+        || str_contains($historicalHtml, 'href="/study-library?material=cse-numerical-foundation')
+        || !str_contains($historicalHtml, 'no exact lesson section is mapped to this question')
         || !str_contains($historicalHtml, 'Use the distributive property')
         || !str_contains($historicalHtml, 'Historical Quiz Result')) {
-        throw new RuntimeException('Historical answer review did not render its linked study material and explanation.');
+        throw new RuntimeException('Historical answer review did not distinguish source-only evidence from an exact lesson mapping.');
     }
 
     echo "[PASS] Four source-backed question links resolve to exact materials, and current and historical reviews display actionable guidance.\n";
