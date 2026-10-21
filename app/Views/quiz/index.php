@@ -148,7 +148,7 @@ Explanation:
         <?php if ($lessonId !== '' && $sectionId !== '' && is_scalar($reference['url'] ?? null)): ?>
             <a href="<?= htmlspecialchars((string) $reference['url'], ENT_QUOTES, 'UTF-8') ?>">Open supporting lesson section: <?= htmlspecialchars((string) ($reference['title'] ?? 'Study lesson'), ENT_QUOTES, 'UTF-8') ?></a>
         <?php elseif ($sourceReferences !== []): ?>
-            <p class="quiz-review-guidance">Registered source references are available; no exact lesson section is mapped to this question.</p>
+            <p class="quiz-review-guidance">This source association has no exact lesson section link.</p>
             <ul><?php foreach ($sourceReferences as $source): ?><li><a href="<?= htmlspecialchars((string) $source['url'], ENT_QUOTES, 'UTF-8') ?>" target="_blank" rel="noopener">Open source reference: <?= htmlspecialchars((string) ($source['title'] ?? 'Registered source'), ENT_QUOTES, 'UTF-8') ?></a></li><?php endforeach; ?></ul>
         <?php else: ?>
             <span>No exact lesson-section mapping or resolvable source reference is available.</span>

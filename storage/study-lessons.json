@@ -557,7 +557,8 @@
         "practice_question_ids": [
             "4004",
             "4005",
-            "4006"
+            "4006",
+            "3853"
         ],
         "pdf_file": "nursing-standard-and-transmission-precautions.pdf",
         "source_review": {
@@ -6676,6 +6677,805 @@
             "status": "SOURCE_CHECKED",
             "checked_at": "2026-10-22",
             "note": "Scope was checked against the cited PRC Nursing TOS/program. Verification and monitoring claims were checked against Open RN Nursing Pharmacology 2e; calculation method against WisTech Open Nursing Dosage Calculations; transition and patient-partnership claims against WHO Medication Without Harm and Open RN Nursing Fundamentals. Arithmetic was independently recomputed. These checks do not establish independent Philippine nursing-expert review or facility approval."
+        }
+    },
+    {
+        "id": "nursing-community-risk-and-prevention",
+        "title": "Community Assessment, Prevention, and Population Reasoning",
+        "material_id": "nle-np-i-foundation",
+        "status": "published",
+        "version": 1,
+        "board_id": "nursing",
+        "subject_id": "nursing-foundations",
+        "official_scope_source_ids": [
+            "prc-nursing-enhanced-tos-2025",
+            "prc-nursing-program-aug-2026"
+        ],
+        "instructional_source_ids": [
+            "openrn-nursingmhcc-community-162",
+            "openrn-nursing-fundamentals",
+            "who-community-health",
+            "openrn-healthpromo-prevention-22",
+            "aha-asa-secondary-stroke-prevention-2021",
+            "aha-asa-acute-stroke-guideline-2026",
+            "cdc-field-epi-outbreak-investigation",
+            "openrn-nursingmhcc-vulnerable-172"
+        ],
+        "scope_note": "PRC Resolution No. 10 s. 2025 and the August 2026 NLE program define examination scope, not topic weights. This lesson teaches a bounded community assessment and prevention foundation from the references below. Open RN and U.S. professional materials support general educational principles only; apply Philippine law, scope of practice, current clinical orders, referral pathways, and facility policy. This study material is not a clinical directive or proof of complete NP coverage.",
+        "learning_objectives": [
+            "Assess a community concern with the affected people and relevant service partners before selecting an intervention.",
+            "Distinguish population prevention levels from condition-specific uses of prevention terminology and keep individualized care plans with the treating team.",
+            "Calculate and interpret a simple event proportion using the correct at-risk denominator.",
+            "Recognize how access barriers and new safety changes affect assessment and referral priorities."
+        ],
+        "sections": [
+            {
+                "id": "b703-community-assessment-access",
+                "heading": "1. Start with the community’s problem definition",
+                "body": "Community assessment is a structured inquiry into health patterns, resources, barriers, and priorities with the people affected. Begin with a defined population and question: who is missing care, what changed, where, and when? Combine available records with resident and frontline-worker perspectives. Check whose experience is absent, whether access, language, transport, cost, safety, or service hours are relevant, and what community strengths already exist. A proposed program should fit local resources and be designed with, not merely delivered to, residents. This is a general method; Philippine barangay structures, referral routes, and program eligibility must be confirmed locally.",
+                "related_concept_ids": [
+                    "nle-np-i-community"
+                ],
+                "source_ids": [
+                    "openrn-nursingmhcc-community-162",
+                    "openrn-nursing-fundamentals",
+                    "who-community-health"
+                ]
+            },
+            {
+                "id": "b703-prevention-and-risk-communication",
+                "heading": "2. Separate prevention levels from a disease-specific plan",
+                "body": "In the common health-promotion framework, primary prevention acts before disease, secondary prevention seeks earlier detection, and tertiary prevention limits consequences of established disease. The same word can be used more narrowly by a specialty guideline: “secondary stroke prevention” describes reducing recurrent stroke risk after a prior event. Do not mechanically relabel that care as screening or infer a drug, activity limit, laboratory target, or follow-up interval. Support adherence to the plan made by the treating team, clarify questions, reinforce warning-sign and follow-up instructions, and escalate new symptoms through the current pathway. The AHA/ASA sources are U.S. references and require currentness and Philippine-applicability review.",
+                "related_concept_ids": [
+                    "nle-np-i-prevention"
+                ],
+                "source_ids": [
+                    "openrn-healthpromo-prevention-22",
+                    "aha-asa-secondary-stroke-prevention-2021",
+                    "aha-asa-acute-stroke-guideline-2026"
+                ]
+            },
+            {
+                "id": "b703-outbreak-proportion-and-description",
+                "heading": "3. Make the denominator visible",
+                "body": "An attack proportion is a descriptive fraction for a defined population at risk during a specified event or interval: cases in that group divided by people at risk in that group, multiplied by 100. It is not automatically an incidence rate, a causal effect, or proof of where an outbreak began. Verify the case definition and time window, describe cases by person/place/time, and compare the observed pattern with an appropriate baseline before drawing conclusions. Reporting requirements and investigation authority are jurisdiction-specific; the CDC field manual is used here for general epidemiologic method, not Philippine reporting rules.",
+                "related_concept_ids": [
+                    "nle-np-i-epidemiology"
+                ],
+                "source_ids": [
+                    "cdc-field-epi-outbreak-investigation"
+                ]
+            },
+            {
+                "id": "b703-vulnerability-and-immediate-safety",
+                "heading": "4. Assess vulnerability without stereotyping",
+                "body": "Vulnerability describes how exposure, resources, health, and structural barriers can combine to increase harm; it is not a fixed label or a reason to remove a person’s choices. Ask what the person can safely do, what support is available, what they prefer, and what barriers can be changed. A new change such as confusion is not ordinary aging by default: compare with baseline, assess for acute illness or injury and environmental hazards, and seek timely help under the local pathway. Protect dignity while addressing immediate risk, then involve the person in a feasible plan.",
+                "related_concept_ids": [
+                    "nle-np-i-vulnerable"
+                ],
+                "source_ids": [
+                    "openrn-nursingmhcc-vulnerable-172",
+                    "openrn-nursing-fundamentals"
+                ]
+            }
+        ],
+        "worked_examples": [
+            {
+                "heading": "Map a missed-visit barrier",
+                "prompt": "Older adults with a chronic condition miss follow-up because transport is unreliable. What should the nurse learn first?",
+                "steps": [
+                    "Define which residents and visits are affected and over what period.",
+                    "Ask residents and local workers how transport, cost, route, timing, and available services shape access.",
+                    "Use the findings to co-design a feasible outreach or referral response, then review whether access improved."
+                ],
+                "answer": "The first step is shared assessment of the barrier, not an education campaign chosen before the cause is known.",
+                "check": "The plan responds to evidence from the affected community and does not assume private transport is available."
+            },
+            {
+                "heading": "Use prevention language carefully",
+                "prompt": "A person asks about preventing another stroke after discharge.",
+                "steps": [
+                    "Recognize that this is a condition-specific recurrent-risk context, not a generic screening question.",
+                    "Reinforce the individualized plan, adherence, follow-up, and warning-sign instructions already set by the treating team.",
+                    "Refer medication, activity, or risk-target questions to the authorized clinician and current local guidance."
+                ],
+                "answer": "Support the existing care plan and clarify or escalate questions; do not prescribe or replace the plan.",
+                "check": "No supplement, medication, target, or activity restriction is invented."
+            },
+            {
+                "heading": "Calculate an event proportion",
+                "prompt": "There are 18 cases among 120 residents at risk during one defined week.",
+                "steps": [
+                    "Check that numerator and denominator refer to the same population and interval.",
+                    "Compute 18 ÷ 120 = 0.15.",
+                    "Convert 0.15 × 100 = 15%."
+                ],
+                "answer": "The attack proportion is 15%.",
+                "check": "The result is a proportion for the stated group and interval; it does not establish cause."
+            },
+            {
+                "heading": "Respond to a new safety change",
+                "prompt": "An older adult who lives alone is suddenly confused and has an unsafe kitchen.",
+                "steps": [
+                    "Compare the change with the person’s usual cognition and ask when it began.",
+                    "Assess immediate hazards, possible illness or injury, and available support without assuming dementia.",
+                    "Use the local urgent evaluation/referral pathway and include the person in decisions as able."
+                ],
+                "answer": "Assess acute change and immediate safety, then escalate; do not label it normal aging.",
+                "check": "The response protects choice while treating new confusion as a potentially urgent cue."
+            }
+        ],
+        "common_misconceptions": [
+            "Community assessment is not a one-way health lecture; it begins by learning the affected group’s priorities and barriers.",
+            "Primary, secondary, and tertiary prevention labels are not interchangeable with every specialty use of “secondary prevention.”",
+            "A percentage does not establish incidence, causation, or outbreak source without a defined population and interval.",
+            "Older age does not make new confusion expected; confirm baseline and assess for acute change.",
+            "A vulnerable-population label does not replace an individual assessment or justify removing autonomy."
+        ],
+        "question_patterns": [
+            "For access barriers, identify the affected population and ask before choosing a service response.",
+            "For post-event prevention, reinforce the treating team’s individualized plan and avoid creating a regimen.",
+            "For a proportion, state numerator, denominator, and time window before calculating.",
+            "For a new safety change, compare with baseline and escalate according to current local pathways."
+        ],
+        "practice_question_ids": [
+            "3864",
+            "3874",
+            "3894",
+            "3914",
+            "4883"
+        ],
+        "pdf_file": "nursing-community-risk-and-prevention.pdf",
+        "source_review": {
+            "status": "SOURCE_TEXT_CHECKED_WITH_LIMITATIONS; INDEPENDENT_NURSING_REVIEW_PENDING",
+            "checked_at": "2026-10-22",
+            "note": "Automated source and section checks only. No nurse educator or clinician approved this material. See the Batch 703 academic review packet for per-source access limits, jurisdiction notes, and open questions."
+        }
+    },
+    {
+        "id": "nursing-maternal-family-assessment",
+        "title": "Maternal, Postpartum, Developmental, and Family Assessment",
+        "material_id": "nle-np-ii-foundation",
+        "status": "published",
+        "version": 1,
+        "board_id": "nursing",
+        "subject_id": "nursing-foundations",
+        "official_scope_source_ids": [
+            "prc-nursing-enhanced-tos-2025",
+            "prc-nursing-program-aug-2026"
+        ],
+        "instructional_source_ids": [
+            "who-preeclampsia-factsheet-2026",
+            "openrn-healthpromo-postpartum-115",
+            "who-postnatal-care-2022",
+            "openrn-healthpromo-development-134",
+            "openrn-nursing-fundamentals"
+        ],
+        "scope_note": "PRC Resolution No. 10 s. 2025 and the August 2026 NLE program define examination scope, not topic weights. This lesson teaches a bounded maternal, postpartum, developmental, and family assessment foundation from the references below. Open RN and U.S. professional materials support general educational principles only; apply Philippine law, scope of practice, current clinical orders, referral pathways, and facility policy. This study material is not a clinical directive or proof of complete NP coverage.",
+        "learning_objectives": [
+            "Recognize concerning maternal symptoms and prioritize timely assessment and escalation without diagnosing from a brief vignette.",
+            "Assess postpartum changes and feeding concerns through observation, baseline, symptoms, and the person’s goals.",
+            "Interpret development as a contextual trajectory and distinguish screening concern from diagnosis.",
+            "Use respectful family partnership and teach-back to make discharge teaching understandable and actionable."
+        ],
+        "sections": [
+            {
+                "id": "b703-prenatal-warning-cues",
+                "heading": "1. Treat maternal warning cues as assessment priorities",
+                "body": "Pregnancy can include expected discomfort, but severe headache, visual disturbance, upper-abdominal pain, bleeding, breathing difficulty, seizure, or marked deterioration must not be dismissed as routine. A cluster of severe headache, vision change, and upper-right abdominal pain is concerning and warrants prompt assessment and urgent escalation under the local maternity pathway. Gather timing, associated symptoms, relevant observations, and fetal or maternal concerns within role; communicate clearly and reassess while help is arranged. Recognition is not diagnosis. The WHO symptom reference supports concern recognition, while management thresholds and treatment remain with current Philippine guidance and authorized clinicians.",
+                "related_concept_ids": [
+                    "nle-np-ii-prenatal"
+                ],
+                "source_ids": [
+                    "who-preeclampsia-factsheet-2026",
+                    "who-postnatal-care-2022"
+                ]
+            },
+            {
+                "id": "b703-postpartum-change-and-escalation",
+                "heading": "2. Reassess postpartum symptoms rather than normalizing them",
+                "body": "The postpartum period does not remove risk. Ask what changed, when it started, how severe it is, and whether symptoms are worsening; compare observations with the person’s baseline and current recovery context. Severe headache with visual change needs urgent assessment; unilateral leg pain together with new shortness of breath is a time-sensitive emergency cue. Do not diagnose a clot or hypertensive disorder from symptoms alone, massage a painful leg, delay for routine follow-up, or substitute a home remedy. Activate the appropriate local maternity/emergency pathway and continue focused reassessment. Do not import U.S. surveillance schedules or protocol thresholds from the textbook.",
+                "related_concept_ids": [
+                    "nle-np-ii-postpartum"
+                ],
+                "source_ids": [
+                    "openrn-healthpromo-postpartum-115",
+                    "who-postnatal-care-2022",
+                    "who-preeclampsia-factsheet-2026"
+                ]
+            },
+            {
+                "id": "b703-developmental-trajectory",
+                "heading": "3. Interpret development across context and time",
+                "body": "Developmental assessment combines observed skills, caregiver observations, health history, environment, opportunities, and change over time. One missed or demonstrated task is not a diagnosis. Ask what the child usually does, whether a skill has changed or been lost, and what the caregiver notices across settings. A screening concern is a reason for a closer assessment or referral through the local child-health pathway, not proof of a disorder. Use current Philippine developmental guidance and qualified assessment; the source textbook’s U.S. screening schedules are not reproduced here.",
+                "related_concept_ids": [
+                    "nle-np-ii-development"
+                ],
+                "source_ids": [
+                    "openrn-healthpromo-development-134"
+                ]
+            },
+            {
+                "id": "b703-family-feeding-and-teachback",
+                "heading": "4. Build a safe, respectful family plan",
+                "body": "Family-centered care asks who the parent wants involved, what beliefs and routines matter, and what safety questions need discussion. For feeding pain, clicking, or short feeds, observe a feed and assess positioning, latch, comfort, and transfer before recommending a change; refer when findings are outside nursing scope. Offer understandable, evidence-informed choices without shaming or assuming one family practice. For discharge teaching, use plain language, ask the caregiver to explain the plan in their own words, and reteach or change the format when understanding is incomplete. Teach-back checks the explanation, not the learner’s intelligence. Feeding guidance and local newborn warning-sign pathways need nurse educator confirmation.",
+                "related_concept_ids": [
+                    "nle-np-ii-family"
+                ],
+                "source_ids": [
+                    "openrn-healthpromo-postpartum-115",
+                    "who-postnatal-care-2022",
+                    "openrn-nursing-fundamentals"
+                ]
+            }
+        ],
+        "worked_examples": [
+            {
+                "heading": "Escalate pregnancy warning cues",
+                "prompt": "A pregnant client reports severe headache, vision changes, and upper-right abdominal pain.",
+                "steps": [
+                    "Treat the combination as a warning cue, not as a confirmed diagnosis.",
+                    "Assess promptly within role, obtain the relevant current observations, and note timing and change.",
+                    "Use the local maternity escalation route and communicate the symptom cluster without delay."
+                ],
+                "answer": "Urgent assessment and escalation take priority over reassurance or routine scheduling.",
+                "check": "No threshold, drug, or treatment is inferred from a symptom vignette."
+            },
+            {
+                "heading": "Compare postpartum risk cues",
+                "prompt": "A postpartum client reports severe headache and new visual disturbance.",
+                "steps": [
+                    "Ask about onset, severity, associated symptoms, and relevant change.",
+                    "Assess within role and recognize that serious complications can arise after birth.",
+                    "Escalate through the current maternity pathway and reassess while help is arranged."
+                ],
+                "answer": "Do not assume sleep loss; prompt assessment and escalation are needed.",
+                "check": "The lesson does not specify a treatment or local vital-sign cutoff."
+            },
+            {
+                "heading": "Observe feeding before advising",
+                "prompt": "A parent reports severe nipple pain and the infant makes clicking sounds during short feeds.",
+                "steps": [
+                    "Ask permission to observe a feed and clarify the parent’s goal.",
+                    "Observe positioning, latch, comfort, and signs of transfer; assess for injury or other concerns.",
+                    "Offer individualized support or refer when assessment exceeds role."
+                ],
+                "answer": "Direct observation guides teaching; pain alone does not establish infection or mean feeding must stop.",
+                "check": "Advice follows observed cues and the family’s informed preferences."
+            },
+            {
+                "heading": "Use teach-back at transition",
+                "prompt": "A caregiver cannot explain the newborn danger signs after discharge teaching.",
+                "steps": [
+                    "Pause and ask which part is unclear without blame.",
+                    "Explain again in shorter language or another format, focusing on the action and where to seek help.",
+                    "Ask the caregiver to describe the plan in their own words; clarify remaining gaps."
+                ],
+                "answer": "Reteach and check understanding before transition according to local discharge policy.",
+                "check": "Providing a handout alone is not evidence that the safety message was understood."
+            },
+            {
+                "heading": "Read developmental information over time",
+                "prompt": "A caregiver asks whether one missed milestone proves a developmental disorder.",
+                "steps": [
+                    "Ask about the child’s history, observed skills, changes, and environment.",
+                    "Compare a pattern with an appropriate developmental reference rather than a single task or sibling.",
+                    "Explain that a concern merits screening or qualified follow-up, not a diagnosis by the nurse from one observation."
+                ],
+                "answer": "Use a contextual trajectory and refer through the current child-health pathway.",
+                "check": "No U.S. screening timetable or diagnosis is adopted."
+            }
+        ],
+        "common_misconceptions": [
+            "A concerning symptom cluster is not a diagnosis, but uncertainty is not a reason to delay urgent assessment.",
+            "Postpartum symptoms are not automatically normal recovery; assess the change and escalate within local pathways.",
+            "A developmental screen is not a diagnosis, and one task is not the whole developmental trajectory.",
+            "Feeding pain alone does not prove infection or require stopping; observe and assess before advising.",
+            "Teach-back evaluates how clearly the plan was explained, not whether a caregiver is capable."
+        ],
+        "question_patterns": [
+            "For maternal symptoms, identify warning cues, assess promptly, and escalate without claiming a diagnosis.",
+            "For postpartum concerns, compare with baseline and use the local urgent pathway.",
+            "For child development, interpret a pattern over time and distinguish screening from diagnosis.",
+            "For feeding and discharge teaching, observe, collaborate, and verify understanding."
+        ],
+        "practice_question_ids": [
+            "3924",
+            "3945",
+            "3946",
+            "3964",
+            "3975",
+            "3976",
+            "3948",
+            "1556",
+            "4933",
+            "4957"
+        ],
+        "pdf_file": "nursing-maternal-family-assessment.pdf",
+        "source_review": {
+            "status": "SOURCE_TEXT_CHECKED_WITH_LIMITATIONS; INDEPENDENT_NURSING_REVIEW_PENDING",
+            "checked_at": "2026-10-22",
+            "note": "Automated source and section checks only. No nurse educator or clinician approved this material. See the Batch 703 academic review packet for per-source access limits, jurisdiction notes, and open questions."
+        }
+    },
+    {
+        "id": "nursing-oxygenation-fluid-immunity-assessment",
+        "title": "Oxygenation, Fluid Status, and Immune-Risk Assessment",
+        "material_id": "nle-np-iii-oxygenation",
+        "status": "published",
+        "version": 1,
+        "board_id": "nursing",
+        "subject_id": "nursing-foundations",
+        "official_scope_source_ids": [
+            "prc-nursing-enhanced-tos-2025",
+            "prc-nursing-program-aug-2026"
+        ],
+        "instructional_source_ids": [
+            "openrn-nursingfundamentals-oxygenation-82",
+            "openrn-nursingfundamentals-fluids-152",
+            "openrn-nursingfundamentals-immunity-97",
+            "who-basic-emergency-care",
+            "openrn-nursing-fundamentals",
+            "cdc-infection-control-basics"
+        ],
+        "scope_note": "PRC Resolution No. 10 s. 2025 and the August 2026 NLE program define examination scope, not topic weights. This lesson teaches a bounded oxygenation, fluid status, and immune-risk assessment foundation from the references below. Open RN and U.S. professional materials support general educational principles only; apply Philippine law, scope of practice, current clinical orders, referral pathways, and facility policy. This study material is not a clinical directive or proof of complete NP coverage.",
+        "learning_objectives": [
+            "Use a focused airway and breathing assessment to recognize deterioration, verify relevant observations, and escalate under current orders and local pathways.",
+            "Integrate intake/output, perfusion, symptoms, and trends when assessing possible fluid imbalance without prescribing an unassessed fluid plan.",
+            "Recognize that immunosuppression can change risk or presentation and that new symptoms warrant prompt assessment."
+        ],
+        "sections": [
+            {
+                "id": "b703-oxygenation-trend",
+                "heading": "1. Read oxygenation as a changing clinical picture",
+                "body": "Assess airway patency, breathing effort and pattern, ability to speak, skin and mental-status change, relevant measured trends, and the patient’s baseline. Verify a surprising reading and the sensor or measurement context when this can be done without delaying a safety response. New restlessness with worsening breathing or a downward oxygenation trend is a deterioration cue: position and support the patient within role, provide only currently prescribed oxygen, call for help under the facility pathway, and reassess response. Do not use a single number, device setting, or diagnosis as a substitute for the whole assessment. Numeric thresholds and U.S.-specific oxygen-order rules are intentionally omitted.",
+                "related_concept_ids": [
+                    "nle-np-iii-oxygenation"
+                ],
+                "source_ids": [
+                    "openrn-nursingfundamentals-oxygenation-82",
+                    "who-basic-emergency-care"
+                ]
+            },
+            {
+                "id": "b703-fluid-status-trends",
+                "heading": "2. Combine symptoms and trends in fluid assessment",
+                "body": "Fluid status is assessed from more than one cue: recent losses or intake, dizziness or weakness, perfusion and mental-status changes, urine-output trend, weight trend, examination, and ordered laboratory results. Ask about vomiting or other losses and compare findings over time; a single sign is not enough to identify cause or prescribe treatment. A cluster of vomiting, orthostatic dizziness, and markedly reduced output warrants prompt focused assessment and communication with the care team. Do not recommend unlimited fluids or independently change a prescribed restriction. Interpret measurements in context and follow local orders and escalation policy.",
+                "related_concept_ids": [
+                    "nle-np-iii-fluids"
+                ],
+                "source_ids": [
+                    "openrn-nursingfundamentals-fluids-152",
+                    "openrn-nursing-fundamentals"
+                ]
+            },
+            {
+                "id": "b703-immunosuppression-and-change",
+                "heading": "3. Treat new symptoms in immune-risk context",
+                "body": "Immune suppression may increase infection risk and can alter the expected presentation; absence of a dramatic fever does not rule out infection or another serious problem. Review the known treatment and baseline within role, ask about new symptoms and exposure, assess for deterioration, and report the change promptly through the current clinical pathway. Do not wait for a self-selected fever threshold, administer a live vaccine without qualified review, or infer a cause from immune status alone. The section teaches recognition and escalation, not an infection diagnosis, antimicrobial selection, or local isolation order.",
+                "related_concept_ids": [
+                    "nle-np-iii-immunity"
+                ],
+                "source_ids": [
+                    "openrn-nursingfundamentals-immunity-97",
+                    "cdc-infection-control-basics",
+                    "who-basic-emergency-care"
+                ]
+            }
+        ],
+        "worked_examples": [
+            {
+                "heading": "Respond to worsening breathing",
+                "prompt": "A patient with pneumonia becomes restless, breathes faster, and has a falling oxygenation reading.",
+                "steps": [
+                    "Assess airway and breathing, work of breathing, mental status, and the observed trend.",
+                    "Verify measurement context if safe; position and provide only prescribed support within role.",
+                    "Escalate through the facility pathway and reassess the response."
+                ],
+                "answer": "Treat the change as possible deterioration and seek timely help.",
+                "check": "No oxygen threshold, device setting, or independent order is supplied."
+            },
+            {
+                "heading": "Assess fluid-loss cues",
+                "prompt": "A patient reports vomiting and dizziness and has a decreasing urine-output trend.",
+                "steps": [
+                    "Ask about the timing and amount of losses and compare available intake/output and weight trends.",
+                    "Assess perfusion, hydration cues, mental status, and relevant ordered results.",
+                    "Report the pattern and response; follow the current care plan rather than prescribing unrestricted fluids."
+                ],
+                "answer": "Integrate the pattern and escalate concern; do not rely on one sign.",
+                "check": "Arithmetic of fluid totals does not independently establish cause or treatment."
+            },
+            {
+                "heading": "Consider immune-risk context",
+                "prompt": "A person receiving immune-suppressing therapy reports a new fever.",
+                "steps": [
+                    "Recognize increased risk and ask about onset, associated changes, and relevant treatment context.",
+                    "Assess for deterioration and document objective findings.",
+                    "Promptly notify the responsible team under the local pathway and reassess."
+                ],
+                "answer": "A new symptom in immune-risk context deserves prompt assessment and communication.",
+                "check": "Do not wait for a higher self-selected threshold or assume immune suppression prevents fever."
+            }
+        ],
+        "common_misconceptions": [
+            "A falling measurement is not interpreted without checking context, baseline, symptoms, and trend.",
+            "A normal-looking single sign does not cancel worsening breathing or perfusion cues.",
+            "Vomiting and low output do not justify unlimited fluids or an independent treatment change.",
+            "Immunosuppression can alter risk or presentation; the absence of a high fever does not prove safety.",
+            "A clinical mnemonic supports assessment but does not replace escalation or reassessment."
+        ],
+        "question_patterns": [
+            "For respiratory change, assess the patient and trend, verify when safe, support within orders, escalate, and reassess.",
+            "For fluid concerns, combine loss history, output, perfusion, mental status, and ordered data.",
+            "For immune-risk cases, report new changes promptly without waiting for a numeric threshold."
+        ],
+        "practice_question_ids": [
+            "3984",
+            "3994",
+            "4014",
+            "4993",
+            "5025"
+        ],
+        "pdf_file": "nursing-oxygenation-fluid-immunity-assessment.pdf",
+        "source_review": {
+            "status": "SOURCE_TEXT_CHECKED_WITH_LIMITATIONS; INDEPENDENT_NURSING_REVIEW_PENDING",
+            "checked_at": "2026-10-22",
+            "note": "Automated source and section checks only. No nurse educator or clinician approved this material. See the Batch 703 academic review packet for per-source access limits, jurisdiction notes, and open questions."
+        }
+    },
+    {
+        "id": "nursing-perioperative-verification",
+        "title": "Perioperative Identity, Consent, and Team Verification",
+        "material_id": "nle-b625-np-iii-clinical-reasoning",
+        "status": "published",
+        "version": 1,
+        "board_id": "nursing",
+        "subject_id": "nursing-foundations",
+        "official_scope_source_ids": [
+            "prc-nursing-enhanced-tos-2025",
+            "prc-nursing-program-aug-2026"
+        ],
+        "instructional_source_ids": [
+            "who-surgical-safety-checklist-2009",
+            "openrn-nursing-fundamentals"
+        ],
+        "scope_note": "PRC Resolution No. 10 s. 2025 and the August 2026 NLE program define examination scope, not topic weights. This lesson teaches a bounded perioperative safety verification foundation from the references below. Open RN and U.S. professional materials support general educational principles only; apply Philippine law, scope of practice, current clinical orders, referral pathways, and facility policy. This study material is not a clinical directive or proof of complete NP coverage.",
+        "learning_objectives": [
+            "Apply a team verification pause to discrepancies in identity, intended procedure/site, documentation, or the patient’s expressed understanding.",
+            "Distinguish the nurse’s safety role from the authorized clinician’s responsibility to explain and obtain consent under current law and policy.",
+            "Communicate unresolved discrepancies and do not allow schedule pressure to substitute for verification."
+        ],
+        "sections": [
+            {
+                "id": "b703-perioperative-discrepancy-stop",
+                "heading": "1. Stop and resolve a mismatch before proceeding",
+                "body": "Before a procedure, team verification checks that the patient, intended procedure and site, available documentation, and the patient’s understanding align. A patient saying the planned operation differs from what was discussed is a meaningful discrepancy, not a routine question to dismiss. Pause the process, confirm identity and the available consent record, and bring the concern to the proceduralist and responsible team under local policy. The nurse supports understanding, patient questions, and a safe pause; this lesson does not define who may legally obtain consent, substitute decision-making rules, required forms, or Philippine operating-room procedure. Continue only after the authorized team resolves the mismatch and the patient’s rights are respected.",
+                "related_concept_ids": [
+                    "nle-np-iii-perioperative"
+                ],
+                "source_ids": [
+                    "who-surgical-safety-checklist-2009",
+                    "openrn-nursing-fundamentals"
+                ]
+            }
+        ],
+        "worked_examples": [
+            {
+                "heading": "Resolve a procedure discrepancy",
+                "prompt": "Immediately before surgery, a patient says the planned procedure is different from what was discussed.",
+                "steps": [
+                    "Stop the progression to the next procedural step and listen to the patient’s concern.",
+                    "Verify identity, available consent and procedure/site documentation, then notify the authorized proceduralist and team.",
+                    "Resume only through the current local process after the discrepancy and patient questions are resolved."
+                ],
+                "answer": "Pause and verify; do not proceed because the schedule is printed.",
+                "check": "The nurse does not invent consent authority or replace required local legal steps."
+            }
+        ],
+        "common_misconceptions": [
+            "A signed form does not make an expressed mismatch irrelevant.",
+            "Time pressure is not evidence that identity, procedure, site, and understanding agree.",
+            "The nursing safety pause does not transfer the authorized clinician’s consent responsibilities."
+        ],
+        "question_patterns": [
+            "When the patient’s understanding conflicts with the planned procedure, stop, verify, and escalate to the authorized team.",
+            "Treat the WHO checklist as a safety communication aid, not Philippine consent law."
+        ],
+        "practice_question_ids": [
+            "4024"
+        ],
+        "pdf_file": "nursing-perioperative-verification.pdf",
+        "source_review": {
+            "status": "SOURCE_TEXT_CHECKED_WITH_LIMITATIONS; INDEPENDENT_NURSING_REVIEW_PENDING",
+            "checked_at": "2026-10-22",
+            "note": "Automated source and section checks only. No nurse educator or clinician approved this material. See the Batch 703 academic review packet for per-source access limits, jurisdiction notes, and open questions."
+        }
+    },
+    {
+        "id": "nursing-nutrition-and-sensory-assessment",
+        "title": "Nutrition Assessment and Acute Sensory Change",
+        "material_id": "nle-np-iv-foundation",
+        "status": "published",
+        "version": 1,
+        "board_id": "nursing",
+        "subject_id": "nursing-foundations",
+        "official_scope_source_ids": [
+            "prc-nursing-enhanced-tos-2025",
+            "prc-nursing-program-aug-2026"
+        ],
+        "instructional_source_ids": [
+            "openrn-nursingfundamentals-nutrition-143",
+            "openrn-nursing-fundamentals",
+            "openrn-nursingskills-seeking-care-25",
+            "who-basic-emergency-care"
+        ],
+        "scope_note": "PRC Resolution No. 10 s. 2025 and the August 2026 NLE program define examination scope, not topic weights. This lesson teaches a bounded nutrition and sensory assessment foundation from the references below. Open RN and U.S. professional materials support general educational principles only; apply Philippine law, scope of practice, current clinical orders, referral pathways, and facility policy. This study material is not a clinical directive or proof of complete NP coverage.",
+        "learning_objectives": [
+            "Collect dietary history, preferences, swallowing, symptoms, intake, hydration, and trends before planning nutrition support.",
+            "Respect cultural, religious, and practical food contexts while identifying safety and referral needs.",
+            "Distinguish a chronic sensory limitation from a sudden focal change that warrants urgent assessment."
+        ],
+        "sections": [
+            {
+                "id": "b703-nutrition-intake-and-context",
+                "heading": "1. Explain low intake before choosing an intervention",
+                "body": "A nutrition assessment asks what the person can and does eat, what has changed, what symptoms interfere, and what is feasible in their life. Review the pattern of intake, swallowing and chewing, nausea or pain, allergies, prescribed diets, hydration, weight trend, food access, preferences, and cultural or religious practices. Confirm chart details with the person when possible. Weakness after several days of very low intake warrants assessment and team communication; it does not justify forcing a large meal or changing a prescribed diet without review. A safe plan is individualized, respects preference, and refers swallowing or clinical concerns through the local pathway.",
+                "related_concept_ids": [
+                    "nle-np-iv-nutrition"
+                ],
+                "source_ids": [
+                    "openrn-nursingfundamentals-nutrition-143",
+                    "openrn-nursing-fundamentals"
+                ]
+            },
+            {
+                "id": "b703-sensory-baseline-and-acute-change",
+                "heading": "2. Separate baseline sensory needs from sudden loss",
+                "body": "Ask about usual vision, hearing, sensation, assistive devices, and functional adaptations. A chronic limitation may call for communication and environmental supports, while a sudden focal sensory change—especially with severe headache, weakness, speech change, confusion, or other acute symptoms—requires urgent assessment. Establish onset and progression, assess neurologic and safety changes within role, and use the current emergency pathway. Do not diagnose stroke, reassure as fatigue, or delay because the patient has a prior sensory condition. The cited educational skill resource identifies potentially urgent symptoms; diagnosis and treatment remain with qualified clinicians.",
+                "related_concept_ids": [
+                    "nle-np-iv-perception"
+                ],
+                "source_ids": [
+                    "openrn-nursingskills-seeking-care-25",
+                    "who-basic-emergency-care"
+                ]
+            }
+        ],
+        "worked_examples": [
+            {
+                "heading": "Assess low intake and weakness",
+                "prompt": "A hospitalized person has eaten very little for several days and feels weak.",
+                "steps": [
+                    "Clarify intake, symptoms, food preference, nausea, swallowing, access, and relevant history.",
+                    "Assess hydration and weight trend and review ordered findings within role.",
+                    "Communicate the pattern and collaborate on individualized support or referral."
+                ],
+                "answer": "Assess causes and risks first, then involve the care team.",
+                "check": "Do not force food, restrict fluids, or prescribe an unassessed diet."
+            },
+            {
+                "heading": "Respond to sudden vision change",
+                "prompt": "A person reports sudden loss of vision in one eye with a severe headache.",
+                "steps": [
+                    "Ask when it began and whether other neurologic or safety changes are present.",
+                    "Assess the change and immediate safety within role without naming a diagnosis.",
+                    "Activate urgent evaluation through the current local pathway and communicate the onset and associated symptoms."
+                ],
+                "answer": "Treat sudden focal sensory change as time-sensitive.",
+                "check": "A chronic vision history does not explain a new acute change."
+            }
+        ],
+        "common_misconceptions": [
+            "Poor intake is not always a preference problem; symptoms, swallowing, disease, culture, and access matter.",
+            "One weight or meal does not describe the whole nutrition trajectory.",
+            "A familiar chronic sensory limitation does not make sudden loss benign.",
+            "A warning pattern calls for assessment and escalation, not a diagnosis made from a vignette."
+        ],
+        "question_patterns": [
+            "For poor intake, collect a contextual history, assess swallowing and trends, then coordinate support.",
+            "For sudden sensory loss, establish onset and associated changes and use urgent local assessment pathways."
+        ],
+        "practice_question_ids": [
+            "4044",
+            "4074",
+            "5053"
+        ],
+        "pdf_file": "nursing-nutrition-and-sensory-assessment.pdf",
+        "source_review": {
+            "status": "SOURCE_TEXT_CHECKED_WITH_LIMITATIONS; INDEPENDENT_NURSING_REVIEW_PENDING",
+            "checked_at": "2026-10-22",
+            "note": "Automated source and section checks only. No nurse educator or clinician approved this material. See the Batch 703 academic review packet for per-source access limits, jurisdiction notes, and open questions."
+        }
+    },
+    {
+        "id": "nursing-therapeutic-communication-and-crisis",
+        "title": "Therapeutic Communication and Crisis Safety",
+        "material_id": "nle-b625-np-v-clinical-reasoning",
+        "status": "published",
+        "version": 1,
+        "board_id": "nursing",
+        "subject_id": "nursing-foundations",
+        "official_scope_source_ids": [
+            "prc-nursing-enhanced-tos-2025",
+            "prc-nursing-program-aug-2026"
+        ],
+        "instructional_source_ids": [
+            "openrn-nursingmhcc-mental-assessment-43",
+            "openrn-nursingmhcc-crisis-35",
+            "openrn-nursing-fundamentals",
+            "who-basic-emergency-care"
+        ],
+        "scope_note": "PRC Resolution No. 10 s. 2025 and the August 2026 NLE program define examination scope, not topic weights. This lesson teaches a bounded therapeutic communication and crisis safety foundation from the references below. Open RN and U.S. professional materials support general educational principles only; apply Philippine law, scope of practice, current clinical orders, referral pathways, and facility policy. This study material is not a clinical directive or proof of complete NP coverage.",
+        "learning_objectives": [
+            "Respond to possible self-harm statements with direct, respectful safety assessment and immediate connection to qualified support.",
+            "Use concise, calm communication during acute distress while checking for physical danger and reassessing the response.",
+            "Respect privacy while explaining that immediate safety concerns must be shared through the applicable local pathway."
+        ],
+        "sections": [
+            {
+                "id": "b703-self-harm-statement-and-safety",
+                "heading": "1. Take statements about not living seriously",
+                "body": "When a person says life is not worth continuing or that others would be better without them, respond directly and without judgment. Invite them to say more, ask clearly about thoughts of self-harm and immediate safety within training and role, and communicate the concern promptly to qualified support. Stay engaged while help is arranged when safe and consistent with the local protocol; do not leave the person unsupported, promise absolute secrecy, change the subject, or conduct an improvised risk score. Explain limits of privacy respectfully. Use the current Philippine service, emergency, and scope-of-practice rules; this lesson does not prescribe a screening instrument, legal hold, observation level, or restraint.",
+                "related_concept_ids": [
+                    "nle-np-v-therapeutic"
+                ],
+                "source_ids": [
+                    "openrn-nursingmhcc-mental-assessment-43",
+                    "openrn-nursing-fundamentals"
+                ]
+            },
+            {
+                "id": "b703-crisis-assessment-and-calm-communication",
+                "heading": "2. Reduce demand while assessing acute distress",
+                "body": "During a panic-like episode or crisis, immediate safety and physiologic assessment come before lengthy teaching. Remain present if safe, reduce avoidable stimulation, use short and calm statements, and ask one clear question at a time. Assess airway, breathing, circulation, orientation, onset, relevant history, and signs that another medical problem may be present; panic-like symptoms do not prove an anxiety cause. Offer a simple grounding or support option only if the person welcomes it and it is consistent with the current plan. Reassess distress and physical status, then engage the appropriate team. Avoid confrontation, false reassurance, crowding, or unsupported breathing instructions.",
+                "related_concept_ids": [
+                    "nle-np-v-crisis"
+                ],
+                "source_ids": [
+                    "openrn-nursingmhcc-crisis-35",
+                    "who-basic-emergency-care",
+                    "openrn-nursing-fundamentals"
+                ]
+            }
+        ],
+        "worked_examples": [
+            {
+                "heading": "Respond to a self-harm statement",
+                "prompt": "A client says, “I do not see a reason to keep living.”",
+                "steps": [
+                    "Acknowledge the statement calmly and remain present if safe.",
+                    "Ask directly about thoughts of self-harm and immediate safety within training and role.",
+                    "Promptly involve qualified support through the local pathway; do not promise secrecy or leave the concern unreported."
+                ],
+                "answer": "Direct safety assessment and connection to help take priority over distraction.",
+                "check": "No diagnostic label, legal intervention, or unapproved risk tool is supplied."
+            },
+            {
+                "heading": "Support someone in a panic-like episode",
+                "prompt": "A distressed client says the room is closing in.",
+                "steps": [
+                    "Check immediate safety and assess for physical deterioration or another urgent cause.",
+                    "Use brief calm language, reduce avoidable stimulation, and remain with the person if safe.",
+                    "Reassess the response and engage the appropriate clinical support."
+                ],
+                "answer": "Safety and focused assessment come before long teaching or arguing about the fear.",
+                "check": "Do not assume anxiety explains every physical symptom or use an unsupported breathing technique."
+            }
+        ],
+        "common_misconceptions": [
+            "A self-harm statement is not a promise of intent, but it must not be dismissed or kept secret from the safety team.",
+            "Direct, respectful questions are not the same as diagnosing or assigning a risk category.",
+            "Panic-like symptoms can overlap with physical emergencies; assess before attributing cause.",
+            "False reassurance, confrontation, and long explanations can obstruct safety-focused communication."
+        ],
+        "question_patterns": [
+            "For possible self-harm, listen, ask directly within role, and connect promptly with qualified local support.",
+            "For acute distress, assess physical safety, reduce demand, communicate briefly, and reassess."
+        ],
+        "practice_question_ids": [
+            "4104",
+            "4114",
+            "1018",
+            "5113"
+        ],
+        "pdf_file": "nursing-therapeutic-communication-and-crisis.pdf",
+        "source_review": {
+            "status": "SOURCE_TEXT_CHECKED_WITH_LIMITATIONS; INDEPENDENT_NURSING_REVIEW_PENDING",
+            "checked_at": "2026-10-22",
+            "note": "Automated source and section checks only. No nurse educator or clinician approved this material. See the Batch 703 academic review packet for per-source access limits, jurisdiction notes, and open questions."
+        }
+    },
+    {
+        "id": "nursing-emergency-assessment-and-shock",
+        "title": "Structured Emergency Assessment and Perfusion Change",
+        "material_id": "nle-np-v-emergency",
+        "status": "published",
+        "version": 1,
+        "board_id": "nursing",
+        "subject_id": "nursing-foundations",
+        "official_scope_source_ids": [
+            "prc-nursing-enhanced-tos-2025",
+            "prc-nursing-program-aug-2026"
+        ],
+        "instructional_source_ids": [
+            "who-basic-emergency-care",
+            "openrn-nursing-fundamentals"
+        ],
+        "scope_note": "PRC Resolution No. 10 s. 2025 and the August 2026 NLE program define examination scope, not topic weights. This lesson teaches a bounded initial emergency assessment and shock recognition foundation from the references below. Open RN and U.S. professional materials support general educational principles only; apply Philippine law, scope of practice, current clinical orders, referral pathways, and facility policy. This study material is not a clinical directive or proof of complete NP coverage.",
+        "learning_objectives": [
+            "Use ABCDE as an initial structure for time-sensitive assessment while addressing an immediate life threat and following local escalation protocol.",
+            "Recognize a worsening perfusion pattern from multiple cues and communicate change, response, and need for help.",
+            "Reassess after an intervention and avoid treating a mnemonic as a diagnosis or treatment order."
+        ],
+        "sections": [
+            {
+                "id": "b703-abcde-and-reassessment",
+                "heading": "1. Organize an initial assessment around immediate threats",
+                "body": "ABCDE organizes a first assessment: airway, breathing, circulation, disability, and exposure/environment. Address an immediately life-threatening problem as it is found within training and local protocol, call for support early, and reassess before moving on because the patient can change. The sequence is a cognitive aid, not a reason to ignore scene safety, a patient’s specific presentation, or a required local pathway. SAMPLE history can add context after immediate threats are considered. This lesson does not specify medication, procedure, pediatric variation, transfer criteria, or numeric threshold; use the applicable Philippine clinical standard and team instruction.",
+                "related_concept_ids": [
+                    "nle-np-v-emergency"
+                ],
+                "source_ids": [
+                    "who-basic-emergency-care",
+                    "openrn-nursing-fundamentals"
+                ]
+            },
+            {
+                "id": "b703-shock-as-perfusion-change",
+                "heading": "2. Recognize a concerning perfusion trend",
+                "body": "Shock is a time-critical failure of adequate tissue perfusion; no single finding proves its cause. New confusion, cool or clammy skin, weak pulses, and declining urine output form a concerning pattern when considered with history and trends. Assess the person, verify observations when safe, seek urgent help through the local emergency response pathway, communicate the pattern and changes, and reassess while the authorized team directs care. Do not wait for a textbook threshold, attribute the pattern to one shock type without evidence, or start a fluid or medication regimen from this educational summary. WHO Basic Emergency Care supports systematic recognition and response; local protocols determine treatment.",
+                "related_concept_ids": [
+                    "nle-np-v-shock"
+                ],
+                "source_ids": [
+                    "who-basic-emergency-care"
+                ]
+            }
+        ],
+        "worked_examples": [
+            {
+                "heading": "Apply an initial ABCDE structure",
+                "prompt": "An acutely ill patient arrives while routine tasks are pending.",
+                "steps": [
+                    "Identify immediate airway and breathing threats first while checking scene and team safety.",
+                    "Continue through circulation, disability, and exposure/environment, responding to a life threat as found under local protocol.",
+                    "Reassess after action and give a concise handoff with findings and response."
+                ],
+                "answer": "ABCDE structures urgent assessment; routine work waits when an immediate threat is present.",
+                "check": "The sequence does not replace judgment, authorized treatment, or local escalation instructions."
+            },
+            {
+                "heading": "Recognize a concerning perfusion pattern",
+                "prompt": "A patient develops new confusion, cool clammy skin, weak pulses, and decreasing urine output.",
+                "steps": [
+                    "Compare with baseline and verify the timing and trend of observations.",
+                    "Treat the cluster as possible worsening perfusion and request urgent assistance.",
+                    "Communicate observed cues and response, then continue reassessment as directed."
+                ],
+                "answer": "The pattern warrants urgent assessment and escalation; it does not identify a cause or prescribe treatment.",
+                "check": "No numeric cutoff or fluid order is inferred."
+            }
+        ],
+        "common_misconceptions": [
+            "ABCDE is a prompt for structured reassessment, not a diagnosis or treatment protocol.",
+            "One sign does not identify shock type; trends and the whole clinical context matter.",
+            "A numeric cutoff is not required before escalating a concerning deterioration pattern.",
+            "Treatment choices require current local protocols and authorized clinical direction."
+        ],
+        "question_patterns": [
+            "In an emergency question, prioritize immediate life threats, use a structured first assessment, and reassess.",
+            "For possible shock, recognize a multi-cue perfusion pattern and escalate without inventing a cause or regimen."
+        ],
+        "practice_question_ids": [
+            "4124",
+            "4134"
+        ],
+        "pdf_file": "nursing-emergency-assessment-and-shock.pdf",
+        "source_review": {
+            "status": "SOURCE_TEXT_CHECKED_WITH_LIMITATIONS; INDEPENDENT_NURSING_REVIEW_PENDING",
+            "checked_at": "2026-10-22",
+            "note": "Automated source and section checks only. No nurse educator or clinician approved this material. See the Batch 703 academic review packet for per-source access limits, jurisdiction notes, and open questions."
         }
     }
 ]

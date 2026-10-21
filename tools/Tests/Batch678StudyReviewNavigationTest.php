@@ -114,7 +114,7 @@ try {
     $html = (string) ob_get_clean();
     if (!str_contains($html, $sourceLink)
         || str_contains($html, 'href="/study-library?material=cse-numerical-foundation')
-        || !str_contains($html, 'no exact lesson section is mapped to this question')
+        || !str_contains($html, 'This source association has no exact lesson section link.')
         || !str_contains($html, 'Use the distributive property')
         || !str_contains($html, 'quiz-review-guidance')) {
         throw new RuntimeException('Submitted answer review did not preserve the question explanation while distinguishing the registered source from an exact lesson mapping.');
@@ -143,7 +143,7 @@ try {
     $historicalHtml = (string) ob_get_clean();
     if (!str_contains($historicalHtml, $sourceLink)
         || str_contains($historicalHtml, 'href="/study-library?material=cse-numerical-foundation')
-        || !str_contains($historicalHtml, 'no exact lesson section is mapped to this question')
+        || !str_contains($historicalHtml, 'This source association has no exact lesson section link.')
         || !str_contains($historicalHtml, 'Use the distributive property')
         || !str_contains($historicalHtml, 'Historical Quiz Result')) {
         throw new RuntimeException('Historical answer review did not distinguish source-only evidence from an exact lesson mapping.');

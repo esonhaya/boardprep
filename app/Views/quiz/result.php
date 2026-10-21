@@ -122,7 +122,7 @@ $taxonomyLabel = static fn(string $collection, mixed $id): string => \App\Servic
                                 <?php if ($sectionId !== '' && $lessonId !== '' && is_scalar($reference['url'] ?? null)): ?>
                                     <a href="<?= htmlspecialchars((string) $reference['url'], ENT_QUOTES, 'UTF-8') ?>">Open supporting lesson section: <?= htmlspecialchars((string) ($reference['title'] ?? 'Study lesson'), ENT_QUOTES, 'UTF-8') ?></a>
                                 <?php elseif ($sourceReferences !== []): ?>
-                                    <p class="quiz-review-guidance">Source references are available; no exact lesson section is mapped to this question.</p>
+                                    <p class="quiz-review-guidance">This source association has no exact lesson section link.</p>
                                     <ul>
                                         <?php foreach ($sourceReferences as $source): ?>
                                             <li><a href="<?= htmlspecialchars((string) $source['url'], ENT_QUOTES, 'UTF-8') ?>" target="_blank" rel="noopener">Open source reference: <?= htmlspecialchars((string) ($source['title'] ?? 'Registered source'), ENT_QUOTES, 'UTF-8') ?></a><?php if (trim((string) ($source['authority'] ?? '')) !== ''): ?> · <?= htmlspecialchars((string) $source['authority'], ENT_QUOTES, 'UTF-8') ?><?php endif; ?></li>

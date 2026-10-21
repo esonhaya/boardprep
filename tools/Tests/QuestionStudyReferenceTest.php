@@ -45,7 +45,7 @@ try {
     ]);
     $practiceHtml = (string) ob_get_clean();
     if (!str_contains($practiceHtml, 'Open source reference: Purdue Online Writing Lab')
-        || !str_contains($practiceHtml, 'no exact lesson section is mapped to this question')) {
+        || !str_contains($practiceHtml, 'This source association has no exact lesson section link.')) {
         throw new RuntimeException('Practice feedback did not distinguish registered source references from lesson-section mappings.');
     }
 
@@ -63,7 +63,7 @@ try {
     ]);
     $resultHtml = (string) ob_get_clean();
     if (!str_contains($resultHtml, 'Open source reference: Purdue Online Writing Lab')
-        || !str_contains($resultHtml, 'no exact lesson section is mapped to this question')) {
+        || !str_contains($resultHtml, 'This source association has no exact lesson section link.')) {
         throw new RuntimeException('Result review did not distinguish the question-linked source reference from lesson instruction.');
     }
 

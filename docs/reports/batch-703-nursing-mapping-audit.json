@@ -1,0 +1,1964 @@
+{
+  "report_type": "BATCH703_CANONICAL_QUESTION_AND_SECTION_AUDIT",
+  "reviewed_at": "2026-10-22",
+  "baseline_sha": "cc1990dfc5b4b7752daccf0cdb2d069a8c270136",
+  "method": "Compared full canonical Nursing question stem, choices, answer key, explanation, subject/concept metadata with the selected lesson section body, concept ID, registered references, and Nursing production eligibility. Exact link decisions are structural proposals only; independent academic review remains pending. Every accepted candidate now includes a concise stem-to-section comparison; these notes explain technical mapping only and do not imply academic approval. Seven additional close-variant cohort items were compared in full; each exact fit is linked to the same narrowly scoped section, and all remain independent-review pending.",
+  "summary": {
+    "new_exact_support_candidates": 31,
+    "new_exact_candidates_independently_approved": 0,
+    "preexisting_nursing_exact_links_preserved": 11,
+    "new_nursing_exact_links_total": 42,
+    "exact_records_upgraded_in_place": 15,
+    "new_exact_relationship_rows": 16,
+    "new_rejected_or_held_candidates": 5,
+    "canonical_question_or_answer_edits": 0,
+    "source_only_relationships_retained": "Prior source-only rows remain unless the same material/question association gained a defensible exact section; original source_ids are preserved and section sources appended."
+  },
+  "accepted_candidates": [
+    {
+      "board": "nursing",
+      "subject": "nursing-foundations",
+      "question_id": "3864",
+      "material_id": "nle-np-i-foundation",
+      "lesson_id": "nursing-community-risk-and-prevention",
+      "section_id": "b703-community-assessment-access",
+      "classification": "EXACT_SUPPORT",
+      "decision": "LINKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "link_operation": "UPGRADE_EXISTING_SOURCE_ONLY_ASSOCIATION",
+      "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "canonical_question_status": "active",
+      "canonical_taxonomy": {
+        "board_id": "nursing",
+        "subject_id": "nursing-foundations",
+        "domain_id": "nle-community-health",
+        "topic_id": "nle-community-health",
+        "concept_id": "nle-np-i-community"
+      },
+      "source_references": [
+        {
+          "id": "prc-nursing-program-aug-2026",
+          "title": "Nursing Licensure Examination Program, August 2026",
+          "url": "https://www.prc.gov.ph/sites/default/files/exam%20progam%20aug%202026%20nle%20(nursing)%20signed.pdf",
+          "registry_status": "verified_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "prc-nursing-enhanced-tos-2025",
+          "title": "Enhanced Tables of Specifications for the Subjects in the Nurses Licensure Examination",
+          "url": "https://www.prc.gov.ph/sites/default/files/2025-10%20%20published%20Enhanced%20TOS%20nuse.pdf",
+          "registry_status": "official_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "who-community-health",
+          "title": "Primary health care and community health guidance",
+          "url": "https://www.who.int/health-topics/primary-health-care",
+          "registry_status": "authoritative_instructional",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "doh-national-immunization-program",
+          "title": "National Immunization Program: Policy and Procedures Manual Annexes",
+          "url": "https://doh.gov.ph/wp-content/uploads/2023/08/Booklet-9-Annexes.pdf",
+          "registry_status": "periodically_updated",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "cdc-infection-control-basics",
+          "title": "Core Infection Prevention and Control Practices",
+          "url": "https://www.cdc.gov/infection-control/hcp/core-practices/",
+          "registry_status": "periodically_updated",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "openrn-nursing-fundamentals",
+          "title": "Nursing Fundamentals",
+          "url": "https://wtcs.pressbooks.pub/nursingfundamentals/",
+          "registry_status": "authoritative_instructional",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "openrn-nursingmhcc-community-162",
+          "title": "16.2 Community Health Concepts — Nursing Mental Health and Community Concepts 2e",
+          "url": "https://wtcs.pressbooks.pub/nursingmhcc/chapter/16-2-community-health-concepts/",
+          "registry_status": "SOURCE_TEXT_CHECKED_WEB",
+          "evidence_state": "SOURCE_VERIFIED"
+        }
+      ],
+      "review_note": "The item asks the nurse to identify and investigate an access barrier with residents before choosing outreach; the section teaches shared community problem definition and access-focused assessment. Technical section-support proposal only; independent Nursing review remains pending."
+    },
+    {
+      "board": "nursing",
+      "subject": "nursing-foundations",
+      "question_id": "3874",
+      "material_id": "nle-np-i-foundation",
+      "lesson_id": "nursing-community-risk-and-prevention",
+      "section_id": "b703-prevention-and-risk-communication",
+      "classification": "EXACT_SUPPORT",
+      "decision": "LINKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "link_operation": "UPGRADE_EXISTING_SOURCE_ONLY_ASSOCIATION",
+      "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "canonical_question_status": "active",
+      "canonical_taxonomy": {
+        "board_id": "nursing",
+        "subject_id": "nursing-foundations",
+        "domain_id": "nle-community-health",
+        "topic_id": "nle-community-health",
+        "concept_id": "nle-np-i-prevention"
+      },
+      "source_references": [
+        {
+          "id": "prc-nursing-program-aug-2026",
+          "title": "Nursing Licensure Examination Program, August 2026",
+          "url": "https://www.prc.gov.ph/sites/default/files/exam%20progam%20aug%202026%20nle%20(nursing)%20signed.pdf",
+          "registry_status": "verified_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "prc-nursing-enhanced-tos-2025",
+          "title": "Enhanced Tables of Specifications for the Subjects in the Nurses Licensure Examination",
+          "url": "https://www.prc.gov.ph/sites/default/files/2025-10%20%20published%20Enhanced%20TOS%20nuse.pdf",
+          "registry_status": "official_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "who-community-health",
+          "title": "Primary health care and community health guidance",
+          "url": "https://www.who.int/health-topics/primary-health-care",
+          "registry_status": "authoritative_instructional",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "doh-national-immunization-program",
+          "title": "National Immunization Program: Policy and Procedures Manual Annexes",
+          "url": "https://doh.gov.ph/wp-content/uploads/2023/08/Booklet-9-Annexes.pdf",
+          "registry_status": "periodically_updated",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "cdc-infection-control-basics",
+          "title": "Core Infection Prevention and Control Practices",
+          "url": "https://www.cdc.gov/infection-control/hcp/core-practices/",
+          "registry_status": "periodically_updated",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "openrn-nursing-fundamentals",
+          "title": "Nursing Fundamentals",
+          "url": "https://wtcs.pressbooks.pub/nursingfundamentals/",
+          "registry_status": "authoritative_instructional",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "openrn-healthpromo-prevention-22",
+          "title": "2.2 Health, Wellness, and Disease Prevention — Nursing Health Promotion",
+          "url": "https://wtcs.pressbooks.pub/healthpromo/chapter/2-2-health-wellness-and-disease-prevention/",
+          "registry_status": "SOURCE_TEXT_CHECKED_WEB",
+          "evidence_state": "SOURCE_VERIFIED"
+        },
+        {
+          "id": "aha-asa-secondary-stroke-prevention-2021",
+          "title": "2021 Guideline for the Prevention of Stroke in Patients With Stroke and Transient Ischemic Attack",
+          "url": "https://www.ahajournals.org/doi/10.1161/STR.0000000000000375",
+          "registry_status": "SOURCE_TEXT_CHECKED_WEB_CURRENTNESS_PENDING",
+          "evidence_state": "SOURCE_VERIFIED; ACADEMIC_REVIEW_PENDING"
+        },
+        {
+          "id": "aha-asa-acute-stroke-guideline-2026",
+          "title": "2026 Guideline for the Early Management of Patients With Acute Ischemic Stroke",
+          "url": "https://www.ahajournals.org/doi/10.1161/STR.0000000000000513",
+          "registry_status": "SOURCE_TEXT_CHECKED_WEB",
+          "evidence_state": "SOURCE_VERIFIED"
+        }
+      ],
+      "review_note": "The item asks about prevention after a prior stroke; the section distinguishes secondary prevention and teaches adherence, follow-up, warning-sign recognition, and feasible risk reduction without specifying a regimen. Technical section-support proposal only; independent Nursing review remains pending."
+    },
+    {
+      "board": "nursing",
+      "subject": "nursing-foundations",
+      "question_id": "3894",
+      "material_id": "nle-np-i-foundation",
+      "lesson_id": "nursing-community-risk-and-prevention",
+      "section_id": "b703-outbreak-proportion-and-description",
+      "classification": "EXACT_SUPPORT",
+      "decision": "LINKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "link_operation": "UPGRADE_EXISTING_SOURCE_ONLY_ASSOCIATION",
+      "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "canonical_question_status": "active",
+      "canonical_taxonomy": {
+        "board_id": "nursing",
+        "subject_id": "nursing-foundations",
+        "domain_id": "nle-community-health",
+        "topic_id": "nle-community-health",
+        "concept_id": "nle-np-i-epidemiology"
+      },
+      "source_references": [
+        {
+          "id": "prc-nursing-program-aug-2026",
+          "title": "Nursing Licensure Examination Program, August 2026",
+          "url": "https://www.prc.gov.ph/sites/default/files/exam%20progam%20aug%202026%20nle%20(nursing)%20signed.pdf",
+          "registry_status": "verified_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "prc-nursing-enhanced-tos-2025",
+          "title": "Enhanced Tables of Specifications for the Subjects in the Nurses Licensure Examination",
+          "url": "https://www.prc.gov.ph/sites/default/files/2025-10%20%20published%20Enhanced%20TOS%20nuse.pdf",
+          "registry_status": "official_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "who-community-health",
+          "title": "Primary health care and community health guidance",
+          "url": "https://www.who.int/health-topics/primary-health-care",
+          "registry_status": "authoritative_instructional",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "doh-national-immunization-program",
+          "title": "National Immunization Program: Policy and Procedures Manual Annexes",
+          "url": "https://doh.gov.ph/wp-content/uploads/2023/08/Booklet-9-Annexes.pdf",
+          "registry_status": "periodically_updated",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "cdc-infection-control-basics",
+          "title": "Core Infection Prevention and Control Practices",
+          "url": "https://www.cdc.gov/infection-control/hcp/core-practices/",
+          "registry_status": "periodically_updated",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "openrn-nursing-fundamentals",
+          "title": "Nursing Fundamentals",
+          "url": "https://wtcs.pressbooks.pub/nursingfundamentals/",
+          "registry_status": "authoritative_instructional",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "cdc-field-epi-outbreak-investigation",
+          "title": "Conducting a Field Investigation",
+          "url": "https://www.cdc.gov/field-epi-manual/php/chapters/field-investigation.html",
+          "registry_status": "official_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        }
+      ],
+      "review_note": "The item asks for an attack proportion; the section works the stated cases divided by the population at risk and converts the ratio to a percentage. Technical section-support proposal only; independent Nursing review remains pending."
+    },
+    {
+      "board": "nursing",
+      "subject": "nursing-foundations",
+      "question_id": "3914",
+      "material_id": "nle-np-i-foundation",
+      "lesson_id": "nursing-community-risk-and-prevention",
+      "section_id": "b703-vulnerability-and-immediate-safety",
+      "classification": "EXACT_SUPPORT",
+      "decision": "LINKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "link_operation": "UPGRADE_EXISTING_SOURCE_ONLY_ASSOCIATION",
+      "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "canonical_question_status": "active",
+      "canonical_taxonomy": {
+        "board_id": "nursing",
+        "subject_id": "nursing-foundations",
+        "domain_id": "nle-community-health",
+        "topic_id": "nle-community-health",
+        "concept_id": "nle-np-i-vulnerable"
+      },
+      "source_references": [
+        {
+          "id": "prc-nursing-program-aug-2026",
+          "title": "Nursing Licensure Examination Program, August 2026",
+          "url": "https://www.prc.gov.ph/sites/default/files/exam%20progam%20aug%202026%20nle%20(nursing)%20signed.pdf",
+          "registry_status": "verified_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "prc-nursing-enhanced-tos-2025",
+          "title": "Enhanced Tables of Specifications for the Subjects in the Nurses Licensure Examination",
+          "url": "https://www.prc.gov.ph/sites/default/files/2025-10%20%20published%20Enhanced%20TOS%20nuse.pdf",
+          "registry_status": "official_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "who-community-health",
+          "title": "Primary health care and community health guidance",
+          "url": "https://www.who.int/health-topics/primary-health-care",
+          "registry_status": "authoritative_instructional",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "doh-national-immunization-program",
+          "title": "National Immunization Program: Policy and Procedures Manual Annexes",
+          "url": "https://doh.gov.ph/wp-content/uploads/2023/08/Booklet-9-Annexes.pdf",
+          "registry_status": "periodically_updated",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "cdc-infection-control-basics",
+          "title": "Core Infection Prevention and Control Practices",
+          "url": "https://www.cdc.gov/infection-control/hcp/core-practices/",
+          "registry_status": "periodically_updated",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "openrn-nursing-fundamentals",
+          "title": "Nursing Fundamentals",
+          "url": "https://wtcs.pressbooks.pub/nursingfundamentals/",
+          "registry_status": "authoritative_instructional",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "openrn-nursingmhcc-vulnerable-172",
+          "title": "17.2 Vulnerable Populations — Nursing Mental Health and Community Concepts 2e",
+          "url": "https://wtcs.pressbooks.pub/nursingmhcc/chapter/17-2-vulnerable-populations/",
+          "registry_status": "SOURCE_TEXT_CHECKED_WEB",
+          "evidence_state": "SOURCE_VERIFIED"
+        }
+      ],
+      "review_note": "The item presents new confusion with an unsafe environment; the section prioritizes acute-change assessment, immediate safety, available support, and referral rather than normalizing age-related change. Technical section-support proposal only; independent Nursing review remains pending."
+    },
+    {
+      "board": "nursing",
+      "subject": "nursing-foundations",
+      "question_id": "3924",
+      "material_id": "nle-np-ii-foundation",
+      "lesson_id": "nursing-maternal-family-assessment",
+      "section_id": "b703-prenatal-warning-cues",
+      "classification": "EXACT_SUPPORT",
+      "decision": "LINKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "link_operation": "UPGRADE_EXISTING_SOURCE_ONLY_ASSOCIATION",
+      "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "canonical_question_status": "active",
+      "canonical_taxonomy": {
+        "board_id": "nursing",
+        "subject_id": "nursing-foundations",
+        "domain_id": "nle-maternal-child",
+        "topic_id": "nle-maternal-child",
+        "concept_id": "nle-np-ii-prenatal"
+      },
+      "source_references": [
+        {
+          "id": "prc-nursing-program-aug-2026",
+          "title": "Nursing Licensure Examination Program, August 2026",
+          "url": "https://www.prc.gov.ph/sites/default/files/exam%20progam%20aug%202026%20nle%20(nursing)%20signed.pdf",
+          "registry_status": "verified_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "prc-nursing-enhanced-tos-2025",
+          "title": "Enhanced Tables of Specifications for the Subjects in the Nurses Licensure Examination",
+          "url": "https://www.prc.gov.ph/sites/default/files/2025-10%20%20published%20Enhanced%20TOS%20nuse.pdf",
+          "registry_status": "official_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "who-postnatal-care-2022",
+          "title": "WHO Recommendations for Care of the Preterm or Low-Birth-Weight Infant and Postnatal Care",
+          "url": "https://www.who.int/news/item/30-03-2022-who-urges-quality-care-for-women-and-newborns-in-critical-first-weeks-after-childbirth",
+          "registry_status": "periodically_updated",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "who-maternal-peripartum-infections",
+          "title": "WHO Recommendations for Prevention and Treatment of Maternal Peripartum Infections",
+          "url": "https://www.who.int/publications/i/item/9789241549363",
+          "registry_status": "periodically_updated",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "openrn-nursing-fundamentals",
+          "title": "Nursing Fundamentals",
+          "url": "https://wtcs.pressbooks.pub/nursingfundamentals/",
+          "registry_status": "authoritative_instructional",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "who-preeclampsia-factsheet-2026",
+          "title": "Pre-eclampsia",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/pre-eclampsia",
+          "registry_status": "SOURCE_TEXT_CHECKED_WEB",
+          "evidence_state": "SOURCE_VERIFIED"
+        }
+      ],
+      "review_note": "The item presents a severe maternal symptom cluster; the section identifies those warning cues and teaches prompt assessment and escalation without diagnosing or setting a treatment threshold. Technical section-support proposal only; independent Nursing review remains pending."
+    },
+    {
+      "board": "nursing",
+      "subject": "nursing-foundations",
+      "question_id": "3945",
+      "material_id": "nle-np-ii-foundation",
+      "lesson_id": "nursing-maternal-family-assessment",
+      "section_id": "b703-postpartum-change-and-escalation",
+      "classification": "EXACT_SUPPORT",
+      "decision": "LINKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "link_operation": "UPGRADE_EXISTING_SOURCE_ONLY_ASSOCIATION",
+      "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "canonical_question_status": "active",
+      "canonical_taxonomy": {
+        "board_id": "nursing",
+        "subject_id": "nursing-foundations",
+        "domain_id": "nle-maternal-child",
+        "topic_id": "nle-maternal-child",
+        "concept_id": "nle-np-ii-postpartum"
+      },
+      "source_references": [
+        {
+          "id": "prc-nursing-program-aug-2026",
+          "title": "Nursing Licensure Examination Program, August 2026",
+          "url": "https://www.prc.gov.ph/sites/default/files/exam%20progam%20aug%202026%20nle%20(nursing)%20signed.pdf",
+          "registry_status": "verified_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "prc-nursing-enhanced-tos-2025",
+          "title": "Enhanced Tables of Specifications for the Subjects in the Nurses Licensure Examination",
+          "url": "https://www.prc.gov.ph/sites/default/files/2025-10%20%20published%20Enhanced%20TOS%20nuse.pdf",
+          "registry_status": "official_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "who-postnatal-care-2022",
+          "title": "WHO Recommendations for Care of the Preterm or Low-Birth-Weight Infant and Postnatal Care",
+          "url": "https://www.who.int/news/item/30-03-2022-who-urges-quality-care-for-women-and-newborns-in-critical-first-weeks-after-childbirth",
+          "registry_status": "periodically_updated",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "who-maternal-peripartum-infections",
+          "title": "WHO Recommendations for Prevention and Treatment of Maternal Peripartum Infections",
+          "url": "https://www.who.int/publications/i/item/9789241549363",
+          "registry_status": "periodically_updated",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "openrn-nursing-fundamentals",
+          "title": "Nursing Fundamentals",
+          "url": "https://wtcs.pressbooks.pub/nursingfundamentals/",
+          "registry_status": "authoritative_instructional",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "openrn-healthpromo-postpartum-115",
+          "title": "11.5 Applying the Nursing Process and Clinical Judgment Model to Postpartum Care — Nursing Health Promotion",
+          "url": "https://wtcs.pressbooks.pub/healthpromo/chapter/11-5-applying-the-nursing-process-and-the-clinical-judgment-model-to-postpartum-care/",
+          "registry_status": "SOURCE_TEXT_CHECKED_WEB; LOCAL_FETCH_403",
+          "evidence_state": "SOURCE_VERIFIED"
+        },
+        {
+          "id": "who-preeclampsia-factsheet-2026",
+          "title": "Pre-eclampsia",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/pre-eclampsia",
+          "registry_status": "SOURCE_TEXT_CHECKED_WEB",
+          "evidence_state": "SOURCE_VERIFIED"
+        }
+      ],
+      "review_note": "The item presents severe headache and visual change after birth; the section teaches postpartum reassessment and urgent escalation rather than attributing symptoms to routine recovery. Technical section-support proposal only; independent Nursing review remains pending."
+    },
+    {
+      "board": "nursing",
+      "subject": "nursing-foundations",
+      "question_id": "3946",
+      "material_id": "nle-np-ii-foundation",
+      "lesson_id": "nursing-maternal-family-assessment",
+      "section_id": "b703-postpartum-change-and-escalation",
+      "classification": "EXACT_SUPPORT",
+      "decision": "LINKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "link_operation": "UPGRADE_EXISTING_SOURCE_ONLY_ASSOCIATION",
+      "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "canonical_question_status": "active",
+      "canonical_taxonomy": {
+        "board_id": "nursing",
+        "subject_id": "nursing-foundations",
+        "domain_id": "nle-maternal-child",
+        "topic_id": "nle-maternal-child",
+        "concept_id": "nle-np-ii-postpartum"
+      },
+      "source_references": [
+        {
+          "id": "prc-nursing-program-aug-2026",
+          "title": "Nursing Licensure Examination Program, August 2026",
+          "url": "https://www.prc.gov.ph/sites/default/files/exam%20progam%20aug%202026%20nle%20(nursing)%20signed.pdf",
+          "registry_status": "verified_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "prc-nursing-enhanced-tos-2025",
+          "title": "Enhanced Tables of Specifications for the Subjects in the Nurses Licensure Examination",
+          "url": "https://www.prc.gov.ph/sites/default/files/2025-10%20%20published%20Enhanced%20TOS%20nuse.pdf",
+          "registry_status": "official_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "who-postnatal-care-2022",
+          "title": "WHO Recommendations for Care of the Preterm or Low-Birth-Weight Infant and Postnatal Care",
+          "url": "https://www.who.int/news/item/30-03-2022-who-urges-quality-care-for-women-and-newborns-in-critical-first-weeks-after-childbirth",
+          "registry_status": "periodically_updated",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "who-maternal-peripartum-infections",
+          "title": "WHO Recommendations for Prevention and Treatment of Maternal Peripartum Infections",
+          "url": "https://www.who.int/publications/i/item/9789241549363",
+          "registry_status": "periodically_updated",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "openrn-nursing-fundamentals",
+          "title": "Nursing Fundamentals",
+          "url": "https://wtcs.pressbooks.pub/nursingfundamentals/",
+          "registry_status": "authoritative_instructional",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "openrn-healthpromo-postpartum-115",
+          "title": "11.5 Applying the Nursing Process and Clinical Judgment Model to Postpartum Care — Nursing Health Promotion",
+          "url": "https://wtcs.pressbooks.pub/healthpromo/chapter/11-5-applying-the-nursing-process-and-the-clinical-judgment-model-to-postpartum-care/",
+          "registry_status": "SOURCE_TEXT_CHECKED_WEB; LOCAL_FETCH_403",
+          "evidence_state": "SOURCE_VERIFIED"
+        }
+      ],
+      "review_note": "The item combines unilateral leg pain with new dyspnea postpartum; the section explicitly treats this as a time-sensitive emergency cue and rejects delay or calf massage. Technical section-support proposal only; independent Nursing review remains pending."
+    },
+    {
+      "board": "nursing",
+      "subject": "nursing-foundations",
+      "question_id": "3964",
+      "material_id": "nle-np-ii-foundation",
+      "lesson_id": "nursing-maternal-family-assessment",
+      "section_id": "b703-developmental-trajectory",
+      "classification": "EXACT_SUPPORT",
+      "decision": "LINKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "link_operation": "UPGRADE_EXISTING_SOURCE_ONLY_ASSOCIATION",
+      "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "canonical_question_status": "active",
+      "canonical_taxonomy": {
+        "board_id": "nursing",
+        "subject_id": "nursing-foundations",
+        "domain_id": "nle-maternal-child",
+        "topic_id": "nle-maternal-child",
+        "concept_id": "nle-np-ii-development"
+      },
+      "source_references": [
+        {
+          "id": "prc-nursing-program-aug-2026",
+          "title": "Nursing Licensure Examination Program, August 2026",
+          "url": "https://www.prc.gov.ph/sites/default/files/exam%20progam%20aug%202026%20nle%20(nursing)%20signed.pdf",
+          "registry_status": "verified_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "prc-nursing-enhanced-tos-2025",
+          "title": "Enhanced Tables of Specifications for the Subjects in the Nurses Licensure Examination",
+          "url": "https://www.prc.gov.ph/sites/default/files/2025-10%20%20published%20Enhanced%20TOS%20nuse.pdf",
+          "registry_status": "official_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "who-postnatal-care-2022",
+          "title": "WHO Recommendations for Care of the Preterm or Low-Birth-Weight Infant and Postnatal Care",
+          "url": "https://www.who.int/news/item/30-03-2022-who-urges-quality-care-for-women-and-newborns-in-critical-first-weeks-after-childbirth",
+          "registry_status": "periodically_updated",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "who-maternal-peripartum-infections",
+          "title": "WHO Recommendations for Prevention and Treatment of Maternal Peripartum Infections",
+          "url": "https://www.who.int/publications/i/item/9789241549363",
+          "registry_status": "periodically_updated",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "openrn-nursing-fundamentals",
+          "title": "Nursing Fundamentals",
+          "url": "https://wtcs.pressbooks.pub/nursingfundamentals/",
+          "registry_status": "authoritative_instructional",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "openrn-healthpromo-development-134",
+          "title": "13.4 Nursing and Medical Care for the Developing Child — Nursing Health Promotion",
+          "url": "https://wtcs.pressbooks.pub/healthpromo/chapter/13-4-nursing-and-medical-care-for-the-developing-child/",
+          "registry_status": "SOURCE_TEXT_CHECKED_WEB",
+          "evidence_state": "SOURCE_VERIFIED"
+        }
+      ],
+      "review_note": "The item asks how to assess development; the section teaches contextual, longitudinal interpretation and distinguishes a screening concern from diagnosis. Technical section-support proposal only; independent Nursing review remains pending."
+    },
+    {
+      "board": "nursing",
+      "subject": "nursing-foundations",
+      "question_id": "3975",
+      "material_id": "nle-np-ii-foundation",
+      "lesson_id": "nursing-maternal-family-assessment",
+      "section_id": "b703-family-feeding-and-teachback",
+      "classification": "EXACT_SUPPORT",
+      "decision": "LINKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "link_operation": "UPGRADE_EXISTING_SOURCE_ONLY_ASSOCIATION",
+      "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "canonical_question_status": "active",
+      "canonical_taxonomy": {
+        "board_id": "nursing",
+        "subject_id": "nursing-foundations",
+        "domain_id": "nle-maternal-child",
+        "topic_id": "nle-maternal-child",
+        "concept_id": "nle-np-ii-family"
+      },
+      "source_references": [
+        {
+          "id": "prc-nursing-program-aug-2026",
+          "title": "Nursing Licensure Examination Program, August 2026",
+          "url": "https://www.prc.gov.ph/sites/default/files/exam%20progam%20aug%202026%20nle%20(nursing)%20signed.pdf",
+          "registry_status": "verified_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "prc-nursing-enhanced-tos-2025",
+          "title": "Enhanced Tables of Specifications for the Subjects in the Nurses Licensure Examination",
+          "url": "https://www.prc.gov.ph/sites/default/files/2025-10%20%20published%20Enhanced%20TOS%20nuse.pdf",
+          "registry_status": "official_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "who-postnatal-care-2022",
+          "title": "WHO Recommendations for Care of the Preterm or Low-Birth-Weight Infant and Postnatal Care",
+          "url": "https://www.who.int/news/item/30-03-2022-who-urges-quality-care-for-women-and-newborns-in-critical-first-weeks-after-childbirth",
+          "registry_status": "periodically_updated",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "who-maternal-peripartum-infections",
+          "title": "WHO Recommendations for Prevention and Treatment of Maternal Peripartum Infections",
+          "url": "https://www.who.int/publications/i/item/9789241549363",
+          "registry_status": "periodically_updated",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "openrn-nursing-fundamentals",
+          "title": "Nursing Fundamentals",
+          "url": "https://wtcs.pressbooks.pub/nursingfundamentals/",
+          "registry_status": "authoritative_instructional",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "openrn-healthpromo-postpartum-115",
+          "title": "11.5 Applying the Nursing Process and Clinical Judgment Model to Postpartum Care — Nursing Health Promotion",
+          "url": "https://wtcs.pressbooks.pub/healthpromo/chapter/11-5-applying-the-nursing-process-and-the-clinical-judgment-model-to-postpartum-care/",
+          "registry_status": "SOURCE_TEXT_CHECKED_WEB; LOCAL_FETCH_403",
+          "evidence_state": "SOURCE_VERIFIED"
+        }
+      ],
+      "review_note": "The item concerns differing feeding beliefs; the section teaches respectful exploration, understandable evidence-informed choices, safety assessment, and family partnership. Technical section-support proposal only; independent Nursing review remains pending."
+    },
+    {
+      "board": "nursing",
+      "subject": "nursing-foundations",
+      "question_id": "3976",
+      "material_id": "nle-np-ii-foundation",
+      "lesson_id": "nursing-maternal-family-assessment",
+      "section_id": "b703-family-feeding-and-teachback",
+      "classification": "EXACT_SUPPORT",
+      "decision": "LINKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "link_operation": "UPGRADE_EXISTING_SOURCE_ONLY_ASSOCIATION",
+      "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "canonical_question_status": "active",
+      "canonical_taxonomy": {
+        "board_id": "nursing",
+        "subject_id": "nursing-foundations",
+        "domain_id": "nle-maternal-child",
+        "topic_id": "nle-maternal-child",
+        "concept_id": "nle-np-ii-family"
+      },
+      "source_references": [
+        {
+          "id": "prc-nursing-program-aug-2026",
+          "title": "Nursing Licensure Examination Program, August 2026",
+          "url": "https://www.prc.gov.ph/sites/default/files/exam%20progam%20aug%202026%20nle%20(nursing)%20signed.pdf",
+          "registry_status": "verified_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "prc-nursing-enhanced-tos-2025",
+          "title": "Enhanced Tables of Specifications for the Subjects in the Nurses Licensure Examination",
+          "url": "https://www.prc.gov.ph/sites/default/files/2025-10%20%20published%20Enhanced%20TOS%20nuse.pdf",
+          "registry_status": "official_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "who-postnatal-care-2022",
+          "title": "WHO Recommendations for Care of the Preterm or Low-Birth-Weight Infant and Postnatal Care",
+          "url": "https://www.who.int/news/item/30-03-2022-who-urges-quality-care-for-women-and-newborns-in-critical-first-weeks-after-childbirth",
+          "registry_status": "periodically_updated",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "who-maternal-peripartum-infections",
+          "title": "WHO Recommendations for Prevention and Treatment of Maternal Peripartum Infections",
+          "url": "https://www.who.int/publications/i/item/9789241549363",
+          "registry_status": "periodically_updated",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "openrn-nursing-fundamentals",
+          "title": "Nursing Fundamentals",
+          "url": "https://wtcs.pressbooks.pub/nursingfundamentals/",
+          "registry_status": "authoritative_instructional",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "openrn-healthpromo-postpartum-115",
+          "title": "11.5 Applying the Nursing Process and Clinical Judgment Model to Postpartum Care — Nursing Health Promotion",
+          "url": "https://wtcs.pressbooks.pub/healthpromo/chapter/11-5-applying-the-nursing-process-and-the-clinical-judgment-model-to-postpartum-care/",
+          "registry_status": "SOURCE_TEXT_CHECKED_WEB; LOCAL_FETCH_403",
+          "evidence_state": "SOURCE_VERIFIED"
+        }
+      ],
+      "review_note": "The item tests whether discharge teaching was understood; the section teaches plain language, teach-back, and reteaching when the caregiver cannot explain the plan. Technical section-support proposal only; independent Nursing review remains pending."
+    },
+    {
+      "board": "nursing",
+      "subject": "nursing-foundations",
+      "question_id": "3948",
+      "material_id": "nle-np-ii-foundation",
+      "lesson_id": "nursing-maternal-family-assessment",
+      "section_id": "b703-family-feeding-and-teachback",
+      "classification": "EXACT_SUPPORT",
+      "decision": "LINKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "link_operation": "UPGRADE_EXISTING_SOURCE_ONLY_ASSOCIATION",
+      "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "canonical_question_status": "active",
+      "canonical_taxonomy": {
+        "board_id": "nursing",
+        "subject_id": "nursing-foundations",
+        "domain_id": "nle-maternal-child",
+        "topic_id": "nle-maternal-child",
+        "concept_id": "nle-np-ii-postpartum"
+      },
+      "source_references": [
+        {
+          "id": "prc-nursing-program-aug-2026",
+          "title": "Nursing Licensure Examination Program, August 2026",
+          "url": "https://www.prc.gov.ph/sites/default/files/exam%20progam%20aug%202026%20nle%20(nursing)%20signed.pdf",
+          "registry_status": "verified_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "prc-nursing-enhanced-tos-2025",
+          "title": "Enhanced Tables of Specifications for the Subjects in the Nurses Licensure Examination",
+          "url": "https://www.prc.gov.ph/sites/default/files/2025-10%20%20published%20Enhanced%20TOS%20nuse.pdf",
+          "registry_status": "official_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "who-postnatal-care-2022",
+          "title": "WHO Recommendations for Care of the Preterm or Low-Birth-Weight Infant and Postnatal Care",
+          "url": "https://www.who.int/news/item/30-03-2022-who-urges-quality-care-for-women-and-newborns-in-critical-first-weeks-after-childbirth",
+          "registry_status": "periodically_updated",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "who-maternal-peripartum-infections",
+          "title": "WHO Recommendations for Prevention and Treatment of Maternal Peripartum Infections",
+          "url": "https://www.who.int/publications/i/item/9789241549363",
+          "registry_status": "periodically_updated",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "openrn-nursing-fundamentals",
+          "title": "Nursing Fundamentals",
+          "url": "https://wtcs.pressbooks.pub/nursingfundamentals/",
+          "registry_status": "authoritative_instructional",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "openrn-healthpromo-postpartum-115",
+          "title": "11.5 Applying the Nursing Process and Clinical Judgment Model to Postpartum Care — Nursing Health Promotion",
+          "url": "https://wtcs.pressbooks.pub/healthpromo/chapter/11-5-applying-the-nursing-process-and-the-clinical-judgment-model-to-postpartum-care/",
+          "registry_status": "SOURCE_TEXT_CHECKED_WEB; LOCAL_FETCH_403",
+          "evidence_state": "SOURCE_VERIFIED"
+        }
+      ],
+      "review_note": "The item asks about severe feeding pain; the section teaches observation of a feed and assessment of positioning, latch, comfort, and injury or infection cues before recommending change. Technical section-support proposal only; independent Nursing review remains pending."
+    },
+    {
+      "board": "nursing",
+      "subject": "nursing-foundations",
+      "question_id": "1556",
+      "material_id": "nle-np-ii-foundation",
+      "lesson_id": "nursing-maternal-family-assessment",
+      "section_id": "b703-family-feeding-and-teachback",
+      "classification": "EXACT_SUPPORT",
+      "decision": "LINKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "link_operation": "ADD_EXACT_RELATIONSHIP_TO_EXISTING_MATERIAL",
+      "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "canonical_question_status": "active",
+      "canonical_taxonomy": {
+        "board_id": "nursing",
+        "subject_id": "nursing-foundations",
+        "domain_id": "nle-maternal-child",
+        "topic_id": "nle-maternal-child",
+        "concept_id": "nle-np-ii-postpartum"
+      },
+      "source_references": [
+        {
+          "id": "prc-nursing-enhanced-tos-2025",
+          "title": "Enhanced Tables of Specifications for the Subjects in the Nurses Licensure Examination",
+          "url": "https://www.prc.gov.ph/sites/default/files/2025-10%20%20published%20Enhanced%20TOS%20nuse.pdf",
+          "registry_status": "official_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "openrn-healthpromo-postpartum-115",
+          "title": "11.5 Applying the Nursing Process and Clinical Judgment Model to Postpartum Care — Nursing Health Promotion",
+          "url": "https://wtcs.pressbooks.pub/healthpromo/chapter/11-5-applying-the-nursing-process-and-the-clinical-judgment-model-to-postpartum-care/",
+          "registry_status": "SOURCE_TEXT_CHECKED_WEB; LOCAL_FETCH_403",
+          "evidence_state": "SOURCE_VERIFIED"
+        },
+        {
+          "id": "who-postnatal-care-2022",
+          "title": "WHO Recommendations for Care of the Preterm or Low-Birth-Weight Infant and Postnatal Care",
+          "url": "https://www.who.int/news/item/30-03-2022-who-urges-quality-care-for-women-and-newborns-in-critical-first-weeks-after-childbirth",
+          "registry_status": "periodically_updated",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        }
+      ],
+      "review_note": "The item asks what to do with pain, clicking, and short feeds; the section teaches direct observation and assessment of latch and transfer before changing feeding advice. Technical section-support proposal only; independent Nursing review remains pending."
+    },
+    {
+      "board": "nursing",
+      "subject": "nursing-foundations",
+      "question_id": "3984",
+      "material_id": "nle-np-iii-oxygenation",
+      "lesson_id": "nursing-oxygenation-fluid-immunity-assessment",
+      "section_id": "b703-oxygenation-trend",
+      "classification": "EXACT_SUPPORT",
+      "decision": "LINKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "link_operation": "ADD_EXACT_RELATIONSHIP_TO_EXISTING_MATERIAL",
+      "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "canonical_question_status": "active",
+      "canonical_taxonomy": {
+        "board_id": "nursing",
+        "subject_id": "nursing-foundations",
+        "domain_id": "nle-medical-surgical",
+        "topic_id": "nle-medical-surgical",
+        "concept_id": "nle-np-iii-oxygenation"
+      },
+      "source_references": [
+        {
+          "id": "prc-nursing-enhanced-tos-2025",
+          "title": "Enhanced Tables of Specifications for the Subjects in the Nurses Licensure Examination",
+          "url": "https://www.prc.gov.ph/sites/default/files/2025-10%20%20published%20Enhanced%20TOS%20nuse.pdf",
+          "registry_status": "official_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "openrn-nursingfundamentals-oxygenation-82",
+          "title": "8.2 Oxygenation Basic Concepts — Nursing Fundamentals 2e",
+          "url": "https://wtcs.pressbooks.pub/nursingfundamentals/chapter/8-2-basic-oxygenation-concepts/",
+          "registry_status": "SOURCE_TEXT_CHECKED_WEB",
+          "evidence_state": "SOURCE_VERIFIED"
+        },
+        {
+          "id": "who-basic-emergency-care",
+          "title": "Basic Emergency Care: Approach to the Acutely Ill and Injured",
+          "url": "https://www.who.int/publications-detail-redirect/9789241513081",
+          "registry_status": "authoritative_instructional",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        }
+      ],
+      "review_note": "The item presents respiratory deterioration; the section teaches assessment of airway/breathing trends, positioning, prescribed support, escalation, and reassessment without independent treatment orders. Technical section-support proposal only; independent Nursing review remains pending."
+    },
+    {
+      "board": "nursing",
+      "subject": "nursing-foundations",
+      "question_id": "3994",
+      "material_id": "nle-np-iii-oxygenation",
+      "lesson_id": "nursing-oxygenation-fluid-immunity-assessment",
+      "section_id": "b703-fluid-status-trends",
+      "classification": "EXACT_SUPPORT",
+      "decision": "LINKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "link_operation": "ADD_EXACT_RELATIONSHIP_TO_EXISTING_MATERIAL",
+      "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "canonical_question_status": "active",
+      "canonical_taxonomy": {
+        "board_id": "nursing",
+        "subject_id": "nursing-foundations",
+        "domain_id": "nle-medical-surgical",
+        "topic_id": "nle-medical-surgical",
+        "concept_id": "nle-np-iii-fluids"
+      },
+      "source_references": [
+        {
+          "id": "prc-nursing-enhanced-tos-2025",
+          "title": "Enhanced Tables of Specifications for the Subjects in the Nurses Licensure Examination",
+          "url": "https://www.prc.gov.ph/sites/default/files/2025-10%20%20published%20Enhanced%20TOS%20nuse.pdf",
+          "registry_status": "official_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "openrn-nursingfundamentals-fluids-152",
+          "title": "15.2 Basic Fluid and Electrolyte Concepts — Nursing Fundamentals 2e",
+          "url": "https://wtcs.pressbooks.pub/nursingfundamentals/chapter/15-2-basic-fluid-and-electrolyte-concepts/",
+          "registry_status": "SOURCE_EXISTING_UNRECHECKED; WEB_FETCH_INTERMITTENT_403",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "openrn-nursing-fundamentals",
+          "title": "Nursing Fundamentals",
+          "url": "https://wtcs.pressbooks.pub/nursingfundamentals/",
+          "registry_status": "authoritative_instructional",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        }
+      ],
+      "review_note": "The item presents vomiting, orthostatic dizziness, and low output; the section teaches combined perfusion, hydration, intake/output, weight-trend, and ordered-lab assessment. Technical section-support proposal only; independent Nursing review remains pending."
+    },
+    {
+      "board": "nursing",
+      "subject": "nursing-foundations",
+      "question_id": "4014",
+      "material_id": "nle-np-iii-oxygenation",
+      "lesson_id": "nursing-oxygenation-fluid-immunity-assessment",
+      "section_id": "b703-immunosuppression-and-change",
+      "classification": "EXACT_SUPPORT",
+      "decision": "LINKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "link_operation": "ADD_EXACT_RELATIONSHIP_TO_EXISTING_MATERIAL",
+      "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "canonical_question_status": "active",
+      "canonical_taxonomy": {
+        "board_id": "nursing",
+        "subject_id": "nursing-foundations",
+        "domain_id": "nle-medical-surgical",
+        "topic_id": "nle-medical-surgical",
+        "concept_id": "nle-np-iii-immunity"
+      },
+      "source_references": [
+        {
+          "id": "prc-nursing-enhanced-tos-2025",
+          "title": "Enhanced Tables of Specifications for the Subjects in the Nurses Licensure Examination",
+          "url": "https://www.prc.gov.ph/sites/default/files/2025-10%20%20published%20Enhanced%20TOS%20nuse.pdf",
+          "registry_status": "official_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "openrn-nursingfundamentals-immunity-97",
+          "title": "9.7 Applying the Nursing Process — Nursing Fundamentals 2e",
+          "url": "https://wtcs.pressbooks.pub/nursingfundamentals/chapter/9-7-applying-the-nursing-process/",
+          "registry_status": "SOURCE_EXISTING_UNRECHECKED; WEB_FETCH_INTERMITTENT_403",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "cdc-infection-control-basics",
+          "title": "Core Infection Prevention and Control Practices",
+          "url": "https://www.cdc.gov/infection-control/hcp/core-practices/",
+          "registry_status": "periodically_updated",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "who-basic-emergency-care",
+          "title": "Basic Emergency Care: Approach to the Acutely Ill and Injured",
+          "url": "https://www.who.int/publications-detail-redirect/9789241513081",
+          "registry_status": "authoritative_instructional",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        }
+      ],
+      "review_note": "The item asks how to respond to a new fever during immunosuppression; the section teaches prompt change assessment and notification through the current pathway, without vaccine or treatment directives. Technical section-support proposal only; independent Nursing review remains pending."
+    },
+    {
+      "board": "nursing",
+      "subject": "nursing-foundations",
+      "question_id": "4024",
+      "material_id": "nle-b625-np-iii-clinical-reasoning",
+      "lesson_id": "nursing-perioperative-verification",
+      "section_id": "b703-perioperative-discrepancy-stop",
+      "classification": "EXACT_SUPPORT",
+      "decision": "LINKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "link_operation": "ADD_EXACT_RELATIONSHIP_TO_EXISTING_MATERIAL",
+      "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "canonical_question_status": "active",
+      "canonical_taxonomy": {
+        "board_id": "nursing",
+        "subject_id": "nursing-foundations",
+        "domain_id": "nle-medical-surgical",
+        "topic_id": "nle-medical-surgical",
+        "concept_id": "nle-np-iii-perioperative"
+      },
+      "source_references": [
+        {
+          "id": "prc-nursing-enhanced-tos-2025",
+          "title": "Enhanced Tables of Specifications for the Subjects in the Nurses Licensure Examination",
+          "url": "https://www.prc.gov.ph/sites/default/files/2025-10%20%20published%20Enhanced%20TOS%20nuse.pdf",
+          "registry_status": "official_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "who-surgical-safety-checklist-2009",
+          "title": "WHO Surgical Safety Checklist and Implementation Manual",
+          "url": "https://www.who.int/publications/i/item/9789241598590",
+          "registry_status": "SOURCE_TEXT_CHECKED_WEB",
+          "evidence_state": "SOURCE_VERIFIED"
+        },
+        {
+          "id": "openrn-nursing-fundamentals",
+          "title": "Nursing Fundamentals",
+          "url": "https://wtcs.pressbooks.pub/nursingfundamentals/",
+          "registry_status": "authoritative_instructional",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        }
+      ],
+      "review_note": "The item presents a mismatch between the planned procedure and the client’s understanding; the section teaches pausing and resolving identity, consent, procedure, site, and team discrepancies before proceeding. Technical section-support proposal only; independent Nursing review remains pending."
+    },
+    {
+      "board": "nursing",
+      "subject": "nursing-foundations",
+      "question_id": "4044",
+      "material_id": "nle-np-iv-foundation",
+      "lesson_id": "nursing-nutrition-and-sensory-assessment",
+      "section_id": "b703-nutrition-intake-and-context",
+      "classification": "EXACT_SUPPORT",
+      "decision": "LINKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "link_operation": "UPGRADE_EXISTING_SOURCE_ONLY_ASSOCIATION",
+      "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "canonical_question_status": "active",
+      "canonical_taxonomy": {
+        "board_id": "nursing",
+        "subject_id": "nursing-foundations",
+        "domain_id": "nle-medical-surgical",
+        "topic_id": "nle-medical-surgical",
+        "concept_id": "nle-np-iv-nutrition"
+      },
+      "source_references": [
+        {
+          "id": "prc-nursing-program-aug-2026",
+          "title": "Nursing Licensure Examination Program, August 2026",
+          "url": "https://www.prc.gov.ph/sites/default/files/exam%20progam%20aug%202026%20nle%20(nursing)%20signed.pdf",
+          "registry_status": "verified_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "prc-nursing-enhanced-tos-2025",
+          "title": "Enhanced Tables of Specifications for the Subjects in the Nurses Licensure Examination",
+          "url": "https://www.prc.gov.ph/sites/default/files/2025-10%20%20published%20Enhanced%20TOS%20nuse.pdf",
+          "registry_status": "official_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "who-medication-without-harm-5-moments",
+          "title": "Medication Safety in Transitions of Care: Medication Without Harm",
+          "url": "https://www.who.int/publications/i/item/WHO-HIS-SDS-2019.4",
+          "registry_status": "periodically_updated",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "openrn-pharmacology",
+          "title": "Pharmacology for Nurses",
+          "url": "https://wtcs.pressbooks.pub/pharmacology/",
+          "registry_status": "authoritative_instructional",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "openrn-nursing-fundamentals",
+          "title": "Nursing Fundamentals",
+          "url": "https://wtcs.pressbooks.pub/nursingfundamentals/",
+          "registry_status": "authoritative_instructional",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "openrn-nursingfundamentals-nutrition-143",
+          "title": "14.3 Applying the Nursing Process — Nursing Fundamentals 2e",
+          "url": "https://wtcs.pressbooks.pub/nursingfundamentals/chapter/14-3-applying-the-nursing-process/",
+          "registry_status": "SOURCE_TEXT_CHECKED_WEB",
+          "evidence_state": "SOURCE_VERIFIED"
+        }
+      ],
+      "review_note": "The item presents poor intake and weakness; the section teaches assessing swallowing, symptoms, hydration, weight trend, and causes before selecting support. Technical section-support proposal only; independent Nursing review remains pending."
+    },
+    {
+      "board": "nursing",
+      "subject": "nursing-foundations",
+      "question_id": "4074",
+      "material_id": "nle-np-iv-foundation",
+      "lesson_id": "nursing-nutrition-and-sensory-assessment",
+      "section_id": "b703-sensory-baseline-and-acute-change",
+      "classification": "EXACT_SUPPORT",
+      "decision": "LINKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "link_operation": "UPGRADE_EXISTING_SOURCE_ONLY_ASSOCIATION",
+      "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "canonical_question_status": "active",
+      "canonical_taxonomy": {
+        "board_id": "nursing",
+        "subject_id": "nursing-foundations",
+        "domain_id": "nle-medical-surgical",
+        "topic_id": "nle-medical-surgical",
+        "concept_id": "nle-np-iv-perception"
+      },
+      "source_references": [
+        {
+          "id": "prc-nursing-program-aug-2026",
+          "title": "Nursing Licensure Examination Program, August 2026",
+          "url": "https://www.prc.gov.ph/sites/default/files/exam%20progam%20aug%202026%20nle%20(nursing)%20signed.pdf",
+          "registry_status": "verified_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "prc-nursing-enhanced-tos-2025",
+          "title": "Enhanced Tables of Specifications for the Subjects in the Nurses Licensure Examination",
+          "url": "https://www.prc.gov.ph/sites/default/files/2025-10%20%20published%20Enhanced%20TOS%20nuse.pdf",
+          "registry_status": "official_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "who-medication-without-harm-5-moments",
+          "title": "Medication Safety in Transitions of Care: Medication Without Harm",
+          "url": "https://www.who.int/publications/i/item/WHO-HIS-SDS-2019.4",
+          "registry_status": "periodically_updated",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "openrn-pharmacology",
+          "title": "Pharmacology for Nurses",
+          "url": "https://wtcs.pressbooks.pub/pharmacology/",
+          "registry_status": "authoritative_instructional",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "openrn-nursing-fundamentals",
+          "title": "Nursing Fundamentals",
+          "url": "https://wtcs.pressbooks.pub/nursingfundamentals/",
+          "registry_status": "authoritative_instructional",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "openrn-nursingskills-seeking-care-25",
+          "title": "2.5 Reason for Seeking Health Care — Nursing Skills 2e",
+          "url": "https://wtcs.pressbooks.pub/nursingskills/chapter/2-5-reason-for-seeking-health-care/",
+          "registry_status": "SOURCE_TEXT_CHECKED_WEB",
+          "evidence_state": "SOURCE_VERIFIED"
+        },
+        {
+          "id": "who-basic-emergency-care",
+          "title": "Basic Emergency Care: Approach to the Acutely Ill and Injured",
+          "url": "https://www.who.int/publications-detail-redirect/9789241513081",
+          "registry_status": "authoritative_instructional",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        }
+      ],
+      "review_note": "The item presents sudden monocular vision loss with severe headache; the section distinguishes acute sensory change from baseline needs and directs urgent assessment rather than routine follow-up. Technical section-support proposal only; independent Nursing review remains pending."
+    },
+    {
+      "board": "nursing",
+      "subject": "nursing-foundations",
+      "question_id": "4104",
+      "material_id": "nle-b625-np-v-clinical-reasoning",
+      "lesson_id": "nursing-therapeutic-communication-and-crisis",
+      "section_id": "b703-self-harm-statement-and-safety",
+      "classification": "EXACT_SUPPORT",
+      "decision": "LINKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "link_operation": "ADD_EXACT_RELATIONSHIP_TO_EXISTING_MATERIAL",
+      "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "canonical_question_status": "active",
+      "canonical_taxonomy": {
+        "board_id": "nursing",
+        "subject_id": "nursing-foundations",
+        "domain_id": "nle-mental-health",
+        "topic_id": "nle-mental-health",
+        "concept_id": "nle-np-v-therapeutic"
+      },
+      "source_references": [
+        {
+          "id": "prc-nursing-enhanced-tos-2025",
+          "title": "Enhanced Tables of Specifications for the Subjects in the Nurses Licensure Examination",
+          "url": "https://www.prc.gov.ph/sites/default/files/2025-10%20%20published%20Enhanced%20TOS%20nuse.pdf",
+          "registry_status": "official_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "openrn-nursingmhcc-mental-assessment-43",
+          "title": "4.3 Assessment — Nursing Mental Health and Community Concepts 2e",
+          "url": "https://wtcs.pressbooks.pub/nursingmhcc/chapter/4-3-assessment/",
+          "registry_status": "SOURCE_TEXT_CHECKED_WEB; LOCAL_FETCH_403",
+          "evidence_state": "SOURCE_VERIFIED"
+        },
+        {
+          "id": "openrn-nursing-fundamentals",
+          "title": "Nursing Fundamentals",
+          "url": "https://wtcs.pressbooks.pub/nursingfundamentals/",
+          "registry_status": "authoritative_instructional",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        }
+      ],
+      "review_note": "The item contains a statement suggesting suicide risk; the section teaches staying with the client, direct immediate-safety assessment, and urgent support rather than avoidance or secrecy promises. Technical section-support proposal only; independent Nursing review remains pending."
+    },
+    {
+      "board": "nursing",
+      "subject": "nursing-foundations",
+      "question_id": "4114",
+      "material_id": "nle-b625-np-v-clinical-reasoning",
+      "lesson_id": "nursing-therapeutic-communication-and-crisis",
+      "section_id": "b703-crisis-assessment-and-calm-communication",
+      "classification": "EXACT_SUPPORT",
+      "decision": "LINKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "link_operation": "ADD_EXACT_RELATIONSHIP_TO_EXISTING_MATERIAL",
+      "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "canonical_question_status": "active",
+      "canonical_taxonomy": {
+        "board_id": "nursing",
+        "subject_id": "nursing-foundations",
+        "domain_id": "nle-mental-health",
+        "topic_id": "nle-mental-health",
+        "concept_id": "nle-np-v-crisis"
+      },
+      "source_references": [
+        {
+          "id": "prc-nursing-enhanced-tos-2025",
+          "title": "Enhanced Tables of Specifications for the Subjects in the Nurses Licensure Examination",
+          "url": "https://www.prc.gov.ph/sites/default/files/2025-10%20%20published%20Enhanced%20TOS%20nuse.pdf",
+          "registry_status": "official_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "openrn-nursingmhcc-crisis-35",
+          "title": "3.5 Crisis and Crisis Intervention — Nursing Mental Health and Community Concepts 2e",
+          "url": "https://wtcs.pressbooks.pub/nursingmhcc/chapter/3-5-crisis-and-crisis-intervention/",
+          "registry_status": "SOURCE_TEXT_CHECKED_WEB",
+          "evidence_state": "SOURCE_VERIFIED"
+        },
+        {
+          "id": "who-basic-emergency-care",
+          "title": "Basic Emergency Care: Approach to the Acutely Ill and Injured",
+          "url": "https://www.who.int/publications-detail-redirect/9789241513081",
+          "registry_status": "authoritative_instructional",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "openrn-nursing-fundamentals",
+          "title": "Nursing Fundamentals",
+          "url": "https://wtcs.pressbooks.pub/nursingfundamentals/",
+          "registry_status": "authoritative_instructional",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        }
+      ],
+      "review_note": "The item presents acute panic; the section teaches immediate physiologic/safety assessment, reduced stimulation, presence, and brief calm communication. Technical section-support proposal only; independent Nursing review remains pending."
+    },
+    {
+      "board": "nursing",
+      "subject": "nursing-foundations",
+      "question_id": "1018",
+      "material_id": "nle-b625-np-v-clinical-reasoning",
+      "lesson_id": "nursing-therapeutic-communication-and-crisis",
+      "section_id": "b703-self-harm-statement-and-safety",
+      "classification": "EXACT_SUPPORT",
+      "decision": "LINKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "link_operation": "ADD_EXACT_RELATIONSHIP_TO_EXISTING_MATERIAL",
+      "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "canonical_question_status": "active",
+      "canonical_taxonomy": {
+        "board_id": "nursing",
+        "subject_id": "nursing-foundations",
+        "domain_id": "nle-mental-health",
+        "topic_id": "nle-mental-health",
+        "concept_id": "nle-np-v-teamwork"
+      },
+      "source_references": [
+        {
+          "id": "prc-nursing-enhanced-tos-2025",
+          "title": "Enhanced Tables of Specifications for the Subjects in the Nurses Licensure Examination",
+          "url": "https://www.prc.gov.ph/sites/default/files/2025-10%20%20published%20Enhanced%20TOS%20nuse.pdf",
+          "registry_status": "official_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "openrn-nursingmhcc-mental-assessment-43",
+          "title": "4.3 Assessment — Nursing Mental Health and Community Concepts 2e",
+          "url": "https://wtcs.pressbooks.pub/nursingmhcc/chapter/4-3-assessment/",
+          "registry_status": "SOURCE_TEXT_CHECKED_WEB; LOCAL_FETCH_403",
+          "evidence_state": "SOURCE_VERIFIED"
+        },
+        {
+          "id": "openrn-nursing-fundamentals",
+          "title": "Nursing Fundamentals",
+          "url": "https://wtcs.pressbooks.pub/nursingfundamentals/",
+          "registry_status": "authoritative_instructional",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        }
+      ],
+      "review_note": "The item contains a statement suggesting self-harm; the newly authored section directly teaches asking about self-harm and assessing immediate safety. The canonical taxonomy remains separately flagged for review. Technical section-support proposal only; independent Nursing review remains pending."
+    },
+    {
+      "board": "nursing",
+      "subject": "nursing-foundations",
+      "question_id": "4124",
+      "material_id": "nle-np-v-emergency",
+      "lesson_id": "nursing-emergency-assessment-and-shock",
+      "section_id": "b703-abcde-and-reassessment",
+      "classification": "EXACT_SUPPORT",
+      "decision": "LINKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "link_operation": "ADD_EXACT_RELATIONSHIP_TO_EXISTING_MATERIAL",
+      "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "canonical_question_status": "active",
+      "canonical_taxonomy": {
+        "board_id": "nursing",
+        "subject_id": "nursing-foundations",
+        "domain_id": "nle-mental-health",
+        "topic_id": "nle-mental-health",
+        "concept_id": "nle-np-v-emergency"
+      },
+      "source_references": [
+        {
+          "id": "prc-nursing-enhanced-tos-2025",
+          "title": "Enhanced Tables of Specifications for the Subjects in the Nurses Licensure Examination",
+          "url": "https://www.prc.gov.ph/sites/default/files/2025-10%20%20published%20Enhanced%20TOS%20nuse.pdf",
+          "registry_status": "official_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "who-basic-emergency-care",
+          "title": "Basic Emergency Care: Approach to the Acutely Ill and Injured",
+          "url": "https://www.who.int/publications-detail-redirect/9789241513081",
+          "registry_status": "authoritative_instructional",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "openrn-nursing-fundamentals",
+          "title": "Nursing Fundamentals",
+          "url": "https://wtcs.pressbooks.pub/nursingfundamentals/",
+          "registry_status": "authoritative_instructional",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        }
+      ],
+      "review_note": "The item asks what ABCDE means; the section names the sequence and explains life-threat-first assessment with reassessment. Technical section-support proposal only; independent Nursing review remains pending."
+    },
+    {
+      "board": "nursing",
+      "subject": "nursing-foundations",
+      "question_id": "4134",
+      "material_id": "nle-np-v-emergency",
+      "lesson_id": "nursing-emergency-assessment-and-shock",
+      "section_id": "b703-shock-as-perfusion-change",
+      "classification": "EXACT_SUPPORT",
+      "decision": "LINKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "link_operation": "ADD_EXACT_RELATIONSHIP_TO_EXISTING_MATERIAL",
+      "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "canonical_question_status": "active",
+      "canonical_taxonomy": {
+        "board_id": "nursing",
+        "subject_id": "nursing-foundations",
+        "domain_id": "nle-mental-health",
+        "topic_id": "nle-mental-health",
+        "concept_id": "nle-np-v-shock"
+      },
+      "source_references": [
+        {
+          "id": "prc-nursing-enhanced-tos-2025",
+          "title": "Enhanced Tables of Specifications for the Subjects in the Nurses Licensure Examination",
+          "url": "https://www.prc.gov.ph/sites/default/files/2025-10%20%20published%20Enhanced%20TOS%20nuse.pdf",
+          "registry_status": "official_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "who-basic-emergency-care",
+          "title": "Basic Emergency Care: Approach to the Acutely Ill and Injured",
+          "url": "https://www.who.int/publications-detail-redirect/9789241513081",
+          "registry_status": "authoritative_instructional",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        }
+      ],
+      "review_note": "The item asks which change signals worsening shock; the section explains the listed findings as a deteriorating perfusion pattern and calls for escalation/reassessment. Technical section-support proposal only; independent Nursing review remains pending."
+    },
+    {
+      "board": "nursing",
+      "subject": "nursing-foundations",
+      "question_id": "3853",
+      "material_id": "nle-np-iii-foundation",
+      "lesson_id": "nursing-standard-and-transmission-precautions",
+      "section_id": "nle-task-based-ppe-and-equipment",
+      "classification": "EXACT_SUPPORT",
+      "decision": "LINKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "link_operation": "UPGRADE_EXISTING_SOURCE_ONLY_ASSOCIATION",
+      "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "canonical_question_status": "active",
+      "canonical_taxonomy": {
+        "board_id": "nursing",
+        "subject_id": "nursing-foundations",
+        "domain_id": "nle-medical-surgical",
+        "topic_id": "nle-medical-surgical",
+        "concept_id": "nle-np-iii-infection"
+      },
+      "source_references": [
+        {
+          "id": "prc-nursing-program-aug-2026",
+          "title": "Nursing Licensure Examination Program, August 2026",
+          "url": "https://www.prc.gov.ph/sites/default/files/exam%20progam%20aug%202026%20nle%20(nursing)%20signed.pdf",
+          "registry_status": "verified_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "prc-nursing-enhanced-tos-2025",
+          "title": "Enhanced Tables of Specifications for the Subjects in the Nurses Licensure Examination",
+          "url": "https://www.prc.gov.ph/sites/default/files/2025-10%20%20published%20Enhanced%20TOS%20nuse.pdf",
+          "registry_status": "official_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "cdc-infection-control-basics",
+          "title": "Core Infection Prevention and Control Practices",
+          "url": "https://www.cdc.gov/infection-control/hcp/core-practices/",
+          "registry_status": "periodically_updated",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "cdc-isolation-precautions",
+          "title": "Isolation Precautions Guideline",
+          "url": "https://www.cdc.gov/infection-control/hcp/isolation-precautions/precautions.html",
+          "registry_status": "periodically_updated",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "who-basic-emergency-care",
+          "title": "Basic Emergency Care: Approach to the Acutely Ill and Injured",
+          "url": "https://www.who.int/publications-detail-redirect/9789241513081",
+          "registry_status": "authoritative_instructional",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "openrn-nursing-fundamentals",
+          "title": "Nursing Fundamentals",
+          "url": "https://wtcs.pressbooks.pub/nursingfundamentals/",
+          "registry_status": "authoritative_instructional",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        }
+      ],
+      "review_note": "Canonical stem, choices, answer, and explanation concern PPE/equipment for suctioning under contact precautions. The existing section teaches task-based exposure, PPE, hand hygiene, equipment, and disposal; the unrelated prior outbreak label was not used. Technical section-support proposal only; independent Nursing review remains pending."
+    },
+    {
+      "board": "nursing",
+      "question_id": "1011",
+      "classification": "EXACT_SUPPORT",
+      "decision": "PRESERVED_EXISTING_PENDING_REVIEW",
+      "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW"
+    },
+    {
+      "board": "nursing",
+      "question_id": "1012",
+      "classification": "EXACT_SUPPORT",
+      "decision": "PRESERVED_EXISTING_PENDING_REVIEW",
+      "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW"
+    },
+    {
+      "board": "nursing",
+      "question_id": "4004",
+      "classification": "EXACT_SUPPORT",
+      "decision": "PRESERVED_EXISTING_PENDING_REVIEW",
+      "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW"
+    },
+    {
+      "board": "nursing",
+      "question_id": "4005",
+      "classification": "EXACT_SUPPORT",
+      "decision": "PRESERVED_EXISTING_PENDING_REVIEW",
+      "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW"
+    },
+    {
+      "board": "nursing",
+      "question_id": "4006",
+      "classification": "EXACT_SUPPORT",
+      "decision": "PRESERVED_EXISTING_PENDING_REVIEW",
+      "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW"
+    },
+    {
+      "board": "nursing",
+      "question_id": "4094",
+      "classification": "EXACT_SUPPORT",
+      "decision": "PRESERVED_EXISTING_PENDING_REVIEW",
+      "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW"
+    },
+    {
+      "board": "nursing",
+      "question_id": "4096",
+      "classification": "EXACT_SUPPORT",
+      "decision": "PRESERVED_EXISTING_PENDING_REVIEW",
+      "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW"
+    },
+    {
+      "board": "nursing",
+      "question_id": "4097",
+      "classification": "EXACT_SUPPORT",
+      "decision": "PRESERVED_EXISTING_PENDING_REVIEW",
+      "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW"
+    },
+    {
+      "board": "nursing",
+      "question_id": "4102",
+      "classification": "EXACT_SUPPORT",
+      "decision": "PRESERVED_EXISTING_PENDING_REVIEW",
+      "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW"
+    },
+    {
+      "board": "nursing",
+      "question_id": "5104",
+      "classification": "EXACT_SUPPORT",
+      "decision": "PRESERVED_EXISTING_PENDING_REVIEW",
+      "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW"
+    },
+    {
+      "board": "nursing",
+      "question_id": "5187",
+      "classification": "EXACT_SUPPORT",
+      "decision": "PRESERVED_EXISTING_PENDING_REVIEW",
+      "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW"
+    },
+    {
+      "board": "nursing",
+      "subject": "nursing-foundations",
+      "question_id": "4883",
+      "material_id": "nle-np-i-foundation",
+      "lesson_id": "nursing-community-risk-and-prevention",
+      "section_id": "b703-prevention-and-risk-communication",
+      "classification": "EXACT_SUPPORT",
+      "decision": "LINKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "link_operation": "ADD_EXACT_RELATIONSHIP_TO_EXISTING_MATERIAL",
+      "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "canonical_question_status": "active",
+      "canonical_taxonomy": {
+        "board_id": "nursing",
+        "subject_id": "nursing-foundations",
+        "domain_id": "nle-community-health",
+        "topic_id": "nle-community-health",
+        "concept_id": "nle-np-i-prevention"
+      },
+      "source_references": [
+        {
+          "id": "prc-nursing-enhanced-tos-2025",
+          "title": "Enhanced Tables of Specifications for the Subjects in the Nurses Licensure Examination",
+          "url": "https://www.prc.gov.ph/sites/default/files/2025-10%20%20published%20Enhanced%20TOS%20nuse.pdf",
+          "registry_status": "official_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "prc-nursing-program-aug-2026",
+          "title": "Nursing Licensure Examination Program, August 2026",
+          "url": "https://www.prc.gov.ph/sites/default/files/exam%20progam%20aug%202026%20nle%20(nursing)%20signed.pdf",
+          "registry_status": "verified_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "openrn-healthpromo-prevention-22",
+          "title": "2.2 Health, Wellness, and Disease Prevention — Nursing Health Promotion",
+          "url": "https://wtcs.pressbooks.pub/healthpromo/chapter/2-2-health-wellness-and-disease-prevention/",
+          "registry_status": "SOURCE_TEXT_CHECKED_WEB",
+          "evidence_state": "SOURCE_VERIFIED"
+        },
+        {
+          "id": "aha-asa-secondary-stroke-prevention-2021",
+          "title": "2021 Guideline for the Prevention of Stroke in Patients With Stroke and Transient Ischemic Attack",
+          "url": "https://www.ahajournals.org/doi/10.1161/STR.0000000000000375",
+          "registry_status": "SOURCE_TEXT_CHECKED_WEB_CURRENTNESS_PENDING",
+          "evidence_state": "SOURCE_VERIFIED"
+        },
+        {
+          "id": "aha-asa-acute-stroke-guideline-2026",
+          "title": "2026 Guideline for the Early Management of Patients With Acute Ischemic Stroke",
+          "url": "https://www.ahajournals.org/doi/10.1161/STR.0000000000000513",
+          "registry_status": "SOURCE_TEXT_CHECKED_WEB",
+          "evidence_state": "SOURCE_VERIFIED"
+        }
+      ],
+      "review_note": "The stem asks how to reduce recurrent stroke risk after discharge. The section explicitly distinguishes secondary prevention and teaches adherence, follow-up, warning-sign recognition, and realistic risk reduction; no medication or target is specified. Technical section-support proposal only; independent Nursing review remains pending."
+    },
+    {
+      "board": "nursing",
+      "subject": "nursing-foundations",
+      "question_id": "4933",
+      "material_id": "nle-np-ii-foundation",
+      "lesson_id": "nursing-maternal-family-assessment",
+      "section_id": "b703-prenatal-warning-cues",
+      "classification": "EXACT_SUPPORT",
+      "decision": "LINKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "link_operation": "ADD_EXACT_RELATIONSHIP_TO_EXISTING_MATERIAL",
+      "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "canonical_question_status": "active",
+      "canonical_taxonomy": {
+        "board_id": "nursing",
+        "subject_id": "nursing-foundations",
+        "domain_id": "nle-maternal-child",
+        "topic_id": "nle-maternal-child",
+        "concept_id": "nle-np-ii-prenatal"
+      },
+      "source_references": [
+        {
+          "id": "prc-nursing-enhanced-tos-2025",
+          "title": "Enhanced Tables of Specifications for the Subjects in the Nurses Licensure Examination",
+          "url": "https://www.prc.gov.ph/sites/default/files/2025-10%20%20published%20Enhanced%20TOS%20nuse.pdf",
+          "registry_status": "official_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "prc-nursing-program-aug-2026",
+          "title": "Nursing Licensure Examination Program, August 2026",
+          "url": "https://www.prc.gov.ph/sites/default/files/exam%20progam%20aug%202026%20nle%20(nursing)%20signed.pdf",
+          "registry_status": "verified_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "who-preeclampsia-factsheet-2026",
+          "title": "Pre-eclampsia",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/pre-eclampsia",
+          "registry_status": "SOURCE_TEXT_CHECKED_WEB",
+          "evidence_state": "SOURCE_VERIFIED"
+        },
+        {
+          "id": "who-postnatal-care-2022",
+          "title": "WHO Recommendations for Care of the Preterm or Low-Birth-Weight Infant and Postnatal Care",
+          "url": "https://www.who.int/news/item/30-03-2022-who-urges-quality-care-for-women-and-newborns-in-critical-first-weeks-after-childbirth",
+          "registry_status": "periodically_updated",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        }
+      ],
+      "review_note": "The stem presents severe headache, visual change, and right-upper-quadrant pain during pregnancy. The section identifies this warning cluster and teaches prompt assessment and escalation without diagnosing or setting a threshold. Technical section-support proposal only; independent Nursing review remains pending."
+    },
+    {
+      "board": "nursing",
+      "subject": "nursing-foundations",
+      "question_id": "4957",
+      "material_id": "nle-np-ii-foundation",
+      "lesson_id": "nursing-maternal-family-assessment",
+      "section_id": "b703-postpartum-change-and-escalation",
+      "classification": "EXACT_SUPPORT",
+      "decision": "LINKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "link_operation": "ADD_EXACT_RELATIONSHIP_TO_EXISTING_MATERIAL",
+      "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "canonical_question_status": "active",
+      "canonical_taxonomy": {
+        "board_id": "nursing",
+        "subject_id": "nursing-foundations",
+        "domain_id": "nle-maternal-child",
+        "topic_id": "nle-maternal-child",
+        "concept_id": "nle-np-ii-postpartum"
+      },
+      "source_references": [
+        {
+          "id": "prc-nursing-enhanced-tos-2025",
+          "title": "Enhanced Tables of Specifications for the Subjects in the Nurses Licensure Examination",
+          "url": "https://www.prc.gov.ph/sites/default/files/2025-10%20%20published%20Enhanced%20TOS%20nuse.pdf",
+          "registry_status": "official_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "prc-nursing-program-aug-2026",
+          "title": "Nursing Licensure Examination Program, August 2026",
+          "url": "https://www.prc.gov.ph/sites/default/files/exam%20progam%20aug%202026%20nle%20(nursing)%20signed.pdf",
+          "registry_status": "verified_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "openrn-healthpromo-postpartum-115",
+          "title": "11.5 Applying the Nursing Process and Clinical Judgment Model to Postpartum Care — Nursing Health Promotion",
+          "url": "https://wtcs.pressbooks.pub/healthpromo/chapter/11-5-applying-the-nursing-process-and-the-clinical-judgment-model-to-postpartum-care/",
+          "registry_status": "SOURCE_TEXT_CHECKED_WEB; LOCAL_FETCH_403",
+          "evidence_state": "SOURCE_VERIFIED"
+        },
+        {
+          "id": "who-postnatal-care-2022",
+          "title": "WHO Recommendations for Care of the Preterm or Low-Birth-Weight Infant and Postnatal Care",
+          "url": "https://www.who.int/news/item/30-03-2022-who-urges-quality-care-for-women-and-newborns-in-critical-first-weeks-after-childbirth",
+          "registry_status": "periodically_updated",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "who-preeclampsia-factsheet-2026",
+          "title": "Pre-eclampsia",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/pre-eclampsia",
+          "registry_status": "SOURCE_TEXT_CHECKED_WEB",
+          "evidence_state": "SOURCE_VERIFIED"
+        }
+      ],
+      "review_note": "The stem presents severe headache and visual changes postpartum. The section explicitly teaches urgent postpartum reassessment and escalation rather than normalizing symptoms; it does not supply treatment or local thresholds. Technical section-support proposal only; independent Nursing review remains pending."
+    },
+    {
+      "board": "nursing",
+      "subject": "nursing-foundations",
+      "question_id": "4993",
+      "material_id": "nle-np-iii-oxygenation",
+      "lesson_id": "nursing-oxygenation-fluid-immunity-assessment",
+      "section_id": "b703-oxygenation-trend",
+      "classification": "EXACT_SUPPORT",
+      "decision": "LINKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "link_operation": "ADD_EXACT_RELATIONSHIP_TO_EXISTING_MATERIAL",
+      "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "canonical_question_status": "active",
+      "canonical_taxonomy": {
+        "board_id": "nursing",
+        "subject_id": "nursing-foundations",
+        "domain_id": "nle-medical-surgical",
+        "topic_id": "nle-medical-surgical",
+        "concept_id": "nle-np-iii-oxygenation"
+      },
+      "source_references": [
+        {
+          "id": "prc-nursing-enhanced-tos-2025",
+          "title": "Enhanced Tables of Specifications for the Subjects in the Nurses Licensure Examination",
+          "url": "https://www.prc.gov.ph/sites/default/files/2025-10%20%20published%20Enhanced%20TOS%20nuse.pdf",
+          "registry_status": "official_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "prc-nursing-program-aug-2026",
+          "title": "Nursing Licensure Examination Program, August 2026",
+          "url": "https://www.prc.gov.ph/sites/default/files/exam%20progam%20aug%202026%20nle%20(nursing)%20signed.pdf",
+          "registry_status": "verified_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "openrn-nursingfundamentals-oxygenation-82",
+          "title": "8.2 Oxygenation Basic Concepts — Nursing Fundamentals 2e",
+          "url": "https://wtcs.pressbooks.pub/nursingfundamentals/chapter/8-2-basic-oxygenation-concepts/",
+          "registry_status": "SOURCE_TEXT_CHECKED_WEB",
+          "evidence_state": "SOURCE_VERIFIED"
+        },
+        {
+          "id": "who-basic-emergency-care",
+          "title": "Basic Emergency Care: Approach to the Acutely Ill and Injured",
+          "url": "https://www.who.int/publications-detail-redirect/9789241513081",
+          "registry_status": "authoritative_instructional",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        }
+      ],
+      "review_note": "The stem presents restlessness, tachypnea, and falling oxygen saturation. The section teaches whole-picture airway/breathing assessment, prescribed support, escalation, and reassessment. Technical section-support proposal only; independent Nursing review remains pending."
+    },
+    {
+      "board": "nursing",
+      "subject": "nursing-foundations",
+      "question_id": "5025",
+      "material_id": "nle-np-iii-oxygenation",
+      "lesson_id": "nursing-oxygenation-fluid-immunity-assessment",
+      "section_id": "b703-immunosuppression-and-change",
+      "classification": "EXACT_SUPPORT",
+      "decision": "LINKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "link_operation": "ADD_EXACT_RELATIONSHIP_TO_EXISTING_MATERIAL",
+      "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "canonical_question_status": "active",
+      "canonical_taxonomy": {
+        "board_id": "nursing",
+        "subject_id": "nursing-foundations",
+        "domain_id": "nle-medical-surgical",
+        "topic_id": "nle-medical-surgical",
+        "concept_id": "nle-np-iii-immunity"
+      },
+      "source_references": [
+        {
+          "id": "prc-nursing-enhanced-tos-2025",
+          "title": "Enhanced Tables of Specifications for the Subjects in the Nurses Licensure Examination",
+          "url": "https://www.prc.gov.ph/sites/default/files/2025-10%20%20published%20Enhanced%20TOS%20nuse.pdf",
+          "registry_status": "official_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "prc-nursing-program-aug-2026",
+          "title": "Nursing Licensure Examination Program, August 2026",
+          "url": "https://www.prc.gov.ph/sites/default/files/exam%20progam%20aug%202026%20nle%20(nursing)%20signed.pdf",
+          "registry_status": "verified_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "openrn-nursingfundamentals-immunity-97",
+          "title": "9.7 Applying the Nursing Process — Nursing Fundamentals 2e",
+          "url": "https://wtcs.pressbooks.pub/nursingfundamentals/chapter/9-7-applying-the-nursing-process/",
+          "registry_status": "SOURCE_EXISTING_UNRECHECKED; WEB_FETCH_INTERMITTENT_403",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "cdc-infection-control-basics",
+          "title": "Core Infection Prevention and Control Practices",
+          "url": "https://www.cdc.gov/infection-control/hcp/core-practices/",
+          "registry_status": "periodically_updated",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "who-basic-emergency-care",
+          "title": "Basic Emergency Care: Approach to the Acutely Ill and Injured",
+          "url": "https://www.who.int/publications-detail-redirect/9789241513081",
+          "registry_status": "authoritative_instructional",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        }
+      ],
+      "review_note": "The stem presents fever and chills during immunosuppression. The section teaches prompt change assessment and notification through the current pathway without diagnosing infection or prescribing treatment. Technical section-support proposal only; independent Nursing review remains pending."
+    },
+    {
+      "board": "nursing",
+      "subject": "nursing-foundations",
+      "question_id": "5053",
+      "material_id": "nle-np-iv-foundation",
+      "lesson_id": "nursing-nutrition-and-sensory-assessment",
+      "section_id": "b703-nutrition-intake-and-context",
+      "classification": "EXACT_SUPPORT",
+      "decision": "LINKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "link_operation": "ADD_EXACT_RELATIONSHIP_TO_EXISTING_MATERIAL",
+      "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "canonical_question_status": "active",
+      "canonical_taxonomy": {
+        "board_id": "nursing",
+        "subject_id": "nursing-foundations",
+        "domain_id": "nle-medical-surgical",
+        "topic_id": "nle-medical-surgical",
+        "concept_id": "nle-np-iv-nutrition"
+      },
+      "source_references": [
+        {
+          "id": "prc-nursing-enhanced-tos-2025",
+          "title": "Enhanced Tables of Specifications for the Subjects in the Nurses Licensure Examination",
+          "url": "https://www.prc.gov.ph/sites/default/files/2025-10%20%20published%20Enhanced%20TOS%20nuse.pdf",
+          "registry_status": "official_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "prc-nursing-program-aug-2026",
+          "title": "Nursing Licensure Examination Program, August 2026",
+          "url": "https://www.prc.gov.ph/sites/default/files/exam%20progam%20aug%202026%20nle%20(nursing)%20signed.pdf",
+          "registry_status": "verified_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "openrn-nursingfundamentals-nutrition-143",
+          "title": "14.3 Applying the Nursing Process — Nursing Fundamentals 2e",
+          "url": "https://wtcs.pressbooks.pub/nursingfundamentals/chapter/14-3-applying-the-nursing-process/",
+          "registry_status": "SOURCE_TEXT_CHECKED_WEB",
+          "evidence_state": "SOURCE_VERIFIED"
+        },
+        {
+          "id": "openrn-nursing-fundamentals",
+          "title": "Nursing Fundamentals",
+          "url": "https://wtcs.pressbooks.pub/nursingfundamentals/",
+          "registry_status": "authoritative_instructional",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        }
+      ],
+      "review_note": "The stem asks what to assess after markedly poor intake and weakness. The section teaches intake, swallowing, symptoms, hydration, weight trend, and cause assessment before selecting support. Technical section-support proposal only; independent Nursing review remains pending."
+    },
+    {
+      "board": "nursing",
+      "subject": "nursing-foundations",
+      "question_id": "5113",
+      "material_id": "nle-b625-np-v-clinical-reasoning",
+      "lesson_id": "nursing-therapeutic-communication-and-crisis",
+      "section_id": "b703-self-harm-statement-and-safety",
+      "classification": "EXACT_SUPPORT",
+      "decision": "LINKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "link_operation": "UPGRADE_EXISTING_SOURCE_ONLY_ASSOCIATION",
+      "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "canonical_question_status": "active",
+      "canonical_taxonomy": {
+        "board_id": "nursing",
+        "subject_id": "nursing-foundations",
+        "domain_id": "nle-mental-health",
+        "topic_id": "nle-mental-health",
+        "concept_id": "nle-np-v-therapeutic"
+      },
+      "source_references": [
+        {
+          "id": "prc-nursing-enhanced-tos-2025",
+          "title": "Enhanced Tables of Specifications for the Subjects in the Nurses Licensure Examination",
+          "url": "https://www.prc.gov.ph/sites/default/files/2025-10%20%20published%20Enhanced%20TOS%20nuse.pdf",
+          "registry_status": "official_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "prc-nursing-program-aug-2026",
+          "title": "Nursing Licensure Examination Program, August 2026",
+          "url": "https://www.prc.gov.ph/sites/default/files/exam%20progam%20aug%202026%20nle%20(nursing)%20signed.pdf",
+          "registry_status": "verified_reference",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        },
+        {
+          "id": "openrn-nursingmhcc-mental-assessment-43",
+          "title": "4.3 Assessment — Nursing Mental Health and Community Concepts 2e",
+          "url": "https://wtcs.pressbooks.pub/nursingmhcc/chapter/4-3-assessment/",
+          "registry_status": "SOURCE_TEXT_CHECKED_WEB; LOCAL_FETCH_403",
+          "evidence_state": "SOURCE_VERIFIED"
+        },
+        {
+          "id": "openrn-nursing-fundamentals",
+          "title": "Nursing Fundamentals",
+          "url": "https://wtcs.pressbooks.pub/nursingfundamentals/",
+          "registry_status": "authoritative_instructional",
+          "evidence_state": "SOURCE_EXISTING_UNRECHECKED"
+        }
+      ],
+      "review_note": "The stem includes a statement suggesting suicide risk during intake. The section directly teaches staying with the client, assessing immediate risk and access to means, and activating urgent support. The canonical taxonomy tag is a separate review issue. Technical section-support proposal only; independent Nursing review remains pending."
+    }
+  ],
+  "rejected_or_held_candidates": [
+    {
+      "board": "nursing",
+      "question_id": "1514",
+      "classification": "REVIEW_REQUIRED",
+      "decision": "NO_EXACT_SECTION_LINK",
+      "reason": "Item tests a detailed postpartum-haemorrhage sequence and intervention. WHO 2025 guideline metadata was verified, but the primary guideline text and current Philippine facility protocol were unavailable for detailed claims.",
+      "source_status": "SOURCE_UNAVAILABLE_FOR_DETAILED_PROTOCOL; ACADEMIC_REVIEW_PENDING",
+      "reviewer": "Nurse educator / maternity clinician"
+    },
+    {
+      "board": "nursing",
+      "question_id": "3856",
+      "classification": "REVIEW_REQUIRED",
+      "decision": "NO_EXACT_SECTION_LINK",
+      "reason": "Item tests a detailed postpartum-haemorrhage response sequence. Current authoritative text and Philippine protocol were not reviewed in full.",
+      "source_status": "SOURCE_UNAVAILABLE_FOR_DETAILED_PROTOCOL; ACADEMIC_REVIEW_PENDING",
+      "reviewer": "Nurse educator / maternity clinician"
+    },
+    {
+      "board": "nursing",
+      "question_id": "3944",
+      "classification": "REVIEW_REQUIRED",
+      "decision": "NO_EXACT_SECTION_LINK",
+      "reason": "Item tests emergency postpartum-haemorrhage protocol steps; the new lessons intentionally teach warning cues/escalation but not the protocol.",
+      "source_status": "SOURCE_UNAVAILABLE_FOR_DETAILED_PROTOCOL; ACADEMIC_REVIEW_PENDING",
+      "reviewer": "Nurse educator / maternity clinician"
+    },
+    {
+      "board": "nursing",
+      "question_id": "3974",
+      "classification": "REVIEW_REQUIRED",
+      "decision": "NO_EXACT_SECTION_LINK",
+      "reason": "Family disagreement item requires decision-role and child-best-interest legal context not verified against a Philippine primary source. General family partnership text is insufficient for exact support.",
+      "source_status": "SOURCE_UNAVAILABLE_FOR_PHILIPPINE_LEGAL_CLAIM",
+      "reviewer": "Nurse educator / Philippine legal reviewer"
+    },
+    {
+      "board": "cpa",
+      "question_id": "4239",
+      "classification": "UNSUPPORTED",
+      "decision": "PRESERVE_PREVIOUS_REJECTION; NO_NURSING_LINK",
+      "reason": "CPA audit-versus-limited-assurance distinction is outside Nursing and remains excluded under the prior review packet; no new supporting section or source was identified.",
+      "source_status": "REVIEW_REQUIRED; CURRENT_PSA500_ADOPTION_UNRESOLVED",
+      "reviewer": "CPA academic reviewer"
+    }
+  ],
+  "prior_review_cohorts": {
+    "pre_B701_pending_mappings": 24,
+    "B701_mappings_pending_review": 23,
+    "B702_mappings_pending_review": 8,
+    "all_prior_statuses": "PENDING; not independently re-approved in B703",
+    "taxonomy_candidates_unchanged": [
+      "Q618",
+      "Q3725",
+      "Q63",
+      "Q65",
+      "Q1338"
+    ],
+    "explanation_drafts_unchanged": [
+      "Q617",
+      "Q627"
+    ],
+    "LET_legacy_source_questions": [
+      "Q62",
+      "Q63",
+      "Q65",
+      "Q152"
+    ],
+    "batch695_pending_questions": 276,
+    "batch695_state": "ISOLATED; no questions imported or edited"
+  },
+  "source_assessment": {
+    "LET_DO015_2026": "Official DepEd June 2026 index title/date verified; direct full PDF fetch returned HTTP 403. Exact rule match for four legacy question associations remains SOURCE_UNAVAILABLE / REVIEW_REQUIRED.",
+    "CPA_PSA500": "AASC PSA 500 indexed text states effective date 2009-12-15; direct codified PDF fetch unavailable and no evidence here establishes exact current Philippine adoption/effective version. REVIEW_REQUIRED.",
+    "WHO_PPH_2025": "Official WHO metadata page verifies 5 Oct 2025 consolidated guideline and scope; detailed guideline PDF text unavailable in this pass. No PPH protocol link added."
+  }
+}

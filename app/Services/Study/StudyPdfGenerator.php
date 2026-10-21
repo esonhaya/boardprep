@@ -168,6 +168,14 @@ final class StudyPdfGenerator
             foreach ((array) ($section['items'] ?? []) as $item) {
                 if (is_scalar($item) && trim((string) $item) !== '') $blocks[] = ['bullet', (string) $item];
             }
+            $sectionSources = array_values(array_unique(array_filter((array) ($section['source_ids'] ?? []), static fn(mixed $id): bool => is_scalar($id) && trim((string) $id) !== '')));
+            if ($sectionSources !== []) {
+                $blocks[] = ['heading', 'Sources for this section'];
+                foreach ($sectionSources as $sourceId) {
+                    $source = $sourcesById[(string) $sourceId] ?? [];
+                    if ($source !== []) $blocks[] = ['source', self::sourceText($source, 'Section reference')];
+                }
+            }
         }
         foreach ((array) ($lesson['worked_examples'] ?? []) as $example) {
             if (!is_array($example)) continue;

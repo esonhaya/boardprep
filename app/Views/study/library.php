@@ -113,6 +113,10 @@ $escape = static fn(mixed $value): string => htmlspecialchars(is_scalar($value) 
                                     <h4><?= $escape($section['heading'] ?? '') ?></h4>
                                     <?php if (is_scalar($section['body'] ?? null)): ?><p><?= $escape($section['body']) ?></p><?php endif; ?>
                                     <?php if (!empty($section['items'])): ?><ul><?php foreach ($section['items'] as $item): ?><li><?= $escape($item) ?></li><?php endforeach; ?></ul><?php endif; ?>
+                                    <?php $sectionSourceIds = array_values(array_unique(array_filter((array) ($section['source_ids'] ?? []), static fn(mixed $id): bool => is_scalar($id) && trim((string) $id) !== ''))); ?>
+                                    <?php if ($sectionSourceIds !== []): ?>
+                                        <details class="study-section-sources"><summary>Sources for this section</summary><ul><?php foreach ($sectionSourceIds as $sourceId): $source = $sourceById[(string) $sourceId] ?? []; if ($source === []) continue; ?><li><a href="<?= $escape($source['url'] ?? '#') ?>" target="_blank" rel="noopener"><?= $escape($source['title'] ?? 'Registered reference') ?></a><?php if (!empty($source['authority'])): ?> · <?= $escape($source['authority']) ?><?php endif; ?><?php if (!empty($source['version'])): ?> · <?= $escape($source['version']) ?><?php endif; ?></li><?php endforeach; ?></ul></details>
+                                    <?php endif; ?>
                                     <?php if ($sectionPracticeIds !== []): ?>
                                         <p>
                                             <?php if ($isCivilService && $isClericalSubject): ?>

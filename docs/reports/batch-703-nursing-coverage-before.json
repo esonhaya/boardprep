@@ -1,0 +1,2541 @@
+{
+  "batch": 703,
+  "baseline_commit": "cc1990dfc5b4b7752daccf0cdb2d069a8c270136",
+  "branch": "batch-703-nursing-expansion",
+  "captured_at": "2026-10-22",
+  "methodology": {
+    "nursing_structural_concept_coverage": "Count of NP I-V concept IDs with a published Nursing lesson section of at least 350 non-whitespace body characters and explicit related_concept_ids; a structural measure, not academic sufficiency or approval.",
+    "notes": "Notes and generic source lists do not count as concept teaching without a concept-specific substantive section",
+    "question_inventory": "active canonical records whose taxonomy board_id is nursing; eligibility is checked separately by production QuestionEligibilityService in focused tests",
+    "exact_links": "study-question-links rows carrying lesson_id and section_id, counted only for canonical Nursing board IDs",
+    "shared_science": "ten Nursing board coverage rows are reported separately from the 30 NP I-V concepts",
+    "portfolio_section_mappings": "B702 reports 1,013 section mapping rows and 55 pending review. Raw storage has 1,013 section_id rows, 31 rows with explicit lesson_id plus section_id, and 55 rows tagged pending independent review. B703 reports these separately and validates new links through production study services.",
+    "sources": "Existing registered source associations and scope sources are not treated as concept-level verified teaching unless attached to a substantive mapped section."
+  },
+  "summary": {
+    "np_concepts": 30,
+    "np_structurally_taught": 5,
+    "np_by_level": {
+      "i": {
+        "total": 6,
+        "covered": 1
+      },
+      "ii": {
+        "total": 6,
+        "covered": 0
+      },
+      "iii": {
+        "total": 6,
+        "covered": 1
+      },
+      "iv": {
+        "total": 6,
+        "covered": 1
+      },
+      "v": {
+        "total": 6,
+        "covered": 2
+      }
+    },
+    "nursing_board_coverage_rows": 40,
+    "shared_science_rows": 10,
+    "published_nursing_materials": 20,
+    "nursing_materials_with_published_lessons": 3,
+    "note_only_nursing_materials": 17,
+    "published_nursing_lessons": 3,
+    "nursing_exact_section_links": 11,
+    "portfolio_pending_section_review": 55,
+    "global_structural_concept_coverage": "382/646 per B702 final report; denominator/taxonomy unchanged on this baseline",
+    "published_lessons": 3,
+    "portfolio_section_id_rows": 1013,
+    "portfolio_explicit_lesson_section_rows": 31,
+    "reconciliation_note": "20 published nle-* Nursing curriculum materials are in scope; one shared constitution-review-foundation also lists Nursing eligibility but is not counted as an NP curriculum material. Storage records contain 1,013 rows with section_id; only 31 currently include an explicit lesson_id. These counts are reported separately and new relationships are validated through StudyLibraryService.",
+    "source_registry_records": 276,
+    "nursing_exact_lesson_section_mappings": 11,
+    "active_canonical_nursing_question_ids": 878,
+    "nursing_questions_with_any_study_source_or_material_link": 878,
+    "nursing_question_ids_with_explicit_lesson_section": 11,
+    "nursing_source_only_question_ids": 867,
+    "source_only_method": "Distinct active canonical Nursing question IDs with at least one study-question-link and no row carrying both lesson_id and section_id; source-only link rows retain their source_ids."
+  },
+  "impact_ranked_backlog": [
+    "Safety-critical assessment and escalation: maternal/newborn, oxygenation, fluids, immunity, emergency/shock",
+    "Foundational community assessment, prevention-stage distinctions, outbreak proportion reasoning, vulnerability/access barriers",
+    "Family partnership, teach-back, developmental trajectory and postpartum observation",
+    "Perioperative consent/procedure discrepancy safety stop",
+    "Nutrition intake/swallow/culture assessment and acute sensory change",
+    "Unmapped Cellular, Labor, Newborn, GI, Endocrine, Coordination, Disaster: seek bounded primary/open educational sources before expansion"
+  ],
+  "concepts": [
+    {
+      "level": "NP I",
+      "concept_id": "nle-np-i-community",
+      "concept_name": "Community",
+      "placement_count": 1,
+      "active_nursing_question_count": 30,
+      "active_nursing_question_ids": [
+        "857",
+        "863",
+        "869",
+        "875",
+        "881",
+        "887",
+        "3864",
+        "3865",
+        "3866",
+        "3867",
+        "3868",
+        "3869",
+        "3870",
+        "3871",
+        "3872",
+        "3873",
+        "4873",
+        "4874",
+        "4875",
+        "4876",
+        "4877",
+        "4878",
+        "4879",
+        "4880",
+        "4881",
+        "4882",
+        "5173",
+        "5174",
+        "5175",
+        "5176"
+      ],
+      "mapped_substantive_sections": [],
+      "existing_material_candidates": [
+        {
+          "material_id": "nle-np-i-foundation",
+          "title": "Community Health Nursing Review Foundation",
+          "note_count": 4,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-np-i-prevention",
+          "title": "NP I: Prevention and Community Assessment",
+          "note_count": 5,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-b625-np-i-clinical-reasoning",
+          "title": "Batch 625 NP I: Community Clinical Reasoning",
+          "note_count": 5,
+          "lesson_id": null
+        }
+      ],
+      "note_presence_is_not_taught_coverage": true,
+      "source_status": "GENERIC_MATERIAL_SOURCES_NOT_CONCEPT_MAPPED",
+      "independent_review_status": "NOT_ASSESSED"
+    },
+    {
+      "level": "NP I",
+      "concept_id": "nle-np-i-prevention",
+      "concept_name": "Prevention",
+      "placement_count": 1,
+      "active_nursing_question_count": 28,
+      "active_nursing_question_ids": [
+        "858",
+        "864",
+        "870",
+        "876",
+        "882",
+        "888",
+        "1533",
+        "3854",
+        "3874",
+        "3875",
+        "3876",
+        "3877",
+        "3878",
+        "3879",
+        "3880",
+        "3881",
+        "3882",
+        "3883",
+        "4883",
+        "4884",
+        "4885",
+        "4886",
+        "4887",
+        "4888",
+        "4889",
+        "4890",
+        "4891",
+        "4892"
+      ],
+      "mapped_substantive_sections": [],
+      "existing_material_candidates": [
+        {
+          "material_id": "nle-np-i-foundation",
+          "title": "Community Health Nursing Review Foundation",
+          "note_count": 4,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-np-i-prevention",
+          "title": "NP I: Prevention and Community Assessment",
+          "note_count": 5,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-b625-np-i-clinical-reasoning",
+          "title": "Batch 625 NP I: Community Clinical Reasoning",
+          "note_count": 5,
+          "lesson_id": null
+        }
+      ],
+      "note_presence_is_not_taught_coverage": true,
+      "source_status": "GENERIC_MATERIAL_SOURCES_NOT_CONCEPT_MAPPED",
+      "independent_review_status": "NOT_ASSESSED"
+    },
+    {
+      "level": "NP I",
+      "concept_id": "nle-np-i-education",
+      "concept_name": "Education",
+      "placement_count": 1,
+      "active_nursing_question_count": 26,
+      "active_nursing_question_ids": [
+        "859",
+        "865",
+        "871",
+        "877",
+        "883",
+        "889",
+        "3884",
+        "3885",
+        "3886",
+        "3887",
+        "3888",
+        "3889",
+        "3890",
+        "3891",
+        "3892",
+        "3893",
+        "4893",
+        "4894",
+        "4895",
+        "4896",
+        "4897",
+        "4898",
+        "4899",
+        "4900",
+        "4901",
+        "4902"
+      ],
+      "mapped_substantive_sections": [
+        {
+          "lesson_id": "nursing-medication-safety-and-calculation",
+          "material_id": "nle-pharmacology-safety",
+          "section_id": "nle-medication-change-teachback",
+          "section_heading": "5. Explain verified changes and check understanding",
+          "body_characters": 594,
+          "instructional_source_ids": [
+            "openrn-pharmacology2e-medication-safety",
+            "openrn-nursing-dosage-calculations",
+            "who-medication-without-harm-5-moments",
+            "openrn-nursing-fundamentals"
+          ]
+        }
+      ],
+      "existing_material_candidates": [
+        {
+          "material_id": "nle-np-i-foundation",
+          "title": "Community Health Nursing Review Foundation",
+          "note_count": 4,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-np-i-prevention",
+          "title": "NP I: Prevention and Community Assessment",
+          "note_count": 5,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-b625-np-i-clinical-reasoning",
+          "title": "Batch 625 NP I: Community Clinical Reasoning",
+          "note_count": 5,
+          "lesson_id": null
+        }
+      ],
+      "note_presence_is_not_taught_coverage": true,
+      "source_status": "SECTION_SOURCE_CHECKED",
+      "independent_review_status": "PENDING"
+    },
+    {
+      "level": "NP I",
+      "concept_id": "nle-np-i-epidemiology",
+      "concept_name": "Epidemiology",
+      "placement_count": 1,
+      "active_nursing_question_count": 28,
+      "active_nursing_question_ids": [
+        "860",
+        "866",
+        "872",
+        "878",
+        "884",
+        "890",
+        "1525",
+        "1550",
+        "3894",
+        "3895",
+        "3896",
+        "3897",
+        "3898",
+        "3899",
+        "3900",
+        "3901",
+        "3902",
+        "3903",
+        "4903",
+        "4904",
+        "4905",
+        "4906",
+        "4907",
+        "4908",
+        "4909",
+        "4910",
+        "4911",
+        "4912"
+      ],
+      "mapped_substantive_sections": [],
+      "existing_material_candidates": [
+        {
+          "material_id": "nle-np-i-foundation",
+          "title": "Community Health Nursing Review Foundation",
+          "note_count": 4,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-np-i-prevention",
+          "title": "NP I: Prevention and Community Assessment",
+          "note_count": 5,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-b625-np-i-clinical-reasoning",
+          "title": "Batch 625 NP I: Community Clinical Reasoning",
+          "note_count": 5,
+          "lesson_id": null
+        }
+      ],
+      "note_presence_is_not_taught_coverage": true,
+      "source_status": "GENERIC_MATERIAL_SOURCES_NOT_CONCEPT_MAPPED",
+      "independent_review_status": "NOT_ASSESSED"
+    },
+    {
+      "level": "NP I",
+      "concept_id": "nle-np-i-disaster",
+      "concept_name": "Disaster",
+      "placement_count": 1,
+      "active_nursing_question_count": 29,
+      "active_nursing_question_ids": [
+        "861",
+        "867",
+        "873",
+        "879",
+        "885",
+        "891",
+        "1526",
+        "1549",
+        "3862",
+        "3904",
+        "3905",
+        "3906",
+        "3907",
+        "3908",
+        "3909",
+        "3910",
+        "3911",
+        "3912",
+        "3913",
+        "4913",
+        "4914",
+        "4915",
+        "4916",
+        "4917",
+        "4918",
+        "4919",
+        "4920",
+        "4921",
+        "4922"
+      ],
+      "mapped_substantive_sections": [],
+      "existing_material_candidates": [
+        {
+          "material_id": "nle-np-i-foundation",
+          "title": "Community Health Nursing Review Foundation",
+          "note_count": 4,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-np-i-prevention",
+          "title": "NP I: Prevention and Community Assessment",
+          "note_count": 5,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-b625-np-i-clinical-reasoning",
+          "title": "Batch 625 NP I: Community Clinical Reasoning",
+          "note_count": 5,
+          "lesson_id": null
+        }
+      ],
+      "note_presence_is_not_taught_coverage": true,
+      "source_status": "GENERIC_MATERIAL_SOURCES_NOT_CONCEPT_MAPPED",
+      "independent_review_status": "NOT_ASSESSED"
+    },
+    {
+      "level": "NP I",
+      "concept_id": "nle-np-i-vulnerable",
+      "concept_name": "Vulnerable",
+      "placement_count": 1,
+      "active_nursing_question_count": 26,
+      "active_nursing_question_ids": [
+        "862",
+        "868",
+        "874",
+        "880",
+        "886",
+        "892",
+        "3914",
+        "3915",
+        "3916",
+        "3917",
+        "3918",
+        "3919",
+        "3920",
+        "3921",
+        "3922",
+        "3923",
+        "4923",
+        "4924",
+        "4925",
+        "4926",
+        "4927",
+        "4928",
+        "4929",
+        "4930",
+        "4931",
+        "4932"
+      ],
+      "mapped_substantive_sections": [],
+      "existing_material_candidates": [
+        {
+          "material_id": "nle-np-i-foundation",
+          "title": "Community Health Nursing Review Foundation",
+          "note_count": 4,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-np-i-prevention",
+          "title": "NP I: Prevention and Community Assessment",
+          "note_count": 5,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-b625-np-i-clinical-reasoning",
+          "title": "Batch 625 NP I: Community Clinical Reasoning",
+          "note_count": 5,
+          "lesson_id": null
+        }
+      ],
+      "note_presence_is_not_taught_coverage": true,
+      "source_status": "GENERIC_MATERIAL_SOURCES_NOT_CONCEPT_MAPPED",
+      "independent_review_status": "NOT_ASSESSED"
+    },
+    {
+      "level": "NP II",
+      "concept_id": "nle-np-ii-prenatal",
+      "concept_name": "Prenatal",
+      "placement_count": 1,
+      "active_nursing_question_count": 28,
+      "active_nursing_question_ids": [
+        "893",
+        "899",
+        "905",
+        "911",
+        "917",
+        "923",
+        "1501",
+        "1540",
+        "3924",
+        "3925",
+        "3926",
+        "3927",
+        "3928",
+        "3929",
+        "3930",
+        "3931",
+        "3932",
+        "3933",
+        "4933",
+        "4934",
+        "4935",
+        "4936",
+        "4937",
+        "4938",
+        "4939",
+        "4940",
+        "4941",
+        "4942"
+      ],
+      "mapped_substantive_sections": [],
+      "existing_material_candidates": [
+        {
+          "material_id": "nle-np-ii-foundation",
+          "title": "Maternal and Child Nursing Review Foundation",
+          "note_count": 4,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-np-ii-newborn",
+          "title": "NP II: Maternal, Newborn, and Pediatric Care",
+          "note_count": 4,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-b625-np-ii-clinical-reasoning",
+          "title": "Batch 625 NP II: Maternal, Newborn, and Family Decisions",
+          "note_count": 4,
+          "lesson_id": null
+        }
+      ],
+      "note_presence_is_not_taught_coverage": true,
+      "source_status": "GENERIC_MATERIAL_SOURCES_NOT_CONCEPT_MAPPED",
+      "independent_review_status": "NOT_ASSESSED"
+    },
+    {
+      "level": "NP II",
+      "concept_id": "nle-np-ii-labor",
+      "concept_name": "Labor",
+      "placement_count": 1,
+      "active_nursing_question_count": 30,
+      "active_nursing_question_ids": [
+        "894",
+        "900",
+        "906",
+        "912",
+        "918",
+        "924",
+        "1502",
+        "1524",
+        "1545",
+        "3857",
+        "3934",
+        "3935",
+        "3936",
+        "3937",
+        "3938",
+        "3939",
+        "3940",
+        "3941",
+        "3942",
+        "3943",
+        "4943",
+        "4944",
+        "4945",
+        "4946",
+        "4947",
+        "4948",
+        "4949",
+        "4950",
+        "4951",
+        "4952"
+      ],
+      "mapped_substantive_sections": [],
+      "existing_material_candidates": [
+        {
+          "material_id": "nle-np-ii-foundation",
+          "title": "Maternal and Child Nursing Review Foundation",
+          "note_count": 4,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-np-ii-newborn",
+          "title": "NP II: Maternal, Newborn, and Pediatric Care",
+          "note_count": 4,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-b625-np-ii-clinical-reasoning",
+          "title": "Batch 625 NP II: Maternal, Newborn, and Family Decisions",
+          "note_count": 4,
+          "lesson_id": null
+        }
+      ],
+      "note_presence_is_not_taught_coverage": true,
+      "source_status": "GENERIC_MATERIAL_SOURCES_NOT_CONCEPT_MAPPED",
+      "independent_review_status": "NOT_ASSESSED"
+    },
+    {
+      "level": "NP II",
+      "concept_id": "nle-np-ii-postpartum",
+      "concept_name": "Postpartum",
+      "placement_count": 1,
+      "active_nursing_question_count": 30,
+      "active_nursing_question_ids": [
+        "895",
+        "901",
+        "907",
+        "913",
+        "919",
+        "925",
+        "1514",
+        "1532",
+        "1556",
+        "3856",
+        "3944",
+        "3945",
+        "3946",
+        "3947",
+        "3948",
+        "3949",
+        "3950",
+        "3951",
+        "3952",
+        "3953",
+        "4953",
+        "4954",
+        "4955",
+        "4956",
+        "4957",
+        "4958",
+        "4959",
+        "4960",
+        "4961",
+        "4962"
+      ],
+      "mapped_substantive_sections": [],
+      "existing_material_candidates": [
+        {
+          "material_id": "nle-np-ii-foundation",
+          "title": "Maternal and Child Nursing Review Foundation",
+          "note_count": 4,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-np-ii-newborn",
+          "title": "NP II: Maternal, Newborn, and Pediatric Care",
+          "note_count": 4,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-b625-np-ii-clinical-reasoning",
+          "title": "Batch 625 NP II: Maternal, Newborn, and Family Decisions",
+          "note_count": 4,
+          "lesson_id": null
+        }
+      ],
+      "note_presence_is_not_taught_coverage": true,
+      "source_status": "GENERIC_MATERIAL_SOURCES_NOT_CONCEPT_MAPPED",
+      "independent_review_status": "NOT_ASSESSED"
+    },
+    {
+      "level": "NP II",
+      "concept_id": "nle-np-ii-newborn",
+      "concept_name": "Newborn",
+      "placement_count": 1,
+      "active_nursing_question_count": 36,
+      "active_nursing_question_ids": [
+        "896",
+        "902",
+        "908",
+        "914",
+        "920",
+        "926",
+        "1503",
+        "1509",
+        "1523",
+        "1537",
+        "1546",
+        "3855",
+        "3954",
+        "3955",
+        "3956",
+        "3957",
+        "3958",
+        "3959",
+        "3960",
+        "3961",
+        "3962",
+        "3963",
+        "4963",
+        "4964",
+        "4965",
+        "4966",
+        "4967",
+        "4968",
+        "4969",
+        "4970",
+        "4971",
+        "4972",
+        "5177",
+        "5178",
+        "5179",
+        "5180"
+      ],
+      "mapped_substantive_sections": [],
+      "existing_material_candidates": [
+        {
+          "material_id": "nle-np-ii-foundation",
+          "title": "Maternal and Child Nursing Review Foundation",
+          "note_count": 4,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-np-ii-newborn",
+          "title": "NP II: Maternal, Newborn, and Pediatric Care",
+          "note_count": 4,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-b625-np-ii-clinical-reasoning",
+          "title": "Batch 625 NP II: Maternal, Newborn, and Family Decisions",
+          "note_count": 4,
+          "lesson_id": null
+        }
+      ],
+      "note_presence_is_not_taught_coverage": true,
+      "source_status": "GENERIC_MATERIAL_SOURCES_NOT_CONCEPT_MAPPED",
+      "independent_review_status": "NOT_ASSESSED"
+    },
+    {
+      "level": "NP II",
+      "concept_id": "nle-np-ii-development",
+      "concept_name": "Development",
+      "placement_count": 1,
+      "active_nursing_question_count": 28,
+      "active_nursing_question_ids": [
+        "897",
+        "903",
+        "909",
+        "915",
+        "921",
+        "927",
+        "1513",
+        "1557",
+        "3964",
+        "3965",
+        "3966",
+        "3967",
+        "3968",
+        "3969",
+        "3970",
+        "3971",
+        "3972",
+        "3973",
+        "4973",
+        "4974",
+        "4975",
+        "4976",
+        "4977",
+        "4978",
+        "4979",
+        "4980",
+        "4981",
+        "4982"
+      ],
+      "mapped_substantive_sections": [],
+      "existing_material_candidates": [
+        {
+          "material_id": "nle-np-ii-foundation",
+          "title": "Maternal and Child Nursing Review Foundation",
+          "note_count": 4,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-np-ii-newborn",
+          "title": "NP II: Maternal, Newborn, and Pediatric Care",
+          "note_count": 4,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-b625-np-ii-clinical-reasoning",
+          "title": "Batch 625 NP II: Maternal, Newborn, and Family Decisions",
+          "note_count": 4,
+          "lesson_id": null
+        }
+      ],
+      "note_presence_is_not_taught_coverage": true,
+      "source_status": "GENERIC_MATERIAL_SOURCES_NOT_CONCEPT_MAPPED",
+      "independent_review_status": "NOT_ASSESSED"
+    },
+    {
+      "level": "NP II",
+      "concept_id": "nle-np-ii-family",
+      "concept_name": "Family",
+      "placement_count": 1,
+      "active_nursing_question_count": 26,
+      "active_nursing_question_ids": [
+        "898",
+        "904",
+        "910",
+        "916",
+        "922",
+        "928",
+        "3974",
+        "3975",
+        "3976",
+        "3977",
+        "3978",
+        "3979",
+        "3980",
+        "3981",
+        "3982",
+        "3983",
+        "4983",
+        "4984",
+        "4985",
+        "4986",
+        "4987",
+        "4988",
+        "4989",
+        "4990",
+        "4991",
+        "4992"
+      ],
+      "mapped_substantive_sections": [],
+      "existing_material_candidates": [
+        {
+          "material_id": "nle-np-ii-foundation",
+          "title": "Maternal and Child Nursing Review Foundation",
+          "note_count": 4,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-np-ii-newborn",
+          "title": "NP II: Maternal, Newborn, and Pediatric Care",
+          "note_count": 4,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-b625-np-ii-clinical-reasoning",
+          "title": "Batch 625 NP II: Maternal, Newborn, and Family Decisions",
+          "note_count": 4,
+          "lesson_id": null
+        }
+      ],
+      "note_presence_is_not_taught_coverage": true,
+      "source_status": "GENERIC_MATERIAL_SOURCES_NOT_CONCEPT_MAPPED",
+      "independent_review_status": "NOT_ASSESSED"
+    },
+    {
+      "level": "NP III",
+      "concept_id": "nle-np-iii-oxygenation",
+      "concept_name": "Oxygenation",
+      "placement_count": 1,
+      "active_nursing_question_count": 34,
+      "active_nursing_question_ids": [
+        "929",
+        "935",
+        "941",
+        "947",
+        "953",
+        "959",
+        "1504",
+        "1510",
+        "1512",
+        "1516",
+        "1521",
+        "1531",
+        "1541",
+        "1542",
+        "3984",
+        "3985",
+        "3986",
+        "3987",
+        "3988",
+        "3989",
+        "3990",
+        "3991",
+        "3992",
+        "3993",
+        "4993",
+        "4994",
+        "4995",
+        "4996",
+        "4997",
+        "4998",
+        "4999",
+        "5000",
+        "5001",
+        "5002"
+      ],
+      "mapped_substantive_sections": [],
+      "existing_material_candidates": [
+        {
+          "material_id": "nle-np-iii-foundation",
+          "title": "Medical-Surgical Nursing Review Foundation",
+          "note_count": 4,
+          "lesson_id": "nursing-standard-and-transmission-precautions"
+        },
+        {
+          "material_id": "nle-np-iii-oxygenation",
+          "title": "NP III: Oxygenation, Fluids, and Infection",
+          "note_count": 4,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-b625-np-iii-clinical-reasoning",
+          "title": "Batch 625 NP III: Medical-Surgical Safety Decisions",
+          "note_count": 4,
+          "lesson_id": null
+        }
+      ],
+      "note_presence_is_not_taught_coverage": true,
+      "source_status": "GENERIC_MATERIAL_SOURCES_NOT_CONCEPT_MAPPED",
+      "independent_review_status": "NOT_ASSESSED"
+    },
+    {
+      "level": "NP III",
+      "concept_id": "nle-np-iii-fluids",
+      "concept_name": "Fluids",
+      "placement_count": 1,
+      "active_nursing_question_count": 34,
+      "active_nursing_question_ids": [
+        "930",
+        "936",
+        "942",
+        "948",
+        "954",
+        "960",
+        "1511",
+        "1515",
+        "1534",
+        "1535",
+        "1539",
+        "1553",
+        "3847",
+        "3848",
+        "3994",
+        "3995",
+        "3996",
+        "3997",
+        "3998",
+        "3999",
+        "4000",
+        "4001",
+        "4002",
+        "4003",
+        "5003",
+        "5004",
+        "5005",
+        "5006",
+        "5007",
+        "5008",
+        "5009",
+        "5010",
+        "5011",
+        "5012"
+      ],
+      "mapped_substantive_sections": [],
+      "existing_material_candidates": [
+        {
+          "material_id": "nle-np-iii-foundation",
+          "title": "Medical-Surgical Nursing Review Foundation",
+          "note_count": 4,
+          "lesson_id": "nursing-standard-and-transmission-precautions"
+        },
+        {
+          "material_id": "nle-np-iii-oxygenation",
+          "title": "NP III: Oxygenation, Fluids, and Infection",
+          "note_count": 4,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-b625-np-iii-clinical-reasoning",
+          "title": "Batch 625 NP III: Medical-Surgical Safety Decisions",
+          "note_count": 4,
+          "lesson_id": null
+        }
+      ],
+      "note_presence_is_not_taught_coverage": true,
+      "source_status": "GENERIC_MATERIAL_SOURCES_NOT_CONCEPT_MAPPED",
+      "independent_review_status": "NOT_ASSESSED"
+    },
+    {
+      "level": "NP III",
+      "concept_id": "nle-np-iii-infection",
+      "concept_name": "Infection",
+      "placement_count": 1,
+      "active_nursing_question_count": 34,
+      "active_nursing_question_ids": [
+        "931",
+        "937",
+        "943",
+        "949",
+        "955",
+        "961",
+        "1506",
+        "1507",
+        "1519",
+        "3853",
+        "4004",
+        "4005",
+        "4006",
+        "4007",
+        "4008",
+        "4009",
+        "4010",
+        "4011",
+        "4012",
+        "4013",
+        "5013",
+        "5014",
+        "5015",
+        "5016",
+        "5017",
+        "5018",
+        "5019",
+        "5020",
+        "5021",
+        "5022",
+        "5181",
+        "5182",
+        "5183",
+        "5184"
+      ],
+      "mapped_substantive_sections": [
+        {
+          "lesson_id": "nursing-standard-and-transmission-precautions",
+          "material_id": "nle-np-iii-foundation",
+          "section_id": "nle-standard-precautions",
+          "section_heading": "1. Start with Standard Precautions",
+          "body_characters": 518,
+          "instructional_source_ids": [
+            "cdc-infection-control-basics",
+            "cdc-isolation-precautions",
+            "cdc-safe-injection-practices-2024",
+            "cdc-isolation-precautions-transport-2007",
+            "cdc-isolation-precautions-page-2023"
+          ]
+        },
+        {
+          "lesson_id": "nursing-standard-and-transmission-precautions",
+          "material_id": "nle-np-iii-foundation",
+          "section_id": "nle-transmission-based-precautions",
+          "section_heading": "2. Add measures for transmission risk",
+          "body_characters": 436,
+          "instructional_source_ids": [
+            "cdc-infection-control-basics",
+            "cdc-isolation-precautions",
+            "cdc-safe-injection-practices-2024",
+            "cdc-isolation-precautions-transport-2007",
+            "cdc-isolation-precautions-page-2023"
+          ]
+        },
+        {
+          "lesson_id": "nursing-standard-and-transmission-precautions",
+          "material_id": "nle-np-iii-foundation",
+          "section_id": "nle-task-based-ppe-and-equipment",
+          "section_heading": "3. Match PPE and equipment to the task",
+          "body_characters": 419,
+          "instructional_source_ids": [
+            "cdc-infection-control-basics",
+            "cdc-isolation-precautions",
+            "cdc-safe-injection-practices-2024",
+            "cdc-isolation-precautions-transport-2007",
+            "cdc-isolation-precautions-page-2023"
+          ]
+        },
+        {
+          "lesson_id": "nursing-standard-and-transmission-precautions",
+          "material_id": "nle-np-iii-foundation",
+          "section_id": "nle-safe-injection-practices",
+          "section_heading": "4. Keep injections aseptic",
+          "body_characters": 347,
+          "instructional_source_ids": [
+            "cdc-infection-control-basics",
+            "cdc-isolation-precautions",
+            "cdc-safe-injection-practices-2024",
+            "cdc-isolation-precautions-transport-2007",
+            "cdc-isolation-precautions-page-2023"
+          ]
+        }
+      ],
+      "existing_material_candidates": [
+        {
+          "material_id": "nle-np-iii-foundation",
+          "title": "Medical-Surgical Nursing Review Foundation",
+          "note_count": 4,
+          "lesson_id": "nursing-standard-and-transmission-precautions"
+        },
+        {
+          "material_id": "nle-np-iii-oxygenation",
+          "title": "NP III: Oxygenation, Fluids, and Infection",
+          "note_count": 4,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-b625-np-iii-clinical-reasoning",
+          "title": "Batch 625 NP III: Medical-Surgical Safety Decisions",
+          "note_count": 4,
+          "lesson_id": null
+        }
+      ],
+      "note_presence_is_not_taught_coverage": true,
+      "source_status": "SECTION_SOURCE_CHECKED",
+      "independent_review_status": "PENDING"
+    },
+    {
+      "level": "NP III",
+      "concept_id": "nle-np-iii-immunity",
+      "concept_name": "Immunity",
+      "placement_count": 1,
+      "active_nursing_question_count": 28,
+      "active_nursing_question_ids": [
+        "932",
+        "938",
+        "944",
+        "950",
+        "956",
+        "962",
+        "1522",
+        "1530",
+        "4014",
+        "4015",
+        "4016",
+        "4017",
+        "4018",
+        "4019",
+        "4020",
+        "4021",
+        "4022",
+        "4023",
+        "5023",
+        "5024",
+        "5025",
+        "5026",
+        "5027",
+        "5028",
+        "5029",
+        "5030",
+        "5031",
+        "5032"
+      ],
+      "mapped_substantive_sections": [],
+      "existing_material_candidates": [
+        {
+          "material_id": "nle-np-iii-foundation",
+          "title": "Medical-Surgical Nursing Review Foundation",
+          "note_count": 4,
+          "lesson_id": "nursing-standard-and-transmission-precautions"
+        },
+        {
+          "material_id": "nle-np-iii-oxygenation",
+          "title": "NP III: Oxygenation, Fluids, and Infection",
+          "note_count": 4,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-b625-np-iii-clinical-reasoning",
+          "title": "Batch 625 NP III: Medical-Surgical Safety Decisions",
+          "note_count": 4,
+          "lesson_id": null
+        }
+      ],
+      "note_presence_is_not_taught_coverage": true,
+      "source_status": "GENERIC_MATERIAL_SOURCES_NOT_CONCEPT_MAPPED",
+      "independent_review_status": "NOT_ASSESSED"
+    },
+    {
+      "level": "NP III",
+      "concept_id": "nle-np-iii-perioperative",
+      "concept_name": "Perioperative",
+      "placement_count": 1,
+      "active_nursing_question_count": 31,
+      "active_nursing_question_ids": [
+        "933",
+        "939",
+        "945",
+        "951",
+        "957",
+        "963",
+        "1505",
+        "1508",
+        "1544",
+        "1555",
+        "3861",
+        "4024",
+        "4025",
+        "4026",
+        "4027",
+        "4028",
+        "4029",
+        "4030",
+        "4031",
+        "4032",
+        "4033",
+        "5033",
+        "5034",
+        "5035",
+        "5036",
+        "5037",
+        "5038",
+        "5039",
+        "5040",
+        "5041",
+        "5042"
+      ],
+      "mapped_substantive_sections": [],
+      "existing_material_candidates": [
+        {
+          "material_id": "nle-np-iii-foundation",
+          "title": "Medical-Surgical Nursing Review Foundation",
+          "note_count": 4,
+          "lesson_id": "nursing-standard-and-transmission-precautions"
+        },
+        {
+          "material_id": "nle-np-iii-oxygenation",
+          "title": "NP III: Oxygenation, Fluids, and Infection",
+          "note_count": 4,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-b625-np-iii-clinical-reasoning",
+          "title": "Batch 625 NP III: Medical-Surgical Safety Decisions",
+          "note_count": 4,
+          "lesson_id": null
+        }
+      ],
+      "note_presence_is_not_taught_coverage": true,
+      "source_status": "GENERIC_MATERIAL_SOURCES_NOT_CONCEPT_MAPPED",
+      "independent_review_status": "NOT_ASSESSED"
+    },
+    {
+      "level": "NP III",
+      "concept_id": "nle-np-iii-cellular",
+      "concept_name": "Cellular",
+      "placement_count": 1,
+      "active_nursing_question_count": 26,
+      "active_nursing_question_ids": [
+        "934",
+        "940",
+        "946",
+        "952",
+        "958",
+        "964",
+        "4034",
+        "4035",
+        "4036",
+        "4037",
+        "4038",
+        "4039",
+        "4040",
+        "4041",
+        "4042",
+        "4043",
+        "5043",
+        "5044",
+        "5045",
+        "5046",
+        "5047",
+        "5048",
+        "5049",
+        "5050",
+        "5051",
+        "5052"
+      ],
+      "mapped_substantive_sections": [],
+      "existing_material_candidates": [
+        {
+          "material_id": "nle-np-iii-foundation",
+          "title": "Medical-Surgical Nursing Review Foundation",
+          "note_count": 4,
+          "lesson_id": "nursing-standard-and-transmission-precautions"
+        },
+        {
+          "material_id": "nle-np-iii-oxygenation",
+          "title": "NP III: Oxygenation, Fluids, and Infection",
+          "note_count": 4,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-b625-np-iii-clinical-reasoning",
+          "title": "Batch 625 NP III: Medical-Surgical Safety Decisions",
+          "note_count": 4,
+          "lesson_id": null
+        }
+      ],
+      "note_presence_is_not_taught_coverage": true,
+      "source_status": "GENERIC_MATERIAL_SOURCES_NOT_CONCEPT_MAPPED",
+      "independent_review_status": "NOT_ASSESSED"
+    },
+    {
+      "level": "NP IV",
+      "concept_id": "nle-np-iv-nutrition",
+      "concept_name": "Nutrition",
+      "placement_count": 1,
+      "active_nursing_question_count": 26,
+      "active_nursing_question_ids": [
+        "965",
+        "971",
+        "977",
+        "983",
+        "989",
+        "995",
+        "4044",
+        "4045",
+        "4046",
+        "4047",
+        "4048",
+        "4049",
+        "4050",
+        "4051",
+        "4052",
+        "4053",
+        "5053",
+        "5054",
+        "5055",
+        "5056",
+        "5057",
+        "5058",
+        "5059",
+        "5060",
+        "5061",
+        "5062"
+      ],
+      "mapped_substantive_sections": [],
+      "existing_material_candidates": [
+        {
+          "material_id": "nle-np-iv-foundation",
+          "title": "Nutrition, GI, Endocrine, and Coordination Review Foundation",
+          "note_count": 4,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-np-iv-endocrine",
+          "title": "NP IV: Nutrition, GI, Endocrine, and Coordination",
+          "note_count": 4,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-b625-np-iv-clinical-reasoning",
+          "title": "Batch 625 NP IV: Nutrition, Endocrine, Coordination, and Medication Safety",
+          "note_count": 4,
+          "lesson_id": null
+        }
+      ],
+      "note_presence_is_not_taught_coverage": true,
+      "source_status": "GENERIC_MATERIAL_SOURCES_NOT_CONCEPT_MAPPED",
+      "independent_review_status": "NOT_ASSESSED"
+    },
+    {
+      "level": "NP IV",
+      "concept_id": "nle-np-iv-gastrointestinal",
+      "concept_name": "Gastrointestinal",
+      "placement_count": 1,
+      "active_nursing_question_count": 26,
+      "active_nursing_question_ids": [
+        "966",
+        "972",
+        "978",
+        "984",
+        "990",
+        "996",
+        "4054",
+        "4055",
+        "4056",
+        "4057",
+        "4058",
+        "4059",
+        "4060",
+        "4061",
+        "4062",
+        "4063",
+        "5063",
+        "5064",
+        "5065",
+        "5066",
+        "5067",
+        "5068",
+        "5069",
+        "5070",
+        "5071",
+        "5072"
+      ],
+      "mapped_substantive_sections": [],
+      "existing_material_candidates": [
+        {
+          "material_id": "nle-np-iv-foundation",
+          "title": "Nutrition, GI, Endocrine, and Coordination Review Foundation",
+          "note_count": 4,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-np-iv-endocrine",
+          "title": "NP IV: Nutrition, GI, Endocrine, and Coordination",
+          "note_count": 4,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-b625-np-iv-clinical-reasoning",
+          "title": "Batch 625 NP IV: Nutrition, Endocrine, Coordination, and Medication Safety",
+          "note_count": 4,
+          "lesson_id": null
+        }
+      ],
+      "note_presence_is_not_taught_coverage": true,
+      "source_status": "GENERIC_MATERIAL_SOURCES_NOT_CONCEPT_MAPPED",
+      "independent_review_status": "NOT_ASSESSED"
+    },
+    {
+      "level": "NP IV",
+      "concept_id": "nle-np-iv-endocrine",
+      "concept_name": "Endocrine",
+      "placement_count": 1,
+      "active_nursing_question_count": 28,
+      "active_nursing_question_ids": [
+        "967",
+        "973",
+        "979",
+        "985",
+        "991",
+        "997",
+        "1520",
+        "3849",
+        "4064",
+        "4065",
+        "4066",
+        "4067",
+        "4068",
+        "4069",
+        "4070",
+        "4071",
+        "4072",
+        "4073",
+        "5073",
+        "5074",
+        "5075",
+        "5076",
+        "5077",
+        "5078",
+        "5079",
+        "5080",
+        "5081",
+        "5082"
+      ],
+      "mapped_substantive_sections": [],
+      "existing_material_candidates": [
+        {
+          "material_id": "nle-np-iv-foundation",
+          "title": "Nutrition, GI, Endocrine, and Coordination Review Foundation",
+          "note_count": 4,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-np-iv-endocrine",
+          "title": "NP IV: Nutrition, GI, Endocrine, and Coordination",
+          "note_count": 4,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-b625-np-iv-clinical-reasoning",
+          "title": "Batch 625 NP IV: Nutrition, Endocrine, Coordination, and Medication Safety",
+          "note_count": 4,
+          "lesson_id": null
+        }
+      ],
+      "note_presence_is_not_taught_coverage": true,
+      "source_status": "GENERIC_MATERIAL_SOURCES_NOT_CONCEPT_MAPPED",
+      "independent_review_status": "NOT_ASSESSED"
+    },
+    {
+      "level": "NP IV",
+      "concept_id": "nle-np-iv-perception",
+      "concept_name": "Perception",
+      "placement_count": 1,
+      "active_nursing_question_count": 26,
+      "active_nursing_question_ids": [
+        "968",
+        "974",
+        "980",
+        "986",
+        "992",
+        "998",
+        "4074",
+        "4075",
+        "4076",
+        "4077",
+        "4078",
+        "4079",
+        "4080",
+        "4081",
+        "4082",
+        "4083",
+        "5083",
+        "5084",
+        "5085",
+        "5086",
+        "5087",
+        "5088",
+        "5089",
+        "5090",
+        "5091",
+        "5092"
+      ],
+      "mapped_substantive_sections": [],
+      "existing_material_candidates": [
+        {
+          "material_id": "nle-np-iv-foundation",
+          "title": "Nutrition, GI, Endocrine, and Coordination Review Foundation",
+          "note_count": 4,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-np-iv-endocrine",
+          "title": "NP IV: Nutrition, GI, Endocrine, and Coordination",
+          "note_count": 4,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-b625-np-iv-clinical-reasoning",
+          "title": "Batch 625 NP IV: Nutrition, Endocrine, Coordination, and Medication Safety",
+          "note_count": 4,
+          "lesson_id": null
+        }
+      ],
+      "note_presence_is_not_taught_coverage": true,
+      "source_status": "GENERIC_MATERIAL_SOURCES_NOT_CONCEPT_MAPPED",
+      "independent_review_status": "NOT_ASSESSED"
+    },
+    {
+      "level": "NP IV",
+      "concept_id": "nle-np-iv-coordination",
+      "concept_name": "Coordination",
+      "placement_count": 1,
+      "active_nursing_question_count": 27,
+      "active_nursing_question_ids": [
+        "969",
+        "975",
+        "981",
+        "987",
+        "993",
+        "999",
+        "1543",
+        "4084",
+        "4085",
+        "4086",
+        "4087",
+        "4088",
+        "4089",
+        "4090",
+        "4091",
+        "4092",
+        "4093",
+        "5093",
+        "5094",
+        "5095",
+        "5096",
+        "5097",
+        "5098",
+        "5099",
+        "5100",
+        "5101",
+        "5102"
+      ],
+      "mapped_substantive_sections": [],
+      "existing_material_candidates": [
+        {
+          "material_id": "nle-np-iv-foundation",
+          "title": "Nutrition, GI, Endocrine, and Coordination Review Foundation",
+          "note_count": 4,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-np-iv-endocrine",
+          "title": "NP IV: Nutrition, GI, Endocrine, and Coordination",
+          "note_count": 4,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-b625-np-iv-clinical-reasoning",
+          "title": "Batch 625 NP IV: Nutrition, Endocrine, Coordination, and Medication Safety",
+          "note_count": 4,
+          "lesson_id": null
+        }
+      ],
+      "note_presence_is_not_taught_coverage": true,
+      "source_status": "GENERIC_MATERIAL_SOURCES_NOT_CONCEPT_MAPPED",
+      "independent_review_status": "NOT_ASSESSED"
+    },
+    {
+      "level": "NP IV",
+      "concept_id": "nle-np-iv-medication",
+      "concept_name": "Medication",
+      "placement_count": 1,
+      "active_nursing_question_count": 42,
+      "active_nursing_question_ids": [
+        "970",
+        "976",
+        "982",
+        "988",
+        "994",
+        "1000",
+        "1499",
+        "1500",
+        "1517",
+        "1529",
+        "1536",
+        "1538",
+        "1552",
+        "1554",
+        "3845",
+        "3846",
+        "3859",
+        "3860",
+        "4094",
+        "4095",
+        "4096",
+        "4097",
+        "4098",
+        "4099",
+        "4100",
+        "4101",
+        "4102",
+        "4103",
+        "5103",
+        "5104",
+        "5105",
+        "5106",
+        "5107",
+        "5108",
+        "5109",
+        "5110",
+        "5111",
+        "5112",
+        "5185",
+        "5186",
+        "5187",
+        "5188"
+      ],
+      "mapped_substantive_sections": [
+        {
+          "lesson_id": "nursing-medication-safety-and-calculation",
+          "material_id": "nle-pharmacology-safety",
+          "section_id": "nle-medication-order-and-product-verification",
+          "section_heading": "1. Verify the order and product before preparation",
+          "body_characters": 707,
+          "instructional_source_ids": [
+            "openrn-pharmacology2e-medication-safety",
+            "openrn-nursing-dosage-calculations",
+            "who-medication-without-harm-5-moments",
+            "openrn-nursing-fundamentals"
+          ]
+        },
+        {
+          "lesson_id": "nursing-medication-safety-and-calculation",
+          "material_id": "nle-pharmacology-safety",
+          "section_id": "nle-medication-concentration-calculation",
+          "section_heading": "2. Keep dose and concentration units visible",
+          "body_characters": 536,
+          "instructional_source_ids": [
+            "openrn-pharmacology2e-medication-safety",
+            "openrn-nursing-dosage-calculations",
+            "who-medication-without-harm-5-moments",
+            "openrn-nursing-fundamentals"
+          ]
+        },
+        {
+          "lesson_id": "nursing-medication-safety-and-calculation",
+          "material_id": "nle-pharmacology-safety",
+          "section_id": "nle-medication-weight-based-rate-units",
+          "section_heading": "3. Distinguish a dose rate from a volume rate",
+          "body_characters": 433,
+          "instructional_source_ids": [
+            "openrn-pharmacology2e-medication-safety",
+            "openrn-nursing-dosage-calculations",
+            "who-medication-without-harm-5-moments",
+            "openrn-nursing-fundamentals"
+          ]
+        },
+        {
+          "lesson_id": "nursing-medication-safety-and-calculation",
+          "material_id": "nle-pharmacology-safety",
+          "section_id": "nle-medication-reconcile-at-transition",
+          "section_heading": "4. Reconcile the actual medication history",
+          "body_characters": 601,
+          "instructional_source_ids": [
+            "openrn-pharmacology2e-medication-safety",
+            "openrn-nursing-dosage-calculations",
+            "who-medication-without-harm-5-moments",
+            "openrn-nursing-fundamentals"
+          ]
+        },
+        {
+          "lesson_id": "nursing-medication-safety-and-calculation",
+          "material_id": "nle-pharmacology-safety",
+          "section_id": "nle-medication-change-teachback",
+          "section_heading": "5. Explain verified changes and check understanding",
+          "body_characters": 594,
+          "instructional_source_ids": [
+            "openrn-pharmacology2e-medication-safety",
+            "openrn-nursing-dosage-calculations",
+            "who-medication-without-harm-5-moments",
+            "openrn-nursing-fundamentals"
+          ]
+        }
+      ],
+      "existing_material_candidates": [
+        {
+          "material_id": "nle-np-iv-foundation",
+          "title": "Nutrition, GI, Endocrine, and Coordination Review Foundation",
+          "note_count": 4,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-np-iv-endocrine",
+          "title": "NP IV: Nutrition, GI, Endocrine, and Coordination",
+          "note_count": 4,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-b625-np-iv-clinical-reasoning",
+          "title": "Batch 625 NP IV: Nutrition, Endocrine, Coordination, and Medication Safety",
+          "note_count": 4,
+          "lesson_id": null
+        }
+      ],
+      "note_presence_is_not_taught_coverage": true,
+      "source_status": "SECTION_SOURCE_CHECKED",
+      "independent_review_status": "PENDING"
+    },
+    {
+      "level": "NP V",
+      "concept_id": "nle-np-v-therapeutic",
+      "concept_name": "Therapeutic",
+      "placement_count": 1,
+      "active_nursing_question_count": 30,
+      "active_nursing_question_ids": [
+        "1001",
+        "1007",
+        "1013",
+        "1019",
+        "1025",
+        "1031",
+        "1518",
+        "1528",
+        "1548",
+        "1558",
+        "4104",
+        "4105",
+        "4106",
+        "4107",
+        "4108",
+        "4109",
+        "4110",
+        "4111",
+        "4112",
+        "4113",
+        "5113",
+        "5114",
+        "5115",
+        "5116",
+        "5117",
+        "5118",
+        "5119",
+        "5120",
+        "5121",
+        "5122"
+      ],
+      "mapped_substantive_sections": [],
+      "existing_material_candidates": [
+        {
+          "material_id": "nle-np-v-foundation",
+          "title": "Mental Health, Emergency, and High-Acuity Nursing Review Foundation",
+          "note_count": 4,
+          "lesson_id": "nursing-prioritization-and-team-handoff"
+        },
+        {
+          "material_id": "nle-np-v-emergency",
+          "title": "NP V: Mental Health and Emergency Care",
+          "note_count": 4,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-b625-np-v-clinical-reasoning",
+          "title": "Batch 625 NP V: Mental Health, Emergency, and High-Acuity Decisions",
+          "note_count": 4,
+          "lesson_id": null
+        }
+      ],
+      "note_presence_is_not_taught_coverage": true,
+      "source_status": "GENERIC_MATERIAL_SOURCES_NOT_CONCEPT_MAPPED",
+      "independent_review_status": "NOT_ASSESSED"
+    },
+    {
+      "level": "NP V",
+      "concept_id": "nle-np-v-crisis",
+      "concept_name": "Crisis",
+      "placement_count": 1,
+      "active_nursing_question_count": 27,
+      "active_nursing_question_ids": [
+        "1002",
+        "1008",
+        "1014",
+        "1020",
+        "1026",
+        "1032",
+        "1547",
+        "4114",
+        "4115",
+        "4116",
+        "4117",
+        "4118",
+        "4119",
+        "4120",
+        "4121",
+        "4122",
+        "4123",
+        "5123",
+        "5124",
+        "5125",
+        "5126",
+        "5127",
+        "5128",
+        "5129",
+        "5130",
+        "5131",
+        "5132"
+      ],
+      "mapped_substantive_sections": [],
+      "existing_material_candidates": [
+        {
+          "material_id": "nle-np-v-foundation",
+          "title": "Mental Health, Emergency, and High-Acuity Nursing Review Foundation",
+          "note_count": 4,
+          "lesson_id": "nursing-prioritization-and-team-handoff"
+        },
+        {
+          "material_id": "nle-np-v-emergency",
+          "title": "NP V: Mental Health and Emergency Care",
+          "note_count": 4,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-b625-np-v-clinical-reasoning",
+          "title": "Batch 625 NP V: Mental Health, Emergency, and High-Acuity Decisions",
+          "note_count": 4,
+          "lesson_id": null
+        }
+      ],
+      "note_presence_is_not_taught_coverage": true,
+      "source_status": "GENERIC_MATERIAL_SOURCES_NOT_CONCEPT_MAPPED",
+      "independent_review_status": "NOT_ASSESSED"
+    },
+    {
+      "level": "NP V",
+      "concept_id": "nle-np-v-emergency",
+      "concept_name": "Emergency",
+      "placement_count": 1,
+      "active_nursing_question_count": 32,
+      "active_nursing_question_ids": [
+        "1003",
+        "1009",
+        "1015",
+        "1021",
+        "1027",
+        "1033",
+        "3850",
+        "3858",
+        "4124",
+        "4125",
+        "4126",
+        "4127",
+        "4128",
+        "4129",
+        "4130",
+        "4131",
+        "4132",
+        "4133",
+        "5133",
+        "5134",
+        "5135",
+        "5136",
+        "5137",
+        "5138",
+        "5139",
+        "5140",
+        "5141",
+        "5142",
+        "5189",
+        "5190",
+        "5191",
+        "5192"
+      ],
+      "mapped_substantive_sections": [],
+      "existing_material_candidates": [
+        {
+          "material_id": "nle-np-v-foundation",
+          "title": "Mental Health, Emergency, and High-Acuity Nursing Review Foundation",
+          "note_count": 4,
+          "lesson_id": "nursing-prioritization-and-team-handoff"
+        },
+        {
+          "material_id": "nle-np-v-emergency",
+          "title": "NP V: Mental Health and Emergency Care",
+          "note_count": 4,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-b625-np-v-clinical-reasoning",
+          "title": "Batch 625 NP V: Mental Health, Emergency, and High-Acuity Decisions",
+          "note_count": 4,
+          "lesson_id": null
+        }
+      ],
+      "note_presence_is_not_taught_coverage": true,
+      "source_status": "GENERIC_MATERIAL_SOURCES_NOT_CONCEPT_MAPPED",
+      "independent_review_status": "NOT_ASSESSED"
+    },
+    {
+      "level": "NP V",
+      "concept_id": "nle-np-v-shock",
+      "concept_name": "Shock",
+      "placement_count": 1,
+      "active_nursing_question_count": 27,
+      "active_nursing_question_ids": [
+        "1004",
+        "1010",
+        "1016",
+        "1022",
+        "1028",
+        "1034",
+        "3852",
+        "4134",
+        "4135",
+        "4136",
+        "4137",
+        "4138",
+        "4139",
+        "4140",
+        "4141",
+        "4142",
+        "4143",
+        "5143",
+        "5144",
+        "5145",
+        "5146",
+        "5147",
+        "5148",
+        "5149",
+        "5150",
+        "5151",
+        "5152"
+      ],
+      "mapped_substantive_sections": [],
+      "existing_material_candidates": [
+        {
+          "material_id": "nle-np-v-foundation",
+          "title": "Mental Health, Emergency, and High-Acuity Nursing Review Foundation",
+          "note_count": 4,
+          "lesson_id": "nursing-prioritization-and-team-handoff"
+        },
+        {
+          "material_id": "nle-np-v-emergency",
+          "title": "NP V: Mental Health and Emergency Care",
+          "note_count": 4,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-b625-np-v-clinical-reasoning",
+          "title": "Batch 625 NP V: Mental Health, Emergency, and High-Acuity Decisions",
+          "note_count": 4,
+          "lesson_id": null
+        }
+      ],
+      "note_presence_is_not_taught_coverage": true,
+      "source_status": "GENERIC_MATERIAL_SOURCES_NOT_CONCEPT_MAPPED",
+      "independent_review_status": "NOT_ASSESSED"
+    },
+    {
+      "level": "NP V",
+      "concept_id": "nle-np-v-acuity",
+      "concept_name": "Acuity",
+      "placement_count": 1,
+      "active_nursing_question_count": 26,
+      "active_nursing_question_ids": [
+        "1005",
+        "1011",
+        "1017",
+        "1023",
+        "1029",
+        "1035",
+        "3851",
+        "4144",
+        "4145",
+        "4146",
+        "4147",
+        "4148",
+        "4149",
+        "4150",
+        "4151",
+        "4152",
+        "5153",
+        "5154",
+        "5155",
+        "5156",
+        "5157",
+        "5158",
+        "5159",
+        "5160",
+        "5161",
+        "5162"
+      ],
+      "mapped_substantive_sections": [
+        {
+          "lesson_id": "nursing-prioritization-and-team-handoff",
+          "material_id": "nle-np-v-foundation",
+          "section_id": "nle-v-notice-and-validate-change",
+          "section_heading": "1. Notice and validate a change",
+          "body_characters": 448,
+          "instructional_source_ids": [
+            "openrn-nursing-fundamentals",
+            "who-basic-emergency-care"
+          ]
+        },
+        {
+          "lesson_id": "nursing-prioritization-and-team-handoff",
+          "material_id": "nle-np-v-foundation",
+          "section_id": "nle-v-prioritize-changing-risk",
+          "section_heading": "2. Prioritize changing risk",
+          "body_characters": 516,
+          "instructional_source_ids": [
+            "openrn-nursing-fundamentals",
+            "who-basic-emergency-care"
+          ]
+        }
+      ],
+      "existing_material_candidates": [
+        {
+          "material_id": "nle-np-v-foundation",
+          "title": "Mental Health, Emergency, and High-Acuity Nursing Review Foundation",
+          "note_count": 4,
+          "lesson_id": "nursing-prioritization-and-team-handoff"
+        },
+        {
+          "material_id": "nle-np-v-emergency",
+          "title": "NP V: Mental Health and Emergency Care",
+          "note_count": 4,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-b625-np-v-clinical-reasoning",
+          "title": "Batch 625 NP V: Mental Health, Emergency, and High-Acuity Decisions",
+          "note_count": 4,
+          "lesson_id": null
+        }
+      ],
+      "note_presence_is_not_taught_coverage": true,
+      "source_status": "SECTION_SOURCE_CHECKED",
+      "independent_review_status": "PENDING"
+    },
+    {
+      "level": "NP V",
+      "concept_id": "nle-np-v-teamwork",
+      "concept_name": "Teamwork",
+      "placement_count": 1,
+      "active_nursing_question_count": 29,
+      "active_nursing_question_ids": [
+        "1006",
+        "1012",
+        "1018",
+        "1024",
+        "1030",
+        "1036",
+        "1527",
+        "1551",
+        "3863",
+        "4153",
+        "4154",
+        "4155",
+        "4156",
+        "4157",
+        "4158",
+        "4159",
+        "4160",
+        "4161",
+        "4162",
+        "5163",
+        "5164",
+        "5165",
+        "5166",
+        "5167",
+        "5168",
+        "5169",
+        "5170",
+        "5171",
+        "5172"
+      ],
+      "mapped_substantive_sections": [
+        {
+          "lesson_id": "nursing-prioritization-and-team-handoff",
+          "material_id": "nle-np-v-foundation",
+          "section_id": "nle-v-report-change-and-reassess",
+          "section_heading": "3. Report the trend and close the loop",
+          "body_characters": 504,
+          "instructional_source_ids": [
+            "openrn-nursing-fundamentals",
+            "who-basic-emergency-care"
+          ]
+        }
+      ],
+      "existing_material_candidates": [
+        {
+          "material_id": "nle-np-v-foundation",
+          "title": "Mental Health, Emergency, and High-Acuity Nursing Review Foundation",
+          "note_count": 4,
+          "lesson_id": "nursing-prioritization-and-team-handoff"
+        },
+        {
+          "material_id": "nle-np-v-emergency",
+          "title": "NP V: Mental Health and Emergency Care",
+          "note_count": 4,
+          "lesson_id": null
+        },
+        {
+          "material_id": "nle-b625-np-v-clinical-reasoning",
+          "title": "Batch 625 NP V: Mental Health, Emergency, and High-Acuity Decisions",
+          "note_count": 4,
+          "lesson_id": null
+        }
+      ],
+      "note_presence_is_not_taught_coverage": true,
+      "source_status": "SECTION_SOURCE_CHECKED",
+      "independent_review_status": "PENDING"
+    },
+    {
+      "level": "SHARED SCIENCE (outside NP I-V)",
+      "concept_id": "science-biology-cells",
+      "concept_name": "Cellular Structures",
+      "placement_count": 1,
+      "active_nursing_question_count": 0,
+      "active_nursing_question_ids": [],
+      "mapped_substantive_sections": [],
+      "existing_material_candidates": [],
+      "note_presence_is_not_taught_coverage": true,
+      "source_status": "NO_NURSING_SECTION_SOURCE",
+      "independent_review_status": "NOT_ASSESSED"
+    },
+    {
+      "level": "SHARED SCIENCE (outside NP I-V)",
+      "concept_id": "science-chemistry-matter-particles",
+      "concept_name": "Particle and Phase Evidence",
+      "placement_count": 1,
+      "active_nursing_question_count": 0,
+      "active_nursing_question_ids": [],
+      "mapped_substantive_sections": [],
+      "existing_material_candidates": [],
+      "note_presence_is_not_taught_coverage": true,
+      "source_status": "NO_NURSING_SECTION_SOURCE",
+      "independent_review_status": "NOT_ASSESSED"
+    },
+    {
+      "level": "SHARED SCIENCE (outside NP I-V)",
+      "concept_id": "science-physics-motion-graphs",
+      "concept_name": "Motion Graph Interpretation",
+      "placement_count": 1,
+      "active_nursing_question_count": 0,
+      "active_nursing_question_ids": [],
+      "mapped_substantive_sections": [],
+      "existing_material_candidates": [],
+      "note_presence_is_not_taught_coverage": true,
+      "source_status": "NO_NURSING_SECTION_SOURCE",
+      "independent_review_status": "NOT_ASSESSED"
+    },
+    {
+      "level": "SHARED SCIENCE (outside NP I-V)",
+      "concept_id": "science-electricity-series-parallel",
+      "concept_name": "Series and Parallel Circuit Reasoning",
+      "placement_count": 1,
+      "active_nursing_question_count": 0,
+      "active_nursing_question_ids": [],
+      "mapped_substantive_sections": [],
+      "existing_material_candidates": [],
+      "note_presence_is_not_taught_coverage": true,
+      "source_status": "NO_NURSING_SECTION_SOURCE",
+      "independent_review_status": "NOT_ASSESSED"
+    },
+    {
+      "level": "SHARED SCIENCE (outside NP I-V)",
+      "concept_id": "science-optics-reflection",
+      "concept_name": "Reflection Ray Interpretation",
+      "placement_count": 1,
+      "active_nursing_question_count": 0,
+      "active_nursing_question_ids": [],
+      "mapped_substantive_sections": [],
+      "existing_material_candidates": [],
+      "note_presence_is_not_taught_coverage": true,
+      "source_status": "NO_NURSING_SECTION_SOURCE",
+      "independent_review_status": "NOT_ASSESSED"
+    },
+    {
+      "level": "SHARED SCIENCE (outside NP I-V)",
+      "concept_id": "science-earth-stratigraphy",
+      "concept_name": "Relative Age from Layering",
+      "placement_count": 1,
+      "active_nursing_question_count": 0,
+      "active_nursing_question_ids": [],
+      "mapped_substantive_sections": [],
+      "existing_material_candidates": [],
+      "note_presence_is_not_taught_coverage": true,
+      "source_status": "NO_NURSING_SECTION_SOURCE",
+      "independent_review_status": "NOT_ASSESSED"
+    },
+    {
+      "level": "SHARED SCIENCE (outside NP I-V)",
+      "concept_id": "science-ecology-population",
+      "concept_name": "Population and Energy Relationships",
+      "placement_count": 1,
+      "active_nursing_question_count": 0,
+      "active_nursing_question_ids": [],
+      "mapped_substantive_sections": [],
+      "existing_material_candidates": [],
+      "note_presence_is_not_taught_coverage": true,
+      "source_status": "NO_NURSING_SECTION_SOURCE",
+      "independent_review_status": "NOT_ASSESSED"
+    },
+    {
+      "level": "SHARED SCIENCE (outside NP I-V)",
+      "concept_id": "science-data-evidence",
+      "concept_name": "Evidence, Trends, and Variables",
+      "placement_count": 1,
+      "active_nursing_question_count": 0,
+      "active_nursing_question_ids": [],
+      "mapped_substantive_sections": [],
+      "existing_material_candidates": [],
+      "note_presence_is_not_taught_coverage": true,
+      "source_status": "NO_NURSING_SECTION_SOURCE",
+      "independent_review_status": "NOT_ASSESSED"
+    },
+    {
+      "level": "SHARED SCIENCE (outside NP I-V)",
+      "concept_id": "science-inquiry-evidence",
+      "concept_name": "Evidence and Conclusions",
+      "placement_count": 1,
+      "active_nursing_question_count": 0,
+      "active_nursing_question_ids": [],
+      "mapped_substantive_sections": [],
+      "existing_material_candidates": [],
+      "note_presence_is_not_taught_coverage": true,
+      "source_status": "NO_NURSING_SECTION_SOURCE",
+      "independent_review_status": "NOT_ASSESSED"
+    },
+    {
+      "level": "SHARED SCIENCE (outside NP I-V)",
+      "concept_id": "science-physics-force-balance",
+      "concept_name": "Force and Motion Model",
+      "placement_count": 1,
+      "active_nursing_question_count": 0,
+      "active_nursing_question_ids": [],
+      "mapped_substantive_sections": [],
+      "existing_material_candidates": [],
+      "note_presence_is_not_taught_coverage": true,
+      "source_status": "NO_NURSING_SECTION_SOURCE",
+      "independent_review_status": "NOT_ASSESSED"
+    }
+  ],
+  "published_study_pdf_assets_before": [
+    {
+      "lesson_id": "cse-percent-and-ratio-reasoning",
+      "path": "public/study-resources/cse-percent-and-ratio-reasoning.pdf",
+      "sha256": "fd4ad59c7054599be0ccbcc8d8f967ff6f3afc10bca2fdeb53a53ddbf3cce99e",
+      "lesson_sha256": "3b848ed6f815dd88a826bf791917d375bc7a19396f9608d4eaa4043186e35846"
+    },
+    {
+      "lesson_id": "ree-dc-circuit-analysis",
+      "path": "public/study-resources/ree-dc-circuit-analysis.pdf",
+      "sha256": "6dbd8a072080120f87e5fb781e1c15270b97e8d0db70532e668092b6121d37dc",
+      "lesson_sha256": "e4b08d84e9ac175ecba528ac7ff3ed8e9e1d02374a57ede6a8e423570ae742cf"
+    },
+    {
+      "lesson_id": "let-assessment-evidence-and-feedback",
+      "path": "public/study-resources/let-assessment-evidence-and-feedback.pdf",
+      "sha256": "6ccb30084a8829e26d4af003e940a9922fd5fcf54dcc12c305e8eaa24fac5f17",
+      "lesson_sha256": "523934d947bad82bdce232b93c001c7c94d6a377dc6df25df96f20442fde773f"
+    },
+    {
+      "lesson_id": "cle-scene-documentation-and-evidence-custody",
+      "path": "public/study-resources/cle-scene-documentation-and-evidence-custody.pdf",
+      "sha256": "b201ade77622273df39b9ebac8550ad736401edfd81304783d40840d7a6d67ca",
+      "lesson_sha256": "5178b355ec37f86ca0cfd16b0e12fe9f38cf6f9c5fa7158b1bce3275705e9d69"
+    },
+    {
+      "lesson_id": "nursing-standard-and-transmission-precautions",
+      "path": "public/study-resources/nursing-standard-and-transmission-precautions.pdf",
+      "sha256": "d2ae5aa1ce09e3d111a37c66c84a226bad724ad03ea96ba3f8e0ef52bfbb343f",
+      "lesson_sha256": "816d54c3124803b3b49a72951b3916eaf30dec11ecba40722a5baeaec9360acb"
+    },
+    {
+      "lesson_id": "psychometrician-reliability-and-score-precision",
+      "path": "public/study-resources/psychometrician-reliability-and-score-precision.pdf",
+      "sha256": "b922933699b198d42d82cc61278e1ee5cff67edcc68bcecb56e66e908294d29e",
+      "lesson_sha256": "40253daa777ddad085a1bda6096b22af8dd980b17bf046d7310e1d0a6e42478e"
+    },
+    {
+      "lesson_id": "ce-beam-equilibrium-and-response",
+      "path": "public/study-resources/ce-beam-equilibrium-and-response.pdf",
+      "sha256": "2eddbc720aa1952b657b37348fb38223842884db61ec0ad06656276fff37e5fe",
+      "lesson_sha256": "36759772ec9f4a8df31c338c7fbe1c3bc9096787c8e6e57d4730f72636b40244"
+    },
+    {
+      "lesson_id": "cpa-audit-evidence-and-assertion-testing",
+      "path": "public/study-resources/cpa-audit-evidence-and-assertion-testing.pdf",
+      "sha256": "c39e97e79ab092463230562acfbb0ccde96c3f372cc082e108819b087c25bb18",
+      "lesson_sha256": "d20259a05daaef2c4586310584bb1e8545833c81a146cfdc1fbbe15c98fdf514"
+    },
+    {
+      "lesson_id": "me-ideal-gas-process-and-cycle-accounting",
+      "path": "public/study-resources/me-ideal-gas-process-and-cycle-accounting.pdf",
+      "sha256": "e5561eb328b5c6c7044783473d2dfae4b04b0469834979125959362f186bec76",
+      "lesson_sha256": "fcb97d59a6bdb05a353ec4eeda1848d1bb123bf0e723edf1f2bc4b3f6459329c"
+    },
+    {
+      "lesson_id": "architecture-site-analysis-and-design-response",
+      "path": "public/study-resources/architecture-site-analysis-and-design-response.pdf",
+      "sha256": "5680c8483dd53b537c6875177d6b3bd47fc16d23b828fa1f04011d2fe5e68c7d",
+      "lesson_sha256": "962ef93cf4cf25e3c143c832502f696b2990ea80a299f7649612f347656f256a"
+    },
+    {
+      "lesson_id": "let-values-ethical-reasoning-basics",
+      "path": "public/study-resources/let-values-ethical-reasoning.pdf",
+      "sha256": "7390341737323eeb7a1f1078f982fb92d2239f457ac3f36ed94a8ff567122178",
+      "lesson_sha256": "ca755c328ab5587f5f3b952d1434d33157c16a0de088d383cb57ab2a664792ec"
+    },
+    {
+      "lesson_id": "let-early-childhood-learning-and-inclusion",
+      "path": "public/study-resources/let-early-childhood-learning-and-inclusion.pdf",
+      "sha256": "4775b5a6235e389151cd196731b249317e7ec40fb5f63ce3a0b377eb6dc00159",
+      "lesson_sha256": "ef66b3cfdbad9f2c98b5b8825f1eb32c85e05a61e09819e762c9ee21ed3b6f19"
+    },
+    {
+      "lesson_id": "let-special-needs-inclusive-education",
+      "path": "public/study-resources/let-special-needs-inclusive-education.pdf",
+      "sha256": "b0447c37234eb0a7f254b2f4321f77cd7e4809ce47598251164e108d9282c097",
+      "lesson_sha256": "4e981c1bd7ce4575da30fb6de1bb5ce24a28966ce691a74a83f2c5b7aa2b2a1e"
+    },
+    {
+      "lesson_id": "let-tvted-competency-based-teaching",
+      "path": "public/study-resources/let-tvted-competency-based-teaching.pdf",
+      "sha256": "405867339c38ee62a7e6937a76d90757798ef032301b47ab8a89963b7dd53447",
+      "lesson_sha256": "c06e1cca148b723906ed5556cd8826c75f49f95a7a523f0d85e7eeb5e871ffe1"
+    },
+    {
+      "lesson_id": "let-culture-arts-learning-foundation",
+      "path": "public/study-resources/let-culture-arts-learning-foundation.pdf",
+      "sha256": "dd15aa0b95ced497801c8e25877cbc99c04ec47b5dab54e4108e60b87e7e576e",
+      "lesson_sha256": "13e3ff1f83fe8a65d7c5dd8af729d4c3d3ebd7a15959e2cc33a250eed9f94b29"
+    },
+    {
+      "lesson_id": "let-physical-education-movement-and-safety",
+      "path": "public/study-resources/let-physical-education-movement-and-safety.pdf",
+      "sha256": "5c1c84e559386bf1817a93160b39acb3d8121a70360c52d6088d1543018cf833",
+      "lesson_sha256": "2f8eb7834b12e541aadd12ed81176df34a0bf04136dc0b0622b2437275f73d33"
+    },
+    {
+      "lesson_id": "architecture-building-systems-and-construction",
+      "path": "public/study-resources/architecture-building-systems-and-construction.pdf",
+      "sha256": "8a8f7dc0b502354b588e7ecca8013c36beab66c185479c86665b3bb7ba750dc9",
+      "lesson_sha256": "d0beb43d49de7635708274cd077180cbfd88e5bdfdc4e2ab63cb3753d85130e1"
+    },
+    {
+      "lesson_id": "psychometrician-abnormal-psychology-classification-and-assessment",
+      "path": "public/study-resources/psychometrician-abnormal-psychology-classification-and-assessment.pdf",
+      "sha256": "97e77480461396426038118410643a1c6d337f37c650ab7181c98e2ed88fda94",
+      "lesson_sha256": "40ad67177401c4103ba9dabd1938da402ab02c2f9501b30f25bf706fd96dae22"
+    },
+    {
+      "lesson_id": "psychometrician-work-psychology-job-analysis-and-evaluation",
+      "path": "public/study-resources/psychometrician-work-psychology-job-analysis-and-evaluation.pdf",
+      "sha256": "c82d0dcac391f608fe015ec01c0b4c2b92e44cf726372e6d957e9e73fa4add89",
+      "lesson_sha256": "d6a8f7872a4abf2e238f4f2adf44d942db882a4e0b6867618682cffa75e0f5df"
+    },
+    {
+      "lesson_id": "psychometrician-developmental-psychology-review",
+      "path": "public/study-resources/psychometrician-developmental-psychology-review.pdf",
+      "sha256": "8a1f82b2e24b941110903a5a744c1dd3d307cb4bc925d5f57afdd8979aeee241",
+      "lesson_sha256": "0fd233226c9594954ced51bc30b49f0a7a6684185b29ad16ebe403f5a358f00e"
+    },
+    {
+      "lesson_id": "architecture-planning-and-practice-decisions",
+      "path": "public/study-resources/architecture-planning-and-practice-decisions.pdf",
+      "sha256": "a1790c60197892f0b9faf6e044086bf2db8536bb42bb1dc60912e0fd3a4e5a7c",
+      "lesson_sha256": "c0ba764227e4f84228b1c0c9963d4ee0cf8fd1a597571305b2b438f2990d16b3"
+    },
+    {
+      "lesson_id": "architecture-history-theory-and-conservation",
+      "path": "public/study-resources/architecture-history-theory-and-conservation.pdf",
+      "sha256": "b0c6cd3b0b83e2c1ba9a15c4b43edcf41bec924895f1aa967d645f0513c6fd26",
+      "lesson_sha256": "a37fcba10ece18c82476dd0fc47bafdb36e87c6c8dfe2c2e3fc9144afd3ad077"
+    },
+    {
+      "lesson_id": "ce-applied-methods-layout-and-delivery",
+      "path": "public/study-resources/ce-applied-methods-layout-and-delivery.pdf",
+      "sha256": "9798e01ba9dead975947f1c1f64b2ff919e845b4aae11b343726e7c1b60ddccb",
+      "lesson_sha256": "23620f616f3c9c8db3ba6d33f51cbfb1aed4f7fb203c51162493465865005ed4"
+    },
+    {
+      "lesson_id": "ce-hydraulics-soil-and-foundation-reasoning",
+      "path": "public/study-resources/ce-hydraulics-soil-and-foundation-reasoning.pdf",
+      "sha256": "1b6d05a8903ed5a50ed0178bbf9e265b3378c1ec41de59f5dc0a18bd7528a6d9",
+      "lesson_sha256": "f857c1731156dcaeef7027458945c8e5944e07d24712fa595a8fa98093d4de57"
+    },
+    {
+      "lesson_id": "ce-structural-equilibrium-and-member-response",
+      "path": "public/study-resources/ce-structural-equilibrium-and-member-response.pdf",
+      "sha256": "719e55f0a82c7e3c8d7e40a58c03e56e8b6f5295879f253175834287c6e66478",
+      "lesson_sha256": "c62d6c2b4bc0ea4605106a4e862dba279ef4814264a800038b9f3880b2ee2c40"
+    },
+    {
+      "lesson_id": "cse-analytical-reasoning-evidence-and-patterns",
+      "path": "public/study-resources/cse-analytical-reasoning-evidence-and-patterns.pdf",
+      "sha256": "856862b210e2ce598ef03e6fc99844745a859e0d33b2bd2868afa6345d5128c2",
+      "lesson_sha256": "1fc7a37287525da92ed4f85bddcb8b985d675214f1771a69630ef9a78193f9fc"
+    },
+    {
+      "lesson_id": "cse-clerical-records-filing-and-proofreading",
+      "path": "public/study-resources/cse-clerical-records-filing-and-proofreading.pdf",
+      "sha256": "41273da566420d32008c5383ad989ac24acde1e32fb44c7c91b21fc81564c60e",
+      "lesson_sha256": "61048b000f026f802d693ed412c1606adab5bf27d83584ba7a0d27fa1166ab0a"
+    },
+    {
+      "lesson_id": "cse-civic-rights-ethics-and-environment",
+      "path": "public/study-resources/cse-civic-rights-ethics-and-environment.pdf",
+      "sha256": "fd44b4cac7135469e32ea3d5537fbe4c3bf72088830fc52ae1ad712a2ec0f2cd",
+      "lesson_sha256": "f48be4e3aaae2ad3c6d11c44a8bb69e33e3600050d11f43a60b6a37c110243d2"
+    },
+    {
+      "lesson_id": "cse-verbal-reading-grammar-and-cohesion",
+      "path": "public/study-resources/cse-verbal-reading-grammar-and-cohesion.pdf",
+      "sha256": "5c6f7e65e70f6e2135009a0c7c446e0f8fbbd0a9516d9c5f4be296b1cbe77042",
+      "lesson_sha256": "a665f30e84d3c35f92c8af3d8d03863912e3e800b5d5060f04fbb0c640bae01e"
+    },
+    {
+      "lesson_id": "cpa-advanced-accounting-ownership-and-consolidation",
+      "path": "public/study-resources/cpa-advanced-accounting-ownership-and-consolidation.pdf",
+      "sha256": "7e649df4bab152c6eac2f333f1432c88cf48f9f9dab4ee387a36118d287a1653",
+      "lesson_sha256": "35dcdbdbc0823ea9c6748e92f97d6da74170eb1c5cc1f6eaf736bc0d84d98433"
+    },
+    {
+      "lesson_id": "cpa-financial-accounting-recognition-measurement-and-reporting",
+      "path": "public/study-resources/cpa-financial-accounting-recognition-measurement-and-reporting.pdf",
+      "sha256": "0d4ab458c293169a0eb77216d027e5b3cd794fa37d0b5495dfca2479078c3f23",
+      "lesson_sha256": "6fe3214e3433992e0ef4454be0c53526809e6125c51d03dfd95e0d33823394b4"
+    },
+    {
+      "lesson_id": "cpa-management-services-cvp-and-decisions",
+      "path": "public/study-resources/cpa-management-services-cvp-and-decisions.pdf",
+      "sha256": "a3bb695a3d56f4073649c15d79b3fbeea9ad85416e943abfa8376b538ae69b2a",
+      "lesson_sha256": "3424fcfd3c38ba09a7f5dc4c73bcdde235074fcc28d22d8f64b075e741090b05"
+    },
+    {
+      "lesson_id": "cpa-regulatory-framework-law-ethics-and-evidence",
+      "path": "public/study-resources/cpa-regulatory-framework-law-ethics-and-evidence.pdf",
+      "sha256": "fb5962ac03776b1fdd447e3bac65fdf595e75e854f418af160abbd882ce2e996",
+      "lesson_sha256": "24ed4aa64672f3a0d03b9e5878536c13a70d5740810391d384e5362cd5571ec7"
+    },
+    {
+      "lesson_id": "cpa-taxation-computation-and-current-law-workflow",
+      "path": "public/study-resources/cpa-taxation-computation-and-current-law-workflow.pdf",
+      "sha256": "a6b3a0f91045386ed446dbb6c7fa5cbe1e02e6f38370cdc4e18b919b6e226d5c",
+      "lesson_sha256": "7b847d73f3798d22da5c8bed79144b90ab107caa7c9ec96befed8a4575d8b8f3"
+    },
+    {
+      "lesson_id": "let-english-reading-language-and-composition",
+      "path": "public/study-resources/let-english-reading-language-and-composition.pdf",
+      "sha256": "4181c67e7509a769f5acf8faefd1b721261a05804a354c85d9f51ea2be2dc67c",
+      "lesson_sha256": "bcc89d9ee4d3e024a15f50b731257c397830b09b94c14880cc4dfb629a83be08"
+    },
+    {
+      "lesson_id": "let-filipino-pagbasa-wika-at-pagsulat",
+      "path": "public/study-resources/let-filipino-pagbasa-wika-at-pagsulat.pdf",
+      "sha256": "f7f972ad4ab48c372b196efb4c9bb356e0afec4f8b4d0588651f6c61f68b1cdd",
+      "lesson_sha256": "be685891d419e301f35dcb6acea0650d3769483892f2fe06e4c314d8d2bc0940"
+    },
+    {
+      "lesson_id": "let-mathematics-models-and-quantitative-reasoning",
+      "path": "public/study-resources/let-mathematics-models-and-quantitative-reasoning.pdf",
+      "sha256": "61b905c437ab5df2a990b6fc959b3d0d300126d706a2580a437a013f1a2ab51e",
+      "lesson_sha256": "f4814b51d3cbc6a1098ac8d3f4243fa0aea26a59a2041a193058f136b5f52394"
+    },
+    {
+      "lesson_id": "let-science-inquiry-systems-and-evidence",
+      "path": "public/study-resources/let-science-inquiry-systems-and-evidence.pdf",
+      "sha256": "9bfaa58f97e25cc8f2feafcc591d067a495e458d33c39e79819ca4f63f98eca8",
+      "lesson_sha256": "7243b1a4cc2020532f6a96e276cea0a7fb5f2e856d7d7370f372958fd59972a8"
+    },
+    {
+      "lesson_id": "let-social-studies-source-civic-and-historical-reasoning",
+      "path": "public/study-resources/let-social-studies-source-civic-and-historical-reasoning.pdf",
+      "sha256": "71c5a862d05c19e4ceee64019921a5ac0c2ee0acb7bb79b02882d9e96ee35a54",
+      "lesson_sha256": "4e911c54f2b847eb7a7b316f1040351f5f142d80c12db5913e7d9b7391d3b527"
+    },
+    {
+      "lesson_id": "let-tle-safety-competency-and-practice",
+      "path": "public/study-resources/let-tle-safety-competency-and-practice.pdf",
+      "sha256": "22790173513e378f5561e9e83d4fed9dab715a704be51a50038bee7f34bef55f",
+      "lesson_sha256": "df98891c657a0b6eae359ce2d0fc1751a13d749298639541ae72a03cad6d7c24"
+    },
+    {
+      "lesson_id": "me-machine-design-stress-materials-and-shop",
+      "path": "public/study-resources/me-machine-design-stress-materials-and-shop.pdf",
+      "sha256": "ad5dafbf60fe12ad899a12eeb96fde4f5e7359ff3c28a62c5e3d2b713f792b72",
+      "lesson_sha256": "7ae603604814d873abe6b2152933ac1218b39123593c3f844d5814d3e4641492"
+    },
+    {
+      "lesson_id": "me-mathematics-engineering-models-and-units",
+      "path": "public/study-resources/me-mathematics-engineering-models-and-units.pdf",
+      "sha256": "29ac55c42eb8a51bf08c1e76cde264c192909d590d90881ea25e0233878c3acb",
+      "lesson_sha256": "d148a8ce9450ec11380963208674152f1b879b3da314b8842447a091da49630c"
+    },
+    {
+      "lesson_id": "me-power-plant-energy-cycles-and-heat-transfer",
+      "path": "public/study-resources/me-power-plant-energy-cycles-and-heat-transfer.pdf",
+      "sha256": "c56c158ed0e455cddef787d10cd3345f7d842993acb59a3d81dcc976b4b236bc",
+      "lesson_sha256": "a300babde676b0216e674757bfd025dd4b336f8135df199529851f9373a4b23a"
+    },
+    {
+      "lesson_id": "psych-assessment-evidence-validity-and-fair-use",
+      "path": "public/study-resources/psych-assessment-evidence-validity-and-fair-use.pdf",
+      "sha256": "6899b656af484b4ad8d8632d8d2420a63b82b819231f9d511e09fca4b628d843",
+      "lesson_sha256": "b7afc95424f2c1c9d9a5878a01f35087a61873b8cf4a4f53dd60284f0045a179"
+    },
+    {
+      "lesson_id": "ree-professional-circuits-power-and-measurement",
+      "path": "public/study-resources/ree-professional-circuits-power-and-measurement.pdf",
+      "sha256": "e46d3b632aa1b3ea4693eb42f58563f6d4e5ea90608bb9f4fdae8d630cfdb5cb",
+      "lesson_sha256": "3367b796ec344fb0ec93556a5b543fc02fe71fd7346e7386f4e2d63d91ee349b"
+    },
+    {
+      "lesson_id": "ree-allied-mechanics-thermal-electronics-and-practice",
+      "path": "public/study-resources/ree-allied-mechanics-thermal-electronics-and-practice.pdf",
+      "sha256": "cfffc43996f2fb1e17d25e656441e0ad356fbd7781cad3c56cd8e73f67a1af99",
+      "lesson_sha256": "d2f5a717b857df2cf37d890d0850b7fb67823233283c66de40271b0804c7ddbb"
+    },
+    {
+      "lesson_id": "ree-mathematics-linear-systems-complex-models-and-data",
+      "path": "public/study-resources/ree-mathematics-linear-systems-complex-models-and-data.pdf",
+      "sha256": "704383932c3b5d28bcd3c0590b112acbca8cf41164a165e059e3e654fb95849b",
+      "lesson_sha256": "15b0b36bc5b7f012bb239f4d959972e9bf03373ad2e1233737e9764e776b9097"
+    },
+    {
+      "lesson_id": "nursing-prioritization-and-team-handoff",
+      "path": "public/study-resources/nursing-prioritization-and-team-handoff.pdf",
+      "sha256": "f37030e3e0709a6969da2b8edc7a014217692e089694f840d7ffd985ffb57d61",
+      "lesson_sha256": "d0121cf6bc8a8a83e2845cbee0e2318976d2924856d9b9f46d9fb767a7e04143"
+    },
+    {
+      "lesson_id": "nursing-medication-safety-and-calculation",
+      "path": "public/study-resources/nursing-medication-safety-and-calculation.pdf",
+      "sha256": "12952847aa40ce9e04fbe08baac772cd36621717423fc4a31d8e0f1054e46be4",
+      "lesson_sha256": "1bd9ddd77e0d934ae0fe9b09152e1283186a3ae0d4eeadc818e1ec39fb7146f1"
+    }
+  ],
+  "protected_hashes_before": {
+    "storage/questions.json": "73cdc775cd7240b57898868d67902d833db1171f947c8dcc89081ddaf46fb4be",
+    "public/study-resources/manifest.json": "35f240bbcc2c534f4bbbe8a7b92330f03d56375ea49603906da407e7fe1b952e"
+  }
+}
