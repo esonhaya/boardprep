@@ -101,7 +101,8 @@ for old in baseline:
 for item in manifest:
     path=root/item['path']
     data=path.read_bytes()
-    assert hashlib.sha256(data).hexdigest()==item['sha256'], item['lesson_id']
+    digest=hashlib.sha256(data).hexdigest()
+    assert digest==item['sha256'], (item['lesson_id'], digest, item['sha256'])
     reader=PdfReader(str(path))
     text='\n'.join(page.extract_text() or '' for page in reader.pages)
     assert len(reader.pages)>0 and text.strip(), (item['lesson_id'], 'not searchable')
@@ -120,7 +121,7 @@ ACADEMIC_REVIEW_STATUS=REVIEW_REQUIRED; 42 Nursing exact mappings pending; indep
 PRODUCT_READINESS=Restricted academic-review candidate only; not approved for public launch
 UNRELATED_WORK_PRESERVED=YES
 PUSH_STATUS=NOT_PUSHED
-CLIPBOARD_STATUS=FINAL_CHECK_PENDING
+CLIPBOARD_STATUS=UNVERIFIED; termux-clipboard-set and termux-clipboard-get exited 0 but readback was empty; SHA-256=e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 
 ## Next checkpoint
 
