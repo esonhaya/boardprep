@@ -1,60 +1,127 @@
 # BOARDPREP — BATCH 703
-## NURSING CURRICULUM EXPANSION / EVIDENCE / LEARNER INTEGRATION
+## NURSING EXPANSION — RECOVERY AND FINAL DELIVERY REPORT
 
-### BASELINE
-- `HEAD_BEFORE=cc1990dfc5b4b7752daccf0cdb2d069a8c270136` (B702 final; `bb4d1838b1274aaeceb829a97528b2cb564a013f` is ancestor).
-- 40 Nursing placement rows = 30 NP I–V + 10 shared science; baseline 5/30 NP structural concepts, 3 Nursing lessons/12 sections, 17/20 materials note-only, 11 exact links pending, 49 PDFs, 382/646 global concepts.
-- Inventory was recomputed from canonical taxonomy, lessons, materials, links, sources, eligibility and manifest. Counts are structural, not academic approvals.
+RECOVERY_DATE=2026-10-22
+INTERRUPTION_STATE=UNKNOWN; committed Batch 703 work recovered through 02:05 +0800 on 2026-10-22
+REPOSITORY=/data/data/com.termux/files/home/BoardPrep
+BATCH_WORKTREE=/data/data/com.termux/files/home/boardprep-batch-703
+BRANCH=batch-703-nursing-expansion
+PRIMARY_BRANCH_AT_RECOVERY=batch-695-academic-review
+HEAD_BEFORE=cc1990dfc5b4b7752daccf0cdb2d069a8c270136 (verified Batch 702 final tip and Batch 703 base)
+PRIMARY_HEAD_BEFORE=c3d6b217aed480ebda1c81c1900f907a749befe3
+RECOVERED_HEAD=c3651d946e71a921b011ceca5d377dd12b7d463e
+HEAD_AFTER=c3651d946e71a921b011ceca5d377dd12b7d463e (last verified application/content commit; recovery report commits are documentation-only descendants)
+WORKTREE_STATE=Batch 703 clean after report commit; primary B695 checkout remains dirty as recovered
 
-### ISOLATION
-- Dedicated worktree `/data/data/com.termux/files/home/boardprep-batch-703`, branch `batch-703-nursing-expansion`; based on B702 final. Dirty B695 worktree was not used.
-- Main and B695–B702 refs/worktrees preserved; B695 dirty/untracked work unchanged; two stashes retained. HayaDoctor gitlink `dc4fcda730d9a922f726593746e34ca0c9c0e890` unchanged.
-- B695 protected hashes match: questions `994d1750…a4a6`; flashcard state, lesson links, LET values and question stats `4f53cda1…b945`. B703 canonical questions unchanged: `73cdc775…fb4be`.
-- No learner, attempt, answer, taxonomy, eligibility, flashcard, statistics, score or session data changed. Simulator mutations were fixture-only. No new dependency; free storage ~2.3 GiB; no Doctor/test process left running.
+## Recovery checkpoint
 
-### CURRICULUM INVENTORY / NP I–V COVERAGE
-- NP I 1/6→5/6; II 0/6→4/6; III 1/6→5/6; IV 1/6→3/6; V 2/6→6/6. Total 5/30→23/30; Nursing placement rows 5/40→23/40; global 382/646→400/646. Denominators unchanged.
-- Nursing lessons 3→10; materials with lessons 3/20→10/20; note-only 17→10; sections 12→30, 29/30 meet B703’s >=350-character + explicit concept + registered-source screen. Ten shared science rows remain unmapped.
-- All 40 concept records and remaining note-only IDs are in `batch-703-nursing-coverage-after.json`. Uncovered NP concepts: Disaster, Labor, Newborn, Cellular, Gastrointestinal, Endocrine, Coordination.
+- The Batch 703 branch and isolated worktree already existed. Reflog showed three commits: 2ab088b8 (implementation), e7e7f79 (selected PDF manifest refresh), and c3651d9 (evidence report). No restart or duplicate implementation was created.
+- The Batch 703 worktree was clean at discovery. Its merge base is the Batch 702 final tip cc1990d; bb4d183 is an ancestor implementation checkpoint.
+- No Batch 703-specific interrupted command log or surviving process was found. The primary checkout's .commandcode directory contains only Batch 460/461 files. The focused tests were rerun because prior evidence did not prove their status after the interruption.
+- The recovered report recorded one resolved PDF check failure at 2ab088b: five generated lesson hashes were stale after practice-link edits. Commit e7e7f79 refreshed the selected manifest entries; the fresh full manifest check passes.
+- The primary B695 worktree was not used for implementation or tests. Its tracked question edits and untracked assets/data were preserved. Both stashes, all listed worktrees/branches, and the HayaDoctor pin dc4fcda730d9a922f726593746e34ca0c9c0e890 remained unchanged.
 
-### SUBJECTS / MATERIALS / CONCEPTS DEEPENED
-- Seven existing materials now have lessons: `nursing-community-risk-and-prevention`; `nursing-maternal-family-assessment`; `nursing-oxygenation-fluid-immunity-assessment`; `nursing-perioperative-verification`; `nursing-nutrition-and-sensory-assessment`; `nursing-therapeutic-communication-and-crisis`; `nursing-emergency-assessment-and-shock`.
-- 18 concepts: NP I Community, Prevention, Epidemiology, Vulnerable; NP II Prenatal, Postpartum, Development, Family; NP III Oxygenation, Fluids, Immunity, Perioperative; NP IV Nutrition, Perception; NP V Therapeutic, Crisis, Emergency, Shock.
-- 18 stable sections, 23 objectives, 19 worked examples, 30 misconceptions/corrections. Includes contextual assessment/escalation, denominator reasoning, feeding observation, teach-back, medication/clinical-order boundaries, safety stops, ABCDE and perfusion change.
+RECOVERED_COMMITS=
+- 2ab088b8da8207c65ad55449958c61e6f7026b6c — Nursing lessons, sources, exact mappings, tests, review packet, coverage snapshots, mapping audit, and seven PDF assets.
+- e7e7f7926b085cf4ce3baae7db250056ac987e67 — selected manifest refresh for changed PDF evidence.
+- c3651d946e71a921b011ceca5d377dd12b7d463e — initial completion evidence report.
 
-### SOURCES / LIMITATIONS
-- Registry 276→295 (+19): 11 web-text checked; remaining entries explicitly flag currentness, local/intermittent 403, inaccessible PDF or metadata-only access. No unavailable citation is marked verified.
-- Used [CDC Core Practices](https://www.cdc.gov/infection-control/hcp/core-practices/), [WHO Basic Emergency Care](https://www.who.int/publications/i/item/9789241513081), [WHO pre-eclampsia factsheet](https://www.who.int/news-room/fact-sheets/detail/pre-eclampsia), [WHO checklist manual](https://www.who.int/publications/i/item/9789241598590), and relevant [Open RN nursing texts](https://wtcs.pressbooks.pub/nursingfundamentals/). PRC 2025 TOS/August 2026 program support exam scope only.
-- AHA/ASA sources are U.S.-based; currentness/applicability pending, no regimen/threshold taught. LET Q62/Q63/Q65/Q152 remain flagged: [DepEd index](https://www.deped.gov.ph/2026/06/?cat=8) lists DO 015 s.2026, full PDF returned 403. Philippine PSA 500 adoption/version unresolved. PPH protocol text/local pathway unavailable for Q1514/Q3856/Q3944. Q3974 Philippine legal support unavailable. No related approval or unsupported link.
+RECOVERED_FILES=storage/study-lessons.json; storage/study-question-links.json; storage/sources.json; learner navigation views; PDF generator; manifest; seven new Nursing PDFs; Batch 703 test; coverage before/after; mapping audit; academic-review packet; expansion report.
 
-### CANONICAL QUESTIONS / EXACT MAPPINGS
-- Full stems, choices, keys and rationales checked for 31 exact candidates; seven near-duplicate cohort items were added after full comparison. All active and Nursing-eligible. No canonical question/answer/blueprint/eligibility data changed; prior study-link `source_ids` were retained and section sources appended.
-- 31 new exact links: 15 in-place source-only upgrades +16 new material/question rows; 11 B702 exact links preserved =42 total. All 42 pending independent review; approvals=0. Portfolio pending 55→86; `section_id` rows 1,013→1,044; explicit lesson+section rows 31→62. Of 878 active Nursing questions, 836 remain without explicit lesson-section links (source-only/unmapped).
-- New QIDs: `1018,1556,3853,3864,3874,3894,3914,3924,3945,3946,3948,3964,3975,3976,3984,3994,4014,4024,4044,4074,4104,4114,4124,4134,4883,4933,4957,4993,5025,5053,5113`.
-- Held/rejected: Q1514/Q3856/Q3944 (PPH evidence); Q3974 (legal evidence); Q4239 (CPA, prior rejection preserved). Q1018 has a specific self-harm section; its `nle-np-v-teamwork` taxonomy flag remains. Q3853 is suctioning/PPE, not community outbreak; existing PPE section link remains review-pending. Audit has stem-to-section rationale and exclusions.
-- B701/B702’s 55 pending links, Q617/Q627 drafts and five taxonomy flags unchanged; B695’s 276-question cohort isolated.
+## Coverage and workstream status
 
-### LEARNER JOURNEY / PDFS
-- HttpSimulator production flows: Nursing subject→lesson→section→exact pool→submission→answer review→supporting anchor; correct, incorrect, repeated and recovery paths. All 18 pools verified; cross-board LET English rejection verified. No scoring/session/privacy changes.
-- Seven new searchable PDFs; Nursing 3→10, total manifest 49→56. Extracted section source headings verified; all 49 old paths/hashes unchanged. Five changed lesson records required selected manifest refresh; no unrelated PDFs changed.
+| Workstream | Status | Verified state |
+|---|---|---|
+| Complete 40-concept Nursing matrix | COMPLETE | The before/after snapshot contains all 40 Nursing placements, including 30 NP I–V and 10 shared-science rows. |
+| Substantive NP I–V teaching | COMPLETE | 18 additional concepts have sections; NP structural coverage rose from 5/30 to 23/30. Overall Nursing structural coverage rose from 5/40 to 23/40. |
+| Deepen existing Nursing materials | COMPLETE | Seven additional existing materials now have lessons; Nursing lessons rose from 3 to 10. |
+| Sources and provenance | PARTIAL | 19 source records were added. Recovery access checks and source limits are recorded in the academic packet; inaccessible source text, local protocol evidence, and independent nursing review remain open. |
+| Canonical Nursing question audit | COMPLETE | 31 new exact mapping candidates were audited; the 11 B702 exact mappings remain. All 42 remain independently review-pending; approvals=0. Rejected/held links and the Q1018 taxonomy flag remain separate. |
+| Practice and answer-review navigation | COMPLETE | Production HTTP simulation covered all 18 new section pools, lesson pages, correct/incorrect answers, repeat practice, return anchors, and cross-board rejection. |
+| Searchable PDFs and manifest | COMPLETE | Seven new Nursing PDFs; 56 manifest entries total. All 56 files hash-match and have extractable text. All 49 earlier PDF paths/hashes are unchanged. |
+| Focused validation | COMPLETE | Fresh tests, lint, source/study integrity, HTTP, and PDF checks passed at recovered SHA c3651d9. |
+| Reports and review handoff | COMPLETE | Coverage, mapping audit, academic packet, and this recovery-aware final report are present. |
+| Independent nursing academic approval | REVIEW_REQUIRED | No nurse educator or clinician approval was supplied. Restricted review candidate only. |
+| Browser acceptance | BLOCKED | Termux/Android has no Chromium, Firefox, Playwright executable, or Node Playwright module. No browser acceptance is claimed. |
 
-### VALIDATION (COMMAND / EXIT / SHA)
-- `php tools/Tests/Batch703NursingExpansionTest.php` — 0, `2ab088b8da8207c65ad55449958c61e6f7026b6c`.
-- `php tools/Tests/Batch702NursingDepthTest.php`, `php tools/Tests/Batch678StudyReviewNavigationTest.php`, `php tools/Tests/QuestionStudyReferenceTest.php`, `php tools/Tests/StudyPdfSelectedGenerationTest.php` — each 0 at `2ab088b8da8207c65ad55449958c61e6f7026b6c`.
-- Seven changed PHP files `php -l` + `git diff HEAD^ --check` — 0 at `e7e7f7926b085cf4ce3baae7db250056ac987e67`.
-- `php tools/generate-study-pdfs.php --check` — 0 at `e7e7f7926b085cf4ce3baae7db250056ac987e67`, 56 entries. Python/pypdf text+hash check — 0, old 49/49 and new 7/7 pass.
-- Initial PDF check failed (exit 1 at `2ab088b8…`) on five stale lesson hashes after practice-link edits; five-only selected refresh exit 0, then full check passed. No unresolved test failure.
+### Coverage figures
 
-### EVIDENCE REUSE / REVIEW STATUS
-- Reused B700 Full Doctor at `d4018000ecd1286384b7dbbaec76bf46fe0b6332` for ten-board HTTP, flashcards, learner isolation and P0/P1=0; eligibility, board selection, scoring, session/privacy and flashcard code unchanged. Older SHA does not validate B703 lessons/views/PDFs.
-- B703 integration evidence at `2ab088b8…` remains valid at `e7e7f792…`: descendant only refreshes generated manifest lesson hashes; fresh PDF check tests that boundary.
-- Full Doctor/ten-board rerun not justified. Browser probe: no Chromium/Chrome/Playwright (`BROWSER_BLOCKED=DEPENDENCY_MISSING`). No hosted browser, human acceptance or deployment. External phone checklist: 360–390 px; seven lessons, source disclosures/PDFs, anchors/pools, correct/incorrect/repeat review, keyboard/screen reader, cross-board rejection.
-- Restricted academic-review candidate: YES. Independent academic approval: NOT PROVIDED. Product/public launch: NOT APPROVED.
+| Measure | B702 baseline | B703 after | Meaning |
+|---|---:|---:|---|
+| Nursing placements with substantive lesson section | 5/40 | 23/40 | Structural screen only; not academic approval. |
+| NP I–V concepts | 5/30 | 23/30 | 7 NP concepts remain without substantive section mappings. |
+| Nursing lessons / sections | 3 / 12 | 10 / 30 | 18 new stable sections; 29 of 30 total sections pass the report's structural substantive screen. |
+| Note-only Nursing materials | 17/20 | 10/20 | Shared-science placements remain separately listed. |
+| Nursing exact lesson-section links | 11 | 42 | 31 new technical candidates; all remain pending independent review. |
+| Portfolio pending exact section review | 55 | 86 | No pending item was promoted to approved. |
+| Global structural coverage | 382/646 | 400/646 | 18 additional Nursing concept-section associations; denominator unchanged. |
+| Nursing study PDFs / total manifest PDFs | 3 / 49 | 10 / 56 | Seven searchable files added; prior assets preserved. |
 
-### DATA / DIFF / COMMITS / STATUS
-- Protected refs/stashes and HayaDoctor pin preserved; no push, merge, tag or deployment. Implementation diff: 22 files, +10,121/−38; seven PDFs 7.8–20.0 KB each. No new dependency.
-- `2ab088b8da8207c65ad55449958c61e6f7026b6c` — content, mapping, tests and packet. `e7e7f7926b085cf4ce3baae7db250056ac987e67` — selected PDF manifest refresh. Final report is a docs-only descendant; exact final HEAD is given in completion response. Dedicated B703 worktree clean after report commit.
-- Unresolved: 18 sections/31 links need independent Nursing review; seven NP and ten shared-science gaps; 836 source-only Nursing QIDs; listed source/currentness/local-pathway issues; browser/human/privacy/HTTPS acceptance.
-- Next: nurse-educator review of packet and exact pools; then source-first Disaster, Labor/Newborn, Cellular, GI, Endocrine, Coordination.
-- `REPORT_PATH=docs/reports/batch-703-nursing-expansion.md`
-- `CLIPBOARD_STATUS=UNVERIFIED; termux-clipboard-get returned empty readback`
+The 40-row coverage matrix is complete as an audit. It does not mean all 40 concepts are taught: seven NP concepts and ten shared-science concepts remain unmapped. Of 878 active Nursing questions, 836 still have no explicit lesson-section relationship.
+
+### Sources and academic limits
+
+The registry grew from 276 to 295 records. The 19 new references were rechecked on 2026-10-22. Full text was retrieved for ten Open RN chapters and the WHO pre-eclampsia factsheet. Official WHO landing pages confirmed metadata/scope for the 2009 surgical checklist manual and the 2025 postpartum-haemorrhage guideline, but their full manuals were not independently retrieved. Direct AHA/ASA article opens returned 403; official indexed text confirmed titles and scope. The DepEd June 2026 index confirms DO 015, s.2026 title/date, while its PDF returned 403. The AASC PSA 500 PDF was inaccessible. Two Open RN pages also returned 403. These limits, source URLs, and the exact claims checked are recorded in the academic-review packet.
+
+The AHA/ASA material is U.S.-based and does not establish Philippine currentness or applicability. No local PPH pathway, DepEd operative provision, or current Philippine PSA 500 adoption was inferred. The PPH-specific candidates Q1514/Q3856/Q3944 and legal-support candidate Q3974 remain without new exact links; Q4239's prior CPA rejection remains. Q3853 remains limited to the existing PPE context, not a community-outbreak section. Exact review flags are unchanged and independent.
+
+## Validation evidence
+
+All commands below were freshly run at recovered HEAD c3651d946e71a921b011ceca5d377dd12b7d463e unless noted. Exit code 0 means the command completed successfully. The final documentation commits change no application, content, manifest, test, or learner-state files; this evidence remains applicable to the final report head.
+
+| Command/check | Result | Evidence |
+|---|---|---|
+| php tools/Tests/Batch703NursingExpansionTest.php | NEWLY_TESTED_PASS; exit 0 | 7 lessons, 18 sections, source registry, eligibility, 31 pending new links, 11 preserved B702 links, rejected cases, all HTTP flows, canonical question hash. |
+| php tools/Tests/Batch702NursingDepthTest.php | NEWLY_TESTED_PASS; exit 0 | Existing Nursing medication/prioritization paths and B702 review state. |
+| php tools/Tests/Batch678StudyReviewNavigationTest.php | NEWLY_TESTED_PASS; exit 0 | Source versus exact mapping distinction and answer-review navigation. |
+| php tools/Tests/QuestionStudyReferenceTest.php | NEWLY_TESTED_PASS; exit 0 | Registered source references versus exact section links. |
+| php tools/Tests/StudyPdfSelectedGenerationTest.php | NEWLY_TESTED_PASS; exit 0 | Selected PDF generation and unchanged-asset reuse behavior. |
+| `git diff cc1990dfc5b4b7752daccf0cdb2d069a8c270136..c3651d946e71a921b011ceca5d377dd12b7d463e --name-only -- '*.php' \| xargs -r -n1 php -l; git diff --check cc1990dfc5b4b7752daccf0cdb2d069a8c270136..c3651d946e71a921b011ceca5d377dd12b7d463e` | NEWLY_TESTED_PASS; exit 0 | All seven changed PHP files linted; committed diff whitespace check passed. |
+| php tools/generate-study-pdfs.php --check | NEWLY_TESTED_PASS; exit 0 | 56 manifest entries. |
+| Python pypdf/hash audit below | NEWLY_TESTED_PASS; exit 0 | 56/56 current hashes and searchable text; 49/49 old paths/hashes retained. |
+| Full Doctor / ten-board HTTP | REUSED_VALID_EVIDENCE | SHA d4018000ecd1286384b7dbbaec76bf46fe0b6332. Eligibility, scoring, privacy/session, and flashcard boundaries are unchanged from that tested ancestor; B703-specific HTTP/navigation was freshly tested. This reuse does not establish academic approval or product readiness. |
+| Browser acceptance | DEPENDENCY_MISSING | Android/Termux has no supported browser executable or Playwright module. No browser acceptance claimed. |
+
+The PDF checksum/text audit command was:
+
+```sh
+python3 - <<'PY'
+import hashlib, json
+from pathlib import Path
+from pypdf import PdfReader
+root=Path.cwd()
+manifest=json.loads((root/'public/study-resources/manifest.json').read_text())['files']
+by_id={str(x.get('lesson_id','')):x for x in manifest}
+baseline=json.loads((root/'docs/reports/batch-703-nursing-coverage-before.json').read_text())['published_study_pdf_assets_before']
+assert len(baseline)==49, len(baseline)
+assert len(manifest)==56, len(manifest)
+for old in baseline:
+    current=by_id.get(str(old['lesson_id']))
+    assert current and current.get('path')==old['path'] and current.get('sha256')==old['sha256'], old['lesson_id']
+for item in manifest:
+    path=root/item['path']
+    data=path.read_bytes()
+    assert hashlib.sha256(data).hexdigest()==item['sha256'], item['lesson_id']
+    reader=PdfReader(str(path))
+    text='\n'.join(page.extract_text() or '' for page in reader.pages)
+    assert len(reader.pages)>0 and text.strip(), (item['lesson_id'], 'not searchable')
+print(f'[PASS] {len(manifest)} PDFs hash-match and contain extractable text; {len(baseline)}/49 prior path/hash identities preserved.')
+PY
+```
+
+## Data preservation and delivery
+
+- Batch 703 canonical questions remain at SHA-256 73cdc775cd7240b57898868d67902d833db1171f947c8dcc89081ddaf46fb4be. No question stems, choices, answers, keys, taxonomy, learner attempts, score history, or eligibility data were changed by Batch 703.
+- The HTTP simulator used isolated temporary storage. Primary B695 protected-state hashes matched before and after focused tests: questions 994d17505b66fa883a3d8fa0c4bee2da65d009d34230f6d168dbdb93a4aaf4a6; question-statistics 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945; attempts e968fd3e8a391065ac2314ab9bcff932fc572cbe6024e16b40569b694bbed84b; weakness 37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570; flashcard_state and lesson-material-links 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945.
+- The B695 modified question file, untracked content/assets, and all other unrelated untracked files remain in the primary checkout. Both stashes remain: pre-consolidation 2026-10-13 and nzip-temporary. Branches and worktrees were preserved. No push, merge, tag, or deployment occurred.
+- Final report path: docs/reports/batch-703-nursing-expansion.md. Coverage snapshot: docs/reports/batch-703-nursing-coverage-after.json. Academic packet: docs/reports/batch-703-nursing-academic-review-packet.md. Before snapshot and exact mapping audit are adjacent files in docs/reports.
+
+ACADEMIC_REVIEW_STATUS=REVIEW_REQUIRED; 42 Nursing exact mappings pending; independent approvals=0
+PRODUCT_READINESS=Restricted academic-review candidate only; not approved for public launch
+UNRELATED_WORK_PRESERVED=YES
+PUSH_STATUS=NOT_PUSHED
+CLIPBOARD_STATUS=FINAL_CHECK_PENDING
+
+## Next checkpoint
+
+Obtain independent nurse-educator review of the 30 sections and 42 exact Nursing mappings, including source currentness and Philippine applicability. Resolve the listed access/local-protocol gaps before promoting any review flag. Then continue source-first work on the remaining seven NP and ten shared-science concepts. Keep public launch and browser acceptance unapproved until their separate human and supported-browser gates pass.
