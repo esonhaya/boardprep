@@ -36,6 +36,7 @@ $sessionId = 'batch662-study-library-' . bin2hex(random_bytes(6));
 $http = new HttpSimulator($root . '/public/index.php');
 $boards = json_decode((string) file_get_contents($root . '/storage/boards.json'), true, 512, JSON_THROW_ON_ERROR);
 $materials = json_decode((string) file_get_contents($root . '/storage/study-materials.json'), true, 512, JSON_THROW_ON_ERROR);
+$lessons = json_decode((string) file_get_contents($root . '/storage/study-lessons.json'), true, 512, JSON_THROW_ON_ERROR);
 $sourceRegistry = json_decode((string) file_get_contents($root . '/storage/sources.json'), true, 512, JSON_THROW_ON_ERROR);
 $questionLinks = json_decode((string) file_get_contents($root . '/storage/study-question-links.json'), true, 512, JSON_THROW_ON_ERROR);
 
@@ -177,6 +178,36 @@ try {
         throw new RuntimeException('A direct study-material reference did not resolve to exactly its target.');
     }
 
+    $nursingLesson = null;
+    foreach ($lessons as $candidate) {
+        if (is_array($candidate)
+            && strtolower((string) ($candidate['board_id'] ?? '')) === 'nursing'
+            && ($candidate['status'] ?? '') === 'published'
+            && !empty($candidate['source_review']['checked_at'])) {
+            $nursingLesson = $candidate;
+            break;
+        }
+    }
+    if (!is_array($nursingLesson) || trim((string) ($nursingLesson['material_id'] ?? '')) === '') {
+        throw new RuntimeException('No published Nursing lesson with explicit source-review status was available.');
+    }
+    $nursingDetail = $http->request(
+        'GET',
+        '/study-library',
+        ['material' => (string) $nursingLesson['material_id']],
+        [],
+        [],
+        ['PHPSESSID' => $sessionId]
+    );
+    $reviewDisclosureAt = strpos($nursingDetail['output'], 'independent human academic or clinical approval');
+    $firstInstructionAt = strpos($nursingDetail['output'], '<section class="study-lesson-section"');
+    if (!$nursingDetail['success'] || $nursingDetail['status'] !== 200
+        || $reviewDisclosureAt === false || $firstInstructionAt === false
+        || $reviewDisclosureAt > $firstInstructionAt
+        || !str_contains($nursingDetail['output'], 'class="study-review-disclosure" role="note"')) {
+        throw new RuntimeException('Nursing source-check disclosure was missing or appeared after clinical instruction.');
+    }
+
     $positionalNotesMaterial = null;
     foreach ($materials as $candidate) {
         foreach ((array) ($candidate['notes'] ?? []) as $note) {
@@ -312,6 +343,7 @@ try {
     echo "[PASS] Production study library renders correctly scoped materials for all ten boards.\n";
     echo "[PASS] Indexed browsing preserves all published source and question-link relationships.\n";
     echo "[PASS] A direct material link resolves to one published source-backed resource.\n";
+    echo "[PASS] Nursing lesson review status is disclosed before instructional content.\n";
     echo "[PASS] Positional source-first study notes render their headings and bodies without blank sections.\n";
     echo "[PASS] Source references render as separate, readable list items.\n";
     echo "[PASS] Privacy disclosure and production Developer/Doctor route boundaries are safe.\n";

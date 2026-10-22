@@ -96,6 +96,7 @@ $escape = static fn(mixed $value): string => htmlspecialchars(is_scalar($value) 
                         <section id="boardprep-lesson-<?= $escape($lesson['id'] ?? '') ?>" class="boardprep-study-lesson" aria-labelledby="lesson-title-<?= $escape($lesson['id'] ?? '') ?>">
                             <p class="eyebrow">Original BoardPrep instruction · v<?= (int) ($lesson['version'] ?? 1) ?></p>
                             <h3 id="lesson-title-<?= $escape($lesson['id'] ?? '') ?>"><?= $escape($lesson['title'] ?? 'Study lesson') ?></h3>
+                            <?php if (!empty($lesson['source_review']['checked_at'])): ?><p class="study-review-disclosure" role="note"><strong>Review status:</strong> Source and lesson checks recorded <?= $escape($lesson['source_review']['checked_at']) ?>. These checks do not represent independent human academic or clinical approval.</p><?php endif; ?>
                             <p class="study-lesson-context"><?= $escape($lesson['board_id'] ?? '') ?> · <?= $escape($lessonSubject) ?></p>
                             <div class="study-scope-note"><strong>Official examination scope</strong><p><?= $escape($lesson['scope_note'] ?? '') ?></p></div>
                             <?php if (!empty($lesson['learning_objectives'])): ?><h4>What you will learn</h4><ul><?php foreach ($lesson['learning_objectives'] as $objective): ?><li><?= $escape($objective) ?></li><?php endforeach; ?></ul><?php endif; ?>
@@ -138,7 +139,6 @@ $escape = static fn(mixed $value): string => htmlspecialchars(is_scalar($value) 
                                 <?php $referenceIds = (array) ($lesson[$key] ?? []); if ($referenceIds === []) continue; ?>
                                 <section class="study-material-sources"><h4><?= $escape($heading) ?></h4><ul><?php foreach ($referenceIds as $sourceId): $source = $sourceById[(string) $sourceId] ?? []; if ($source === []) continue; ?><li><a href="<?= $escape($source['url'] ?? '#') ?>" target="_blank" rel="noopener"><?= $escape($source['title'] ?? 'Registered reference') ?></a><?php if (!empty($source['authority'])): ?> · <?= $escape($source['authority']) ?><?php endif; ?><?php if (!empty($source['version'])): ?> · <?= $escape($source['version']) ?><?php endif; ?></li><?php endforeach; ?></ul></section>
                             <?php endforeach; ?>
-                            <?php if (!empty($lesson['source_review']['checked_at'])): ?><p class="muted">Source and lesson checks recorded <?= $escape($lesson['source_review']['checked_at']) ?>. This does not represent human editorial sign-off.</p><?php endif; ?>
                             <p class="page-actions">
                                 <?php if (!empty($lesson['practice_question_ids'])): ?>
                                     <?php if ($isCivilService && $isClericalSubject): ?>
