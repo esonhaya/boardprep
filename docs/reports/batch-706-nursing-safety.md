@@ -128,7 +128,7 @@ WORKTREE_STATE=clean after the final documentation/evidence commit<br>
 UNRELATED_WORK_PRESERVED=YES<br>
 PUSH_STATUS=NOT_PUSHED<br>
 REPORT_PATH=/data/data/com.termux/files/home/boardprep-batch-706/docs/reports/batch-706-nursing-safety.md<br>
-CLIPBOARD_STATUS=UNVERIFIED pending exact-file readback
+CLIPBOARD_STATUS=UNVERIFIED; `termux-clipboard-set` returned 0, `termux-clipboard-get` returned 0 but read back 0 bytes and did not match the report
 
 === NEXT ===
 
