@@ -1,0 +1,234 @@
+{
+  "schema_version": 1,
+  "branch": "batch-707-alpha-finish-line",
+  "worktree": "/data/data/com.termux/files/home/boardprep-batch-706",
+  "implementation_sha": "9ec6aa078f01f544d7731a62102a57baad245399",
+  "records": [
+    {
+      "id": "EV-01",
+      "name": "Browser workflow evidence and history regression",
+      "status": "NEWLY_TESTED_PASS",
+      "command": "php tools/Tests/BrowserWorkflowEvidenceTest.php",
+      "exit_code": 0,
+      "tested_sha": "9ec6aa078f01f544d7731a62102a57baad245399",
+      "scope": "Verified successful/failed workflow records, exact and docs-only ancestry, stale application changes, reverted application changes, first-parent merge application changes, shallow history, unrelated history, and dirty source.",
+      "result": "All assertions passed. The new history query preserves first-parent change semantics while replacing one diff-tree process per descendant with one git log query per evidence record."
+    },
+    {
+      "id": "EV-02",
+      "name": "Production study-library navigation and Nursing review disclosure",
+      "status": "NEWLY_TESTED_PASS",
+      "command": "php tools/Tests/StudyLibraryNavigationTest.php",
+      "exit_code": 0,
+      "tested_sha": "9ec6aa078f01f544d7731a62102a57baad245399",
+      "scope": "All ten board-scoped study libraries, scoped subjects, source/material relationships, empty search, production privacy view, production developer/Doctor route hiding, and Nursing disclosure ordering.",
+      "result": "Passed. The disclosure for a published Nursing lesson appears before the first instructional section.",
+      "fixture": "Temporary 4.5 MB study-content fixture; isolated session; test cleanup completed."
+    },
+    {
+      "id": "EV-03",
+      "name": "Production quiz CSRF and admin-route boundary",
+      "status": "NEWLY_TESTED_PASS",
+      "command": "php tools/Tests/ProductionQuizCsrfTest.php",
+      "exit_code": 0,
+      "tested_sha": "9ec6aa078f01f544d7731a62102a57baad245399",
+      "scope": "Quiz and preference POST protections, valid quiz start, invalid timer recovery, and production 404 for developer, editor, and Doctor routes.",
+      "result": "Passed; isolated temporary storage cleanup completed."
+    },
+    {
+      "id": "EV-04",
+      "name": "Security trust boundaries",
+      "status": "NEWLY_TESTED_PASS",
+      "command": "php tools/Tests/SecurityTrustBoundaryTest.php",
+      "exit_code": 0,
+      "tested_sha": "9ec6aa078f01f544d7731a62102a57baad245399",
+      "scope": "Bounded quiz input normalization, renderable answer choices, malformed explanations/keys, and method enforcement.",
+      "result": "Passed."
+    },
+    {
+      "id": "EV-05",
+      "name": "Learner mobile/accessibility view contracts",
+      "status": "NEWLY_TESTED_PASS",
+      "command": "php tools/Tests/LearnerMobileAccessibilityViewTest.php",
+      "exit_code": 0,
+      "tested_sha": "9ec6aa078f01f544d7731a62102a57baad245399",
+      "scope": "18 structural assertions covering labels, focus, live feedback, choice grouping, mobile controls, wrapping, and privacy navigation.",
+      "result": "Passed. This is markup/view evidence, not a visual browser, screen-reader, or WCAG result."
+    },
+    {
+      "id": "EV-06",
+      "name": "Learner navigation and empty/error states",
+      "status": "NEWLY_TESTED_PASS",
+      "command": "php tools/Tests/LearnerNavigationUxTest.php",
+      "exit_code": 0,
+      "tested_sha": "9ec6aa078f01f544d7731a62102a57baad245399",
+      "scope": "Eight navigation contracts for weak-topic review, study/practice, progress/history, flashcard returns, empty quiz, and empty board recovery.",
+      "result": "Passed."
+    },
+    {
+      "id": "EV-07",
+      "name": "Quiz session resilience",
+      "status": "NEWLY_TESTED_PASS",
+      "command": "php tools/Tests/QuizSessionResilienceTest.php",
+      "exit_code": 0,
+      "tested_sha": "9ec6aa078f01f544d7731a62102a57baad245399",
+      "scope": "Malformed session containers, safe scoring, duplicate answer handling, persistence idempotence, malformed cached results, and resetting stale completion state.",
+      "result": "Passed."
+    },
+    {
+      "id": "EV-08",
+      "name": "Session configuration",
+      "status": "NEWLY_TESTED_PASS",
+      "command": "session_dir=$(mktemp -d); php -d session.save_path=\"$session_dir\" tools/Tests/SessionConfigurationTest.php; remove only files in the created temporary directory",
+      "exit_code": 0,
+      "tested_sha": "9ec6aa078f01f544d7731a62102a57baad245399",
+      "scope": "Strict session IDs and secure/HttpOnly/SameSite cookie configuration in HTTPS simulation.",
+      "result": "Passed; the unique temporary session directory was removed."
+    },
+    {
+      "id": "EV-09",
+      "name": "Fail-closed product readiness regression",
+      "status": "NEWLY_TESTED_PASS",
+      "command": "php tools/Tests/ProductReadinessTest.php",
+      "exit_code": 0,
+      "tested_sha": "9ec6aa078f01f544d7731a62102a57baad245399",
+      "scope": "Current route/feature inventory, mandatory browser and human evidence, privacy owner approval, and fail-closed launch decision.",
+      "result": "Passed: the test confirmed that missing mandatory evidence keeps product feature/launch readiness false."
+    },
+    {
+      "id": "EV-10",
+      "name": "Current product readiness assessment",
+      "status": "BLOCKED",
+      "command": "php tools/product-readiness.php --json",
+      "exit_code": 1,
+      "tested_sha": "9ec6aa078f01f544d7731a62102a57baad245399",
+      "scope": "Current branch launch readiness and evidence register.",
+      "result": "product_feature_complete=false; product_launch_ready=false; open P0/P1/P2/P3 finding counts are zero; current browser evidence is stale; owner-approved privacy terms are absent; 12 human acceptance cases remain NOT_RUN.",
+      "meaning": "Expected fail-closed product blocker result, not an application test failure."
+    },
+    {
+      "id": "EV-11",
+      "name": "Production Doctor preflight only",
+      "status": "NEWLY_TESTED_PASS",
+      "command": "php tools/doctor.php --preflight --json",
+      "exit_code": 0,
+      "tested_sha": "9ec6aa078f01f544d7731a62102a57baad245399",
+      "scope": "Deployment profile, PHP runtime/extensions, production mode, storage paths, canonical JSON, sessions, release identity, and public-data isolation.",
+      "result": "22 pass, 0 warn, 0 fail. This is not Full Doctor or release readiness."
+    },
+    {
+      "id": "EV-12",
+      "name": "Local browser capability probe",
+      "status": "BLOCKED",
+      "command": "node tools/browser-preflight.cjs",
+      "exit_code": 2,
+      "tested_sha": "9ec6aa078f01f544d7731a62102a57baad245399",
+      "scope": "Termux runtime, Playwright driver, system browser, loopback, browser launch, and shutdown capability.",
+      "result": "Android/arm64 Termux; no pinned Playwright package or browser executable; loopback works. No install was attempted."
+    },
+    {
+      "id": "EV-13",
+      "name": "External browser workflow contract",
+      "status": "NEWLY_TESTED_PASS",
+      "command": "node --test tests/browser/browser-ci-contract.test.cjs",
+      "exit_code": 0,
+      "tested_sha": "9ec6aa078f01f544d7731a62102a57baad245399",
+      "scope": "Existing Ubuntu workflow runtime pins, dependency installation, security checks, fixture, browser preflight, suite, provenance, no retries, and explicit Termux blocking.",
+      "result": "4 tests passed. This validates workflow preparation only; the current-SHA browser suite was not executed."
+    },
+    {
+      "id": "EV-14",
+      "name": "Guided study-to-practice production HTTP journey",
+      "status": "REUSED_VALID_EVIDENCE",
+      "command": "TMPDIR=/data/data/com.termux/files/usr/tmp/boardprep-batch706-validation-e0cb58 php -d memory_limit=1G tools/Tests/GuidedLearningJourneyHttpTest.php",
+      "exit_code": 0,
+      "tested_sha": "73feaf6a7ac61f9170e329845fb7891b00e31a42",
+      "scope": "LET board/subject/material/lesson, exact-section practice, correct/incorrect feedback, answer-review return, scoped flashcards, history, progress, and anonymous isolation.",
+      "reuse_limit": "B707 did not change quiz/scoring/session routes; B707 freshly tested study-library navigation and the modified Nursing disclosure. This is HTTP simulation, not browser acceptance."
+    },
+    {
+      "id": "EV-15",
+      "name": "Ten-board end-to-end learner HTTP journeys",
+      "status": "REUSED_VALID_EVIDENCE",
+      "command": "php -d memory_limit=1G tools/Tests/TenBoardLearnerJourneyHttpTest.php",
+      "exit_code": 0,
+      "tested_sha": "e0cb58ebbf4a184188c06ba549b8599598482a28",
+      "scope": "Ten boards: board/subject choice, eligible question selection, answer, 1/1 score, explanation, retry, history/progress, stale-action recovery, and persistence.",
+      "reuse_limit": "The shared selection, scoring, and session boundaries are unchanged in B707. B706 separately tested the Nursing mapping boundary; B707 freshly tests all ten study-library HTTP scopes."
+    },
+    {
+      "id": "EV-16",
+      "name": "Nursing critical mapping safety regression",
+      "status": "REUSED_VALID_EVIDENCE",
+      "command": "TMPDIR=/data/data/com.termux/files/usr/tmp/boardprep-batch706-final-validation php -d memory_limit=1G tools/Tests/Batch706CriticalMappingSafetyTest.php",
+      "exit_code": 0,
+      "tested_sha": "43c3c461495c58e574267888145b93eeeba48a39",
+      "scope": "Q1018 retained pending review; Q1536/Q1537 source-only and removed from exact practice; ordinary Nursing exam eligibility, answer keys, correct/incorrect review, and cross-board rejection preserved.",
+      "reuse_limit": "B707 did not modify Nursing mappings, canonical questions, answer keys, or eligibility. All 47 exact mappings remain review-pending."
+    },
+    {
+      "id": "EV-17",
+      "name": "Historical GitHub browser run",
+      "status": "REVIEW_REQUIRED",
+      "command": "Registered GitHub Actions browser workflow run 39114896020",
+      "exit_code": 0,
+      "tested_sha": "f7674ef97988cb91a5d90154c0f4f574241ac214",
+      "scope": "Prior Chromium run completed successfully on main.",
+      "result": "STALE_EVIDENCE for B707 because descendants contain application changes. It is not a current browser pass."
+    },
+    {
+      "id": "EV-18",
+      "name": "Full Doctor release gate",
+      "status": "BLOCKED",
+      "command": "php -d memory_limit=1G tools/doctor.php --release --json (not executed locally)",
+      "exit_code": null,
+      "tested_sha": null,
+      "scope": "Local storage preflight.",
+      "result": "292208640 bytes available versus the verified 1837116727-byte requirement; no fixtures were started and no Doctor pass is claimed.",
+      "owner": "EXTERNAL_HOST"
+    },
+    {
+      "id": "EV-19",
+      "name": "B707 change lint and diff check",
+      "status": "NEWLY_TESTED_PASS",
+      "command": "php -l app/Services/Operations/BrowserEvidenceService.php; php -l app/Views/study/library.php; php -l tools/Tests/BrowserWorkflowEvidenceTest.php; php -l tools/Tests/StudyLibraryNavigationTest.php; git diff --check",
+      "exit_code": 0,
+      "tested_sha": "9ec6aa078f01f544d7731a62102a57baad245399",
+      "scope": "All changed PHP files and patch whitespace.",
+      "result": "All lint and diff checks passed."
+    }
+  ],
+  "corrected_attempts": [
+    {
+      "command": "php tools/Tests/BrowserWorkflowEvidenceTest.php",
+      "first_attempt_exit_code": 255,
+      "reason": "The newly extended fixture still expected the non-reverted application commit as its clone HEAD; assertion was corrected to the revert commit.",
+      "final_status": "NEWLY_TESTED_PASS"
+    },
+    {
+      "command": "php tools/Tests/BrowserWorkflowEvidenceTest.php",
+      "second_attempt_exit_code": 255,
+      "reason": "The dirty-source test restored the pre-merge file rather than the merge HEAD file; fixture restoration was corrected.",
+      "final_status": "NEWLY_TESTED_PASS"
+    },
+    {
+      "command": "SessionConfigurationTest temporary directory wrapper using /tmp/boardprep-b707-session-XXXXXX",
+      "first_attempt_exit_code": 2,
+      "reason": "Termux has no /tmp directory at that path; rerun used the platform default mktemp directory and cleaned only its unique fixture.",
+      "final_status": "NEWLY_TESTED_PASS"
+    },
+    {
+      "command": "php tools/product-readiness.php --json before the history-scan optimization",
+      "first_attempt_status": "TERMINATED_NOT_VERIFIED",
+      "reason": "Two read-only calls remained active beyond two minutes because 26 records caused 3010 per-commit git diff-tree subprocesses; both exact invocations were stopped, the helper was optimized, and the current readiness command completed in about seven seconds."
+    }
+  ],
+  "final_assessment": {
+    "browser_acceptance": "BLOCKED_TERMUX; external workflow prepared but not executed",
+    "full_doctor": "BLOCKED_LOCAL_STORAGE; existing external workflow prepared but not executed",
+    "human_acceptance": "NOT_RUN (12 cases)",
+    "independent_academic_approval": "NOT_GRANTED (0 approvals)",
+    "deployment": "NOT_RUN_NOT_AUTHORIZED",
+    "push": "NOT_PUSHED"
+  }
+}
