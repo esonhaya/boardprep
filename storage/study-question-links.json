@@ -4273,8 +4273,15 @@
         "material_id": "nle-np-ii-foundation",
         "question_id": "894",
         "source_ids": [
-            "prc-nursing-enhanced-tos-2025"
-        ]
+            "prc-nursing-enhanced-tos-2025",
+            "openrn-healthpromo-labor-monitoring-105",
+            "prc-nursing-program-aug-2026",
+            "who-intrapartum-summary-2018"
+        ],
+        "lesson_id": "nursing-maternal-family-assessment",
+        "section_id": "b704-labor-coping-and-choice",
+        "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+        "review_guidance": "The section supports preference-based breathing/relaxation, optional rest between contractions, and position choice; it does not imply these measures replace labor assessment."
     },
     {
         "id": "study-link-b485-895",
@@ -7642,8 +7649,16 @@
         "material_id": "nle-np-ii-newborn",
         "question_id": "1523",
         "source_ids": [
-            "prc-nursing-enhanced-tos-2025"
-        ]
+            "who-essential-newborn-care",
+            "who-caring-newborn-2022",
+            "who-newborn-mortality-2024",
+            "prc-nursing-enhanced-tos-2025",
+            "prc-nursing-program-aug-2026"
+        ],
+        "lesson_id": "nursing-newborn-safety-assessment",
+        "section_id": "b704-newborn-thermal-protection",
+        "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+        "review_guidance": "The section supports drying/warming and reassessment after avoidable bathing-related heat loss; local device and escalation pathway remain required."
     },
     {
         "id": "study-link-nursing-501-1524",
@@ -35200,7 +35215,10 @@
             "prc-nursing-enhanced-tos-2025",
             "who-postnatal-care-2022",
             "who-maternal-peripartum-infections",
-            "openrn-nursing-fundamentals"
+            "openrn-nursing-fundamentals",
+            "who-essential-newborn-care",
+            "who-caring-newborn-2022",
+            "who-newborn-mortality-2024"
         ]
     },
     {
@@ -36393,7 +36411,8 @@
             "who-postnatal-care-2022",
             "who-maternal-peripartum-infections",
             "openrn-nursing-fundamentals",
-            "openrn-healthpromo-postpartum-115"
+            "openrn-healthpromo-postpartum-115",
+            "cdc-pregnancy-blood-clots-2024"
         ],
         "lesson_id": "nursing-maternal-family-assessment",
         "section_id": "b703-postpartum-change-and-escalation",
@@ -37139,11 +37158,7 @@
             "cdc-isolation-precautions",
             "who-basic-emergency-care",
             "openrn-nursing-fundamentals"
-        ],
-        "lesson_id": "nursing-standard-and-transmission-precautions",
-        "section_id": "nle-transmission-based-precautions",
-        "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
-        "review_guidance": "Section fit checked against the canonical stem, answer, explanation, and lesson text; independent subject-expert review remains pending."
+        ]
     },
     {
         "id": "study-link-b620-4005",
@@ -37157,11 +37172,7 @@
             "who-basic-emergency-care",
             "openrn-nursing-fundamentals",
             "cdc-isolation-precautions-page-2023"
-        ],
-        "lesson_id": "nursing-standard-and-transmission-precautions",
-        "section_id": "nle-safe-injection-practices",
-        "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
-        "review_guidance": "Section fit checked against the canonical stem, answer, explanation, and lesson text; independent subject-expert review remains pending."
+        ]
     },
     {
         "id": "study-link-b620-4006",
@@ -37174,11 +37185,7 @@
             "cdc-isolation-precautions",
             "who-basic-emergency-care",
             "openrn-nursing-fundamentals"
-        ],
-        "lesson_id": "nursing-standard-and-transmission-precautions",
-        "section_id": "nle-transmission-based-precautions",
-        "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
-        "review_guidance": "Section fit checked against the canonical stem, answer, explanation, and lesson text; independent subject-expert review remains pending."
+        ]
     },
     {
         "id": "study-link-b620-4007",
@@ -52070,7 +52077,8 @@
             "who-basic-emergency-care",
             "who-mhgap-2023",
             "openrn-nursing-fundamentals",
-            "openrn-nursingmhcc-mental-assessment-43"
+            "openrn-nursingmhcc-mental-assessment-43",
+            "who-suicide-prevention-2026"
         ],
         "lesson_id": "nursing-therapeutic-communication-and-crisis",
         "section_id": "b703-self-harm-statement-and-safety",
@@ -112470,7 +112478,8 @@
         "source_ids": [
             "prc-nursing-enhanced-tos-2025",
             "openrn-nursingfundamentals-fluids-152",
-            "openrn-nursing-fundamentals"
+            "openrn-nursing-fundamentals",
+            "openrn-nursingfundamentals-fluid-assessment-156"
         ],
         "lesson_id": "nursing-oxygenation-fluid-immunity-assessment",
         "section_id": "b703-fluid-status-trends",
@@ -112513,7 +112522,8 @@
         "source_ids": [
             "prc-nursing-enhanced-tos-2025",
             "openrn-nursingmhcc-mental-assessment-43",
-            "openrn-nursing-fundamentals"
+            "openrn-nursing-fundamentals",
+            "who-suicide-prevention-2026"
         ],
         "lesson_id": "nursing-therapeutic-communication-and-crisis",
         "section_id": "b703-self-harm-statement-and-safety",
@@ -112569,7 +112579,8 @@
         "source_ids": [
             "prc-nursing-enhanced-tos-2025",
             "openrn-nursingmhcc-mental-assessment-43",
-            "openrn-nursing-fundamentals"
+            "openrn-nursing-fundamentals",
+            "who-suicide-prevention-2026"
         ],
         "lesson_id": "nursing-therapeutic-communication-and-crisis",
         "section_id": "b703-self-harm-statement-and-safety",
@@ -112682,5 +112693,66 @@
         "section_id": "b703-nutrition-intake-and-context",
         "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
         "review_guidance": "Canonical stem, choices, answer, and explanation were compared with this exact section and registered sources. Technical section support only; independent Nursing academic review remains pending."
+    },
+    {
+        "id": "study-link-b704-nursing-4037-np-iii-oxygenation",
+        "material_id": "nle-np-iii-oxygenation",
+        "question_id": "4037",
+        "source_ids": [
+            "nci-cancer-diagnosis-2023",
+            "nci-pathology-report",
+            "nci-what-is-cancer",
+            "prc-nursing-enhanced-tos-2025",
+            "prc-nursing-program-aug-2026"
+        ],
+        "lesson_id": "nursing-oxygenation-fluid-immunity-assessment",
+        "section_id": "b704-cellular-specimen-evidence",
+        "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+        "review_guidance": "The section explains that processed tissue, microscopic/additional testing and clinical correlation provide evidence unavailable from a photograph alone."
+    },
+    {
+        "id": "study-link-b704-nursing-4057-np-iv-endocrine",
+        "material_id": "nle-np-iv-endocrine",
+        "question_id": "4057",
+        "source_ids": [
+            "openrn-nursingfundamentals-fluid-assessment-156",
+            "openstax-anatomy-physiology-2e",
+            "prc-nursing-enhanced-tos-2025",
+            "prc-nursing-program-aug-2026"
+        ],
+        "lesson_id": "nursing-digestive-endocrine-assessment",
+        "section_id": "b704-gi-fluid-pattern-assessment",
+        "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+        "review_guidance": "The section supports assessing bowel pattern, intake/output, fluid-status cues and ordered laboratory context for persistent diarrhea; mapping remains subject to independent review."
+    },
+    {
+        "id": "study-link-b704-nursing-879-np-i-prevention",
+        "material_id": "nle-np-i-prevention",
+        "question_id": "879",
+        "source_ids": [
+            "who-health-edrm-2019",
+            "prc-nursing-enhanced-tos-2025",
+            "prc-nursing-program-aug-2026"
+        ],
+        "lesson_id": "nursing-disaster-preparedness-and-continuity",
+        "section_id": "b704-disaster-community-coordination",
+        "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+        "review_guidance": "The WHO framework supports community participation, multisector coordination, access, and referral continuity as planning principles. This question asks for partnership, not a local incident-command action; the exact link remains pending independent Nursing academic review."
+    },
+    {
+        "id": "study-link-b704-nursing-3855-np-ii-newborn",
+        "material_id": "nle-np-ii-newborn",
+        "question_id": "3855",
+        "source_ids": [
+            "who-essential-newborn-care",
+            "who-caring-newborn-2022",
+            "who-newborn-mortality-2024",
+            "prc-nursing-enhanced-tos-2025",
+            "prc-nursing-program-aug-2026"
+        ],
+        "lesson_id": "nursing-newborn-safety-assessment",
+        "section_id": "b704-newborn-thermal-protection",
+        "semantic_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+        "review_guidance": "The section directly supports drying/warming and reassessment after avoidable bathing-related heat loss; no warming algorithm is supplied."
     }
 ]

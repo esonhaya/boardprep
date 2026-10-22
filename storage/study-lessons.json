@@ -6834,10 +6834,10 @@
     },
     {
         "id": "nursing-maternal-family-assessment",
-        "title": "Maternal, Postpartum, Developmental, and Family Assessment",
+        "title": "Maternal, Labor, Developmental, and Family Assessment",
         "material_id": "nle-np-ii-foundation",
         "status": "published",
-        "version": 1,
+        "version": 5,
         "board_id": "nursing",
         "subject_id": "nursing-foundations",
         "official_scope_source_ids": [
@@ -6849,14 +6849,18 @@
             "openrn-healthpromo-postpartum-115",
             "who-postnatal-care-2022",
             "openrn-healthpromo-development-134",
-            "openrn-nursing-fundamentals"
+            "openrn-nursing-fundamentals",
+            "openrn-healthpromo-labor-monitoring-105",
+            "cdc-pregnancy-blood-clots-2024",
+            "who-intrapartum-summary-2018"
         ],
         "scope_note": "PRC Resolution No. 10 s. 2025 and the August 2026 NLE program define examination scope, not topic weights. This lesson teaches a bounded maternal, postpartum, developmental, and family assessment foundation from the references below. Open RN and U.S. professional materials support general educational principles only; apply Philippine law, scope of practice, current clinical orders, referral pathways, and facility policy. This study material is not a clinical directive or proof of complete NP coverage.",
         "learning_objectives": [
             "Recognize concerning maternal symptoms and prioritize timely assessment and escalation without diagnosing from a brief vignette.",
             "Assess postpartum changes and feeding concerns through observation, baseline, symptoms, and the person’s goals.",
             "Interpret development as a contextual trajectory and distinguish screening concern from diagnosis.",
-            "Use respectful family partnership and teach-back to make discharge teaching understandable and actionable."
+            "Use respectful family partnership and teach-back to make discharge teaching understandable and actionable.",
+            "Offer preference-based labor comfort options while separating comfort support from clinical assessment and progress decisions."
         ],
         "sections": [
             {
@@ -6874,14 +6878,15 @@
             {
                 "id": "b703-postpartum-change-and-escalation",
                 "heading": "2. Reassess postpartum symptoms rather than normalizing them",
-                "body": "The postpartum period does not remove risk. Ask what changed, when it started, how severe it is, and whether symptoms are worsening; compare observations with the person’s baseline and current recovery context. Severe headache with visual change needs urgent assessment; unilateral leg pain together with new shortness of breath is a time-sensitive emergency cue. Do not diagnose a clot or hypertensive disorder from symptoms alone, massage a painful leg, delay for routine follow-up, or substitute a home remedy. Activate the appropriate local maternity/emergency pathway and continue focused reassessment. Do not import U.S. surveillance schedules or protocol thresholds from the textbook.",
+                "body": "The postpartum period does not remove risk. Ask what changed, when it started, how severe it is, and whether symptoms are worsening; compare observations with the person’s baseline and current recovery context. Severe headache with visual change needs urgent assessment; unilateral leg pain together with new shortness of breath is a time-sensitive emergency cue. Do not diagnose a clot or hypertensive disorder from symptoms alone, massage a painful leg, delay for routine follow-up, or substitute a home remedy. Activate the appropriate local maternity/emergency pathway and continue focused reassessment. Do not import U.S. surveillance schedules or protocol thresholds from the textbook. CDC’s U.S. public guidance also describes postpartum clot risk and limb or breathing symptoms; it informs recognition only and does not replace Philippine or facility pathways.",
                 "related_concept_ids": [
                     "nle-np-ii-postpartum"
                 ],
                 "source_ids": [
                     "openrn-healthpromo-postpartum-115",
                     "who-postnatal-care-2022",
-                    "who-preeclampsia-factsheet-2026"
+                    "who-preeclampsia-factsheet-2026",
+                    "cdc-pregnancy-blood-clots-2024"
                 ]
             },
             {
@@ -6906,6 +6911,29 @@
                     "openrn-healthpromo-postpartum-115",
                     "who-postnatal-care-2022",
                     "openrn-nursing-fundamentals"
+                ]
+            },
+            {
+                "id": "b704-labor-coping-and-choice",
+                "heading": "5. Support coping and choice during labor",
+                "body": "Labor support combines the person’s preferences with ongoing maternal and fetal assessment. Ask what helps, explain available choices in plain language, and offer a chosen companion when permitted by the setting. WHO recommends relaxation options such as breathing for healthy pregnant women requesting pain relief, depending on preference, and mobility or upright positions for women at low risk; these are options, not mandatory techniques or treatment for abnormal findings. A person may rest when contractions ease if that is comfortable and consistent with monitoring. For example, if someone in early labor asks how to conserve energy, discuss breathing or another preferred relaxation approach, rest between contractions, and position changes as tolerated, while clarifying which symptoms or local instructions require review. Comfort support does not establish labor progress, and a concerning maternal or fetal change requires assessment and the current local maternity pathway.",
+                "related_concept_ids": [
+                    "nle-np-ii-labor"
+                ],
+                "source_ids": [
+                    "openrn-healthpromo-labor-monitoring-105",
+                    "who-intrapartum-summary-2018"
+                ]
+            },
+            {
+                "id": "b704-labor-progress-context",
+                "heading": "6. Interpret labor progress in context",
+                "body": "Cervical change and labor duration vary between individuals, so a single rate is not a complete assessment. WHO states that a 1 cm/hour threshold alone is inaccurate for identifying risk and that slower dilation alone should not routinely trigger intervention; its recommendations also distinguish latent from active labor and condition some guidance on reassuring maternal and fetal status. In practice, trend the findings with contraction pattern, maternal condition, fetal assessment, the person’s experience, and the relevant care plan, then communicate changes to the authorized maternity team. A worked case with slow change but no other concerning finding does not license a nurse to diagnose dystocia or accelerate labor. The WHO recommendations are global and inform local policy; they do not replace Philippine facility pathways, clinician judgment, or current orders.",
+                "related_concept_ids": [
+                    "nle-np-ii-labor"
+                ],
+                "source_ids": [
+                    "who-intrapartum-summary-2018"
                 ]
             }
         ],
@@ -6964,6 +6992,17 @@
                 ],
                 "answer": "Use a contextual trajectory and refer through the current child-health pathway.",
                 "check": "No U.S. screening timetable or diagnosis is adopted."
+            },
+            {
+                "heading": "Choose labor comfort supports",
+                "prompt": "A client in early labor asks how to conserve energy and manage discomfort.",
+                "steps": [
+                    "Ask what the client prefers and whether the maternity team has identified any reason to limit movement or oral intake.",
+                    "Offer breathing or another chosen relaxation approach for pain relief, rest between contractions if comfortable, and position changes as tolerated.",
+                    "Continue the assigned maternal and fetal observations; report new concerning symptoms through the local pathway."
+                ],
+                "answer": "Use preference-based comfort measures while keeping assessment and escalation active.",
+                "check": "The comfort plan is not used to diagnose progress or delay review of a concerning change."
             }
         ],
         "common_misconceptions": [
@@ -6971,13 +7010,17 @@
             "Postpartum symptoms are not automatically normal recovery; assess the change and escalate within local pathways.",
             "A developmental screen is not a diagnosis, and one task is not the whole developmental trajectory.",
             "Feeding pain alone does not prove infection or require stopping; observe and assess before advising.",
-            "Teach-back evaluates how clearly the plan was explained, not whether a caregiver is capable."
+            "Teach-back evaluates how clearly the plan was explained, not whether a caregiver is capable.",
+            "Breathing, rest, and position options are preference-based comfort supports; they do not prove that labor is normal or replace maternal/fetal assessment.",
+            "A slower cervical dilation rate alone is not a universal diagnosis or routine indication for intervention; use the whole clinical context and current local pathway."
         ],
         "question_patterns": [
             "For maternal symptoms, identify warning cues, assess promptly, and escalate without claiming a diagnosis.",
             "For postpartum concerns, compare with baseline and use the local urgent pathway.",
             "For child development, interpret a pattern over time and distinguish screening from diagnosis.",
-            "For feeding and discharge teaching, observe, collaborate, and verify understanding."
+            "For feeding and discharge teaching, observe, collaborate, and verify understanding.",
+            "For labor comfort, select preference-based coping measures while continuing indicated maternal and fetal assessment.",
+            "For labor-progress questions, reject a single rate as a universal trigger and interpret trends with maternal/fetal status and local pathways."
         ],
         "practice_question_ids": [
             "3924",
@@ -6989,21 +7032,123 @@
             "3948",
             "1556",
             "4933",
-            "4957"
+            "4957",
+            "894"
         ],
         "pdf_file": "nursing-maternal-family-assessment.pdf",
         "source_review": {
             "status": "SOURCE_TEXT_CHECKED_WITH_LIMITATIONS; INDEPENDENT_NURSING_REVIEW_PENDING",
             "checked_at": "2026-10-22",
-            "note": "Automated source and section checks only. No nurse educator or clinician approved this material. See the Batch 703 academic review packet for per-source access limits, jurisdiction notes, and open questions."
-        }
+            "note": "Batch 704 labor claims were rechecked against the accessible two-page WHO recommendation summary and Open RN fetal-monitoring text. The Open RN pain chapter and full WHO guideline PDF returned 403 and are not used to support claims. No nurse educator/clinician approved this lesson; local pathways remain unverified."
+        },
+        "updated_at": "2026-10-22"
+    },
+    {
+        "id": "nursing-newborn-safety-assessment",
+        "title": "Newborn Thermal Protection and Danger-Sign Referral",
+        "material_id": "nle-np-ii-newborn",
+        "status": "published",
+        "version": 2,
+        "board_id": "nursing",
+        "subject_id": "nursing-foundations",
+        "official_scope_source_ids": [
+            "prc-nursing-enhanced-tos-2025",
+            "prc-nursing-program-aug-2026"
+        ],
+        "instructional_source_ids": [
+            "who-essential-newborn-care",
+            "who-caring-newborn-2022",
+            "who-newborn-mortality-2024"
+        ],
+        "scope_note": "PRC references establish examination scope only. WHO sources support general thermal-care elements and danger-sign recognition. This lesson does not supply resuscitation steps, diagnostic thresholds, device settings, immunization timing, or Philippine facility treatment protocols; follow the current local newborn pathway and qualified clinical direction.",
+        "learning_objectives": [
+            "Explain why drying, warmth, breathing assessment, and reassessment belong together in immediate newborn care.",
+            "Recognize the WHO-listed newborn danger signs and relay observable findings for prompt qualified assessment.",
+            "Distinguish general thermal-protection principles from device-specific, diagnostic, resuscitation, and facility treatment instructions."
+        ],
+        "sections": [
+            {
+                "id": "b704-newborn-thermal-protection",
+                "heading": "7. Protect newborn warmth and reassess after heat loss",
+                "body": "Newborns lose heat readily, and thermal protection is part of essential newborn care. WHO describes thorough drying, assessment of breathing, skin-to-skin contact, and thermal care as immediate-care elements; its public guidance also recommends drying and delaying the first bath, then keeping the infant warm. If a newborn becomes cool after a bath, assess temperature and general condition, remove wet material, dry and provide warmth using the locally approved method, maintain an unobstructed airway, and reassess. The specific warming device and response depend on gestation, condition, training, and facility protocol. A warm blanket or skin-to-skin contact is not a substitute for assessment when the infant is unstable. The example of a cold newborn after an unnecessary bath supports avoiding unnecessary heat loss, not delaying a needed clinical evaluation.",
+                "related_concept_ids": [
+                    "nle-np-ii-newborn"
+                ],
+                "source_ids": [
+                    "who-essential-newborn-care",
+                    "who-caring-newborn-2022",
+                    "who-newborn-mortality-2024"
+                ]
+            },
+            {
+                "id": "b704-newborn-danger-signs-referral",
+                "heading": "8. Recognize newborn danger signs and arrange timely help",
+                "body": "Newborn assessment connects observable change to timely support. WHO lists feeding problems, reduced activity, difficult breathing, fever, convulsions, and feeling cold among danger signs for which families should seek prompt medical care; its essential-care guidance includes assessment for health problems and timely, safe referral. Ask what changed and when, observe feeding and activity, check breathing and temperature within role, and relay the findings rather than reassuring from one normal-looking feature. For example, a newborn with poor feeding and reduced activity needs prompt qualified assessment through the local route, even if a caregiver describes the infant as usually sleepy. This section teaches recognition and escalation only. It does not give resuscitation steps, diagnostic thresholds, immunization timing, or institution-specific treatment instructions; those require current Philippine and facility guidance.",
+                "related_concept_ids": [
+                    "nle-np-ii-newborn"
+                ],
+                "source_ids": [
+                    "who-newborn-mortality-2024",
+                    "who-essential-newborn-care"
+                ]
+            }
+        ],
+        "worked_examples": [
+            {
+                "heading": "Respond to a newborn who becomes cool",
+                "prompt": "A newborn is cool after a bath and has wet linens.",
+                "steps": [
+                    "Assess the infant’s temperature and general condition, including breathing, within role.",
+                    "Remove wet material, dry and provide warmth using the approved local method.",
+                    "Reassess and escalate an abnormal or worsening condition using the newborn pathway."
+                ],
+                "answer": "Reduce heat loss, assess and reassess, and seek qualified help when findings are concerning.",
+                "check": "No device, temperature cutoff, or resuscitation algorithm is invented."
+            },
+            {
+                "heading": "Recognize a newborn danger sign",
+                "prompt": "A caregiver reports that a newborn is feeding poorly and is less active than usual.",
+                "steps": [
+                    "Clarify the change and its timing, and observe the infant’s responsiveness and breathing.",
+                    "Communicate the specific findings and arrange prompt assessment through the current local route.",
+                    "Give the caregiver a clear next step and verify understanding."
+                ],
+                "answer": "Reduced activity plus feeding difficulty needs prompt qualified assessment, not watchful reassurance alone.",
+                "check": "The lesson does not diagnose the cause or prescribe a treatment."
+            }
+        ],
+        "common_misconceptions": [
+            "A newborn who becomes cold after a bath needs assessment as well as warming; routine warmth measures do not replace escalation when the infant is unwell.",
+            "A newborn danger sign requires timely assessment; a study section cannot replace trained neonatal assessment or local resuscitation guidance.",
+            "Warmth alone is not enough when a newborn is unstable; assess breathing and general condition.",
+            "A danger sign can require prompt care even when another feature looks reassuring.",
+            "Public WHO recommendations do not specify a facility warming device or Philippine referral route."
+        ],
+        "question_patterns": [
+            "For newborn thermal concerns, assess, reduce heat loss, provide approved warmth, and reassess.",
+            "For newborn danger signs, name the observed change and arrange timely qualified evaluation.",
+            "For thermal-care questions, connect drying, heat-loss prevention, assessment, and reassessment.",
+            "For newborn danger-sign items, recognize the listed change and prioritize prompt qualified assessment without inventing treatment."
+        ],
+        "practice_question_ids": [
+            "1523",
+            "3855"
+        ],
+        "pdf_file": "nursing-newborn-safety-assessment.pdf",
+        "source_review": {
+            "status": "SOURCE_TEXT_CHECKED_WITH_LIMITATIONS; INDEPENDENT_NURSING_REVIEW_PENDING",
+            "checked_at": "2026-10-22",
+            "note": "WHO essential-care, newborn-care, and newborn-mortality texts were checked. No nurse educator/clinician approved this lesson. Local thermal-care and referral protocols remain unverified."
+        },
+        "summary": "Assess newborn warmth, breathing and observable changes; recognize danger signs and use timely qualified assessment without inventing treatment protocols.",
+        "updated_at": "2026-10-22"
     },
     {
         "id": "nursing-oxygenation-fluid-immunity-assessment",
-        "title": "Oxygenation, Fluid Status, and Immune-Risk Assessment",
+        "title": "Oxygenation, Fluid, Immune-Risk, and Cellular Evidence Assessment",
         "material_id": "nle-np-iii-oxygenation",
         "status": "published",
-        "version": 1,
+        "version": 3,
         "board_id": "nursing",
         "subject_id": "nursing-foundations",
         "official_scope_source_ids": [
@@ -7016,13 +7161,19 @@
             "openrn-nursingfundamentals-immunity-97",
             "who-basic-emergency-care",
             "openrn-nursing-fundamentals",
-            "cdc-infection-control-basics"
+            "cdc-infection-control-basics",
+            "nci-what-is-cancer",
+            "nci-cancer-diagnosis-2023",
+            "nci-pathology-report",
+            "openrn-nursingfundamentals-fluid-assessment-156"
         ],
         "scope_note": "PRC Resolution No. 10 s. 2025 and the August 2026 NLE program define examination scope, not topic weights. This lesson teaches a bounded oxygenation, fluid status, and immune-risk assessment foundation from the references below. Open RN and U.S. professional materials support general educational principles only; apply Philippine law, scope of practice, current clinical orders, referral pathways, and facility policy. This study material is not a clinical directive or proof of complete NP coverage.",
         "learning_objectives": [
             "Use a focused airway and breathing assessment to recognize deterioration, verify relevant observations, and escalate under current orders and local pathways.",
             "Integrate intake/output, perfusion, symptoms, and trends when assessing possible fluid imbalance without prescribing an unassessed fluid plan.",
-            "Recognize that immunosuppression can change risk or presentation and that new symptoms warrant prompt assessment."
+            "Recognize that immunosuppression can change risk or presentation and that new symptoms warrant prompt assessment.",
+            "Explain why a cellular diagnosis depends on an appropriately collected and processed specimen interpreted by a qualified pathologist with clinical context.",
+            "Distinguish a visible image or screening clue from diagnostic evidence and communicate uncertainty without changing the canonical interpretation."
         ],
         "sections": [
             {
@@ -7046,7 +7197,8 @@
                 ],
                 "source_ids": [
                     "openrn-nursingfundamentals-fluids-152",
-                    "openrn-nursing-fundamentals"
+                    "openrn-nursing-fundamentals",
+                    "openrn-nursingfundamentals-fluid-assessment-156"
                 ]
             },
             {
@@ -7060,6 +7212,31 @@
                     "openrn-nursingfundamentals-immunity-97",
                     "cdc-infection-control-basics",
                     "who-basic-emergency-care"
+                ]
+            },
+            {
+                "id": "b704-cellular-specimen-evidence",
+                "heading": "4. Connect cellular findings to specimen evidence",
+                "body": "Cells are organized structures whose growth and function depend on regulated processes; cancer can arise when changes disrupt normal growth control. A photograph can show a surface or gross appearance, but it cannot establish what cells are present, how a specimen was processed, or what additional testing shows. The National Cancer Institute describes biopsy as removal of a tissue sample for a pathologist’s microscopic examination and possible additional testing. In practice, nurses help preserve specimen identity and chain-of-custody steps required by local policy, communicate what the patient has been told, and direct diagnostic questions to the responsible clinician. For example, a patient who sees an image of a lesion should be told that visual appearance alone is not a pathology diagnosis; the specimen and clinical assessment matter. This does not teach biopsy technique or predict an individual result.",
+                "related_concept_ids": [
+                    "nle-np-iii-cellular"
+                ],
+                "source_ids": [
+                    "nci-what-is-cancer",
+                    "nci-cancer-diagnosis-2023",
+                    "nci-pathology-report"
+                ]
+            },
+            {
+                "id": "b704-cellular-report-and-limits",
+                "heading": "5. Read diagnostic evidence without overclaiming",
+                "body": "A pathology report records findings from a defined specimen and is interpreted within the patient’s broader clinical picture. The report may include specimen source, gross and microscopic descriptions, and a diagnosis; its wording is more than a photograph or a single visual impression. Screening tests, images, tissue examination, and molecular tests answer different questions and are not interchangeable. When a patient asks why a photograph cannot settle a biopsy result, explain that specimen processing and microscopy or other indicated tests provide evidence that a photograph alone cannot show, and that the clinician integrates those findings with symptoms and history. Report questions or a mismatch in the specimen label through the approved chain; do not revise a diagnosis or infer malignancy from appearance. NCI is a U.S. reference for general diagnostic concepts, not a Philippine diagnostic or treatment pathway.",
+                "related_concept_ids": [
+                    "nle-np-iii-cellular"
+                ],
+                "source_ids": [
+                    "nci-cancer-diagnosis-2023",
+                    "nci-pathology-report"
                 ]
             }
         ],
@@ -7096,6 +7273,28 @@
                 ],
                 "answer": "A new symptom in immune-risk context deserves prompt assessment and communication.",
                 "check": "Do not wait for a higher self-selected threshold or assume immune suppression prevents fever."
+            },
+            {
+                "heading": "Explain why a photograph is not a biopsy result",
+                "prompt": "A client asks why a tissue sample cannot be interpreted from a phone photograph.",
+                "steps": [
+                    "Separate visible appearance from evidence obtained from the collected specimen.",
+                    "Explain that a pathologist examines processed tissue under a microscope and may use additional indicated tests.",
+                    "Clarify that the responsible clinician relates the report to the patient’s history and findings."
+                ],
+                "answer": "A photograph cannot show the processed tissue evidence and clinical interpretation needed for diagnosis.",
+                "check": "Do not infer benignity or malignancy from the picture or alter the answer key to fit it."
+            },
+            {
+                "heading": "Handle a specimen-label discrepancy",
+                "prompt": "A label on a specimen container does not match the identifiers in the accompanying record.",
+                "steps": [
+                    "Stop the local transfer/processing step that is within the nurse’s control.",
+                    "Follow the facility’s specimen-identification and escalation policy; do not guess the correct identity.",
+                    "Document the discrepancy and the verified handoff according to policy."
+                ],
+                "answer": "Preserve specimen identity by pausing and using the approved verification pathway.",
+                "check": "This example does not invent a laboratory procedure or local legal rule."
             }
         ],
         "common_misconceptions": [
@@ -7103,26 +7302,33 @@
             "A normal-looking single sign does not cancel worsening breathing or perfusion cues.",
             "Vomiting and low output do not justify unlimited fluids or an independent treatment change.",
             "Immunosuppression can alter risk or presentation; the absence of a high fever does not prove safety.",
-            "A clinical mnemonic supports assessment but does not replace escalation or reassessment."
+            "A clinical mnemonic supports assessment but does not replace escalation or reassessment.",
+            "A photograph, gross appearance, or screening clue alone is not interchangeable with microscopic specimen analysis and a pathology report.",
+            "A pathology report concerns the submitted specimen; clinicians interpret it with the history and other findings rather than asking nursing learners to diagnose from an image.",
+            "A specimen-label discrepancy is a verification and escalation problem, not permission to relabel by inference."
         ],
         "question_patterns": [
             "For respiratory change, assess the patient and trend, verify when safe, support within orders, escalate, and reassess.",
             "For fluid concerns, combine loss history, output, perfusion, mental status, and ordered data.",
-            "For immune-risk cases, report new changes promptly without waiting for a numeric threshold."
+            "For immune-risk cases, report new changes promptly without waiting for a numeric threshold.",
+            "When a question asks why an image cannot establish a cellular diagnosis, identify the missing specimen processing and pathologist evidence.",
+            "When specimen identity is uncertain, pause and use the authorized verification chain rather than guessing."
         ],
         "practice_question_ids": [
             "3984",
             "3994",
             "4014",
             "4993",
-            "5025"
+            "5025",
+            "4037"
         ],
         "pdf_file": "nursing-oxygenation-fluid-immunity-assessment.pdf",
         "source_review": {
             "status": "SOURCE_TEXT_CHECKED_WITH_LIMITATIONS; INDEPENDENT_NURSING_REVIEW_PENDING",
             "checked_at": "2026-10-22",
-            "note": "Automated source and section checks only. No nurse educator or clinician approved this material. See the Batch 703 academic review packet for per-source access limits, jurisdiction notes, and open questions."
-        }
+            "note": "Batch 704 added NCI source-checked cellular diagnostic teaching. NCI is a U.S. explanatory reference and no nurse educator/clinician approved this lesson. See the Batch 704 source-to-claim ledger and reviewer packet."
+        },
+        "updated_at": "2026-10-22"
     },
     {
         "id": "nursing-perioperative-verification",
@@ -7293,18 +7499,20 @@
         "title": "Therapeutic Communication and Crisis Safety",
         "material_id": "nle-b625-np-v-clinical-reasoning",
         "status": "published",
-        "version": 1,
+        "version": 2,
         "board_id": "nursing",
         "subject_id": "nursing-foundations",
         "official_scope_source_ids": [
             "prc-nursing-enhanced-tos-2025",
-            "prc-nursing-program-aug-2026"
+            "prc-nursing-program-aug-2026",
+            "who-suicide-prevention-2026"
         ],
         "instructional_source_ids": [
             "openrn-nursingmhcc-mental-assessment-43",
             "openrn-nursingmhcc-crisis-35",
             "openrn-nursing-fundamentals",
-            "who-basic-emergency-care"
+            "who-basic-emergency-care",
+            "who-suicide-prevention-2026"
         ],
         "scope_note": "PRC Resolution No. 10 s. 2025 and the August 2026 NLE program define examination scope, not topic weights. This lesson teaches a bounded therapeutic communication and crisis safety foundation from the references below. Open RN and U.S. professional materials support general educational principles only; apply Philippine law, scope of practice, current clinical orders, referral pathways, and facility policy. This study material is not a clinical directive or proof of complete NP coverage.",
         "learning_objectives": [
@@ -7316,13 +7524,14 @@
             {
                 "id": "b703-self-harm-statement-and-safety",
                 "heading": "1. Take statements about not living seriously",
-                "body": "When a person says life is not worth continuing or that others would be better without them, respond directly and without judgment. Invite them to say more, ask clearly about thoughts of self-harm and immediate safety within training and role, and communicate the concern promptly to qualified support. Stay engaged while help is arranged when safe and consistent with the local protocol; do not leave the person unsupported, promise absolute secrecy, change the subject, or conduct an improvised risk score. Explain limits of privacy respectfully. Use the current Philippine service, emergency, and scope-of-practice rules; this lesson does not prescribe a screening instrument, legal hold, observation level, or restraint.",
+                "body": "When a person says life is not worth continuing or that others would be better without them, respond directly and without judgment. Invite them to say more, ask clearly about thoughts of self-harm and immediate safety within training and role, and communicate the concern promptly to qualified support. Stay engaged while help is arranged when safe and consistent with the local protocol; do not leave the person unsupported, promise absolute secrecy, change the subject, or conduct an improvised risk score. Explain limits of privacy respectfully. Use the current Philippine service, emergency, and scope-of-practice rules; this lesson does not prescribe a screening instrument, legal hold, observation level, or restraint. WHO global suicide-prevention guidance supports early identification, assessment, management, follow-up, and population measures to limit access to means; this is not a patient-level risk tool or a substitute for qualified support and the current local safety pathway.",
                 "related_concept_ids": [
                     "nle-np-v-therapeutic"
                 ],
                 "source_ids": [
                     "openrn-nursingmhcc-mental-assessment-43",
-                    "openrn-nursing-fundamentals"
+                    "openrn-nursing-fundamentals",
+                    "who-suicide-prevention-2026"
                 ]
             },
             {
@@ -7384,7 +7593,8 @@
             "status": "SOURCE_TEXT_CHECKED_WITH_LIMITATIONS; INDEPENDENT_NURSING_REVIEW_PENDING",
             "checked_at": "2026-10-22",
             "note": "Automated source and section checks only. No nurse educator or clinician approved this material. See the Batch 703 academic review packet for per-source access limits, jurisdiction notes, and open questions."
-        }
+        },
+        "updated_at": "2026-10-22"
     },
     {
         "id": "nursing-emergency-assessment-and-shock",
@@ -7476,6 +7686,224 @@
             "status": "SOURCE_TEXT_CHECKED_WITH_LIMITATIONS; INDEPENDENT_NURSING_REVIEW_PENDING",
             "checked_at": "2026-10-22",
             "note": "Automated source and section checks only. No nurse educator or clinician approved this material. See the Batch 703 academic review packet for per-source access limits, jurisdiction notes, and open questions."
+        }
+    },
+    {
+        "id": "nursing-disaster-preparedness-and-continuity",
+        "title": "Disaster Risk, Nursing Preparedness, and Continuity",
+        "material_id": "nle-np-i-prevention",
+        "status": "published",
+        "version": 2,
+        "board_id": "nursing",
+        "subject_id": "nursing-foundations",
+        "official_scope_source_ids": [
+            "prc-nursing-enhanced-tos-2025",
+            "prc-nursing-program-aug-2026"
+        ],
+        "instructional_source_ids": [
+            "who-health-edrm-2019"
+        ],
+        "scope_note": "The PRC nursing references define examination scope, not a clinical or operational protocol. This lesson uses the WHO Health EDRM framework for general, all-hazards preparedness and risk reasoning. Philippine disaster governance, incident command, triage, evacuation, referral, and facility continuity procedures must be verified locally. This lesson does not assign authority or treatment actions.",
+        "learning_objectives": [
+            "Distinguish prevention/preparedness/readiness from response and recovery as connected parts of health emergency risk management.",
+            "Explain why risk planning includes communities, health-system functions, multiple sectors, and people who may face disproportionate harm.",
+            "Apply a bounded nursing role in preparedness by identifying information, coordination, communication, and continuity needs without inventing local command rules."
+        ],
+        "sections": [
+            {
+                "id": "b704-disaster-risk-cycle",
+                "heading": "1. Treat disaster nursing as risk management across phases",
+                "body": "Health emergency and disaster risk management is broader than responding after an event starts. WHO frames it across prevention, preparedness and readiness, response, and recovery, using an all-hazards approach and whole-health-system participation. Nursing reasoning therefore asks what could harm health, which groups and services are exposed, what capacity is available, and what needs preparation before, during, and after an event. For example, a forecast storm may threaten access to chronic-care services before anyone is injured; mapping affected groups, service dependencies, and communication gaps is already health-risk work. Distinguish a hazard from an observed clinical problem and do not treat a general framework as a local triage algorithm. The exact response authority, incident structure, and facility duties must come from current Philippine and local plans.",
+                "related_concept_ids": [
+                    "nle-np-i-disaster"
+                ],
+                "source_ids": [
+                    "who-health-edrm-2019"
+                ]
+            },
+            {
+                "id": "b704-disaster-community-coordination",
+                "heading": "2. Plan with communities and protect continuity",
+                "body": "WHO’s framework emphasizes that no single agency manages health emergency risk alone: whole-health-system and multisector coordination matter, and communities should participate in planning. It also notes that emergencies can disproportionately affect people with disabilities, older adults, children, migrants, displaced people, and those with chronic disease. A nurse contributing to preparedness can help identify communication, access, referral, staffing, information, and continuity needs with the affected people and authorized partners. In a flood-prone area, the team might verify which accessible contact route and current local contingency plan apply to people relying on regular care; a nurse does not independently promise transport, medication supply, or a clinical intervention. Protect privacy when using lists and follow the designated information-sharing rules. This is a planning principle, not a substitute for Philippine disaster plans or facility command procedures.",
+                "related_concept_ids": [
+                    "nle-np-i-disaster"
+                ],
+                "source_ids": [
+                    "who-health-edrm-2019"
+                ]
+            }
+        ],
+        "worked_examples": [
+            {
+                "heading": "Plan before a forecast storm",
+                "prompt": "A storm may isolate a community clinic that supports residents with chronic illness.",
+                "steps": [
+                    "With authorized partners, identify who may lose access and which service dependencies are at risk.",
+                    "Check the current local continuity, communication, referral, and emergency plans rather than inventing a new command structure.",
+                    "Ask affected residents which accessible contact and support options are feasible, then record gaps for the responsible team."
+                ],
+                "answer": "Preparedness is advance risk and continuity planning with the health system and community.",
+                "check": "No medication dose, triage category, transport guarantee, or delegation authority is created."
+            },
+            {
+                "heading": "Distinguish phases",
+                "prompt": "A learner says disaster nursing begins when an evacuation starts.",
+                "steps": [
+                    "Identify the event’s potential health effects before impact.",
+                    "Separate risk reduction and preparedness from response after an event begins.",
+                    "Include recovery and restoration needs when planning with affected groups."
+                ],
+                "answer": "Disaster risk management spans before, during, and after emergencies.",
+                "check": "The framework does not dictate local procedures."
+            }
+        ],
+        "common_misconceptions": [
+            "Disaster management is not limited to emergency response after impact; preparation, readiness, and recovery are part of the health-risk framework.",
+            "A framework does not supply local triage categories, evacuation authority, or incident-command assignments.",
+            "Vulnerability is context-dependent; planning should include affected communities and avoid assuming that every person in a group has the same needs.",
+            "Continuity planning does not authorize a nurse to promise transport, medication supply, or treatment outside current plans and role."
+        ],
+        "question_patterns": [
+            "For a preparedness problem, identify the exposed people, service dependencies, communication gaps, and authorized local plan before selecting an action.",
+            "For disaster phase questions, distinguish risk reduction/preparation from response and recovery.",
+            "For community planning, include affected people and relevant authorized sectors while respecting privacy and local authority."
+        ],
+        "practice_question_ids": [
+            "879"
+        ],
+        "pdf_file": "nursing-disaster-preparedness-and-continuity.pdf",
+        "source_review": {
+            "status": "SOURCE_TEXT_CHECKED_WITH_LIMITATIONS; INDEPENDENT_NURSING_REVIEW_PENDING",
+            "checked_at": "2026-10-22",
+            "note": "WHO Health EDRM page and overview text checked. No Philippine operational protocol was verified and no nurse educator/clinician approved this lesson. See the Batch 704 source-to-claim ledger and reviewer packet."
+        },
+        "updated_at": "2026-10-22"
+    },
+    {
+        "id": "nursing-digestive-endocrine-assessment",
+        "title": "Digestive Function, Fluid Loss, and Endocrine Signaling",
+        "material_id": "nle-np-iv-endocrine",
+        "status": "published",
+        "version": 1,
+        "board_id": "nursing",
+        "subject_id": "nursing-foundations",
+        "official_scope_source_ids": [
+            "prc-nursing-enhanced-tos-2025",
+            "prc-nursing-program-aug-2026"
+        ],
+        "instructional_source_ids": [
+            "openstax-anatomy-physiology-2e",
+            "openrn-nursingfundamentals-fluid-assessment-156",
+            "nhs-ileostomy-complications-2023"
+        ],
+        "scope_note": "The PRC references establish examination scope only. OpenStax and Open RN support general anatomy, physiology, and assessment education. The NHS stoma information is UK patient guidance with a review date that has passed and is limited to a caution about dehydration signs and contacting a qualified stoma professional. No local diagnostic threshold, fluid prescription, diet, medicine adjustment, or Philippine pathway is provided.",
+        "learning_objectives": [
+            "Trace digestion, absorption, and fluid balance through the gastrointestinal tract and relate them to a focused assessment.",
+            "Recognize that persistent diarrhea or changed stoma output can accompany fluid/electrolyte risk and identify specific cues that should be assessed and reported.",
+            "Explain endocrine signaling through hormones and target cells and distinguish physiology concepts from an individual diagnosis or treatment plan."
+        ],
+        "sections": [
+            {
+                "id": "b704-gi-digestion-absorption",
+                "heading": "1. Relate digestive processes to absorption",
+                "body": "The gastrointestinal tract performs linked processes: ingestion, propulsion, mechanical and chemical digestion, absorption, and elimination. The small intestine is the principal site of digestion and absorption of released nutrients; the large intestine has a later role in absorbing remaining water and electrolytes. These are related functions, not interchangeable labels: digestion breaks material down, while absorption moves selected products into blood or lymph. In a worked example, a question about where most nutrient absorption occurs points to the small intestine, whereas a question about residual water handling concerns the large intestine. An ostomy changes which segment empties through the stoma, so the expected output depends on anatomy and the individual’s baseline. This physiology helps organize assessment but cannot diagnose a cause, define an abnormal output threshold, or prescribe diet or fluid replacement.",
+                "related_concept_ids": [
+                    "nle-np-iv-gastrointestinal"
+                ],
+                "source_ids": [
+                    "openstax-anatomy-physiology-2e"
+                ]
+            },
+            {
+                "id": "b704-gi-fluid-pattern-assessment",
+                "heading": "2. Assess gastrointestinal fluid-loss patterns",
+                "body": "Bowel symptoms can affect fluid and electrolyte balance, so assessment should connect the person’s report with observed trends. Clarify stool or stoma pattern and change from baseline, intake, medication and illness history, dizziness or weakness, urine pattern, weight when available, vital signs, skin and mucous membranes, mental status, and relevant ordered laboratory results. Open RN identifies diarrhea as a potential cause of deficient fluid volume and supports interpreting intake/output, weight, vital-sign, skin, pulse, and mental-status findings together. For example, watery output with dizziness is not answered by looking at the stoma alone: assess the output trend and signs of volume change and communicate the findings to the responsible clinician or stoma service. A UK NHS page also connects high output, dry mouth, or fatigue with dehydration, but its stated review date has passed; currentness and local referral advice must be checked. Do not advise a specific oral fluid, salt, diet, medicine, or output threshold from this lesson.",
+                "related_concept_ids": [
+                    "nle-np-iv-gastrointestinal"
+                ],
+                "source_ids": [
+                    "openrn-nursingfundamentals-fluid-assessment-156",
+                    "nhs-ileostomy-complications-2023"
+                ]
+            },
+            {
+                "id": "b704-endocrine-signaling",
+                "heading": "3. Explain endocrine signaling and homeostasis",
+                "body": "Endocrine tissues release hormones into extracellular fluid, from which signals travel through blood to cells with appropriate receptors. The response depends on the hormone, target cell, and physiologic context; some organs, including the pancreas, have both digestive and endocrine functions. Compared with neural signaling, endocrine effects are often longer-distance and usually slower, although timing varies and interactions can produce rapid responses. This is a functional distinction, not a rigid rule that every hormone acts slowly. In a worked example, insulin and glucagon are pancreatic hormones that participate in blood-glucose regulation, while the pancreas also releases digestive secretions through ducts. A learner should keep those endocrine and exocrine functions distinct. This section teaches basic physiology, not interpretation of a specific laboratory value or a treatment regimen.",
+                "related_concept_ids": [
+                    "nle-np-iv-endocrine"
+                ],
+                "source_ids": [
+                    "openstax-anatomy-physiology-2e"
+                ]
+            },
+            {
+                "id": "b704-endocrine-context-and-trends",
+                "heading": "4. Interpret endocrine cues without treating one value",
+                "body": "A hormone result represents one piece of evidence; symptoms, timing, history, medications, and the relevant reference interval affect interpretation. OpenStax notes that suspected endocrine dysfunction may prompt additional testing and that treatment depends on diagnosis. For nursing assessment, compare the present pattern with baseline and the stated reason for testing, look for accompanying changes, verify when a sample or medicine was taken if relevant, and communicate uncertainty to the responsible clinician. A person with repeated out-of-range values and new symptoms needs a contextual review, not an inferred diagnosis from one number. Do not change an insulin or hormone dose, establish a target, or provide a treatment recommendation from this lesson. Interpretation and treatment require qualified clinician review, current local guidance, and the actual patient record.",
+                "related_concept_ids": [
+                    "nle-np-iv-endocrine"
+                ],
+                "source_ids": [
+                    "openstax-anatomy-physiology-2e"
+                ]
+            }
+        ],
+        "worked_examples": [
+            {
+                "heading": "Connect watery output with assessment",
+                "prompt": "A client with an ileostomy reports watery output and dizziness.",
+                "steps": [
+                    "Clarify output pattern, timing, and change from the person’s usual output.",
+                    "Assess intake/output and observable fluid-status cues such as dizziness, urine pattern, mucous membranes, pulse, and mental status.",
+                    "Communicate the findings through the current local stoma-care or medical pathway; do not prescribe a fluid or diet plan from this lesson."
+                ],
+                "answer": "Assess the output trend and fluid-status context, then obtain qualified guidance when findings are concerning.",
+                "check": "No UK output threshold or fluid-replacement instructions are applied as Philippine protocol."
+            },
+            {
+                "heading": "Separate digestion from endocrine function",
+                "prompt": "A learner is asked how the pancreas contributes to both digestion and glucose control.",
+                "steps": [
+                    "Identify pancreatic digestive secretions that enter the GI tract through ducts.",
+                    "Distinguish endocrine cells that release insulin and glucagon into circulation.",
+                    "Relate each signal to its target and function without inferring an individual treatment."
+                ],
+                "answer": "The pancreas has both exocrine digestive and endocrine hormonal functions.",
+                "check": "The organ’s two functions do not make a digestive secretion a hormone or vice versa."
+            },
+            {
+                "heading": "Review an isolated endocrine result",
+                "prompt": "A patient notices one abnormal hormone result and asks whether to change a medicine.",
+                "steps": [
+                    "Do not infer the diagnosis or dose from the result alone.",
+                    "Check the testing context and ask about symptoms or relevant changes.",
+                    "Refer medication and interpretation questions to the authorized clinician and current plan."
+                ],
+                "answer": "A single result needs context and qualified interpretation; no self-directed dose change is recommended here.",
+                "check": "No target range or treatment is invented."
+            }
+        ],
+        "common_misconceptions": [
+            "Digestion and absorption are separate processes, and different GI segments have different functions.",
+            "Stoma output and dehydration thresholds are not universal; output must be interpreted with anatomy, baseline, symptoms, and local clinical advice.",
+            "A single endocrine value does not independently establish a diagnosis or medication adjustment.",
+            "The pancreas has digestive exocrine and hormone-secreting endocrine functions; those roles should not be confused.",
+            "General U.S. or UK educational references do not define Philippine clinical protocols."
+        ],
+        "question_patterns": [
+            "For digestion questions, distinguish breakdown from absorption and identify the relevant tract segment.",
+            "For diarrhea or stoma output, assess the pattern and fluid-status cues together; do not invent a threshold or replacement plan.",
+            "For endocrine findings, connect symptom, timing, test context, and plan; avoid treating one value as the whole diagnosis."
+        ],
+        "practice_question_ids": [
+            "4057"
+        ],
+        "pdf_file": "nursing-digestive-endocrine-assessment.pdf",
+        "source_review": {
+            "status": "SOURCE_TEXT_CHECKED_WITH_LIMITATIONS; INDEPENDENT_NURSING_REVIEW_PENDING",
+            "checked_at": "2026-10-22",
+            "note": "OpenStax and Open RN text were checked; NHS source review date has passed and it is used narrowly with a currentness flag. No nurse educator/clinician approved this lesson. See the Batch 704 source-to-claim ledger and reviewer packet."
         }
     }
 ]
