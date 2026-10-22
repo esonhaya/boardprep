@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 require_once dirname(__DIR__, 2) . '/app/Core/Autoloader.php';
 \App\Core\Autoloader::register();
+require_once __DIR__ . '/Support/StaticStorageFixture.php';
+$root = dirname(__DIR__, 2);
+putenv('APP_STORAGE_PATH=' . StaticStorageFixture::create($root, 'batch610-concept-eligibility'));
+putenv('DB_DRIVER=json');
 require dirname(__DIR__, 2) . '/bootstrap/app.php';
 
 use App\Core\App;

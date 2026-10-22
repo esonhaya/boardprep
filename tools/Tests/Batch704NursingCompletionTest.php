@@ -145,7 +145,7 @@ foreach (['i', 'ii', 'iii', 'iv', 'v'] as $level) {
     $assert(count($rows) === 6, 'NP level concept denominator changed: ' . $level);
     $npCoverage[strtoupper($level)] = count($covered);
 }
-$assert($npCoverage === ['I' => 6, 'II' => 6, 'III' => 6, 'IV' => 5, 'V' => 6], 'Unexpected NP structural result: ' . json_encode($npCoverage));
+$assert($npCoverage === ['I' => 6, 'II' => 6, 'III' => 6, 'IV' => 6, 'V' => 6], 'Unexpected NP structural result after B705: ' . json_encode($npCoverage));
 $sharedIds = array_column(array_filter($coverage, static fn(array $row): bool => ($row['board_id'] ?? '') === 'nursing' && str_starts_with((string) ($row['concept_id'] ?? ''), 'science-')), 'concept_id');
 $assert(count($sharedIds) === 10, 'Shared-science placement denominator changed.');
 foreach ($lessons as $lesson) {
@@ -196,7 +196,10 @@ $manifestByLesson = [];
 foreach ((array) ($manifest['files'] ?? []) as $entry) $manifestByLesson[(string) ($entry['lesson_id'] ?? '')] = $entry;
 $assert(count($manifestByLesson) === 59, 'Expected 59 manifest entries after three new Nursing exports.');
 $regeneratedExisting = array_fill_keys([
+    'nursing-community-risk-and-prevention',
     'nursing-maternal-family-assessment',
+    'nursing-medication-safety-and-calculation',
+    'nursing-nutrition-and-sensory-assessment',
     'nursing-oxygenation-fluid-immunity-assessment',
     'nursing-therapeutic-communication-and-crisis',
 ], true);
@@ -298,7 +301,7 @@ $complete('nle-np-ii-newborn', 'b704-newborn-thermal-protection', true, false);
 $complete('nle-np-iii-oxygenation', 'b704-cellular-specimen-evidence', false, false);
 $complete('nle-np-iv-endocrine', 'b704-gi-fluid-pattern-assessment', true, false);
 
-fwrite(STDOUT, "[PASS] B704 lessons, 12 substantive sections, registered provenance, Nursing eligibility, 29/30 NP structural coverage, and shared-science isolation validated.\n");
+fwrite(STDOUT, "[PASS] B704 lessons, 12 substantive sections, registered provenance, Nursing eligibility, 30/30 cumulative NP structural coverage, and shared-science isolation validated.\n");
 fwrite(STDOUT, "[PASS] Six exact section mappings remain independently review-pending; three weak Batch 702 mappings retain source-only records.\n");
 fwrite(STDOUT, "[PASS] PDF manifest contains 59 intact entries and all 56 prior asset identities retain their paths and valid hashes.\n");
 fwrite(STDOUT, "[PASS] Isolated HTTP flows cover lesson navigation, empty/stale pool recovery, cross-board rejection, correct/incorrect review, repeat practice, and linked sections.\n");

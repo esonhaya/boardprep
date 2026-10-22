@@ -1,0 +1,320 @@
+{
+  "report_type": "BATCH705_NURSING_COVERAGE_BEFORE",
+  "captured_at": "2026-10-22",
+  "baseline_sha": "7b02eaa81b13837ed03c59a033e4de4015f1f159",
+  "source": "Recalculated starting checkpoint from B704 final repository/report.",
+  "nursing_structural": "29/40",
+  "np_i_v_structural": "29/30",
+  "shared_science_structural": "0/10",
+  "global_structural": "406/687",
+  "lessons": 13,
+  "sections": 42,
+  "substantive_sections": 41,
+  "note_only_materials": 7,
+  "nursing_pdfs": 13,
+  "manifest_entries": 59,
+  "sources": 311,
+  "active_nursing_questions": 878,
+  "exact_nursing_links": 45,
+  "without_exact_nursing_support": 833,
+  "portfolio_pending_exact_rows": 89,
+  "academic_approvals": 0,
+  "pdf_manifest_before": {
+    "cse-percent-and-ratio-reasoning": {
+      "path": "public/study-resources/cse-percent-and-ratio-reasoning.pdf",
+      "sha256": "fd4ad59c7054599be0ccbcc8d8f967ff6f3afc10bca2fdeb53a53ddbf3cce99e",
+      "lesson_sha256": "3b848ed6f815dd88a826bf791917d375bc7a19396f9608d4eaa4043186e35846"
+    },
+    "ree-dc-circuit-analysis": {
+      "path": "public/study-resources/ree-dc-circuit-analysis.pdf",
+      "sha256": "6dbd8a072080120f87e5fb781e1c15270b97e8d0db70532e668092b6121d37dc",
+      "lesson_sha256": "e4b08d84e9ac175ecba528ac7ff3ed8e9e1d02374a57ede6a8e423570ae742cf"
+    },
+    "let-assessment-evidence-and-feedback": {
+      "path": "public/study-resources/let-assessment-evidence-and-feedback.pdf",
+      "sha256": "6ccb30084a8829e26d4af003e940a9922fd5fcf54dcc12c305e8eaa24fac5f17",
+      "lesson_sha256": "523934d947bad82bdce232b93c001c7c94d6a377dc6df25df96f20442fde773f"
+    },
+    "cle-scene-documentation-and-evidence-custody": {
+      "path": "public/study-resources/cle-scene-documentation-and-evidence-custody.pdf",
+      "sha256": "b201ade77622273df39b9ebac8550ad736401edfd81304783d40840d7a6d67ca",
+      "lesson_sha256": "5178b355ec37f86ca0cfd16b0e12fe9f38cf6f9c5fa7158b1bce3275705e9d69"
+    },
+    "nursing-standard-and-transmission-precautions": {
+      "path": "public/study-resources/nursing-standard-and-transmission-precautions.pdf",
+      "sha256": "d2ae5aa1ce09e3d111a37c66c84a226bad724ad03ea96ba3f8e0ef52bfbb343f",
+      "lesson_sha256": "a10071b084e5c88552850adad1bac2310c1df11597f8eb7db8b3ee26455eeb19"
+    },
+    "psychometrician-reliability-and-score-precision": {
+      "path": "public/study-resources/psychometrician-reliability-and-score-precision.pdf",
+      "sha256": "b922933699b198d42d82cc61278e1ee5cff67edcc68bcecb56e66e908294d29e",
+      "lesson_sha256": "40253daa777ddad085a1bda6096b22af8dd980b17bf046d7310e1d0a6e42478e"
+    },
+    "ce-beam-equilibrium-and-response": {
+      "path": "public/study-resources/ce-beam-equilibrium-and-response.pdf",
+      "sha256": "2eddbc720aa1952b657b37348fb38223842884db61ec0ad06656276fff37e5fe",
+      "lesson_sha256": "36759772ec9f4a8df31c338c7fbe1c3bc9096787c8e6e57d4730f72636b40244"
+    },
+    "cpa-audit-evidence-and-assertion-testing": {
+      "path": "public/study-resources/cpa-audit-evidence-and-assertion-testing.pdf",
+      "sha256": "c39e97e79ab092463230562acfbb0ccde96c3f372cc082e108819b087c25bb18",
+      "lesson_sha256": "d20259a05daaef2c4586310584bb1e8545833c81a146cfdc1fbbe15c98fdf514"
+    },
+    "me-ideal-gas-process-and-cycle-accounting": {
+      "path": "public/study-resources/me-ideal-gas-process-and-cycle-accounting.pdf",
+      "sha256": "e5561eb328b5c6c7044783473d2dfae4b04b0469834979125959362f186bec76",
+      "lesson_sha256": "fcb97d59a6bdb05a353ec4eeda1848d1bb123bf0e723edf1f2bc4b3f6459329c"
+    },
+    "architecture-site-analysis-and-design-response": {
+      "path": "public/study-resources/architecture-site-analysis-and-design-response.pdf",
+      "sha256": "5680c8483dd53b537c6875177d6b3bd47fc16d23b828fa1f04011d2fe5e68c7d",
+      "lesson_sha256": "962ef93cf4cf25e3c143c832502f696b2990ea80a299f7649612f347656f256a"
+    },
+    "let-values-ethical-reasoning-basics": {
+      "path": "public/study-resources/let-values-ethical-reasoning.pdf",
+      "sha256": "7390341737323eeb7a1f1078f982fb92d2239f457ac3f36ed94a8ff567122178",
+      "lesson_sha256": "ca755c328ab5587f5f3b952d1434d33157c16a0de088d383cb57ab2a664792ec"
+    },
+    "let-early-childhood-learning-and-inclusion": {
+      "path": "public/study-resources/let-early-childhood-learning-and-inclusion.pdf",
+      "sha256": "4775b5a6235e389151cd196731b249317e7ec40fb5f63ce3a0b377eb6dc00159",
+      "lesson_sha256": "ef66b3cfdbad9f2c98b5b8825f1eb32c85e05a61e09819e762c9ee21ed3b6f19"
+    },
+    "let-special-needs-inclusive-education": {
+      "path": "public/study-resources/let-special-needs-inclusive-education.pdf",
+      "sha256": "b0447c37234eb0a7f254b2f4321f77cd7e4809ce47598251164e108d9282c097",
+      "lesson_sha256": "4e981c1bd7ce4575da30fb6de1bb5ce24a28966ce691a74a83f2c5b7aa2b2a1e"
+    },
+    "let-tvted-competency-based-teaching": {
+      "path": "public/study-resources/let-tvted-competency-based-teaching.pdf",
+      "sha256": "405867339c38ee62a7e6937a76d90757798ef032301b47ab8a89963b7dd53447",
+      "lesson_sha256": "c06e1cca148b723906ed5556cd8826c75f49f95a7a523f0d85e7eeb5e871ffe1"
+    },
+    "let-culture-arts-learning-foundation": {
+      "path": "public/study-resources/let-culture-arts-learning-foundation.pdf",
+      "sha256": "dd15aa0b95ced497801c8e25877cbc99c04ec47b5dab54e4108e60b87e7e576e",
+      "lesson_sha256": "13e3ff1f83fe8a65d7c5dd8af729d4c3d3ebd7a15959e2cc33a250eed9f94b29"
+    },
+    "let-physical-education-movement-and-safety": {
+      "path": "public/study-resources/let-physical-education-movement-and-safety.pdf",
+      "sha256": "5c1c84e559386bf1817a93160b39acb3d8121a70360c52d6088d1543018cf833",
+      "lesson_sha256": "2f8eb7834b12e541aadd12ed81176df34a0bf04136dc0b0622b2437275f73d33"
+    },
+    "architecture-building-systems-and-construction": {
+      "path": "public/study-resources/architecture-building-systems-and-construction.pdf",
+      "sha256": "8a8f7dc0b502354b588e7ecca8013c36beab66c185479c86665b3bb7ba750dc9",
+      "lesson_sha256": "d0beb43d49de7635708274cd077180cbfd88e5bdfdc4e2ab63cb3753d85130e1"
+    },
+    "psychometrician-abnormal-psychology-classification-and-assessment": {
+      "path": "public/study-resources/psychometrician-abnormal-psychology-classification-and-assessment.pdf",
+      "sha256": "97e77480461396426038118410643a1c6d337f37c650ab7181c98e2ed88fda94",
+      "lesson_sha256": "40ad67177401c4103ba9dabd1938da402ab02c2f9501b30f25bf706fd96dae22"
+    },
+    "psychometrician-work-psychology-job-analysis-and-evaluation": {
+      "path": "public/study-resources/psychometrician-work-psychology-job-analysis-and-evaluation.pdf",
+      "sha256": "c82d0dcac391f608fe015ec01c0b4c2b92e44cf726372e6d957e9e73fa4add89",
+      "lesson_sha256": "d6a8f7872a4abf2e238f4f2adf44d942db882a4e0b6867618682cffa75e0f5df"
+    },
+    "psychometrician-developmental-psychology-review": {
+      "path": "public/study-resources/psychometrician-developmental-psychology-review.pdf",
+      "sha256": "8a1f82b2e24b941110903a5a744c1dd3d307cb4bc925d5f57afdd8979aeee241",
+      "lesson_sha256": "0fd233226c9594954ced51bc30b49f0a7a6684185b29ad16ebe403f5a358f00e"
+    },
+    "architecture-planning-and-practice-decisions": {
+      "path": "public/study-resources/architecture-planning-and-practice-decisions.pdf",
+      "sha256": "a1790c60197892f0b9faf6e044086bf2db8536bb42bb1dc60912e0fd3a4e5a7c",
+      "lesson_sha256": "c0ba764227e4f84228b1c0c9963d4ee0cf8fd1a597571305b2b438f2990d16b3"
+    },
+    "architecture-history-theory-and-conservation": {
+      "path": "public/study-resources/architecture-history-theory-and-conservation.pdf",
+      "sha256": "b0c6cd3b0b83e2c1ba9a15c4b43edcf41bec924895f1aa967d645f0513c6fd26",
+      "lesson_sha256": "a37fcba10ece18c82476dd0fc47bafdb36e87c6c8dfe2c2e3fc9144afd3ad077"
+    },
+    "ce-applied-methods-layout-and-delivery": {
+      "path": "public/study-resources/ce-applied-methods-layout-and-delivery.pdf",
+      "sha256": "9798e01ba9dead975947f1c1f64b2ff919e845b4aae11b343726e7c1b60ddccb",
+      "lesson_sha256": "23620f616f3c9c8db3ba6d33f51cbfb1aed4f7fb203c51162493465865005ed4"
+    },
+    "ce-hydraulics-soil-and-foundation-reasoning": {
+      "path": "public/study-resources/ce-hydraulics-soil-and-foundation-reasoning.pdf",
+      "sha256": "1b6d05a8903ed5a50ed0178bbf9e265b3378c1ec41de59f5dc0a18bd7528a6d9",
+      "lesson_sha256": "f857c1731156dcaeef7027458945c8e5944e07d24712fa595a8fa98093d4de57"
+    },
+    "ce-structural-equilibrium-and-member-response": {
+      "path": "public/study-resources/ce-structural-equilibrium-and-member-response.pdf",
+      "sha256": "719e55f0a82c7e3c8d7e40a58c03e56e8b6f5295879f253175834287c6e66478",
+      "lesson_sha256": "c62d6c2b4bc0ea4605106a4e862dba279ef4814264a800038b9f3880b2ee2c40"
+    },
+    "cse-analytical-reasoning-evidence-and-patterns": {
+      "path": "public/study-resources/cse-analytical-reasoning-evidence-and-patterns.pdf",
+      "sha256": "856862b210e2ce598ef03e6fc99844745a859e0d33b2bd2868afa6345d5128c2",
+      "lesson_sha256": "1fc7a37287525da92ed4f85bddcb8b985d675214f1771a69630ef9a78193f9fc"
+    },
+    "cse-clerical-records-filing-and-proofreading": {
+      "path": "public/study-resources/cse-clerical-records-filing-and-proofreading.pdf",
+      "sha256": "41273da566420d32008c5383ad989ac24acde1e32fb44c7c91b21fc81564c60e",
+      "lesson_sha256": "61048b000f026f802d693ed412c1606adab5bf27d83584ba7a0d27fa1166ab0a"
+    },
+    "cse-civic-rights-ethics-and-environment": {
+      "path": "public/study-resources/cse-civic-rights-ethics-and-environment.pdf",
+      "sha256": "fd44b4cac7135469e32ea3d5537fbe4c3bf72088830fc52ae1ad712a2ec0f2cd",
+      "lesson_sha256": "f48be4e3aaae2ad3c6d11c44a8bb69e33e3600050d11f43a60b6a37c110243d2"
+    },
+    "cse-verbal-reading-grammar-and-cohesion": {
+      "path": "public/study-resources/cse-verbal-reading-grammar-and-cohesion.pdf",
+      "sha256": "5c6f7e65e70f6e2135009a0c7c446e0f8fbbd0a9516d9c5f4be296b1cbe77042",
+      "lesson_sha256": "a665f30e84d3c35f92c8af3d8d03863912e3e800b5d5060f04fbb0c640bae01e"
+    },
+    "cpa-advanced-accounting-ownership-and-consolidation": {
+      "path": "public/study-resources/cpa-advanced-accounting-ownership-and-consolidation.pdf",
+      "sha256": "7e649df4bab152c6eac2f333f1432c88cf48f9f9dab4ee387a36118d287a1653",
+      "lesson_sha256": "35dcdbdbc0823ea9c6748e92f97d6da74170eb1c5cc1f6eaf736bc0d84d98433"
+    },
+    "cpa-financial-accounting-recognition-measurement-and-reporting": {
+      "path": "public/study-resources/cpa-financial-accounting-recognition-measurement-and-reporting.pdf",
+      "sha256": "0d4ab458c293169a0eb77216d027e5b3cd794fa37d0b5495dfca2479078c3f23",
+      "lesson_sha256": "6fe3214e3433992e0ef4454be0c53526809e6125c51d03dfd95e0d33823394b4"
+    },
+    "cpa-management-services-cvp-and-decisions": {
+      "path": "public/study-resources/cpa-management-services-cvp-and-decisions.pdf",
+      "sha256": "a3bb695a3d56f4073649c15d79b3fbeea9ad85416e943abfa8376b538ae69b2a",
+      "lesson_sha256": "3424fcfd3c38ba09a7f5dc4c73bcdde235074fcc28d22d8f64b075e741090b05"
+    },
+    "cpa-regulatory-framework-law-ethics-and-evidence": {
+      "path": "public/study-resources/cpa-regulatory-framework-law-ethics-and-evidence.pdf",
+      "sha256": "fb5962ac03776b1fdd447e3bac65fdf595e75e854f418af160abbd882ce2e996",
+      "lesson_sha256": "24ed4aa64672f3a0d03b9e5878536c13a70d5740810391d384e5362cd5571ec7"
+    },
+    "cpa-taxation-computation-and-current-law-workflow": {
+      "path": "public/study-resources/cpa-taxation-computation-and-current-law-workflow.pdf",
+      "sha256": "a6b3a0f91045386ed446dbb6c7fa5cbe1e02e6f38370cdc4e18b919b6e226d5c",
+      "lesson_sha256": "7b847d73f3798d22da5c8bed79144b90ab107caa7c9ec96befed8a4575d8b8f3"
+    },
+    "let-english-reading-language-and-composition": {
+      "path": "public/study-resources/let-english-reading-language-and-composition.pdf",
+      "sha256": "4181c67e7509a769f5acf8faefd1b721261a05804a354c85d9f51ea2be2dc67c",
+      "lesson_sha256": "bcc89d9ee4d3e024a15f50b731257c397830b09b94c14880cc4dfb629a83be08"
+    },
+    "let-filipino-pagbasa-wika-at-pagsulat": {
+      "path": "public/study-resources/let-filipino-pagbasa-wika-at-pagsulat.pdf",
+      "sha256": "f7f972ad4ab48c372b196efb4c9bb356e0afec4f8b4d0588651f6c61f68b1cdd",
+      "lesson_sha256": "be685891d419e301f35dcb6acea0650d3769483892f2fe06e4c314d8d2bc0940"
+    },
+    "let-mathematics-models-and-quantitative-reasoning": {
+      "path": "public/study-resources/let-mathematics-models-and-quantitative-reasoning.pdf",
+      "sha256": "61b905c437ab5df2a990b6fc959b3d0d300126d706a2580a437a013f1a2ab51e",
+      "lesson_sha256": "f4814b51d3cbc6a1098ac8d3f4243fa0aea26a59a2041a193058f136b5f52394"
+    },
+    "let-science-inquiry-systems-and-evidence": {
+      "path": "public/study-resources/let-science-inquiry-systems-and-evidence.pdf",
+      "sha256": "9bfaa58f97e25cc8f2feafcc591d067a495e458d33c39e79819ca4f63f98eca8",
+      "lesson_sha256": "7243b1a4cc2020532f6a96e276cea0a7fb5f2e856d7d7370f372958fd59972a8"
+    },
+    "let-social-studies-source-civic-and-historical-reasoning": {
+      "path": "public/study-resources/let-social-studies-source-civic-and-historical-reasoning.pdf",
+      "sha256": "71c5a862d05c19e4ceee64019921a5ac0c2ee0acb7bb79b02882d9e96ee35a54",
+      "lesson_sha256": "4e911c54f2b847eb7a7b316f1040351f5f142d80c12db5913e7d9b7391d3b527"
+    },
+    "let-tle-safety-competency-and-practice": {
+      "path": "public/study-resources/let-tle-safety-competency-and-practice.pdf",
+      "sha256": "22790173513e378f5561e9e83d4fed9dab715a704be51a50038bee7f34bef55f",
+      "lesson_sha256": "df98891c657a0b6eae359ce2d0fc1751a13d749298639541ae72a03cad6d7c24"
+    },
+    "me-machine-design-stress-materials-and-shop": {
+      "path": "public/study-resources/me-machine-design-stress-materials-and-shop.pdf",
+      "sha256": "ad5dafbf60fe12ad899a12eeb96fde4f5e7359ff3c28a62c5e3d2b713f792b72",
+      "lesson_sha256": "7ae603604814d873abe6b2152933ac1218b39123593c3f844d5814d3e4641492"
+    },
+    "me-mathematics-engineering-models-and-units": {
+      "path": "public/study-resources/me-mathematics-engineering-models-and-units.pdf",
+      "sha256": "29ac55c42eb8a51bf08c1e76cde264c192909d590d90881ea25e0233878c3acb",
+      "lesson_sha256": "d148a8ce9450ec11380963208674152f1b879b3da314b8842447a091da49630c"
+    },
+    "me-power-plant-energy-cycles-and-heat-transfer": {
+      "path": "public/study-resources/me-power-plant-energy-cycles-and-heat-transfer.pdf",
+      "sha256": "c56c158ed0e455cddef787d10cd3345f7d842993acb59a3d81dcc976b4b236bc",
+      "lesson_sha256": "a300babde676b0216e674757bfd025dd4b336f8135df199529851f9373a4b23a"
+    },
+    "psych-assessment-evidence-validity-and-fair-use": {
+      "path": "public/study-resources/psych-assessment-evidence-validity-and-fair-use.pdf",
+      "sha256": "6899b656af484b4ad8d8632d8d2420a63b82b819231f9d511e09fca4b628d843",
+      "lesson_sha256": "b7afc95424f2c1c9d9a5878a01f35087a61873b8cf4a4f53dd60284f0045a179"
+    },
+    "ree-professional-circuits-power-and-measurement": {
+      "path": "public/study-resources/ree-professional-circuits-power-and-measurement.pdf",
+      "sha256": "e46d3b632aa1b3ea4693eb42f58563f6d4e5ea90608bb9f4fdae8d630cfdb5cb",
+      "lesson_sha256": "3367b796ec344fb0ec93556a5b543fc02fe71fd7346e7386f4e2d63d91ee349b"
+    },
+    "ree-allied-mechanics-thermal-electronics-and-practice": {
+      "path": "public/study-resources/ree-allied-mechanics-thermal-electronics-and-practice.pdf",
+      "sha256": "cfffc43996f2fb1e17d25e656441e0ad356fbd7781cad3c56cd8e73f67a1af99",
+      "lesson_sha256": "d2f5a717b857df2cf37d890d0850b7fb67823233283c66de40271b0804c7ddbb"
+    },
+    "ree-mathematics-linear-systems-complex-models-and-data": {
+      "path": "public/study-resources/ree-mathematics-linear-systems-complex-models-and-data.pdf",
+      "sha256": "704383932c3b5d28bcd3c0590b112acbca8cf41164a165e059e3e654fb95849b",
+      "lesson_sha256": "15b0b36bc5b7f012bb239f4d959972e9bf03373ad2e1233737e9764e776b9097"
+    },
+    "nursing-prioritization-and-team-handoff": {
+      "path": "public/study-resources/nursing-prioritization-and-team-handoff.pdf",
+      "sha256": "f37030e3e0709a6969da2b8edc7a014217692e089694f840d7ffd985ffb57d61",
+      "lesson_sha256": "d0121cf6bc8a8a83e2845cbee0e2318976d2924856d9b9f46d9fb767a7e04143"
+    },
+    "nursing-medication-safety-and-calculation": {
+      "path": "public/study-resources/nursing-medication-safety-and-calculation.pdf",
+      "sha256": "12952847aa40ce9e04fbe08baac772cd36621717423fc4a31d8e0f1054e46be4",
+      "lesson_sha256": "1bd9ddd77e0d934ae0fe9b09152e1283186a3ae0d4eeadc818e1ec39fb7146f1"
+    },
+    "nursing-community-risk-and-prevention": {
+      "path": "public/study-resources/nursing-community-risk-and-prevention.pdf",
+      "sha256": "33041c17ae5ede1b206a8741c7a26196f21c2a363688af4437672b0fdc71f1e4",
+      "lesson_sha256": "26fbadc97786017f1eb9997cce8880b4b0aa518f04417abfc457a31d80b6ccbd"
+    },
+    "nursing-maternal-family-assessment": {
+      "path": "public/study-resources/nursing-maternal-family-assessment.pdf",
+      "sha256": "6e82a288eea3c5bb5ac74126a4ca45a4235fc9fcb0a423d3a827ef7dc0c10fe6",
+      "lesson_sha256": "c76147090b120a7eb5ed7c5de7d417b9824c0986fedb7a239d1b973c8284c1ac"
+    },
+    "nursing-newborn-safety-assessment": {
+      "path": "public/study-resources/nursing-newborn-safety-assessment.pdf",
+      "sha256": "6189c8ce4e4976de8a6b971142eeb9e058dd22b6019f3c7bebaca18520599df6",
+      "lesson_sha256": "76b59b5900319d17ce4e03bd93ac8b772e2d3de40f6d075bf9b75a75e3f0fab2"
+    },
+    "nursing-oxygenation-fluid-immunity-assessment": {
+      "path": "public/study-resources/nursing-oxygenation-fluid-immunity-assessment.pdf",
+      "sha256": "c616c96fe54f9c5360e8ee83ca808e0873fd12bd94564dcc21d41ba45261121f",
+      "lesson_sha256": "689344e882c5f398f88a3378206f5508cb52da5afc669833660e52d4c372a403"
+    },
+    "nursing-perioperative-verification": {
+      "path": "public/study-resources/nursing-perioperative-verification.pdf",
+      "sha256": "2eb13a40f00c43fdc43b9edb5b8230d3ae6d9cb14f140d52e4ee8c605e9d910d",
+      "lesson_sha256": "a2bee7e390c9154f2b47ea478ec7e31560934ba5728c236cdcd380283ba91978"
+    },
+    "nursing-nutrition-and-sensory-assessment": {
+      "path": "public/study-resources/nursing-nutrition-and-sensory-assessment.pdf",
+      "sha256": "9cbee4a0da8b64fdd3a5f2ae21c79d7f065bd9aa602c656e57af88bcdaa8341f",
+      "lesson_sha256": "7f73cbe1a10f414cb2352d1553e23c489fee513f6c34d7ca3cb62b73e385ccb3"
+    },
+    "nursing-therapeutic-communication-and-crisis": {
+      "path": "public/study-resources/nursing-therapeutic-communication-and-crisis.pdf",
+      "sha256": "587a58cad183b8ca47e8c457739d13b77d18c55e1a2c483cef996126e29190f2",
+      "lesson_sha256": "f261a6c12f17d4edb38ea9684b83297e7afa5392296d3a12e9c93cecc393bd6c"
+    },
+    "nursing-emergency-assessment-and-shock": {
+      "path": "public/study-resources/nursing-emergency-assessment-and-shock.pdf",
+      "sha256": "54f67efdfea4be951fbbe4646805efdb9b3c354f808c862d05eb63b8aecd0cf4",
+      "lesson_sha256": "d8e662b4be69cf47b87a2e6c341bdb7733b58cd789d2a49227fea42c8ed58f45"
+    },
+    "nursing-disaster-preparedness-and-continuity": {
+      "path": "public/study-resources/nursing-disaster-preparedness-and-continuity.pdf",
+      "sha256": "4aded1e7c6b071d3afd3319ddaf14f8d88ada9294b54430c2cf7f175ed112f24",
+      "lesson_sha256": "d2ec23bab290e4160eed57759b04a97ccd068e098554f76c0a99d656077f1be9"
+    },
+    "nursing-digestive-endocrine-assessment": {
+      "path": "public/study-resources/nursing-digestive-endocrine-assessment.pdf",
+      "sha256": "2b49ce5068e3454785614c80bd9aec7856148234c281e5732f2bdb3e16b9d52d",
+      "lesson_sha256": "ea44d96f3bf2ea1f2dd119a9b2704fe5906e538475803fecb0d5218b87262047"
+    }
+  },
+  "pdf_manifest_entries": 59
+}

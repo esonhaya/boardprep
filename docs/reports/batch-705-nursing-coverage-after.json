@@ -1,0 +1,52 @@
+{
+  "report_type": "BATCH705_NURSING_COVERAGE_AFTER",
+  "captured_at": "2026-10-22",
+  "methodology": "Structural counts require a published lesson section >=350 trimmed characters, registered source, and explicit related concept; structural coverage is not academic approval. Global denominator is recomputed from unique current catalog board/concept pairs. Exact links count production Nursing lesson-section relationships only.",
+  "nursing_structural": "30/40",
+  "np_i_v_structural": "30/30",
+  "shared_science_structural": "0/10",
+  "global_structural": "407/687",
+  "catalog_count_by_board": {
+    "architecture": 18,
+    "civil-engineering": 22,
+    "civil-service": 120,
+    "cpa": 113,
+    "criminologist": 37,
+    "let": 212,
+    "mechanical-engineering": 49,
+    "nursing": 40,
+    "psychometrician": 24,
+    "registered-electrical-engineering": 52
+  },
+  "lessons": 13,
+  "sections": 44,
+  "substantive_sections": 43,
+  "note_only_materials": 7,
+  "nursing_pdfs": 13,
+  "manifest_entries": 59,
+  "sources": 319,
+  "active_nursing_questions": 878,
+  "exact_nursing_links": 49,
+  "without_exact_nursing_support": 829,
+  "portfolio_pending_section_rows": 93,
+  "portfolio_explicit_exact_rows": 69,
+  "academic_approvals": 0,
+  "remaining_unmapped_nursing_concepts": [
+    "science-biology-cells",
+    "science-chemistry-matter-particles",
+    "science-data-evidence",
+    "science-earth-stratigraphy",
+    "science-ecology-population",
+    "science-electricity-series-parallel",
+    "science-inquiry-evidence",
+    "science-optics-reflection",
+    "science-physics-force-balance",
+    "science-physics-motion-graphs"
+  ],
+  "shared_science_placements": "0/10 structurally taught in Nursing; the ten shared-science concepts remain outside Nursing eligibility because this batch found no Nursing scope justification. LET/CSE relationships remain preserved.",
+  "portfolio_pending_status_counts": {
+    "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW": 89,
+    "SECTION_SUPPORTED_SOURCE_ASSOCIATION_REVIEW_REQUIRED_PENDING_INDEPENDENT_ACADEMIC_REVIEW": 4
+  },
+  "coordination_scope_status": "PRC Annex A 2025 pp. 14–15 confirms Perception/Coordination placement in NP IV; no detailed competency definition was found. Lesson is a bounded general assessment/change-recognition foundation; clinical scope and local pathway review remain unresolved."
+}

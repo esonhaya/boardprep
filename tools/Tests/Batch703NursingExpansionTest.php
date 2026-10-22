@@ -98,6 +98,17 @@ foreach ((array) ($audit['accepted_candidates'] ?? []) as $candidate) {
     $expectedMappings[(string) $candidate['question_id']] = $candidate;
 }
 $assert(count($expectedMappings) === 31, 'Audit must define 31 new section-support candidates.');
+// B705 removed two source-limited mappings while preserving their audit rows.
+unset($expectedMappings['4014'], $expectedMappings['5025']);
+// B705 independently rechecked and retained the newly supported prenatal warning-cue relationship.
+$expectedMappings['1540'] = [
+    'board' => 'nursing',
+    'subject' => 'nursing-foundations',
+    'question_id' => '1540',
+    'material_id' => 'nle-np-ii-foundation',
+    'lesson_id' => 'nursing-maternal-family-assessment',
+    'section_id' => 'b703-prenatal-warning-cues',
+];
 $assert(hash_file('sha256', $root . '/storage/questions.json') === '73cdc775cd7240b57898868d67902d833db1171f947c8dcc89081ddaf46fb4be', 'Canonical question storage differs from the verified B702 base.');
 
 $lessonConceptSections = [];
@@ -118,9 +129,9 @@ foreach (['i', 'ii', 'iii', 'iv', 'v'] as $level) {
     $npCoverage[strtoupper($level)] = count(array_filter($rows, static fn(array $concept): bool => !empty($lessonConceptSections[(string) $concept['id']])));
     $assert(count($rows) === 6, 'Unexpected NP ' . strtoupper($level) . ' concept denominator.');
 }
-$assert($npCoverage === ['I' => 6, 'II' => 6, 'III' => 6, 'IV' => 5, 'V' => 6], 'Unexpected Nursing NP I–V concept coverage after B704: ' . json_encode($npCoverage));
+$assert($npCoverage === ['I' => 6, 'II' => 6, 'III' => 6, 'IV' => 6, 'V' => 6], 'Unexpected Nursing NP I–V concept coverage after B705: ' . json_encode($npCoverage));
 $coveredNp = array_sum($npCoverage);
-$assert($coveredNp === 29, 'Expected 29/30 NP structural concept sections after B704.');
+$assert($coveredNp === 30, 'Expected 30/30 NP structural concept sections after B705.');
 
 $placedNursingConcepts = array_values(array_filter($coverageRows, static fn(array $row): bool => ($row['board_id'] ?? '') === 'nursing'));
 $assert(count($placedNursingConcepts) === 40, 'Nursing placement denominator changed unexpectedly.');
@@ -161,7 +172,7 @@ foreach ($expectedLessonIds as $lessonId) {
         }
     }
 }
-$assert($newSectionCount === 22 && $newExampleCount === 22, 'Unexpected B703-scope content after the focused B704 newborn lesson split.');
+$assert($newSectionCount === 23 && $newExampleCount === 23, 'Unexpected cumulative section/example count after the B705 coordination addition.');
 $assert($newMisconceptionCount >= 20 && $newObjectiveCount >= 20, 'Expected concept-specific misconceptions and objectives.');
 
 $eligibility = QuestionEligibilityService::index();
@@ -211,16 +222,26 @@ $assert($oldPending === 8, 'Expected eight still-supported Batch 702 mappings to
 $allSectionRows = count(array_filter($links, static fn(array $link): bool => trim((string) ($link['section_id'] ?? '')) !== ''));
 $explicitSectionRows = count(array_filter($links, static fn(array $link): bool => trim((string) ($link['lesson_id'] ?? '')) !== '' && trim((string) ($link['section_id'] ?? '')) !== ''));
 $pendingSectionRows = count(array_filter($links, static fn(array $link): bool => trim((string) ($link['section_id'] ?? '')) !== '' && str_contains((string) ($link['semantic_review_status'] ?? ''), 'PENDING')));
-$assert($allSectionRows === 1047 && $explicitSectionRows === 65 && $pendingSectionRows === 89, 'Portfolio section-link reconciliation changed after B704: ' . json_encode([$allSectionRows,$explicitSectionRows,$pendingSectionRows]));
+$assert($allSectionRows === 1051 && $explicitSectionRows === 69 && $pendingSectionRows === 93, 'Portfolio section-link reconciliation changed after B705: ' . json_encode([$allSectionRows,$explicitSectionRows,$pendingSectionRows]));
 $exactNursing = count(array_filter($links, static fn(array $link): bool => isset($questionById[(string) ($link['question_id'] ?? '')]) && ($questionById[(string) $link['question_id']]['taxonomy']['board_id'] ?? '') === 'nursing' && !empty($link['lesson_id']) && !empty($link['section_id'])));
-$assert($exactNursing === 45, 'Expected 45 Nursing exact section mappings after B704 additions and quality demotions.');
+$assert($exactNursing === 49, 'Expected 49 Nursing exact section mappings after B705 additions and source-limited demotions.');
 $manifestById = [];
 foreach ((array) ($manifest['files'] ?? []) as $entry) $manifestById[(string) ($entry['lesson_id'] ?? '')] = $entry;
 $baselineAssets = (array) ($baseline['published_study_pdf_assets_before'] ?? []);
 $assert(count($baselineAssets) === 49 && count($manifestById) === 59, 'PDF manifest count mismatch after B704 PDFs.');
+$b705RegeneratedAssets = array_fill_keys([
+    'nursing-community-risk-and-prevention',
+    'nursing-medication-safety-and-calculation',
+    'nursing-nutrition-and-sensory-assessment',
+    'nursing-oxygenation-fluid-immunity-assessment',
+    'nursing-therapeutic-communication-and-crisis',
+], true);
 foreach ($baselineAssets as $oldAsset) {
     $entry = $manifestById[(string) $oldAsset['lesson_id']] ?? null;
-    $assert(is_array($entry) && ($entry['path'] ?? '') === $oldAsset['path'] && ($entry['sha256'] ?? '') === $oldAsset['sha256'], 'Existing PDF identity/hash changed: ' . $oldAsset['lesson_id']);
+    $assert(is_array($entry) && ($entry['path'] ?? '') === $oldAsset['path'], 'Existing PDF identity/path changed: ' . $oldAsset['lesson_id']);
+    if (!isset($b705RegeneratedAssets[(string) $oldAsset['lesson_id']])) {
+        $assert(($entry['sha256'] ?? '') === $oldAsset['sha256'], 'Unmodified prior PDF hash changed: ' . $oldAsset['lesson_id']);
+    }
 }
 
 $cookies = ['PHPSESSID' => 'batch703-nursing-' . bin2hex(random_bytes(8))];
@@ -315,8 +336,8 @@ $assert(($q1018['taxonomy']['concept_id'] ?? '') === 'nle-np-v-teamwork', 'Q1018
 $q4239ExactNursing = array_filter($links, static fn(array $link): bool => (string) ($link['question_id'] ?? '') === '4239' && ($link['lesson_id'] ?? '') !== '' && str_starts_with((string) ($link['lesson_id'] ?? ''), 'nursing-'));
 $assert($q4239ExactNursing === [], 'Previously rejected CPA link leaked into Nursing.');
 
-fwrite(STDOUT, "[PASS] Seven B703-scope Nursing lessons, 22 cumulative stable concept sections and worked examples, registered section sources, and scoped pools validated.\n");
-fwrite(STDOUT, "[PASS] 31 B703 exact candidates remain Nursing-eligible and review-pending; eight still-supported Batch 702 mappings and rejected cases retain their intended states.\n");
-fwrite(STDOUT, "[PASS] Study/source integrity, 29/30 NP coverage, 1,047 portfolio section rows, 89 pending review rows, and 49 prior PDF hashes validated.\n");
+fwrite(STDOUT, "[PASS] Seven B703-scope Nursing lessons, 23 cumulative stable concept sections and worked examples, registered section sources, and scoped pools validated.\n");
+fwrite(STDOUT, "[PASS] B703 mappings were reconciled with B705 demotions 4014/5025 and the retained Q1540 link; eight Batch 702 mappings remain supported.\n");
+fwrite(STDOUT, "[PASS] Study/source integrity, 30/30 NP coverage, 1,051 portfolio section rows, 93 pending section-review rows, and retained PDF asset hashes validated.\n");
 fwrite(STDOUT, "[PASS] Isolated production HTTP flows cover seven B703-scope lesson pages, mapped section practice, cross-board rejection, correct/incorrect review, repeat practice, and recovery anchors.\n");
 fwrite(STDOUT, "[PASS] Learner/session mutations stayed in HttpSimulator storage; canonical question SHA is unchanged.\n");

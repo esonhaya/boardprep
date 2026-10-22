@@ -15,6 +15,12 @@ use Tools\Doctor\Project\BoardPrep\Simulation\HttpSimulator;
 $root = dirname(__DIR__, 2);
 $fixturePath = sys_get_temp_dir() . '/boardprep-ten-board-' . bin2hex(random_bytes(6));
 $source = new JsonStorage($root . '/storage');
+$sourcesById = [];
+foreach ($source->all('sources') as $sourceRecord) {
+    if (is_array($sourceRecord) && is_scalar($sourceRecord['id'] ?? null)) {
+        $sourcesById[(string) $sourceRecord['id']] = $sourceRecord;
+    }
+}
 $boards = $source->all('boards');
 $questions = $source->all('questions');
 $eligibilityRows = $source->all('question-eligibility');
@@ -303,21 +309,39 @@ try {
             || !str_contains($submission['output'], 'Related study materials')) {
             throw new RuntimeException('Practice feedback, explanation, or question study link failed for ' . $boardCode . '.');
         }
-        if (!preg_match('~href="/study-library\?material=([^\"]+)"~', $submission['output'], $materialMatch)) {
-            throw new RuntimeException('Question explanation has no follow-through study resource for ' . $boardCode . '.');
-        }
-        $studyTarget = rawurldecode($materialMatch[1]);
-        [$materialPath, $sectionFragment] = array_pad(explode('#', $studyTarget, 2), 2, '');
-        $materialId = $materialPath;
-        $materialPage = $http->request('GET', '/study-library', ['material' => $materialId], [], [], $cookies);
-        $expectedMaterial = $materialsById[$materialId] ?? null;
-        if (!$materialPage['success'] || !is_array($expectedMaterial)
-            || !str_contains($materialPage['output'], htmlspecialchars((string) ($expectedMaterial['title'] ?? ''), ENT_QUOTES, 'UTF-8'))
-            || !str_contains($materialPage['output'], 'Sources')) {
-            throw new RuntimeException('Question study reference did not open its published source material for ' . $boardCode . '.');
-        }
-        if ($sectionFragment !== '' && !str_contains($materialPage['output'], 'id="' . htmlspecialchars($sectionFragment, ENT_QUOTES, 'UTF-8') . '"')) {
-            throw new RuntimeException('Question study reference did not resolve its exact lesson section for ' . $boardCode . '.');
+        if (preg_match('~href="/study-library\?material=([^\"]+)"~', $submission['output'], $materialMatch)) {
+            $studyTarget = rawurldecode($materialMatch[1]);
+            [$materialPath, $sectionFragment] = array_pad(explode('#', $studyTarget, 2), 2, '');
+            $materialId = $materialPath;
+            $materialPage = $http->request('GET', '/study-library', ['material' => $materialId], [], [], $cookies);
+            $expectedMaterial = $materialsById[$materialId] ?? null;
+            if (!$materialPage['success'] || !is_array($expectedMaterial)
+                || !str_contains($materialPage['output'], htmlspecialchars((string) ($expectedMaterial['title'] ?? ''), ENT_QUOTES, 'UTF-8'))
+                || !str_contains($materialPage['output'], 'Sources')) {
+                throw new RuntimeException('Question study reference did not open its published source material for ' . $boardCode . '.');
+            }
+            if ($sectionFragment !== '' && !str_contains($materialPage['output'], 'id="' . htmlspecialchars($sectionFragment, ENT_QUOTES, 'UTF-8') . '"')) {
+                throw new RuntimeException('Question study reference did not resolve its exact lesson section for ' . $boardCode . '.');
+            }
+        } else {
+            // Source-only associations must stay visibly distinct from exact lesson links.
+            $allowedSourceUrls = [];
+            foreach ($linksByQuestion[$questionId] ?? [] as $referenceLink) {
+                foreach ((array) ($referenceLink['source_ids'] ?? []) as $sourceId) {
+                    $url = $sourcesById[(string) $sourceId]['url'] ?? null;
+                    if (is_string($url) && trim($url) !== '') $allowedSourceUrls[] = $url;
+                }
+            }
+            $hasDirectSource = false;
+            foreach (array_unique($allowedSourceUrls) as $url) {
+                if (str_contains($submission['output'], htmlspecialchars($url, ENT_QUOTES, 'UTF-8'))) {
+                    $hasDirectSource = true;
+                    break;
+                }
+            }
+            if (!$hasDirectSource || str_contains($submission['output'], 'Open supporting lesson section:')) {
+                throw new RuntimeException('Source-only question support was not rendered as a registered direct source for ' . $boardCode . '.');
+            }
         }
 
         $finish = $http->request('POST', '/quiz', [], ['action' => 'finish', 'csrf_token' => $csrfToken], [], $cookies);

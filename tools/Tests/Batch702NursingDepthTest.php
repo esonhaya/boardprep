@@ -47,6 +47,7 @@ $expected = [
     '1012' => ['nursing-prioritization-and-team-handoff', 'nle-v-report-change-and-reassess'],
     '4094' => ['nursing-medication-safety-and-calculation', 'nle-medication-order-and-product-verification'],
     '4096' => ['nursing-medication-safety-and-calculation', 'nle-medication-order-and-product-verification'],
+    '1517' => ['nursing-medication-safety-and-calculation', 'nle-medication-order-and-product-verification'],
     '4097' => ['nursing-medication-safety-and-calculation', 'nle-medication-concentration-calculation'],
     '4102' => ['nursing-medication-safety-and-calculation', 'nle-medication-weight-based-rate-units'],
     '5104' => ['nursing-medication-safety-and-calculation', 'nle-medication-reconcile-at-transition'],
@@ -175,6 +176,6 @@ $completeMappedPractice('1011');
 $completeMappedPractice('4097');
 
 echo "[PASS] Two Nursing lessons render under the correct subject, with stable anchors, source links, PDFs, and continuation actions.\n";
-echo "[PASS] Eight exact-section mappings resolve through production study and Nursing eligibility services; review remains pending and question identity is preserved.\n";
+echo "[PASS] Nine exact-section mappings resolve through production study and Nursing eligibility services; review remains pending and question identity is preserved.\n";
 echo "[PASS] Nursing practice, correct-answer review, and return-to-section navigation work for prioritization and dosage calculation.\n";
 echo "[PASS] Nursing lesson materials are excluded from LET English scope. Learner mutations stayed in the simulator fixture.\n";

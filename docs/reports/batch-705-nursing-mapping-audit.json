@@ -1,0 +1,2296 @@
+{
+  "report_type": "BATCH705_NURSING_MAPPING_AUDIT",
+  "captured_at": "2026-10-22",
+  "baseline_sha": "7b02eaa81b13837ed03c59a033e4de4015f1f159",
+  "methodology": {
+    "existing_mapping_audit": "All 45 B704 exact links were audited using the B704 item-level review where available, followed by current question/section/source/practice/anchor checks; edited sections received fresh comparison.",
+    "new_mapping_rule": "Only direct answer-principle instruction, appropriate sources, Nursing eligibility, and exact navigation qualify. Every link remains pending independent review.",
+    "canonical_preservation": "No canonical question, answer key, ID, or taxonomy was changed."
+  },
+  "summary": {
+    "b704_exact_links_before": 45,
+    "existing_links_audited": 45,
+    "existing_links_demoted_this_batch": 2,
+    "new_exact_links": 6,
+    "current_exact_links": 49,
+    "technically_supported_pending_review": 46,
+    "defect_suspected": 3,
+    "source_limited_current_exact_links": 0,
+    "historical_rejections_preserved": 3,
+    "held_or_rejected_candidates": 45,
+    "all_current_exact_links_pending_review": true,
+    "existing_links_retained_from_b704": 43
+  },
+  "mappings": [
+    {
+      "QUESTION_ID": "879",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-i-disaster"
+      ],
+      "LESSON_ID": "nursing-disaster-preparedness-and-continuity",
+      "SECTION_ID": "b704-disaster-community-coordination",
+      "SECTION_HEADING": "2. Plan with communities and protect continuity",
+      "QUESTION_STEM": "A rural clinic has a rising number of prenatal referrals but limited transport. Which partnership is most useful?",
+      "OPTIONS": [
+        "coordinate with local leaders and transport resources for emergency access",
+        "tell families to arrange transport alone",
+        "stop accepting referrals",
+        "refer only clients who can pay"
+      ],
+      "ANSWER_KEY": "coordinate with local leaders and transport resources for emergency access",
+      "RATIONALE": "Interagency and community coordination improves timely access without excluding clients.",
+      "MAPPING_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "QUESTION_DEFECT_FLAG": null,
+      "SECTION_PRINCIPLE_SUPPORT": "coordinate with local leaders and transport resources for emergency access — Interagency and community coordination improves timely access without excluding clients.",
+      "SOURCE_IDS": [
+        "who-health-edrm-2019",
+        "prc-nursing-enhanced-tos-2025",
+        "prc-nursing-program-aug-2026"
+      ],
+      "SOURCE_LIMITATIONS": [],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B704_DETAILED_AUDIT_RECHECKED_CURRENT_CONTENT",
+      "PRIOR_B704_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "894",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-ii-labor"
+      ],
+      "LESSON_ID": "nursing-maternal-family-assessment",
+      "SECTION_ID": "b704-labor-coping-and-choice",
+      "SECTION_HEADING": "5. Support coping and choice during labor",
+      "QUESTION_STEM": "A client in early labor asks how to conserve energy. Which teaching is appropriate?",
+      "OPTIONS": [
+        "use breathing, rest between contractions, and change position as tolerated",
+        "hold the breath during every contraction",
+        "remain flat and still throughout labor",
+        "avoid reporting increasing pressure"
+      ],
+      "ANSWER_KEY": "use breathing, rest between contractions, and change position as tolerated",
+      "RATIONALE": "Energy-conserving techniques support coping while position changes and reporting remain important.",
+      "MAPPING_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "QUESTION_DEFECT_FLAG": null,
+      "SECTION_PRINCIPLE_SUPPORT": "use breathing, rest between contractions, and change position as tolerated — Energy-conserving techniques support coping while position changes and reporting remain important.",
+      "SOURCE_IDS": [
+        "prc-nursing-enhanced-tos-2025",
+        "openrn-healthpromo-labor-monitoring-105",
+        "prc-nursing-program-aug-2026",
+        "who-intrapartum-summary-2018"
+      ],
+      "SOURCE_LIMITATIONS": [],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B704_DETAILED_AUDIT_RECHECKED_CURRENT_CONTENT",
+      "PRIOR_B704_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "1011",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-v-acuity"
+      ],
+      "LESSON_ID": "nursing-prioritization-and-team-handoff",
+      "SECTION_ID": "nle-v-prioritize-changing-risk",
+      "SECTION_HEADING": "2. Prioritize changing risk",
+      "QUESTION_STEM": "Which client should the nurse see first?",
+      "OPTIONS": [
+        "the client whose new breathing difficulty is worsening",
+        "the client requesting a routine blanket",
+        "the stable client awaiting discharge papers",
+        "the client asking about tomorrow’s menu"
+      ],
+      "ANSWER_KEY": "the client whose new breathing difficulty is worsening",
+      "RATIONALE": "Worsening breathing represents immediate deterioration compared with routine needs.",
+      "MAPPING_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "QUESTION_DEFECT_FLAG": null,
+      "SECTION_PRINCIPLE_SUPPORT": "the client whose new breathing difficulty is worsening — Worsening breathing represents immediate deterioration compared with routine needs.",
+      "SOURCE_IDS": [
+        "prc-nursing-enhanced-tos-2025",
+        "openrn-nursing-fundamentals",
+        "who-basic-emergency-care"
+      ],
+      "SOURCE_LIMITATIONS": [],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B704_DETAILED_AUDIT_RECHECKED_CURRENT_CONTENT",
+      "PRIOR_B704_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "1012",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-v-teamwork"
+      ],
+      "LESSON_ID": "nursing-prioritization-and-team-handoff",
+      "SECTION_ID": "nle-v-report-change-and-reassess",
+      "SECTION_HEADING": "3. Report the trend and close the loop",
+      "QUESTION_STEM": "A client with sepsis risk becomes newly confused and has falling blood pressure. What should the nurse communicate?",
+      "OPTIONS": [
+        "the mental-status and hemodynamic changes with their time and trend",
+        "only the original diagnosis",
+        "that the client is being difficult",
+        "a request for a later appointment"
+      ],
+      "ANSWER_KEY": "the mental-status and hemodynamic changes with their time and trend",
+      "RATIONALE": "Objective trends and timing help the team respond to deterioration.",
+      "MAPPING_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "QUESTION_DEFECT_FLAG": null,
+      "SECTION_PRINCIPLE_SUPPORT": "the mental-status and hemodynamic changes with their time and trend — Objective trends and timing help the team respond to deterioration.",
+      "SOURCE_IDS": [
+        "prc-nursing-enhanced-tos-2025",
+        "openrn-nursing-fundamentals",
+        "who-basic-emergency-care"
+      ],
+      "SOURCE_LIMITATIONS": [],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B704_DETAILED_AUDIT_RECHECKED_CURRENT_CONTENT",
+      "PRIOR_B704_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "1018",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-v-teamwork"
+      ],
+      "LESSON_ID": "nursing-therapeutic-communication-and-crisis",
+      "SECTION_ID": "b703-self-harm-statement-and-safety",
+      "SECTION_HEADING": "1. Take statements about not living seriously",
+      "QUESTION_STEM": "A client with depression says, “My family would be better without me.” How should the nurse respond?",
+      "OPTIONS": [
+        "ask directly about thoughts of self-harm and assess immediate safety",
+        "reassure without asking further",
+        "change the subject",
+        "tell the family to handle it"
+      ],
+      "ANSWER_KEY": "ask directly about thoughts of self-harm and assess immediate safety",
+      "RATIONALE": "Direct assessment is appropriate when a statement suggests possible self-harm risk.",
+      "MAPPING_CLASSIFICATION": "DEFECT_SUSPECTED",
+      "QUESTION_DEFECT_FLAG": "TAXONOMY_REVIEW: suicide-safety item is assigned to NP V teamwork; do not mutate canonical taxonomy.",
+      "SECTION_PRINCIPLE_SUPPORT": "ask directly about thoughts of self-harm and assess immediate safety — Direct assessment is appropriate when a statement suggests possible self-harm risk.",
+      "SOURCE_IDS": [
+        "prc-nursing-enhanced-tos-2025",
+        "openrn-nursingmhcc-mental-assessment-43",
+        "openrn-nursing-fundamentals",
+        "who-suicide-prevention-2026",
+        "nimh-suicide-faq-2023"
+      ],
+      "SOURCE_LIMITATIONS": [],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B704_DETAILED_AUDIT_RECHECKED_CURRENT_CONTENT",
+      "PRIOR_B704_CLASSIFICATION": "QUESTION_DEFECT_SUSPECTED",
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "1517",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-iv-medication"
+      ],
+      "LESSON_ID": "nursing-medication-safety-and-calculation",
+      "SECTION_ID": "nle-medication-order-and-product-verification",
+      "SECTION_HEADING": "1. Verify the order and product before preparation",
+      "QUESTION_STEM": "Before administering a high-alert insulin dose, the nurse finds that the current glucose value and the medication order do not match. What is the safest action?",
+      "OPTIONS": [
+        "Give the ordered dose and document the mismatch afterward",
+        "Ask the client to choose the dose",
+        "Hold administration and clarify the discrepancy using the required verification process",
+        "Delete the order from the medication record"
+      ],
+      "ANSWER_KEY": "Hold administration and clarify the discrepancy using the required verification process",
+      "RATIONALE": "Pause administration and resolve the mismatch through the required verification and escalation process; do not independently change the dose or administer an order that conflicts with the available assessment. WHO’s medication-safety tool supports involving the patient or caregiver in medication conversations with health professionals, but that partnership does not let the patient choose an insulin dose or replace professional order verification.",
+      "MAPPING_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "QUESTION_DEFECT_FLAG": null,
+      "SECTION_PRINCIPLE_SUPPORT": "Current section teaches the specific answer principle; full stem, options, key and rationale compared to section body.",
+      "SOURCE_IDS": [
+        "openrn-pharmacology2e-medication-safety",
+        "who-medication-without-harm-5-moments"
+      ],
+      "SOURCE_LIMITATIONS": [],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B705_FRESH_CONTENT_SOURCE_AND_ROUTE_CHECK",
+      "PRIOR_B704_CLASSIFICATION": null,
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "1523",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-ii-newborn"
+      ],
+      "LESSON_ID": "nursing-newborn-safety-assessment",
+      "SECTION_ID": "b704-newborn-thermal-protection",
+      "SECTION_HEADING": "7. Protect newborn warmth and reassess after heat loss",
+      "QUESTION_STEM": "A newborn’s temperature is falling after bathing. Which action best addresses the immediate problem?",
+      "OPTIONS": [
+        "Dry the newborn, replace wet linens, provide skin-to-skin or approved warming, and reassess",
+        "Repeat the bath with cooler water",
+        "Place the newborn uncovered near an air vent",
+        "Delay feeding and observation until the next shift"
+      ],
+      "ANSWER_KEY": "Dry the newborn, replace wet linens, provide skin-to-skin or approved warming, and reassess",
+      "RATIONALE": "Evaporative heat loss is reduced by drying, warm linens, and approved warming measures. Exposure and delay increase cold stress.",
+      "MAPPING_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "QUESTION_DEFECT_FLAG": null,
+      "SECTION_PRINCIPLE_SUPPORT": "Dry the newborn, replace wet linens, provide skin-to-skin or approved warming, and reassess — Evaporative heat loss is reduced by drying, warm linens, and approved warming measures. Exposure and delay increase cold stress.",
+      "SOURCE_IDS": [
+        "who-essential-newborn-care",
+        "who-caring-newborn-2022",
+        "who-newborn-mortality-2024",
+        "prc-nursing-enhanced-tos-2025",
+        "prc-nursing-program-aug-2026"
+      ],
+      "SOURCE_LIMITATIONS": [],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B704_DETAILED_AUDIT_RECHECKED_CURRENT_CONTENT",
+      "PRIOR_B704_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "1536",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-iv-medication"
+      ],
+      "LESSON_ID": "nursing-medication-safety-and-calculation",
+      "SECTION_ID": "b705-medication-weight-based-dose",
+      "SECTION_HEADING": "4. Calculate a weight-based dose without validating the order",
+      "QUESTION_STEM": "A prescribed medication dose is 0.25 mg/kg for a client weighing 68 kg. What dose should be prepared?",
+      "OPTIONS": [
+        "2.72 mg",
+        "68.25 mg",
+        "272 mg",
+        "17 mg"
+      ],
+      "ANSWER_KEY": "17 mg",
+      "RATIONALE": "Multiply the ordered dose by weight: 0.25 mg/kg × 68 kg = 17 mg. The units cancel correctly; 2.72 mg reflects an incorrect decimal operation.",
+      "MAPPING_CLASSIFICATION": "DEFECT_SUSPECTED",
+      "QUESTION_DEFECT_FLAG": "DOSE_BASIS_UNSPECIFIED_REVIEW: mg/kg/dose versus mg/kg/day is not specified. Section link supports arithmetic only; item remains held for wording review.",
+      "SECTION_PRINCIPLE_SUPPORT": "Current section teaches the specific answer principle; full stem, options, key and rationale compared to section body.",
+      "SOURCE_IDS": [
+        "openrn-nursingskills-weight-based-calculations-511",
+        "openrn-nursingdosagecalculations-weight-based-6-1"
+      ],
+      "SOURCE_LIMITATIONS": [
+        "Arithmetic only; no medication-specific dose validity is established.",
+        "The stem does not specify the mg/kg time basis; calculation link does not establish clinical dose validity."
+      ],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B705_FRESH_CONTENT_SOURCE_AND_ROUTE_CHECK",
+      "PRIOR_B704_CLASSIFICATION": null,
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "1537",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-ii-newborn"
+      ],
+      "LESSON_ID": "nursing-medication-safety-and-calculation",
+      "SECTION_ID": "b705-medication-weight-based-dose",
+      "SECTION_HEADING": "4. Calculate a weight-based dose without validating the order",
+      "QUESTION_STEM": "A liquid medicine is prescribed at 15 mg/kg for a child weighing 18 kg. The solution contains 75 mg/mL. What volume is required?",
+      "OPTIONS": [
+        "3.6 mL",
+        "0.24 mL",
+        "1.2 mL",
+        "13.5 mL"
+      ],
+      "ANSWER_KEY": "3.6 mL",
+      "RATIONALE": "The required dose is 15×18 = 270 mg. At 75 mg/mL, volume is 270÷75 = 3.6 mL. The dose must be calculated before converting to volume.",
+      "MAPPING_CLASSIFICATION": "DEFECT_SUSPECTED",
+      "QUESTION_DEFECT_FLAG": "DOSE_BASIS_UNSPECIFIED_REVIEW: mg/kg/dose versus mg/kg/day is not specified. Section link supports arithmetic only; item remains held for wording review.",
+      "SECTION_PRINCIPLE_SUPPORT": "Current section teaches the specific answer principle; full stem, options, key and rationale compared to section body.",
+      "SOURCE_IDS": [
+        "openrn-nursingskills-weight-based-calculations-511",
+        "openrn-nursingdosagecalculations-weight-based-6-1"
+      ],
+      "SOURCE_LIMITATIONS": [
+        "Arithmetic only; no medication-specific dose validity is established.",
+        "The stem does not specify the mg/kg time basis; calculation link does not establish clinical dose validity."
+      ],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B705_FRESH_CONTENT_SOURCE_AND_ROUTE_CHECK",
+      "PRIOR_B704_CLASSIFICATION": null,
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "1540",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-ii-prenatal"
+      ],
+      "LESSON_ID": "nursing-maternal-family-assessment",
+      "SECTION_ID": "b703-prenatal-warning-cues",
+      "SECTION_HEADING": "1. Treat maternal warning cues as assessment priorities",
+      "QUESTION_STEM": "A pregnant client reports severe headache, visual disturbance, and right-upper-quadrant pain. Blood pressure is higher than the client’s previous readings. What is the priority response?",
+      "OPTIONS": [
+        "Reassure the client that headache is expected in pregnancy",
+        "Encourage vigorous walking to lower the pressure",
+        "Delay assessment until the next routine prenatal visit",
+        "Assess promptly, reduce stimulation, and notify the appropriate clinician for urgent evaluation"
+      ],
+      "ANSWER_KEY": "Assess promptly, reduce stimulation, and notify the appropriate clinician for urgent evaluation",
+      "RATIONALE": "The combined symptoms and changing blood pressure require urgent assessment for a serious hypertensive complication. Reassurance or delay could miss deterioration.",
+      "MAPPING_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "QUESTION_DEFECT_FLAG": null,
+      "SECTION_PRINCIPLE_SUPPORT": "Current section teaches the specific answer principle; full stem, options, key and rationale compared to section body.",
+      "SOURCE_IDS": [
+        "who-preeclampsia-factsheet-2026"
+      ],
+      "SOURCE_LIMITATIONS": [],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B705_FRESH_CONTENT_SOURCE_AND_ROUTE_CHECK",
+      "PRIOR_B704_CLASSIFICATION": null,
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "1556",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-ii-postpartum"
+      ],
+      "LESSON_ID": "nursing-maternal-family-assessment",
+      "SECTION_ID": "b703-family-feeding-and-teachback",
+      "SECTION_HEADING": "4. Build a safe, respectful family plan",
+      "QUESTION_STEM": "A breastfeeding parent reports severe nipple pain, and the newborn makes clicking sounds with brief feeds. What should the nurse do first?",
+      "OPTIONS": [
+        "Tell the parent to stop breastfeeding permanently",
+        "Advise increasing feeding intervals without observing",
+        "Assume the pain proves an infection",
+        "Observe a feeding and assess latch and transfer before recommending a change"
+      ],
+      "ANSWER_KEY": "Observe a feeding and assess latch and transfer before recommending a change",
+      "RATIONALE": "Pain and clicking can reflect ineffective latch or transfer, but direct observation is needed before teaching or referral. Stopping feeding or assuming infection is premature.",
+      "MAPPING_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "QUESTION_DEFECT_FLAG": null,
+      "SECTION_PRINCIPLE_SUPPORT": "Observe a feeding and assess latch and transfer before recommending a change — Pain and clicking can reflect ineffective latch or transfer, but direct observation is needed before teaching or referral. Stopping feeding or assuming infection is premature.",
+      "SOURCE_IDS": [
+        "prc-nursing-enhanced-tos-2025",
+        "openrn-healthpromo-postpartum-115",
+        "who-postnatal-care-2022"
+      ],
+      "SOURCE_LIMITATIONS": [],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B704_DETAILED_AUDIT_RECHECKED_CURRENT_CONTENT",
+      "PRIOR_B704_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "3853",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-iii-infection"
+      ],
+      "LESSON_ID": "nursing-standard-and-transmission-precautions",
+      "SECTION_ID": "nle-task-based-ppe-and-equipment",
+      "SECTION_HEADING": "3. Match PPE and equipment to the task",
+      "QUESTION_STEM": "A client on contact precautions needs suctioning. What should the nurse verify before entering?",
+      "OPTIONS": [
+        "The anticipated exposure, required PPE, hand hygiene, equipment, and disposal process.",
+        "That gloves alone replace hand hygiene.",
+        "That precautions can be removed for procedures.",
+        "Only the client's room number."
+      ],
+      "ANSWER_KEY": "The anticipated exposure, required PPE, hand hygiene, equipment, and disposal process.",
+      "RATIONALE": "PPE and equipment follow anticipated exposure and current transmission policy; contact status remains relevant during care.",
+      "MAPPING_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "QUESTION_DEFECT_FLAG": null,
+      "SECTION_PRINCIPLE_SUPPORT": "The anticipated exposure, required PPE, hand hygiene, equipment, and disposal process. — PPE and equipment follow anticipated exposure and current transmission policy; contact status remains relevant during care.",
+      "SOURCE_IDS": [
+        "prc-nursing-program-aug-2026",
+        "prc-nursing-enhanced-tos-2025",
+        "cdc-infection-control-basics",
+        "cdc-isolation-precautions",
+        "who-basic-emergency-care",
+        "openrn-nursing-fundamentals"
+      ],
+      "SOURCE_LIMITATIONS": [],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B704_DETAILED_AUDIT_RECHECKED_CURRENT_CONTENT",
+      "PRIOR_B704_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "3855",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-ii-newborn",
+        "nle-np-ii-development"
+      ],
+      "LESSON_ID": "nursing-newborn-safety-assessment",
+      "SECTION_ID": "b704-newborn-thermal-protection",
+      "SECTION_HEADING": "7. Protect newborn warmth and reassess after heat loss",
+      "QUESTION_STEM": "A stable newborn becomes cold after an unnecessary bath. Which action is most appropriate?",
+      "OPTIONS": [
+        "Leave the infant uncovered for observation.",
+        "Dry and warm the newborn, assess the infant, and follow the current thermoregulation pathway.",
+        "Repeat the bath with warmer water.",
+        "Give oral water instead of warming."
+      ],
+      "ANSWER_KEY": "Dry and warm the newborn, assess the infant, and follow the current thermoregulation pathway.",
+      "RATIONALE": "Warmth and assessment address a preventable heat-loss problem; water does not correct newborn thermoregulation.",
+      "MAPPING_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "QUESTION_DEFECT_FLAG": null,
+      "SECTION_PRINCIPLE_SUPPORT": "Dry and warm the newborn, assess the infant, and follow the current thermoregulation pathway. — Warmth and assessment address a preventable heat-loss problem; water does not correct newborn thermoregulation.",
+      "SOURCE_IDS": [
+        "who-essential-newborn-care",
+        "who-caring-newborn-2022",
+        "who-newborn-mortality-2024",
+        "prc-nursing-enhanced-tos-2025",
+        "prc-nursing-program-aug-2026"
+      ],
+      "SOURCE_LIMITATIONS": [],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B704_DETAILED_AUDIT_RECHECKED_CURRENT_CONTENT",
+      "PRIOR_B704_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "3864",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-i-community",
+        "nle-clinical-judgment"
+      ],
+      "LESSON_ID": "nursing-community-risk-and-prevention",
+      "SECTION_ID": "b703-community-assessment-access",
+      "SECTION_HEADING": "1. Start with the community’s problem definition",
+      "QUESTION_STEM": "A barangay nurse finds that older adults with diabetes miss follow-up visits because transport is unreliable. Which first action best reflects community nursing?",
+      "OPTIONS": [
+        "Schedule education without asking why visits are missed.",
+        "Tell each patient to arrange private transport.",
+        "Map the access barrier with residents and the health team before designing a feasible referral or outreach response.",
+        "Close the clinic list until attendance improves."
+      ],
+      "ANSWER_KEY": "Map the access barrier with residents and the health team before designing a feasible referral or outreach response.",
+      "RATIONALE": "The barrier is a population-and-access problem. Assessment with the affected group precedes a sustainable intervention.",
+      "MAPPING_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "QUESTION_DEFECT_FLAG": null,
+      "SECTION_PRINCIPLE_SUPPORT": "Map the access barrier with residents and the health team before designing a feasible referral or outreach response. — The barrier is a population-and-access problem. Assessment with the affected group precedes a sustainable intervention.",
+      "SOURCE_IDS": [
+        "prc-nursing-program-aug-2026",
+        "prc-nursing-enhanced-tos-2025",
+        "who-community-health",
+        "doh-national-immunization-program",
+        "cdc-infection-control-basics",
+        "openrn-nursing-fundamentals",
+        "openrn-nursingmhcc-community-162"
+      ],
+      "SOURCE_LIMITATIONS": [],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B704_DETAILED_AUDIT_RECHECKED_CURRENT_CONTENT",
+      "PRIOR_B704_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "3874",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-i-prevention",
+        "nle-np-iv-medication"
+      ],
+      "LESSON_ID": "nursing-community-risk-and-prevention",
+      "SECTION_ID": "b703-prevention-and-risk-communication",
+      "SECTION_HEADING": "2. Separate prevention levels from a disease-specific plan",
+      "QUESTION_STEM": "A client asks how to prevent a second stroke after discharge. Which nursing focus is most appropriate?",
+      "OPTIONS": [
+        "Use supplements instead of prescribed therapy.",
+        "Stop all activity permanently.",
+        "Support the prescribed risk-factor plan, medication adherence, follow-up, warning-sign recognition, and realistic lifestyle changes.",
+        "Wait for symptoms before follow-up."
+      ],
+      "ANSWER_KEY": "Support the prescribed risk-factor plan, medication adherence, follow-up, warning-sign recognition, and realistic lifestyle changes.",
+      "RATIONALE": "Secondary prevention combines treatment adherence, monitoring, education, and response to warning signs.",
+      "MAPPING_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "QUESTION_DEFECT_FLAG": null,
+      "SECTION_PRINCIPLE_SUPPORT": "Support the prescribed risk-factor plan, medication adherence, follow-up, warning-sign recognition, and realistic lifestyle changes. — Secondary prevention combines treatment adherence, monitoring, education, and response to warning signs.",
+      "SOURCE_IDS": [
+        "prc-nursing-program-aug-2026",
+        "prc-nursing-enhanced-tos-2025",
+        "who-community-health",
+        "doh-national-immunization-program",
+        "cdc-infection-control-basics",
+        "openrn-nursing-fundamentals",
+        "openrn-healthpromo-prevention-22",
+        "aha-asa-secondary-stroke-prevention-2021",
+        "aha-asa-acute-stroke-guideline-2026",
+        "who-stroke-fact-sheet-2025"
+      ],
+      "SOURCE_LIMITATIONS": [
+        "WHO supports the bounded prevention lesson; linked AHA/ASA full text was inaccessible, so broader claims stay source-limited."
+      ],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B704_DETAILED_AUDIT_RECHECKED_CURRENT_CONTENT",
+      "PRIOR_B704_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "3894",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-i-epidemiology"
+      ],
+      "LESSON_ID": "nursing-community-risk-and-prevention",
+      "SECTION_ID": "b703-outbreak-proportion-and-description",
+      "SECTION_HEADING": "3. Make the denominator visible",
+      "QUESTION_STEM": "A clinic records 18 cases of gastroenteritis among 120 residents during one week. What is the attack proportion?",
+      "OPTIONS": [
+        "15%",
+        "1.5%",
+        "6.7%",
+        "138%"
+      ],
+      "ANSWER_KEY": "15%",
+      "RATIONALE": "Attack proportion = 18 ÷ 120 = 0.15, or 15%. The denominator is the population at risk during the event.",
+      "MAPPING_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "QUESTION_DEFECT_FLAG": null,
+      "SECTION_PRINCIPLE_SUPPORT": "15% — Attack proportion = 18 ÷ 120 = 0.15, or 15%. The denominator is the population at risk during the event.",
+      "SOURCE_IDS": [
+        "prc-nursing-program-aug-2026",
+        "prc-nursing-enhanced-tos-2025",
+        "who-community-health",
+        "doh-national-immunization-program",
+        "cdc-infection-control-basics",
+        "openrn-nursing-fundamentals",
+        "cdc-field-epi-outbreak-investigation"
+      ],
+      "SOURCE_LIMITATIONS": [],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B704_DETAILED_AUDIT_RECHECKED_CURRENT_CONTENT",
+      "PRIOR_B704_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "3914",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-i-vulnerable",
+        "nle-np-v-emergency"
+      ],
+      "LESSON_ID": "nursing-community-risk-and-prevention",
+      "SECTION_ID": "b703-vulnerability-and-immediate-safety",
+      "SECTION_HEADING": "4. Assess vulnerability without stereotyping",
+      "QUESTION_STEM": "An older adult living alone has new confusion and an unsafe kitchen. What is the nurse's priority?",
+      "OPTIONS": [
+        "Arrange a routine social visit only.",
+        "Label the confusion as normal aging.",
+        "Remove the person's choices without assessment.",
+        "Assess for acute illness or injury, immediate safety, support availability, and urgent referral needs."
+      ],
+      "ANSWER_KEY": "Assess for acute illness or injury, immediate safety, support availability, and urgent referral needs.",
+      "RATIONALE": "New confusion can signal acute deterioration; safety and assessment precede assumptions about aging.",
+      "MAPPING_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "QUESTION_DEFECT_FLAG": null,
+      "SECTION_PRINCIPLE_SUPPORT": "Assess for acute illness or injury, immediate safety, support availability, and urgent referral needs. — New confusion can signal acute deterioration; safety and assessment precede assumptions about aging.",
+      "SOURCE_IDS": [
+        "prc-nursing-program-aug-2026",
+        "prc-nursing-enhanced-tos-2025",
+        "who-community-health",
+        "doh-national-immunization-program",
+        "cdc-infection-control-basics",
+        "openrn-nursing-fundamentals",
+        "openrn-nursingmhcc-vulnerable-172"
+      ],
+      "SOURCE_LIMITATIONS": [],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B704_DETAILED_AUDIT_RECHECKED_CURRENT_CONTENT",
+      "PRIOR_B704_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "3924",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-ii-prenatal",
+        "nle-clinical-judgment"
+      ],
+      "LESSON_ID": "nursing-maternal-family-assessment",
+      "SECTION_ID": "b703-prenatal-warning-cues",
+      "SECTION_HEADING": "1. Treat maternal warning cues as assessment priorities",
+      "QUESTION_STEM": "A pregnant client reports severe headache, visual changes, and right-upper-quadrant pain. What is the priority?",
+      "OPTIONS": [
+        "Schedule a routine visit next month.",
+        "Recommend an unassessed over-the-counter remedy.",
+        "Reassure the client that this is normal discomfort.",
+        "Assess promptly for hypertensive danger signs and escalate for urgent evaluation."
+      ],
+      "ANSWER_KEY": "Assess promptly for hypertensive danger signs and escalate for urgent evaluation.",
+      "RATIONALE": "The combination can signal serious maternal deterioration; prompt assessment and escalation take priority.",
+      "MAPPING_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "QUESTION_DEFECT_FLAG": null,
+      "SECTION_PRINCIPLE_SUPPORT": "Assess promptly for hypertensive danger signs and escalate for urgent evaluation. — The combination can signal serious maternal deterioration; prompt assessment and escalation take priority.",
+      "SOURCE_IDS": [
+        "prc-nursing-program-aug-2026",
+        "prc-nursing-enhanced-tos-2025",
+        "who-postnatal-care-2022",
+        "who-maternal-peripartum-infections",
+        "openrn-nursing-fundamentals",
+        "who-preeclampsia-factsheet-2026"
+      ],
+      "SOURCE_LIMITATIONS": [],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B704_DETAILED_AUDIT_RECHECKED_CURRENT_CONTENT",
+      "PRIOR_B704_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "3945",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-ii-postpartum",
+        "nle-clinical-judgment"
+      ],
+      "LESSON_ID": "nursing-maternal-family-assessment",
+      "SECTION_ID": "b703-postpartum-change-and-escalation",
+      "SECTION_HEADING": "2. Reassess postpartum symptoms rather than normalizing them",
+      "QUESTION_STEM": "A postpartum client reports severe headache and visual disturbance. What should the nurse do?",
+      "OPTIONS": [
+        "Give an unverified analgesic and leave.",
+        "Recommend a dark room and routine follow-up.",
+        "Assess blood pressure and neurologic or hypertensive danger signs and escalate urgently.",
+        "Assume sleep deprivation only."
+      ],
+      "ANSWER_KEY": "Assess blood pressure and neurologic or hypertensive danger signs and escalate urgently.",
+      "RATIONALE": "Postpartum hypertensive complications can occur after birth and require prompt assessment and escalation.",
+      "MAPPING_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "QUESTION_DEFECT_FLAG": null,
+      "SECTION_PRINCIPLE_SUPPORT": "Assess blood pressure and neurologic or hypertensive danger signs and escalate urgently. — Postpartum hypertensive complications can occur after birth and require prompt assessment and escalation.",
+      "SOURCE_IDS": [
+        "prc-nursing-program-aug-2026",
+        "prc-nursing-enhanced-tos-2025",
+        "who-postnatal-care-2022",
+        "who-maternal-peripartum-infections",
+        "openrn-nursing-fundamentals",
+        "openrn-healthpromo-postpartum-115",
+        "who-preeclampsia-factsheet-2026"
+      ],
+      "SOURCE_LIMITATIONS": [],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B704_DETAILED_AUDIT_RECHECKED_CURRENT_CONTENT",
+      "PRIOR_B704_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "3946",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-ii-postpartum",
+        "nle-np-v-emergency"
+      ],
+      "LESSON_ID": "nursing-maternal-family-assessment",
+      "SECTION_ID": "b703-postpartum-change-and-escalation",
+      "SECTION_HEADING": "2. Reassess postpartum symptoms rather than normalizing them",
+      "QUESTION_STEM": "A postpartum client has a painful unilateral calf and new shortness of breath. What is the priority?",
+      "OPTIONS": [
+        "Encourage walking alone.",
+        "Apply heat and reassess tomorrow.",
+        "Treat it as a possible thromboembolic emergency and seek immediate assessment and help.",
+        "Massage the calf."
+      ],
+      "ANSWER_KEY": "Treat it as a possible thromboembolic emergency and seek immediate assessment and help.",
+      "RATIONALE": "The combination may indicate venous thromboembolism; massage or delayed care could be harmful.",
+      "MAPPING_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "QUESTION_DEFECT_FLAG": null,
+      "SECTION_PRINCIPLE_SUPPORT": "Treat it as a possible thromboembolic emergency and seek immediate assessment and help. — The combination may indicate venous thromboembolism; massage or delayed care could be harmful.",
+      "SOURCE_IDS": [
+        "prc-nursing-program-aug-2026",
+        "prc-nursing-enhanced-tos-2025",
+        "who-postnatal-care-2022",
+        "who-maternal-peripartum-infections",
+        "openrn-nursing-fundamentals",
+        "openrn-healthpromo-postpartum-115",
+        "cdc-pregnancy-blood-clots-2024"
+      ],
+      "SOURCE_LIMITATIONS": [],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B704_DETAILED_AUDIT_RECHECKED_CURRENT_CONTENT",
+      "PRIOR_B704_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "3948",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-ii-postpartum",
+        "nle-np-ii-newborn"
+      ],
+      "LESSON_ID": "nursing-maternal-family-assessment",
+      "SECTION_ID": "b703-family-feeding-and-teachback",
+      "SECTION_HEADING": "4. Build a safe, respectful family plan",
+      "QUESTION_STEM": "A breastfeeding client reports cracked nipples and severe pain. What should the nurse assess first?",
+      "OPTIONS": [
+        "Assume pain proves feeding must end.",
+        "Observe positioning and latch, assess infection or injury cues, and provide individualized feeding support.",
+        "Ignore technique and recommend punishment.",
+        "Tell the client to stop all feeding immediately."
+      ],
+      "ANSWER_KEY": "Observe positioning and latch, assess infection or injury cues, and provide individualized feeding support.",
+      "RATIONALE": "Latch and positioning can cause trauma; assessment guides comfort, feeding, infection evaluation, and referral.",
+      "MAPPING_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "QUESTION_DEFECT_FLAG": null,
+      "SECTION_PRINCIPLE_SUPPORT": "Observe positioning and latch, assess infection or injury cues, and provide individualized feeding support. — Latch and positioning can cause trauma; assessment guides comfort, feeding, infection evaluation, and referral.",
+      "SOURCE_IDS": [
+        "prc-nursing-program-aug-2026",
+        "prc-nursing-enhanced-tos-2025",
+        "who-postnatal-care-2022",
+        "who-maternal-peripartum-infections",
+        "openrn-nursing-fundamentals",
+        "openrn-healthpromo-postpartum-115"
+      ],
+      "SOURCE_LIMITATIONS": [],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B704_DETAILED_AUDIT_RECHECKED_CURRENT_CONTENT",
+      "PRIOR_B704_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "3964",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-ii-development",
+        "nle-np-i-education"
+      ],
+      "LESSON_ID": "nursing-maternal-family-assessment",
+      "SECTION_ID": "b703-developmental-trajectory",
+      "SECTION_HEADING": "3. Interpret development across context and time",
+      "QUESTION_STEM": "Which observation is most useful when assessing an infant's development?",
+      "OPTIONS": [
+        "Compare the child only with a sibling.",
+        "Compare observed skills with the child's history, environment, age expectations, and trajectory rather than one isolated task.",
+        "Ignore caregiver observations.",
+        "Use a single milestone as a diagnosis."
+      ],
+      "ANSWER_KEY": "Compare observed skills with the child's history, environment, age expectations, and trajectory rather than one isolated task.",
+      "RATIONALE": "Developmental assessment is contextual and longitudinal; a screening concern needs follow-up rather than a premature diagnosis.",
+      "MAPPING_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "QUESTION_DEFECT_FLAG": null,
+      "SECTION_PRINCIPLE_SUPPORT": "Compare observed skills with the child's history, environment, age expectations, and trajectory rather than one isolated task. — Developmental assessment is contextual and longitudinal; a screening concern needs follow-up rather than a premature diagnosis.",
+      "SOURCE_IDS": [
+        "prc-nursing-program-aug-2026",
+        "prc-nursing-enhanced-tos-2025",
+        "who-postnatal-care-2022",
+        "who-maternal-peripartum-infections",
+        "openrn-nursing-fundamentals",
+        "openrn-healthpromo-development-134"
+      ],
+      "SOURCE_LIMITATIONS": [],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B704_DETAILED_AUDIT_RECHECKED_CURRENT_CONTENT",
+      "PRIOR_B704_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "3975",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-ii-family"
+      ],
+      "LESSON_ID": "nursing-maternal-family-assessment",
+      "SECTION_ID": "b703-family-feeding-and-teachback",
+      "SECTION_HEADING": "4. Build a safe, respectful family plan",
+      "QUESTION_STEM": "A postpartum family has different beliefs about newborn feeding. What is the nurse's best approach?",
+      "OPTIONS": [
+        "Dismiss the family's beliefs.",
+        "Allow any practice without safety assessment.",
+        "Explore beliefs respectfully, provide evidence-based options, assess safety, and support an informed plan.",
+        "Choose a plan without discussing it."
+      ],
+      "ANSWER_KEY": "Explore beliefs respectfully, provide evidence-based options, assess safety, and support an informed plan.",
+      "RATIONALE": "Cultural humility and safety assessment can coexist; informed partnership is better than dismissal or uncritical acceptance.",
+      "MAPPING_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "QUESTION_DEFECT_FLAG": null,
+      "SECTION_PRINCIPLE_SUPPORT": "Explore beliefs respectfully, provide evidence-based options, assess safety, and support an informed plan. — Cultural humility and safety assessment can coexist; informed partnership is better than dismissal or uncritical acceptance.",
+      "SOURCE_IDS": [
+        "prc-nursing-program-aug-2026",
+        "prc-nursing-enhanced-tos-2025",
+        "who-postnatal-care-2022",
+        "who-maternal-peripartum-infections",
+        "openrn-nursing-fundamentals",
+        "openrn-healthpromo-postpartum-115"
+      ],
+      "SOURCE_LIMITATIONS": [],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B704_DETAILED_AUDIT_RECHECKED_CURRENT_CONTENT",
+      "PRIOR_B704_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "3976",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-ii-family",
+        "nle-np-i-education"
+      ],
+      "LESSON_ID": "nursing-maternal-family-assessment",
+      "SECTION_ID": "b703-family-feeding-and-teachback",
+      "SECTION_HEADING": "4. Build a safe, respectful family plan",
+      "QUESTION_STEM": "A caregiver cannot repeat the newborn danger signs after discharge teaching. What should the nurse do?",
+      "OPTIONS": [
+        "Ask the caregiver to search online later.",
+        "Document teaching as complete without checking.",
+        "Discharge because the handout was provided.",
+        "Re-teach using a simpler format and verify understanding before discharge."
+      ],
+      "ANSWER_KEY": "Re-teach using a simpler format and verify understanding before discharge.",
+      "RATIONALE": "Teach-back identifies an actionable safety gap before a transition home.",
+      "MAPPING_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "QUESTION_DEFECT_FLAG": null,
+      "SECTION_PRINCIPLE_SUPPORT": "Re-teach using a simpler format and verify understanding before discharge. — Teach-back identifies an actionable safety gap before a transition home.",
+      "SOURCE_IDS": [
+        "prc-nursing-program-aug-2026",
+        "prc-nursing-enhanced-tos-2025",
+        "who-postnatal-care-2022",
+        "who-maternal-peripartum-infections",
+        "openrn-nursing-fundamentals",
+        "openrn-healthpromo-postpartum-115"
+      ],
+      "SOURCE_LIMITATIONS": [],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B704_DETAILED_AUDIT_RECHECKED_CURRENT_CONTENT",
+      "PRIOR_B704_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "3984",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-iii-oxygenation",
+        "nle-clinical-judgment"
+      ],
+      "LESSON_ID": "nursing-oxygenation-fluid-immunity-assessment",
+      "SECTION_ID": "b703-oxygenation-trend",
+      "SECTION_HEADING": "1. Read oxygenation as a changing clinical picture",
+      "QUESTION_STEM": "A client with pneumonia is restless, tachypneic, and has a falling oxygen saturation. What should the nurse do first?",
+      "OPTIONS": [
+        "Document the finding for the next shift.",
+        "Offer a meal before assessment.",
+        "Assess airway and breathing, position for ventilation, provide prescribed oxygen, and escalate the deterioration.",
+        "Place the client flat and leave."
+      ],
+      "ANSWER_KEY": "Assess airway and breathing, position for ventilation, provide prescribed oxygen, and escalate the deterioration.",
+      "RATIONALE": "Work of breathing, mental-status change, and falling saturation indicate possible deterioration; oxygen and escalation follow assessment and orders.",
+      "MAPPING_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "QUESTION_DEFECT_FLAG": null,
+      "SECTION_PRINCIPLE_SUPPORT": "Assess airway and breathing, position for ventilation, provide prescribed oxygen, and escalate the deterioration. — Work of breathing, mental-status change, and falling saturation indicate possible deterioration; oxygen and escalation follow assessment and orders.",
+      "SOURCE_IDS": [
+        "prc-nursing-enhanced-tos-2025",
+        "openrn-nursingfundamentals-oxygenation-82",
+        "who-basic-emergency-care"
+      ],
+      "SOURCE_LIMITATIONS": [],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B704_DETAILED_AUDIT_RECHECKED_CURRENT_CONTENT",
+      "PRIOR_B704_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "3994",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-iii-fluids",
+        "nle-np-v-shock"
+      ],
+      "LESSON_ID": "nursing-oxygenation-fluid-immunity-assessment",
+      "SECTION_ID": "b703-fluid-status-trends",
+      "SECTION_HEADING": "2. Combine symptoms and trends in fluid assessment",
+      "QUESTION_STEM": "A client has vomiting, orthostatic dizziness, and very low urine output. Which assessment is most important?",
+      "OPTIONS": [
+        "Assess only skin color.",
+        "Wait until the next scheduled round.",
+        "Assess perfusion, hydration, mental status, intake/output, weight trend, and ordered laboratory data.",
+        "Encourage unlimited fluids without evaluation."
+      ],
+      "ANSWER_KEY": "Assess perfusion, hydration, mental status, intake/output, weight trend, and ordered laboratory data.",
+      "RATIONALE": "The cluster may indicate significant volume depletion; perfusion and trend assessment guide escalation and treatment.",
+      "MAPPING_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "QUESTION_DEFECT_FLAG": null,
+      "SECTION_PRINCIPLE_SUPPORT": "Assess perfusion, hydration, mental status, intake/output, weight trend, and ordered laboratory data. — The cluster may indicate significant volume depletion; perfusion and trend assessment guide escalation and treatment.",
+      "SOURCE_IDS": [
+        "prc-nursing-enhanced-tos-2025",
+        "openrn-nursingfundamentals-fluids-152",
+        "openrn-nursing-fundamentals",
+        "openrn-nursingfundamentals-fluid-assessment-156"
+      ],
+      "SOURCE_LIMITATIONS": [],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B704_DETAILED_AUDIT_RECHECKED_CURRENT_CONTENT",
+      "PRIOR_B704_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "4024",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-iii-perioperative",
+        "nle-practice-standards"
+      ],
+      "LESSON_ID": "nursing-perioperative-verification",
+      "SECTION_ID": "b703-perioperative-discrepancy-stop",
+      "SECTION_HEADING": "1. Stop and resolve a mismatch before proceeding",
+      "QUESTION_STEM": "Before surgery, the client says the planned procedure is different from what was discussed. What should the nurse do?",
+      "OPTIONS": [
+        "Tell the client it is too late to ask.",
+        "Pause the process and verify the consent, identity, procedure, site, and team clarification before proceeding.",
+        "Ask a family member to consent instead.",
+        "Proceed because the schedule is printed."
+      ],
+      "ANSWER_KEY": "Pause the process and verify the consent, identity, procedure, site, and team clarification before proceeding.",
+      "RATIONALE": "A discrepancy in procedure understanding is a safety stop; identity and informed consent must be verified.",
+      "MAPPING_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "QUESTION_DEFECT_FLAG": null,
+      "SECTION_PRINCIPLE_SUPPORT": "Pause the process and verify the consent, identity, procedure, site, and team clarification before proceeding. — A discrepancy in procedure understanding is a safety stop; identity and informed consent must be verified.",
+      "SOURCE_IDS": [
+        "prc-nursing-enhanced-tos-2025",
+        "who-surgical-safety-checklist-2009",
+        "openrn-nursing-fundamentals"
+      ],
+      "SOURCE_LIMITATIONS": [],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B704_DETAILED_AUDIT_RECHECKED_CURRENT_CONTENT",
+      "PRIOR_B704_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "4037",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-iii-cellular"
+      ],
+      "LESSON_ID": "nursing-oxygenation-fluid-immunity-assessment",
+      "SECTION_ID": "b704-cellular-specimen-evidence",
+      "SECTION_HEADING": "4. Connect cellular findings to specimen evidence",
+      "QUESTION_STEM": "A client asks why a biopsy cannot be interpreted from a photograph alone. Which explanation is best?",
+      "OPTIONS": [
+        "Diagnosis depends on specimen processing, microscopic or molecular evidence, and clinical correlation.",
+        "Every abnormal cell has the same meaning.",
+        "A photograph always proves the diagnosis.",
+        "Clinical context is irrelevant."
+      ],
+      "ANSWER_KEY": "Diagnosis depends on specimen processing, microscopic or molecular evidence, and clinical correlation.",
+      "RATIONALE": "Cellular diagnosis requires appropriate specimen and interpretation; appearance alone can mislead.",
+      "MAPPING_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "QUESTION_DEFECT_FLAG": null,
+      "SECTION_PRINCIPLE_SUPPORT": "Diagnosis depends on specimen processing, microscopic or molecular evidence, and clinical correlation. — Cellular diagnosis requires appropriate specimen and interpretation; appearance alone can mislead.",
+      "SOURCE_IDS": [
+        "nci-cancer-diagnosis-2023",
+        "nci-pathology-report",
+        "nci-what-is-cancer",
+        "prc-nursing-enhanced-tos-2025",
+        "prc-nursing-program-aug-2026"
+      ],
+      "SOURCE_LIMITATIONS": [],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B704_DETAILED_AUDIT_RECHECKED_CURRENT_CONTENT",
+      "PRIOR_B704_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "4044",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-iv-nutrition"
+      ],
+      "LESSON_ID": "nursing-nutrition-and-sensory-assessment",
+      "SECTION_ID": "b703-nutrition-intake-and-context",
+      "SECTION_HEADING": "1. Explain low intake before choosing an intervention",
+      "QUESTION_STEM": "A hospitalized client has eaten almost nothing for three days and is weak. What should the nurse do first?",
+      "OPTIONS": [
+        "Force a large meal.",
+        "Restrict all fluids.",
+        "Assess intake, swallowing, symptoms, hydration, weight trend, and reasons for poor intake and notify the team.",
+        "Document poor appetite without assessment."
+      ],
+      "ANSWER_KEY": "Assess intake, swallowing, symptoms, hydration, weight trend, and reasons for poor intake and notify the team.",
+      "RATIONALE": "Poor intake has multiple causes and can create nutrition and fluid risk; assessment guides safe support.",
+      "MAPPING_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "QUESTION_DEFECT_FLAG": null,
+      "SECTION_PRINCIPLE_SUPPORT": "Assess intake, swallowing, symptoms, hydration, weight trend, and reasons for poor intake and notify the team. — Poor intake has multiple causes and can create nutrition and fluid risk; assessment guides safe support.",
+      "SOURCE_IDS": [
+        "prc-nursing-program-aug-2026",
+        "prc-nursing-enhanced-tos-2025",
+        "who-medication-without-harm-5-moments",
+        "openrn-pharmacology",
+        "openrn-nursing-fundamentals",
+        "openrn-nursingfundamentals-nutrition-143"
+      ],
+      "SOURCE_LIMITATIONS": [],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B704_DETAILED_AUDIT_RECHECKED_CURRENT_CONTENT",
+      "PRIOR_B704_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "4057",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-iv-gastrointestinal",
+        "nle-np-iii-fluids"
+      ],
+      "LESSON_ID": "nursing-digestive-endocrine-assessment",
+      "SECTION_ID": "b704-gi-fluid-pattern-assessment",
+      "SECTION_HEADING": "2. Assess gastrointestinal fluid-loss patterns",
+      "QUESTION_STEM": "Which assessment is most useful for a client with persistent diarrhea?",
+      "OPTIONS": [
+        "Only the client's appetite.",
+        "A routine pain score without context.",
+        "Stool color alone.",
+        "Stool pattern, hydration, electrolytes, abdominal findings, medication exposure, infection risk, and intake."
+      ],
+      "ANSWER_KEY": "Stool pattern, hydration, electrolytes, abdominal findings, medication exposure, infection risk, and intake.",
+      "RATIONALE": "Diarrhea can cause volume loss and have infectious, medication, or inflammatory causes; assessment is broad.",
+      "MAPPING_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "QUESTION_DEFECT_FLAG": null,
+      "SECTION_PRINCIPLE_SUPPORT": "Stool pattern, hydration, electrolytes, abdominal findings, medication exposure, infection risk, and intake. — Diarrhea can cause volume loss and have infectious, medication, or inflammatory causes; assessment is broad.",
+      "SOURCE_IDS": [
+        "openrn-nursingfundamentals-fluid-assessment-156",
+        "openstax-anatomy-physiology-2e",
+        "prc-nursing-enhanced-tos-2025",
+        "prc-nursing-program-aug-2026"
+      ],
+      "SOURCE_LIMITATIONS": [],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B704_DETAILED_AUDIT_RECHECKED_CURRENT_CONTENT",
+      "PRIOR_B704_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "4074",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-iv-perception",
+        "nle-np-iv-coordination"
+      ],
+      "LESSON_ID": "nursing-nutrition-and-sensory-assessment",
+      "SECTION_ID": "b703-sensory-baseline-and-acute-change",
+      "SECTION_HEADING": "2. Separate baseline sensory needs from sudden loss",
+      "QUESTION_STEM": "A client with sudden loss of vision in one eye reports a severe headache. What should the nurse do?",
+      "OPTIONS": [
+        "Schedule a routine vision check only.",
+        "Assess neurologic and visual status and activate urgent evaluation for a possible acute event.",
+        "Cover the eye and wait.",
+        "Assume it is ordinary fatigue."
+      ],
+      "ANSWER_KEY": "Assess neurologic and visual status and activate urgent evaluation for a possible acute event.",
+      "RATIONALE": "Sudden focal sensory change with severe headache can be time-sensitive and needs urgent assessment.",
+      "MAPPING_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "QUESTION_DEFECT_FLAG": null,
+      "SECTION_PRINCIPLE_SUPPORT": "Assess neurologic and visual status and activate urgent evaluation for a possible acute event. — Sudden focal sensory change with severe headache can be time-sensitive and needs urgent assessment.",
+      "SOURCE_IDS": [
+        "prc-nursing-program-aug-2026",
+        "prc-nursing-enhanced-tos-2025",
+        "who-medication-without-harm-5-moments",
+        "openrn-pharmacology",
+        "openrn-nursing-fundamentals",
+        "openrn-nursingskills-seeking-care-25",
+        "who-basic-emergency-care"
+      ],
+      "SOURCE_LIMITATIONS": [],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B704_DETAILED_AUDIT_RECHECKED_CURRENT_CONTENT",
+      "PRIOR_B704_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "4084",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-iv-coordination",
+        "nle-np-v-emergency"
+      ],
+      "LESSON_ID": "nursing-nutrition-and-sensory-assessment",
+      "SECTION_ID": "b705-coordination-baseline-and-change",
+      "SECTION_HEADING": "3. Establish a neurologic coordination baseline and notice change",
+      "QUESTION_STEM": "A client develops sudden weakness, unequal pupils, and decreasing responsiveness. What is the priority?",
+      "OPTIONS": [
+        "Activate emergency response, assess ABCs and neurologic status, and note the time of change.",
+        "Wait for a routine neurologic check.",
+        "Place the client alone to rest.",
+        "Offer oral medication."
+      ],
+      "ANSWER_KEY": "Activate emergency response, assess ABCs and neurologic status, and note the time of change.",
+      "RATIONALE": "Sudden neurologic deterioration threatens airway and brain function; immediate response is required.",
+      "MAPPING_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "QUESTION_DEFECT_FLAG": null,
+      "SECTION_PRINCIPLE_SUPPORT": "Current section teaches the specific answer principle; full stem, options, key and rationale compared to section body.",
+      "SOURCE_IDS": [
+        "openstax-clinical-nursing-skills-26-2-neuro-assessment",
+        "who-stroke-fact-sheet-2025",
+        "resuscitation-council-uk-abcde-2024"
+      ],
+      "SOURCE_LIMITATIONS": [
+        "PRC Annex verifies NP IV examination scope only, not the clinical answer. Clinical support is limited to the registered instructional sources; local pathway not defined."
+      ],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B705_FRESH_CONTENT_SOURCE_AND_ROUTE_CHECK",
+      "PRIOR_B704_CLASSIFICATION": null,
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "4091",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-iv-coordination"
+      ],
+      "LESSON_ID": "nursing-nutrition-and-sensory-assessment",
+      "SECTION_ID": "b705-coordination-baseline-and-change",
+      "SECTION_HEADING": "3. Establish a neurologic coordination baseline and notice change",
+      "QUESTION_STEM": "Which finding most suggests worsening neurologic status?",
+      "OPTIONS": [
+        "A longstanding unchanged tremor.",
+        "A stable appetite preference.",
+        "A new decline in level of consciousness or a new focal deficit compared with baseline.",
+        "A healed skin tear."
+      ],
+      "ANSWER_KEY": "A new decline in level of consciousness or a new focal deficit compared with baseline.",
+      "RATIONALE": "Change from baseline is a key neurologic safety signal.",
+      "MAPPING_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "QUESTION_DEFECT_FLAG": null,
+      "SECTION_PRINCIPLE_SUPPORT": "Current section teaches the specific answer principle; full stem, options, key and rationale compared to section body.",
+      "SOURCE_IDS": [
+        "openstax-clinical-nursing-skills-26-2-neuro-assessment"
+      ],
+      "SOURCE_LIMITATIONS": [
+        "PRC Annex verifies NP IV examination scope only, not the clinical answer. Clinical support is limited to the registered instructional sources; local pathway not defined."
+      ],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B705_FRESH_CONTENT_SOURCE_AND_ROUTE_CHECK",
+      "PRIOR_B704_CLASSIFICATION": null,
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "4094",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-iv-medication"
+      ],
+      "LESSON_ID": "nursing-medication-safety-and-calculation",
+      "SECTION_ID": "nle-medication-order-and-product-verification",
+      "SECTION_HEADING": "1. Verify the order and product before preparation",
+      "QUESTION_STEM": "Before administering a new medication, which check is most important?",
+      "OPTIONS": [
+        "Use the tablet color as identification.",
+        "Skip verification when the unit is busy.",
+        "Rely on the room number only.",
+        "Verify the patient, drug, dose, route, time, indication, allergies, assessment data, and order."
+      ],
+      "ANSWER_KEY": "Verify the patient, drug, dose, route, time, indication, allergies, assessment data, and order.",
+      "RATIONALE": "Medication safety is a verification process; appearance and workflow pressure are not safeguards.",
+      "MAPPING_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "QUESTION_DEFECT_FLAG": null,
+      "SECTION_PRINCIPLE_SUPPORT": "Verify the patient, drug, dose, route, time, indication, allergies, assessment data, and order. — Medication safety is a verification process; appearance and workflow pressure are not safeguards.",
+      "SOURCE_IDS": [
+        "openrn-pharmacology2e-medication-safety"
+      ],
+      "SOURCE_LIMITATIONS": [],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B704_DETAILED_AUDIT_RECHECKED_CURRENT_CONTENT",
+      "PRIOR_B704_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "4096",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-iv-medication",
+        "nle-practice-standards"
+      ],
+      "LESSON_ID": "nursing-medication-safety-and-calculation",
+      "SECTION_ID": "nle-medication-order-and-product-verification",
+      "SECTION_HEADING": "1. Verify the order and product before preparation",
+      "QUESTION_STEM": "A medication order has no route and the available product has multiple concentrations. What should the nurse do?",
+      "OPTIONS": [
+        "Ask another client what is usual.",
+        "Choose the most common route.",
+        "Hold administration and clarify the complete order and product before preparing it.",
+        "Use the highest concentration."
+      ],
+      "ANSWER_KEY": "Hold administration and clarify the complete order and product before preparing it.",
+      "RATIONALE": "An incomplete order and concentration ambiguity create preventable risk; clarification is required.",
+      "MAPPING_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "QUESTION_DEFECT_FLAG": null,
+      "SECTION_PRINCIPLE_SUPPORT": "Hold administration and clarify the complete order and product before preparing it. — An incomplete order and concentration ambiguity create preventable risk; clarification is required.",
+      "SOURCE_IDS": [
+        "openrn-pharmacology2e-medication-safety"
+      ],
+      "SOURCE_LIMITATIONS": [],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B704_DETAILED_AUDIT_RECHECKED_CURRENT_CONTENT",
+      "PRIOR_B704_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "4097",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-iv-medication"
+      ],
+      "LESSON_ID": "nursing-medication-safety-and-calculation",
+      "SECTION_ID": "nle-medication-concentration-calculation",
+      "SECTION_HEADING": "2. Keep dose and concentration units visible",
+      "QUESTION_STEM": "The order is 500 mg. The vial contains 250 mg in 5 mL. How many milliliters are needed?",
+      "OPTIONS": [
+        "2 mL",
+        "10 mL",
+        "5 mL",
+        "25 mL"
+      ],
+      "ANSWER_KEY": "10 mL",
+      "RATIONALE": "500 mg ÷ 250 mg × 5 mL = 10 mL; verify concentration and route before administration.",
+      "MAPPING_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "QUESTION_DEFECT_FLAG": null,
+      "SECTION_PRINCIPLE_SUPPORT": "10 mL — 500 mg ÷ 250 mg × 5 mL = 10 mL; verify concentration and route before administration.",
+      "SOURCE_IDS": [
+        "openrn-pharmacology2e-medication-safety",
+        "openrn-nursing-dosage-calculations"
+      ],
+      "SOURCE_LIMITATIONS": [],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B704_DETAILED_AUDIT_RECHECKED_CURRENT_CONTENT",
+      "PRIOR_B704_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "4102",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-iv-medication",
+        "nle-clinical-judgment"
+      ],
+      "LESSON_ID": "nursing-medication-safety-and-calculation",
+      "SECTION_ID": "nle-medication-weight-based-rate-units",
+      "SECTION_HEADING": "3. Distinguish a dose rate from a volume rate",
+      "QUESTION_STEM": "An infusion is ordered at 25 mcg/kg/min for a 60-kg client. What dose rate is required?",
+      "OPTIONS": [
+        "1,500 mcg/min",
+        "85 mcg/min",
+        "15,000 mcg/min",
+        "25 mcg/min"
+      ],
+      "ANSWER_KEY": "1,500 mcg/min",
+      "RATIONALE": "25 mcg/kg/min × 60 kg = 1,500 mcg/min; a concentration is needed to convert to mL/hr.",
+      "MAPPING_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "QUESTION_DEFECT_FLAG": null,
+      "SECTION_PRINCIPLE_SUPPORT": "1,500 mcg/min — 25 mcg/kg/min × 60 kg = 1,500 mcg/min; a concentration is needed to convert to mL/hr.",
+      "SOURCE_IDS": [
+        "openrn-nursing-dosage-calculations"
+      ],
+      "SOURCE_LIMITATIONS": [],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B704_DETAILED_AUDIT_RECHECKED_CURRENT_CONTENT",
+      "PRIOR_B704_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "4104",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-v-therapeutic",
+        "nle-np-v-crisis"
+      ],
+      "LESSON_ID": "nursing-therapeutic-communication-and-crisis",
+      "SECTION_ID": "b703-self-harm-statement-and-safety",
+      "SECTION_HEADING": "1. Take statements about not living seriously",
+      "QUESTION_STEM": "A client says, “I do not see a reason to keep living.” What should the nurse do first?",
+      "OPTIONS": [
+        "Leave the client alone to reflect.",
+        "Stay with the client, assess immediate suicide risk and access to means, and activate urgent support.",
+        "Promise absolute secrecy.",
+        "Change the subject to distract the client."
+      ],
+      "ANSWER_KEY": "Stay with the client, assess immediate suicide risk and access to means, and activate urgent support.",
+      "RATIONALE": "A statement suggesting self-harm requires direct safety assessment and immediate support, not avoidance or secrecy promises.",
+      "MAPPING_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "QUESTION_DEFECT_FLAG": null,
+      "SECTION_PRINCIPLE_SUPPORT": "Stay with the client, assess immediate suicide risk and access to means, and activate urgent support. — A statement suggesting self-harm requires direct safety assessment and immediate support, not avoidance or secrecy promises.",
+      "SOURCE_IDS": [
+        "prc-nursing-enhanced-tos-2025",
+        "openrn-nursingmhcc-mental-assessment-43",
+        "openrn-nursing-fundamentals",
+        "who-suicide-prevention-2026",
+        "nimh-suicide-faq-2023"
+      ],
+      "SOURCE_LIMITATIONS": [],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B704_DETAILED_AUDIT_RECHECKED_CURRENT_CONTENT",
+      "PRIOR_B704_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "4114",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-v-crisis"
+      ],
+      "LESSON_ID": "nursing-therapeutic-communication-and-crisis",
+      "SECTION_ID": "b703-crisis-assessment-and-calm-communication",
+      "SECTION_HEADING": "2. Reduce demand while assessing acute distress",
+      "QUESTION_STEM": "A client in a panic episode says the room is closing in. What should the nurse do first?",
+      "OPTIONS": [
+        "Provide lengthy teaching during peak distress.",
+        "Remain with the client, reduce stimulation, assess ABCs and safety, and use calm brief communication.",
+        "Leave the client alone in a crowded room.",
+        "Argue that the fear is irrational."
+      ],
+      "ANSWER_KEY": "Remain with the client, reduce stimulation, assess ABCs and safety, and use calm brief communication.",
+      "RATIONALE": "Crisis care begins with safety, physiologic assessment, low stimulation, and simple communication.",
+      "MAPPING_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "QUESTION_DEFECT_FLAG": null,
+      "SECTION_PRINCIPLE_SUPPORT": "Remain with the client, reduce stimulation, assess ABCs and safety, and use calm brief communication. — Crisis care begins with safety, physiologic assessment, low stimulation, and simple communication.",
+      "SOURCE_IDS": [
+        "prc-nursing-enhanced-tos-2025",
+        "openrn-nursingmhcc-crisis-35",
+        "who-basic-emergency-care",
+        "openrn-nursing-fundamentals"
+      ],
+      "SOURCE_LIMITATIONS": [],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B704_DETAILED_AUDIT_RECHECKED_CURRENT_CONTENT",
+      "PRIOR_B704_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "4124",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-v-emergency"
+      ],
+      "LESSON_ID": "nursing-emergency-assessment-and-shock",
+      "SECTION_ID": "b703-abcde-and-reassessment",
+      "SECTION_HEADING": "1. Organize an initial assessment around immediate threats",
+      "QUESTION_STEM": "In an acutely ill client, what does the ABCDE approach prioritize?",
+      "OPTIONS": [
+        "Discharge planning before circulation.",
+        "Airway, breathing, circulation, disability, and exposure or environment in a structured sequence.",
+        "Diagnosis before stabilization.",
+        "Pain score before airway."
+      ],
+      "ANSWER_KEY": "Airway, breathing, circulation, disability, and exposure or environment in a structured sequence.",
+      "RATIONALE": "ABCDE identifies and treats life threats before less urgent tasks while allowing reassessment.",
+      "MAPPING_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "QUESTION_DEFECT_FLAG": null,
+      "SECTION_PRINCIPLE_SUPPORT": "Airway, breathing, circulation, disability, and exposure or environment in a structured sequence. — ABCDE identifies and treats life threats before less urgent tasks while allowing reassessment.",
+      "SOURCE_IDS": [
+        "prc-nursing-enhanced-tos-2025",
+        "who-basic-emergency-care",
+        "openrn-nursing-fundamentals"
+      ],
+      "SOURCE_LIMITATIONS": [],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B704_DETAILED_AUDIT_RECHECKED_CURRENT_CONTENT",
+      "PRIOR_B704_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "4134",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-v-shock"
+      ],
+      "LESSON_ID": "nursing-emergency-assessment-and-shock",
+      "SECTION_ID": "b703-shock-as-perfusion-change",
+      "SECTION_HEADING": "2. Recognize a concerning perfusion trend",
+      "QUESTION_STEM": "Which finding is most concerning for worsening shock?",
+      "OPTIONS": [
+        "A healed bruise.",
+        "New confusion with cool clammy skin, weak pulses, and decreasing urine output.",
+        "Warm skin with normal mentation.",
+        "A stable appetite preference."
+      ],
+      "ANSWER_KEY": "New confusion with cool clammy skin, weak pulses, and decreasing urine output.",
+      "RATIONALE": "The cluster indicates impaired perfusion and possible deterioration.",
+      "MAPPING_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "QUESTION_DEFECT_FLAG": null,
+      "SECTION_PRINCIPLE_SUPPORT": "New confusion with cool clammy skin, weak pulses, and decreasing urine output. — The cluster indicates impaired perfusion and possible deterioration.",
+      "SOURCE_IDS": [
+        "prc-nursing-enhanced-tos-2025",
+        "who-basic-emergency-care"
+      ],
+      "SOURCE_LIMITATIONS": [],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B704_DETAILED_AUDIT_RECHECKED_CURRENT_CONTENT",
+      "PRIOR_B704_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "4883",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-i-prevention"
+      ],
+      "LESSON_ID": "nursing-community-risk-and-prevention",
+      "SECTION_ID": "b703-prevention-and-risk-communication",
+      "SECTION_HEADING": "2. Separate prevention levels from a disease-specific plan",
+      "QUESTION_STEM": "A client asks how to prevent a second stroke after discharge. Which teaching focus is most appropriate?",
+      "OPTIONS": [
+        "Stop all activity permanently.",
+        "Replace prescribed therapy with supplements.",
+        "Wait for symptoms before attending follow-up.",
+        "Support the prescribed risk-factor plan, medication adherence, follow-up, warning signs, and realistic lifestyle changes."
+      ],
+      "ANSWER_KEY": "Support the prescribed risk-factor plan, medication adherence, follow-up, warning signs, and realistic lifestyle changes.",
+      "RATIONALE": "Secondary prevention combines treatment adherence, monitoring, education, and response to warning signs.",
+      "MAPPING_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "QUESTION_DEFECT_FLAG": null,
+      "SECTION_PRINCIPLE_SUPPORT": "Support the prescribed risk-factor plan, medication adherence, follow-up, warning signs, and realistic lifestyle changes. — Secondary prevention combines treatment adherence, monitoring, education, and response to warning signs.",
+      "SOURCE_IDS": [
+        "prc-nursing-enhanced-tos-2025",
+        "prc-nursing-program-aug-2026",
+        "openrn-healthpromo-prevention-22",
+        "aha-asa-secondary-stroke-prevention-2021",
+        "aha-asa-acute-stroke-guideline-2026",
+        "who-stroke-fact-sheet-2025"
+      ],
+      "SOURCE_LIMITATIONS": [
+        "WHO supports the bounded prevention lesson; linked AHA/ASA full text was inaccessible, so broader claims stay source-limited."
+      ],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B704_DETAILED_AUDIT_RECHECKED_CURRENT_CONTENT",
+      "PRIOR_B704_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "4933",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-ii-prenatal"
+      ],
+      "LESSON_ID": "nursing-maternal-family-assessment",
+      "SECTION_ID": "b703-prenatal-warning-cues",
+      "SECTION_HEADING": "1. Treat maternal warning cues as assessment priorities",
+      "QUESTION_STEM": "A pregnant client reports severe headache, visual change, and right-upper-quadrant pain. What should the nurse do?",
+      "OPTIONS": [
+        "Recommend an unverified herbal remedy.",
+        "Assess promptly and activate urgent maternal evaluation according to current protocol.",
+        "Reassure the client that discomfort is normal.",
+        "Schedule a routine visit next month."
+      ],
+      "ANSWER_KEY": "Assess promptly and activate urgent maternal evaluation according to current protocol.",
+      "RATIONALE": "The cluster contains maternal danger signs; prompt assessment and escalation are safer than reassurance or delay.",
+      "MAPPING_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "QUESTION_DEFECT_FLAG": null,
+      "SECTION_PRINCIPLE_SUPPORT": "Assess promptly and activate urgent maternal evaluation according to current protocol. — The cluster contains maternal danger signs; prompt assessment and escalation are safer than reassurance or delay.",
+      "SOURCE_IDS": [
+        "prc-nursing-enhanced-tos-2025",
+        "prc-nursing-program-aug-2026",
+        "who-preeclampsia-factsheet-2026",
+        "who-postnatal-care-2022"
+      ],
+      "SOURCE_LIMITATIONS": [],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B704_DETAILED_AUDIT_RECHECKED_CURRENT_CONTENT",
+      "PRIOR_B704_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "4957",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-ii-postpartum"
+      ],
+      "LESSON_ID": "nursing-maternal-family-assessment",
+      "SECTION_ID": "b703-postpartum-change-and-escalation",
+      "SECTION_HEADING": "2. Reassess postpartum symptoms rather than normalizing them",
+      "QUESTION_STEM": "A postpartum client reports severe headache and new visual changes. What should the nurse do?",
+      "OPTIONS": [
+        "Tell the client to self-adjust medication.",
+        "Assess promptly and arrange urgent maternal evaluation according to current protocol.",
+        "Suggest sleep and routine follow-up.",
+        "Assume the symptoms are from fatigue."
+      ],
+      "ANSWER_KEY": "Assess promptly and arrange urgent maternal evaluation according to current protocol.",
+      "RATIONALE": "Postpartum danger signs require prompt assessment and escalation rather than reassurance.",
+      "MAPPING_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "QUESTION_DEFECT_FLAG": null,
+      "SECTION_PRINCIPLE_SUPPORT": "Assess promptly and arrange urgent maternal evaluation according to current protocol. — Postpartum danger signs require prompt assessment and escalation rather than reassurance.",
+      "SOURCE_IDS": [
+        "prc-nursing-enhanced-tos-2025",
+        "prc-nursing-program-aug-2026",
+        "openrn-healthpromo-postpartum-115",
+        "who-postnatal-care-2022",
+        "who-preeclampsia-factsheet-2026"
+      ],
+      "SOURCE_LIMITATIONS": [],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B704_DETAILED_AUDIT_RECHECKED_CURRENT_CONTENT",
+      "PRIOR_B704_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "4993",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-iii-oxygenation"
+      ],
+      "LESSON_ID": "nursing-oxygenation-fluid-immunity-assessment",
+      "SECTION_ID": "b703-oxygenation-trend",
+      "SECTION_HEADING": "1. Read oxygenation as a changing clinical picture",
+      "QUESTION_STEM": "A client with pneumonia is restless, tachypneic, and has a falling oxygen saturation during handoff. What should the nurse do first?",
+      "OPTIONS": [
+        "Place the client flat and leave.",
+        "Assess airway and breathing, position for ventilation, provide prescribed oxygen, and escalate the deterioration.",
+        "Document the finding for the next shift.",
+        "Offer a meal before assessment."
+      ],
+      "ANSWER_KEY": "Assess airway and breathing, position for ventilation, provide prescribed oxygen, and escalate the deterioration.",
+      "RATIONALE": "Work of breathing, mental-status change, and a falling trend indicate possible deterioration; support and escalation follow assessment and orders.",
+      "MAPPING_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "QUESTION_DEFECT_FLAG": null,
+      "SECTION_PRINCIPLE_SUPPORT": "Assess airway and breathing, position for ventilation, provide prescribed oxygen, and escalate the deterioration. — Work of breathing, mental-status change, and a falling trend indicate possible deterioration; support and escalation follow assessment and orders.",
+      "SOURCE_IDS": [
+        "prc-nursing-enhanced-tos-2025",
+        "prc-nursing-program-aug-2026",
+        "openrn-nursingfundamentals-oxygenation-82",
+        "who-basic-emergency-care"
+      ],
+      "SOURCE_LIMITATIONS": [],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B704_DETAILED_AUDIT_RECHECKED_CURRENT_CONTENT",
+      "PRIOR_B704_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "5053",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-iv-nutrition"
+      ],
+      "LESSON_ID": "nursing-nutrition-and-sensory-assessment",
+      "SECTION_ID": "b703-nutrition-intake-and-context",
+      "SECTION_HEADING": "1. Explain low intake before choosing an intervention",
+      "QUESTION_STEM": "A hospitalized client has eaten almost nothing for three days and is weak. Which assessment should the nurse perform first?",
+      "OPTIONS": [
+        "Document poor appetite without assessment.",
+        "Assess intake, swallowing, symptoms, hydration, weight trend, and reasons for poor intake and notify the team.",
+        "Force a large meal.",
+        "Restrict all fluids."
+      ],
+      "ANSWER_KEY": "Assess intake, swallowing, symptoms, hydration, weight trend, and reasons for poor intake and notify the team.",
+      "RATIONALE": "Poor intake has multiple causes and can create nutrition and fluid risk; assessment guides safe support.",
+      "MAPPING_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "QUESTION_DEFECT_FLAG": null,
+      "SECTION_PRINCIPLE_SUPPORT": "Assess intake, swallowing, symptoms, hydration, weight trend, and reasons for poor intake and notify the team. — Poor intake has multiple causes and can create nutrition and fluid risk; assessment guides safe support.",
+      "SOURCE_IDS": [
+        "prc-nursing-enhanced-tos-2025",
+        "prc-nursing-program-aug-2026",
+        "openrn-nursingfundamentals-nutrition-143",
+        "openrn-nursing-fundamentals"
+      ],
+      "SOURCE_LIMITATIONS": [],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B704_DETAILED_AUDIT_RECHECKED_CURRENT_CONTENT",
+      "PRIOR_B704_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "5104",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-iv-medication"
+      ],
+      "LESSON_ID": "nursing-medication-safety-and-calculation",
+      "SECTION_ID": "nle-medication-reconcile-at-transition",
+      "SECTION_HEADING": "5. Reconcile the actual medication history",
+      "QUESTION_STEM": "At admission, a client cannot explain which medicines are taken at home. What should the nurse do?",
+      "OPTIONS": [
+        "Assume the previous list is current.",
+        "Stop all medicines until discharge.",
+        "Reconcile the medicines with the client, records, and pharmacy or care team as available.",
+        "Tell the client to restart everything remembered."
+      ],
+      "ANSWER_KEY": "Reconcile the medicines with the client, records, and pharmacy or care team as available.",
+      "RATIONALE": "Medication reconciliation identifies omissions, duplications, and discrepancies during transitions.",
+      "MAPPING_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "QUESTION_DEFECT_FLAG": null,
+      "SECTION_PRINCIPLE_SUPPORT": "Reconcile the medicines with the client, records, and pharmacy or care team as available. — Medication reconciliation identifies omissions, duplications, and discrepancies during transitions.",
+      "SOURCE_IDS": [
+        "who-medication-without-harm-5-moments",
+        "openrn-pharmacology2e-medication-safety"
+      ],
+      "SOURCE_LIMITATIONS": [],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B704_DETAILED_AUDIT_RECHECKED_CURRENT_CONTENT",
+      "PRIOR_B704_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "5113",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-v-therapeutic"
+      ],
+      "LESSON_ID": "nursing-therapeutic-communication-and-crisis",
+      "SECTION_ID": "b703-self-harm-statement-and-safety",
+      "SECTION_HEADING": "1. Take statements about not living seriously",
+      "QUESTION_STEM": "A client says, 'I do not see a reason to keep living,' during intake. What should the nurse do first?",
+      "OPTIONS": [
+        "Change the subject to distract the client.",
+        "Stay with the client, assess immediate suicide risk and access to means, and activate urgent support.",
+        "Leave the client alone to reflect.",
+        "Promise absolute secrecy."
+      ],
+      "ANSWER_KEY": "Stay with the client, assess immediate suicide risk and access to means, and activate urgent support.",
+      "RATIONALE": "A statement suggesting self-harm requires direct safety assessment and immediate support, not avoidance.",
+      "MAPPING_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "QUESTION_DEFECT_FLAG": null,
+      "SECTION_PRINCIPLE_SUPPORT": "Stay with the client, assess immediate suicide risk and access to means, and activate urgent support. — A statement suggesting self-harm requires direct safety assessment and immediate support, not avoidance.",
+      "SOURCE_IDS": [
+        "prc-nursing-program-aug-2026",
+        "prc-nursing-enhanced-tos-2025",
+        "who-basic-emergency-care",
+        "who-mhgap-2023",
+        "openrn-nursing-fundamentals",
+        "openrn-nursingmhcc-mental-assessment-43",
+        "who-suicide-prevention-2026",
+        "nimh-suicide-faq-2023"
+      ],
+      "SOURCE_LIMITATIONS": [],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B704_DETAILED_AUDIT_RECHECKED_CURRENT_CONTENT",
+      "PRIOR_B704_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    },
+    {
+      "QUESTION_ID": "5187",
+      "ITEM_TYPE": "EXACT_QUESTION_SECTION_MAPPING",
+      "BOARD": "nursing",
+      "SUBJECT": "nursing-foundations",
+      "CONCEPT_IDS": [
+        "nle-np-iv-medication"
+      ],
+      "LESSON_ID": "nursing-medication-safety-and-calculation",
+      "SECTION_ID": "nle-medication-change-teachback",
+      "SECTION_HEADING": "6. Explain verified changes and check understanding",
+      "QUESTION_STEM": "A client is discharged with a changed medicine list but cannot explain which medicine stopped. What should the nurse do?",
+      "OPTIONS": [
+        "Tell the client to take every medicine listed anywhere.",
+        "Leave the change for the next clinic.",
+        "Assume the pharmacy will explain it.",
+        "Reconcile the old and new lists, explain the changes, and use teach-back before discharge."
+      ],
+      "ANSWER_KEY": "Reconcile the old and new lists, explain the changes, and use teach-back before discharge.",
+      "RATIONALE": "Transitions are high-risk; reconciliation and teach-back prevent omissions, duplications, and wrong continuation.",
+      "MAPPING_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "QUESTION_DEFECT_FLAG": null,
+      "SECTION_PRINCIPLE_SUPPORT": "Reconcile the old and new lists, explain the changes, and use teach-back before discharge. — Transitions are high-risk; reconciliation and teach-back prevent omissions, duplications, and wrong continuation.",
+      "SOURCE_IDS": [
+        "who-medication-without-harm-5-moments",
+        "openrn-nursing-fundamentals"
+      ],
+      "SOURCE_LIMITATIONS": [],
+      "EXACT_PRACTICE_POOL_MEMBER": true,
+      "ANSWER_REVIEW_ANCHOR": "VERIFIED_BY_BATCH705_TEST",
+      "SEMANTIC_REVIEW_STATUS": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW",
+      "ACADEMIC_REVIEW_STATUS": "NOT_REVIEWED",
+      "EVIDENCE_REUSE": "B704_DETAILED_AUDIT_RECHECKED_CURRENT_CONTENT",
+      "PRIOR_B704_CLASSIFICATION": "TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+      "REVIEWER_DECISION": "NOT_REVIEWED",
+      "REVIEWER_FEEDBACK": "",
+      "APPROVAL_EVIDENCE": ""
+    }
+  ],
+  "demotions": [
+    {
+      "QUESTION_ID": "4014",
+      "DISPOSITION": "DEMOTED_TO_SOURCE_ONLY",
+      "REASON": "Cancer-treatment NCI source cannot support all immunosuppressive therapies; exact link removed, source-only row preserved.",
+      "SOURCE_ONLY_ROW_PRESERVED": true
+    },
+    {
+      "QUESTION_ID": "5025",
+      "DISPOSITION": "DEMOTED_TO_SOURCE_ONLY",
+      "REASON": "NCI source is cancer-specific, reviewed 2020; unspecified therapy/febrile pathway unsupported; exact link removed.",
+      "SOURCE_ONLY_ROW_PRESERVED": true
+    }
+  ],
+  "historical_rejections": [
+    {
+      "QUESTION_ID": "4004",
+      "DISPOSITION": "REJECTED_PREVIOUS_DEMOTION_PRESERVED",
+      "REASON": "Combined hand-hygiene timing and exposure-based PPE principle is not taught by an exact section; prior demotion stands."
+    },
+    {
+      "QUESTION_ID": "4005",
+      "DISPOSITION": "REJECTED_PREVIOUS_DEMOTION_PRESERVED",
+      "REASON": "Airborne room/PPE/transport actions need current organism and facility guidance; no exact section."
+    },
+    {
+      "QUESTION_ID": "4006",
+      "DISPOSITION": "REJECTED_PREVIOUS_DEMOTION_PRESERVED",
+      "REASON": "Multidose-vial access/storage is a specific injection-safety claim not taught in mapped sections."
+    }
+  ],
+  "held_candidates": [
+    {
+      "QUESTION_ID": "896",
+      "DISPOSITION": "CLINICAL_SAFETY_REVIEW",
+      "REASON": "Acute newborn transition item lacks a checked full resuscitation source; do not infer protocol steps."
+    },
+    {
+      "QUESTION_ID": "937",
+      "DISPOSITION": "SOURCE_LIMITED",
+      "REASON": "PRC scope is not hand-hygiene evidence; no current claim-specific instruction mapped."
+    },
+    {
+      "QUESTION_ID": "938",
+      "DISPOSITION": "SOURCE_LIMITED",
+      "REASON": "Fresh-flower restriction in neutropenia may be policy-specific; current evidence not checked."
+    },
+    {
+      "QUESTION_ID": "949",
+      "DISPOSITION": "SOURCE_LIMITED",
+      "REASON": "Culture timing depends on clinical circumstances; no accessible current source supports the unqualified rationale."
+    },
+    {
+      "QUESTION_ID": "955",
+      "DISPOSITION": "SOURCE_LIMITED",
+      "REASON": "Transport precautions depend on organism/current guidance; cited older source not revalidated."
+    },
+    {
+      "QUESTION_ID": "967",
+      "DISPOSITION": "TAXONOMY_REVIEW",
+      "REASON": "Ileostomy output/hydration is assigned to endocrine. Preserve canonical taxonomy; request taxonomy-owner review."
+    },
+    {
+      "QUESTION_ID": "1004",
+      "DISPOSITION": "TAXONOMY_REVIEW",
+      "REASON": "Suicide assessment content is assigned to NP V shock; preserve canonical taxonomy pending owner review."
+    },
+    {
+      "QUESTION_ID": "1008",
+      "DISPOSITION": "AMBIGUOUS_STEM",
+      "REASON": "“Self-harm” does not establish suicidal intent; clarify intended construct before key/mapping decision."
+    },
+    {
+      "QUESTION_ID": "1022",
+      "DISPOSITION": "SOURCE_LIMITED",
+      "REASON": "Worsening breathing/reduced responsiveness are urgent cues, but specific scenario sequence lacks source/section support."
+    },
+    {
+      "QUESTION_ID": "1023",
+      "DISPOSITION": "SOURCE_LIMITED",
+      "REASON": "Trauma/perfusion/stabilization composite depends on context and pathway not taught here."
+    },
+    {
+      "QUESTION_ID": "1027",
+      "DISPOSITION": "SOURCE_LIMITED",
+      "REASON": "Delegation permissions require current Philippine scope authority; generic text cannot authorize task assignment."
+    },
+    {
+      "QUESTION_ID": "1035",
+      "DISPOSITION": "TAXONOMY_REVIEW",
+      "REASON": "Safety-plan question is assigned to acuity; preserve canonical row pending taxonomy review."
+    },
+    {
+      "QUESTION_ID": "1507",
+      "DISPOSITION": "NOT_REVIEWABLE_WITH_AVAILABLE_EVIDENCE",
+      "REASON": "Stem depends on a visual sequence absent from the canonical question snapshot."
+    },
+    {
+      "QUESTION_ID": "1514",
+      "DISPOSITION": "SOURCE_LIMITED",
+      "REASON": "Fundal massage and response sequence require obstetric/local hemorrhage authority; current evidence supports recognition only."
+    },
+    {
+      "QUESTION_ID": "1529",
+      "DISPOSITION": "SOURCE_LIMITED",
+      "REASON": "Missed-dose action is medication/order-specific; exact keyed step needs pharmacist/prescriber review."
+    },
+    {
+      "QUESTION_ID": "1543",
+      "DISPOSITION": "SOURCE_LIMITED",
+      "REASON": "Assistive-personnel actions depend on Philippine law, competence, and local policy."
+    },
+    {
+      "QUESTION_ID": "1547",
+      "DISPOSITION": "CLINICAL_SAFETY_REVIEW",
+      "REASON": "Means restriction and continuous presence need explicit local authority; NIMH supports broad safety principles only."
+    },
+    {
+      "QUESTION_ID": "3856",
+      "DISPOSITION": "SOURCE_LIMITED",
+      "REASON": "Hemorrhage response, quantification, and circulation actions exceed verified general deterioration content."
+    },
+    {
+      "QUESTION_ID": "3857",
+      "DISPOSITION": "CLINICAL_SAFETY_REVIEW",
+      "REASON": "Maternal seizure is urgent; specific pathway/interventions require current obstetric review."
+    },
+    {
+      "QUESTION_ID": "3862",
+      "DISPOSITION": "SOURCE_LIMITED",
+      "REASON": "Evacuation oxygen supply and incident command depend on the current local disaster plan."
+    },
+    {
+      "QUESTION_ID": "3906",
+      "DISPOSITION": "SOURCE_LIMITED",
+      "REASON": "Disaster medication continuity depends on product, supply authority, storage, and local plan."
+    },
+    {
+      "QUESTION_ID": "3934",
+      "DISPOSITION": "CLINICAL_SAFETY_REVIEW",
+      "REASON": "New maternal dyspnea/chest symptoms need specialist review; general ABCDE does not support full obstetric sequence."
+    },
+    {
+      "QUESTION_ID": "3944",
+      "DISPOSITION": "SOURCE_LIMITED",
+      "REASON": "Question invokes an emergency hemorrhage protocol not verified in accessible sources."
+    },
+    {
+      "QUESTION_ID": "3951",
+      "DISPOSITION": "CLINICAL_SAFETY_REVIEW",
+      "REASON": "Postpartum self-harm needs psychiatric and maternal specialty review; NIMH is not a postpartum pathway."
+    },
+    {
+      "QUESTION_ID": "3957",
+      "DISPOSITION": "CLINICAL_SAFETY_REVIEW",
+      "REASON": "Poor newborn feeding/tone are danger cues; combined airway, glucose, infection assessment needs neonatal evidence/context."
+    },
+    {
+      "QUESTION_ID": "3974",
+      "DISPOSITION": "SOURCE_LIMITED",
+      "REASON": "Child treatment decision roles need Philippine primary legal authority and case-specific context."
+    },
+    {
+      "QUESTION_ID": "4004",
+      "DISPOSITION": "NO_EXACT_LESSON_SUPPORT",
+      "REASON": "Combined hand-hygiene timing and exposure-based PPE principle is not taught by an exact section; prior demotion stands."
+    },
+    {
+      "QUESTION_ID": "4005",
+      "DISPOSITION": "NO_EXACT_LESSON_SUPPORT",
+      "REASON": "Airborne room/PPE/transport actions need current organism and facility guidance; no exact section."
+    },
+    {
+      "QUESTION_ID": "4006",
+      "DISPOSITION": "NO_EXACT_LESSON_SUPPORT",
+      "REASON": "Multidose-vial access/storage is a specific injection-safety claim not taught in mapped sections."
+    },
+    {
+      "QUESTION_ID": "4014",
+      "DISPOSITION": "SOURCE_LIMITED",
+      "REASON": "Cancer-treatment NCI source cannot support all immunosuppressive therapies; exact link removed, source-only row preserved."
+    },
+    {
+      "QUESTION_ID": "4085",
+      "DISPOSITION": "NO_EXACT_LESSON_SUPPORT",
+      "REASON": "Pill alteration and Parkinson formulation exceptions are not taught; needs medication-specific source."
+    },
+    {
+      "QUESTION_ID": "4086",
+      "DISPOSITION": "CLINICAL_SAFETY_REVIEW",
+      "REASON": "Spinal trauma movement/bladder change requires setting-specific alignment and urgent pathway; general coordination lesson is insufficient."
+    },
+    {
+      "QUESTION_ID": "4088",
+      "DISPOSITION": "SOURCE_LIMITED",
+      "REASON": "Seizure-event first aid is not established by general neurologic assessment text."
+    },
+    {
+      "QUESTION_ID": "4090",
+      "DISPOSITION": "SOURCE_LIMITED",
+      "REASON": "Medication-related dizziness source context is older-adult-specific; question age/drug unspecified, so no causal link."
+    },
+    {
+      "QUESTION_ID": "4092",
+      "DISPOSITION": "NO_EXACT_LESSON_SUPPORT",
+      "REASON": "Aphasia-supported communication principle is not taught in the coordination section."
+    },
+    {
+      "QUESTION_ID": "4106",
+      "DISPOSITION": "CLINICAL_SAFETY_REVIEW",
+      "REASON": "Command hallucinations need specialized psychiatric risk assessment and local urgent pathway."
+    },
+    {
+      "QUESTION_ID": "4125",
+      "DISPOSITION": "SOURCE_LIMITED",
+      "REASON": "ABCDE is not resuscitation/BLS guidance; full current resuscitation text was not checked."
+    },
+    {
+      "QUESTION_ID": "4130",
+      "DISPOSITION": "SOURCE_LIMITED",
+      "REASON": "Bleeding/shock actions depend on cause, role, and local protocol; no exact section."
+    },
+    {
+      "QUESTION_ID": "4131",
+      "DISPOSITION": "SOURCE_LIMITED",
+      "REASON": "“Longer than expected” is undefined; seizure duration criterion and response need specialist review."
+    },
+    {
+      "QUESTION_ID": "4139",
+      "DISPOSITION": "CLINICAL_SAFETY_REVIEW",
+      "REASON": "Anaphylaxis with hypotension/wheezing is high-risk; current medication/protocol sequence unverified."
+    },
+    {
+      "QUESTION_ID": "4148",
+      "DISPOSITION": "SOURCE_LIMITED",
+      "REASON": "Routine measurement delegation varies by law/policy/competence; no Philippine authority verified."
+    },
+    {
+      "QUESTION_ID": "4155",
+      "DISPOSITION": "SOURCE_LIMITED",
+      "REASON": "Emergency task limits require Philippine primary authority and task-specific review."
+    },
+    {
+      "QUESTION_ID": "5025",
+      "DISPOSITION": "SOURCE_LIMITED",
+      "REASON": "NCI source is cancer-specific, reviewed 2020; unspecified therapy/febrile pathway unsupported; exact link removed."
+    },
+    {
+      "QUESTION_ID": "5177",
+      "DISPOSITION": "NOT_REVIEWABLE_WITH_AVAILABLE_EVIDENCE",
+      "REASON": "Apnea requires current newborn-resuscitation source; listed 2012 source was not full-text verified."
+    },
+    {
+      "QUESTION_ID": "4239",
+      "DISPOSITION": "REJECTED_NOT_NURSING_ELIGIBLE",
+      "REASON": "Production eligibility resolves it as CPA, not Nursing."
+    }
+  ],
+  "out_of_scope_rejections": [
+    {
+      "QUESTION_ID": "4239",
+      "reason": "CPA only under production eligibility resolver."
+    }
+  ]
+}
