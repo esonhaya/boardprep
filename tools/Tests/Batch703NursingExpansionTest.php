@@ -222,7 +222,7 @@ $assert($oldPending === 8, 'Expected eight still-supported Batch 702 mappings to
 $allSectionRows = count(array_filter($links, static fn(array $link): bool => trim((string) ($link['section_id'] ?? '')) !== ''));
 $explicitSectionRows = count(array_filter($links, static fn(array $link): bool => trim((string) ($link['lesson_id'] ?? '')) !== '' && trim((string) ($link['section_id'] ?? '')) !== ''));
 $pendingSectionRows = count(array_filter($links, static fn(array $link): bool => trim((string) ($link['section_id'] ?? '')) !== '' && str_contains((string) ($link['semantic_review_status'] ?? ''), 'PENDING')));
-$assert($allSectionRows === 1051 && $explicitSectionRows === 69 && $pendingSectionRows === 93, 'Portfolio section-link reconciliation changed after B705: ' . json_encode([$allSectionRows,$explicitSectionRows,$pendingSectionRows]));
+$assert($allSectionRows === 1049 && $explicitSectionRows === 67 && $pendingSectionRows === 91, 'Portfolio section-link reconciliation changed after the two B706 dose-basis quarantines: ' . json_encode([$allSectionRows,$explicitSectionRows,$pendingSectionRows]));
 $exactNursing = count(array_filter($links, static fn(array $link): bool => isset($questionById[(string) ($link['question_id'] ?? '')]) && ($questionById[(string) $link['question_id']]['taxonomy']['board_id'] ?? '') === 'nursing' && !empty($link['lesson_id']) && !empty($link['section_id'])));
 $assert($exactNursing === 47, 'Expected 47 Nursing exact section mappings after B706 quarantined the two dose-basis links.');
 $manifestById = [];
@@ -338,6 +338,6 @@ $assert($q4239ExactNursing === [], 'Previously rejected CPA link leaked into Nur
 
 fwrite(STDOUT, "[PASS] Seven B703-scope Nursing lessons, 23 cumulative stable concept sections and worked examples, registered section sources, and scoped pools validated.\n");
 fwrite(STDOUT, "[PASS] B703 mappings were reconciled with B705 demotions 4014/5025 and the retained Q1540 link; eight Batch 702 mappings remain supported.\n");
-fwrite(STDOUT, "[PASS] Study/source integrity, 30/30 NP coverage, 1,051 portfolio section rows, 93 pending section-review rows, and retained PDF asset hashes validated.\n");
+fwrite(STDOUT, "[PASS] Study/source integrity, 30/30 NP coverage, 1,049 current portfolio section rows, 91 pending section-review rows, and retained PDF asset hashes validated.\n");
 fwrite(STDOUT, "[PASS] Isolated production HTTP flows cover seven B703-scope lesson pages, mapped section practice, cross-board rejection, correct/incorrect review, repeat practice, and recovery anchors.\n");
 fwrite(STDOUT, "[PASS] Learner/session mutations stayed in HttpSimulator storage; canonical question SHA is unchanged.\n");
