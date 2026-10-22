@@ -244,6 +244,19 @@
       "command": "One capability probe for Chromium/Chrome/Firefox/Playwright/Selenium; no browser automation was available in Termux.",
       "exit_code": null,
       "result": "External-host acceptance checklist prepared; browser execution and human acceptance remain unverified."
+    },
+    {
+      "id": "ExactReportClipboardDelivery",
+      "status": "BLOCKED",
+      "set_command": "termux-clipboard-set < docs/reports/batch-706-nursing-safety.md",
+      "set_exit_code": 0,
+      "get_command": "termux-clipboard-get > /data/data/com.termux/files/usr/tmp/boardprep-batch706-clipboard-readback.txt",
+      "get_exit_code": 0,
+      "report_bytes": 14959,
+      "report_sha256": "d8ebb3559c42dd76bf0ea1b09f65ef340c48050a89aeb95c6cf1e20e8b5d5406",
+      "clipboard_readback_bytes": 0,
+      "clipboard_readback_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "result": "The set/get commands exited 0, but readback was empty and its SHA did not match the report. Clipboard status is UNVERIFIED; the persistent report file is the reliable copy."
     }
   ],
   "final_boundary_summary": {
