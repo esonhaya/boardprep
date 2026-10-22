@@ -128,7 +128,7 @@ WORKTREE_STATE=CLEAN after delivery commit
 PROTECTED_WORK_PRESERVED=YES; B695 hashes, branches, worktrees, both stashes, canonical questions, attempts, statistics, flashcards, and HayaDoctor pin preserved
 PUSH_STATUS=NOT_PUSHED
 REPORT_PATH=/data/data/com.termux/files/home/boardprep-batch-706/docs/reports/batch-707-alpha-finish-line.md
-CLIPBOARD_STATUS=UNVERIFIED unless exact final-file readback matches
+CLIPBOARD_STATUS=UNVERIFIED (setter/getter exited 0; getter returned 0 bytes; readback SHA-256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855)
 
 === FINAL DECISION ===
 ENGINEERING_ALPHA_STATUS=RESTRICTED_INTERNAL_DEMO_ONLY; core HTTP journey is functional, current real browser acceptance is absent
