@@ -357,26 +357,24 @@ final class BrowserEvidenceService
 
     private static function changedPathsBetween(string $root, string $from, string $to): array
     {
-        $commits = self::git($root, ['rev-list', '--first-parent', $from . '..' . $to]);
-        if ($commits['exit'] !== 0) {
+        // Collect paths for the whole first-parent range in one Git process.
+        // Spawning diff-tree once per descendant made the readiness assessment
+        // launch thousands of subprocesses on long-lived batch branches.
+        $result = self::git($root, [
+            'log',
+            '--first-parent',
+            '--diff-merges=first-parent',
+            '--format=',
+            '--name-only',
+            $from . '..' . $to,
+        ]);
+        if ($result['exit'] !== 0) {
             return ['<history unavailable>'];
         }
-        $paths = [];
-        foreach (array_filter(explode("\n", trim($commits['output']))) as $commit) {
-            if (!preg_match('/\A[0-9a-f]{40}\z/i', $commit)) {
-                return ['<invalid commit history>'];
-            }
-            $result = self::git($root, ['diff-tree', '--root', '--first-parent', '--no-commit-id', '--name-only', '-r', $commit]);
-            if ($result['exit'] !== 0) {
-                return ['<changed paths unavailable>'];
-            }
-            foreach (explode("\n", trim($result['output'])) as $path) {
-                if ($path !== '') {
-                    $paths[] = $path;
-                }
-            }
-        }
-        return $paths;
+        return array_values(array_filter(
+            explode("\n", $result['output']),
+            static fn(string $path): bool => $path !== ''
+        ));
     }
 
     private static function git(string $root, array $arguments): array

@@ -199,6 +199,11 @@ try {
     $historyRun(['-c', 'user.name=BoardPrep Fixture', '-c', 'user.email=fixture@example.invalid', 'commit', '-qm', 'application descendant'], $sourceRepository);
     $applicationHead = $historyRun(['rev-parse', 'HEAD'], $sourceRepository);
 
+    file_put_contents($sourceRepository . '/app.php', "<?php // baseline application\n");
+    $historyRun(['add', 'app.php'], $sourceRepository);
+    $historyRun(['-c', 'user.name=BoardPrep Fixture', '-c', 'user.email=fixture@example.invalid', 'commit', '-qm', 'revert application descendant'], $sourceRepository);
+    $revertedHead = $historyRun(['rev-parse', 'HEAD'], $sourceRepository);
+
     $historyUrl = 'file://' . $sourceRepository;
     $historyRun(['clone', '--quiet', '--no-tags', $historyUrl, $fullRepository]);
     $historyRun(['clone', '--quiet', '--depth', '1', '--no-tags', $historyUrl, $shallowRepository]);
@@ -214,7 +219,13 @@ try {
     );
     $applicationDescendantResult = BrowserEvidenceService::evaluate(
         ['schema_version' => 1, 'records' => [$historyRecord]],
-        trim($fullHead),
+        trim($applicationHead),
+        $fullRepository
+    );
+    $revertedTreeDiff = $historyRun(['diff', '--name-only', trim($historyBaseline), trim($revertedHead)], $fullRepository);
+    $revertedHistoryResult = BrowserEvidenceService::evaluate(
+        ['schema_version' => 1, 'records' => [$historyRecord]],
+        trim($revertedHead),
         $fullRepository
     );
     $shallowHistoryResult = BrowserEvidenceService::evaluate(
@@ -222,13 +233,40 @@ try {
         trim($shallowHead),
         $shallowRepository
     );
-    $assert(trim($fullHead) === trim($applicationHead)
+    $assert(trim($fullHead) === trim($revertedHead)
         && ($fullHistoryResult['status'] ?? '') === 'PASS'
         && ($fullHistoryResult['relation'] ?? '') === 'DOCUMENTATION_ONLY_DESCENDANT',
         'Complete Git history must preserve verified documentation-only descendant evidence.');
     $assert(($applicationDescendantResult['status'] ?? '') === 'STALE'
         && ($applicationDescendantResult['relation'] ?? '') === 'STALE',
         'An application-changing descendant must stale earlier browser evidence.');
+    $assert(trim($fullHead) === trim($revertedHead)
+        && trim($revertedTreeDiff) === 'docs/batch-report.md'
+        && ($revertedHistoryResult['status'] ?? '') === 'STALE'
+        && ($revertedHistoryResult['relation'] ?? '') === 'STALE',
+        'A reverted application change must remain visible in the first-parent history and stale older browser evidence.');
+
+    $primaryBranch = trim($historyRun(['branch', '--show-current'], $fullRepository));
+    $historyRun(['checkout', '-b', 'app-side'], $fullRepository);
+    file_put_contents($fullRepository . '/app.php', "<?php // application changed on merge side\n");
+    $historyRun(['add', 'app.php'], $fullRepository);
+    $historyRun(['-c', 'user.name=BoardPrep Fixture', '-c', 'user.email=fixture@example.invalid', 'commit', '-qm', 'application side branch'], $fullRepository);
+    $historyRun(['checkout', $primaryBranch], $fullRepository);
+    file_put_contents($fullRepository . '/docs/merge-note.md', "First-parent documentation change.\n");
+    $historyRun(['add', 'docs/merge-note.md'], $fullRepository);
+    $historyRun(['-c', 'user.name=BoardPrep Fixture', '-c', 'user.email=fixture@example.invalid', 'commit', '-qm', 'first-parent documentation'], $fullRepository);
+    $historyRun(['merge', '--no-ff', 'app-side', '-m', 'merge application change'], $fullRepository);
+    $mergeHead = $historyRun(['rev-parse', 'HEAD'], $fullRepository);
+    $mergeRecord = $historyRecord;
+    $mergeRecord['head_sha'] = trim($revertedHead);
+    $mergeResult = BrowserEvidenceService::evaluate(
+        ['schema_version' => 1, 'records' => [$mergeRecord]],
+        trim($mergeHead),
+        $fullRepository
+    );
+    $assert(($mergeResult['status'] ?? '') === 'STALE'
+        && ($mergeResult['relation'] ?? '') === 'STALE',
+        'An application path introduced by a first-parent merge must stale browser evidence.');
     $assert(($shallowHistoryResult['status'] ?? '') === 'UNVERIFIED'
         && ($shallowHistoryResult['relation'] ?? '') === 'UNVERIFIED',
         'A shallow checkout missing the evidence ancestry must remain unverified instead of being trusted or mislabeled as a known mismatch.');
@@ -258,7 +296,7 @@ try {
     $assert(($dirtySource['status'] ?? '') === 'UNVERIFIED'
         && ($dirtySource['relation'] ?? '') === 'DIRTY_WORKTREE'
         && in_array('app.php', $dirtySourcePaths, true), 'A genuinely modified source file did not invalidate exact browser evidence.');
-    file_put_contents($fullRepository . '/app.php', "<?php // application changed after documentation\n");
+    file_put_contents($fullRepository . '/app.php', "<?php // application changed on merge side\n");
 
     $generatedDirectory = $fullRepository . '/release-gate-evidence';
     mkdir($generatedDirectory, 0700);
