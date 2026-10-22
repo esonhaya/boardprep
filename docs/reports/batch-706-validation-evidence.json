@@ -252,8 +252,8 @@
       "set_exit_code": 0,
       "get_command": "termux-clipboard-get > /data/data/com.termux/files/usr/tmp/boardprep-batch706-clipboard-readback.txt",
       "get_exit_code": 0,
-      "report_bytes": 15028,
-      "report_sha256": "c2705b1298be6bcc47b83076e2bafb43c557b96ad579d5dd8bb144fe75b12f08",
+      "report_bytes": 15178,
+      "report_sha256": "68d569eb9d68598ed3cab6d4cc8ea408bb3213e330c50bbf250cbc559c42698d",
       "clipboard_readback_bytes": 0,
       "clipboard_readback_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "result": "The set/get commands exited 0, but readback was empty and its SHA did not match the report. Clipboard status is UNVERIFIED; the persistent report file is the reliable copy."
