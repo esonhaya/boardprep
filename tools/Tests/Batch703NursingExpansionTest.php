@@ -224,7 +224,7 @@ $explicitSectionRows = count(array_filter($links, static fn(array $link): bool =
 $pendingSectionRows = count(array_filter($links, static fn(array $link): bool => trim((string) ($link['section_id'] ?? '')) !== '' && str_contains((string) ($link['semantic_review_status'] ?? ''), 'PENDING')));
 $assert($allSectionRows === 1051 && $explicitSectionRows === 69 && $pendingSectionRows === 93, 'Portfolio section-link reconciliation changed after B705: ' . json_encode([$allSectionRows,$explicitSectionRows,$pendingSectionRows]));
 $exactNursing = count(array_filter($links, static fn(array $link): bool => isset($questionById[(string) ($link['question_id'] ?? '')]) && ($questionById[(string) $link['question_id']]['taxonomy']['board_id'] ?? '') === 'nursing' && !empty($link['lesson_id']) && !empty($link['section_id'])));
-$assert($exactNursing === 49, 'Expected 49 Nursing exact section mappings after B705 additions and source-limited demotions.');
+$assert($exactNursing === 47, 'Expected 47 Nursing exact section mappings after B706 quarantined the two dose-basis links.');
 $manifestById = [];
 foreach ((array) ($manifest['files'] ?? []) as $entry) $manifestById[(string) ($entry['lesson_id'] ?? '')] = $entry;
 $baselineAssets = (array) ($baseline['published_study_pdf_assets_before'] ?? []);

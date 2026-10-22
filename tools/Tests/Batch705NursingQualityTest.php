@@ -101,8 +101,8 @@ foreach ($links as $link) {
         $assert(isset($sourceById[$sourceId]), 'Exact link has an unregistered source: ' . $questionId . '/' . $sourceId);
     }
 }
-$assert(count($exactRows) === 49, 'Expected 49 Nursing exact section mappings; got ' . count($exactRows));
-$assert(count($exactIds) === 49, 'Expected each Nursing exact mapping to be a unique question.');
+$assert(count($exactRows) === 47, 'Expected 47 current Nursing exact section mappings after the two Batch 706 dose-basis quarantines; got ' . count($exactRows));
+$assert(count($exactIds) === 47, 'Expected each current Nursing exact mapping to be a unique question.');
 
 $mappingQuestions = array_keys($exactIds);
 $studyRefs = StudyLibraryService::forQuestions($mappingQuestions, 'nursing', 'nursing-foundations');
@@ -217,4 +217,4 @@ if ($failures !== []) {
     fwrite(STDERR, "Batch705NursingQualityTest FAILED (" . count($failures) . "/$assertions)\n- " . implode("\n- ", $failures) . "\n");
     exit(1);
 }
-echo "Batch705NursingQualityTest PASS ($assertions assertions; 878 Nursing-eligible questions; 49 exact links; shared-science isolation; pending review; manifest hashes)\n";
+echo "Batch705NursingQualityTest PASS ($assertions assertions; 878 Nursing-eligible questions; 47 current exact links; B705 historical mapping audit retained; shared-science isolation; pending review; manifest hashes)\n";
