@@ -8,7 +8,7 @@ All rows are `NOT_REVIEWED`. No reviewer identity, credential, date, approval, o
 2. P1: exact mappings and assessment/communication claims. Compare the complete item and section; keyword similarity is insufficient.
 3. Taxonomy, source-currentness, and Philippine authority questions.
 
-Cohort: 93 unique questions with full canonical snapshots. Current exact Nursing links: 49.
+Cohort: 93 unique questions with full canonical snapshots. Current exact Nursing links: 49. Queue size: 106 records (49 exact mappings, 45 held/rejected question candidates, and 12 source-to-claim records). All decisions remain NOT_REVIEWED.
 
 ## Exact mapping records
 
