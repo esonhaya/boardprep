@@ -41,7 +41,7 @@
       "completed_workstream": "Corrected priority and specialty assignments in all 106 reviewer records; P0/P1/P2 queue counts reconciled.",
       "tested_sha": "e0cb58ebbf4a184188c06ba549b8599598482a28",
       "validation_status": "PASS: Batch705NursingQualityTest (1508 assertions), including complete pending-review queue integrity.",
-      "next_action": "Commit final report, validation evidence and recovery checkpoints; attempt clipboard copy and byte-for-byte readback."
+      "next_action": "Complete: final report and evidence committed on documentation-only descendants; clipboard setter exited 0 but readback remained empty (UNVERIFIED); worktree clean; no push, merge or deployment."
     }
   ]
 }
