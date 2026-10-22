@@ -53,7 +53,15 @@
       "completed_stage": "PDF manifest provenance refreshed and current mapping regression passed",
       "tested_sha": "43c3c461495c58e574267888145b93eeeba48a39",
       "validation_status": "PASS",
-      "next_action": "Commit review artifacts, final evidence ledger, and delivery report; verify clean worktree and clipboard honestly."
+      "next_action": "Commit review artifacts, final evidence ledger, and delivery report."
+    },
+    {
+      "branch": "batch-706-nursing-safety",
+      "head": "e6b011fd221dd0110864ebe7bdefe406de16aa3a",
+      "completed_stage": "Implementation, reports, focused validations, preservation checks, and exact-file clipboard attempt complete",
+      "tested_sha": "43c3c461495c58e574267888145b93eeeba48a39",
+      "validation_status": "PASS_WITH_BLOCKED_RELEASE_GATES_AND_UNVERIFIED_CLIPBOARD",
+      "next_action": "Independent reviewer decisions and a supported host with sufficient storage/browser capability are required; do not advance to another batch before those dependencies are resolved."
     }
   ],
   "storage_blocker": {

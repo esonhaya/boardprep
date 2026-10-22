@@ -122,8 +122,8 @@ PROTECTED_REFS_PRESERVED=YES; both stashes, all preceding worktrees/branches, ex
 === DELIVERY ===
 
 HEAD_AFTER=43c3c461495c58e574267888145b93eeeba48a39 (last implementation/PDF-manifest checkpoint; report-only commit follows)<br>
-COMMITS=5f57e7b4e3008a165420ccb9b4486271e00966b4 (mapping containment and tests); 73feaf6a7ac61f9170e329845fb7891b00e31a42 (test-count reconciliation); 43c3c461495c58e574267888145b93eeeba48a39 (manifest provenance); final documentation/evidence commit is a descendant<br>
-DIFF_STAT=16 files changed, 1430 insertions, 20 deletions from the B705 final tip<br>
+COMMITS=5f57e7b4e3008a165420ccb9b4486271e00966b4; 73feaf6a7ac61f9170e329845fb7891b00e31a42; 43c3c461495c58e574267888145b93eeeba48a39; 622c094282d178a830af2f490cdccf259c78e3bf; e55de72ebb2560b33782017614ca3afe5cb0d992; e6b011fd221dd0110864ebe7bdefe406de16aa3a; this report and clipboard-evidence update are documentation-only descendants<br>
+DIFF_STAT=16 files changed, 1451 insertions, 20 deletions from the B705 final tip<br>
 WORKTREE_STATE=clean after the final documentation/evidence commit<br>
 UNRELATED_WORK_PRESERVED=YES<br>
 PUSH_STATUS=NOT_PUSHED<br>
