@@ -33,7 +33,7 @@
     {
       "gate": "Full Doctor",
       "status": "BLOCKED",
-      "evidence": "Read-only ReleaseReadinessService preflight reported 432103424 available bytes and 1837116727 required bytes before B706-owned fixture cleanup. B706 safely reclaimed 429756416 bytes from its own test fixtures; the final df reading before report commit was 430661632 bytes, still 1406455095 bytes below the requirement. Release fixtures and tests were not started.",
+      "evidence": "Read-only ReleaseReadinessService preflight reported 432103424 available bytes and 1837116727 required bytes before B706-owned fixture cleanup. B706 safely reclaimed 429756416 bytes from its own test fixtures; available space was 430661632 bytes at the post-cleanup checkpoint and 355844096 bytes at final delivery, 1481272631 below the requirement. Release fixtures and tests were not started.",
       "limitations": "No safe B706-owned cleanup can satisfy the remaining storage gap. A full Doctor run must wait for adequate free space on an approved host."
     },
     {

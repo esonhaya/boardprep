@@ -68,8 +68,9 @@
     "doctor_available_at_preflight_bytes": 432103424,
     "doctor_required_bytes": 1837116727,
     "safe_b706_test_fixture_bytes_reclaimed": 429756416,
-    "available_bytes_at_final_precommit_reading": 430661632,
-    "remaining_gap_bytes": 1406455095,
+    "available_bytes_after_safe_fixture_cleanup": 430661632,
+    "available_bytes_at_final_delivery_reading": 355844096,
+    "remaining_gap_at_final_delivery_bytes": 1481272631,
     "full_doctor_started": false,
     "reason": "Required storage remained unavailable; Doctor release fixtures and tests were not started."
   }
