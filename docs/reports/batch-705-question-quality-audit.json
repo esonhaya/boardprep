@@ -69931,5 +69931,8 @@
       "PROPOSED_CHANGE": "Item writer should state per dose or per day and verify the intended clinical order context; do not alter the key until authorized review.",
       "RISK_OF_CHANGE": "The stated basis changes whether the one-dose volume is the correct interpretation."
     }
-  ]
+  ],
+  "generation_commit_base_sha": "715427ab9d6550503baac8681e8fa8460c222b01",
+  "payload_committed_sha": "c90399fda779a1c01ee140aa5b7bf30c630844be",
+  "generation_note": "Generated from the B705 working tree based on generation_commit_base_sha; the final payload is committed at payload_committed_sha. Canonical question bytes are separately guarded by canonical_question_sha256."
 }

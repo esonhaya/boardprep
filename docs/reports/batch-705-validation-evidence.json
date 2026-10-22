@@ -1,0 +1,285 @@
+{
+  "report_type": "BATCH705_VALIDATION_EVIDENCE",
+  "captured_at": "2026-10-22",
+  "branch": "batch-705-nursing-quality",
+  "b704_final_sha": "7b02eaa81b13837ed03c59a033e4de4015f1f159",
+  "implementation_tested_sha": "c90399fda779a1c01ee140aa5b7bf30c630844be",
+  "audit_ledger_commit_sha": "e0cb58ebbf4a184188c06ba549b8599598482a28",
+  "evidence_policy": "Every PASS is tied to the command and tested commit. Doctor and browser are explicitly blocked; independent academic review is not an automated gate.",
+  "entries": [
+    {
+      "command": "php tools/Tests/Batch702NursingDepthTest.php",
+      "exit_code": 0,
+      "result": "NEWLY_TESTED_PASS",
+      "tested_sha": "c90399fda779a1c01ee140aa5b7bf30c630844be",
+      "evidence_type": "automated test",
+      "scope": "B702 Nursing instruction, exact links, learner practice, review navigation",
+      "reused_evidence_sha": null,
+      "limitations": null
+    },
+    {
+      "command": "php tools/Tests/Batch703NursingExpansionTest.php",
+      "exit_code": 0,
+      "result": "NEWLY_TESTED_PASS",
+      "tested_sha": "c90399fda779a1c01ee140aa5b7bf30c630844be",
+      "evidence_type": "automated test",
+      "scope": "B703 cumulative Nursing lessons, sources, mappings, HTTP simulator, coverage, PDFs",
+      "reused_evidence_sha": null,
+      "limitations": null
+    },
+    {
+      "command": "php tools/Tests/Batch704NursingCompletionTest.php",
+      "exit_code": 0,
+      "result": "NEWLY_TESTED_PASS",
+      "tested_sha": "c90399fda779a1c01ee140aa5b7bf30c630844be",
+      "evidence_type": "automated test",
+      "scope": "B704 cumulative Nursing lessons, eligibility, shared science isolation, HTTP simulator, PDF preservation",
+      "reused_evidence_sha": null,
+      "limitations": null
+    },
+    {
+      "command": "php tools/Tests/QuestionStudyReferenceTest.php",
+      "exit_code": 0,
+      "result": "NEWLY_TESTED_PASS",
+      "tested_sha": "c90399fda779a1c01ee140aa5b7bf30c630844be",
+      "evidence_type": "automated test",
+      "scope": "Source-only references versus exact section references in answer review",
+      "reused_evidence_sha": null,
+      "limitations": null
+    },
+    {
+      "command": "php tools/Tests/StudyNavigationTest.php",
+      "exit_code": 0,
+      "result": "NEWLY_TESTED_PASS",
+      "tested_sha": "c90399fda779a1c01ee140aa5b7bf30c630844be",
+      "evidence_type": "automated test",
+      "scope": "Production study route registration",
+      "reused_evidence_sha": null,
+      "limitations": null
+    },
+    {
+      "command": "php tools/Tests/StudyLibraryNavigationTest.php",
+      "exit_code": 0,
+      "result": "NEWLY_TESTED_PASS",
+      "tested_sha": "c90399fda779a1c01ee140aa5b7bf30c630844be",
+      "evidence_type": "automated test",
+      "scope": "Ten-board study library scope and source rendering",
+      "reused_evidence_sha": null,
+      "limitations": null
+    },
+    {
+      "command": "php tools/Tests/Batch678StudyReviewNavigationTest.php",
+      "exit_code": 0,
+      "result": "NEWLY_TESTED_PASS",
+      "tested_sha": "c90399fda779a1c01ee140aa5b7bf30c630844be",
+      "evidence_type": "automated test",
+      "scope": "Source-linked answer review and actionable study references",
+      "reused_evidence_sha": null,
+      "limitations": null
+    },
+    {
+      "command": "php tools/Tests/SourceStudyLibraryTest.php",
+      "exit_code": 0,
+      "result": "NEWLY_TESTED_PASS",
+      "tested_sha": "c90399fda779a1c01ee140aa5b7bf30c630844be",
+      "evidence_type": "automated test",
+      "scope": "Source registry, provenance, study library and canonical question identity",
+      "reused_evidence_sha": null,
+      "limitations": null
+    },
+    {
+      "command": "php tools/Tests/MultiExamEligibilityTest.php",
+      "exit_code": 0,
+      "result": "NEWLY_TESTED_PASS",
+      "tested_sha": "c90399fda779a1c01ee140aa5b7bf30c630844be",
+      "evidence_type": "automated test",
+      "scope": "Multi-exam eligibility, index parity, identity and cross-board isolation",
+      "reused_evidence_sha": null,
+      "limitations": null
+    },
+    {
+      "command": "php tools/Tests/Batch705NursingEligibilityIsolationTest.php",
+      "exit_code": 0,
+      "result": "NEWLY_TESTED_PASS",
+      "tested_sha": "c90399fda779a1c01ee140aa5b7bf30c630844be",
+      "evidence_type": "automated test",
+      "scope": "Excludes 20 shared-science LET questions from Nursing while preserving LET/CSE relationships",
+      "reused_evidence_sha": null,
+      "limitations": null
+    },
+    {
+      "command": "php tools/Tests/Batch610ConceptDerivedEligibilityTest.php",
+      "exit_code": 0,
+      "result": "NEWLY_TESTED_PASS",
+      "tested_sha": "c90399fda779a1c01ee140aa5b7bf30c630844be",
+      "evidence_type": "automated test",
+      "scope": "Bounded concept inheritance and exclusion precedence",
+      "reused_evidence_sha": null,
+      "limitations": null
+    },
+    {
+      "command": "php tools/Tests/CrossBoardCanonicalReuseTest.php",
+      "exit_code": 0,
+      "result": "NEWLY_TESTED_PASS",
+      "tested_sha": "c90399fda779a1c01ee140aa5b7bf30c630844be",
+      "evidence_type": "automated test",
+      "scope": "Cross-board canonical reuse and board isolation",
+      "reused_evidence_sha": null,
+      "limitations": null
+    },
+    {
+      "command": "php -d memory_limit=1G tools/Tests/GuidedLearningJourneyHttpTest.php",
+      "exit_code": 0,
+      "result": "NEWLY_TESTED_PASS",
+      "tested_sha": "c90399fda779a1c01ee140aa5b7bf30c630844be",
+      "evidence_type": "automated test",
+      "scope": "Production HTTP lesson, exact practice, correct/incorrect review, return navigation, scoped flashcards and anonymous history isolation",
+      "reused_evidence_sha": null,
+      "limitations": null
+    },
+    {
+      "command": "php -d memory_limit=1G tools/Tests/TenBoardLearnerJourneyHttpTest.php",
+      "exit_code": 0,
+      "result": "NEWLY_TESTED_PASS",
+      "tested_sha": "c90399fda779a1c01ee140aa5b7bf30c630844be",
+      "evidence_type": "automated test",
+      "scope": "Fresh production HTTP learner journeys for LET, CSE, CLE, NLE, PLE, CE, CPA, ME, REE and ARCH",
+      "reused_evidence_sha": null,
+      "limitations": null
+    },
+    {
+      "command": "php tools/Tests/StudyPdfSelectedGenerationTest.php",
+      "exit_code": 0,
+      "result": "NEWLY_TESTED_PASS",
+      "tested_sha": "c90399fda779a1c01ee140aa5b7bf30c630844be",
+      "evidence_type": "automated test",
+      "scope": "Selected PDF generation and evidence reuse",
+      "reused_evidence_sha": null,
+      "limitations": null
+    },
+    {
+      "command": "php tools/generate-study-pdfs.php --check",
+      "exit_code": 0,
+      "result": "NEWLY_TESTED_PASS",
+      "tested_sha": "c90399fda779a1c01ee140aa5b7bf30c630844be",
+      "evidence_type": "automated test",
+      "scope": "Manifest check: 59 files, generated content hashes consistent",
+      "reused_evidence_sha": null,
+      "limitations": null
+    },
+    {
+      "command": "python3 tools/Tests/Batch705NursingPdfArtifactTest.py",
+      "exit_code": 0,
+      "result": "NEWLY_TESTED_PASS",
+      "tested_sha": "c90399fda779a1c01ee140aa5b7bf30c630844be",
+      "evidence_type": "automated test",
+      "scope": "All 59 PDFs searchable, headings/source attribution checked, identities retained, 5 regenerated and 54 unchanged",
+      "reused_evidence_sha": null,
+      "limitations": null
+    },
+    {
+      "command": "php tools/doctor.php --release --json",
+      "exit_code": 1,
+      "result": "BLOCKED",
+      "tested_sha": "c90399fda779a1c01ee140aa5b7bf30c630844be",
+      "evidence_type": "release gate probe",
+      "scope": "BLOCKED: isolated release fixtures did not start because free space was below required safety threshold; 1,568,370,688 bytes available vs 1,837,117,818 required.",
+      "reused_evidence_sha": null,
+      "limitations": "Doctor reported health REVIEW / NOT_RELEASE_READY and skipped release tests; insufficient free space, not an application-test failure."
+    },
+    {
+      "command": "Capability probe for Chromium/Chrome/Firefox/Playwright/Selenium on Android/Termux",
+      "exit_code": null,
+      "result": "BLOCKED",
+      "tested_sha": "c90399fda779a1c01ee140aa5b7bf30c630844be",
+      "evidence_type": "environment capability inspection",
+      "scope": "Browser acceptance",
+      "reused_evidence_sha": null,
+      "limitations": "No supported browser automation executable/runtime was available. External-host checklist is included in final report."
+    },
+    {
+      "command": "Source-to-claim verification records",
+      "exit_code": null,
+      "result": "REVIEW_REQUIRED",
+      "tested_sha": "c90399fda779a1c01ee140aa5b7bf30c630844be",
+      "evidence_type": "direct source text inspection",
+      "scope": "12 B705 claim rows across 7 sections and 11 distinct source IDs; 8 new registry records",
+      "reused_evidence_sha": null,
+      "limitations": "All claims remain independently review-required. Currentness, jurisdiction, missing local pathways and source availability limits are recorded per row."
+    },
+    {
+      "command": "php tools/Tests/Batch705NursingQualityTest.php",
+      "exit_code": 0,
+      "result": "NEWLY_TESTED_PASS",
+      "tested_sha": "e0cb58ebbf4a184188c06ba549b8599598482a28",
+      "evidence_type": "automated regression",
+      "scope": "1508 assertions over current queue, source ledger, question inventory, 49 exact links, Nursing eligibility, canonical identity, protected state and PDF manifest. Exact documentation inputs are hashed in tested_worktree_artifact_sha256.",
+      "reused_evidence_sha": null,
+      "limitations": null
+    }
+  ],
+  "data_integrity": {
+    "canonical_question_sha256": "73cdc775cd7240b57898868d67902d833db1171f947c8dcc89081ddaf46fb4be",
+    "canonical_question_ids_and_answer_keys_changed": false,
+    "B695_questions_sha256": "994d17505b66fa883a3d8fa0c4bee2da65d009d34230f6d168dbdb93a4aaf4a6",
+    "B695_question_statistics_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "B695_attempts_sha256": "e968fd3e8a391065ac2314ab9bcff932fc572cbe6024e16b40569b694bbed84b",
+    "B695_flashcard_state_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "B695_lesson_material_links_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "B705_production_learner_data_modified": false,
+    "notes": "A two-byte empty JSON question-statistics artifact appeared in the B705 checkout during validation. It was absent from the verified B704 tree, matched the exact empty-array SHA-256 4f53cda1..., and was removed from B705 after confirming its provenance. The separately protected B695 file remained present with its recorded checksum. The final B705 quality test asserts that the B704-absent artifact stays absent."
+  },
+  "asset_summary": {
+    "manifest_entries": 59,
+    "retained_identities": 59,
+    "regenerated": 5,
+    "unchanged": 54,
+    "searchable_pdfs": 59,
+    "ordered_headings": 227,
+    "source_attributions_checked": 368,
+    "hash_mismatches": 0
+  },
+  "review_status": {
+    "independent_academic_approvals": 0,
+    "human_acceptance": "NOT_REVIEWED",
+    "product_readiness": "NOT_APPROVED",
+    "push_status": "NOT_PUSHED"
+  },
+  "tested_worktree_artifact_sha256": {
+    "docs/reports/batch-705-question-quality-audit.json": "ea41eff956655740a82e7bc8b089a3d31f7f90396985a308fae36a0e40b69167",
+    "docs/reports/batch-705-nursing-mapping-audit.json": "1a3ac282118819f480518200c2762c49c08d32e2672b70e4f21f9a89a43b281f",
+    "docs/reports/batch-705-source-claim-ledger.json": "f2bb3bcfc376e82d694cdf072b75feeb8b9a89d167e94df64d2ced6dc7424eab",
+    "docs/reports/batch-705-academic-review-queue.md": "4c623c7749c96e96c860a748f16157a404a91eaa87b16eb02c314b8e66e6ed35",
+    "docs/reports/batch-705-nursing-coverage-after.json": "8cf828d91eb8db6d132c1049a3bf6a12cfc7fba86279aa2d0ea53252dbf55e22"
+  },
+  "clipboard_delivery": {
+    "status": "UNVERIFIED",
+    "attempts": [
+      {
+        "report_marker": "PENDING_VERIFICATION",
+        "set_command": "termux-clipboard-set < docs/reports/batch-705-nursing-quality.md",
+        "set_exit_code": 0,
+        "get_command": "termux-clipboard-get",
+        "get_exit_code": 0,
+        "report_bytes": 14447,
+        "report_sha256": "5facf193ea43d4830263a0367e7a9308d0bb04d543e85fdd32930277f800ed49",
+        "readback_bytes": 0,
+        "readback_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "byte_match": false
+      },
+      {
+        "report_marker": "UNVERIFIED",
+        "set_command": "termux-clipboard-set < docs/reports/batch-705-nursing-quality.md",
+        "set_exit_code": 0,
+        "get_command": "termux-clipboard-get",
+        "get_exit_code": 0,
+        "report_bytes": 14437,
+        "report_sha256": "c649750f79175e0a6a50930503755676fcc234aad56698d5d03d7691737bbfae",
+        "readback_bytes": 0,
+        "readback_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "byte_match": false
+      }
+    ],
+    "reason": "Clipboard setter reported success, but both readbacks were empty; byte-for-byte verification failed."
+  }
+}

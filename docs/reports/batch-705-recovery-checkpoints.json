@@ -1,0 +1,47 @@
+{
+  "report_type": "BATCH705_RECOVERY_CHECKPOINTS",
+  "branch": "batch-705-nursing-quality",
+  "worktree": "/data/data/com.termux/files/home/boardprep-batch-705",
+  "checkpoints": [
+    {
+      "branch": "batch-704-nursing-completion",
+      "head": "7b02eaa81b13837ed03c59a033e4de4015f1f159",
+      "completed_workstream": "Recovered actual B704 final tip and ancestry from implementation 116811e; inspected branches/worktrees/stashes and protected dirty B695 state.",
+      "tested_sha": null,
+      "validation_status": "RECOVERED",
+      "next_action": "Create isolated B705 branch/worktree."
+    },
+    {
+      "branch": "batch-705-nursing-quality",
+      "head": "715427ab9d6550503baac8681e8fa8460c222b01",
+      "completed_workstream": "Removed Nursing eligibility from the ten LET-owned shared-science placements; retained LET and CSE eligibility.",
+      "tested_sha": "715427ab9d6550503baac8681e8fa8460c222b01",
+      "validation_status": "PASS: Batch705NursingEligibilityIsolationTest and MultiExamEligibilityTest",
+      "next_action": "Audit lessons, mappings, claims, questions, learner paths and PDFs."
+    },
+    {
+      "branch": "batch-705-nursing-quality",
+      "head": "c90399fda779a1c01ee140aa5b7bf30c630844be",
+      "completed_workstream": "Committed substantive lesson changes, 6 exact links, 2 demotions, full 878-question inventory, 93-question cohort, reviewer queue, source ledger, tests and 5 PDF regenerations.",
+      "tested_sha": "c90399fda779a1c01ee140aa5b7bf30c630844be",
+      "validation_status": "PASS: focused content, cumulative regressions, HTTP, PDF; Doctor blocked by free space; browser unavailable.",
+      "next_action": "Reconcile ledger counts, write final evidence/report, commit documents, attempt clipboard delivery."
+    },
+    {
+      "branch": "batch-705-nursing-quality",
+      "head": "26d02262ebc0c6d3b802eaf99de4c470fbddbb1b",
+      "completed_workstream": "Reconciled reviewer queue size and source-claim ledger summary totals.",
+      "tested_sha": "26d02262ebc0c6d3b802eaf99de4c470fbddbb1b",
+      "validation_status": "PASS: Batch705NursingQualityTest (1508 assertions).",
+      "next_action": "Commit final validation evidence, recovery checkpoints and complete report."
+    },
+    {
+      "branch": "batch-705-nursing-quality",
+      "head": "e0cb58ebbf4a184188c06ba549b8599598482a28",
+      "completed_workstream": "Corrected priority and specialty assignments in all 106 reviewer records; P0/P1/P2 queue counts reconciled.",
+      "tested_sha": "e0cb58ebbf4a184188c06ba549b8599598482a28",
+      "validation_status": "PASS: Batch705NursingQualityTest (1508 assertions), including complete pending-review queue integrity.",
+      "next_action": "Commit final report, validation evidence and recovery checkpoints; attempt clipboard copy and byte-for-byte readback."
+    }
+  ]
+}
