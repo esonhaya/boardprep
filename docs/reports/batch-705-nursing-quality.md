@@ -123,8 +123,8 @@ PROTECTED_REFS_PRESERVED=YES; B695 dirty worktree and unrelated untracked files 
 
 === DELIVERY ===
 HEAD_AFTER=e0cb58ebbf4a184188c06ba549b8599598482a28 (implementation/audit-data checkpoint; final report-only commit follows)
-COMMITS=715427ab9d6550503baac8681e8fa8460c222b01; c90399fda779a1c01ee140aa5b7bf30c630844be; e0cb58ebbf4a184188c06ba549b8599598482a28; final reporting commit is a documentation-only descendant
-DIFF_STAT=28 files changed, 199,997 insertions and 125,703 deletions from B704 final through audit-data SHA 26d0226; the final report commit adds the report, validation evidence, recovery checkpoints and one queue-priority correction
+COMMITS=715427ab9d6550503baac8681e8fa8460c222b01; c90399fda779a1c01ee140aa5b7bf30c630844be; 26d02262ebc0c6d3b802eaf99de4c470fbddbb1b; e0cb58ebbf4a184188c06ba549b8599598482a28; report commit 44f58f03ff8db71501194ba9a75e8e830209f185; a final documentation correction follows
+DIFF_STAT=31 files changed, 200,475 insertions and 125,703 deletions from B704 final through the current B705 report tree; the final documentation correction changes only this report and clipboard evidence
 WORKTREE_STATE=Clean after the final report commit
 UNRELATED_WORK_PRESERVED=YES
 PUSH_STATUS=NOT_PUSHED

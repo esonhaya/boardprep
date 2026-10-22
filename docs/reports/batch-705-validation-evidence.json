@@ -278,8 +278,20 @@
         "readback_bytes": 0,
         "readback_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "byte_match": false
+      },
+      {
+        "report_marker": "UNVERIFIED",
+        "set_command": "termux-clipboard-set < docs/reports/batch-705-nursing-quality.md",
+        "set_exit_code": 0,
+        "get_command": "termux-clipboard-get",
+        "get_exit_code": 0,
+        "report_bytes": 14490,
+        "report_sha256": "cb75cbca4b71e86f42be6b693bcec8657969c437db361b7306fc750681ee4045",
+        "readback_bytes": 0,
+        "readback_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "byte_match": false
       }
     ],
-    "reason": "Clipboard setter reported success, but both readbacks were empty; byte-for-byte verification failed."
+    "reason": "All clipboard set commands returned exit 0, but all readbacks returned zero bytes. Exact byte verification failed; status remains UNVERIFIED."
   }
 }
