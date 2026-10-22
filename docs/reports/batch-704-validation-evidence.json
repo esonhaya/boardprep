@@ -1,0 +1,161 @@
+{
+  "report_type": "BATCH704_VALIDATION_EVIDENCE",
+  "implementation_sha": "116811e27e8d4fe77121313318ba80c44c191cf5",
+  "baseline_sha": "503e88e13238fe45df0a9c7946b4de1b13665e03",
+  "captured_at": "2026-10-22",
+  "test_policy": "Fresh tests run after committing the implementation/content change. No historical test was reused as a B704 pass.",
+  "tests": [
+    {
+      "command": "php tools/Tests/Batch702NursingDepthTest.php",
+      "exit_code": 0,
+      "tested_sha": "116811e27e8d4fe77121313318ba80c44c191cf5",
+      "result": "PASS; eight prior exact relationships, study routes, source links and return navigation; learner mutations stayed in simulator storage."
+    },
+    {
+      "command": "php tools/Tests/Batch703NursingExpansionTest.php",
+      "exit_code": 0,
+      "tested_sha": "116811e27e8d4fe77121313318ba80c44c191cf5",
+      "result": "PASS; 22 cumulative B703 sections/examples, candidate mappings pending, source integrity, HTTP navigation and canonical question hash."
+    },
+    {
+      "command": "php tools/Tests/Batch704NursingCompletionTest.php",
+      "exit_code": 0,
+      "tested_sha": "116811e27e8d4fe77121313318ba80c44c191cf5",
+      "result": "PASS; 12 substantive sections, source provenance, 29/30 NP concepts, ten shared-science isolation, six pending mappings, 59 manifest hashes, old asset paths, isolated correct/incorrect/repeat/empty/stale/cross-board flows and learner-state checks."
+    },
+    {
+      "command": "php tools/Tests/SourceStudyLibraryTest.php",
+      "exit_code": 0,
+      "tested_sha": "116811e27e8d4fe77121313318ba80c44c191cf5",
+      "result": "PASS; source registry, provenance, materials and canonical question identity."
+    },
+    {
+      "command": "php tools/Tests/StudyPdfSelectedGenerationTest.php",
+      "exit_code": 0,
+      "tested_sha": "116811e27e8d4fe77121313318ba80c44c191cf5",
+      "result": "PASS; selected PDF generation, manifest evidence reuse and refusal of stale omitted output."
+    },
+    {
+      "command": "php tools/Tests/QuestionStudyReferenceTest.php",
+      "exit_code": 0,
+      "tested_sha": "116811e27e8d4fe77121313318ba80c44c191cf5",
+      "result": "PASS; source-only references remain distinct from exact lesson-section links."
+    },
+    {
+      "command": "php tools/Tests/StudyNavigationTest.php",
+      "exit_code": 0,
+      "tested_sha": "116811e27e8d4fe77121313318ba80c44c191cf5",
+      "result": "PASS; production /study route is registered."
+    },
+    {
+      "command": "php tools/Tests/StudyLibraryNavigationTest.php",
+      "exit_code": 0,
+      "tested_sha": "116811e27e8d4fe77121313318ba80c44c191cf5",
+      "result": "PASS; scoped materials and published source/question relationships render across ten boards; this is not a ten-board HTTP regression."
+    },
+    {
+      "command": "php tools/Tests/Batch678StudyReviewNavigationTest.php",
+      "exit_code": 0,
+      "tested_sha": "116811e27e8d4fe77121313318ba80c44c191cf5",
+      "result": "PASS; four source-backed links resolve and current/historical answer review is actionable."
+    },
+    {
+      "command": "php -d memory_limit=1G tools/Tests/GuidedLearningJourneyHttpTest.php",
+      "exit_code": 0,
+      "tested_sha": "116811e27e8d4fe77121313318ba80c44c191cf5",
+      "result": "PASS; isolated HTTP lesson/section routes, exact practice, correct/incorrect review, return navigation, scoped flashcards and anonymous history isolation."
+    },
+    {
+      "command": "php tools/generate-study-pdfs.php --check",
+      "exit_code": 0,
+      "tested_sha": "116811e27e8d4fe77121313318ba80c44c191cf5",
+      "result": "PASS; executable verifier reports STATUS=PASS, MODE=check, FILES=59."
+    },
+    {
+      "command": "python - <<'PY' [PyPDF2/pypdf manifest, searchable-text and section-order assertions]",
+      "exit_code": 0,
+      "tested_sha": "116811e27e8d4fe77121313318ba80c44c191cf5",
+      "result": "PASS; 59/59 manifest file hashes and lesson hashes match, searchable text exists, every section heading appears in order, all 56 baseline paths remain present; three new Nursing PDFs."
+    }
+  ],
+  "browser_capability_probe": {
+    "command": "command -v chromium chromium-browser google-chrome playwright; node require.resolve('playwright'/'puppeteer')",
+    "result": "No browser binary found; Playwright and Puppeteer unavailable.",
+    "status": "BLOCKED; do not claim browser acceptance."
+  },
+  "intentionally_not_run": [
+    {
+      "check": "Full Doctor",
+      "status": "NOT_RUN",
+      "reason": "No shared release-critical application code changed; focused content, source, PDF and learner-flow checks were run."
+    },
+    {
+      "check": "Ten-board HTTP regression",
+      "status": "NOT_RUN",
+      "reason": "No shared eligibility/scoring/privacy/session boundary changed; ten-board study library unit/navigation test passed but is not represented as HTTP."
+    },
+    {
+      "check": "Independent academic or human review",
+      "status": "NOT_REVIEWED",
+      "reason": "Requires an authorized external reviewer."
+    }
+  ],
+  "source_access_recheck": [
+    {
+      "source": "WHO 2018 intrapartum care full guideline",
+      "status": "metadata confirmed; full PDF returned 403; detailed claims now cite separately registered accessible official summary."
+    },
+    {
+      "source": "WHO Intrapartum Care Summary List of Actions, page 2",
+      "status": "full text checked; recs 7–9, 21 and 25 support bounded labor-progress and preference-based comfort content.",
+      "url": "https://cdn.who.int/media/docs/default-source/maternal-health/ipc.pdf?sfvrsn=dc30fc00_8"
+    },
+    {
+      "source": "Open RN Nursing Health Promotion 10.6",
+      "status": "direct fetch 403; marked unavailable and removed as instructional support."
+    },
+    {
+      "source": "Open RN Nursing Health Promotion 10.5",
+      "status": "full page text accessible; used narrowly for monitoring-contextual mobility/rest."
+    },
+    {
+      "source": "WHO Essential Newborn Care and Health EDRM",
+      "status": "accessible full page text checked for high-level claims; no Philippine facility protocol inferred."
+    }
+  ],
+  "protected_state": {
+    "b704_question_sha256": "73cdc775cd7240b57898868d67902d833db1171f947c8dcc89081ddaf46fb4be",
+    "b695_hashes_verified": true,
+    "b695_protected_hashes": {
+      "storage/questions.json": "994d17505b66fa883a3d8fa0c4bee2da65d009d34230f6d168dbdb93a4aaf4a6",
+      "storage/question-statistics.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "storage/attempts.json": "e968fd3e8a391065ac2314ab9bcff932fc572cbe6024e16b40569b694bbed84b",
+      "storage/weakness.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "storage/flashcard_state.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "storage/lesson-material-links.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "http_mutations": "HttpSimulator/disposable fixtures only."
+  },
+  "release_status": {
+    "academic_approval": "NOT_GRANTED",
+    "browser_acceptance": "BLOCKED",
+    "human_acceptance": "NOT_REVIEWED",
+    "public_launch": "NOT_APPROVED",
+    "push": "NOT_PUSHED"
+  },
+  "clipboard_delivery": {
+    "status": "UNVERIFIED",
+    "report_path": "/data/data/com.termux/files/home/boardprep-batch-704/docs/reports/batch-704-nursing-completion.md",
+    "initial_set_exit_code": 0,
+    "initial_get_exit_code": 0,
+    "initial_readback_bytes": 0,
+    "initial_report_sha256": "570c7df068a8fca5e6360b5c03fc25b7694fda2b9642d03ebc1878401a6bad4a",
+    "initial_readback_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "final_retry": "UNVERIFIED; exact final report file copied, but get returned 0 bytes.",
+    "final_retry_set_exit_code": 0,
+    "final_retry_get_exit_code": 0,
+    "final_retry_readback_bytes": 0,
+    "final_report_sha256": "322b649f7145924d241f175a778fbb4302d2d351c7e1b11512820f3f5e2131ef",
+    "final_readback_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

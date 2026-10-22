@@ -1,0 +1,34 @@
+{
+  "report_type": "BATCH704_RECOVERY_CHECKPOINTS",
+  "repository": "/data/data/com.termux/files/home/BoardPrep",
+  "worktree": "/data/data/com.termux/files/home/boardprep-batch-704",
+  "branch": "batch-704-nursing-completion",
+  "captured_at": "2026-10-22",
+  "checkpoints": [
+    {
+      "id": "recovery-baseline",
+      "head": "503e88e13238fe45df0a9c7946b4de1b13665e03",
+      "completed_workstream": "W0 recovery, worktree isolation, B703 final-tip verification, baseline and protected-hash capture",
+      "validation_status": "RECOVERED; B703 report-only descendants resolved; B704 worktree created from actual B703 final tip.",
+      "next_action": "Continue original B704 content and review work without touching B695 or prior worktrees."
+    },
+    {
+      "id": "implementation-and-focused-validation",
+      "head": "116811e27e8d4fe77121313318ba80c44c191cf5",
+      "tested_sha": "116811e27e8d4fe77121313318ba80c44c191cf5",
+      "completed_workstream": "W1–W10 feasible curriculum, source, mapping, question-cohort, reviewer-packet, learner-flow, PDF, validation and coverage reconciliation",
+      "validation_status": "NEWLY_TESTED_PASS for all focused commands in batch-704-validation-evidence.json; independent academic approval and browser acceptance remain blocked/external.",
+      "next_action": "Finalize the report-only commit, then confirm exact branch tip, clean worktree and protected B695 hashes; no content test rerun is needed because the documentation commit does not change code or content."
+    },
+    {
+      "id": "final-report-ready-before-docs-commit",
+      "head": "116811e27e8d4fe77121313318ba80c44c191cf5",
+      "completed_workstream": "Final completion report, validation evidence and recovery checkpoint prepared.",
+      "validation_status": "Report file SHA-256 322b649f7145924d241f175a778fbb4302d2d351c7e1b11512820f3f5e2131ef. Clipboard set/get each exited 0 twice, but readback was empty; status UNVERIFIED.",
+      "next_action": "Commit the documentation-only files and inspect final HEAD/worktree; do not rerun unchanged application tests."
+    }
+  ],
+  "preservation": "B695 dirty checkout, existing worktrees, stashes, protected question/learner/flashcard/HayaDoctor data and existing PDF identities preserved.",
+  "clipboard_status": "UNVERIFIED; set/get commands exited 0 but readback was empty (0 bytes); report file is the reliable copy.",
+  "push_status": "NOT_PUSHED"
+}
