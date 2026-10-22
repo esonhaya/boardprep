@@ -14,7 +14,7 @@ FREE_BYTES_BEFORE=645562368 before creating the isolated B706 worktree<br>
 DOCTOR_REQUIRED_BYTES=1837116727: preflight requirement includes a 1.5 GiB minimum, 128 MiB runtime reserve, and 92286263 bytes of release fixtures<br>
 SAFE_RECOVERY=429756416 bytes recovered by deleting only the verified B706-owned temporary simulator/test-fixture root after recording its tests; no old release fixtures, shared caches, Git data, downloads, or user files were deleted<br>
 FREE_BYTES_AFTER=430661632 immediately after B706 fixture cleanup at the precommit storage checkpoint<br>
-FREE_BYTES_CURRENT=355844096 at the final delivery reading; this is 1481272631 bytes below the Doctor requirement<br>
+FREE_BYTES_CURRENT=360112128 at the final `df` delivery check before the final report/evidence metadata commit; this is 1477004599 bytes below the Doctor requirement<br>
 FULL_DOCTOR=BLOCKED by the read-only preflight. Release fixtures and Doctor tests were not started.
 
 The later Batch703 simulator attempt ran out of space while copying a disposable fixture. Its malformed-JSON exception was confined to that incomplete temporary copy. Canonical question and attempt hashes were checked, the B706-owned test root was removed, and the same regression passed afterward. This was an environment/test-fixture failure, not a production JSON defect.
@@ -123,7 +123,7 @@ PROTECTED_REFS_PRESERVED=YES; both stashes, all preceding worktrees/branches, ex
 === DELIVERY ===
 
 HEAD_AFTER=43c3c461495c58e574267888145b93eeeba48a39 (last implementation/PDF-manifest checkpoint; report-only commit follows)<br>
-COMMITS=5f57e7b4e3008a165420ccb9b4486271e00966b4; 73feaf6a7ac61f9170e329845fb7891b00e31a42; 43c3c461495c58e574267888145b93eeeba48a39; 622c094282d178a830af2f490cdccf259c78e3bf; e55de72ebb2560b33782017614ca3afe5cb0d992; e6b011fd221dd0110864ebe7bdefe406de16aa3a; cb9fe690c9cf3d92b993933aeb8f4bea00540d94; 68928e156e73b30da4422883703a583640633b0b; this storage/report update is a documentation-only descendant<br>
+COMMITS=5f57e7b4e3008a165420ccb9b4486271e00966b4; 73feaf6a7ac61f9170e329845fb7891b00e31a42; 43c3c461495c58e574267888145b93eeeba48a39; 622c094282d178a830af2f490cdccf259c78e3bf; e55de72ebb2560b33782017614ca3afe5cb0d992; e6b011fd221dd0110864ebe7bdefe406de16aa3a; cb9fe690c9cf3d92b993933aeb8f4bea00540d94; 68928e156e73b30da4422883703a583640633b0b; bb97c6afd738f2b59721f9b90951d6e60888918; bca444c4a8b3b93e247ac28c79959361e664f294; final storage/report and checksum metadata commits are documentation-only descendants<br>
 DIFF_STAT=16 files changed, 1453 insertions, 20 deletions from the B705 final tip<br>
 WORKTREE_STATE=clean after the final documentation/evidence commit<br>
 UNRELATED_WORK_PRESERVED=YES<br>

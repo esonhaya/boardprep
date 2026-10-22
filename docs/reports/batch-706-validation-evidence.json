@@ -236,7 +236,7 @@
       "status": "BLOCKED",
       "command": "Not run: read-only ReleaseReadinessService preflight did not meet the documented Doctor capacity threshold; release fixtures/tests were not started.",
       "exit_code": null,
-      "result": "At preflight, 432103424 bytes were available and 1837116727 required. After safe B706-fixture cleanup, available space was 430661632 bytes; the final delivery reading was 355844096 bytes, 1481272631 below the requirement. B706 recovered its own disposable test fixtures but still lacked the required capacity."
+      "result": "At preflight, 432103424 bytes were available and 1837116727 required. After safe B706-fixture cleanup, available space was 430661632 bytes; the final df delivery check was 360112128 bytes, 1477004599 below the requirement. B706 recovered its own disposable test fixtures but still lacked the required capacity."
     },
     {
       "id": "ExternalBrowserAcceptance",
