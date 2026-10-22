@@ -1,0 +1,115 @@
+{
+  "report_type": "BATCH706_CRITICAL_NURSING_MAPPING_DECISIONS",
+  "captured_at": "2026-10-22",
+  "baseline": {
+    "b705_final_sha": "2a679c8ca04d59bdae1d7828eb5368e099f95c79",
+    "b705_last_verified_implementation_sha": "e0cb58ebbf4a184188c06ba549b8599598482a28",
+    "branch": "batch-706-nursing-safety",
+    "question_sha256": "73cdc775cd7240b57898868d67902d833db1171f947c8dcc89081ddaf46fb4be"
+  },
+  "summary": {
+    "nursing_exact_mappings_before": 49,
+    "nursing_exact_mappings_after": 47,
+    "exact_mappings_quarantined": 2,
+    "exact_mappings_retained_pending_review": 47,
+    "q1018_retained": true,
+    "source_only_provenance_preserved": ["1536", "1537"],
+    "canonical_question_records_changed": 0,
+    "answer_keys_changed": 0,
+    "academic_approvals": 0
+  },
+  "methodology": "Inspected full canonical stems, choices, stored answer and rationale; current concept/taxonomy; exact lesson and section; source IDs; lesson practice pool; Nursing eligibility; answer-review resolver and HTTP routes. Decisions change only exact study relationships and lesson practice membership where required. No canonical question, answer key, taxonomy, or general exam eligibility was changed. Technical support is not independent academic approval.",
+  "decisions": [
+    {
+      "item_id": "Q1018",
+      "question_id": "1018",
+      "item_type": "EXACT_MAPPING_AND_TAXONOMY_REVIEW",
+      "nursing_eligibility": "RETAINED; production resolver still returns Nursing eligibility",
+      "canonical_taxonomy": {
+        "board_id": "nursing",
+        "domain_id": "nle-mental-health",
+        "topic_id": "nle-mental-health",
+        "concept_id": "nle-np-v-teamwork"
+      },
+      "question_summary": "A client with depression says their family would be better without them; the keyed response is to ask directly about self-harm thoughts and assess immediate safety.",
+      "exact_mapping": {
+        "link_id": "study-link-b703-nursing-1018",
+        "lesson_id": "nursing-therapeutic-communication-and-crisis",
+        "section_id": "b703-self-harm-statement-and-safety",
+        "disposition": "RETAIN_TECHNICALLY_SUPPORTED_PENDING_REVIEW",
+        "academic_status": "NOT_REVIEWED",
+        "production_review_status": "SECTION_AND_SOURCE_CHECKED_PENDING_INDEPENDENT_ACADEMIC_REVIEW"
+      },
+      "technical_reason": "The section explicitly teaches direct, nonjudgmental inquiry about suicidal thoughts, plan/means and immediate danger. This is a direct match to the keyed response. The section also limits its advice to role, qualified support and a current local safety plan; it does not supply a full local crisis protocol.",
+      "unresolved_flags": [
+        "The canonical concept nle-np-v-teamwork does not clearly describe the mental-health safety principle; taxonomy owner review remains required.",
+        "The mapping does not establish completeness of suicide-risk assessment or authorize observation, restraint, legal hold, referral routing or other facility action.",
+        "Independent mental-health Nursing review and Philippine/local pathway evidence remain outstanding."
+      ],
+      "sources": ["who-suicide-prevention-2026", "nimh-suicide-faq-2023", "openrn-nursingmhcc-mental-assessment-43"],
+      "reviewer_specialty": ["psychiatric nurse educator", "PRC taxonomy owner"],
+      "review_decision": "NOT_REVIEWED",
+      "canonical_record_mutated": false
+    },
+    {
+      "item_id": "Q1536",
+      "question_id": "1536",
+      "item_type": "EXACT_MAPPING_QUARANTINE",
+      "nursing_eligibility": "RETAINED; canonical question remains available to its ordinary Nursing exam pool",
+      "question_summary": "The stem gives 0.25 mg/kg and 68 kg; the keyed arithmetic is 17 mg. The stem does not state whether the quantity is per dose, per day or another time basis, and it names no medication or order context.",
+      "calculation_review": {
+        "arithmetic": "0.25 mg/kg × 68 kg = 17 mg",
+        "arithmetic_status": "ARITHMETICALLY_CONSISTENT_WITH_STATED_VALUES",
+        "clinical_dose_validity": "NOT_ESTABLISHED"
+      },
+      "prior_exact_mapping": {
+        "link_id": "study-link-nursing-502-1536",
+        "lesson_id": "nursing-medication-safety-and-calculation",
+        "section_id": "b705-medication-weight-based-dose",
+        "prior_status": "DEFECT_SUSPECTED; REVIEW_REQUIRED"
+      },
+      "current_production_relationship": {
+        "status": "SOURCE_ONLY_NO_EXACT_SECTION",
+        "material_id": "nle-pharmacology-safety",
+        "source_ids_preserved": ["openrn-nursingskills-weight-based-calculations-511", "openrn-nursingdosagecalculations-weight-based-6-1"],
+        "removed_from_lesson_practice_pool": true,
+        "answer_review_anchor": "NONE; source-only references render without a lesson section anchor"
+      },
+      "decision_reason": "The calculation section correctly distinguishes arithmetic from medication/order validity, but keeping this item in its exact practice pool could present an underspecified mg/kg quantity as ready to prepare. Quarantine contains the study relationship without suppressing canonical exam eligibility or discarding source provenance.",
+      "reviewer_specialty": ["nurse educator", "pharmacist", "Philippine medication-practice reviewer for jurisdictional claims"],
+      "review_decision": "NOT_REVIEWED",
+      "canonical_record_mutated": false
+    },
+    {
+      "item_id": "Q1537",
+      "question_id": "1537",
+      "item_type": "EXACT_MAPPING_QUARANTINE",
+      "nursing_eligibility": "RETAINED; canonical question remains available to its ordinary Nursing exam pool",
+      "question_summary": "The stem gives 15 mg/kg, 18 kg and 75 mg/mL; the keyed arithmetic is 270 mg and 3.6 mL. The stem does not state whether 15 mg/kg is per dose or per day, and names no medication, interval or duration.",
+      "calculation_review": {
+        "arithmetic": "15 mg/kg × 18 kg = 270 mg; 270 mg ÷ 75 mg/mL = 3.6 mL",
+        "arithmetic_status": "ARITHMETICALLY_CONSISTENT_WITH_STATED_VALUES",
+        "clinical_dose_validity": "NOT_ESTABLISHED"
+      },
+      "prior_exact_mapping": {
+        "link_id": "study-link-nursing-502-1537",
+        "lesson_id": "nursing-medication-safety-and-calculation",
+        "section_id": "b705-medication-weight-based-dose",
+        "prior_status": "DEFECT_SUSPECTED; REVIEW_REQUIRED"
+      },
+      "current_production_relationship": {
+        "status": "SOURCE_ONLY_NO_EXACT_SECTION",
+        "material_id": "nle-pharmacology-safety",
+        "source_ids_preserved": ["openrn-nursingskills-weight-based-calculations-511", "openrn-nursingdosagecalculations-weight-based-6-1"],
+        "removed_from_lesson_practice_pool": true,
+        "answer_review_anchor": "NONE; source-only references render without a lesson section anchor"
+      },
+      "decision_reason": "The answer is the arithmetic result for the supplied numbers, not a validated pediatric medication order. Because the time basis is unstated, the exact section-practice link is quarantined pending qualified medication review. Canonical exam eligibility and source references are preserved.",
+      "reviewer_specialty": ["nurse educator", "pediatric medication-safety reviewer", "pharmacist", "Philippine medication-practice reviewer for jurisdictional claims"],
+      "review_decision": "NOT_REVIEWED",
+      "canonical_record_mutated": false
+    }
+  ],
+  "historical_rejections_preserved": ["Q4004", "Q4005", "Q4006"],
+  "source_limited_items_still_not_exact": ["Q4014", "Q5025", "Q4090"]
+}

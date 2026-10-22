@@ -1,0 +1,83 @@
+{
+  "report_type": "BATCH706_RELEASE_READINESS_MATRIX",
+  "captured_at": "2026-10-22",
+  "baseline_sha": "2a679c8ca04d59bdae1d7828eb5368e099f95c79",
+  "tested_implementation_sha": "43c3c461495c58e574267888145b93eeeba48a39",
+  "public_launch": "NOT_APPROVED",
+  "academic_approval": "NOT_GRANTED",
+  "matrix": [
+    {
+      "gate": "Canonical data integrity",
+      "status": "PASS",
+      "evidence": "storage/questions.json SHA-256 remains 73cdc775cd7240b57898868d67902d833db1171f947c8dcc89081ddaf46fb4be; targeted test confirms Q1018/Q1536/Q1537 keys and question bytes unchanged.",
+      "limitations": "This is byte-integrity evidence, not academic validation of the stored items."
+    },
+    {
+      "gate": "Learner state integrity",
+      "status": "PASS",
+      "evidence": "B695 protected attempts and state hashes rechecked; B706 HTTP tests used disposable simulator storage; no learner-state production file changed.",
+      "limitations": "No live learner account or production session was exercised."
+    },
+    {
+      "gate": "Technical unit and integration tests",
+      "status": "PASS",
+      "evidence": "B706 critical-mapping test plus focused B702–B705, route, eligibility, and PDF tests are recorded in batch-706-validation-evidence.json.",
+      "limitations": "Full Doctor was not run; this does not imply full product release validation."
+    },
+    {
+      "gate": "Ten-board HTTP",
+      "status": "PASS",
+      "evidence": "Reused B705 TenBoardLearnerJourneyHttpTest at SHA e0cb58ebbf4a184188c06ba549b8599598482a28 for unchanged shared HTTP/eligibility code; B706 freshly tested cross-board rejection and Nursing eligibility isolation.",
+      "limitations": "No shared HTTP, selection, scoring, privacy, or session code changed in B706."
+    },
+    {
+      "gate": "Full Doctor",
+      "status": "BLOCKED",
+      "evidence": "Read-only ReleaseReadinessService preflight reported 432103424 available bytes and 1837116727 required bytes before B706-owned fixture cleanup. B706 safely reclaimed 429756416 bytes from its own test fixtures; the final df reading before report commit was 430661632 bytes, still 1406455095 bytes below the requirement. Release fixtures and tests were not started.",
+      "limitations": "No safe B706-owned cleanup can satisfy the remaining storage gap. A full Doctor run must wait for adequate free space on an approved host."
+    },
+    {
+      "gate": "Browser acceptance",
+      "status": "BLOCKED",
+      "evidence": "One capability probe found no Chromium, Chrome, Firefox, Playwright, or Selenium executable. A repeatable external-host checklist is supplied at batch-706-browser-acceptance-checklist.md.",
+      "limitations": "No browser execution, screenshot, or human acceptance is claimed."
+    },
+    {
+      "gate": "Clinical content review",
+      "status": "REVIEW_REQUIRED",
+      "evidence": "Targeted Q1018 and Q1536/Q1537 support decisions and source claims are recorded in the mapping decisions and source ledger; broader unchanged B705 review evidence remains linked.",
+      "limitations": "No nurse educator, pharmacist, neonatal, psychiatric, or other independent clinical approval was supplied."
+    },
+    {
+      "gate": "Exact mapping academic approval",
+      "status": "REVIEW_REQUIRED",
+      "evidence": "47 current Nursing exact links remain pending; Q1536/Q1537 exact links are quarantined; the historical 49-link audit is preserved.",
+      "limitations": "Technical support is not academic approval."
+    },
+    {
+      "gate": "Source currentness",
+      "status": "REVIEW_REQUIRED",
+      "evidence": "Four targeted source claims are recorded; NIMH and WHO official page text was checked; Open RN was 403 in B706 and prior full-text evidence is provenance-linked to SHA e0cb58ebbf4a184188c06ba549b8599598482a28.",
+      "limitations": "Direct current access and independent review remain outstanding for restricted sources."
+    },
+    {
+      "gate": "Philippine and local protocol review",
+      "status": "REVIEW_REQUIRED",
+      "evidence": "The B705 PRC Annex A review supports NP IV examination-scope placement only; no detailed competency definition or local clinical pathway was verified in B706.",
+      "limitations": "No Philippine facility-specific medication, suicide-safety, maternal/newborn, or escalation protocol is inferred."
+    },
+    {
+      "gate": "Security and privacy checks",
+      "status": "REVIEW_REQUIRED",
+      "evidence": "Scoped study-library route/privacy and anonymous learner-isolation regression tests passed; no admin/security surface changed.",
+      "limitations": "No comprehensive security, penetration, or privacy assessment was run in this batch."
+    },
+    {
+      "gate": "Deployment authorization",
+      "status": "NOT_RUN",
+      "evidence": "No deployment, merge, push, or release operation was performed.",
+      "limitations": "Deployment is not authorized by this batch."
+    }
+  ],
+  "readiness_conclusion": "Technically scoped Nursing mapping containment and focused regressions are complete. Independent academic review, browser acceptance, and Full Doctor remain unresolved; public launch is not approved."
+}

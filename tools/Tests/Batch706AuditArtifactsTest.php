@@ -75,4 +75,53 @@ foreach (['ACCEPT', 'ACCEPT_WITH_CORRECTION', 'CHANGES_REQUIRED', 'REJECT', 'INS
 }
 $assert(str_contains($packet, '74 existing P0 queue records') && str_contains($packet, '106-record queue'), 'Reviewer packet does not point reviewers to the existing backlog.');
 
-echo "Batch706AuditArtifactsTest PASS ($assertions assertions; 106 unique existing review items; 74 P0; 11 targeted defects; 4 source claims; no approval promotion)\n";
+$readiness = $json('docs/reports/batch-706-release-readiness.json');
+$matrix = (array) ($readiness['matrix'] ?? []);
+$gateNames = array_map(static fn(array $row): string => (string) ($row['gate'] ?? ''), $matrix);
+$assert(count($matrix) === 12 && count(array_unique($gateNames)) === 12, 'Release readiness matrix must contain twelve unique gates.');
+$allowedStatuses = ['PASS','FAIL','BLOCKED','REVIEW_REQUIRED','NOT_RUN','NOT_APPLICABLE'];
+foreach ($matrix as $row) {
+    $assert(in_array((string) ($row['status'] ?? ''), $allowedStatuses, true), 'Readiness gate has an invalid status: ' . ($row['gate'] ?? 'unknown'));
+    $assert(trim((string) ($row['evidence'] ?? '')) !== '' && trim((string) ($row['limitations'] ?? '')) !== '', 'Readiness gate lacks evidence or limitations: ' . ($row['gate'] ?? 'unknown'));
+}
+$gateByName = [];
+foreach ($matrix as $row) $gateByName[(string) ($row['gate'] ?? '')] = $row;
+$assert(($gateByName['Full Doctor']['status'] ?? '') === 'BLOCKED', 'Full Doctor storage blocker was incorrectly promoted.');
+$assert(($gateByName['Browser acceptance']['status'] ?? '') === 'BLOCKED', 'Unsupported Termux browser acceptance was incorrectly promoted.');
+$assert(($readiness['academic_approval'] ?? '') === 'NOT_GRANTED' && ($readiness['public_launch'] ?? '') === 'NOT_APPROVED', 'Readiness report implies academic or launch approval.');
+
+$browserChecklist = (string) file_get_contents($root . '/docs/reports/batch-706-browser-acceptance-checklist.md');
+foreach (['Q1018','Q1536','Q1537','Empty practice','Stale anchor','Cross-board rejection','360-pixel-wide viewport','Execution status:** `BLOCKED`'] as $requiredText) {
+    $assert(str_contains($browserChecklist, $requiredText), 'External browser checklist omits required scenario or limitation: ' . $requiredText);
+}
+
+$pdfManifest = $json('public/study-resources/manifest.json');
+$pdfRows = (array) ($pdfManifest['files'] ?? []);
+$pdfPaths = [];
+$assert(count($pdfRows) === 59, 'PDF manifest entry count changed.');
+foreach ($pdfRows as $row) {
+    $relativePath = (string) ($row['path'] ?? '');
+    $pdfPaths[] = $relativePath;
+    $absolutePath = $root . '/' . $relativePath;
+    $assert(is_file($absolutePath) && hash_equals((string) ($row['sha256'] ?? ''), (string) hash_file('sha256', $absolutePath)), 'PDF manifest hash mismatch: ' . $relativePath);
+}
+$assert(count(array_unique($pdfPaths)) === 59, 'PDF manifest contains duplicate paths.');
+
+$validation = $json('docs/reports/batch-706-validation-evidence.json');
+$executionRecords = (array) ($validation['execution_records'] ?? []);
+$executionById = [];
+foreach ($executionRecords as $row) $executionById[(string) ($row['id'] ?? '')] = $row;
+$assert(($executionById['Batch706CriticalMappingSafetyTest']['status'] ?? '') === 'NEWLY_TESTED_PASS', 'Final focused mapping test is missing from validation evidence.');
+$assert(($executionById['Batch706AuditArtifactsTest']['status'] ?? '') === 'NEWLY_TESTED_PASS', 'Audit artifact test is missing from validation evidence.');
+$assert(($executionById['FullDoctorReleaseGate']['status'] ?? '') === 'BLOCKED', 'Full Doctor storage gate was promoted or omitted.');
+$assert(($executionById['ExternalBrowserAcceptance']['status'] ?? '') === 'BLOCKED', 'External browser limitation was promoted or omitted.');
+$assert(isset($executionById['Batch703NursingExpansionTest_storage_exhaustion_attempt']), 'Storage-limited test attempt is missing from the evidence record.');
+$assert(($validation['final_boundary_summary']['canonical_questions_changed'] ?? true) === false, 'Validation evidence records an unexpected canonical question change.');
+
+$finalReport = (string) file_get_contents($root . '/docs/reports/batch-706-nursing-safety.md');
+foreach (['BOARDPREP — BATCH 706','HEAD_BEFORE=2a679c8ca04d59bdae1d7828eb5368e099f95c79','Q1536_DISPOSITION=','Q1537_DISPOSITION=','FULL_DOCTOR=BLOCKED','ACADEMIC_READINESS=REVIEW_REQUIRED','PUSH_STATUS=NOT_PUSHED','CLIPBOARD_STATUS=UNVERIFIED'] as $requiredText) {
+    $assert(str_contains($finalReport, $requiredText), 'Final report omits a required status or baseline: ' . $requiredText);
+}
+$assert(!str_contains($finalReport, 'to be finalized') && !str_contains($finalReport, 'to be verified'), 'Final report contains an unfinished delivery placeholder.');
+
+echo "Batch706AuditArtifactsTest PASS ($assertions assertions; 106 unique existing review items; 74 P0; 11 targeted defects; 4 source claims; 12 release gates; 59 verified PDF hashes; final report and validation limitations preserved)\n";

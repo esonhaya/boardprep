@@ -1,0 +1,68 @@
+{
+  "report_type": "BATCH706_RECOVERY_CHECKPOINTS",
+  "repository": "/data/data/com.termux/files/home/BoardPrep",
+  "worktree": "/data/data/com.termux/files/home/boardprep-batch-706",
+  "branch": "batch-706-nursing-safety",
+  "b705_final_sha": "2a679c8ca04d59bdae1d7828eb5368e099f95c79",
+  "recovery": {
+    "b705_implementation_ancestor": "e0cb58ebbf4a184188c06ba549b8599598482a28",
+    "ancestry_verified": true,
+    "preexisting_b706_work_found": false,
+    "b706_worktree_created_from": "2a679c8ca04d59bdae1d7828eb5368e099f95c79",
+    "protected_worktrees_branches_stashes_preserved": true,
+    "b695_dirty_checkout_preserved": true,
+    "hayadoctor_pin_preserved": "dc4fcda730d9a922f726593746e34ca0c9c0e890"
+  },
+  "protected_data_checksums": {
+    "b695_questions_sha256": "994d17505b66fa883a3d8fa0c4bee2da65d009d34230f6d168dbdb93a4aaf4a6",
+    "b706_canonical_questions_sha256": "73cdc775cd7240b57898868d67902d833db1171f947c8dcc89081ddaf46fb4be",
+    "b695_attempts_sha256": "e968fd3e8a391065ac2314ab9bcff932fc572cbe6024e16b40569b694bbed84b",
+    "b695_question_statistics_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "b695_flashcard_state_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "b695_lesson_material_links_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "b706_attempts_sha256": "e968fd3e8a391065ac2314ab9bcff932fc572cbe6024e16b40569b694bbed84b"
+  },
+  "checkpoints": [
+    {
+      "branch": "batch-706-nursing-safety",
+      "head": "2a679c8ca04d59bdae1d7828eb5368e099f95c79",
+      "completed_stage": "Recovery and protected-state inventory",
+      "tested_sha": null,
+      "validation_status": "PASS",
+      "next_action": "Audit critical Q1018/Q1536/Q1537 exact relationships and run isolated learner-flow regression."
+    },
+    {
+      "branch": "batch-706-nursing-safety",
+      "head": "5f57e7b4e3008a165420ccb9b4486271e00966b4",
+      "completed_stage": "Critical mapping quarantine and focused tests",
+      "tested_sha": "5f57e7b4e3008a165420ccb9b4486271e00966b4",
+      "validation_status": "PASS",
+      "next_action": "Reconcile inherited portfolio assertions; complete regression and PDF manifest checks."
+    },
+    {
+      "branch": "batch-706-nursing-safety",
+      "head": "73feaf6a7ac61f9170e329845fb7891b00e31a42",
+      "completed_stage": "Portfolio test reconciliation and focused learner regressions",
+      "tested_sha": "73feaf6a7ac61f9170e329845fb7891b00e31a42",
+      "validation_status": "PASS_WITH_RETRY_AFTER_SAFE_FIXTURE_CLEANUP",
+      "next_action": "Refresh the one stale PDF lesson digest, then verify all manifest entries and protected state."
+    },
+    {
+      "branch": "batch-706-nursing-safety",
+      "head": "43c3c461495c58e574267888145b93eeeba48a39",
+      "completed_stage": "PDF manifest provenance refreshed and current mapping regression passed",
+      "tested_sha": "43c3c461495c58e574267888145b93eeeba48a39",
+      "validation_status": "PASS",
+      "next_action": "Commit review artifacts, final evidence ledger, and delivery report; verify clean worktree and clipboard honestly."
+    }
+  ],
+  "storage_blocker": {
+    "doctor_available_at_preflight_bytes": 432103424,
+    "doctor_required_bytes": 1837116727,
+    "safe_b706_test_fixture_bytes_reclaimed": 429756416,
+    "available_bytes_at_final_precommit_reading": 430661632,
+    "remaining_gap_bytes": 1406455095,
+    "full_doctor_started": false,
+    "reason": "Required storage remained unavailable; Doctor release fixtures and tests were not started."
+  }
+}

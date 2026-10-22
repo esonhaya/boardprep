@@ -1,0 +1,260 @@
+{
+  "report_type": "BATCH706_VALIDATION_EVIDENCE",
+  "captured_at": "2026-10-22",
+  "branch": "batch-706-nursing-safety",
+  "implementation_sha": "43c3c461495c58e574267888145b93eeeba48a39",
+  "execution_records": [
+    {
+      "id": "Batch706CriticalMappingSafetyTest",
+      "status": "NEWLY_TESTED_PASS",
+      "command": "TMPDIR=/data/data/com.termux/files/usr/tmp/boardprep-batch706-final-validation php -d memory_limit=1G tools/Tests/Batch706CriticalMappingSafetyTest.php",
+      "exit_code": 0,
+      "head_at_execution": "43c3c461495c58e574267888145b93eeeba48a39",
+      "result": "53 assertions passed. Q1018 exact practice and review anchor retained pending review; Q1536/Q1537 are source-only and absent from exact medication practice, while Nursing exam eligibility remains unchanged. Correct/incorrect HTTP submissions, answer review, empty and stale pools, repeat practice, cross-board rejection, and canonical question hash were checked using isolated storage."
+    },
+    {
+      "id": "Batch706CriticalMappingSafetyTest_misconfigured_fixture_attempt",
+      "status": "NEWLY_TESTED_FAIL",
+      "command": "TMPDIR=/data/data/com.termux/files/usr/tmp/boardprep-batch706-final-validation APP_STORAGE_PATH=/data/data/com.termux/files/usr/tmp/boardprep-batch706-final-validation/boardprep-simulator-19934-d6bb5c931ee01c19/storage APP_SESSION_PATH=/data/data/com.termux/files/usr/tmp/boardprep-batch706-final-validation/isolated-session php -d memory_limit=1G tools/Tests/Batch706CriticalMappingSafetyTest.php",
+      "exit_code": 255,
+      "head_at_execution": "43c3c461495c58e574267888145b93eeeba48a39",
+      "result": "The command overrode the simulator's own APP_STORAGE_PATH with a path that the test fixture then populated differently; the check saw 49 links and failed. This was a test invocation/setup error. The exact fixture was removed and the test was rerun with TMPDIR only, which passed.",
+      "application_defect": false
+    },
+    {
+      "id": "Batch706AuditArtifactsTest",
+      "status": "NEWLY_TESTED_PASS",
+      "command": "php tools/Tests/Batch706AuditArtifactsTest.php",
+      "exit_code": 0,
+      "head_at_execution": "43c3c461495c58e574267888145b93eeeba48a39",
+      "result": "417 assertions passed across the unique 106-record B705 queue, 74 P0 items, eleven targeted defect records, four source claims, twelve readiness gates, validation limitations, no-approval fields, the final report fields, and all 59 current PDF manifest hashes. The repository reports and B706 test were present as worktree additions at execution.",
+      "limitation": "The final report and evidence file are produced after this run; the audit test validates source artifacts, not its own transcript."
+    },
+    {
+      "id": "Batch702NursingDepthTest",
+      "status": "NEWLY_TESTED_PASS",
+      "command": "TMPDIR=/data/data/com.termux/files/usr/tmp/boardprep-batch706-validation-e0cb58 php -d memory_limit=1G tools/Tests/Batch702NursingDepthTest.php",
+      "exit_code": 0,
+      "head_at_execution": "5f57e7b4e3008a165420ccb9b4486271e00966b4",
+      "result": "Lesson/section navigation, nine exact links, correct-answer review and return navigation, LET isolation, and simulator-only learner mutation passed.",
+      "reuse_limit": "Later changes were the B703 assertion/output reconciliation, the single PDF lesson-hash manifest field, and reports; no Batch702 lesson or route boundary changed."
+    },
+    {
+      "id": "Batch703NursingExpansionTest",
+      "status": "NEWLY_TESTED_PASS",
+      "command": "TMPDIR=/data/data/com.termux/files/usr/tmp/boardprep-batch706-final-validation php -d memory_limit=1G tools/Tests/Batch703NursingExpansionTest.php",
+      "exit_code": 0,
+      "head_at_execution": "73feaf6a7ac61f9170e329845fb7891b00e31a42",
+      "tested_tree_committed_as": "43c3c461495c58e574267888145b93eeeba48a39",
+      "working_tree_delta_at_execution": "The only production-data delta not yet committed was public/study-resources/manifest.json, whose exact bytes were committed as 43c3c46 after the selected PDF regeneration. The test also included the committed B706 relationship changes and corrected 1049/67/91 reconciliation assertion.",
+      "result": "Seven B703-scope lessons, section/source integrity, 30/30 NP coverage, 1049 current portfolio section rows, 91 pending section rows, retained PDF hashes, production HTTP lesson/practice/review flows, cross-board rejection, repeat practice, and unchanged canonical question SHA passed."
+    },
+    {
+      "id": "Batch703NursingExpansionTest_stale_assertion_attempt",
+      "status": "NEWLY_TESTED_FAIL",
+      "command": "TMPDIR=/data/data/com.termux/files/usr/tmp/boardprep-batch706-validation-e0cb58 php -d memory_limit=1G tools/Tests/Batch703NursingExpansionTest.php",
+      "exit_code": 255,
+      "head_at_execution": "5f57e7b4e3008a165420ccb9b4486271e00966b4",
+      "result": "The test still asserted B705's 1051/69/93 portfolio counts; actual B706 counts were 1049/67/91 after the two intentional relationship quarantines. The stale test expectation and output text were corrected, then the focused test passed."
+    },
+    {
+      "id": "Batch703NursingExpansionTest_storage_exhaustion_attempt",
+      "status": "NEWLY_TESTED_FAIL",
+      "command": "TMPDIR=/data/data/com.termux/files/usr/tmp/boardprep-batch706-validation-e0cb58 php -d memory_limit=1G tools/Tests/Batch703NursingExpansionTest.php",
+      "exit_code": 255,
+      "head_at_execution": "73feaf6a7ac61f9170e329845fb7891b00e31a42",
+      "result": "The accumulated isolated B706 test fixtures consumed the remaining device space while the simulator copied repository content. A malformed-JSON exception arose only inside that incomplete disposable fixture. Canonical question and attempt hashes in the worktree matched their baseline; the exact B706-owned temporary fixture root was removed, and the regression then passed with adequate temporary capacity.",
+      "application_defect": false
+    },
+    {
+      "id": "Batch706AuditArtifactsTest_checklist_wording_attempt",
+      "status": "NEWLY_TESTED_FAIL",
+      "command": "php tools/Tests/Batch706AuditArtifactsTest.php",
+      "exit_code": 255,
+      "head_at_execution": "43c3c461495c58e574267888145b93eeeba48a39",
+      "result": "An artifact assertion expected a literal phrase not used by the checklist. The assertion was aligned to the checklist's actual BLOCKED execution status; the expanded artifact test then passed with 408 assertions.",
+      "application_defect": false
+    },
+    {
+      "id": "Batch704NursingCompletionTest",
+      "status": "NEWLY_TESTED_PASS",
+      "command": "TMPDIR=/data/data/com.termux/files/usr/tmp/boardprep-batch706-validation-e0cb58 php -d memory_limit=1G tools/Tests/Batch704NursingCompletionTest.php",
+      "exit_code": 0,
+      "head_at_execution": "73feaf6a7ac61f9170e329845fb7891b00e31a42",
+      "result": "B704 lessons/provenance, exact-link review pending state, 59 PDF entries and prior asset hashes, isolated HTTP navigation, empty/stale pools, correct/incorrect review, repeats, and cross-board rejection passed."
+    },
+    {
+      "id": "Batch705NursingQualityTest",
+      "status": "NEWLY_TESTED_PASS",
+      "command": "TMPDIR=/data/data/com.termux/files/usr/tmp/boardprep-batch706-final-validation php -d memory_limit=1G tools/Tests/Batch705NursingQualityTest.php",
+      "exit_code": 0,
+      "head_at_execution": "43c3c461495c58e574267888145b93eeeba48a39",
+      "result": "1492 assertions passed: 878 Nursing-eligible questions, 47 current exact section links, B705's historical 49-row audit preserved, shared-science isolation, independent review-pending status, and manifest hashes."
+    },
+    {
+      "id": "Batch705NursingEligibilityIsolationTest",
+      "status": "NEWLY_TESTED_PASS",
+      "command": "TMPDIR=/data/data/com.termux/files/usr/tmp/boardprep-batch706-validation-e0cb58 php -d memory_limit=1G tools/Tests/Batch705NursingEligibilityIsolationTest.php",
+      "exit_code": 0,
+      "head_at_execution": "73feaf6a7ac61f9170e329845fb7891b00e31a42",
+      "result": "Effective Nursing eligibility excluded the tested LET shared-science questions while preserving their LET/Civil Service eligibility and canonical bytes."
+    },
+    {
+      "id": "QuestionStudyReferenceTest",
+      "status": "NEWLY_TESTED_PASS",
+      "command": "TMPDIR=/data/data/com.termux/files/usr/tmp/boardprep-batch706-validation-e0cb58 php -d memory_limit=1G tools/Tests/QuestionStudyReferenceTest.php",
+      "exit_code": 0,
+      "head_at_execution": "73feaf6a7ac61f9170e329845fb7891b00e31a42",
+      "result": "Registered source references remained distinct from exact lesson-section mappings in practice and answer review."
+    },
+    {
+      "id": "StudyNavigationTest",
+      "status": "NEWLY_TESTED_PASS",
+      "command": "TMPDIR=/data/data/com.termux/files/usr/tmp/boardprep-batch706-validation-e0cb58 php -d memory_limit=1G tools/Tests/StudyNavigationTest.php",
+      "exit_code": 0,
+      "head_at_execution": "73feaf6a7ac61f9170e329845fb7891b00e31a42",
+      "result": "Production study route remained registered."
+    },
+    {
+      "id": "StudyLibraryNavigationTest",
+      "status": "NEWLY_TESTED_PASS",
+      "command": "TMPDIR=/data/data/com.termux/files/usr/tmp/boardprep-batch706-validation-e0cb58 php -d memory_limit=1G tools/Tests/StudyLibraryNavigationTest.php",
+      "exit_code": 0,
+      "head_at_execution": "73feaf6a7ac61f9170e329845fb7891b00e31a42",
+      "result": "Correctly scoped study materials for all ten boards, source/question-link relationships, direct materials, rendered notes and source lists, privacy disclosure, and Developer/Doctor route boundaries passed."
+    },
+    {
+      "id": "Batch678StudyReviewNavigationTest",
+      "status": "NEWLY_TESTED_PASS",
+      "command": "TMPDIR=/data/data/com.termux/files/usr/tmp/boardprep-batch706-validation-e0cb58 php -d memory_limit=1G tools/Tests/Batch678StudyReviewNavigationTest.php",
+      "exit_code": 0,
+      "head_at_execution": "73feaf6a7ac61f9170e329845fb7891b00e31a42",
+      "result": "Four source-backed links resolved to exact materials and review guidance remained actionable."
+    },
+    {
+      "id": "GuidedLearningJourneyHttpTest",
+      "status": "NEWLY_TESTED_PASS",
+      "command": "TMPDIR=/data/data/com.termux/files/usr/tmp/boardprep-batch706-validation-e0cb58 php -d memory_limit=1G tools/Tests/GuidedLearningJourneyHttpTest.php",
+      "exit_code": 0,
+      "head_at_execution": "73feaf6a7ac61f9170e329845fb7891b00e31a42",
+      "result": "Production HTTP covered board/subject/lesson sections, PDF action, scope rejection, exact section practice, correct/incorrect answer review, return-to-lesson, scoped flashcards, and anonymous history isolation."
+    },
+    {
+      "id": "StudyPdfSelectedGenerationTest",
+      "status": "NEWLY_TESTED_PASS",
+      "command": "TMPDIR=/data/data/com.termux/files/usr/tmp/boardprep-batch706-validation-e0cb58 php -d memory_limit=1G tools/Tests/StudyPdfSelectedGenerationTest.php",
+      "exit_code": 0,
+      "head_at_execution": "73feaf6a7ac61f9170e329845fb7891b00e31a42",
+      "result": "Selected PDF generation and manifest evidence reuse behavior passed."
+    },
+    {
+      "id": "StudyPdfPipelineTest",
+      "status": "NEWLY_TESTED_PASS",
+      "command": "TMPDIR=/data/data/com.termux/files/usr/tmp/boardprep-batch706-validation-e0cb58 php -d memory_limit=1G tools/Tests/StudyPdfPipelineTest.php",
+      "exit_code": 0,
+      "head_at_execution": "73feaf6a7ac61f9170e329845fb7891b00e31a42",
+      "tested_tree_committed_as": "43c3c461495c58e574267888145b93eeeba48a39",
+      "result": "All published lesson PDFs, source text, page counts, stale tracking, and deterministic generator invariants passed against the regenerated medication lesson-hash manifest."
+    },
+    {
+      "id": "MultiExamEligibilityTest",
+      "status": "NEWLY_TESTED_PASS",
+      "command": "TMPDIR=/data/data/com.termux/files/usr/tmp/boardprep-batch706-validation-e0cb58 php -d memory_limit=1G tools/Tests/MultiExamEligibilityTest.php",
+      "exit_code": 0,
+      "head_at_execution": "73feaf6a7ac61f9170e329845fb7891b00e31a42",
+      "result": "Multi-exam eligibility, identity preservation, selection, collision-board isolation, and indexed parity passed."
+    },
+    {
+      "id": "CrossBoardCanonicalReuseTest",
+      "status": "NEWLY_TESTED_PASS",
+      "command": "TMPDIR=/data/data/com.termux/files/usr/tmp/boardprep-batch706-validation-e0cb58 php -d memory_limit=1G tools/Tests/CrossBoardCanonicalReuseTest.php",
+      "exit_code": 0,
+      "head_at_execution": "73feaf6a7ac61f9170e329845fb7891b00e31a42",
+      "result": "Canonical cross-board eligibility, blueprint mapping, production selection, and board isolation passed."
+    },
+    {
+      "id": "Batch705NursingPdfArtifactTest",
+      "status": "NEWLY_TESTED_PASS",
+      "command": "TMPDIR=/data/data/com.termux/files/usr/tmp/boardprep-batch706-validation-e0cb58 python3 tools/Tests/Batch705NursingPdfArtifactTest.py",
+      "exit_code": 0,
+      "head_at_execution": "73feaf6a7ac61f9170e329845fb7891b00e31a42",
+      "tested_tree_committed_as": "43c3c461495c58e574267888145b93eeeba48a39",
+      "result": "59 manifest entries and prior identities verified, 59 searchable PDFs, 227 ordered section headings, 368 source attributions, and zero artifact errors. The five reported regenerated IDs are historical B705-generation findings, not B706 PDF byte changes."
+    },
+    {
+      "id": "generate-study-pdfs_check_initial",
+      "status": "NEWLY_TESTED_FAIL",
+      "command": "TMPDIR=/data/data/com.termux/files/usr/tmp/boardprep-batch706-validation-e0cb58 php -d memory_limit=1G tools/generate-study-pdfs.php --check",
+      "exit_code": 1,
+      "head_at_execution": "73feaf6a7ac61f9170e329845fb7891b00e31a42",
+      "result": "Expected stale lesson/manifest evidence after the medication practice-pool edit; no PDF bytes were modified by the check. The selected generator refreshed one lesson_sha256 metadata entry."
+    },
+    {
+      "id": "generate-study-pdfs_check_final",
+      "status": "NEWLY_TESTED_PASS",
+      "command": "php -d memory_limit=1G tools/generate-study-pdfs.php --check",
+      "exit_code": 0,
+      "head_at_execution": "43c3c461495c58e574267888145b93eeeba48a39",
+      "result": "Deterministic manifest check passed for all 59 published lesson PDFs; no PDF content hash changed."
+    },
+    {
+      "id": "NIMH_and_WHO_source_text",
+      "status": "NEWLY_TESTED_PASS",
+      "command": "Opened official NIMH suicide FAQ and WHO suicide fact sheet full pages in the web retrieval tool; see source ledger URLs and evidence locations.",
+      "exit_code": null,
+      "retrieval_status": "FULL_TEXT_OPENED",
+      "head_at_execution": "43c3c461495c58e574267888145b93eeeba48a39",
+      "result": "Full accessible text checked for the bounded direct-inquiry and general identify/assess/manage/follow-up claims. U.S.-specific NIMH routes were excluded; neither source was used as a Philippine or facility protocol."
+    },
+    {
+      "id": "OpenRN_dose_reference_current_fetch",
+      "status": "REUSED_VALID_EVIDENCE",
+      "command": "One bounded B706 direct retrieval attempt per Open RN reference; both returned HTTP 403. Reuse only the B705 full-text claim checks recorded at SHA e0cb58ebbf4a184188c06ba549b8599598482a28.",
+      "exit_code": null,
+      "head_at_execution": "43c3c461495c58e574267888145b93eeeba48a39",
+      "result": "Prior B705 source text remains traceable for the unchanged medication lesson; direct current access was unavailable in B706. All claims remain review-required."
+    },
+    {
+      "id": "TenBoardLearnerJourneyHttpTest",
+      "status": "REUSED_VALID_EVIDENCE",
+      "command": "B705 command: php -d memory_limit=1G tools/Tests/TenBoardLearnerJourneyHttpTest.php",
+      "exit_code": 0,
+      "evidence_sha": "e0cb58ebbf4a184188c06ba549b8599598482a28",
+      "unchanged_boundaries": ["shared HTTP routes", "selection and eligibility services", "scoring", "session/privacy behavior"],
+      "reason": "B706 changed only Nursing study-link relationships, lesson practice membership, and a manifest lesson digest; B706 freshly exercised the affected Nursing HTTP flow and cross-board rejection."
+    },
+    {
+      "id": "Batch705NursingMappingAudit",
+      "status": "REUSED_VALID_EVIDENCE",
+      "evidence_sha": "e0cb58ebbf4a184188c06ba549b8599598482a28",
+      "artifact": "docs/reports/batch-705-nursing-mapping-audit.json",
+      "reason": "Reuse the B705 per-link evidence for unchanged records only. B706 reread the complete critical Q1018/Q1536/Q1537 canonical items, rationales, source records, and learner review paths, then changed only the two dose-basis exact relationships.",
+      "limitations": "B705 dispositions remain independent-review pending; the B706 quality test verifies current structural integrity but is not an academic review of every question rationale."
+    },
+    {
+      "id": "FullDoctorReleaseGate",
+      "status": "BLOCKED",
+      "command": "Not run: read-only ReleaseReadinessService preflight did not meet the documented Doctor capacity threshold; release fixtures/tests were not started.",
+      "exit_code": null,
+      "result": "At preflight, 432103424 bytes were available and 1837116727 required. After safe B706-fixture cleanup, final available space was 430661632 bytes, 1406455095 below the requirement. B706 recovered its own disposable test fixtures but still lacked the required capacity."
+    },
+    {
+      "id": "ExternalBrowserAcceptance",
+      "status": "BLOCKED",
+      "command": "One capability probe for Chromium/Chrome/Firefox/Playwright/Selenium; no browser automation was available in Termux.",
+      "exit_code": null,
+      "result": "External-host acceptance checklist prepared; browser execution and human acceptance remain unverified."
+    }
+  ],
+  "final_boundary_summary": {
+    "application_code_changed": false,
+    "canonical_questions_changed": false,
+    "answer_keys_changed": false,
+    "learner_state_changed": false,
+    "nursing_exact_mappings_before_after": "49 to 47",
+    "exact_mapping_quarantines": ["Q1536", "Q1537"],
+    "q1018_exact_mapping": "retained pending independent psychiatric and taxonomy review",
+    "pdf_bytes_changed": 0,
+    "pdf_manifest_entries": 59
+  }
+}

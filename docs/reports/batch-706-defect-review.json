@@ -1,0 +1,152 @@
+{
+  "report_type": "BATCH706_TARGETED_NURSING_DEFECT_REVIEW",
+  "captured_at": "2026-10-22",
+  "baseline_sha": "2a679c8ca04d59bdae1d7828eb5368e099f95c79",
+  "review_scope": "Targeted follow-up of the three critical mapped questions, six B705 proposals, and four additional held cases. This is not a repeated 878-question audit or independent clinical validation.",
+  "canonical_changes": {
+    "question_records_changed": 0,
+    "answer_keys_changed": 0,
+    "taxonomy_changed": 0,
+    "question_ids_changed": 0,
+    "question_sha256": "73cdc775cd7240b57898868d67902d833db1171f947c8dcc89081ddaf46fb4be"
+  },
+  "cases": [
+    {
+      "item_id": "Q1018",
+      "question_id": "1018",
+      "origin": "B705 critical mapping follow-up",
+      "issue_hypothesis": "Direct self-harm safety item is assigned to NP V teamwork; verify specific section support and avoid implying complete/local crisis protocol.",
+      "evidence_checked": ["Full canonical stem, choices, key and rationale", "Canonical taxonomy", "Exact lesson/section and production practice pool", "NIMH full page", "WHO suicide fact sheet", "Production answer-review resolver"],
+      "finding": "The section teaches the keyed direct inquiry and immediate-safety response. Taxonomy remains nle-np-v-teamwork. NIMH is U.S.-jurisdiction-limited; WHO is global guidance. Neither proves a Philippine/facility pathway.",
+      "disposition": "EXACT_LINK_RETAINED_TECHNICALLY_SUPPORTED; TAXONOMY_AND_MENTAL_HEALTH_REVIEW_REQUIRED",
+      "proposed_action": "A PRC taxonomy owner should select the defensible NP V concept or document why teamwork is intended. A psychiatric nurse educator should review scope, wording and local-pathway limits.",
+      "review_decision": "NOT_REVIEWED",
+      "production_change": "None to mapping or canonical record."
+    },
+    {
+      "item_id": "Q967",
+      "question_id": "967",
+      "origin": "B705 defect proposal",
+      "issue_hypothesis": "Ileostomy output, dizziness and hydration/electrolyte assessment are classified as nle-np-iv-endocrine.",
+      "evidence_checked": ["Full canonical record", "Actual taxonomy concept catalog", "B705 held-candidate rationale"],
+      "finding": "The stem is gastrointestinal/fluid-pattern oriented; the catalog has nle-np-iv-gastrointestinal and nle-np-iii-fluids concepts. A concept change still requires taxonomy-owner confirmation of intended NP level and blueprint scope.",
+      "disposition": "CANONICAL_TAXONOMY_HELD_FOR_OWNER_REVIEW",
+      "proposed_action": "Ask the taxonomy owner to choose the intended gastrointestinal/fluid concept and NP level, then update the canonical concept only with explicit review evidence and taxonomy regression tests.",
+      "review_decision": "NOT_REVIEWED",
+      "production_change": "None; no exact section mapping exists."
+    },
+    {
+      "item_id": "Q1004",
+      "question_id": "1004",
+      "origin": "B705 defect proposal",
+      "issue_hypothesis": "Direct suicide-risk assessment item is classified as NP V shock.",
+      "evidence_checked": ["Full canonical record", "Actual NP V concept catalog", "B705 held-candidate rationale"],
+      "finding": "The keyed construct is direct safety assessment; shock is not evident from the stem. Crisis and therapeutic concepts exist, but the intended blueprint placement needs taxonomy-owner review.",
+      "disposition": "CANONICAL_TAXONOMY_HELD_FOR_OWNER_REVIEW",
+      "proposed_action": "Confirm the intended mental-health/crisis concept against the official blueprint before any taxonomy edit. Preserve answer and rationale pending expert review.",
+      "review_decision": "NOT_REVIEWED",
+      "production_change": "None; no exact section mapping exists."
+    },
+    {
+      "item_id": "Q1035",
+      "question_id": "1035",
+      "origin": "B705 defect proposal",
+      "issue_hypothesis": "Safety-plan documentation/communication item is classified as NP V acuity.",
+      "evidence_checked": ["Full canonical record", "Actual NP V concept catalog", "B705 held-candidate rationale"],
+      "finding": "The item addresses continuity after suicide-risk assessment. Crisis, therapeutic and teamwork concepts may be relevant; the correct concept cannot be selected from wording alone.",
+      "disposition": "CANONICAL_TAXONOMY_HELD_FOR_OWNER_REVIEW",
+      "proposed_action": "Have the taxonomy owner identify the intended construct and verify the exact blueprint element. Do not change the key or taxonomy in this batch.",
+      "review_decision": "NOT_REVIEWED",
+      "production_change": "None; no exact section mapping exists."
+    },
+    {
+      "item_id": "Q1008",
+      "question_id": "1008",
+      "origin": "B705 defect proposal",
+      "issue_hypothesis": "The phrase at risk of self-harm does not state whether suicidal intent or an immediate safety plan has been established; the item asks for an action that may depend on that context.",
+      "evidence_checked": ["Full canonical record", "B705 reviewer queue and psychiatric safety source limits"],
+      "finding": "The stem does not describe the assessment finding, plan or role-specific precautions needed to distinguish routine privacy from an immediate safety risk.",
+      "disposition": "AMBIGUOUS_STEM_HELD",
+      "proposed_action": "A psychiatric nurse educator should decide what clinical context is intended and specify the safety-plan condition needed for one best answer. Draft a revised item only after that decision; do not infer a protocol.",
+      "review_decision": "NOT_REVIEWED",
+      "production_change": "None; no exact section mapping exists."
+    },
+    {
+      "item_id": "Q1536",
+      "question_id": "1536",
+      "origin": "B705 dose-basis proposal and B706 safety review",
+      "issue_hypothesis": "mg/kg quantity lacks per-dose/per-day basis and may be read as medication preparation instruction.",
+      "evidence_checked": ["Full canonical stem, choices, key and rationale", "B705 verified Open RN dose-calculation text", "Current bounded source fetch returned 403", "Medication lesson section and HTTP/answer-review path"],
+      "finding": "Arithmetic is correct (0.25 mg/kg × 68 kg = 17 mg); no drug, interval or dose-time basis establishes clinical validity.",
+      "disposition": "EXACT_MAPPING_QUARANTINED; SOURCE_ONLY_PROVENANCE_RETAINED; CANONICAL_ITEM_HELD",
+      "proposed_action": "A nurse educator and pharmacist should specify whether the intended construct is mg/kg/dose arithmetic or another basis. If revised, explicitly state the time basis and preserve separation from order validation.",
+      "review_decision": "NOT_REVIEWED",
+      "production_change": "Removed exact section fields and item from lesson practice pool; retained both source IDs and Nursing exam eligibility."
+    },
+    {
+      "item_id": "Q1537",
+      "question_id": "1537",
+      "origin": "B705 dose-basis proposal and B706 safety review",
+      "issue_hypothesis": "Pediatric mg/kg quantity lacks per-dose/per-day basis; keyed volume is arithmetic only.",
+      "evidence_checked": ["Full canonical stem, choices, key and rationale", "B705 verified Open RN dose-calculation text", "Current bounded source fetch returned 403", "Medication lesson section and HTTP/answer-review path"],
+      "finding": "Arithmetic is correct (15 mg/kg × 18 kg = 270 mg; 270 mg ÷ 75 mg/mL = 3.6 mL); no medication, interval, duration or time basis establishes clinical validity.",
+      "disposition": "EXACT_MAPPING_QUARANTINED; SOURCE_ONLY_PROVENANCE_RETAINED; CANONICAL_ITEM_HELD",
+      "proposed_action": "A pediatric medication-safety reviewer and pharmacist should define the intended basis and determine whether the generic stem can support one answer without implying a valid pediatric order.",
+      "review_decision": "NOT_REVIEWED",
+      "production_change": "Removed exact section fields and item from lesson practice pool; retained both source IDs and Nursing exam eligibility."
+    },
+    {
+      "item_id": "Q896",
+      "question_id": "896",
+      "origin": "B705 newborn-transition hold",
+      "issue_hypothesis": "Pale, limp newborn transition scenario may require current newborn emergency/resuscitation instruction absent from the exact section and full-text verified source set.",
+      "evidence_checked": ["Full canonical record", "B705 newborn source/access notes", "Current lesson section inventory"],
+      "finding": "No exact section teaches the specific pale/limp transition response. The cited WHO newborn-resuscitation source was metadata-only/dated in B705 evidence; no threshold or protocol was verified here.",
+      "disposition": "NO_EXACT_MAPPING; SOURCE_LIMITED; QUESTION_HELD_FOR_NEONATAL_REVIEW",
+      "proposed_action": "Obtain a current authoritative neonatal resuscitation source and neonatal nurse educator decision on the stem/key before linking or rewriting.",
+      "review_decision": "NOT_REVIEWED",
+      "production_change": "None."
+    },
+    {
+      "item_id": "Q4014",
+      "question_id": "4014",
+      "origin": "B705 source-limited mapping demotion",
+      "issue_hypothesis": "Cancer-treatment-specific infection guidance is being generalized to unspecified immunosuppressive therapy.",
+      "evidence_checked": ["Full canonical record", "Current lesson scope and source IDs", "B705 source ledger identifying NCI page review date 2020 and cancer-specific scope"],
+      "finding": "The existing lesson explicitly limits NCI evidence to cancer/cancer treatment and does not establish a threshold or pathway for all immune-modifying therapy. Production links are source-only, not exact.",
+      "disposition": "SOURCE_ONLY_HELD; EXACT_MAPPING_NOT_RESTORED",
+      "proposed_action": "An infection/oncology nurse educator should identify the treatment context and current authoritative source required for an exact teaching claim.",
+      "review_decision": "NOT_REVIEWED",
+      "production_change": "None; existing source-only rows preserved."
+    },
+    {
+      "item_id": "Q5025",
+      "question_id": "5025",
+      "origin": "B705 source-limited mapping demotion",
+      "issue_hypothesis": "Unspecified immunosuppressive therapy and a current febrile-risk pathway are not supported by the cancer-specific source.",
+      "evidence_checked": ["Full canonical record", "Current lesson scope and source IDs", "B705 source ledger identifying NCI page review date 2020 and cancer-specific scope"],
+      "finding": "The stem invokes a treatment-specific pathway but names neither therapy nor local protocol. Existing source-only provenance does not support exact instruction.",
+      "disposition": "SOURCE_ONLY_HELD; EXACT_MAPPING_NOT_RESTORED",
+      "proposed_action": "A nurse educator should specify the intended treatment/population and obtain current medication- or disease-specific guidance before changing the item or adding a section.",
+      "review_decision": "NOT_REVIEWED",
+      "production_change": "None; existing source-only rows preserved."
+    },
+    {
+      "item_id": "Q4090",
+      "question_id": "4090",
+      "origin": "B705 age/source mismatch hold",
+      "issue_hypothesis": "Question implies a medication-related gait change but omits age/drug; the cited dizziness source context is older-adult-specific.",
+      "evidence_checked": ["Full canonical record", "Existing source-only links", "B705 reviewer queue source limitation"],
+      "finding": "Fall protection and communicating a new change are broad safety actions, but the record does not establish medication causality or an age-specific claim. No exact section supports the full keyed principle.",
+      "disposition": "SOURCE_ONLY_HELD; NO_EXACT_MAPPING",
+      "proposed_action": "A nurse educator and pharmacist should decide whether to remove implied causality or specify the population and medication context, then verify a suitable source.",
+      "review_decision": "NOT_REVIEWED",
+      "production_change": "None; existing source-only reference preserved."
+    }
+  ],
+  "independent_review": {
+    "authorized_reviewers_recorded": 0,
+    "approval_claimed": false,
+    "all_case_decisions": "NOT_REVIEWED"
+  }
+}
