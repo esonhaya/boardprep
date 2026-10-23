@@ -23,7 +23,7 @@ if($repo->reads!==2){throw new RuntimeException('malformed filters prevented saf
 $firstPage=QuestionQueryService::getQuestionPage([],1,1);
 $secondPage=QuestionQueryService::getQuestionPage([],2,1);
 if($repo->reads!==4){throw new RuntimeException('paginated query did not use one repository snapshot per request');}
-if(($firstPage['total']??0)!==2||($firstPage['pages']??0)!==2||($firstPage['items'][0]['id']??null)!=='a'){
+if(($firstPage['total']??0)!==2||($firstPage['canonical_total']??0)!==2||($firstPage['pages']??0)!==2||($firstPage['items'][0]['id']??null)!=='a'){
     throw new RuntimeException('first question-editor page did not return the expected bounded slice');
 }
 if(($secondPage['page']??0)!==2||($secondPage['items'][0]['id']??null)!=='b'){

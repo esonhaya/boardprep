@@ -141,18 +141,27 @@ final class HttpTest
             $failed
         );
 
+        $questionInspection = $simulator->request('GET', '/question-inspector', ['id' => '1']);
         $this->test(
-            'question inspector id reaches detail view',
-            $simulator->request('GET', '/question-inspector', ['id' => '1']),
+            'question inspector id reaches substantive detail view',
+            $questionInspection,
             $passed,
             $failed,
-            'Question summary'
+            'Stored answer metadata'
         );
+        if (!str_contains((string) ($questionInspection['output'] ?? ''), 'Rationale')
+            || !str_contains((string) ($questionInspection['output'] ?? ''), 'Sources and study relationships')) {
+            $failed++;
+            echo "[FAIL] Question inspector omitted rationale or source relationship detail.\n";
+        } else {
+            $passed++;
+            echo "[PASS] Question inspector exposes rationale and source relationship detail.\n";
+        }
 
         $this->testExpectedStatus(
             'malformed question inspector id fails safely',
             $simulator->request('GET', '/question-inspector', ['id' => []]),
-            200,
+            302,
             $passed,
             $failed
         );

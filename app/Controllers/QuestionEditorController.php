@@ -80,6 +80,8 @@ class QuestionEditorController extends BaseDeveloperController
             Request::queryString("topic");
 
         $status = Request::queryString("status");
+        $board = Request::queryString("board");
+        $subject = Request::queryString("subject");
 
         $pageNumber = filter_var(Request::queryString('page_num'), FILTER_VALIDATE_INT, ['options' => ['min_range' => 1]]) ?: 1;
         $page = QuestionQueryService::getQuestionPage([
@@ -87,7 +89,9 @@ class QuestionEditorController extends BaseDeveloperController
                 "domain" => $domain,
                 "difficulty" => $difficulty,
                 "topic" => $topic,
-                "status" => $status
+                "status" => $status,
+                "board" => $board,
+                "subject" => $subject
             ], $pageNumber, 50);
 
         self::renderDeveloper(
@@ -99,6 +103,7 @@ class QuestionEditorController extends BaseDeveloperController
 
                     "questions" => $page['items'],
                     "totalQuestions" => $page['total'],
+                    "canonicalQuestionCount" => $page['canonical_total'],
                     "pageNumber" => $page['page'],
                     "pageCount" => $page['pages'],
                     "pageSize" => $page['per_page'],
@@ -114,7 +119,9 @@ class QuestionEditorController extends BaseDeveloperController
 
                     "topic" =>
                         $topic,
-                    "status" => $status
+                    "status" => $status,
+                    "board" => $board,
+                    "subject" => $subject
                 ],
                 QuestionViewService::taxonomy(),
                 [

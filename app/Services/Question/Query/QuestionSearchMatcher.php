@@ -26,6 +26,7 @@ final class QuestionSearchMatcher
     private static function searchableValues(array $question): array
     {
         return [
+            QuestionValueReader::text($question, 'id'),
             QuestionValueReader::text($question, 'question'),
             QuestionValueReader::taxonomy($question, 'subject_id'),
             QuestionValueReader::taxonomy($question, 'domain_id'),

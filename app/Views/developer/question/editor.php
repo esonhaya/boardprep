@@ -15,10 +15,15 @@ Repository Summary
 
 <strong>
 
-Total Questions:
+Canonical questions in repository:
 
 </strong>
 
+<?= (int) ($canonicalQuestionCount ?? 0) ?>
+
+<br>
+
+<strong>Matching current filters:</strong>
 <?= (int) ($totalQuestions ?? count($questions ?? [])) ?>
 
 </p>
@@ -51,12 +56,38 @@ Search
 type="text"
 id="question-search"
 name="search"
-placeholder="Question, topic or concept..."
+placeholder="Question ID, text, topic or concept..."
 value="<?= htmlspecialchars(
     $search ?? ""
 ) ?>"
 class="field-control"
 >
+
+<div class="form-spacer"></div>
+
+<label for="question-board">Examination board</label>
+<br>
+<select id="question-board" name="board" class="field-control">
+<option value="">All boards</option>
+<?php foreach (($boards ?? []) as $item): ?>
+<?php $boardId = (string) ($item['id'] ?? ''); ?>
+<?php if ($boardId === '') { continue; } ?>
+<option value="<?= htmlspecialchars($boardId, ENT_QUOTES, 'UTF-8') ?>" <?= (($board ?? '') === $boardId) ? 'selected' : '' ?>><?= htmlspecialchars((string) ($item['name'] ?? $boardId), ENT_QUOTES, 'UTF-8') ?></option>
+<?php endforeach; ?>
+</select>
+
+<div class="form-spacer"></div>
+
+<label for="question-subject">Eligible subject</label>
+<br>
+<select id="question-subject" name="subject" class="field-control">
+<option value="">All eligible subjects</option>
+<?php foreach (($subjects ?? []) as $item): ?>
+<?php $subjectId = (string) ($item['id'] ?? ''); ?>
+<?php if ($subjectId === '') { continue; } ?>
+<option value="<?= htmlspecialchars($subjectId, ENT_QUOTES, 'UTF-8') ?>" <?= (($subject ?? '') === $subjectId) ? 'selected' : '' ?>><?= htmlspecialchars((string) ($item['name'] ?? $subjectId), ENT_QUOTES, 'UTF-8') ?></option>
+<?php endforeach; ?>
+</select>
 
 <div class="form-spacer"></div>
 
@@ -299,7 +330,7 @@ No questions matched your filters.
 
 <div>
 
-<a href="/question-inspector?id=<?= urlencode((string) $question["id"]) ?>">
+<a href="/question-inspector?id=<?= urlencode((string) $question["id"]) ?>&amp;return=<?= urlencode((string) ($_SERVER['REQUEST_URI'] ?? '/question-editor')) ?>">
 
 Inspect
 
@@ -362,12 +393,14 @@ $pageFilters = array_filter([
     'difficulty' => (string) ($difficulty ?? ''),
     'topic' => (string) ($topic ?? ''),
     'status' => (string) ($status ?? ''),
+    'board' => (string) ($board ?? ''),
+    'subject' => (string) ($subject ?? ''),
 ], static fn(string $value): bool => $value !== '');
 $previousPageUrl = '?' . http_build_query($pageFilters + ['page_num' => max(1, (int) ($pageNumber ?? 1) - 1)]);
 $nextPageUrl = '?' . http_build_query($pageFilters + ['page_num' => min((int) ($pageCount ?? 1), (int) ($pageNumber ?? 1) + 1)]);
 ?>
 <nav class="pagination question-inventory-pagination" aria-label="Question inventory pages">
-    <span>Showing <?= count($questions ?? []) ?> of <?= (int) ($totalQuestions ?? 0) ?> matching questions · Page <?= (int) ($pageNumber ?? 1) ?> of <?= (int) ($pageCount ?? 1) ?></span>
+    <span>Showing <?= count($questions ?? []) ?> of <?= (int) ($totalQuestions ?? 0) ?> matches · <?= (int) ($canonicalQuestionCount ?? 0) ?> canonical questions in repository · Page <?= (int) ($pageNumber ?? 1) ?> of <?= (int) ($pageCount ?? 1) ?></span>
     <div class="page-actions">
         <?php if (($pageNumber ?? 1) > 1): ?><a class="button button-outline" rel="prev" href="<?= htmlspecialchars($previousPageUrl, ENT_QUOTES, 'UTF-8') ?>">Previous page</a><?php endif; ?>
         <?php if (($pageNumber ?? 1) < ($pageCount ?? 1)): ?><a class="button button-outline" rel="next" href="<?= htmlspecialchars($nextPageUrl, ENT_QUOTES, 'UTF-8') ?>">Next page</a><?php endif; ?>

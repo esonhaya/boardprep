@@ -11,7 +11,9 @@ final class QuestionQueryFilters
         public readonly string $domain,
         public readonly string $difficulty,
         public readonly string $topic,
-        public readonly string $status
+        public readonly string $status,
+        public readonly string $board,
+        public readonly string $subject
     ) {
     }
 
@@ -22,7 +24,9 @@ final class QuestionQueryFilters
             self::text($filters['domain'] ?? ''),
             self::text($filters['difficulty'] ?? ''),
             self::text($filters['topic'] ?? ''),
-            self::text($filters['status'] ?? '')
+            self::text($filters['status'] ?? ''),
+            self::text($filters['board'] ?? ''),
+            self::text($filters['subject'] ?? '')
         );
     }
 
