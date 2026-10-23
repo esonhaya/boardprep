@@ -600,7 +600,14 @@
         "human_review_status": "REVIEW_REQUIRED",
         "replacement_final_url": "https://lawphil.net/statutes/repacts/ra1994/ra_7836_1994.html",
         "replacement_checked_at_utc": "2026-10-23T11:32:01Z",
-        "replacement_check_command": "python3 -B bin/check-question-source-urls.py --source-id <id> --write (bounded public HTTP(S) checker; successful run; no redirect for this result)"
+        "replacement_check_command": "python3 -B bin/check-question-source-urls.py --source-id philippines-negotiable-instruments-law --source-id ra-9173-philippine-nursing-act --source-id republic-act-7836 --source-id prc-lept-alignment-guidance-2025 --source-id ifrs-ias-21-foreign-exchange --source-id iaasb-isa-240-fraud --source-id iaasb-isa-315-risk-assessment --source-id iaasb-isa-700-audit-opinion --source-id bir-ease-of-paying-taxes-act --write",
+        "replacement_check_exit_code": 0,
+        "replacement_document_title": "Republic Act No. 7836: Philippine Teachers Professionalization Act",
+        "replacement_version": "Republic Act No. 7836",
+        "jurisdiction": "Philippines; Republic Act No. 7836 statutory text.",
+        "currentness_limit": "Statutory identity/text page reachable; amendments, effective application, and item-level interpretation remain for qualified review.",
+        "historical_affected_question_count": 48,
+        "historical_question_ids_evidence_ref": "docs/reports/batch-707-question-integrity-issues.json#/sources/URL_CHECK_RESULTS/68/affected_question_ids"
       }
     ]
   },
@@ -729,12 +736,17 @@
         "replacement_check": "Official IAASB handbook landing page identified through IAASB Standards & Pronouncements; run the bounded source URL checker before relying on reachability.",
         "document_identity": "2026 IAASB Handbook (current edition), Volume 1 includes International Standards on Auditing; page title and publication metadata identify the current edition. This is a handbook-level replacement for ISA 520, not full-text verification.",
         "claim_compatibility": "The official handbook page establishes the current handbook/ISA volume only; this ISA claim, version-specific question fit, and Philippine adoption remain REVIEW_REQUIRED.",
-        "jurisdiction": "International standards; Philippines adoption not established by this page.",
-        "currentness_limit": "2026 handbook edition is current as of the page checked; specific later amendments and local adoption require separate review.",
+        "jurisdiction": "International auditing standards; Philippine adoption and effectivity are not established by the IAASB publication page.",
+        "currentness_limit": "IAASB page/2026 handbook metadata identifies the current edition as of 2026-10-23; verify full text, effective date, amendments, and Philippine adoption before relying on a specific claim.",
         "human_review_status": "REVIEW_REQUIRED",
         "replacement_final_url": "https://www.iaasb.org/publications/2026-handbook-international-quality-management-auditing-review-sustainability-and-other-assurance",
         "replacement_checked_at_utc": "2026-10-23T11:36:29Z",
-        "replacement_check_command": "python3 -B bin/check-question-source-urls.py --source-id <id> --write (bounded public HTTP(S) checker; successful run; no redirect for this result)"
+        "replacement_check_command": "python3 -B bin/check-question-source-urls.py --source-id iaasb-isa-230-documentation --source-id iaasb-isa-265-control-deficiencies --source-id iaasb-isa-450-misstatements --source-id iaasb-isa-500-audit-evidence --source-id iaasb-isa-520-analytical-procedures --source-id iaasb-isa-530-audit-sampling --write",
+        "replacement_check_exit_code": 0,
+        "replacement_document_title": "IAASB 2026 Handbook, Volume 1 — ISA 520: Analytical Procedures",
+        "replacement_version": "2026 Handbook, current edition; Volume 1 (ISAs)",
+        "historical_affected_question_count": 171,
+        "historical_question_ids_evidence_ref": "docs/reports/batch-707-question-integrity-issues.json#/sources/URL_CHECK_RESULTS/63/affected_question_ids"
       }
     ]
   },
@@ -959,7 +971,14 @@
         "human_review_status": "REVIEW_REQUIRED",
         "replacement_final_url": "https://lawphil.net/statutes/acts/act1911/act_2031_1911.html",
         "replacement_checked_at_utc": "2026-10-23T11:32:01Z",
-        "replacement_check_command": "python3 -B bin/check-question-source-urls.py --source-id <id> --write (bounded public HTTP(S) checker; successful run; no redirect for this result)"
+        "replacement_check_command": "python3 -B bin/check-question-source-urls.py --source-id philippines-negotiable-instruments-law --source-id ra-9173-philippine-nursing-act --source-id republic-act-7836 --source-id prc-lept-alignment-guidance-2025 --source-id ifrs-ias-21-foreign-exchange --source-id iaasb-isa-240-fraud --source-id iaasb-isa-315-risk-assessment --source-id iaasb-isa-700-audit-opinion --source-id bir-ease-of-paying-taxes-act --write",
+        "replacement_check_exit_code": 0,
+        "replacement_document_title": "Negotiable Instruments Law of the Philippines",
+        "replacement_version": "Act No. 2031",
+        "jurisdiction": "Philippines; Act No. 2031 statutory text.",
+        "currentness_limit": "Statutory identity/text page reachable; amendments, effective application, and item-level interpretation remain for qualified review.",
+        "historical_affected_question_count": 160,
+        "historical_question_ids_evidence_ref": "docs/reports/batch-707-question-integrity-issues.json#/sources/URL_CHECK_RESULTS/19/affected_question_ids"
       }
     ],
     "access_status": "FULL_TEXT_ACCESSIBLE",
@@ -1331,7 +1350,14 @@
         "human_review_status": "REVIEW_REQUIRED",
         "replacement_final_url": "https://lawphil.net/statutes/repacts/ra2002/ra_9173_2002.html",
         "replacement_checked_at_utc": "2026-10-23T11:32:01Z",
-        "replacement_check_command": "python3 -B bin/check-question-source-urls.py --source-id <id> --write (bounded public HTTP(S) checker; successful run; no redirect for this result)"
+        "replacement_check_command": "python3 -B bin/check-question-source-urls.py --source-id philippines-negotiable-instruments-law --source-id ra-9173-philippine-nursing-act --source-id republic-act-7836 --source-id prc-lept-alignment-guidance-2025 --source-id ifrs-ias-21-foreign-exchange --source-id iaasb-isa-240-fraud --source-id iaasb-isa-315-risk-assessment --source-id iaasb-isa-700-audit-opinion --source-id bir-ease-of-paying-taxes-act --write",
+        "replacement_check_exit_code": 0,
+        "replacement_document_title": "Republic Act No. 9173, Philippine Nursing Act of 2002",
+        "replacement_version": "Republic Act No. 9173",
+        "jurisdiction": "Philippines; Republic Act No. 9173 statutory text.",
+        "currentness_limit": "Statutory identity/text page reachable; amendments, effective application, and item-level interpretation remain for qualified review.",
+        "historical_affected_question_count": 82,
+        "historical_question_ids_evidence_ref": "docs/reports/batch-707-question-integrity-issues.json#/sources/URL_CHECK_RESULTS/20/affected_question_ids"
       }
     ]
   },
@@ -1686,7 +1712,14 @@
         "human_review_status": "REVIEW_REQUIRED",
         "replacement_final_url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-21-the-effects-of-changes-in-foreign-exchange-rates/",
         "replacement_checked_at_utc": "2026-10-23T11:32:02Z",
-        "replacement_check_command": "python3 -B bin/check-question-source-urls.py --source-id <id> --write (bounded public HTTP(S) checker; successful run; no redirect for this result)"
+        "replacement_check_command": "python3 -B bin/check-question-source-urls.py --source-id philippines-negotiable-instruments-law --source-id ra-9173-philippine-nursing-act --source-id republic-act-7836 --source-id prc-lept-alignment-guidance-2025 --source-id ifrs-ias-21-foreign-exchange --source-id iaasb-isa-240-fraud --source-id iaasb-isa-315-risk-assessment --source-id iaasb-isa-700-audit-opinion --source-id bir-ease-of-paying-taxes-act --write",
+        "replacement_check_exit_code": 0,
+        "replacement_document_title": "IAS 21 The Effects of Changes in Foreign Exchange Rates",
+        "replacement_version": "current official standard page",
+        "jurisdiction": "International accounting standard; Philippine adoption/effective applicability not verified.",
+        "currentness_limit": "Official current-standard page reachable; edition, effective amendments, and Philippine adoption remain for reviewer verification.",
+        "historical_affected_question_count": 169,
+        "historical_question_ids_evidence_ref": "docs/reports/batch-707-question-integrity-issues.json#/sources/URL_CHECK_RESULTS/66/affected_question_ids"
       }
     ]
   },
@@ -1833,7 +1866,14 @@
         "human_review_status": "REVIEW_REQUIRED",
         "replacement_final_url": "https://www.iaasb.org/publications/isa-315-revised-2019-identifying-and-assessing-risks-material-misstatement",
         "replacement_checked_at_utc": "2026-10-23T11:32:03Z",
-        "replacement_check_command": "python3 -B bin/check-question-source-urls.py --source-id <id> --write (bounded public HTTP(S) checker; successful run; no redirect for this result)"
+        "replacement_check_command": "python3 -B bin/check-question-source-urls.py --source-id philippines-negotiable-instruments-law --source-id ra-9173-philippine-nursing-act --source-id republic-act-7836 --source-id prc-lept-alignment-guidance-2025 --source-id ifrs-ias-21-foreign-exchange --source-id iaasb-isa-240-fraud --source-id iaasb-isa-315-risk-assessment --source-id iaasb-isa-700-audit-opinion --source-id bir-ease-of-paying-taxes-act --write",
+        "replacement_check_exit_code": 0,
+        "replacement_document_title": "ISA 315 Revised 2019 — Identifying and Assessing Risks of Material Misstatement",
+        "replacement_version": "ISA 315 Revised 2019",
+        "jurisdiction": "International auditing standards; Philippine adoption and effectivity are not established by the IAASB publication page.",
+        "currentness_limit": "IAASB page/2026 handbook metadata identifies the current edition as of 2026-10-23; verify full text, effective date, amendments, and Philippine adoption before relying on a specific claim.",
+        "historical_affected_question_count": 170,
+        "historical_question_ids_evidence_ref": "docs/reports/batch-707-question-integrity-issues.json#/sources/URL_CHECK_RESULTS/60/affected_question_ids"
       }
     ]
   },
@@ -1863,12 +1903,17 @@
         "replacement_check": "Official IAASB handbook landing page identified through IAASB Standards & Pronouncements; run the bounded source URL checker before relying on reachability.",
         "document_identity": "2026 IAASB Handbook (current edition), Volume 1 includes International Standards on Auditing; page title and publication metadata identify the current edition. This is a handbook-level replacement for ISA 500, not full-text verification.",
         "claim_compatibility": "The official handbook page establishes the current handbook/ISA volume only; this ISA claim, version-specific question fit, and Philippine adoption remain REVIEW_REQUIRED.",
-        "jurisdiction": "International standards; Philippines adoption not established by this page.",
-        "currentness_limit": "2026 handbook edition is current as of the page checked; specific later amendments and local adoption require separate review.",
+        "jurisdiction": "International auditing standards; Philippine adoption and effectivity are not established by the IAASB publication page.",
+        "currentness_limit": "IAASB page/2026 handbook metadata identifies the current edition as of 2026-10-23; verify full text, effective date, amendments, and Philippine adoption before relying on a specific claim.",
         "human_review_status": "REVIEW_REQUIRED",
         "replacement_final_url": "https://www.iaasb.org/publications/2026-handbook-international-quality-management-auditing-review-sustainability-and-other-assurance",
         "replacement_checked_at_utc": "2026-10-23T11:36:29Z",
-        "replacement_check_command": "python3 -B bin/check-question-source-urls.py --source-id <id> --write (bounded public HTTP(S) checker; successful run; no redirect for this result)"
+        "replacement_check_command": "python3 -B bin/check-question-source-urls.py --source-id iaasb-isa-230-documentation --source-id iaasb-isa-265-control-deficiencies --source-id iaasb-isa-450-misstatements --source-id iaasb-isa-500-audit-evidence --source-id iaasb-isa-520-analytical-procedures --source-id iaasb-isa-530-audit-sampling --write",
+        "replacement_check_exit_code": 0,
+        "replacement_document_title": "IAASB 2026 Handbook, Volume 1 — ISA 500: Audit Evidence",
+        "replacement_version": "2026 Handbook, current edition; Volume 1 (ISAs)",
+        "historical_affected_question_count": 170,
+        "historical_question_ids_evidence_ref": "docs/reports/batch-707-question-integrity-issues.json#/sources/URL_CHECK_RESULTS/62/affected_question_ids"
       }
     ]
   },
@@ -1898,12 +1943,17 @@
         "replacement_check": "Official IAASB handbook landing page identified through IAASB Standards & Pronouncements; run the bounded source URL checker before relying on reachability.",
         "document_identity": "2026 IAASB Handbook (current edition), Volume 1 includes International Standards on Auditing; page title and publication metadata identify the current edition. This is a handbook-level replacement for ISA 530, not full-text verification.",
         "claim_compatibility": "The official handbook page establishes the current handbook/ISA volume only; this ISA claim, version-specific question fit, and Philippine adoption remain REVIEW_REQUIRED.",
-        "jurisdiction": "International standards; Philippines adoption not established by this page.",
-        "currentness_limit": "2026 handbook edition is current as of the page checked; specific later amendments and local adoption require separate review.",
+        "jurisdiction": "International auditing standards; Philippine adoption and effectivity are not established by the IAASB publication page.",
+        "currentness_limit": "IAASB page/2026 handbook metadata identifies the current edition as of 2026-10-23; verify full text, effective date, amendments, and Philippine adoption before relying on a specific claim.",
         "human_review_status": "REVIEW_REQUIRED",
         "replacement_final_url": "https://www.iaasb.org/publications/2026-handbook-international-quality-management-auditing-review-sustainability-and-other-assurance",
         "replacement_checked_at_utc": "2026-10-23T11:36:30Z",
-        "replacement_check_command": "python3 -B bin/check-question-source-urls.py --source-id <id> --write (bounded public HTTP(S) checker; successful run; no redirect for this result)"
+        "replacement_check_command": "python3 -B bin/check-question-source-urls.py --source-id iaasb-isa-230-documentation --source-id iaasb-isa-265-control-deficiencies --source-id iaasb-isa-450-misstatements --source-id iaasb-isa-500-audit-evidence --source-id iaasb-isa-520-analytical-procedures --source-id iaasb-isa-530-audit-sampling --write",
+        "replacement_check_exit_code": 0,
+        "replacement_document_title": "IAASB 2026 Handbook, Volume 1 — ISA 530: Audit Sampling",
+        "replacement_version": "2026 Handbook, current edition; Volume 1 (ISAs)",
+        "historical_affected_question_count": 170,
+        "historical_question_ids_evidence_ref": "docs/reports/batch-707-question-integrity-issues.json#/sources/URL_CHECK_RESULTS/64/affected_question_ids"
       }
     ]
   },
@@ -1933,7 +1983,14 @@
         "human_review_status": "REVIEW_REQUIRED",
         "replacement_final_url": "https://www.iaasb.org/publications/international-standard-auditing-isa-700-revised-forming-opinion-and-reporting-financial-statements",
         "replacement_checked_at_utc": "2026-10-23T11:32:03Z",
-        "replacement_check_command": "python3 -B bin/check-question-source-urls.py --source-id <id> --write (bounded public HTTP(S) checker; successful run; no redirect for this result)"
+        "replacement_check_command": "python3 -B bin/check-question-source-urls.py --source-id philippines-negotiable-instruments-law --source-id ra-9173-philippine-nursing-act --source-id republic-act-7836 --source-id prc-lept-alignment-guidance-2025 --source-id ifrs-ias-21-foreign-exchange --source-id iaasb-isa-240-fraud --source-id iaasb-isa-315-risk-assessment --source-id iaasb-isa-700-audit-opinion --source-id bir-ease-of-paying-taxes-act --write",
+        "replacement_check_exit_code": 0,
+        "replacement_document_title": "ISA 700 — Forming an Opinion and Reporting on Financial Statements",
+        "replacement_version": "current official publication page",
+        "jurisdiction": "International auditing standards; Philippine adoption and effectivity are not established by the IAASB publication page.",
+        "currentness_limit": "IAASB page/2026 handbook metadata identifies the current edition as of 2026-10-23; verify full text, effective date, amendments, and Philippine adoption before relying on a specific claim.",
+        "historical_affected_question_count": 170,
+        "historical_question_ids_evidence_ref": "docs/reports/batch-707-question-integrity-issues.json#/sources/URL_CHECK_RESULTS/65/affected_question_ids"
       }
     ]
   },
@@ -1976,7 +2033,14 @@
         "human_review_status": "REVIEW_REQUIRED",
         "replacement_final_url": "https://www.iaasb.org/publications/isa-240-revised-auditor-s-responsibilities-relating-fraud-audit-financial-statements",
         "replacement_checked_at_utc": "2026-10-23T11:32:02Z",
-        "replacement_check_command": "python3 -B bin/check-question-source-urls.py --source-id <id> --write (bounded public HTTP(S) checker; successful run; no redirect for this result)"
+        "replacement_check_command": "python3 -B bin/check-question-source-urls.py --source-id philippines-negotiable-instruments-law --source-id ra-9173-philippine-nursing-act --source-id republic-act-7836 --source-id prc-lept-alignment-guidance-2025 --source-id ifrs-ias-21-foreign-exchange --source-id iaasb-isa-240-fraud --source-id iaasb-isa-315-risk-assessment --source-id iaasb-isa-700-audit-opinion --source-id bir-ease-of-paying-taxes-act --write",
+        "replacement_check_exit_code": 0,
+        "replacement_document_title": "ISA 240 Revised — Auditor Responsibilities Relating to Fraud",
+        "replacement_version": "ISA 240 Revised; Philippine adoption subject to BOA effective date",
+        "jurisdiction": "International auditing standards; Philippine adoption and effectivity are not established by the IAASB publication page.",
+        "currentness_limit": "IAASB page/2026 handbook metadata identifies the current edition as of 2026-10-23; verify full text, effective date, amendments, and Philippine adoption before relying on a specific claim.",
+        "historical_affected_question_count": 36,
+        "historical_question_ids_evidence_ref": "docs/reports/batch-707-question-integrity-issues.json#/sources/URL_CHECK_RESULTS/58/affected_question_ids"
       }
     ]
   },
@@ -2006,12 +2070,17 @@
         "replacement_check": "Official IAASB handbook landing page identified through IAASB Standards & Pronouncements; run the bounded source URL checker before relying on reachability.",
         "document_identity": "2026 IAASB Handbook (current edition), Volume 1 includes International Standards on Auditing; page title and publication metadata identify the current edition. This is a handbook-level replacement for ISA 265, not full-text verification.",
         "claim_compatibility": "The official handbook page establishes the current handbook/ISA volume only; this ISA claim, version-specific question fit, and Philippine adoption remain REVIEW_REQUIRED.",
-        "jurisdiction": "International standards; Philippines adoption not established by this page.",
-        "currentness_limit": "2026 handbook edition is current as of the page checked; specific later amendments and local adoption require separate review.",
+        "jurisdiction": "International auditing standards; Philippine adoption and effectivity are not established by the IAASB publication page.",
+        "currentness_limit": "IAASB page/2026 handbook metadata identifies the current edition as of 2026-10-23; verify full text, effective date, amendments, and Philippine adoption before relying on a specific claim.",
         "human_review_status": "REVIEW_REQUIRED",
         "replacement_final_url": "https://www.iaasb.org/publications/2026-handbook-international-quality-management-auditing-review-sustainability-and-other-assurance",
         "replacement_checked_at_utc": "2026-10-23T11:36:29Z",
-        "replacement_check_command": "python3 -B bin/check-question-source-urls.py --source-id <id> --write (bounded public HTTP(S) checker; successful run; no redirect for this result)"
+        "replacement_check_command": "python3 -B bin/check-question-source-urls.py --source-id iaasb-isa-230-documentation --source-id iaasb-isa-265-control-deficiencies --source-id iaasb-isa-450-misstatements --source-id iaasb-isa-500-audit-evidence --source-id iaasb-isa-520-analytical-procedures --source-id iaasb-isa-530-audit-sampling --write",
+        "replacement_check_exit_code": 0,
+        "replacement_document_title": "IAASB 2026 Handbook, Volume 1 — ISA 265: Communicating Deficiencies in Internal Control",
+        "replacement_version": "2026 Handbook, current edition; Volume 1 (ISAs)",
+        "historical_affected_question_count": 36,
+        "historical_question_ids_evidence_ref": "docs/reports/batch-707-question-integrity-issues.json#/sources/URL_CHECK_RESULTS/59/affected_question_ids"
       }
     ]
   },
@@ -2041,12 +2110,17 @@
         "replacement_check": "Official IAASB handbook landing page identified through IAASB Standards & Pronouncements; run the bounded source URL checker before relying on reachability.",
         "document_identity": "2026 IAASB Handbook (current edition), Volume 1 includes International Standards on Auditing; page title and publication metadata identify the current edition. This is a handbook-level replacement for ISA 230, not full-text verification.",
         "claim_compatibility": "The official handbook page establishes the current handbook/ISA volume only; this ISA claim, version-specific question fit, and Philippine adoption remain REVIEW_REQUIRED.",
-        "jurisdiction": "International standards; Philippines adoption not established by this page.",
-        "currentness_limit": "2026 handbook edition is current as of the page checked; specific later amendments and local adoption require separate review.",
+        "jurisdiction": "International auditing standards; Philippine adoption and effectivity are not established by the IAASB publication page.",
+        "currentness_limit": "IAASB page/2026 handbook metadata identifies the current edition as of 2026-10-23; verify full text, effective date, amendments, and Philippine adoption before relying on a specific claim.",
         "human_review_status": "REVIEW_REQUIRED",
         "replacement_final_url": "https://www.iaasb.org/publications/2026-handbook-international-quality-management-auditing-review-sustainability-and-other-assurance",
         "replacement_checked_at_utc": "2026-10-23T11:36:29Z",
-        "replacement_check_command": "python3 -B bin/check-question-source-urls.py --source-id <id> --write (bounded public HTTP(S) checker; successful run; no redirect for this result)"
+        "replacement_check_command": "python3 -B bin/check-question-source-urls.py --source-id iaasb-isa-230-documentation --source-id iaasb-isa-265-control-deficiencies --source-id iaasb-isa-450-misstatements --source-id iaasb-isa-500-audit-evidence --source-id iaasb-isa-520-analytical-procedures --source-id iaasb-isa-530-audit-sampling --write",
+        "replacement_check_exit_code": 0,
+        "replacement_document_title": "IAASB 2026 Handbook, Volume 1 — ISA 230: Audit Documentation",
+        "replacement_version": "2026 Handbook, current edition; Volume 1 (ISAs)",
+        "historical_affected_question_count": 170,
+        "historical_question_ids_evidence_ref": "docs/reports/batch-707-question-integrity-issues.json#/sources/URL_CHECK_RESULTS/57/affected_question_ids"
       }
     ]
   },
@@ -2076,12 +2150,17 @@
         "replacement_check": "Official IAASB handbook landing page identified through IAASB Standards & Pronouncements; run the bounded source URL checker before relying on reachability.",
         "document_identity": "2026 IAASB Handbook (current edition), Volume 1 includes International Standards on Auditing; page title and publication metadata identify the current edition. This is a handbook-level replacement for ISA 450, not full-text verification.",
         "claim_compatibility": "The official handbook page establishes the current handbook/ISA volume only; this ISA claim, version-specific question fit, and Philippine adoption remain REVIEW_REQUIRED.",
-        "jurisdiction": "International standards; Philippines adoption not established by this page.",
-        "currentness_limit": "2026 handbook edition is current as of the page checked; specific later amendments and local adoption require separate review.",
+        "jurisdiction": "International auditing standards; Philippine adoption and effectivity are not established by the IAASB publication page.",
+        "currentness_limit": "IAASB page/2026 handbook metadata identifies the current edition as of 2026-10-23; verify full text, effective date, amendments, and Philippine adoption before relying on a specific claim.",
         "human_review_status": "REVIEW_REQUIRED",
         "replacement_final_url": "https://www.iaasb.org/publications/2026-handbook-international-quality-management-auditing-review-sustainability-and-other-assurance",
         "replacement_checked_at_utc": "2026-10-23T11:36:29Z",
-        "replacement_check_command": "python3 -B bin/check-question-source-urls.py --source-id <id> --write (bounded public HTTP(S) checker; successful run; no redirect for this result)"
+        "replacement_check_command": "python3 -B bin/check-question-source-urls.py --source-id iaasb-isa-230-documentation --source-id iaasb-isa-265-control-deficiencies --source-id iaasb-isa-450-misstatements --source-id iaasb-isa-500-audit-evidence --source-id iaasb-isa-520-analytical-procedures --source-id iaasb-isa-530-audit-sampling --write",
+        "replacement_check_exit_code": 0,
+        "replacement_document_title": "IAASB 2026 Handbook, Volume 1 — ISA 450: Evaluation of Misstatements Identified during the Audit",
+        "replacement_version": "2026 Handbook, current edition; Volume 1 (ISAs)",
+        "historical_affected_question_count": 36,
+        "historical_question_ids_evidence_ref": "docs/reports/batch-707-question-integrity-issues.json#/sources/URL_CHECK_RESULTS/61/affected_question_ids"
       }
     ]
   },
@@ -2617,7 +2696,14 @@
         "human_review_status": "REVIEW_REQUIRED",
         "replacement_final_url": "https://prc.gov.ph/article/guidelines-implementation-prc-ched-jmc-alignment-lept-teacher-education-curriculum",
         "replacement_checked_at_utc": "2026-10-23T11:32:02Z",
-        "replacement_check_command": "python3 -B bin/check-question-source-urls.py --source-id <id> --write (bounded public HTTP(S) checker; successful run; no redirect for this result)"
+        "replacement_check_command": "python3 -B bin/check-question-source-urls.py --source-id philippines-negotiable-instruments-law --source-id ra-9173-philippine-nursing-act --source-id republic-act-7836 --source-id prc-lept-alignment-guidance-2025 --source-id ifrs-ias-21-foreign-exchange --source-id iaasb-isa-240-fraud --source-id iaasb-isa-315-risk-assessment --source-id iaasb-isa-700-audit-opinion --source-id bir-ease-of-paying-taxes-act --write",
+        "replacement_check_exit_code": 0,
+        "replacement_document_title": "PRC Guidelines on the Implementation of the PRC-CHED JMC on LEPT Alignment",
+        "replacement_version": "September 2025 and succeeding LEPT schedules",
+        "jurisdiction": "Philippines; PRC/CHED LEPT curriculum alignment guidance, not detailed professional conduct rules.",
+        "currentness_limit": "Curriculum alignment/schedule currentness is specific to examination year; verify against the current PRC announcement. Does not establish detailed professional scope.",
+        "historical_affected_question_count": 260,
+        "historical_question_ids_evidence_ref": "docs/reports/batch-707-question-integrity-issues.json#/sources/URL_CHECK_RESULTS/69/affected_question_ids"
       }
     ]
   },
