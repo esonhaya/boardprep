@@ -23,7 +23,7 @@ The repository already has both required manually dispatchable workflows:
 
 The source tree and workflow contracts were inspected. `BrowserWorkflowEvidenceTest.php` passed. The local browser contract runner had four passing cases and one server-fixture setup failure caused by `No space left on device`; this is not browser acceptance. No hosted run has been executed.
 
-Doctor's current read-only storage estimate is `1,837,228,798` bytes, including a `92,398,334`-byte fixture, `1.5 GiB` safety floor and `128 MiB` runtime reserve. Termux had `61,059,072` bytes available on the Doctor temp path, so Full Doctor was not started locally. Do not lower this preflight.
+Doctor's current read-only storage estimate is `1,837,228,798` bytes, including a `92,398,334`-byte fixture, `1.5 GiB` safety floor and `128 MiB` runtime reserve. Termux had `45,150,208` bytes available on the Doctor temp path at final measurement, so Full Doctor was not started locally. Do not lower this preflight.
 
 ## User-run procedure
 

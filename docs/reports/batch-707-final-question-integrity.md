@@ -9,7 +9,7 @@ HEAD_AFTER=`963606542af3984a1ba260e2f5b55a0b0b1c5232` (last verified application
 HEAD_AFTER_IMPLEMENTATION=`963606542af3984a1ba260e2f5b55a0b0b1c5232`
 BRANCH=`batch-707-alpha-finish-line`
 WORKTREE=`/data/data/com.termux/files/home/boardprep-batch-706`
-FREE_STORAGE=`61,059,072` bytes at Doctor temp path (`59,624 KiB` filesystem availability at the same measurement)
+FREE_STORAGE=`45,150,208` bytes at Doctor temp path (`44,092 KiB` filesystem availability at final measurement)
 REPORT_ONLY_COMMIT=separate documentation commit after implementation; the final tip is available from Git history.
 COMMITS=`1afd50095ff211634b160b7e96e2e28e896f15e3`; `963606542af3984a1ba260e2f5b55a0b0b1c5232`; final reports committed separately.
 TESTED_SHA=`963606542af3984a1ba260e2f5b55a0b0b1c5232` for the final dashboard/workflow evidence; core source, mapping, and selection regressions ran at `1afd50095ff211634b160b7e96e2e28e896f15e3`.
@@ -99,7 +99,7 @@ The aggregate browser contract failure is environmental, not a browser acceptanc
 
 The existing `.github/workflows/browser-acceptance.yml` and `.github/workflows/release-gates.yml` both support `workflow_dispatch`. Their workflow evidence test passes. The browser workflow uses Ubuntu 24.04, PHP 8.3, Node 22.23.3, `npm ci`, then installs Chromium and runs the browser suite. The release workflow uses Ubuntu, PHP 8.3 with required extensions, 1 GiB PHP memory for Full Doctor, full Git history, ten-board HTTP, security/privacy checks, and production preflight/smoke. Both record the exact GitHub SHA and upload bounded artifacts. No workflow was added or pushed.
 
-The current Full Doctor storage plan was measured without starting Doctor: fixture `92,398,334` bytes plus its `1.5 GiB` floor and `128 MiB` runtime reserve requires `1,837,228,798` free bytes. The temporary filesystem had `61,059,072` bytes available at measurement. Full Doctor was not run locally. Hosted Doctor and real browser acceptance are `PREPARED_NOT_EXECUTED` until the branch is published by an authorized user.
+The current Full Doctor storage plan was measured without starting Doctor: fixture `92,398,334` bytes plus its `1.5 GiB` floor and `128 MiB` runtime reserve requires `1,837,228,798` free bytes. The Doctor temp path had `45,150,208` bytes available at final measurement, a `1,792,078,590`-byte shortfall. Full Doctor was not run locally. Hosted Doctor and real browser acceptance are `PREPARED_NOT_EXECUTED` until the branch is published by an authorized user.
 
 ## Go / no-go
 
