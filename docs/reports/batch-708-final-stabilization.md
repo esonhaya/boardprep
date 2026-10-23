@@ -106,4 +106,4 @@ The first Full Doctor attempt at c6135af exited 1: HayaDoctor was uninitialized,
 - PUSH_STATUS=NOT_PUSHED; DEPLOY_STATUS=NOT_DEPLOYED.
 - Only batch-owned reports/source disposition will be staged. The pre-existing untracked storage/question-statistics.json remains untouched.
 - REPORT_PATH=/data/data/com.termux/files/home/boardprep-batch-706/docs/reports/batch-708-final-stabilization.md.
-- Clipboard status is reported at final delivery; VERIFIED is claimed only after exact readback.
+- CLIPBOARD_STATUS=UNVERIFIED. termux-clipboard-set exited 0; termux-clipboard-get exited 0 but returned 0 bytes. The attempted report SHA-256 was 13b2fe8933e0f777afa8173d2b470a4ddca352129537ba42b4acf878781ade3c; readback SHA-256 was e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855. Use this persistent report path as the reliable copy.
