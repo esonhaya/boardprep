@@ -35,6 +35,19 @@ $ownedByBoard = static function (array $boardQuestions, string $board): array {
 };
 foreach (['let' => $let, 'civil-service' => $cse] as $board => $eligible) {
     foreach ($ownedByBoard($questions, $board) as $question) {
+        if ($board === 'civil-service' && (string) ($question['id'] ?? '') === '6403') {
+            $withoutScopedHold = new \App\Services\Question\QuestionEligibilityIndex(
+                App::storage()->all('question-eligibility'),
+                App::storage()->all('blueprints'),
+                App::storage()->all('concept-derived-eligibility'),
+                []
+            );
+            if (QuestionEligibilityService::forExam($question, $board, $withoutScopedHold) === null
+                || QuestionEligibilityService::forExam($question, $board, $eligibilityIndex) !== null) {
+                throw new RuntimeException('Q6403 must retain its canonical Civil Service placement while the review-required hold excludes only new selection.');
+            }
+            continue;
+        }
         if (QuestionEligibilityService::forExam($question, $board, $eligibilityIndex) === null) {
             throw new RuntimeException("owned {$board} question is not eligible");
         }

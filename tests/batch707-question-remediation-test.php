@@ -119,10 +119,10 @@ foreach (['1883', '1919'] as $id) {
 $urlAudit = SourceUrlHealthSnapshot::inspect(
     $urlSnapshots,
     $sources,
-    new DateTimeImmutable('2026-10-23T12:10:00Z'),
+    new DateTimeImmutable('now'),
     SourceUrlHealthSnapshot::affectedQuestionsBySource($questions, $links, $materials)
 );
-if (($urlAudit['status'] ?? '') !== 'CURRENT_PARTIAL') $fail('Persisted URL audit should be valid and explicitly partial.');
+if (($urlAudit['status'] ?? '') !== 'CURRENT_COMPLETE') $fail('Persisted URL audit should cover every current source URL record.');
 $urlStatus = [];
 $urlRecordById = [];
 foreach (($urlSnapshots[0]['records'] ?? []) as $record) {
@@ -146,8 +146,7 @@ $replacementExpected = [
     'iaasb-isa-530-audit-sampling' => 'https://www.iaasb.org/publications/isa-530-audit-sampling',
 ];
 foreach ($replacementExpected as $id => $oldUrl) {
-    $latestExpected = $id === 'ifrs-ias-21-foreign-exchange' ? 'DNS_ERROR' : 'HTTP_REACHABLE';
-    if (($urlStatus[$id] ?? '') !== $latestExpected) $fail('Latest replacement URL evidence was not classified accurately: ' . $id);
+    if (($urlStatus[$id] ?? '') !== 'HTTP_REACHABLE') $fail('Latest replacement URL evidence was not classified accurately: ' . $id);
     $history = (array) ($sourceById[$id]['url_change_history'] ?? []);
     $last = null;
     foreach (array_reverse($history) as $entry) if (($entry['from_url'] ?? '') === $oldUrl) { $last = $entry; break; }
@@ -160,9 +159,9 @@ foreach ($replacementExpected as $id => $oldUrl) {
         $fail('Source URL replacement provenance or review hold is incomplete: ' . $id);
     }
 }
-if (($urlRecordById['ifrs-ias-21-foreign-exchange']['http_status'] ?? null) !== null
-    || !str_contains((string) ($urlRecordById['ifrs-ias-21-foreign-exchange']['error'] ?? ''), 'inconclusive')) {
-    $fail('The latest IFRS DNS result must remain inconclusive, not be converted to an HTTP 404.');
+if (($urlRecordById['ifrs-ias-21-foreign-exchange']['http_status'] ?? null) !== 200
+    || ($urlRecordById['ifrs-ias-21-foreign-exchange']['status'] ?? '') !== 'HTTP_REACHABLE') {
+    $fail('The one authorized IAS 21 retry must be recorded as reachable without implying claim verification.');
 }
 $handbookIds = ['iaasb-isa-230-documentation', 'iaasb-isa-265-control-deficiencies', 'iaasb-isa-450-misstatements', 'iaasb-isa-500-audit-evidence', 'iaasb-isa-520-analytical-procedures', 'iaasb-isa-530-audit-sampling'];
 foreach ($handbookIds as $id) {
@@ -196,6 +195,15 @@ foreach (['1536', '1537'] as $id) {
     foreach ($links as $link) if ((string) ($link['question_id'] ?? '') === $id && trim((string) ($link['section_id'] ?? $link['lesson_section_id'] ?? '')) !== '') $found = true;
     if ($found) $fail('Q' . $id . ' exact-section quarantine was not preserved.');
 }
+foreach (['4004', '4005', '4006'] as $id) {
+    $rows = array_values(array_filter($links, static fn(array $link): bool => (string) ($link['question_id'] ?? '') === $id));
+    if ($rows === []) $fail('Previously demoted Q' . $id . ' source/material relationship disappeared.');
+    foreach ($rows as $row) {
+        if (trim((string) ($row['section_id'] ?? $row['lesson_section_id'] ?? '')) !== '') {
+            $fail('Previously weak Q' . $id . ' exact-section relationship was restored.');
+        }
+    }
+}
 foreach (['1925', '1926', '1927'] as $id) {
     $questionLink = null;
     foreach ($links as $candidate) if ((string) ($candidate['question_id'] ?? '') === $id) { $questionLink = $candidate; break; }
@@ -210,8 +218,16 @@ $fixtureSources = [
     ['id' => 'restricted-source', 'title' => 'Restricted source', 'authority' => 'Publisher', 'url' => 'https://restricted.example/source'],
     ['id' => 'unreferenced-dead-source', 'title' => 'Unreferenced dead source', 'authority' => 'Publisher', 'url' => 'https://orphan-dead.example/source'],
 ];
-if (count($urlSnapshots[0]['records'] ?? []) > 100 || strlen((string) file_get_contents($root . '/storage/source-url-health.json')) > 20000) $fail('Persisted URL evidence is not compactly stored.');
-foreach (($urlSnapshots[0]['records'] ?? []) as $record) if (array_key_exists('affected_question_ids', $record)) $fail('Persisted URL evidence duplicates question IDs instead of deriving dashboard drill-downs live.');
+$urlSourceCount = count(array_filter($sources, static fn(array $source): bool => is_string($source['url'] ?? null) && trim($source['url']) !== ''));
+if (count($urlSnapshots[0]['records'] ?? []) !== $urlSourceCount
+    || strlen((string) file_get_contents($root . '/storage/source-url-health.json')) > 100000) {
+    $fail('Persisted URL evidence does not cover the current source records compactly.');
+}
+foreach (($urlSnapshots[0]['records'] ?? []) as $record) {
+    foreach (['affected_question_ids', 'evidence_ref', 'question', 'choices', 'answer'] as $redundant) {
+        if (array_key_exists($redundant, $record)) $fail('Persisted URL evidence duplicates question content or derivable drill-down data: ' . $redundant);
+    }
+}
 $fixtureRecords = [
     ['source_id' => 'valid-source', 'url' => 'https://valid.example/source', 'status' => 'HTTP_REACHABLE', 'checked_at_utc' => '2026-10-23T10:00:00Z', 'http_status' => 200, 'final_url' => 'https://valid.example/source', 'evidence_ref' => 'fixture'],
     ['source_id' => 'dead-source', 'url' => 'https://dead.example/source', 'status' => 'CONFIRMED_404', 'checked_at_utc' => '2026-10-23T10:00:00Z', 'http_status' => 404, 'final_url' => 'https://dead.example/source', 'evidence_ref' => 'fixture'],
@@ -292,7 +308,7 @@ echo 'Q6403_CURRENT_KEY_HELD=1' . PHP_EOL;
 echo 'Q6403_NEW_PRACTICE_EXCLUDED=1' . PHP_EOL;
 echo 'DIRECT_INVALID_SOURCE_IDS=' . count($invalidDirect) . PHP_EOL;
 echo 'URL_REPLACEMENTS_VERIFIED=' . count($replacementExpected) . PHP_EOL;
-echo 'LATEST_IFRS_STATUS=DNS_ERROR_INCONCLUSIVE' . PHP_EOL;
+echo 'LATEST_IFRS_STATUS=HTTP_REACHABLE_CLAIM_REVIEW_REQUIRED' . PHP_EOL;
 echo 'Q6403_BOARD_EXCLUSION_SCOPE=CIVIL_SERVICE_ONLY' . PHP_EOL;
 echo 'REMAINING_REFERENCED_404S=0' . PHP_EOL;
 echo 'URL_SNAPSHOT_STATUS=' . $urlAudit['status'] . PHP_EOL;

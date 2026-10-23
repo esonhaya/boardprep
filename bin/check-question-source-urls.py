@@ -11,7 +11,7 @@ import socket
 import sys
 import threading
 from concurrent.futures import ThreadPoolExecutor
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.parse import urljoin, urlsplit
@@ -55,6 +55,80 @@ def registry_fingerprint(sources) -> str:
 def payload_digest(snapshot) -> str:
     payload = {key: value for key, value in snapshot.items() if key != "payload_sha256"}
     return hashlib.sha256(canonical_json(payload)).hexdigest()
+
+
+def group_source_ids_by_url(sources):
+    """Return URL -> source IDs so duplicate registry URLs are checked once."""
+    grouped = {}
+    for source in sources:
+        if not isinstance(source, dict):
+            continue
+        source_id = str(source.get("id", "")).strip()
+        url = source.get("url")
+        if source_id and isinstance(url, str) and url.strip():
+            grouped.setdefault(url, []).append(source_id)
+    return grouped
+
+
+def expand_current_url_evidence(sources, records, now=None):
+    """Copy fresh evidence to unchecked source IDs sharing the exact URL.
+
+    Reachability is a property of the checked URL, while question references
+    remain source-ID-specific and are derived by the dashboard. Only an exact
+    URL match with a recent check can fill an absent or stale alias record.
+    """
+    now = now or datetime.now(timezone.utc)
+    grouped = group_source_ids_by_url(sources)
+    by_id = {
+        str(row.get("source_id")): dict(row)
+        for row in records
+        if isinstance(row, dict) and str(row.get("source_id", "")).strip()
+    }
+
+    def parsed_time(row):
+        raw = str(row.get("checked_at_utc", ""))
+        try:
+            parsed = datetime.fromisoformat(raw.replace("Z", "+00:00"))
+            return parsed.astimezone(timezone.utc) if parsed.tzinfo is not None else None
+        except (TypeError, ValueError):
+            return None
+
+    for url, source_ids in grouped.items():
+        candidates = []
+        for source_id in source_ids:
+            row = by_id.get(source_id)
+            checked = parsed_time(row) if row is not None else None
+            if row is None or row.get("url") != url or checked is None:
+                continue
+            if checked <= now + timedelta(minutes=5) and checked >= now - timedelta(days=MAX_AGE_DAYS):
+                candidates.append((checked, row))
+        if not candidates:
+            continue
+        _, freshest = max(candidates, key=lambda item: item[0])
+        for source_id in source_ids:
+            current = by_id.get(source_id)
+            checked = parsed_time(current) if current is not None else None
+            is_current = (
+                current is not None
+                and current.get("url") == url
+                and checked is not None
+                and checked <= now + timedelta(minutes=5)
+                and checked >= now - timedelta(days=MAX_AGE_DAYS)
+            )
+            if is_current:
+                continue
+            inherited = dict(freshest)
+            inherited["source_id"] = source_id
+            inherited["url"] = url
+            by_id[source_id] = inherited
+
+    return list(by_id.values())
+
+
+def snapshot_write_status(snapshot):
+    if snapshot is None:
+        return "NOT_WRITTEN"
+    return "WRITTEN_COMPLETE" if bool(snapshot.get("coverage", {}).get("complete")) else "WRITTEN_PARTIAL"
 
 
 def validate_public_url(url: str) -> str:
@@ -207,6 +281,10 @@ def write_snapshot(sources, refreshed):
     by_id = {str(row.get("source_id")): row for row in current}
     for row in refreshed:
         by_id[row["source_id"]] = row
+    by_id = {
+        str(row.get("source_id")): row
+        for row in expand_current_url_evidence(sources, list(by_id.values()))
+    }
     records = []
     for source_id, stored in by_id.items():
         if source_id not in source_by_id or stored.get("url") != source_by_id[source_id].get("url"):
@@ -232,7 +310,7 @@ def write_snapshot(sources, refreshed):
             "complete": len(records) == total,
             "checked_source_count": len(records),
             "total_url_source_count": total,
-            "scope": "Explicitly selected source IDs plus preserved recent per-source audit evidence; unchecked records have unknown reachability.",
+            "scope": "Unique registered URLs are checked once per run; exact-URL source-ID aliases inherit current reachability evidence. Any unchecked URLs remain unknown.",
         },
         "records": records,
     }
@@ -271,7 +349,7 @@ def main() -> int:
             "http_status": row.get("http_status"), "final_url": row.get("final_url"),
             "affected_question_count": len(row.get("affected_question_ids", [])),
         } for row in results],
-        "snapshot_status": "WRITTEN_PARTIAL" if snapshot else "NOT_WRITTEN",
+        "snapshot_status": snapshot_write_status(snapshot),
         "snapshot_path": str(SNAPSHOT_PATH) if snapshot else None,
     }, ensure_ascii=False, indent=2))
     return 0 if all(row.get("status") == "HTTP_REACHABLE" for row in results) else 2

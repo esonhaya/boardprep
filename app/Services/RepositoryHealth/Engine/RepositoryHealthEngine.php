@@ -613,6 +613,36 @@ final class RepositoryHealthEngine
                 self::issue($issues, 'FAIL', 'ELIGIBILITY', 'INVALID_OVERRIDE_REFERENCE', $overrideId, $questionById, 'Eligibility override references an unknown question or board.', 'Repair the override reference against canonical question and board records.', ['question_id' => $questionId, 'board_id' => $boardId]);
                 continue;
             }
+            $reviewRequired = strtoupper(trim((string) ($override['human_review_status'] ?? $override['review_status'] ?? ''))) === 'REVIEW_REQUIRED';
+            foreach ((array) ($override['provenance'] ?? []) as $provenance) {
+                if (is_array($provenance)
+                    && strtoupper(trim((string) ($provenance['verified_status'] ?? $provenance['human_review_status'] ?? ''))) === 'REVIEW_REQUIRED') {
+                    $reviewRequired = true;
+                    break;
+                }
+            }
+            if ($reviewRequired && strtoupper(trim((string) ($override['override_type'] ?? ''))) === 'EXCLUDE') {
+                self::issue(
+                    $issues,
+                    'REVIEW',
+                    'ELIGIBILITY',
+                    'QUESTION_REUSE_REVIEW_HOLD',
+                    $questionId,
+                    $questionById,
+                    'A question is excluded from new selection for this board while a documented review-required integrity concern is unresolved.',
+                    'Keep the scoped exclusion until the authorized item owner records a disposition; do not infer approval from this technical hold.',
+                    [
+                        'entity_type' => 'question',
+                        'question_id' => $questionId,
+                        'board_id' => $boardId,
+                        'override_id' => $overrideId,
+                        'override_type' => 'EXCLUDE',
+                        'review_status' => 'REVIEW_REQUIRED',
+                        'reason' => (string) ($override['reason'] ?? ''),
+                        'provenance' => (array) ($override['provenance'] ?? []),
+                    ]
+                );
+            }
             $key = $questionId . '|' . $boardId;
             if (isset($reuseKeys[$key])) {
                 self::issue($issues, 'FAIL', 'ELIGIBILITY', 'DUPLICATE_ELIGIBILITY_OVERRIDE', $overrideId, $questionById, 'Multiple eligibility overrides target the same question and board.', 'Keep one canonical override for the question and board.', ['question_id' => $questionId, 'board_id' => $boardId, 'first_override_id' => $reuseKeys[$key]]);
