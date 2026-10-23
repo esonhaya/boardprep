@@ -9,6 +9,8 @@ HEAD_AFTER_IMPLEMENTATION=`963606542af3984a1ba260e2f5b55a0b0b1c5232`
 BRANCH=`batch-707-alpha-finish-line`
 WORKTREE=`/data/data/com.termux/files/home/boardprep-batch-706`
 REPORT_ONLY_COMMIT=separate documentation commit after implementation; the final tip is available from Git history.
+COMMITS=`1afd50095ff211634b160b7e96e2e28e896f15e3`; `963606542af3984a1ba260e2f5b55a0b0b1c5232`; final reports committed separately.
+TESTED_SHA=`963606542af3984a1ba260e2f5b55a0b0b1c5232` for the final dashboard/workflow evidence; core source, mapping, and selection regressions ran at `1afd50095ff211634b160b7e96e2e28e896f15e3`.
 PUSH_STATUS=`NOT_PUSHED`
 
 The verified remediation ancestry is present. Implementation commits are `1afd50095ff211634b160b7e96e2e28e896f15e3` (complete URL evidence and Q6403 finding) and `963606542af3984a1ba260e2f5b55a0b0b1c5232` (display the hold details). No new worktree was created.
