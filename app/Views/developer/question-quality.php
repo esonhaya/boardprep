@@ -88,6 +88,7 @@ $uncheckedSources = $urlAuditSummary['unchecked_source_count'] ?? null;
                 <?php
                 $evidence = is_array($issue->evidence ?? null) ? $issue->evidence : [];
                 $affectedIds = array_values(array_unique(array_map('strval', (array) ($evidence['affected_question_ids'] ?? []))));
+                $hasAffectedCount = array_key_exists('affected_question_count', $evidence);
                 $badgeClass = match (strtoupper((string) $issue->status)) {
                     'FAIL' => 'badge-danger',
                     'WARN' => 'badge-warning',
@@ -111,8 +112,9 @@ $uncheckedSources = $urlAuditSummary['unchecked_source_count'] ?? null;
                                 <small><?= htmlspecialchars($label) ?>: <code><?= htmlspecialchars(is_bool($evidence[$field]) ? ($evidence[$field] ? 'yes' : 'no') : (string) ($evidence[$field] ?? 'unknown')) ?></code></small><br>
                             <?php endif; ?>
                         <?php endforeach; ?>
-                        <?php if ($affectedIds !== []): ?>
+                        <?php if ($affectedIds !== [] || $hasAffectedCount): ?>
                             <p><small>Affects <?= (int) ($evidence['affected_question_count'] ?? count($affectedIds)) ?> question(s):
+                                <?php if ($affectedIds === []): ?>none currently linked<?php endif; ?>
                                 <?php foreach (array_slice($affectedIds, 0, 12) as $index => $questionId): ?>
                                     <?php if ($index > 0): ?>, <?php endif; ?><a href="/question-editor/edit?id=<?= rawurlencode($questionId) ?>"><code>#<?= htmlspecialchars($questionId) ?></code></a>
                                 <?php endforeach; ?>
