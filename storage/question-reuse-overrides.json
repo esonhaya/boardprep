@@ -1,1 +1,17 @@
-[]
+[
+    {
+        "id": "override-batch707-q6403-cse-scoring-hold",
+        "question_id": "6403",
+        "board_id": "civil-service",
+        "override_type": "EXCLUDE",
+        "reason": "Temporarily exclude Q6403 from new Civil Service scored pools because the stored answer conflicts with the exact-punctuation instruction in its explanation. Keep this hold until an authorized item owner decides whether to correct the key or clarify the stem.",
+        "provenance": [
+            {
+                "type": "OTHER",
+                "reference": "docs/reports/batch-707-question-integrity-issues.json#confirmed_answer_key_proposal",
+                "note": "Temporary safety hold for a confirmed scoring contradiction. This technical finding is not academic approval and does not alter the canonical question, answer, or historical attempts.",
+                "verified_status": "REVIEW_REQUIRED"
+            }
+        ]
+    }
+]

@@ -579,13 +579,30 @@
     "title": "Republic Act No. 7836: Philippine Teachers Professionalization Act",
     "source_type": "PRIMARY_LAW",
     "authority": "Republic of the Philippines",
-    "url": "https://www.officialgazette.gov.ph/1994/12/16/republic-act-no-7836/",
+    "url": "https://lawphil.net/statutes/repacts/ra1994/ra_7836_1994.html",
     "publication_date": "1994-12-16",
-    "retrieved_at": "2026-09-07",
+    "retrieved_at": "2026-10-23",
     "version": "Republic Act No. 7836",
     "status": "official_reference",
     "confidence": "authoritative_reference",
-    "notes": "Primary Philippine law on teacher professionalization and licensure."
+    "notes": "Primary Philippine law on teacher professionalization and licensure. Exact primary statute identity confirmed. Item-level interpretation and current amendments remain REVIEW_REQUIRED. URL repair does not imply independent academic approval.",
+    "url_change_history": [
+      {
+        "from_url": "https://www.officialgazette.gov.ph/1994/12/16/republic-act-no-7836/",
+        "to_url": "https://lawphil.net/statutes/repacts/ra1994/ra_7836_1994.html",
+        "changed_at_utc": "2026-10-23T10:53:34Z",
+        "original_dead_link_evidence_at_utc": "2026-10-22T23:59:41Z",
+        "original_status": "CONFIRMED_404",
+        "replacement_http_status": 200,
+        "replacement_check": "bounded curl HEAD, no redirects followed, 8 second maximum request timeout",
+        "document_identity": "Republic Act No. 7836, Philippine Teachers Professionalization Act of 1994; Lawphil full statutory text opened and HTTP 200 confirmed.",
+        "claim_compatibility": "Exact primary statute identity confirmed. Item-level interpretation and current amendments remain REVIEW_REQUIRED.",
+        "human_review_status": "REVIEW_REQUIRED",
+        "replacement_final_url": "https://lawphil.net/statutes/repacts/ra1994/ra_7836_1994.html",
+        "replacement_checked_at_utc": "2026-10-23T11:32:01Z",
+        "replacement_check_command": "python3 -B bin/check-question-source-urls.py --source-id <id> --write (bounded public HTTP(S) checker; successful run; no redirect for this result)"
+      }
+    ]
   },
   {
     "id": "nhcp-rizal-memory-collection",
@@ -688,16 +705,38 @@
   },
   {
     "id": "iaasb-isa-520-analytical-procedures",
-    "title": "International Standard on Auditing 520: Analytical Procedures",
+    "title": "IAASB 2026 Handbook, Volume 1 — ISA 520: Analytical Procedures",
     "source_type": "OFFICIAL_GUIDANCE",
     "authority": "International Auditing and Assurance Standards Board",
-    "url": "https://www.iaasb.org/publications/isa-520-analytical-procedures",
-    "publication_date": null,
+    "url": "https://www.iaasb.org/publications/2026-handbook-international-quality-management-auditing-review-sustainability-and-other-assurance",
+    "publication_date": "2026-09-30",
     "retrieved_at": "2026-09-09",
-    "version": "current official publication page",
+    "version": "2026 Handbook, current edition; Volume 1 (ISAs)",
     "status": "official_reference",
     "confidence": "authoritative_reference",
-    "notes": "Primary professional-standard source for designing and evaluating analytical procedures, including investigation of significant relationships and fluctuations."
+    "notes": "Official IAASB current-edition handbook product page; Volume 1 includes ISAs. Page metadata was checked, but the full ISA text requires purchase and was not reviewed. This record identifies ISA 520 and is not claim-level verification, Philippine adoption evidence, or approval of linked questions.",
+    "access_status": "METADATA_ONLY_FULL_TEXT_PURCHASE_REQUIRED",
+    "source_text_verified": false,
+    "human_review_status": "REVIEW_REQUIRED",
+    "url_change_history": [
+      {
+        "from_url": "https://www.iaasb.org/publications/isa-520-analytical-procedures",
+        "to_url": "https://www.iaasb.org/publications/2026-handbook-international-quality-management-auditing-review-sustainability-and-other-assurance",
+        "changed_at_utc": "2026-10-23T00:00:00Z",
+        "original_dead_link_evidence_at_utc": "2026-10-22T23:59:41Z",
+        "original_status": "CONFIRMED_404",
+        "replacement_http_status": 200,
+        "replacement_check": "Official IAASB handbook landing page identified through IAASB Standards & Pronouncements; run the bounded source URL checker before relying on reachability.",
+        "document_identity": "2026 IAASB Handbook (current edition), Volume 1 includes International Standards on Auditing; page title and publication metadata identify the current edition. This is a handbook-level replacement for ISA 520, not full-text verification.",
+        "claim_compatibility": "The official handbook page establishes the current handbook/ISA volume only; this ISA claim, version-specific question fit, and Philippine adoption remain REVIEW_REQUIRED.",
+        "jurisdiction": "International standards; Philippines adoption not established by this page.",
+        "currentness_limit": "2026 handbook edition is current as of the page checked; specific later amendments and local adoption require separate review.",
+        "human_review_status": "REVIEW_REQUIRED",
+        "replacement_final_url": "https://www.iaasb.org/publications/2026-handbook-international-quality-management-auditing-review-sustainability-and-other-assurance",
+        "replacement_checked_at_utc": "2026-10-23T11:36:29Z",
+        "replacement_check_command": "python3 -B bin/check-question-source-urls.py --source-id <id> --write (bounded public HTTP(S) checker; successful run; no redirect for this result)"
+      }
+    ]
   },
   {
     "id": "ifrs-ias-37-provisions",
@@ -899,13 +938,33 @@
     "title": "Negotiable Instruments Law of the Philippines",
     "source_type": "PRIMARY_LAW",
     "authority": "Republic of the Philippines; Lawphil text of Act No. 2031",
-    "url": "https://lawphil.net/statutes/acts/act_2031_1911.html",
+    "url": "https://lawphil.net/statutes/acts/act1911/act_2031_1911.html",
     "publication_date": "1911-02-03",
-    "retrieved_at": "2026-09-10",
+    "retrieved_at": "2026-10-23",
     "version": "Act No. 2031",
     "status": "official_reference",
     "confidence": "authoritative_reference",
-    "notes": "Primary Philippine statute for negotiable instruments, holder status, presentment, notice, and defenses."
+    "notes": "Primary Philippine statute for negotiable instruments, holder status, presentment, notice, and defenses. Philippine statutory text supports general instrument, transfer, presentment, and notice provisions; claim-specific legal application remains REVIEW_REQUIRED. URL repair does not imply independent academic approval.",
+    "url_change_history": [
+      {
+        "from_url": "https://lawphil.net/statutes/acts/act_2031_1911.html",
+        "to_url": "https://lawphil.net/statutes/acts/act1911/act_2031_1911.html",
+        "changed_at_utc": "2026-10-23T10:53:34Z",
+        "original_dead_link_evidence_at_utc": "2026-10-22T23:59:41Z",
+        "original_status": "CONFIRMED_404",
+        "replacement_http_status": 200,
+        "replacement_check": "bounded curl HEAD, no redirects followed, 8 second maximum request timeout",
+        "document_identity": "Act No. 2031, Negotiable Instruments Law; Lawphil full statutory text opened and HTTP 200 confirmed.",
+        "claim_compatibility": "Philippine statutory text supports general instrument, transfer, presentment, and notice provisions; claim-specific legal application remains REVIEW_REQUIRED.",
+        "human_review_status": "REVIEW_REQUIRED",
+        "replacement_final_url": "https://lawphil.net/statutes/acts/act1911/act_2031_1911.html",
+        "replacement_checked_at_utc": "2026-10-23T11:32:01Z",
+        "replacement_check_command": "python3 -B bin/check-question-source-urls.py --source-id <id> --write (bounded public HTTP(S) checker; successful run; no redirect for this result)"
+      }
+    ],
+    "access_status": "FULL_TEXT_ACCESSIBLE",
+    "source_text_verified": true,
+    "human_review_status": "REVIEW_REQUIRED"
   },
   {
     "id": "philippines-accountancy-act",
@@ -1251,13 +1310,30 @@
     "title": "Republic Act No. 9173, Philippine Nursing Act of 2002",
     "source_type": "PRIMARY_LAW",
     "authority": "Republic of the Philippines; Lawphil reproduction",
-    "url": "https://lawphil.net/statutes/repacts/2002/ra_9173_2002.html",
+    "url": "https://lawphil.net/statutes/repacts/ra2002/ra_9173_2002.html",
     "publication_date": "2002-10-21",
-    "retrieved_at": "2026-09-28",
+    "retrieved_at": "2026-10-23",
     "version": "Republic Act No. 9173",
     "status": "verified_reference",
     "confidence": "authoritative_reference",
-    "notes": "Primary Philippine law for scope, professional responsibility, and nursing practice boundary questions. Regulatory items are conservative and avoid unsupported legal conclusions."
+    "notes": "Primary Philippine law for scope, professional responsibility, and nursing practice boundary questions. Regulatory items are conservative and avoid unsupported legal conclusions. Exact primary statute identity confirmed. Item-level interpretation and current amendments remain REVIEW_REQUIRED. URL repair does not imply independent academic approval.",
+    "url_change_history": [
+      {
+        "from_url": "https://lawphil.net/statutes/repacts/2002/ra_9173_2002.html",
+        "to_url": "https://lawphil.net/statutes/repacts/ra2002/ra_9173_2002.html",
+        "changed_at_utc": "2026-10-23T10:53:34Z",
+        "original_dead_link_evidence_at_utc": "2026-10-22T23:59:41Z",
+        "original_status": "CONFIRMED_404",
+        "replacement_http_status": 200,
+        "replacement_check": "bounded curl HEAD, no redirects followed, 8 second maximum request timeout",
+        "document_identity": "Republic Act No. 9173, Philippine Nursing Act of 2002; Lawphil full statutory text opened and HTTP 200 confirmed.",
+        "claim_compatibility": "Exact primary statute identity confirmed. Item-level interpretation and current amendments remain REVIEW_REQUIRED.",
+        "human_review_status": "REVIEW_REQUIRED",
+        "replacement_final_url": "https://lawphil.net/statutes/repacts/ra2002/ra_9173_2002.html",
+        "replacement_checked_at_utc": "2026-10-23T11:32:01Z",
+        "replacement_check_command": "python3 -B bin/check-question-source-urls.py --source-id <id> --write (bounded public HTTP(S) checker; successful run; no redirect for this result)"
+      }
+    ]
   },
   {
     "id": "who-community-health",
@@ -1589,13 +1665,30 @@
     "title": "IAS 21 The Effects of Changes in Foreign Exchange Rates",
     "source_type": "OFFICIAL_GUIDANCE",
     "authority": "IFRS Foundation",
-    "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-21-effects-of-changes-in-foreign-exchange-rates/",
+    "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-21-the-effects-of-changes-in-foreign-exchange-rates/",
     "publication_date": null,
-    "retrieved_at": "2026-09-29",
+    "retrieved_at": "2026-10-23",
     "version": "current official standard page",
     "status": "official_reference",
     "confidence": "authoritative_reference",
-    "notes": "Authoritative source for foreign-currency transactions and translation principles."
+    "notes": "Authoritative source for foreign-currency transactions and translation principles. Official standard landing page only; full-text access, Philippine adoption, and question-specific claim fit remain REVIEW_REQUIRED. URL repair does not imply independent academic approval.",
+    "url_change_history": [
+      {
+        "from_url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-21-effects-of-changes-in-foreign-exchange-rates/",
+        "to_url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-21-the-effects-of-changes-in-foreign-exchange-rates/",
+        "changed_at_utc": "2026-10-23T10:53:34Z",
+        "original_dead_link_evidence_at_utc": "2026-10-22T23:59:41Z",
+        "original_status": "CONFIRMED_404",
+        "replacement_http_status": 200,
+        "replacement_check": "bounded curl HEAD, no redirects followed, 8 second maximum request timeout",
+        "document_identity": "IAS 21 The Effects of Changes in Foreign Exchange Rates; official IFRS landing page and HTTP 200 confirmed.",
+        "claim_compatibility": "Official standard landing page only; full-text access, Philippine adoption, and question-specific claim fit remain REVIEW_REQUIRED.",
+        "human_review_status": "REVIEW_REQUIRED",
+        "replacement_final_url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-21-the-effects-of-changes-in-foreign-exchange-rates/",
+        "replacement_checked_at_utc": "2026-10-23T11:32:02Z",
+        "replacement_check_command": "python3 -B bin/check-question-source-urls.py --source-id <id> --write (bounded public HTTP(S) checker; successful run; no redirect for this result)"
+      }
+    ]
   },
   {
     "id": "ifrs-ias-23-borrowing-costs",
@@ -1719,52 +1812,130 @@
     "title": "ISA 315 Revised 2019 — Identifying and Assessing Risks of Material Misstatement",
     "source_type": "OFFICIAL_GUIDANCE",
     "authority": "International Auditing and Assurance Standards Board",
-    "url": "https://www.iaasb.org/publications/isa-315-revised-2019",
+    "url": "https://www.iaasb.org/publications/isa-315-revised-2019-identifying-and-assessing-risks-material-misstatement",
     "publication_date": "2019-12-19",
-    "retrieved_at": "2026-09-29",
+    "retrieved_at": "2026-10-23",
     "version": "ISA 315 Revised 2019",
     "status": "official_reference",
     "confidence": "authoritative_reference",
-    "notes": "Professional-standard source for risk assessment, understanding the entity, and internal control."
+    "notes": "Professional-standard source for risk assessment, understanding the entity, and internal control. Official publication page identifies the standard; full-text accessibility, Philippine adoption, and item-level claim fit remain REVIEW_REQUIRED. URL repair does not imply independent academic approval.",
+    "url_change_history": [
+      {
+        "from_url": "https://www.iaasb.org/publications/isa-315-revised-2019",
+        "to_url": "https://www.iaasb.org/publications/isa-315-revised-2019-identifying-and-assessing-risks-material-misstatement",
+        "changed_at_utc": "2026-10-23T10:53:34Z",
+        "original_dead_link_evidence_at_utc": "2026-10-22T23:59:41Z",
+        "original_status": "CONFIRMED_404",
+        "replacement_http_status": 200,
+        "replacement_check": "bounded curl HEAD, no redirects followed, 8 second maximum request timeout",
+        "document_identity": "ISA 315 (Revised 2019), IAASB publication page and HTTP 200 confirmed.",
+        "claim_compatibility": "Official publication page identifies the standard; full-text accessibility, Philippine adoption, and item-level claim fit remain REVIEW_REQUIRED.",
+        "human_review_status": "REVIEW_REQUIRED",
+        "replacement_final_url": "https://www.iaasb.org/publications/isa-315-revised-2019-identifying-and-assessing-risks-material-misstatement",
+        "replacement_checked_at_utc": "2026-10-23T11:32:03Z",
+        "replacement_check_command": "python3 -B bin/check-question-source-urls.py --source-id <id> --write (bounded public HTTP(S) checker; successful run; no redirect for this result)"
+      }
+    ]
   },
   {
     "id": "iaasb-isa-500-audit-evidence",
-    "title": "ISA 500 — Audit Evidence",
+    "title": "IAASB 2026 Handbook, Volume 1 — ISA 500: Audit Evidence",
     "source_type": "OFFICIAL_GUIDANCE",
     "authority": "International Auditing and Assurance Standards Board",
-    "url": "https://www.iaasb.org/publications/isa-500-audit-evidence",
-    "publication_date": null,
+    "url": "https://www.iaasb.org/publications/2026-handbook-international-quality-management-auditing-review-sustainability-and-other-assurance",
+    "publication_date": "2026-09-30",
     "retrieved_at": "2026-09-29",
-    "version": "current official publication page",
+    "version": "2026 Handbook, current edition; Volume 1 (ISAs)",
     "status": "official_reference",
     "confidence": "authoritative_reference",
-    "notes": "Professional-standard source for sufficiency, appropriateness, reliability, and evaluation of audit evidence."
+    "notes": "Official IAASB current-edition handbook product page; Volume 1 includes ISAs. Page metadata was checked, but the full ISA text requires purchase and was not reviewed. This record identifies ISA 500 and is not claim-level verification, Philippine adoption evidence, or approval of linked questions.",
+    "access_status": "METADATA_ONLY_FULL_TEXT_PURCHASE_REQUIRED",
+    "source_text_verified": false,
+    "human_review_status": "REVIEW_REQUIRED",
+    "url_change_history": [
+      {
+        "from_url": "https://www.iaasb.org/publications/isa-500-audit-evidence",
+        "to_url": "https://www.iaasb.org/publications/2026-handbook-international-quality-management-auditing-review-sustainability-and-other-assurance",
+        "changed_at_utc": "2026-10-23T00:00:00Z",
+        "original_dead_link_evidence_at_utc": "2026-10-22T23:59:41Z",
+        "original_status": "CONFIRMED_404",
+        "replacement_http_status": 200,
+        "replacement_check": "Official IAASB handbook landing page identified through IAASB Standards & Pronouncements; run the bounded source URL checker before relying on reachability.",
+        "document_identity": "2026 IAASB Handbook (current edition), Volume 1 includes International Standards on Auditing; page title and publication metadata identify the current edition. This is a handbook-level replacement for ISA 500, not full-text verification.",
+        "claim_compatibility": "The official handbook page establishes the current handbook/ISA volume only; this ISA claim, version-specific question fit, and Philippine adoption remain REVIEW_REQUIRED.",
+        "jurisdiction": "International standards; Philippines adoption not established by this page.",
+        "currentness_limit": "2026 handbook edition is current as of the page checked; specific later amendments and local adoption require separate review.",
+        "human_review_status": "REVIEW_REQUIRED",
+        "replacement_final_url": "https://www.iaasb.org/publications/2026-handbook-international-quality-management-auditing-review-sustainability-and-other-assurance",
+        "replacement_checked_at_utc": "2026-10-23T11:36:29Z",
+        "replacement_check_command": "python3 -B bin/check-question-source-urls.py --source-id <id> --write (bounded public HTTP(S) checker; successful run; no redirect for this result)"
+      }
+    ]
   },
   {
     "id": "iaasb-isa-530-audit-sampling",
-    "title": "ISA 530 — Audit Sampling",
+    "title": "IAASB 2026 Handbook, Volume 1 — ISA 530: Audit Sampling",
     "source_type": "OFFICIAL_GUIDANCE",
     "authority": "International Auditing and Assurance Standards Board",
-    "url": "https://www.iaasb.org/publications/isa-530-audit-sampling",
-    "publication_date": null,
+    "url": "https://www.iaasb.org/publications/2026-handbook-international-quality-management-auditing-review-sustainability-and-other-assurance",
+    "publication_date": "2026-09-30",
     "retrieved_at": "2026-09-29",
-    "version": "current official publication page",
+    "version": "2026 Handbook, current edition; Volume 1 (ISAs)",
     "status": "official_reference",
     "confidence": "authoritative_reference",
-    "notes": "Professional-standard source for sampling design, sample selection, and evaluation of results."
+    "notes": "Official IAASB current-edition handbook product page; Volume 1 includes ISAs. Page metadata was checked, but the full ISA text requires purchase and was not reviewed. This record identifies ISA 530 and is not claim-level verification, Philippine adoption evidence, or approval of linked questions.",
+    "access_status": "METADATA_ONLY_FULL_TEXT_PURCHASE_REQUIRED",
+    "source_text_verified": false,
+    "human_review_status": "REVIEW_REQUIRED",
+    "url_change_history": [
+      {
+        "from_url": "https://www.iaasb.org/publications/isa-530-audit-sampling",
+        "to_url": "https://www.iaasb.org/publications/2026-handbook-international-quality-management-auditing-review-sustainability-and-other-assurance",
+        "changed_at_utc": "2026-10-23T00:00:00Z",
+        "original_dead_link_evidence_at_utc": "2026-10-22T23:59:41Z",
+        "original_status": "CONFIRMED_404",
+        "replacement_http_status": 200,
+        "replacement_check": "Official IAASB handbook landing page identified through IAASB Standards & Pronouncements; run the bounded source URL checker before relying on reachability.",
+        "document_identity": "2026 IAASB Handbook (current edition), Volume 1 includes International Standards on Auditing; page title and publication metadata identify the current edition. This is a handbook-level replacement for ISA 530, not full-text verification.",
+        "claim_compatibility": "The official handbook page establishes the current handbook/ISA volume only; this ISA claim, version-specific question fit, and Philippine adoption remain REVIEW_REQUIRED.",
+        "jurisdiction": "International standards; Philippines adoption not established by this page.",
+        "currentness_limit": "2026 handbook edition is current as of the page checked; specific later amendments and local adoption require separate review.",
+        "human_review_status": "REVIEW_REQUIRED",
+        "replacement_final_url": "https://www.iaasb.org/publications/2026-handbook-international-quality-management-auditing-review-sustainability-and-other-assurance",
+        "replacement_checked_at_utc": "2026-10-23T11:36:30Z",
+        "replacement_check_command": "python3 -B bin/check-question-source-urls.py --source-id <id> --write (bounded public HTTP(S) checker; successful run; no redirect for this result)"
+      }
+    ]
   },
   {
     "id": "iaasb-isa-700-audit-opinion",
     "title": "ISA 700 — Forming an Opinion and Reporting on Financial Statements",
     "source_type": "OFFICIAL_GUIDANCE",
     "authority": "International Auditing and Assurance Standards Board",
-    "url": "https://www.iaasb.org/publications/isa-700-revised-forming-opinion-and-reporting-financial-statements",
+    "url": "https://www.iaasb.org/publications/international-standard-auditing-isa-700-revised-forming-opinion-and-reporting-financial-statements",
     "publication_date": null,
-    "retrieved_at": "2026-09-29",
+    "retrieved_at": "2026-10-23",
     "version": "current official publication page",
     "status": "official_reference",
     "confidence": "authoritative_reference",
-    "notes": "Professional-standard source for audit opinions and reporting conclusions."
+    "notes": "Professional-standard source for audit opinions and reporting conclusions. Official publication page identity confirmed; currentness review remains required for later amendments and Philippine adoption. URL repair does not imply independent academic approval.",
+    "url_change_history": [
+      {
+        "from_url": "https://www.iaasb.org/publications/isa-700-revised-forming-opinion-and-reporting-financial-statements",
+        "to_url": "https://www.iaasb.org/publications/international-standard-auditing-isa-700-revised-forming-opinion-and-reporting-financial-statements",
+        "changed_at_utc": "2026-10-23T10:53:34Z",
+        "original_dead_link_evidence_at_utc": "2026-10-22T23:59:41Z",
+        "original_status": "CONFIRMED_404",
+        "replacement_http_status": 200,
+        "replacement_check": "bounded curl HEAD, no redirects followed, 8 second maximum request timeout",
+        "document_identity": "ISA 700 (Revised), IAASB publication page and HTTP 200 confirmed.",
+        "claim_compatibility": "Official publication page identity confirmed; currentness review remains required for later amendments and Philippine adoption.",
+        "human_review_status": "REVIEW_REQUIRED",
+        "replacement_final_url": "https://www.iaasb.org/publications/international-standard-auditing-isa-700-revised-forming-opinion-and-reporting-financial-statements",
+        "replacement_checked_at_utc": "2026-10-23T11:32:03Z",
+        "replacement_check_command": "python3 -B bin/check-question-source-urls.py --source-id <id> --write (bounded public HTTP(S) checker; successful run; no redirect for this result)"
+      }
+    ]
   },
   {
     "id": "iaasb-isa-570-going-concern",
@@ -1784,52 +1955,135 @@
     "title": "ISA 240 Revised — Auditor Responsibilities Relating to Fraud",
     "source_type": "OFFICIAL_GUIDANCE",
     "authority": "International Auditing and Assurance Standards Board",
-    "url": "https://www.iaasb.org/publications/isa-240-revised-auditors-responsibilities-relating-fraud-audit-financial-statements",
+    "url": "https://www.iaasb.org/publications/isa-240-revised-auditor-s-responsibilities-relating-fraud-audit-financial-statements",
     "publication_date": "2025-07-08",
-    "retrieved_at": "2026-09-29",
+    "retrieved_at": "2026-10-23",
     "version": "ISA 240 Revised; Philippine adoption subject to BOA effective date",
     "status": "official_reference",
     "confidence": "authoritative_reference",
-    "notes": "Source for fraud-risk and auditor-responsibility principles; adoption/effective-date claims remain version-sensitive."
+    "notes": "Source for fraud-risk and auditor-responsibility principles; adoption/effective-date claims remain version-sensitive. Publication summary confirms revised standard identity and states effective date for periods beginning on/after 15 December 2026; Philippine adoption and claim-specific support remain REVIEW_REQUIRED. URL repair does not imply independent academic approval.",
+    "url_change_history": [
+      {
+        "from_url": "https://www.iaasb.org/publications/isa-240-revised-auditors-responsibilities-relating-fraud-audit-financial-statements",
+        "to_url": "https://www.iaasb.org/publications/isa-240-revised-auditor-s-responsibilities-relating-fraud-audit-financial-statements",
+        "changed_at_utc": "2026-10-23T10:53:34Z",
+        "original_dead_link_evidence_at_utc": "2026-10-22T23:59:41Z",
+        "original_status": "CONFIRMED_404",
+        "replacement_http_status": 200,
+        "replacement_check": "bounded curl HEAD, no redirects followed, 8 second maximum request timeout",
+        "document_identity": "ISA 240 (Revised), IAASB publication page opened and HTTP 200 confirmed.",
+        "claim_compatibility": "Publication summary confirms revised standard identity and states effective date for periods beginning on/after 15 December 2026; Philippine adoption and claim-specific support remain REVIEW_REQUIRED.",
+        "human_review_status": "REVIEW_REQUIRED",
+        "replacement_final_url": "https://www.iaasb.org/publications/isa-240-revised-auditor-s-responsibilities-relating-fraud-audit-financial-statements",
+        "replacement_checked_at_utc": "2026-10-23T11:32:02Z",
+        "replacement_check_command": "python3 -B bin/check-question-source-urls.py --source-id <id> --write (bounded public HTTP(S) checker; successful run; no redirect for this result)"
+      }
+    ]
   },
   {
     "id": "iaasb-isa-265-control-deficiencies",
-    "title": "ISA 265 — Communicating Deficiencies in Internal Control",
+    "title": "IAASB 2026 Handbook, Volume 1 — ISA 265: Communicating Deficiencies in Internal Control",
     "source_type": "OFFICIAL_GUIDANCE",
     "authority": "International Auditing and Assurance Standards Board",
-    "url": "https://www.iaasb.org/publications/isa-265-communicating-deficiencies-internal-control-those-charged-governance-and-management",
-    "publication_date": null,
+    "url": "https://www.iaasb.org/publications/2026-handbook-international-quality-management-auditing-review-sustainability-and-other-assurance",
+    "publication_date": "2026-09-30",
     "retrieved_at": "2026-09-29",
-    "version": "current official publication page",
+    "version": "2026 Handbook, current edition; Volume 1 (ISAs)",
     "status": "official_reference",
     "confidence": "authoritative_reference",
-    "notes": "Professional-standard source for communicating significant control deficiencies."
+    "notes": "Official IAASB current-edition handbook product page; Volume 1 includes ISAs. Page metadata was checked, but the full ISA text requires purchase and was not reviewed. This record identifies ISA 265 and is not claim-level verification, Philippine adoption evidence, or approval of linked questions.",
+    "access_status": "METADATA_ONLY_FULL_TEXT_PURCHASE_REQUIRED",
+    "source_text_verified": false,
+    "human_review_status": "REVIEW_REQUIRED",
+    "url_change_history": [
+      {
+        "from_url": "https://www.iaasb.org/publications/isa-265-communicating-deficiencies-internal-control-those-charged-governance-and-management",
+        "to_url": "https://www.iaasb.org/publications/2026-handbook-international-quality-management-auditing-review-sustainability-and-other-assurance",
+        "changed_at_utc": "2026-10-23T00:00:00Z",
+        "original_dead_link_evidence_at_utc": "2026-10-22T23:59:41Z",
+        "original_status": "CONFIRMED_404",
+        "replacement_http_status": 200,
+        "replacement_check": "Official IAASB handbook landing page identified through IAASB Standards & Pronouncements; run the bounded source URL checker before relying on reachability.",
+        "document_identity": "2026 IAASB Handbook (current edition), Volume 1 includes International Standards on Auditing; page title and publication metadata identify the current edition. This is a handbook-level replacement for ISA 265, not full-text verification.",
+        "claim_compatibility": "The official handbook page establishes the current handbook/ISA volume only; this ISA claim, version-specific question fit, and Philippine adoption remain REVIEW_REQUIRED.",
+        "jurisdiction": "International standards; Philippines adoption not established by this page.",
+        "currentness_limit": "2026 handbook edition is current as of the page checked; specific later amendments and local adoption require separate review.",
+        "human_review_status": "REVIEW_REQUIRED",
+        "replacement_final_url": "https://www.iaasb.org/publications/2026-handbook-international-quality-management-auditing-review-sustainability-and-other-assurance",
+        "replacement_checked_at_utc": "2026-10-23T11:36:29Z",
+        "replacement_check_command": "python3 -B bin/check-question-source-urls.py --source-id <id> --write (bounded public HTTP(S) checker; successful run; no redirect for this result)"
+      }
+    ]
   },
   {
     "id": "iaasb-isa-230-documentation",
-    "title": "ISA 230 — Audit Documentation",
+    "title": "IAASB 2026 Handbook, Volume 1 — ISA 230: Audit Documentation",
     "source_type": "OFFICIAL_GUIDANCE",
     "authority": "International Auditing and Assurance Standards Board",
-    "url": "https://www.iaasb.org/publications/isa-230-audit-documentation",
-    "publication_date": null,
+    "url": "https://www.iaasb.org/publications/2026-handbook-international-quality-management-auditing-review-sustainability-and-other-assurance",
+    "publication_date": "2026-09-30",
     "retrieved_at": "2026-09-29",
-    "version": "current official publication page",
+    "version": "2026 Handbook, current edition; Volume 1 (ISAs)",
     "status": "official_reference",
     "confidence": "authoritative_reference",
-    "notes": "Professional-standard source for timely and sufficient documentation of audit work."
+    "notes": "Official IAASB current-edition handbook product page; Volume 1 includes ISAs. Page metadata was checked, but the full ISA text requires purchase and was not reviewed. This record identifies ISA 230 and is not claim-level verification, Philippine adoption evidence, or approval of linked questions.",
+    "access_status": "METADATA_ONLY_FULL_TEXT_PURCHASE_REQUIRED",
+    "source_text_verified": false,
+    "human_review_status": "REVIEW_REQUIRED",
+    "url_change_history": [
+      {
+        "from_url": "https://www.iaasb.org/publications/isa-230-audit-documentation",
+        "to_url": "https://www.iaasb.org/publications/2026-handbook-international-quality-management-auditing-review-sustainability-and-other-assurance",
+        "changed_at_utc": "2026-10-23T00:00:00Z",
+        "original_dead_link_evidence_at_utc": "2026-10-22T23:59:41Z",
+        "original_status": "CONFIRMED_404",
+        "replacement_http_status": 200,
+        "replacement_check": "Official IAASB handbook landing page identified through IAASB Standards & Pronouncements; run the bounded source URL checker before relying on reachability.",
+        "document_identity": "2026 IAASB Handbook (current edition), Volume 1 includes International Standards on Auditing; page title and publication metadata identify the current edition. This is a handbook-level replacement for ISA 230, not full-text verification.",
+        "claim_compatibility": "The official handbook page establishes the current handbook/ISA volume only; this ISA claim, version-specific question fit, and Philippine adoption remain REVIEW_REQUIRED.",
+        "jurisdiction": "International standards; Philippines adoption not established by this page.",
+        "currentness_limit": "2026 handbook edition is current as of the page checked; specific later amendments and local adoption require separate review.",
+        "human_review_status": "REVIEW_REQUIRED",
+        "replacement_final_url": "https://www.iaasb.org/publications/2026-handbook-international-quality-management-auditing-review-sustainability-and-other-assurance",
+        "replacement_checked_at_utc": "2026-10-23T11:36:29Z",
+        "replacement_check_command": "python3 -B bin/check-question-source-urls.py --source-id <id> --write (bounded public HTTP(S) checker; successful run; no redirect for this result)"
+      }
+    ]
   },
   {
     "id": "iaasb-isa-450-misstatements",
-    "title": "ISA 450 — Evaluation of Misstatements Identified during the Audit",
+    "title": "IAASB 2026 Handbook, Volume 1 — ISA 450: Evaluation of Misstatements Identified during the Audit",
     "source_type": "OFFICIAL_GUIDANCE",
     "authority": "International Auditing and Assurance Standards Board",
-    "url": "https://www.iaasb.org/publications/isa-450-evaluation-misstatements-identified-during-audit",
-    "publication_date": null,
+    "url": "https://www.iaasb.org/publications/2026-handbook-international-quality-management-auditing-review-sustainability-and-other-assurance",
+    "publication_date": "2026-09-30",
     "retrieved_at": "2026-09-29",
-    "version": "current official publication page",
+    "version": "2026 Handbook, current edition; Volume 1 (ISAs)",
     "status": "official_reference",
     "confidence": "authoritative_reference",
-    "notes": "Professional-standard source for accumulating, evaluating, and communicating misstatements."
+    "notes": "Official IAASB current-edition handbook product page; Volume 1 includes ISAs. Page metadata was checked, but the full ISA text requires purchase and was not reviewed. This record identifies ISA 450 and is not claim-level verification, Philippine adoption evidence, or approval of linked questions.",
+    "access_status": "METADATA_ONLY_FULL_TEXT_PURCHASE_REQUIRED",
+    "source_text_verified": false,
+    "human_review_status": "REVIEW_REQUIRED",
+    "url_change_history": [
+      {
+        "from_url": "https://www.iaasb.org/publications/isa-450-evaluation-misstatements-identified-during-audit",
+        "to_url": "https://www.iaasb.org/publications/2026-handbook-international-quality-management-auditing-review-sustainability-and-other-assurance",
+        "changed_at_utc": "2026-10-23T00:00:00Z",
+        "original_dead_link_evidence_at_utc": "2026-10-22T23:59:41Z",
+        "original_status": "CONFIRMED_404",
+        "replacement_http_status": 200,
+        "replacement_check": "Official IAASB handbook landing page identified through IAASB Standards & Pronouncements; run the bounded source URL checker before relying on reachability.",
+        "document_identity": "2026 IAASB Handbook (current edition), Volume 1 includes International Standards on Auditing; page title and publication metadata identify the current edition. This is a handbook-level replacement for ISA 450, not full-text verification.",
+        "claim_compatibility": "The official handbook page establishes the current handbook/ISA volume only; this ISA claim, version-specific question fit, and Philippine adoption remain REVIEW_REQUIRED.",
+        "jurisdiction": "International standards; Philippines adoption not established by this page.",
+        "currentness_limit": "2026 handbook edition is current as of the page checked; specific later amendments and local adoption require separate review.",
+        "human_review_status": "REVIEW_REQUIRED",
+        "replacement_final_url": "https://www.iaasb.org/publications/2026-handbook-international-quality-management-auditing-review-sustainability-and-other-assurance",
+        "replacement_checked_at_utc": "2026-10-23T11:36:29Z",
+        "replacement_check_command": "python3 -B bin/check-question-source-urls.py --source-id <id> --write (bounded public HTTP(S) checker; successful run; no redirect for this result)"
+      }
+    ]
   },
   {
     "id": "prc-criminology-board-page",
@@ -2340,15 +2594,32 @@
     "title": "PRC Guidelines on the Implementation of the PRC-CHED JMC on LEPT Alignment",
     "source_type": "OFFICIAL_GUIDANCE",
     "authority": "Professional Regulation Commission",
-    "url": "https://www.prc.gov.ph/article/guidelines-implementation-prc-ched-jmc-alignment-teacher-education-curriculum",
+    "url": "https://prc.gov.ph/article/guidelines-implementation-prc-ched-jmc-alignment-lept-teacher-education-curriculum",
     "publication_date": "2025-07-25",
-    "retrieved_at": "2026-09-29",
+    "retrieved_at": "2026-10-23",
     "version": "September 2025 and succeeding LEPT schedules",
     "status": "verified_reference",
     "confidence": "authoritative_reference",
     "source_role": "REGULATORY_SOURCE",
     "volatility": "REGULATORY_CURRENT",
-    "notes": "Live-checked current transition table separating candidate qualification/major from the exam components and naming the current specialization paths."
+    "notes": "Live-checked current transition table separating candidate qualification/major from the exam components and naming the current specialization paths. Official guidance identity and posted applicability wording confirmed; candidate-specific qualification remains limited to the published categories and schedules. URL repair does not imply independent academic approval.",
+    "url_change_history": [
+      {
+        "from_url": "https://www.prc.gov.ph/article/guidelines-implementation-prc-ched-jmc-alignment-teacher-education-curriculum",
+        "to_url": "https://prc.gov.ph/article/guidelines-implementation-prc-ched-jmc-alignment-lept-teacher-education-curriculum",
+        "changed_at_utc": "2026-10-23T10:53:34Z",
+        "original_dead_link_evidence_at_utc": "2026-10-22T23:59:41Z",
+        "original_status": "CONFIRMED_404",
+        "replacement_http_status": 200,
+        "replacement_check": "bounded curl HEAD, no redirects followed, 8 second maximum request timeout",
+        "document_identity": "PRC Guidelines on LEPT alignment; current official article opened, dated 25 July 2025, and HTTP 200 confirmed.",
+        "claim_compatibility": "Official guidance identity and posted applicability wording confirmed; candidate-specific qualification remains limited to the published categories and schedules.",
+        "human_review_status": "REVIEW_REQUIRED",
+        "replacement_final_url": "https://prc.gov.ph/article/guidelines-implementation-prc-ched-jmc-alignment-lept-teacher-education-curriculum",
+        "replacement_checked_at_utc": "2026-10-23T11:32:02Z",
+        "replacement_check_command": "python3 -B bin/check-question-source-urls.py --source-id <id> --write (bounded public HTTP(S) checker; successful run; no redirect for this result)"
+      }
+    ]
   },
   {
     "id": "prc-lept-program-march-2026",
@@ -4529,5 +4800,23 @@
     "source_role": "INSTRUCTIONAL_SOURCE",
     "volatility": "PERIODICALLY_UPDATED",
     "notes": "Full text supports taking suicide talk and warning signs seriously, asking directly about suicidal thoughts, recognizing plans/means and giving away possessions as warning signs, staying with a person who says they intend suicide, not promising secrecy, collaborative safety planning/follow-up, and safe storage of lethal means. U.S. public guidance; U.S. emergency numbers and service pathways are excluded and no Philippine legal or clinical protocol is inferred."
+  },
+  {
+    "id": "bir-ease-of-paying-taxes-act",
+    "title": "Republic Act No. 11976: Ease of Paying Taxes Act",
+    "source_type": "PRIMARY_LAW",
+    "authority": "Republic of the Philippines; Lawphil reproduction of Republic Act No. 11976",
+    "url": "https://lawphil.net/statutes/repacts/ra2024/ra_11976_2024.html",
+    "publication_date": "2024-01-05",
+    "retrieved_at": "2026-10-23",
+    "version": "Republic Act No. 11976",
+    "status": "verified_reference",
+    "confidence": "authoritative_reference",
+    "source_role": "STATUTORY_SOURCE",
+    "volatility": "STATUTORY_VERSIONED",
+    "notes": "Primary statutory text identifying the Ease of Paying Taxes Act. This is distinct from philippines-ease-of-paying-taxes-act, which registers BIR Revenue Regulations No. 7-2024. Q1925–Q1927 reference this Act directly; whether its text supports each item-level tax conclusion remains REVIEW_REQUIRED.",
+    "access_status": "FULL_TEXT_ACCESSIBLE",
+    "source_text_verified": true,
+    "human_review_status": "REVIEW_REQUIRED"
   }
 ]

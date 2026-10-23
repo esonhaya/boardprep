@@ -9,7 +9,7 @@ final class QuestionQualitySeveritySummary
     /** @param array<int,object> $issues */
     public static function build(array $issues): array
     {
-        $summary = ['error' => 0, 'warning' => 0, 'info' => 0];
+        $summary = ['error' => 0, 'warning' => 0, 'review' => 0, 'info' => 0];
 
         foreach ($issues as $issue) {
             $severity = strtolower((string) ($issue->severity ?? 'info'));

@@ -15,6 +15,8 @@ use App\Services\RepositoryHealth\DTO\RepositoryStatistics;
 use App\Services\RepositoryHealth\CivilService\CivilServiceCoverageModel;
 use App\Services\RepositoryHealth\Readiness\SourceReadinessService;
 use App\Services\RepositoryHealth\Readiness\ReadinessClosureService;
+use App\Services\RepositoryHealth\SourceUrlHealthSnapshot;
+use App\Services\Question\Quality\StudyRelationshipSummary;
 use App\Services\Shared\ContentIntegrityService;
 use App\Services\Shared\QuestionCoverageService;
 
@@ -377,6 +379,23 @@ final class RepositoryHealthEngine
         $summary['source_readiness'] = $readiness['readiness_summary'];
         $summary['source_readiness_by_board'] = $readiness['readiness_by_board'];
         $summary['currentness'] = self::currentnessSummary($snapshot['questions']);
+        $summary['study_relationships'] = StudyRelationshipSummary::build(
+            (array) ($collections['questions'] ?? []),
+            (array) ($collections['study-question-links'] ?? []),
+            (array) ($collections['study-lessons'] ?? [])
+        );
+        $questionRows = (array) ($collections['questions'] ?? []);
+        $urlAudit = SourceUrlHealthSnapshot::inspect(
+            (array) ($collections['source-url-health'] ?? []),
+            (array) ($collections['sources'] ?? []),
+            null,
+            SourceUrlHealthSnapshot::affectedQuestionsBySource(
+                $questionRows,
+                (array) ($collections['study-question-links'] ?? []),
+                (array) ($collections['study-materials'] ?? [])
+            )
+        );
+        $summary['source_url_audit'] = ['status' => $urlAudit['status']] + $urlAudit['summary'];
 
         $report = new HealthReport();
         $report->issues = $run('shared_issue_sorting', static fn(): array => self::sortIssues($issues));
@@ -646,12 +665,53 @@ final class RepositoryHealthEngine
     {
         $materials = self::indexed($collections['study-materials'] ?? []);
         $sources = self::indexed($collections['sources'] ?? []);
+        $affectedQuestionsBySource = SourceUrlHealthSnapshot::affectedQuestionsBySource(
+            (array) ($collections['questions'] ?? []),
+            (array) ($collections['study-question-links'] ?? []),
+            array_values($materials)
+        );
         foreach ((array) ($collections['sources'] ?? []) as $source) {
             if (!is_array($source)) {
                 continue;
             }
-            if (trim((string) ($source['id'] ?? '')) === '' || trim((string) ($source['title'] ?? '')) === '' || trim((string) ($source['authority'] ?? '')) === '') {
+            $sourceId = trim((string) ($source['id'] ?? ''));
+            if ($sourceId === '' || trim((string) ($source['title'] ?? '')) === '' || trim((string) ($source['authority'] ?? '')) === '') {
                 self::issue($issues, 'FAIL', 'SOURCE_STUDY', 'INVALID_SOURCE_RECORD', (string) ($source['id'] ?? ''), $questionById, 'Source record is missing a deterministic required field.', 'Repair the source record before relying on its study chain.', []);
+            }
+            $accessStatus = strtoupper(trim((string) ($source['access_status'] ?? '')));
+            if ($sourceId !== '' && (str_starts_with($accessStatus, 'METADATA_ONLY') || $accessStatus === 'FULL_TEXT_PURCHASE_REQUIRED')) {
+                $questionIds = array_values(array_map('strval', $affectedQuestionsBySource[$sourceId] ?? []));
+                self::issue(
+                    $issues,
+                    'WARN',
+                    'SOURCE_STUDY',
+                    'SOURCE_TEXT_ACCESS_LIMITED',
+                    $sourceId,
+                    $questionById,
+                    'The registered source page is reachable, but its full source text is not available from the recorded access path.',
+                    'Treat this as an access limitation, not a dead link; verify the claim from an accessible authoritative text before academic approval.',
+                    [
+                        'entity_type' => 'source',
+                        'source_id' => $sourceId,
+                        'access_status' => $accessStatus,
+                        'source_text_verified' => (bool) ($source['source_text_verified'] ?? false),
+                        'url' => (string) ($source['url'] ?? ''),
+                        'affected_question_count' => count($questionIds),
+                        'affected_question_ids' => $questionIds,
+                        'human_review_status' => (string) ($source['human_review_status'] ?? 'REVIEW_REQUIRED'),
+                    ]
+                );
+            }
+        }
+        foreach ((array) ($collections['questions'] ?? []) as $question) {
+            if (!is_array($question)) continue;
+            $questionId = self::id($question);
+            if ($questionId === '') continue;
+            foreach ((array) ($question['source_ids'] ?? []) as $sourceId) {
+                if (!is_scalar($sourceId) || trim((string) $sourceId) === '') continue;
+                $sourceId = trim((string) $sourceId);
+                if (isset($sources[$sourceId])) continue;
+                self::issue($issues, 'FAIL', 'SOURCE_STUDY', 'INVALID_QUESTION_SOURCE_REFERENCE', $questionId, $questionById, 'Canonical question references a source ID that is absent from the source registry.', 'Register the exact cited source or correct the source ID after confirming document identity.', ['source_id' => $sourceId, 'relationship_type' => 'canonical_question_source']);
             }
         }
         foreach ($materials as $materialId => $material) {
@@ -684,6 +744,15 @@ final class RepositoryHealthEngine
             }
         }
         foreach ((array) ($integrity['warnings']['standalone_study_materials'] ?? []) as $materialId) {
+            $material = $materials[(string) $materialId] ?? null;
+            $materialSources = array_values(array_filter((array) ($material['source_ids'] ?? []), static fn(mixed $id): bool => is_scalar($id) && trim((string) $id) !== ''));
+            $boardScopes = array_values(array_filter((array) ($material['exams'] ?? []), static fn(mixed $board): bool => is_scalar($board) && trim((string) $board) !== ''));
+            $sourceChainValid = $materialSources !== [];
+            foreach ($materialSources as $sourceId) if (!isset($sources[(string) $sourceId])) $sourceChainValid = false;
+            if (is_array($material) && ($material['status'] ?? 'published') === 'published' && $boardScopes !== [] && $sourceChainValid) {
+                self::issue($issues, 'REVIEW', 'SOURCE_STUDY', 'STANDALONE_MATERIAL_DISCOVERABLE_REVIEW', (string) $materialId, $questionById, 'Published study material is discoverable for a declared board and has a registered source chain, but authorial standalone intent is not recorded; no question mapping is implied.', 'Confirm whether this should remain a standalone library resource or receive separate, evidence-based question relationships.', ['entity_type' => 'study_material', 'board_scopes' => $boardScopes, 'source_ids' => array_values(array_map('strval', $materialSources)), 'question_link_count' => 0]);
+                continue;
+            }
             self::issue($issues, 'REVIEW', 'SOURCE_STUDY', 'ORPHAN_STUDY_MATERIAL', (string) $materialId, $questionById, 'Study material is not linked to a question; editorial intent is not deterministic.', 'Review whether the material should remain standalone.', []);
         }
         foreach ((array) ($collections['content-fit-audits'] ?? []) as $audit) {
@@ -695,6 +764,31 @@ final class RepositoryHealthEngine
                 $id = (string) ($audit['question_id'] ?? '');
                 self::issue($issues, 'REVIEW', 'SOURCE_STUDY', 'SOURCE_SEMANTIC_FIT_REVIEW', $id, $questionById, 'Stored source/topic fit requires editorial review.', 'Review source, study material, and question fit.', ['fit_classification' => $fit]);
             }
+        }
+
+        $questionRows = (array) ($collections['questions'] ?? []);
+        $urlAudit = SourceUrlHealthSnapshot::inspect(
+            (array) ($collections['source-url-health'] ?? []),
+            (array) ($collections['sources'] ?? []),
+            null,
+            SourceUrlHealthSnapshot::affectedQuestionsBySource(
+                $questionRows,
+                (array) ($collections['study-question-links'] ?? []),
+                (array) ($collections['study-materials'] ?? [])
+            )
+        );
+        foreach ($urlAudit['findings'] as $finding) {
+            self::issue(
+                $issues,
+                (string) ($finding['status'] ?? 'REVIEW'),
+                'SOURCE_STUDY',
+                (string) ($finding['code'] ?? 'SOURCE_URL_AUDIT_UNAVAILABLE'),
+                (string) ($finding['entity_id'] ?? 'latest'),
+                $questionById,
+                (string) ($finding['message'] ?? 'Source URL audit evidence requires review.'),
+                'Refresh and validate the bounded source URL evidence snapshot; the dashboard does not issue network requests.',
+                (array) ($finding['evidence'] ?? ['entity_type' => 'repository_record'])
+            );
         }
     }
 
