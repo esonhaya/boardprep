@@ -5,9 +5,11 @@ Continuation checkpoint for `batch-707-alpha-finish-line`. The current applicati
 ## Revision and preservation
 
 HEAD_BEFORE=`b823e785ab1b0f5f75546161ebbaf45555638d77`
+HEAD_AFTER=`963606542af3984a1ba260e2f5b55a0b0b1c5232` (last verified application commit; later commits contain reports only)
 HEAD_AFTER_IMPLEMENTATION=`963606542af3984a1ba260e2f5b55a0b0b1c5232`
 BRANCH=`batch-707-alpha-finish-line`
 WORKTREE=`/data/data/com.termux/files/home/boardprep-batch-706`
+FREE_STORAGE=`61,059,072` bytes at Doctor temp path (`59,624 KiB` filesystem availability at the same measurement)
 REPORT_ONLY_COMMIT=separate documentation commit after implementation; the final tip is available from Git history.
 COMMITS=`1afd50095ff211634b160b7e96e2e28e896f15e3`; `963606542af3984a1ba260e2f5b55a0b0b1c5232`; final reports committed separately.
 TESTED_SHA=`963606542af3984a1ba260e2f5b55a0b0b1c5232` for the final dashboard/workflow evidence; core source, mapping, and selection regressions ran at `1afd50095ff211634b160b7e96e2e28e896f15e3`.
