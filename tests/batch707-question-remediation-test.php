@@ -119,12 +119,16 @@ foreach (['1883', '1919'] as $id) {
 $urlAudit = SourceUrlHealthSnapshot::inspect(
     $urlSnapshots,
     $sources,
-    new DateTimeImmutable('2026-10-23T12:00:00Z'),
+    new DateTimeImmutable('2026-10-23T12:10:00Z'),
     SourceUrlHealthSnapshot::affectedQuestionsBySource($questions, $links, $materials)
 );
 if (($urlAudit['status'] ?? '') !== 'CURRENT_PARTIAL') $fail('Persisted URL audit should be valid and explicitly partial.');
 $urlStatus = [];
-foreach (($urlSnapshots[0]['records'] ?? []) as $record) $urlStatus[(string) ($record['source_id'] ?? '')] = (string) ($record['status'] ?? '');
+$urlRecordById = [];
+foreach (($urlSnapshots[0]['records'] ?? []) as $record) {
+    $urlStatus[(string) ($record['source_id'] ?? '')] = (string) ($record['status'] ?? '');
+    $urlRecordById[(string) ($record['source_id'] ?? '')] = $record;
+}
 $replacementExpected = [
     'philippines-negotiable-instruments-law' => 'https://lawphil.net/statutes/acts/act_2031_1911.html',
     'ra-9173-philippine-nursing-act' => 'https://lawphil.net/statutes/repacts/2002/ra_9173_2002.html',
@@ -142,7 +146,8 @@ $replacementExpected = [
     'iaasb-isa-530-audit-sampling' => 'https://www.iaasb.org/publications/isa-530-audit-sampling',
 ];
 foreach ($replacementExpected as $id => $oldUrl) {
-    if (($urlStatus[$id] ?? '') !== 'HTTP_REACHABLE') $fail('Replacement URL was not freshly checked as reachable: ' . $id);
+    $latestExpected = $id === 'ifrs-ias-21-foreign-exchange' ? 'DNS_ERROR' : 'HTTP_REACHABLE';
+    if (($urlStatus[$id] ?? '') !== $latestExpected) $fail('Latest replacement URL evidence was not classified accurately: ' . $id);
     $history = (array) ($sourceById[$id]['url_change_history'] ?? []);
     $last = null;
     foreach (array_reverse($history) as $entry) if (($entry['from_url'] ?? '') === $oldUrl) { $last = $entry; break; }
@@ -154,6 +159,10 @@ foreach ($replacementExpected as $id => $oldUrl) {
         || ($last['human_review_status'] ?? '') !== 'REVIEW_REQUIRED') {
         $fail('Source URL replacement provenance or review hold is incomplete: ' . $id);
     }
+}
+if (($urlRecordById['ifrs-ias-21-foreign-exchange']['http_status'] ?? null) !== null
+    || !str_contains((string) ($urlRecordById['ifrs-ias-21-foreign-exchange']['error'] ?? ''), 'inconclusive')) {
+    $fail('The latest IFRS DNS result must remain inconclusive, not be converted to an HTTP 404.');
 }
 $handbookIds = ['iaasb-isa-230-documentation', 'iaasb-isa-265-control-deficiencies', 'iaasb-isa-450-misstatements', 'iaasb-isa-500-audit-evidence', 'iaasb-isa-520-analytical-procedures', 'iaasb-isa-530-audit-sampling'];
 foreach ($handbookIds as $id) {
@@ -283,6 +292,7 @@ echo 'Q6403_CURRENT_KEY_HELD=1' . PHP_EOL;
 echo 'Q6403_NEW_PRACTICE_EXCLUDED=1' . PHP_EOL;
 echo 'DIRECT_INVALID_SOURCE_IDS=' . count($invalidDirect) . PHP_EOL;
 echo 'URL_REPLACEMENTS_VERIFIED=' . count($replacementExpected) . PHP_EOL;
+echo 'LATEST_IFRS_STATUS=DNS_ERROR_INCONCLUSIVE' . PHP_EOL;
 echo 'Q6403_BOARD_EXCLUSION_SCOPE=CIVIL_SERVICE_ONLY' . PHP_EOL;
 echo 'REMAINING_REFERENCED_404S=0' . PHP_EOL;
 echo 'URL_SNAPSHOT_STATUS=' . $urlAudit['status'] . PHP_EOL;

@@ -240,17 +240,22 @@ final class SourceUrlHealthSnapshot
     /** @param array<string,mixed> $source */
     private static function recordEvidence(array $source, array $questionIds): array
     {
-        return [
+        $evidence = [
             'entity_type' => 'source',
             'source_id' => (string) ($source['source_id'] ?? ''),
             'url' => (string) ($source['url'] ?? ''),
             'http_status' => $source['http_status'] ?? null,
             'final_url' => $source['final_url'] ?? ($source['url'] ?? null),
             'checked_at_utc' => (string) ($source['checked_at_utc'] ?? ''),
+            'check_status' => strtoupper((string) ($source['status'] ?? '')),
             'evidence_ref' => (string) ($source['evidence_ref'] ?? 'storage/source-url-health.json'),
             'affected_question_count' => count($questionIds),
             'affected_question_ids' => $questionIds,
         ];
+        if (trim((string) ($source['error'] ?? '')) !== '') {
+            $evidence['error'] = (string) $source['error'];
+        }
+        return $evidence;
     }
 
     private static function urlSourceCount(array $sources): int

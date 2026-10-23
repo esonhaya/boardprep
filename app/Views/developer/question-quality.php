@@ -106,6 +106,8 @@ $uncheckedSources = $urlAuditSummary['unchecked_source_count'] ?? null;
                             'source_text_verified' => 'Full source text verified',
                             'human_review_status' => 'Independent review status',
                             'http_status' => 'HTTP status',
+                            'check_status' => 'URL check result',
+                            'error' => 'Check detail',
                             'checked_at_utc' => 'URL checked',
                         ] as $field => $label): ?>
                             <?php if (array_key_exists($field, $evidence)): ?>

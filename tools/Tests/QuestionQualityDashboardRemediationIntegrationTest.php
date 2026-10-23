@@ -34,7 +34,7 @@ $assertCount('INVALID_QUESTION_SOURCE_REFERENCE', 0);
 $assertCount('SOURCE_URL_CONFIRMED_404', 3);
 $assertCount('SOURCE_URL_ACCESS_RESTRICTED', 45);
 $assertCount('SOURCE_TEXT_ACCESS_LIMITED', 6);
-$assertCount('SOURCE_URL_CHECK_INCONCLUSIVE', 12);
+$assertCount('SOURCE_URL_CHECK_INCONCLUSIVE', 13);
 $assertCount('SOURCE_URL_AUDIT_PARTIAL', 1);
 
 $deadIds = [];
@@ -43,6 +43,16 @@ foreach ($findingsByCode['SOURCE_URL_CONFIRMED_404'] ?? [] as $issue) {
     if (($issue->status ?? '') !== 'REVIEW' || (int) ($issue->evidence['affected_question_count'] ?? -1) !== 0) {
         $fail('An unreferenced confirmed-404 record was not classified as zero-impact review evidence.');
     }
+}
+
+$ifrsFinding = null;
+foreach ($findingsByCode['SOURCE_URL_CHECK_INCONCLUSIVE'] ?? [] as $issue) {
+    if (($issue->entityId ?? '') === 'ifrs-ias-21-foreign-exchange') $ifrsFinding = $issue;
+}
+if (!is_object($ifrsFinding)
+    || ($ifrsFinding->evidence['check_status'] ?? '') !== 'DNS_ERROR'
+    || ($ifrsFinding->evidence['http_status'] ?? null) !== null) {
+    $fail('The latest IFRS DNS observation was not retained as inconclusive, distinct from HTTP 404.');
 }
 sort($deadIds);
 if ($deadIds !== ['aasc-psa-500-currentness-review', 'deped-matatag-general-education-framework', 'prc-lept-program-march-2026']) {
@@ -75,7 +85,7 @@ if (($relationships['exact_section_link_rows'] ?? 0) !== 1049
     $fail('Exact mapping totals or unknown academic review status were conflated.');
 }
 $severity = (array) ($result['severitySummary'] ?? []);
-if (($severity['error'] ?? -1) !== 0 || ($severity['warning'] ?? -1) !== 798 || ($severity['review'] ?? -1) !== 17) {
+if (($severity['error'] ?? -1) !== 0 || ($severity['warning'] ?? -1) !== 798 || ($severity['review'] ?? -1) !== 18) {
     $fail('Severity totals do not distinguish unreferenced dead sources from referenced broken citations.');
 }
 
@@ -91,6 +101,7 @@ foreach ([
     'Independent review status: <code>REVIEW_REQUIRED</code>',
     'Affects 0 question(s): none currently linked',
     'Exact links with unknown or unreviewed status',
+    'URL check result: <code>DNS_ERROR</code>',
 ] as $needle) {
     if (!str_contains($visibleHtml, $needle)) $fail('Rendered dashboard is missing an explicit state: ' . $needle);
 }
@@ -105,6 +116,7 @@ echo 'QUESTION_QUALITY_DASHBOARD_REMEDIATION_PASS=1' . PHP_EOL;
 echo 'CONFIRMED_404_REVIEW=' . count($deadIds) . PHP_EOL;
 echo 'REQUIRED_BROKEN_SOURCE_ERRORS=0' . PHP_EOL;
 echo 'SOURCE_TEXT_ACCESS_WARNINGS=6' . PHP_EOL;
+echo 'INCONCLUSIVE_URL_CHECKS=13' . PHP_EOL;
 echo 'URL_AUDIT_COVERAGE=75/319_CURRENT_PARTIAL' . PHP_EOL;
 echo 'EXACT_LINKS=1049_PENDING_OR_UNKNOWN=1049_APPROVED=0' . PHP_EOL;
 echo 'RENDERED_DASHBOARD_AND_PROTECTED_HASHES=PASS' . PHP_EOL;
