@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "report_type": "BATCH_709_VALIDATION_EVIDENCE",
+  "branch": "batch-709-alpha-acceptance",
+  "initial_head": "3df950c11a89b5e4a45ca065a850cc916046590d",
+  "implementation_tested_sha": "b2087daf6bbbb6f9aa11ed4999156b0424942648",
+  "evidence": [
+    {
+      "command": "npm run test:browser:contract",
+      "exit_code": 0,
+      "tested_sha": "3df950c11a89b5e4a45ca065a850cc916046590d",
+      "status": "NEWLY_TESTED_PASS",
+      "scope": "Pinned Linux browser workflow contract, evidence provenance, Android preflight rejection, server lifecycle and shutdown.",
+      "result": "5 tests passed; this does not launch a browser."
+    },
+    {
+      "command": "npm run test:browser:fixture",
+      "exit_code": 0,
+      "tested_sha": "3df950c11a89b5e4a45ca065a850cc916046590d",
+      "status": "NEWLY_TESTED_PASS",
+      "scope": "Canonical questions retained while learner collections are replaced with empty private fixture data."
+    },
+    {
+      "command": "php -d memory_limit=1G tools/Tests/TenBoardLearnerJourneyHttpTest.php",
+      "exit_code": 0,
+      "tested_sha": "3df950c11a89b5e4a45ca065a850cc916046590d",
+      "status": "NEWLY_TESTED_PASS",
+      "scope": "Production HTTP learner journey for LET, CSE, CLE, NLE, PLE, CE, CPA, ME, REE and ARCH; answer, scoring, rationale, study return, history, progress, retry, stale recovery and persistence."
+    },
+    {
+      "command": "php -d memory_limit=1G tools/Tests/Batch708Q6403QuarantineTest.php",
+      "exit_code": 0,
+      "tested_sha": "3df950c11a89b5e4a45ca065a850cc916046590d",
+      "status": "NEWLY_TESTED_PASS",
+      "scope": "Normal subject, random and blueprint shortage/recovery selection exclude Q6403; valid CSE clerical practice remains; recorded key scoring is unchanged."
+    },
+    {
+      "command": "php -d memory_limit=1G tools/Tests/DeveloperToolsTest.php",
+      "exit_code": 0,
+      "tested_sha": "3df950c11a89b5e4a45ca065a850cc916046590d",
+      "status": "NEWLY_TESTED_PASS",
+      "scope": "Developer controller/view simulation; 291 assertions. In-process, not browser acceptance."
+    },
+    {
+      "command": "php -d memory_limit=1G tools/Tests/QuestionQualityDashboardRemediationIntegrationTest.php",
+      "exit_code": 0,
+      "tested_sha": "3df950c11a89b5e4a45ca065a850cc916046590d",
+      "status": "NEWLY_TESTED_PASS",
+      "scope": "Persisted URL status, dashboard issue classes/counts, exact-link review states, Q6403 hold, rendered dashboard and protected hashes."
+    },
+    {
+      "command": "php -d memory_limit=1G tools/Tests/QuestionQualityDashboardContractTest.php",
+      "exit_code": 0,
+      "tested_sha": "3df950c11a89b5e4a45ca065a850cc916046590d",
+      "status": "NEWLY_TESTED_PASS",
+      "scope": "Question quality dashboard summary contract."
+    },
+    {
+      "command": "php -d memory_limit=1G tools/Tests/QuestionEditorEligibilityTest.php",
+      "exit_code": 0,
+      "tested_sha": "3df950c11a89b5e4a45ca065a850cc916046590d",
+      "status": "NEWLY_TESTED_PASS",
+      "scope": "Isolated testing storage; board eligibility view/share/placement/unshare, last-board protection, validation and independent duplicate drafts."
+    },
+    {
+      "command": "php -d memory_limit=1G tools/Tests/QuestionPoolFilterTest.php",
+      "exit_code": 0,
+      "tested_sha": "3df950c11a89b5e4a45ca065a850cc916046590d",
+      "status": "NEWLY_TESTED_PASS",
+      "scope": "Canonical placement, explicit cross-board eligibility and exclusion behavior."
+    },
+    {
+      "command": "php -d memory_limit=1G tools/Tests/QuestionScoreEvaluatorTest.php",
+      "exit_code": 0,
+      "tested_sha": "3df950c11a89b5e4a45ca065a850cc916046590d",
+      "status": "NEWLY_TESTED_PASS",
+      "scope": "Question score evaluator behavior."
+    },
+    {
+      "command": "php -d memory_limit=1G tools/Tests/MultiExamEligibilityTest.php",
+      "exit_code": 0,
+      "tested_sha": "3df950c11a89b5e4a45ca065a850cc916046590d",
+      "status": "NEWLY_TESTED_PASS",
+      "scope": "Multi-board identity and eligibility, Civil Service selection, collision-board isolation and indexed parity."
+    },
+    {
+      "command": "php -d memory_limit=1G tools/Tests/QuestionEditorPaginationHttpTest.php",
+      "exit_code": 255,
+      "tested_sha": "3df950c11a89b5e4a45ca065a850cc916046590d",
+      "status": "NEWLY_TESTED_FAIL_DIAGNOSED",
+      "scope": "Initial invocation inherited APP_ENV=production and received 404 because developer routes are intentionally not registered in production. The test preserved its isolated fixture at /data/data/com.termux/files/usr/tmp/boardprep-simulator-27775-ac41ebef44146d04."
+    },
+    {
+      "command": "APP_ENV=testing php -d memory_limit=1G tools/Tests/QuestionEditorPaginationHttpTest.php",
+      "exit_code": 0,
+      "tested_sha": "3df950c11a89b5e4a45ca065a850cc916046590d",
+      "status": "NEWLY_TESTED_PASS",
+      "scope": "Confirmed the route/test assertion works in its intended isolated developer environment."
+    },
+    {
+      "command": "php -l tools/Tests/QuestionEditorPaginationHttpTest.php",
+      "exit_code": 0,
+      "tested_sha": "b2087daf6bbbb6f9aa11ed4999156b0424942648",
+      "status": "NEWLY_TESTED_PASS",
+      "scope": "PHP syntax check for the test-environment correction."
+    },
+    {
+      "command": "php -d memory_limit=1G tools/Tests/QuestionEditorPaginationHttpTest.php",
+      "exit_code": 0,
+      "tested_sha": "b2087daf6bbbb6f9aa11ed4999156b0424942648",
+      "status": "NEWLY_TESTED_PASS",
+      "scope": "After test-only fix, the normal standalone command verifies 50-item bounded pagination, distinct pages, exact ID, Q6403 hold and source status."
+    },
+    {
+      "command": "APP_ENV=testing DB_DRIVER=json APP_STORAGE_PATH=/data/data/com.termux/files/home/boardprep-batch-706/storage php tools/Tests/QuestionQueryEligibilityFilterTest.php",
+      "exit_code": 0,
+      "tested_sha": "da896f545984c0cf25425006a3163f72036c78cd",
+      "status": "REUSED_VALID_EVIDENCE",
+      "scope": "Exact/text search, board/subject eligibility filters, combined query behavior and canonical versus filtered totals; same unchanged application boundary.",
+      "evidence_reference": "docs/reports/batch-708-validation-evidence.json"
+    },
+    {
+      "command": "APP_ENV=production APP_DEBUG=false DB_DRIVER=json APP_STORAGE_PATH=/data/data/com.termux/files/home/boardprep-batch-706/storage php -d memory_limit=1G tools/doctor.php --release --json",
+      "exit_code": 0,
+      "tested_sha": "da896f545984c0cf25425006a3163f72036c78cd",
+      "status": "REUSED_VALID_EVIDENCE",
+      "scope": "Full Doctor release gate PASS; 25 domains PASS, source traceability REVIEW, P0=0, P1=0, RELEASE_READY_WITH_NONBLOCKING_DEBT. Reused because only test setup and reports changed after this application/content boundary."
+    },
+    {
+      "command": "node tools/browser-preflight.cjs",
+      "exit_code": 2,
+      "tested_sha": "da896f545984c0cf25425006a3163f72036c78cd",
+      "status": "BLOCKED",
+      "scope": "Previously executed on the same Termux environment; unsupported Android/Termux browser runtime. No browser was launched."
+    },
+    {
+      "command": "Existing GitHub Actions Browser acceptance and Release gates workflows",
+      "exit_code": null,
+      "tested_sha": null,
+      "status": "PREPARED_NOT_EXECUTED",
+      "scope": "Both workflows retain workflow_dispatch and supported Linux configuration. Batch 709 branch was not published and no workflow was dispatched."
+    }
+  ],
+  "protected_hashes": {
+    "questions_json_sha256": "73cdc775cd7240b57898868d67902d833db1171f947c8dcc89081ddaf46fb4be",
+    "normalized_answer_key_sha256": "4e5e5d4a6a780b3d23bfd8854110bd04a5cecb936febce3752e3c77b8db97684",
+    "attempts_json_sha256": "e968fd3e8a391065ac2314ab9bcff932fc572cbe6024e16b40569b694bbed84b",
+    "weakness_json_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "question_statistics_json_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "flashcard_exclusions_json_sha256": "236975ba94ef72c223ebe7f78a4725088ca53b7c20395edb52f39e5d5e2f7717",
+    "hayadoctor_gitlink": "dc4fcda730d9a922f726593746e34ca0c9c0e890"
+  },
+  "browser_acceptance": {
+    "executed": false,
+    "host_available": false,
+    "screenshots": [],
+    "traces": [],
+    "human_cases_mvp_01_to_12": "NOT_RUN"
+  },
+  "clipboard": {
+    "status": "UNVERIFIED",
+    "initial_attempt": {
+    "set_command": "termux-clipboard-set < docs/reports/batch-709-alpha-acceptance.md",
+    "set_exit_code": 0,
+    "get_command": "termux-clipboard-get",
+    "get_exit_code": 0,
+    "submitted_bytes": 11775,
+    "readback_bytes": 0,
+    "submitted_sha256": "9f986383bb8d964fb118ab5a3b5e46dce12ff5f96923ebf3c8aab9ca2a89c5bc",
+    "readback_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "final_attempt": {
+      "set_command": "termux-clipboard-set < docs/reports/batch-709-alpha-acceptance.md",
+      "set_exit_code": 0,
+      "get_command": "termux-clipboard-get",
+      "get_exit_code": 0,
+      "submitted_bytes": 11954,
+      "readback_bytes": 0,
+      "submitted_sha256": "437839bbf814117532d199e4c77fd6bd6c66b454e251eb24745160b1aa197726",
+      "readback_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "limitations": [
+    "HTTP and service tests do not establish visual, keyboard, touch, mobile layout, or browser console behavior.",
+    "The existing browser suite was not executed at a hosted runner for this revision.",
+    "Q6403 owner decision, academic approvals, privacy owner approval and deployment authorization remain external gates."
+  ]
+}

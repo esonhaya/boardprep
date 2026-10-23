@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "report_type": "BATCH_709_RELEASE_SCORECARD",
+  "branch": "batch-709-alpha-acceptance",
+  "worktree": "/data/data/com.termux/files/home/boardprep-batch-706",
+  "head_before": "3df950c11a89b5e4a45ca065a850cc916046590d",
+  "b708_final_sha": "3df950c11a89b5e4a45ca065a850cc916046590d",
+  "b708_tested_implementation_sha": "da896f545984c0cf25425006a3163f72036c78cd",
+  "latest_tested_sha": "b2087daf6bbbb6f9aa11ed4999156b0424942648",
+  "classification": {
+    "engineering_alpha": "ENGINEERING_ALPHA_BLOCKED",
+    "restricted_internal_demo": "SUPPORTED",
+    "public_release": "PUBLIC_RELEASE_BLOCKED"
+  },
+  "gates": [
+    {"area":"QUESTION_STRUCTURE","status":"PASS","evidence":"9,123 canonical active question records; Batch 708 integrity evidence remains valid on unchanged data."},
+    {"area":"QUESTION_CORRECTNESS","status":"REVIEW_REQUIRED","evidence":"Q6403 punctuation/key conflict remains quarantined pending item-owner decision."},
+    {"area":"SOURCE_INTEGRITY","status":"REVIEW_REQUIRED","evidence":"Batch 708 URL snapshot is complete; restricted/inconclusive sources and claim review remain."},
+    {"area":"STUDY_LINKS","status":"PASS","evidence":"1,049 exact section links structurally valid; 87 pending, 4 review-required, 958 unknown; 0 approvals."},
+    {"area":"DEVELOPER_REPOSITORY_HTTP","status":"PASS","evidence":"Pagination, exact ID, source status, Q6403 hold, quality dashboard, and eligibility HTTP tests passed in isolated testing."},
+    {"area":"DEVELOPER_REPOSITORY_BROWSER","status":"BLOCKED","evidence":"No real browser run; current Playwright suite does not explicitly exercise repository filters/pagination."},
+    {"area":"LEARNER_CORE_JOURNEY_HTTP","status":"PASS","evidence":"Ten-board production HTTP journey passed at 3df950c; all required answer, result, history, progress, retry, and stale recovery steps were exercised."},
+    {"area":"LEARNER_CORE_JOURNEY_BROWSER","status":"BLOCKED","evidence":"No supported browser host or authorized hosted run for this revision."},
+    {"area":"TEN_BOARD_ELIGIBILITY","status":"PASS","evidence":"Ten-board HTTP journey and MultiExamEligibilityTest passed; Q6403 hold retained."},
+    {"area":"MOBILE_USABILITY","status":"BLOCKED","evidence":"No visual browser execution; viewport, touch, keyboard and overflow behavior remain unverified."},
+    {"area":"SESSION_SECURITY","status":"PASS","evidence":"Batch 708 Doctor/security evidence is reusable on unchanged app boundaries; developer routes remain hidden in production."},
+    {"area":"LEARNER_DATA_INTEGRITY","status":"PASS","evidence":"Question, answer, attempts, weakness, statistics and flashcard-exclusion hashes preserved; tests used isolated fixtures."},
+    {"area":"FULL_DOCTOR","status":"PASS","evidence":"Reused Full Doctor exit 0 at da896f5: release gate PASS, P0=0, P1=0; only test and report files changed after that boundary."},
+    {"area":"REAL_BROWSER_ACCEPTANCE","status":"BLOCKED","evidence":"Termux has no supported browser driver/runtime; no workflow was published or dispatched."},
+    {"area":"HUMAN_ACCEPTANCE","status":"NOT_RUN","evidence":"Existing MVP-01 through MVP-12 remain NOT_RUN."},
+    {"area":"ACADEMIC_APPROVAL","status":"REVIEW_REQUIRED","evidence":"0 independent approvals across 1,049 exact links; Nursing remains unapproved."},
+    {"area":"CONTENT_VISIBILITY_SAFETY","status":"REVIEW_REQUIRED","evidence":"Q6403 and Nursing material statuses remain disclosed/pending; owner policy determines alpha content scope."},
+    {"area":"PRIVACY_OWNER_APPROVAL","status":"BLOCKED","evidence":"Owner-approved privacy terms, retention/deletion contact and production settings remain outstanding."},
+    {"area":"PRODUCTION_CONFIGURATION","status":"REVIEW_REQUIRED","evidence":"Local preflight evidence exists; live HTTPS, cookies, provider and filesystem configuration were not exercised."},
+    {"area":"DEPLOYMENT_AUTHORIZATION","status":"NOT_RUN","evidence":"No deployment, merge, push or workflow dispatch was authorized or performed."}
+  ],
+  "next_action": "After publication authorization, push only batch-709-alpha-acceptance and run the existing Browser acceptance and Release gates workflows at the resulting exact SHA; then complete the existing MVP-01..MVP-12 human cases."
+}
