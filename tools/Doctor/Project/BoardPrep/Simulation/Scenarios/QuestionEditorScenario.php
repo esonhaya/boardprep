@@ -84,7 +84,6 @@ final class QuestionEditorScenario extends SimulationScenario
             ['/question-editor/create', 'Create Question'],
             ['/question-editor?search=agreement', 'Question Editor'],
             ['/question-quality', 'Question Quality'],
-            ['/question-inspector', 'Question Inspector'],
             ['/taxonomy', 'Taxonomy Manager'],
             ['/subjects', 'Subject'],
             ['/boards', 'Board'],
@@ -98,6 +97,14 @@ final class QuestionEditorScenario extends SimulationScenario
         foreach ($surfaces as [$uri, $heading]) {
             $simulation->get($uri)->execute()->assertSuccessful()->assertContains($heading);
         }
+
+        $inspectorRedirect = $simulation->get('/question-inspector')->execute();
+        $inspectorRedirect->assertStatus(302);
+        $location = $simulation->context()->get('http', [])['location'] ?? null;
+        if ($location !== '/question-editor') {
+            throw new \RuntimeException('Question inspector entry point did not redirect to the bounded question repository.');
+        }
+        $simulation->get($location)->execute()->assertSuccessful()->assertContains('Question Editor');
 
         $simulation->get('/question-export')->execute()->assertSuccessful();
     }
