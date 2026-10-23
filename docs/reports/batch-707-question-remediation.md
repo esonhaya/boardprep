@@ -10,6 +10,8 @@ IMPLEMENTATION_AND_TESTED_HEAD=23589931ae1b623966a6924c3b533619bf54afa5
 BRANCH=batch-707-alpha-finish-line
 WORKTREE=/data/data/com.termux/files/home/boardprep-batch-706
 HEAD_AFTER=implementation checkpoint above; the separate report-only commit is the final branch descendant
+IMPLEMENTATION_COMMITS=98e059e053c6cd5a7bb6e08a0863ca4bafa85b4f, 26bcbd156eaa213dce90cfd0cd70f3acf7987174, 3a92496ab78d0a45e8a75237bcdedf7a86856d04, 4cbabd0207e1a07b08d69a242bf146a0f96941f3, 23589931ae1b623966a6924c3b533619bf54afa5
+REPORT_COMMIT=Separate documentation-only commit; final branch HEAD is supplied in delivery summary because a commit cannot contain its own resulting hash.
 PUSH_STATUS=NOT_PUSHED
 DEPLOY_STATUS=NOT_DEPLOYED
 
@@ -121,6 +123,9 @@ P1_REMAINING=No current required question/material link points to a confirmed 40
 P2_REMAINING=Three unreferenced 404s, restricted references, 13 inconclusive URL records and unreviewed claims
 CANONICAL_HASH_BEFORE_AFTER=unchanged
 LEARNER_STATE_PRESERVED=verified unchanged
+COMMITS=98e059e053c6cd5a7bb6e08a0863ca4bafa85b4f, 26bcbd156eaa213dce90cfd0cd70f3acf7987174, 3a92496ab78d0a45e8a75237bcdedf7a86856d04, 4cbabd0207e1a07b08d69a242bf146a0f96941f3, 23589931ae1b623966a6924c3b533619bf54afa5; separate report-only commit follows
+WORKTREE_STATE=Only the pre-existing untracked storage/question-statistics.json remains; report files committed; no other uncommitted batch-owned changes
 PUSH_STATUS=NOT_PUSHED
+CLIPBOARD_STATUS=UNVERIFIED; set/get commands returned exit 0 but readback was empty
 
 No source-reachability check can independently approve a legal, accounting, clinical, or pedagogical claim. Public release remains not approved. The smallest next action is an authorized item-owner disposition for Q6403, followed by independent CPA/legal review of the source-linked items.
