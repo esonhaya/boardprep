@@ -1,0 +1,645 @@
+{
+  "schema_version": "boardprep.question-remediation-status.v1",
+  "audit_type": "post-audit-question-integrity-remediation",
+  "baseline": {
+    "audited_sha": "917a098c87bc12f22e4ea246c4f20d6418503300",
+    "head_before": "6d73cd82df144afc854efa0c983cfbb4075c623a",
+    "implementation_tested_sha": "23589931ae1b623966a6924c3b533619bf54afa5",
+    "branch": "batch-707-alpha-finish-line",
+    "worktree": "/data/data/com.termux/files/home/boardprep-batch-706"
+  },
+  "canonical_and_protected_integrity": {
+    "canonical_questions_sha256_before_after": "73cdc775cd7240b57898868d67902d833db1171f947c8dcc89081ddaf46fb4be",
+    "answer_key_fingerprint_sha256_before_after": "593db53b0ecfb92b9417785f6e6f926ef673aeaa3469f2ee9a89c945736058ed",
+    "study_question_links_sha256_before_after": "fa9daec05391e575e5029ac717a28969414e4c6df87c540bf1319d612bd59de6",
+    "learner_protected_sha256": {
+      "storage/attempts.json": "e968fd3e8a391065ac2314ab9bcff932fc572cbe6024e16b40569b694bbed84b",
+      "storage/weakness.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "storage/question-statistics.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "storage/flashcard-exclusions.json": "236975ba94ef72c223ebe7f78a4725088ca53b7c20395edb52f39e5d5e2f7717"
+    },
+    "b695_checkout_modified": false,
+    "canonical_question_records_changed": false,
+    "answer_keys_changed": false,
+    "eligibility_changed": false
+  },
+  "q6403": {
+    "status": "HELD_FOR_AUTHORIZED_REVIEW",
+    "board": "civil-service",
+    "stem_requires_exact_string": "AB-0072.",
+    "choices": [
+      "AB 0072",
+      "AB-0072",
+      "AB-0072.",
+      "AB-072"
+    ],
+    "stored_answer": "AB-0072",
+    "explanation_requires": "leading zero, punctuation, and character sequence",
+    "contradiction": "Stored answer equals choice 2; choice 3 preserves the exact stem string and explanation requirement.",
+    "scoring_behavior": "Canonical key remains unchanged; answer scoring continues to use stored key.",
+    "canonical_mutation": "NONE",
+    "new_practice_handling": "Existing civil-service EXCLUDE override applied; not a global or Nursing eligibility change.",
+    "historical_attempts": 0,
+    "item_owner_decision_required": true,
+    "release_blocker": true,
+    "proposed_owner_action": "Authorize key change to AB-0072. or revise the stem/data quotation if punctuation is not part of the exact value; then review scoring and historical-attempt policy before any mutation."
+  },
+  "source_id_reconciliation": {
+    "invalid_question_source_ids_before": 3,
+    "invalid_question_source_ids_after": 0,
+    "affected_question_ids": [
+      "1925",
+      "1926",
+      "1927"
+    ],
+    "canonical_direct_source_id_now_resolves_to": "bir-ease-of-paying-taxes-act",
+    "source_identity": "Republic Act No. 11976, Ease of Paying Taxes Act; Lawphil statutory text",
+    "valid_existing_study_source_preserved": "philippines-ease-of-paying-taxes-act; BIR Revenue Regulations No. 7-2024, distinct from RA 11976",
+    "claim_level_status": "REVIEW_REQUIRED"
+  },
+  "high_priority_source_cases": {
+    "Q1883_Q1919": {
+      "status": "FIXED_REFERENCE; CLAIM_REVIEW_HELD",
+      "source_id": "philippines-negotiable-instruments-law",
+      "url": "https://lawphil.net/statutes/acts/act1911/act_2031_1911.html",
+      "bounded_http_status": 200,
+      "full_text_checked": true,
+      "claim_scope": "The Act includes instrument form, transfer, presentment, notice and related statutory requirements; item-level application remains subject to legal/CPA academic review."
+    },
+    "Q1925_Q1926_Q1927": {
+      "status": "FIXED_REFERENCE; CLAIM_REVIEW_HELD",
+      "source_id": "bir-ease-of-paying-taxes-act",
+      "url": "https://lawphil.net/statutes/repacts/ra2024/ra_11976_2024.html",
+      "bounded_http_status": 200,
+      "full_text_checked": true,
+      "claim_scope": "Registry identity and direct-ID resolution repaired; the specific expense/evidence/exemption propositions are not approved by source identity alone."
+    }
+  },
+  "referenced_404_remediation": {
+    "confirmed_404_urls_before": 17,
+    "referenced_source_records_repaired": 14,
+    "historical_unique_question_ids_with_any_404_reference_before": 890,
+    "current_question_ids_with_confirmed_404_reference_among_repaired_records": 0,
+    "remaining_confirmed_404_urls": [
+      {
+        "source_id": "aasc-psa-500-currentness-review",
+        "url": "https://aasc.org.ph/downloads/codified-standards/publications/PDFs/PSA-500-with-conf-amend.pdf",
+        "http_status": 404,
+        "currently_referenced_question_count": 0,
+        "status": "CONFIRMED_UNRESOLVED_UNREFERENCED"
+      },
+      {
+        "source_id": "deped-matatag-general-education-framework",
+        "url": "https://www.deped.gov.ph/matatagcurriculumkto10/",
+        "http_status": 404,
+        "currently_referenced_question_count": 0,
+        "status": "CONFIRMED_UNRESOLVED_UNREFERENCED"
+      },
+      {
+        "source_id": "prc-lept-program-march-2026",
+        "url": "https://www.prc.gov.ph/sites/default/files/March%202026%20%20lept%20exam%20program%20%28prof%20teachers%29revised.pdf",
+        "http_status": 404,
+        "currently_referenced_question_count": 0,
+        "status": "CONFIRMED_UNRESOLVED_UNREFERENCED"
+      }
+    ],
+    "replacements": [
+      {
+        "source_id": "iaasb-isa-230-documentation",
+        "old_url": "https://www.iaasb.org/publications/isa-230-audit-documentation",
+        "new_url": "https://www.iaasb.org/publications/2026-handbook-international-quality-management-auditing-review-sustainability-and-other-assurance",
+        "document_title": "IAASB 2026 Handbook, Volume 1 — ISA 230: Audit Documentation",
+        "publisher": "International Auditing and Assurance Standards Board",
+        "version_or_date": "2026 Handbook, current edition; Volume 1 (ISAs)",
+        "jurisdiction": "International standard; local adoption not established",
+        "replacement_http_result": "HTTP 200 at bounded replacement verification on 2026-10-23",
+        "latest_bounded_status": "HTTP_REACHABLE",
+        "latest_http_status": 200,
+        "latest_checked_at_utc": "2026-10-23T11:36:29Z",
+        "source_text_verified": false,
+        "access_status": "METADATA_ONLY_FULL_TEXT_PURCHASE_REQUIRED",
+        "claim_compatibility": "URL/source identity repair only; question-specific claim compatibility remains REVIEW_REQUIRED",
+        "affected_question_count_historical": 170,
+        "affected_question_ids_pointer": "docs/reports/batch-707-question-integrity-issues.json#/sources/URL_CHECK_RESULTS[source_id=iaasb-isa-230-documentation]/affected_question_ids",
+        "status": "FIXED_REFERENCE; CLAIM_REVIEW_HELD"
+      },
+      {
+        "source_id": "iaasb-isa-240-fraud",
+        "old_url": "https://www.iaasb.org/publications/isa-240-revised-auditors-responsibilities-relating-fraud-audit-financial-statements",
+        "new_url": "https://www.iaasb.org/publications/isa-240-revised-auditor-s-responsibilities-relating-fraud-audit-financial-statements",
+        "document_title": "ISA 240 Revised — Auditor Responsibilities Relating to Fraud",
+        "publisher": "International Auditing and Assurance Standards Board",
+        "version_or_date": "ISA 240 Revised; Philippine adoption subject to BOA effective date",
+        "jurisdiction": "International standard; local adoption not established",
+        "replacement_http_result": "HTTP 200 at bounded replacement verification on 2026-10-23",
+        "latest_bounded_status": "HTTP_REACHABLE",
+        "latest_http_status": 200,
+        "latest_checked_at_utc": "2026-10-23T11:32:02Z",
+        "source_text_verified": false,
+        "access_status": "ACCESS_NOT_RECORDED",
+        "claim_compatibility": "URL/source identity repair only; question-specific claim compatibility remains REVIEW_REQUIRED",
+        "affected_question_count_historical": 36,
+        "affected_question_ids_pointer": "docs/reports/batch-707-question-integrity-issues.json#/sources/URL_CHECK_RESULTS[source_id=iaasb-isa-240-fraud]/affected_question_ids",
+        "status": "FIXED_REFERENCE; CLAIM_REVIEW_HELD"
+      },
+      {
+        "source_id": "iaasb-isa-265-control-deficiencies",
+        "old_url": "https://www.iaasb.org/publications/isa-265-communicating-deficiencies-internal-control-those-charged-governance-and-management",
+        "new_url": "https://www.iaasb.org/publications/2026-handbook-international-quality-management-auditing-review-sustainability-and-other-assurance",
+        "document_title": "IAASB 2026 Handbook, Volume 1 — ISA 265: Communicating Deficiencies in Internal Control",
+        "publisher": "International Auditing and Assurance Standards Board",
+        "version_or_date": "2026 Handbook, current edition; Volume 1 (ISAs)",
+        "jurisdiction": "International standard; local adoption not established",
+        "replacement_http_result": "HTTP 200 at bounded replacement verification on 2026-10-23",
+        "latest_bounded_status": "HTTP_REACHABLE",
+        "latest_http_status": 200,
+        "latest_checked_at_utc": "2026-10-23T11:36:29Z",
+        "source_text_verified": false,
+        "access_status": "METADATA_ONLY_FULL_TEXT_PURCHASE_REQUIRED",
+        "claim_compatibility": "URL/source identity repair only; question-specific claim compatibility remains REVIEW_REQUIRED",
+        "affected_question_count_historical": 36,
+        "affected_question_ids_pointer": "docs/reports/batch-707-question-integrity-issues.json#/sources/URL_CHECK_RESULTS[source_id=iaasb-isa-265-control-deficiencies]/affected_question_ids",
+        "status": "FIXED_REFERENCE; CLAIM_REVIEW_HELD"
+      },
+      {
+        "source_id": "iaasb-isa-315-risk-assessment",
+        "old_url": "https://www.iaasb.org/publications/isa-315-revised-2019",
+        "new_url": "https://www.iaasb.org/publications/isa-315-revised-2019-identifying-and-assessing-risks-material-misstatement",
+        "document_title": "ISA 315 Revised 2019 — Identifying and Assessing Risks of Material Misstatement",
+        "publisher": "International Auditing and Assurance Standards Board",
+        "version_or_date": "ISA 315 Revised 2019",
+        "jurisdiction": "International standard; local adoption not established",
+        "replacement_http_result": "HTTP 200 at bounded replacement verification on 2026-10-23",
+        "latest_bounded_status": "HTTP_REACHABLE",
+        "latest_http_status": 200,
+        "latest_checked_at_utc": "2026-10-23T11:32:03Z",
+        "source_text_verified": false,
+        "access_status": "ACCESS_NOT_RECORDED",
+        "claim_compatibility": "URL/source identity repair only; question-specific claim compatibility remains REVIEW_REQUIRED",
+        "affected_question_count_historical": 170,
+        "affected_question_ids_pointer": "docs/reports/batch-707-question-integrity-issues.json#/sources/URL_CHECK_RESULTS[source_id=iaasb-isa-315-risk-assessment]/affected_question_ids",
+        "status": "FIXED_REFERENCE; CLAIM_REVIEW_HELD"
+      },
+      {
+        "source_id": "iaasb-isa-450-misstatements",
+        "old_url": "https://www.iaasb.org/publications/isa-450-evaluation-misstatements-identified-during-audit",
+        "new_url": "https://www.iaasb.org/publications/2026-handbook-international-quality-management-auditing-review-sustainability-and-other-assurance",
+        "document_title": "IAASB 2026 Handbook, Volume 1 — ISA 450: Evaluation of Misstatements Identified during the Audit",
+        "publisher": "International Auditing and Assurance Standards Board",
+        "version_or_date": "2026 Handbook, current edition; Volume 1 (ISAs)",
+        "jurisdiction": "International standard; local adoption not established",
+        "replacement_http_result": "HTTP 200 at bounded replacement verification on 2026-10-23",
+        "latest_bounded_status": "HTTP_REACHABLE",
+        "latest_http_status": 200,
+        "latest_checked_at_utc": "2026-10-23T11:36:29Z",
+        "source_text_verified": false,
+        "access_status": "METADATA_ONLY_FULL_TEXT_PURCHASE_REQUIRED",
+        "claim_compatibility": "URL/source identity repair only; question-specific claim compatibility remains REVIEW_REQUIRED",
+        "affected_question_count_historical": 36,
+        "affected_question_ids_pointer": "docs/reports/batch-707-question-integrity-issues.json#/sources/URL_CHECK_RESULTS[source_id=iaasb-isa-450-misstatements]/affected_question_ids",
+        "status": "FIXED_REFERENCE; CLAIM_REVIEW_HELD"
+      },
+      {
+        "source_id": "iaasb-isa-500-audit-evidence",
+        "old_url": "https://www.iaasb.org/publications/isa-500-audit-evidence",
+        "new_url": "https://www.iaasb.org/publications/2026-handbook-international-quality-management-auditing-review-sustainability-and-other-assurance",
+        "document_title": "IAASB 2026 Handbook, Volume 1 — ISA 500: Audit Evidence",
+        "publisher": "International Auditing and Assurance Standards Board",
+        "version_or_date": "2026 Handbook, current edition; Volume 1 (ISAs)",
+        "jurisdiction": "International standard; local adoption not established",
+        "replacement_http_result": "HTTP 200 at bounded replacement verification on 2026-10-23",
+        "latest_bounded_status": "HTTP_REACHABLE",
+        "latest_http_status": 200,
+        "latest_checked_at_utc": "2026-10-23T11:36:29Z",
+        "source_text_verified": false,
+        "access_status": "METADATA_ONLY_FULL_TEXT_PURCHASE_REQUIRED",
+        "claim_compatibility": "URL/source identity repair only; question-specific claim compatibility remains REVIEW_REQUIRED",
+        "affected_question_count_historical": 170,
+        "affected_question_ids_pointer": "docs/reports/batch-707-question-integrity-issues.json#/sources/URL_CHECK_RESULTS[source_id=iaasb-isa-500-audit-evidence]/affected_question_ids",
+        "status": "FIXED_REFERENCE; CLAIM_REVIEW_HELD"
+      },
+      {
+        "source_id": "iaasb-isa-520-analytical-procedures",
+        "old_url": "https://www.iaasb.org/publications/isa-520-analytical-procedures",
+        "new_url": "https://www.iaasb.org/publications/2026-handbook-international-quality-management-auditing-review-sustainability-and-other-assurance",
+        "document_title": "IAASB 2026 Handbook, Volume 1 — ISA 520: Analytical Procedures",
+        "publisher": "International Auditing and Assurance Standards Board",
+        "version_or_date": "2026 Handbook, current edition; Volume 1 (ISAs)",
+        "jurisdiction": "International standard; local adoption not established",
+        "replacement_http_result": "HTTP 200 at bounded replacement verification on 2026-10-23",
+        "latest_bounded_status": "HTTP_REACHABLE",
+        "latest_http_status": 200,
+        "latest_checked_at_utc": "2026-10-23T11:36:29Z",
+        "source_text_verified": false,
+        "access_status": "METADATA_ONLY_FULL_TEXT_PURCHASE_REQUIRED",
+        "claim_compatibility": "URL/source identity repair only; question-specific claim compatibility remains REVIEW_REQUIRED",
+        "affected_question_count_historical": 171,
+        "affected_question_ids_pointer": "docs/reports/batch-707-question-integrity-issues.json#/sources/URL_CHECK_RESULTS[source_id=iaasb-isa-520-analytical-procedures]/affected_question_ids",
+        "status": "FIXED_REFERENCE; CLAIM_REVIEW_HELD"
+      },
+      {
+        "source_id": "iaasb-isa-530-audit-sampling",
+        "old_url": "https://www.iaasb.org/publications/isa-530-audit-sampling",
+        "new_url": "https://www.iaasb.org/publications/2026-handbook-international-quality-management-auditing-review-sustainability-and-other-assurance",
+        "document_title": "IAASB 2026 Handbook, Volume 1 — ISA 530: Audit Sampling",
+        "publisher": "International Auditing and Assurance Standards Board",
+        "version_or_date": "2026 Handbook, current edition; Volume 1 (ISAs)",
+        "jurisdiction": "International standard; local adoption not established",
+        "replacement_http_result": "HTTP 200 at bounded replacement verification on 2026-10-23",
+        "latest_bounded_status": "HTTP_REACHABLE",
+        "latest_http_status": 200,
+        "latest_checked_at_utc": "2026-10-23T11:36:30Z",
+        "source_text_verified": false,
+        "access_status": "METADATA_ONLY_FULL_TEXT_PURCHASE_REQUIRED",
+        "claim_compatibility": "URL/source identity repair only; question-specific claim compatibility remains REVIEW_REQUIRED",
+        "affected_question_count_historical": 170,
+        "affected_question_ids_pointer": "docs/reports/batch-707-question-integrity-issues.json#/sources/URL_CHECK_RESULTS[source_id=iaasb-isa-530-audit-sampling]/affected_question_ids",
+        "status": "FIXED_REFERENCE; CLAIM_REVIEW_HELD"
+      },
+      {
+        "source_id": "iaasb-isa-700-audit-opinion",
+        "old_url": "https://www.iaasb.org/publications/isa-700-revised-forming-opinion-and-reporting-financial-statements",
+        "new_url": "https://www.iaasb.org/publications/international-standard-auditing-isa-700-revised-forming-opinion-and-reporting-financial-statements",
+        "document_title": "ISA 700 — Forming an Opinion and Reporting on Financial Statements",
+        "publisher": "International Auditing and Assurance Standards Board",
+        "version_or_date": "current official publication page",
+        "jurisdiction": "International standard; local adoption not established",
+        "replacement_http_result": "HTTP 200 at bounded replacement verification on 2026-10-23",
+        "latest_bounded_status": "HTTP_REACHABLE",
+        "latest_http_status": 200,
+        "latest_checked_at_utc": "2026-10-23T11:32:03Z",
+        "source_text_verified": false,
+        "access_status": "ACCESS_NOT_RECORDED",
+        "claim_compatibility": "URL/source identity repair only; question-specific claim compatibility remains REVIEW_REQUIRED",
+        "affected_question_count_historical": 170,
+        "affected_question_ids_pointer": "docs/reports/batch-707-question-integrity-issues.json#/sources/URL_CHECK_RESULTS[source_id=iaasb-isa-700-audit-opinion]/affected_question_ids",
+        "status": "FIXED_REFERENCE; CLAIM_REVIEW_HELD"
+      },
+      {
+        "source_id": "ifrs-ias-21-foreign-exchange",
+        "old_url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-21-effects-of-changes-in-foreign-exchange-rates/",
+        "new_url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-21-the-effects-of-changes-in-foreign-exchange-rates/",
+        "document_title": "IAS 21 The Effects of Changes in Foreign Exchange Rates",
+        "publisher": "IFRS Foundation",
+        "version_or_date": "current official standard page",
+        "jurisdiction": "International standard; local adoption not established",
+        "replacement_http_result": "HTTP 200 at initial replacement verification; latest bounded recheck DNS_ERROR with no HTTP status",
+        "latest_bounded_status": "DNS_ERROR",
+        "latest_http_status": null,
+        "latest_checked_at_utc": "2026-10-23T12:06:33Z",
+        "source_text_verified": false,
+        "access_status": "ACCESS_NOT_RECORDED",
+        "claim_compatibility": "URL/source identity repair only; question-specific claim compatibility remains REVIEW_REQUIRED",
+        "affected_question_count_historical": 169,
+        "affected_question_ids_pointer": "docs/reports/batch-707-question-integrity-issues.json#/sources/URL_CHECK_RESULTS[source_id=ifrs-ias-21-foreign-exchange]/affected_question_ids",
+        "status": "FIXED_REFERENCE; CLAIM_REVIEW_HELD"
+      },
+      {
+        "source_id": "philippines-negotiable-instruments-law",
+        "old_url": "https://lawphil.net/statutes/acts/act_2031_1911.html",
+        "new_url": "https://lawphil.net/statutes/acts/act1911/act_2031_1911.html",
+        "document_title": "Negotiable Instruments Law of the Philippines",
+        "publisher": "Republic of the Philippines; Lawphil text of Act No. 2031",
+        "version_or_date": "Act No. 2031",
+        "jurisdiction": "Philippines",
+        "replacement_http_result": "HTTP 200 at bounded replacement verification on 2026-10-23",
+        "latest_bounded_status": "HTTP_REACHABLE",
+        "latest_http_status": 200,
+        "latest_checked_at_utc": "2026-10-23T11:32:01Z",
+        "source_text_verified": true,
+        "access_status": "FULL_TEXT_ACCESSIBLE",
+        "claim_compatibility": "URL/source identity repair only; question-specific claim compatibility remains REVIEW_REQUIRED",
+        "affected_question_count_historical": 160,
+        "affected_question_ids_pointer": "docs/reports/batch-707-question-integrity-issues.json#/sources/URL_CHECK_RESULTS[source_id=philippines-negotiable-instruments-law]/affected_question_ids",
+        "status": "FIXED_REFERENCE; CLAIM_REVIEW_HELD"
+      },
+      {
+        "source_id": "prc-lept-alignment-guidance-2025",
+        "old_url": "https://www.prc.gov.ph/article/guidelines-implementation-prc-ched-jmc-alignment-teacher-education-curriculum",
+        "new_url": "https://prc.gov.ph/article/guidelines-implementation-prc-ched-jmc-alignment-lept-teacher-education-curriculum",
+        "document_title": "PRC Guidelines on the Implementation of the PRC-CHED JMC on LEPT Alignment",
+        "publisher": "Professional Regulation Commission",
+        "version_or_date": "September 2025 and succeeding LEPT schedules",
+        "jurisdiction": "Philippines",
+        "replacement_http_result": "HTTP 200 at bounded replacement verification on 2026-10-23",
+        "latest_bounded_status": "HTTP_REACHABLE",
+        "latest_http_status": 200,
+        "latest_checked_at_utc": "2026-10-23T11:32:02Z",
+        "source_text_verified": false,
+        "access_status": "ACCESS_NOT_RECORDED",
+        "claim_compatibility": "URL/source identity repair only; question-specific claim compatibility remains REVIEW_REQUIRED",
+        "affected_question_count_historical": 260,
+        "affected_question_ids_pointer": "docs/reports/batch-707-question-integrity-issues.json#/sources/URL_CHECK_RESULTS[source_id=prc-lept-alignment-guidance-2025]/affected_question_ids",
+        "status": "FIXED_REFERENCE; CLAIM_REVIEW_HELD"
+      },
+      {
+        "source_id": "ra-9173-philippine-nursing-act",
+        "old_url": "https://lawphil.net/statutes/repacts/2002/ra_9173_2002.html",
+        "new_url": "https://lawphil.net/statutes/repacts/ra2002/ra_9173_2002.html",
+        "document_title": "Republic Act No. 9173, Philippine Nursing Act of 2002",
+        "publisher": "Republic of the Philippines; Lawphil reproduction",
+        "version_or_date": "Republic Act No. 9173",
+        "jurisdiction": "Philippines",
+        "replacement_http_result": "HTTP 200 at bounded replacement verification on 2026-10-23",
+        "latest_bounded_status": "HTTP_REACHABLE",
+        "latest_http_status": 200,
+        "latest_checked_at_utc": "2026-10-23T11:32:01Z",
+        "source_text_verified": false,
+        "access_status": "ACCESS_NOT_RECORDED",
+        "claim_compatibility": "URL/source identity repair only; question-specific claim compatibility remains REVIEW_REQUIRED",
+        "affected_question_count_historical": 82,
+        "affected_question_ids_pointer": "docs/reports/batch-707-question-integrity-issues.json#/sources/URL_CHECK_RESULTS[source_id=ra-9173-philippine-nursing-act]/affected_question_ids",
+        "status": "FIXED_REFERENCE; CLAIM_REVIEW_HELD"
+      },
+      {
+        "source_id": "republic-act-7836",
+        "old_url": "https://www.officialgazette.gov.ph/1994/12/16/republic-act-no-7836/",
+        "new_url": "https://lawphil.net/statutes/repacts/ra1994/ra_7836_1994.html",
+        "document_title": "Republic Act No. 7836: Philippine Teachers Professionalization Act",
+        "publisher": "Republic of the Philippines",
+        "version_or_date": "Republic Act No. 7836",
+        "jurisdiction": "Philippines",
+        "replacement_http_result": "HTTP 200 at bounded replacement verification on 2026-10-23",
+        "latest_bounded_status": "HTTP_REACHABLE",
+        "latest_http_status": 200,
+        "latest_checked_at_utc": "2026-10-23T11:32:01Z",
+        "source_text_verified": false,
+        "access_status": "ACCESS_NOT_RECORDED",
+        "claim_compatibility": "URL/source identity repair only; question-specific claim compatibility remains REVIEW_REQUIRED",
+        "affected_question_count_historical": 48,
+        "affected_question_ids_pointer": "docs/reports/batch-707-question-integrity-issues.json#/sources/URL_CHECK_RESULTS[source_id=republic-act-7836]/affected_question_ids",
+        "status": "FIXED_REFERENCE; CLAIM_REVIEW_HELD"
+      }
+    ]
+  },
+  "source_check_snapshot": {
+    "status": "PARTIAL",
+    "checked_source_records": 75,
+    "url_source_records_total": 319,
+    "unchecked_records": 244,
+    "status_record_counts": {
+      "CONFIRMED_404": 3,
+      "ACCESS_RESTRICTED": 45,
+      "HTTP_REACHABLE": 14,
+      "REQUEST_ERROR": 9,
+      "HTTP_OTHER": 1,
+      "DNS_ERROR": 2,
+      "REDIRECT_LIMIT": 1
+    },
+    "access_restricted_source_records": 45,
+    "unique_access_restricted_urls": 44,
+    "inconclusive_source_records": 13,
+    "ifrs_ias21_latest_check": {
+      "checked_at_utc": "2026-10-23T12:06:33Z",
+      "error": "DNS resolution error reported by the bounded checker; no HTTP response was obtained. This is inconclusive, not a confirmed dead link.",
+      "evidence_ref": "bounded source checker; exit 2; full command/result recorded in batch-707-question-remediation-status.json",
+      "final_url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-21-the-effects-of-changes-in-foreign-exchange-rates/",
+      "http_status": null,
+      "source_id": "ifrs-ias-21-foreign-exchange",
+      "status": "DNS_ERROR",
+      "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-21-the-effects-of-changes-in-foreign-exchange-rates/"
+    },
+    "caution": "A successful HTTP response confirms reachability only, not claim support. DNS/request/redirect outcomes are not dead-link findings."
+  },
+  "legacy_material_pointers": {
+    "count": 15,
+    "all_material_ids_exist": true,
+    "all_have_current_link_table_destination": true,
+    "created_mappings": 0,
+    "disposition": "Legacy canonical material pointers are redundant/stale relative to current link-table destinations; do not duplicate links."
+  },
+  "published_material": {
+    "id": "let-filipino-pagbasa-wika-at-pagsulat",
+    "status": "NOT_REPRODUCED_AS_BROKEN_ORPHAN",
+    "disposition": "Published LET-board scoped standalone study material; no exact question mapping added."
+  },
+  "mapping_and_dashboard": {
+    "exact_links_before_after": 1049,
+    "exact_link_file_changed": false,
+    "nursing_exact_mappings": 47,
+    "nursing_pending_academic_review": 47,
+    "global_exact_status_counts": {
+      "explicit_pending_independent_review": 87,
+      "section_supported_source_association_review_required": 4,
+      "no_explicit_review_status_unknown_not_approved": 958,
+      "independently_approved": 0
+    },
+    "invalid_direct_source_id_findings_after": 0,
+    "dashboard_issue_total": 816,
+    "dashboard_severity_counts": {
+      "error": 0,
+      "warning": 798,
+      "review": 18,
+      "info": 0
+    },
+    "confirmed_404_findings": 3,
+    "confirmed_404_severity": "REVIEW because no current questions/materials reference these records",
+    "restricted_records_nonfatal_warning_count": 45,
+    "inconclusive_url_results_visible": 13,
+    "source_text_limited_nonfatal_warning_count": 6,
+    "source_check_is_triggered_not_per_page_load": true,
+    "stale_or_missing_snapshot_behavior": "Dashboard exposes partial/stale/failed evidence explicitly; it does not perform live HTTP requests."
+  },
+  "nursing_quarantine_and_history": {
+    "Q1536_Q1537_exact_section_links_present": false,
+    "Q4004_Q4005_Q4006_previous_demotions_preserved": true,
+    "previous_flags_unmodified": [
+      "Q1018",
+      "Q896",
+      "Q4014",
+      "Q5025",
+      "Q4090",
+      "Q967",
+      "Q1004",
+      "Q1035",
+      "Q1008"
+    ],
+    "independent_academic_approvals": 0
+  },
+  "legacy_pointers": [
+    {
+      "question_id": "5206",
+      "board": "civil-service",
+      "legacy_material_id": "cse-verbal-foundation",
+      "material_exists": true,
+      "current_link_material_ids": [
+        "cse-error-recognition-tense"
+      ]
+    },
+    {
+      "question_id": "5462",
+      "board": "civil-service",
+      "legacy_material_id": "cse-clerical-foundation",
+      "material_exists": true,
+      "current_link_material_ids": [
+        "cse-spelling-in-context"
+      ]
+    },
+    {
+      "question_id": "5463",
+      "board": "civil-service",
+      "legacy_material_id": "cse-clerical-foundation",
+      "material_exists": true,
+      "current_link_material_ids": [
+        "cse-spelling-in-context"
+      ]
+    },
+    {
+      "question_id": "5464",
+      "board": "civil-service",
+      "legacy_material_id": "cse-clerical-foundation",
+      "material_exists": true,
+      "current_link_material_ids": [
+        "cse-spelling-in-context"
+      ]
+    },
+    {
+      "question_id": "5465",
+      "board": "civil-service",
+      "legacy_material_id": "cse-clerical-foundation",
+      "material_exists": true,
+      "current_link_material_ids": [
+        "cse-spelling-in-context"
+      ]
+    },
+    {
+      "question_id": "5466",
+      "board": "civil-service",
+      "legacy_material_id": "cse-clerical-foundation",
+      "material_exists": true,
+      "current_link_material_ids": [
+        "cse-spelling-in-context"
+      ]
+    },
+    {
+      "question_id": "5467",
+      "board": "civil-service",
+      "legacy_material_id": "cse-clerical-foundation",
+      "material_exists": true,
+      "current_link_material_ids": [
+        "cse-spelling-in-context"
+      ]
+    },
+    {
+      "question_id": "5468",
+      "board": "civil-service",
+      "legacy_material_id": "cse-clerical-foundation",
+      "material_exists": true,
+      "current_link_material_ids": [
+        "cse-spelling-in-context"
+      ]
+    },
+    {
+      "question_id": "5487",
+      "board": "civil-service",
+      "legacy_material_id": "cse-clerical-foundation",
+      "material_exists": true,
+      "current_link_material_ids": [
+        "cse-proofreading-exact-copy"
+      ]
+    },
+    {
+      "question_id": "5488",
+      "board": "civil-service",
+      "legacy_material_id": "cse-clerical-foundation",
+      "material_exists": true,
+      "current_link_material_ids": [
+        "cse-proofreading-exact-copy"
+      ]
+    },
+    {
+      "question_id": "5489",
+      "board": "civil-service",
+      "legacy_material_id": "cse-clerical-foundation",
+      "material_exists": true,
+      "current_link_material_ids": [
+        "cse-proofreading-exact-copy"
+      ]
+    },
+    {
+      "question_id": "5490",
+      "board": "civil-service",
+      "legacy_material_id": "cse-clerical-foundation",
+      "material_exists": true,
+      "current_link_material_ids": [
+        "cse-proofreading-exact-copy"
+      ]
+    },
+    {
+      "question_id": "5491",
+      "board": "civil-service",
+      "legacy_material_id": "cse-clerical-foundation",
+      "material_exists": true,
+      "current_link_material_ids": [
+        "cse-proofreading-exact-copy"
+      ]
+    },
+    {
+      "question_id": "5492",
+      "board": "civil-service",
+      "legacy_material_id": "cse-clerical-foundation",
+      "material_exists": true,
+      "current_link_material_ids": [
+        "cse-proofreading-exact-copy"
+      ]
+    },
+    {
+      "question_id": "6602",
+      "board": "civil-service",
+      "legacy_material_id": "cse-verbal-foundation",
+      "material_exists": true,
+      "current_link_material_ids": [
+        "cse-grammar-application-tense"
+      ]
+    }
+  ],
+  "tests": [
+    {
+      "command": "php -d memory_limit=1G tests/batch707-question-remediation-test.php && php -d memory_limit=1G tools/Tests/QuestionQualityDashboardRemediationIntegrationTest.php && php -d memory_limit=1G tools/Tests/QuestionQualityDashboardContractTest.php && php -d memory_limit=1G tools/Tests/SourceStudyLibraryTest.php && php -d memory_limit=1G tools/Tests/QuestionStudyReferenceTest.php && php -d memory_limit=1G tools/Tests/QuestionPoolFilterTest.php",
+      "exit_code": 0,
+      "tested_sha": "23589931ae1b623966a6924c3b533619bf54afa5",
+      "status": "NEWLY_TESTED_PASS",
+      "scope": "Q6403 hold/exclude behavior; direct source-ID reconciliation; 14 URL repairs; snapshot/DNS semantics; legacy pointers; dashboard fixture classifications and counts; study reference integrity; question pool behavior."
+    },
+    {
+      "command": "python3 -B bin/check-question-source-urls.py --source-id philippines-negotiable-instruments-law --source-id ra-9173-philippine-nursing-act --source-id republic-act-7836 --source-id prc-lept-alignment-guidance-2025 --source-id ifrs-ias-21-foreign-exchange --source-id iaasb-isa-240-fraud --source-id iaasb-isa-315-risk-assessment --source-id iaasb-isa-700-audit-opinion --source-id iaasb-isa-230-documentation --source-id iaasb-isa-265-control-deficiencies --source-id iaasb-isa-450-misstatements --source-id iaasb-isa-500-audit-evidence --source-id iaasb-isa-520-analytical-procedures --source-id iaasb-isa-530-audit-sampling",
+      "exit_code": 2,
+      "tested_sha": "4cbabd0207e1a07b08d69a242bf146a0f96941f3",
+      "status": "INCONCLUSIVE_NETWORK_RESULT",
+      "result": "13 sources HTTP 200; IFRS IAS 21 DNS_ERROR with no HTTP status. Not classified as dead; latest DNS error persisted at 2358993 without repeated retry."
+    }
+  ],
+  "delivery": {
+    "push_status": "NOT_PUSHED",
+    "deploy_status": "NOT_DEPLOYED",
+    "public_launch": "NOT_APPROVED",
+    "report_commit_pending": false
+  },
+  "dispositions": {
+    "FIXED": [
+      "Three invalid direct question source IDs resolved to the registered RA 11976 source.",
+      "Fourteen question-referenced confirmed-404 source URLs replaced centrally with source-identity-matched references.",
+      "Developer dashboard now consumes persisted URL-check evidence and distinguishes confirmed 404, access restriction, inconclusive result, source-only reference, exact section link, known review state, and unknown status.",
+      "Fifteen legacy material pointers were verified against existing material and current link-table destinations; no duplicate link was created."
+    ],
+    "CONFIRMED_UNRESOLVED": [
+      "Q6403 stem, key, answer choices, and rationale conflict on final-period punctuation; canonical key remains unchanged pending the authorized item owner.",
+      "Three unreferenced source registry URLs remain confirmed HTTP 404: aasc-psa-500-currentness-review, deped-matatag-general-education-framework, prc-lept-program-march-2026."
+    ],
+    "HELD_FOR_AUTHORIZED_REVIEW": [
+      "Q6403 final key-versus-stem disposition.",
+      "Claim-specific legal interpretation for Q1883/Q1919 and tax claim support for Q1925/Q1926/Q1927.",
+      "All exact mappings lacking independent reviewer evidence; no automatic academic approvals."
+    ],
+    "NOT_REPRODUCED": [
+      "The 15 legacy pointers are not broken current study relationships.",
+      "The LET Filipino published material is not a broken orphan; it is a valid standalone board-scoped resource.",
+      "No broken lesson section anchors or exact-link table corruption were found in the remediation scope."
+    ],
+    "DEFERRED_OPTIONAL": [
+      "No replacement was guessed for the three unreferenced 404 records.",
+      "Unselected registered URLs remain unchecked in the partial snapshot.",
+      "PDF regeneration, Full Doctor, browser acceptance, public release, and academic approval were not performed or claimed."
+    ]
+  }
+}
