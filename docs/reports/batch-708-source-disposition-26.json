@@ -1,0 +1,901 @@
+{
+  "schema_version": "boardprep.batch708.source-disposition.v1",
+  "base_head": "cb72dfc5fc707a17d9d10479129e52f1c0de0011",
+  "scope": "Targeted disposition for the 26 questions reported without a current HTTP-reachable registered source alternative at the Batch 707 checkpoint. Compact IDs and relationship evidence; canonical question bodies are not copied.",
+  "baseline_problem": {
+    "question_count": 26,
+    "original_source_id": "ncca-culture-arts-foundation",
+    "original_url": "https://ncca.gov.ph/wp-content/uploads/2024/05/Compiled-NCCA-Citizens-Charter05142024.pdf",
+    "original_status_at_baseline": "DNS_ERROR",
+    "original_source_preserved": true
+  },
+  "accessible_references_added": [
+    {
+      "source_id": "ung-intro-art-formal-analysis-chapter-4",
+      "access_status": "HTTP_REACHABLE",
+      "http_status": 200,
+      "checked_method": "bounded HEAD",
+      "checked_at_utc": "2026-10-23T16:03:05Z",
+      "full_text_status": "FULL_TEXT_CHECKED",
+      "scope": "General formal art-analysis method; not item-level answer approval.",
+      "url": "https://alg.manifoldapp.org/read/introduction-to-art-design-context-and-meaning/section/63ecff3b-5ab3-4f75-bc27-0a1b85d8d9e7"
+    },
+    {
+      "source_id": "ung-intro-art-materials-chapter-3",
+      "access_status": "HTTP_REACHABLE",
+      "http_status": 200,
+      "checked_method": "bounded HEAD",
+      "checked_at_utc": "2026-10-23T16:03:05Z",
+      "full_text_status": "FULL_TEXT_CHECKED",
+      "scope": "General significance of materials; added only to the five material-focused question links and material source list.",
+      "url": "https://alg.manifoldapp.org/read/introduction-to-art-design-context-and-meaning/section/5796880d-cc97-4690-883b-2b116186f68d"
+    },
+    {
+      "source_id": "deped-k12-arts-curriculum-guide-2016",
+      "access_status": "HTTP_REACHABLE",
+      "http_status": 200,
+      "checked_method": "bounded HEAD",
+      "checked_at_utc": "2026-10-23T16:03:05Z",
+      "full_text_status": "FULL_TEXT_CHECKED",
+      "scope": "Philippine K–12 Arts curricular context; not current LET scope, exam weighting, or answer verification.",
+      "url": "https://www.deped.gov.ph/wp-content/uploads/2019/01/Arts-CG.pdf"
+    }
+  ],
+  "counts": {
+    "questions_with_accessible_general_method_reference": 26,
+    "requiring_subject_expert": 5,
+    "independent_approvals": 0,
+    "exact_lesson_section_links_added": 0,
+    "canonical_question_records_changed": 0,
+    "answer_keys_changed": 0
+  },
+  "material_taxonomy_review": "The existing Art Appreciation material retains its current taxonomy and LET placement. Its social-studies/humanities/literary-analysis taxonomy may need an authorized taxonomy-owner decision; it was not changed in this source-only corrective pass.",
+  "items": [
+    {
+      "question_id": 361,
+      "material_id": "let-art-appreciation-review",
+      "concept_id": "let-art-evidence",
+      "relationship_type": "SOURCE_ONLY",
+      "lesson_section_id": null,
+      "sources": [
+        {
+          "source_id": "ncca-culture-arts-foundation",
+          "title": "National Commission for Culture and the Arts: Culture and Arts Mandate",
+          "url_status": "DNS_ERROR",
+          "http_status": null,
+          "checked_at_utc": "2026-10-22T23:59:41Z"
+        },
+        {
+          "source_id": "ung-intro-art-formal-analysis-chapter-4",
+          "title": "Introduction to Art: Design, Context, and Meaning, Chapter 4: Describing Art",
+          "url_status": "HTTP_REACHABLE",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-23T16:03:05Z"
+        }
+      ],
+      "disposition": "ACCESSIBLE_AND_CLAIM_SUPPORTED_PENDING_REVIEW",
+      "evidence_scope": [
+        "OpenALG Chapter 4 §§4.3.1–4.3.4 supports general description, formal analysis, contextual interpretation and evidence-based evaluation."
+      ],
+      "item_specific_limit": "The referenced passages support the general art-analysis principle; they do not independently validate this constructed vignette, its keyed response, exam scope, or cultural interpretation.",
+      "local_scope_reference": "The DepEd K–12 Arts Curriculum Guide is a Philippine basic-education context reference, not proof of current LET scope or an item answer.",
+      "independent_review_status": "REVIEW_REQUIRED",
+      "review_specialty": "Art education / art history"
+    },
+    {
+      "question_id": 362,
+      "material_id": "let-art-appreciation-review",
+      "concept_id": "let-art-evidence",
+      "relationship_type": "SOURCE_ONLY",
+      "lesson_section_id": null,
+      "sources": [
+        {
+          "source_id": "ncca-culture-arts-foundation",
+          "title": "National Commission for Culture and the Arts: Culture and Arts Mandate",
+          "url_status": "DNS_ERROR",
+          "http_status": null,
+          "checked_at_utc": "2026-10-22T23:59:41Z"
+        },
+        {
+          "source_id": "ung-intro-art-formal-analysis-chapter-4",
+          "title": "Introduction to Art: Design, Context, and Meaning, Chapter 4: Describing Art",
+          "url_status": "HTTP_REACHABLE",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-23T16:03:05Z"
+        }
+      ],
+      "disposition": "ACCESSIBLE_AND_CLAIM_SUPPORTED_PENDING_REVIEW",
+      "evidence_scope": [
+        "OpenALG Chapter 4 §§4.3.1–4.3.4 supports general description, formal analysis, contextual interpretation and evidence-based evaluation."
+      ],
+      "item_specific_limit": "The referenced passages support the general art-analysis principle; they do not independently validate this constructed vignette, its keyed response, exam scope, or cultural interpretation.",
+      "local_scope_reference": "The DepEd K–12 Arts Curriculum Guide is a Philippine basic-education context reference, not proof of current LET scope or an item answer.",
+      "independent_review_status": "REVIEW_REQUIRED",
+      "review_specialty": "Art education / art history"
+    },
+    {
+      "question_id": 363,
+      "material_id": "let-art-appreciation-review",
+      "concept_id": "let-art-evidence",
+      "relationship_type": "SOURCE_ONLY",
+      "lesson_section_id": null,
+      "sources": [
+        {
+          "source_id": "ncca-culture-arts-foundation",
+          "title": "National Commission for Culture and the Arts: Culture and Arts Mandate",
+          "url_status": "DNS_ERROR",
+          "http_status": null,
+          "checked_at_utc": "2026-10-22T23:59:41Z"
+        },
+        {
+          "source_id": "ung-intro-art-formal-analysis-chapter-4",
+          "title": "Introduction to Art: Design, Context, and Meaning, Chapter 4: Describing Art",
+          "url_status": "HTTP_REACHABLE",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-23T16:03:05Z"
+        },
+        {
+          "source_id": "ung-intro-art-materials-chapter-3",
+          "title": "Introduction to Art: Design, Context, and Meaning, Chapter 3: Significance of Materials Used in Art",
+          "url_status": "HTTP_REACHABLE",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-23T16:03:05Z"
+        }
+      ],
+      "disposition": "ACCESSIBLE_AND_CLAIM_SUPPORTED_PENDING_REVIEW",
+      "evidence_scope": [
+        "OpenALG Chapter 4 §§4.3.1–4.3.4 supports general description, formal analysis, contextual interpretation and evidence-based evaluation.",
+        "OpenALG Chapter 3 §§3.2–3.3 supports the general relation between material choices, form, response and meaning."
+      ],
+      "item_specific_limit": "The referenced passages support the general art-analysis principle; they do not independently validate this constructed vignette, its keyed response, exam scope, or cultural interpretation.",
+      "local_scope_reference": "The DepEd K–12 Arts Curriculum Guide is a Philippine basic-education context reference, not proof of current LET scope or an item answer.",
+      "independent_review_status": "REVIEW_REQUIRED",
+      "review_specialty": "Art education / art history"
+    },
+    {
+      "question_id": 364,
+      "material_id": "let-art-appreciation-review",
+      "concept_id": "let-art-evidence",
+      "relationship_type": "SOURCE_ONLY",
+      "lesson_section_id": null,
+      "sources": [
+        {
+          "source_id": "ncca-culture-arts-foundation",
+          "title": "National Commission for Culture and the Arts: Culture and Arts Mandate",
+          "url_status": "DNS_ERROR",
+          "http_status": null,
+          "checked_at_utc": "2026-10-22T23:59:41Z"
+        },
+        {
+          "source_id": "ung-intro-art-formal-analysis-chapter-4",
+          "title": "Introduction to Art: Design, Context, and Meaning, Chapter 4: Describing Art",
+          "url_status": "HTTP_REACHABLE",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-23T16:03:05Z"
+        }
+      ],
+      "disposition": "ACCESSIBLE_AND_CLAIM_SUPPORTED_PENDING_REVIEW",
+      "evidence_scope": [
+        "OpenALG Chapter 4 §§4.3.1–4.3.4 supports general description, formal analysis, contextual interpretation and evidence-based evaluation."
+      ],
+      "item_specific_limit": "The referenced passages support the general art-analysis principle; they do not independently validate this constructed vignette, its keyed response, exam scope, or cultural interpretation.",
+      "local_scope_reference": "The DepEd K–12 Arts Curriculum Guide is a Philippine basic-education context reference, not proof of current LET scope or an item answer.",
+      "independent_review_status": "REVIEW_REQUIRED",
+      "review_specialty": "Art education / art history"
+    },
+    {
+      "question_id": 365,
+      "material_id": "let-art-appreciation-review",
+      "concept_id": "let-art-evidence",
+      "relationship_type": "SOURCE_ONLY",
+      "lesson_section_id": null,
+      "sources": [
+        {
+          "source_id": "ncca-culture-arts-foundation",
+          "title": "National Commission for Culture and the Arts: Culture and Arts Mandate",
+          "url_status": "DNS_ERROR",
+          "http_status": null,
+          "checked_at_utc": "2026-10-22T23:59:41Z"
+        },
+        {
+          "source_id": "ung-intro-art-formal-analysis-chapter-4",
+          "title": "Introduction to Art: Design, Context, and Meaning, Chapter 4: Describing Art",
+          "url_status": "HTTP_REACHABLE",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-23T16:03:05Z"
+        }
+      ],
+      "disposition": "ACCESSIBLE_AND_CLAIM_SUPPORTED_PENDING_REVIEW",
+      "evidence_scope": [
+        "OpenALG Chapter 4 §§4.3.1–4.3.4 supports general description, formal analysis, contextual interpretation and evidence-based evaluation."
+      ],
+      "item_specific_limit": "The referenced passages support the general art-analysis principle; they do not independently validate this constructed vignette, its keyed response, exam scope, or cultural interpretation.",
+      "local_scope_reference": "The DepEd K–12 Arts Curriculum Guide is a Philippine basic-education context reference, not proof of current LET scope or an item answer.",
+      "independent_review_status": "REVIEW_REQUIRED",
+      "review_specialty": "Art education / art history"
+    },
+    {
+      "question_id": 366,
+      "material_id": "let-art-appreciation-review",
+      "concept_id": "let-art-evidence",
+      "relationship_type": "SOURCE_ONLY",
+      "lesson_section_id": null,
+      "sources": [
+        {
+          "source_id": "ncca-culture-arts-foundation",
+          "title": "National Commission for Culture and the Arts: Culture and Arts Mandate",
+          "url_status": "DNS_ERROR",
+          "http_status": null,
+          "checked_at_utc": "2026-10-22T23:59:41Z"
+        },
+        {
+          "source_id": "ung-intro-art-formal-analysis-chapter-4",
+          "title": "Introduction to Art: Design, Context, and Meaning, Chapter 4: Describing Art",
+          "url_status": "HTTP_REACHABLE",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-23T16:03:05Z"
+        }
+      ],
+      "disposition": "ACCESSIBLE_AND_CLAIM_SUPPORTED_PENDING_REVIEW",
+      "evidence_scope": [
+        "OpenALG Chapter 4 §§4.3.1–4.3.4 supports general description, formal analysis, contextual interpretation and evidence-based evaluation."
+      ],
+      "item_specific_limit": "The referenced passages support the general art-analysis principle; they do not independently validate this constructed vignette, its keyed response, exam scope, or cultural interpretation.",
+      "local_scope_reference": "The DepEd K–12 Arts Curriculum Guide is a Philippine basic-education context reference, not proof of current LET scope or an item answer.",
+      "independent_review_status": "REVIEW_REQUIRED",
+      "review_specialty": "Art education / art history"
+    },
+    {
+      "question_id": 367,
+      "material_id": "let-art-appreciation-review",
+      "concept_id": "let-art-evidence",
+      "relationship_type": "SOURCE_ONLY",
+      "lesson_section_id": null,
+      "sources": [
+        {
+          "source_id": "ncca-culture-arts-foundation",
+          "title": "National Commission for Culture and the Arts: Culture and Arts Mandate",
+          "url_status": "DNS_ERROR",
+          "http_status": null,
+          "checked_at_utc": "2026-10-22T23:59:41Z"
+        },
+        {
+          "source_id": "ung-intro-art-formal-analysis-chapter-4",
+          "title": "Introduction to Art: Design, Context, and Meaning, Chapter 4: Describing Art",
+          "url_status": "HTTP_REACHABLE",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-23T16:03:05Z"
+        }
+      ],
+      "disposition": "REQUIRES_SUBJECT_EXPERT",
+      "evidence_scope": [
+        "OpenALG Chapter 4 §§4.3.1–4.3.4 supports general description, formal analysis, contextual interpretation and evidence-based evaluation."
+      ],
+      "item_specific_limit": "The referenced passages support the general art-analysis principle; they do not independently validate this constructed vignette, its keyed response, exam scope, or cultural interpretation.",
+      "local_scope_reference": "The DepEd K–12 Arts Curriculum Guide is a Philippine basic-education context reference, not proof of current LET scope or an item answer.",
+      "independent_review_status": "REVIEW_REQUIRED",
+      "review_specialty": "Art education / art history; Philippine art and culture specialist"
+    },
+    {
+      "question_id": 368,
+      "material_id": "let-art-appreciation-review",
+      "concept_id": "let-art-evidence",
+      "relationship_type": "SOURCE_ONLY",
+      "lesson_section_id": null,
+      "sources": [
+        {
+          "source_id": "ncca-culture-arts-foundation",
+          "title": "National Commission for Culture and the Arts: Culture and Arts Mandate",
+          "url_status": "DNS_ERROR",
+          "http_status": null,
+          "checked_at_utc": "2026-10-22T23:59:41Z"
+        },
+        {
+          "source_id": "ung-intro-art-formal-analysis-chapter-4",
+          "title": "Introduction to Art: Design, Context, and Meaning, Chapter 4: Describing Art",
+          "url_status": "HTTP_REACHABLE",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-23T16:03:05Z"
+        }
+      ],
+      "disposition": "REQUIRES_SUBJECT_EXPERT",
+      "evidence_scope": [
+        "OpenALG Chapter 4 §§4.3.1–4.3.4 supports general description, formal analysis, contextual interpretation and evidence-based evaluation."
+      ],
+      "item_specific_limit": "The referenced passages support the general art-analysis principle; they do not independently validate this constructed vignette, its keyed response, exam scope, or cultural interpretation.",
+      "local_scope_reference": "The DepEd K–12 Arts Curriculum Guide is a Philippine basic-education context reference, not proof of current LET scope or an item answer.",
+      "independent_review_status": "REVIEW_REQUIRED",
+      "review_specialty": "Art education / art history; Philippine art and culture specialist"
+    },
+    {
+      "question_id": 369,
+      "material_id": "let-art-appreciation-review",
+      "concept_id": "let-art-evidence",
+      "relationship_type": "SOURCE_ONLY",
+      "lesson_section_id": null,
+      "sources": [
+        {
+          "source_id": "ncca-culture-arts-foundation",
+          "title": "National Commission for Culture and the Arts: Culture and Arts Mandate",
+          "url_status": "DNS_ERROR",
+          "http_status": null,
+          "checked_at_utc": "2026-10-22T23:59:41Z"
+        },
+        {
+          "source_id": "ung-intro-art-formal-analysis-chapter-4",
+          "title": "Introduction to Art: Design, Context, and Meaning, Chapter 4: Describing Art",
+          "url_status": "HTTP_REACHABLE",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-23T16:03:05Z"
+        }
+      ],
+      "disposition": "ACCESSIBLE_AND_CLAIM_SUPPORTED_PENDING_REVIEW",
+      "evidence_scope": [
+        "OpenALG Chapter 4 §§4.3.1–4.3.4 supports general description, formal analysis, contextual interpretation and evidence-based evaluation."
+      ],
+      "item_specific_limit": "The referenced passages support the general art-analysis principle; they do not independently validate this constructed vignette, its keyed response, exam scope, or cultural interpretation.",
+      "local_scope_reference": "The DepEd K–12 Arts Curriculum Guide is a Philippine basic-education context reference, not proof of current LET scope or an item answer.",
+      "independent_review_status": "REVIEW_REQUIRED",
+      "review_specialty": "Art education / art history"
+    },
+    {
+      "question_id": 370,
+      "material_id": "let-art-appreciation-review",
+      "concept_id": "let-art-evidence",
+      "relationship_type": "SOURCE_ONLY",
+      "lesson_section_id": null,
+      "sources": [
+        {
+          "source_id": "ncca-culture-arts-foundation",
+          "title": "National Commission for Culture and the Arts: Culture and Arts Mandate",
+          "url_status": "DNS_ERROR",
+          "http_status": null,
+          "checked_at_utc": "2026-10-22T23:59:41Z"
+        },
+        {
+          "source_id": "ung-intro-art-formal-analysis-chapter-4",
+          "title": "Introduction to Art: Design, Context, and Meaning, Chapter 4: Describing Art",
+          "url_status": "HTTP_REACHABLE",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-23T16:03:05Z"
+        }
+      ],
+      "disposition": "ACCESSIBLE_AND_CLAIM_SUPPORTED_PENDING_REVIEW",
+      "evidence_scope": [
+        "OpenALG Chapter 4 §§4.3.1–4.3.4 supports general description, formal analysis, contextual interpretation and evidence-based evaluation."
+      ],
+      "item_specific_limit": "The referenced passages support the general art-analysis principle; they do not independently validate this constructed vignette, its keyed response, exam scope, or cultural interpretation.",
+      "local_scope_reference": "The DepEd K–12 Arts Curriculum Guide is a Philippine basic-education context reference, not proof of current LET scope or an item answer.",
+      "independent_review_status": "REVIEW_REQUIRED",
+      "review_specialty": "Art education / art history"
+    },
+    {
+      "question_id": 371,
+      "material_id": "let-art-appreciation-review",
+      "concept_id": "let-art-evidence",
+      "relationship_type": "SOURCE_ONLY",
+      "lesson_section_id": null,
+      "sources": [
+        {
+          "source_id": "ncca-culture-arts-foundation",
+          "title": "National Commission for Culture and the Arts: Culture and Arts Mandate",
+          "url_status": "DNS_ERROR",
+          "http_status": null,
+          "checked_at_utc": "2026-10-22T23:59:41Z"
+        },
+        {
+          "source_id": "ung-intro-art-formal-analysis-chapter-4",
+          "title": "Introduction to Art: Design, Context, and Meaning, Chapter 4: Describing Art",
+          "url_status": "HTTP_REACHABLE",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-23T16:03:05Z"
+        }
+      ],
+      "disposition": "ACCESSIBLE_AND_CLAIM_SUPPORTED_PENDING_REVIEW",
+      "evidence_scope": [
+        "OpenALG Chapter 4 §§4.3.1–4.3.4 supports general description, formal analysis, contextual interpretation and evidence-based evaluation."
+      ],
+      "item_specific_limit": "The referenced passages support the general art-analysis principle; they do not independently validate this constructed vignette, its keyed response, exam scope, or cultural interpretation.",
+      "local_scope_reference": "The DepEd K–12 Arts Curriculum Guide is a Philippine basic-education context reference, not proof of current LET scope or an item answer.",
+      "independent_review_status": "REVIEW_REQUIRED",
+      "review_specialty": "Art education / art history"
+    },
+    {
+      "question_id": 372,
+      "material_id": "let-art-appreciation-review",
+      "concept_id": "let-art-evidence",
+      "relationship_type": "SOURCE_ONLY",
+      "lesson_section_id": null,
+      "sources": [
+        {
+          "source_id": "ncca-culture-arts-foundation",
+          "title": "National Commission for Culture and the Arts: Culture and Arts Mandate",
+          "url_status": "DNS_ERROR",
+          "http_status": null,
+          "checked_at_utc": "2026-10-22T23:59:41Z"
+        },
+        {
+          "source_id": "ung-intro-art-formal-analysis-chapter-4",
+          "title": "Introduction to Art: Design, Context, and Meaning, Chapter 4: Describing Art",
+          "url_status": "HTTP_REACHABLE",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-23T16:03:05Z"
+        },
+        {
+          "source_id": "ung-intro-art-materials-chapter-3",
+          "title": "Introduction to Art: Design, Context, and Meaning, Chapter 3: Significance of Materials Used in Art",
+          "url_status": "HTTP_REACHABLE",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-23T16:03:05Z"
+        }
+      ],
+      "disposition": "ACCESSIBLE_AND_CLAIM_SUPPORTED_PENDING_REVIEW",
+      "evidence_scope": [
+        "OpenALG Chapter 4 §§4.3.1–4.3.4 supports general description, formal analysis, contextual interpretation and evidence-based evaluation.",
+        "OpenALG Chapter 3 §§3.2–3.3 supports the general relation between material choices, form, response and meaning."
+      ],
+      "item_specific_limit": "The referenced passages support the general art-analysis principle; they do not independently validate this constructed vignette, its keyed response, exam scope, or cultural interpretation.",
+      "local_scope_reference": "The DepEd K–12 Arts Curriculum Guide is a Philippine basic-education context reference, not proof of current LET scope or an item answer.",
+      "independent_review_status": "REVIEW_REQUIRED",
+      "review_specialty": "Art education / art history"
+    },
+    {
+      "question_id": 373,
+      "material_id": "let-art-appreciation-review",
+      "concept_id": "let-art-evidence",
+      "relationship_type": "SOURCE_ONLY",
+      "lesson_section_id": null,
+      "sources": [
+        {
+          "source_id": "ncca-culture-arts-foundation",
+          "title": "National Commission for Culture and the Arts: Culture and Arts Mandate",
+          "url_status": "DNS_ERROR",
+          "http_status": null,
+          "checked_at_utc": "2026-10-22T23:59:41Z"
+        },
+        {
+          "source_id": "ung-intro-art-formal-analysis-chapter-4",
+          "title": "Introduction to Art: Design, Context, and Meaning, Chapter 4: Describing Art",
+          "url_status": "HTTP_REACHABLE",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-23T16:03:05Z"
+        }
+      ],
+      "disposition": "ACCESSIBLE_AND_CLAIM_SUPPORTED_PENDING_REVIEW",
+      "evidence_scope": [
+        "OpenALG Chapter 4 §§4.3.1–4.3.4 supports general description, formal analysis, contextual interpretation and evidence-based evaluation."
+      ],
+      "item_specific_limit": "The referenced passages support the general art-analysis principle; they do not independently validate this constructed vignette, its keyed response, exam scope, or cultural interpretation.",
+      "local_scope_reference": "The DepEd K–12 Arts Curriculum Guide is a Philippine basic-education context reference, not proof of current LET scope or an item answer.",
+      "independent_review_status": "REVIEW_REQUIRED",
+      "review_specialty": "Art education / art history"
+    },
+    {
+      "question_id": 374,
+      "material_id": "let-art-appreciation-review",
+      "concept_id": "let-art-evidence",
+      "relationship_type": "SOURCE_ONLY",
+      "lesson_section_id": null,
+      "sources": [
+        {
+          "source_id": "ncca-culture-arts-foundation",
+          "title": "National Commission for Culture and the Arts: Culture and Arts Mandate",
+          "url_status": "DNS_ERROR",
+          "http_status": null,
+          "checked_at_utc": "2026-10-22T23:59:41Z"
+        },
+        {
+          "source_id": "ung-intro-art-formal-analysis-chapter-4",
+          "title": "Introduction to Art: Design, Context, and Meaning, Chapter 4: Describing Art",
+          "url_status": "HTTP_REACHABLE",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-23T16:03:05Z"
+        }
+      ],
+      "disposition": "ACCESSIBLE_AND_CLAIM_SUPPORTED_PENDING_REVIEW",
+      "evidence_scope": [
+        "OpenALG Chapter 4 §§4.3.1–4.3.4 supports general description, formal analysis, contextual interpretation and evidence-based evaluation."
+      ],
+      "item_specific_limit": "The referenced passages support the general art-analysis principle; they do not independently validate this constructed vignette, its keyed response, exam scope, or cultural interpretation.",
+      "local_scope_reference": "The DepEd K–12 Arts Curriculum Guide is a Philippine basic-education context reference, not proof of current LET scope or an item answer.",
+      "independent_review_status": "REVIEW_REQUIRED",
+      "review_specialty": "Art education / art history"
+    },
+    {
+      "question_id": 375,
+      "material_id": "let-art-appreciation-review",
+      "concept_id": "let-art-evidence",
+      "relationship_type": "SOURCE_ONLY",
+      "lesson_section_id": null,
+      "sources": [
+        {
+          "source_id": "ncca-culture-arts-foundation",
+          "title": "National Commission for Culture and the Arts: Culture and Arts Mandate",
+          "url_status": "DNS_ERROR",
+          "http_status": null,
+          "checked_at_utc": "2026-10-22T23:59:41Z"
+        },
+        {
+          "source_id": "ung-intro-art-formal-analysis-chapter-4",
+          "title": "Introduction to Art: Design, Context, and Meaning, Chapter 4: Describing Art",
+          "url_status": "HTTP_REACHABLE",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-23T16:03:05Z"
+        }
+      ],
+      "disposition": "ACCESSIBLE_AND_CLAIM_SUPPORTED_PENDING_REVIEW",
+      "evidence_scope": [
+        "OpenALG Chapter 4 §§4.3.1–4.3.4 supports general description, formal analysis, contextual interpretation and evidence-based evaluation."
+      ],
+      "item_specific_limit": "The referenced passages support the general art-analysis principle; they do not independently validate this constructed vignette, its keyed response, exam scope, or cultural interpretation.",
+      "local_scope_reference": "The DepEd K–12 Arts Curriculum Guide is a Philippine basic-education context reference, not proof of current LET scope or an item answer.",
+      "independent_review_status": "REVIEW_REQUIRED",
+      "review_specialty": "Art education / art history"
+    },
+    {
+      "question_id": 376,
+      "material_id": "let-art-appreciation-review",
+      "concept_id": "let-art-evidence",
+      "relationship_type": "SOURCE_ONLY",
+      "lesson_section_id": null,
+      "sources": [
+        {
+          "source_id": "ncca-culture-arts-foundation",
+          "title": "National Commission for Culture and the Arts: Culture and Arts Mandate",
+          "url_status": "DNS_ERROR",
+          "http_status": null,
+          "checked_at_utc": "2026-10-22T23:59:41Z"
+        },
+        {
+          "source_id": "ung-intro-art-formal-analysis-chapter-4",
+          "title": "Introduction to Art: Design, Context, and Meaning, Chapter 4: Describing Art",
+          "url_status": "HTTP_REACHABLE",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-23T16:03:05Z"
+        },
+        {
+          "source_id": "ung-intro-art-materials-chapter-3",
+          "title": "Introduction to Art: Design, Context, and Meaning, Chapter 3: Significance of Materials Used in Art",
+          "url_status": "HTTP_REACHABLE",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-23T16:03:05Z"
+        }
+      ],
+      "disposition": "ACCESSIBLE_AND_CLAIM_SUPPORTED_PENDING_REVIEW",
+      "evidence_scope": [
+        "OpenALG Chapter 4 §§4.3.1–4.3.4 supports general description, formal analysis, contextual interpretation and evidence-based evaluation.",
+        "OpenALG Chapter 3 §§3.2–3.3 supports the general relation between material choices, form, response and meaning."
+      ],
+      "item_specific_limit": "The referenced passages support the general art-analysis principle; they do not independently validate this constructed vignette, its keyed response, exam scope, or cultural interpretation.",
+      "local_scope_reference": "The DepEd K–12 Arts Curriculum Guide is a Philippine basic-education context reference, not proof of current LET scope or an item answer.",
+      "independent_review_status": "REVIEW_REQUIRED",
+      "review_specialty": "Art education / art history"
+    },
+    {
+      "question_id": 377,
+      "material_id": "let-art-appreciation-review",
+      "concept_id": "let-art-evidence",
+      "relationship_type": "SOURCE_ONLY",
+      "lesson_section_id": null,
+      "sources": [
+        {
+          "source_id": "ncca-culture-arts-foundation",
+          "title": "National Commission for Culture and the Arts: Culture and Arts Mandate",
+          "url_status": "DNS_ERROR",
+          "http_status": null,
+          "checked_at_utc": "2026-10-22T23:59:41Z"
+        },
+        {
+          "source_id": "ung-intro-art-formal-analysis-chapter-4",
+          "title": "Introduction to Art: Design, Context, and Meaning, Chapter 4: Describing Art",
+          "url_status": "HTTP_REACHABLE",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-23T16:03:05Z"
+        }
+      ],
+      "disposition": "ACCESSIBLE_AND_CLAIM_SUPPORTED_PENDING_REVIEW",
+      "evidence_scope": [
+        "OpenALG Chapter 4 §§4.3.1–4.3.4 supports general description, formal analysis, contextual interpretation and evidence-based evaluation."
+      ],
+      "item_specific_limit": "The referenced passages support the general art-analysis principle; they do not independently validate this constructed vignette, its keyed response, exam scope, or cultural interpretation.",
+      "local_scope_reference": "The DepEd K–12 Arts Curriculum Guide is a Philippine basic-education context reference, not proof of current LET scope or an item answer.",
+      "independent_review_status": "REVIEW_REQUIRED",
+      "review_specialty": "Art education / art history"
+    },
+    {
+      "question_id": 378,
+      "material_id": "let-art-appreciation-review",
+      "concept_id": "let-art-evidence",
+      "relationship_type": "SOURCE_ONLY",
+      "lesson_section_id": null,
+      "sources": [
+        {
+          "source_id": "ncca-culture-arts-foundation",
+          "title": "National Commission for Culture and the Arts: Culture and Arts Mandate",
+          "url_status": "DNS_ERROR",
+          "http_status": null,
+          "checked_at_utc": "2026-10-22T23:59:41Z"
+        },
+        {
+          "source_id": "ung-intro-art-formal-analysis-chapter-4",
+          "title": "Introduction to Art: Design, Context, and Meaning, Chapter 4: Describing Art",
+          "url_status": "HTTP_REACHABLE",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-23T16:03:05Z"
+        }
+      ],
+      "disposition": "REQUIRES_SUBJECT_EXPERT",
+      "evidence_scope": [
+        "OpenALG Chapter 4 §§4.3.1–4.3.4 supports general description, formal analysis, contextual interpretation and evidence-based evaluation."
+      ],
+      "item_specific_limit": "The referenced passages support the general art-analysis principle; they do not independently validate this constructed vignette, its keyed response, exam scope, or cultural interpretation.",
+      "local_scope_reference": "The DepEd K–12 Arts Curriculum Guide is a Philippine basic-education context reference, not proof of current LET scope or an item answer.",
+      "independent_review_status": "REVIEW_REQUIRED",
+      "review_specialty": "Art education / art history; Philippine art and culture specialist"
+    },
+    {
+      "question_id": 379,
+      "material_id": "let-art-appreciation-review",
+      "concept_id": "let-art-evidence",
+      "relationship_type": "SOURCE_ONLY",
+      "lesson_section_id": null,
+      "sources": [
+        {
+          "source_id": "ncca-culture-arts-foundation",
+          "title": "National Commission for Culture and the Arts: Culture and Arts Mandate",
+          "url_status": "DNS_ERROR",
+          "http_status": null,
+          "checked_at_utc": "2026-10-22T23:59:41Z"
+        },
+        {
+          "source_id": "ung-intro-art-formal-analysis-chapter-4",
+          "title": "Introduction to Art: Design, Context, and Meaning, Chapter 4: Describing Art",
+          "url_status": "HTTP_REACHABLE",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-23T16:03:05Z"
+        },
+        {
+          "source_id": "ung-intro-art-materials-chapter-3",
+          "title": "Introduction to Art: Design, Context, and Meaning, Chapter 3: Significance of Materials Used in Art",
+          "url_status": "HTTP_REACHABLE",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-23T16:03:05Z"
+        }
+      ],
+      "disposition": "REQUIRES_SUBJECT_EXPERT",
+      "evidence_scope": [
+        "OpenALG Chapter 4 §§4.3.1–4.3.4 supports general description, formal analysis, contextual interpretation and evidence-based evaluation.",
+        "OpenALG Chapter 3 §§3.2–3.3 supports the general relation between material choices, form, response and meaning."
+      ],
+      "item_specific_limit": "The referenced passages support the general art-analysis principle; they do not independently validate this constructed vignette, its keyed response, exam scope, or cultural interpretation.",
+      "local_scope_reference": "The DepEd K–12 Arts Curriculum Guide is a Philippine basic-education context reference, not proof of current LET scope or an item answer.",
+      "independent_review_status": "REVIEW_REQUIRED",
+      "review_specialty": "Art education / art history; Philippine art and culture specialist"
+    },
+    {
+      "question_id": 380,
+      "material_id": "let-art-appreciation-review",
+      "concept_id": "let-art-evidence",
+      "relationship_type": "SOURCE_ONLY",
+      "lesson_section_id": null,
+      "sources": [
+        {
+          "source_id": "ncca-culture-arts-foundation",
+          "title": "National Commission for Culture and the Arts: Culture and Arts Mandate",
+          "url_status": "DNS_ERROR",
+          "http_status": null,
+          "checked_at_utc": "2026-10-22T23:59:41Z"
+        },
+        {
+          "source_id": "ung-intro-art-formal-analysis-chapter-4",
+          "title": "Introduction to Art: Design, Context, and Meaning, Chapter 4: Describing Art",
+          "url_status": "HTTP_REACHABLE",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-23T16:03:05Z"
+        }
+      ],
+      "disposition": "ACCESSIBLE_AND_CLAIM_SUPPORTED_PENDING_REVIEW",
+      "evidence_scope": [
+        "OpenALG Chapter 4 §§4.3.1–4.3.4 supports general description, formal analysis, contextual interpretation and evidence-based evaluation."
+      ],
+      "item_specific_limit": "The referenced passages support the general art-analysis principle; they do not independently validate this constructed vignette, its keyed response, exam scope, or cultural interpretation.",
+      "local_scope_reference": "The DepEd K–12 Arts Curriculum Guide is a Philippine basic-education context reference, not proof of current LET scope or an item answer.",
+      "independent_review_status": "REVIEW_REQUIRED",
+      "review_specialty": "Art education / art history"
+    },
+    {
+      "question_id": 2449,
+      "material_id": "let-art-appreciation-review",
+      "concept_id": "let-art-evidence",
+      "relationship_type": "SOURCE_ONLY",
+      "lesson_section_id": null,
+      "sources": [
+        {
+          "source_id": "ncca-culture-arts-foundation",
+          "title": "National Commission for Culture and the Arts: Culture and Arts Mandate",
+          "url_status": "DNS_ERROR",
+          "http_status": null,
+          "checked_at_utc": "2026-10-22T23:59:41Z"
+        },
+        {
+          "source_id": "ung-intro-art-formal-analysis-chapter-4",
+          "title": "Introduction to Art: Design, Context, and Meaning, Chapter 4: Describing Art",
+          "url_status": "HTTP_REACHABLE",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-23T16:03:05Z"
+        }
+      ],
+      "disposition": "ACCESSIBLE_AND_CLAIM_SUPPORTED_PENDING_REVIEW",
+      "evidence_scope": [
+        "OpenALG Chapter 4 §§4.3.1–4.3.4 supports general description, formal analysis, contextual interpretation and evidence-based evaluation."
+      ],
+      "item_specific_limit": "The referenced passages support the general art-analysis principle; they do not independently validate this constructed vignette, its keyed response, exam scope, or cultural interpretation.",
+      "local_scope_reference": "The DepEd K–12 Arts Curriculum Guide is a Philippine basic-education context reference, not proof of current LET scope or an item answer.",
+      "independent_review_status": "REVIEW_REQUIRED",
+      "review_specialty": "Art education / art history"
+    },
+    {
+      "question_id": 2450,
+      "material_id": "let-art-appreciation-review",
+      "concept_id": "let-art-evidence",
+      "relationship_type": "SOURCE_ONLY",
+      "lesson_section_id": null,
+      "sources": [
+        {
+          "source_id": "ncca-culture-arts-foundation",
+          "title": "National Commission for Culture and the Arts: Culture and Arts Mandate",
+          "url_status": "DNS_ERROR",
+          "http_status": null,
+          "checked_at_utc": "2026-10-22T23:59:41Z"
+        },
+        {
+          "source_id": "ung-intro-art-formal-analysis-chapter-4",
+          "title": "Introduction to Art: Design, Context, and Meaning, Chapter 4: Describing Art",
+          "url_status": "HTTP_REACHABLE",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-23T16:03:05Z"
+        }
+      ],
+      "disposition": "ACCESSIBLE_AND_CLAIM_SUPPORTED_PENDING_REVIEW",
+      "evidence_scope": [
+        "OpenALG Chapter 4 §§4.3.1–4.3.4 supports general description, formal analysis, contextual interpretation and evidence-based evaluation."
+      ],
+      "item_specific_limit": "The referenced passages support the general art-analysis principle; they do not independently validate this constructed vignette, its keyed response, exam scope, or cultural interpretation.",
+      "local_scope_reference": "The DepEd K–12 Arts Curriculum Guide is a Philippine basic-education context reference, not proof of current LET scope or an item answer.",
+      "independent_review_status": "REVIEW_REQUIRED",
+      "review_specialty": "Art education / art history"
+    },
+    {
+      "question_id": 2451,
+      "material_id": "let-art-appreciation-review",
+      "concept_id": "let-art-evidence",
+      "relationship_type": "SOURCE_ONLY",
+      "lesson_section_id": null,
+      "sources": [
+        {
+          "source_id": "ncca-culture-arts-foundation",
+          "title": "National Commission for Culture and the Arts: Culture and Arts Mandate",
+          "url_status": "DNS_ERROR",
+          "http_status": null,
+          "checked_at_utc": "2026-10-22T23:59:41Z"
+        },
+        {
+          "source_id": "ung-intro-art-formal-analysis-chapter-4",
+          "title": "Introduction to Art: Design, Context, and Meaning, Chapter 4: Describing Art",
+          "url_status": "HTTP_REACHABLE",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-23T16:03:05Z"
+        }
+      ],
+      "disposition": "ACCESSIBLE_AND_CLAIM_SUPPORTED_PENDING_REVIEW",
+      "evidence_scope": [
+        "OpenALG Chapter 4 §§4.3.1–4.3.4 supports general description, formal analysis, contextual interpretation and evidence-based evaluation."
+      ],
+      "item_specific_limit": "The referenced passages support the general art-analysis principle; they do not independently validate this constructed vignette, its keyed response, exam scope, or cultural interpretation.",
+      "local_scope_reference": "The DepEd K–12 Arts Curriculum Guide is a Philippine basic-education context reference, not proof of current LET scope or an item answer.",
+      "independent_review_status": "REVIEW_REQUIRED",
+      "review_specialty": "Art education / art history"
+    },
+    {
+      "question_id": 2452,
+      "material_id": "let-art-appreciation-review",
+      "concept_id": "let-art-evidence",
+      "relationship_type": "SOURCE_ONLY",
+      "lesson_section_id": null,
+      "sources": [
+        {
+          "source_id": "ncca-culture-arts-foundation",
+          "title": "National Commission for Culture and the Arts: Culture and Arts Mandate",
+          "url_status": "DNS_ERROR",
+          "http_status": null,
+          "checked_at_utc": "2026-10-22T23:59:41Z"
+        },
+        {
+          "source_id": "ung-intro-art-formal-analysis-chapter-4",
+          "title": "Introduction to Art: Design, Context, and Meaning, Chapter 4: Describing Art",
+          "url_status": "HTTP_REACHABLE",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-23T16:03:05Z"
+        }
+      ],
+      "disposition": "ACCESSIBLE_AND_CLAIM_SUPPORTED_PENDING_REVIEW",
+      "evidence_scope": [
+        "OpenALG Chapter 4 §§4.3.1–4.3.4 supports general description, formal analysis, contextual interpretation and evidence-based evaluation."
+      ],
+      "item_specific_limit": "The referenced passages support the general art-analysis principle; they do not independently validate this constructed vignette, its keyed response, exam scope, or cultural interpretation.",
+      "local_scope_reference": "The DepEd K–12 Arts Curriculum Guide is a Philippine basic-education context reference, not proof of current LET scope or an item answer.",
+      "independent_review_status": "REVIEW_REQUIRED",
+      "review_specialty": "Art education / art history"
+    },
+    {
+      "question_id": 2453,
+      "material_id": "let-art-appreciation-review",
+      "concept_id": "let-art-evidence",
+      "relationship_type": "SOURCE_ONLY",
+      "lesson_section_id": null,
+      "sources": [
+        {
+          "source_id": "ncca-culture-arts-foundation",
+          "title": "National Commission for Culture and the Arts: Culture and Arts Mandate",
+          "url_status": "DNS_ERROR",
+          "http_status": null,
+          "checked_at_utc": "2026-10-22T23:59:41Z"
+        },
+        {
+          "source_id": "ung-intro-art-formal-analysis-chapter-4",
+          "title": "Introduction to Art: Design, Context, and Meaning, Chapter 4: Describing Art",
+          "url_status": "HTTP_REACHABLE",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-23T16:03:05Z"
+        }
+      ],
+      "disposition": "REQUIRES_SUBJECT_EXPERT",
+      "evidence_scope": [
+        "OpenALG Chapter 4 §§4.3.1–4.3.4 supports general description, formal analysis, contextual interpretation and evidence-based evaluation."
+      ],
+      "item_specific_limit": "The referenced passages support the general art-analysis principle; they do not independently validate this constructed vignette, its keyed response, exam scope, or cultural interpretation.",
+      "local_scope_reference": "The DepEd K–12 Arts Curriculum Guide is a Philippine basic-education context reference, not proof of current LET scope or an item answer.",
+      "independent_review_status": "REVIEW_REQUIRED",
+      "review_specialty": "Art education / art history; Philippine art and culture specialist"
+    },
+    {
+      "question_id": 2454,
+      "material_id": "let-art-appreciation-review",
+      "concept_id": "let-art-evidence",
+      "relationship_type": "SOURCE_ONLY",
+      "lesson_section_id": null,
+      "sources": [
+        {
+          "source_id": "ncca-culture-arts-foundation",
+          "title": "National Commission for Culture and the Arts: Culture and Arts Mandate",
+          "url_status": "DNS_ERROR",
+          "http_status": null,
+          "checked_at_utc": "2026-10-22T23:59:41Z"
+        },
+        {
+          "source_id": "ung-intro-art-formal-analysis-chapter-4",
+          "title": "Introduction to Art: Design, Context, and Meaning, Chapter 4: Describing Art",
+          "url_status": "HTTP_REACHABLE",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-23T16:03:05Z"
+        },
+        {
+          "source_id": "ung-intro-art-materials-chapter-3",
+          "title": "Introduction to Art: Design, Context, and Meaning, Chapter 3: Significance of Materials Used in Art",
+          "url_status": "HTTP_REACHABLE",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-23T16:03:05Z"
+        }
+      ],
+      "disposition": "ACCESSIBLE_AND_CLAIM_SUPPORTED_PENDING_REVIEW",
+      "evidence_scope": [
+        "OpenALG Chapter 4 §§4.3.1–4.3.4 supports general description, formal analysis, contextual interpretation and evidence-based evaluation.",
+        "OpenALG Chapter 3 §§3.2–3.3 supports the general relation between material choices, form, response and meaning."
+      ],
+      "item_specific_limit": "The referenced passages support the general art-analysis principle; they do not independently validate this constructed vignette, its keyed response, exam scope, or cultural interpretation.",
+      "local_scope_reference": "The DepEd K–12 Arts Curriculum Guide is a Philippine basic-education context reference, not proof of current LET scope or an item answer.",
+      "independent_review_status": "REVIEW_REQUIRED",
+      "review_specialty": "Art education / art history"
+    }
+  ]
+}

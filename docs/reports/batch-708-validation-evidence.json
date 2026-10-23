@@ -1,0 +1,223 @@
+{
+  "schema_version": 1,
+  "batch": 708,
+  "branch": "batch-708-final-stabilization",
+  "tested_sha": "da896f545984c0cf25425006a3163f72036c78cd",
+  "checks": [
+    {
+      "command": "APP_ENV=testing DB_DRIVER=json APP_STORAGE_PATH=/data/data/com.termux/files/home/boardprep-batch-706/storage php tools/generate-study-pdfs.php --check",
+      "exit_code": 0,
+      "tested_sha": "da896f545984c0cf25425006a3163f72036c78cd",
+      "result": "NEWLY_TESTED_PASS",
+      "scope": "All published study PDFs and 59 manifest entries; deterministic content and hashes.",
+      "limitations": "Searchability is verified by generator tests and PDF text operators; external pdftotext is unavailable."
+    },
+    {
+      "command": "APP_ENV=testing DB_DRIVER=json APP_STORAGE_PATH=/data/data/com.termux/files/home/boardprep-batch-706/storage php tools/Tests/StudyPdfSelectedGenerationTest.php",
+      "exit_code": 0,
+      "tested_sha": "da896f545984c0cf25425006a3163f72036c78cd",
+      "result": "NEWLY_TESTED_PASS",
+      "scope": "Selected generation, manifest merge, preservation of unselected assets and refusal to reuse stale evidence."
+    },
+    {
+      "command": "APP_ENV=testing DB_DRIVER=json APP_STORAGE_PATH=/data/data/com.termux/files/home/boardprep-batch-706/storage php tools/Tests/StudyPdfPipelineTest.php",
+      "exit_code": 0,
+      "tested_sha": "da896f545984c0cf25425006a3163f72036c78cd",
+      "result": "NEWLY_TESTED_PASS",
+      "scope": "All published PDFs: searchable text/source URLs, page count, xref, lesson content and manifest consistency."
+    },
+    {
+      "command": "APP_ENV=testing DB_DRIVER=json APP_STORAGE_PATH=/data/data/com.termux/files/home/boardprep-batch-706/storage php tools/Tests/Batch708Q6403QuarantineTest.php",
+      "exit_code": 0,
+      "tested_sha": "da896f545984c0cf25425006a3163f72036c78cd",
+      "result": "NEWLY_TESTED_PASS",
+      "scope": "Punctuation/key contradiction; normal, random and blueprint recovery CSE selections exclude Q6403; other CSE clerical practice remains; stored scoring unchanged.",
+      "limitations": "Item-owner authorization is outstanding; saved attempts are not rewritten."
+    },
+    {
+      "command": "APP_ENV=testing DB_DRIVER=json APP_STORAGE_PATH=/data/data/com.termux/files/home/boardprep-batch-706/storage php tools/Tests/QuestionPoolFilterTest.php",
+      "exit_code": 0,
+      "tested_sha": "da896f545984c0cf25425006a3163f72036c78cd",
+      "result": "NEWLY_TESTED_PASS",
+      "scope": "Canonical taxonomy, explicit cross-board eligibility and exclusion behavior."
+    },
+    {
+      "command": "APP_ENV=testing DB_DRIVER=json APP_STORAGE_PATH=/data/data/com.termux/files/home/boardprep-batch-706/storage php tools/Tests/QuestionScoreEvaluatorTest.php",
+      "exit_code": 0,
+      "tested_sha": "da896f545984c0cf25425006a3163f72036c78cd",
+      "result": "NEWLY_TESTED_PASS",
+      "scope": "Score evaluator contract; Q6403-specific contradiction is separately covered."
+    },
+    {
+      "command": "APP_ENV=testing DB_DRIVER=json APP_STORAGE_PATH=/data/data/com.termux/files/home/boardprep-batch-706/storage php tools/Tests/MultiExamEligibilityTest.php",
+      "exit_code": 0,
+      "tested_sha": "da896f545984c0cf25425006a3163f72036c78cd",
+      "result": "NEWLY_TESTED_PASS",
+      "scope": "Multi-board eligibility, identity preservation, CSE selection and collision-board isolation."
+    },
+    {
+      "command": "APP_ENV=testing DB_DRIVER=json APP_STORAGE_PATH=/data/data/com.termux/files/home/boardprep-batch-706/storage php tools/Tests/TenBoardLearnerJourneyHttpTest.php",
+      "exit_code": 0,
+      "tested_sha": "da896f545984c0cf25425006a3163f72036c78cd",
+      "result": "NEWLY_TESTED_PASS",
+      "scope": "LET, CSE, CLE, NLE, PLE, CE, CPA, ME, REE and ARCH through study, quiz, answer, score, explanation, history, progress, retry and stale-state recovery."
+    },
+    {
+      "command": "APP_ENV=testing DB_DRIVER=json APP_STORAGE_PATH=/data/data/com.termux/files/home/boardprep-batch-706/storage php tools/Tests/StudyLibraryNavigationTest.php",
+      "exit_code": 0,
+      "tested_sha": "da896f545984c0cf25425006a3163f72036c78cd",
+      "result": "NEWLY_TESTED_PASS",
+      "scope": "Ten-board study scoping, source links, Nursing disclosure order and production Developer/Doctor route boundaries."
+    },
+    {
+      "command": "APP_ENV=testing DB_DRIVER=json APP_STORAGE_PATH=/data/data/com.termux/files/home/boardprep-batch-706/storage php tools/Tests/QuestionEditorPaginationHttpTest.php",
+      "exit_code": 0,
+      "tested_sha": "da896f545984c0cf25425006a3163f72036c78cd",
+      "result": "NEWLY_TESTED_PASS",
+      "scope": "Developer repository uses bounded 50-row pages with working pagination."
+    },
+    {
+      "command": "APP_ENV=testing DB_DRIVER=json APP_STORAGE_PATH=/data/data/com.termux/files/home/boardprep-batch-706/storage php tools/Tests/QuestionQueryEligibilityFilterTest.php",
+      "exit_code": 0,
+      "tested_sha": "da896f545984c0cf25425006a3163f72036c78cd",
+      "result": "NEWLY_TESTED_PASS",
+      "scope": "ID/text search, board/subject eligibility filters and canonical versus filtered totals."
+    },
+    {
+      "command": "APP_ENV=testing DB_DRIVER=json APP_STORAGE_PATH=/data/data/com.termux/files/home/boardprep-batch-706/storage php tools/Tests/QuestionQualityDashboardRemediationIntegrationTest.php",
+      "exit_code": 0,
+      "tested_sha": "da896f545984c0cf25425006a3163f72036c78cd",
+      "result": "NEWLY_TESTED_PASS",
+      "scope": "Persisted source snapshot, dashboard classes, exact versus source-only links, Q6403 hold and protected hashes.",
+      "observed": {
+        "confirmed_404_unreferenced": 3,
+        "required_broken_source_errors": 0,
+        "source_text_access_warnings": 6,
+        "inconclusive_url_checks": 29,
+        "url_audit_coverage": "322/322_CURRENT_COMPLETE",
+        "exact_section_links": 1049,
+        "known_pending_or_unknown_exact_links": 1049,
+        "approved_exact_links": 0,
+        "q6403_review_hold_visible": true
+      }
+    },
+    {
+      "command": "APP_ENV=production APP_DEBUG=false DB_DRIVER=json APP_STORAGE_PATH=/data/data/com.termux/files/home/boardprep-batch-706/storage php tools/doctor.php --preflight --json",
+      "exit_code": 0,
+      "tested_sha": "da896f545984c0cf25425006a3163f72036c78cd",
+      "result": "NEWLY_TESTED_PASS",
+      "scope": "Production PHP/runtime, 22 preflight checks, storage paths and release identity."
+    },
+    {
+      "command": "APP_ENV=production APP_DEBUG=false DB_DRIVER=json APP_STORAGE_PATH=/data/data/com.termux/files/home/boardprep-batch-706/storage php tools/doctor.php --smoke --json",
+      "exit_code": 0,
+      "tested_sha": "da896f545984c0cf25425006a3163f72036c78cd",
+      "result": "NEWLY_TESTED_PASS",
+      "scope": "Application boot, 10 boards, 9,123 questions, 2,714 eligibility placements and learner/progress services."
+    },
+    {
+      "command": "APP_ENV=production APP_DEBUG=false DB_DRIVER=json APP_STORAGE_PATH=/data/data/com.termux/files/home/boardprep-batch-706/storage php -d memory_limit=1G tools/doctor.php --release --json",
+      "exit_code": 0,
+      "tested_sha": "da896f545984c0cf25425006a3163f72036c78cd",
+      "result": "NEWLY_TESTED_PASS",
+      "scope": "Full Doctor: release gate PASS; 25 domains PASS, SOURCE_TRACEABILITY REVIEW; P0=0, P1=0; RELEASE_READY_WITH_NONBLOCKING_DEBT.",
+      "storage": {
+        "available_before_bytes": 4188655616,
+        "required_available_bytes": 1837234659,
+        "minimum_observed_available_bytes": 3927998464,
+        "fixture_bytes": 92404195,
+        "largest_additional_test_storage_bytes_observed": 167002112,
+        "cleanup_status": "PASS",
+        "sessions_cleaned": true
+      },
+      "output_path": "/data/data/com.termux/files/usr/tmp/boardprep-batch708-doctor-release-da896f5.json",
+      "output_sha256": "c8fadf92a642be57385514c89d41dcc585794d5a8cfcc99287f8e762e72951ea"
+    },
+    {
+      "command": "APP_ENV=production APP_DEBUG=false DB_DRIVER=json APP_STORAGE_PATH=/data/data/com.termux/files/home/boardprep-batch-706/storage php tools/product-readiness.php --json",
+      "exit_code": 1,
+      "tested_sha": "da896f545984c0cf25425006a3163f72036c78cd",
+      "result": "BLOCKED",
+      "scope": "Formal product-readiness gate, distinct from Full Doctor.",
+      "observed": {
+        "product_feature_complete": false,
+        "product_launch_ready": false,
+        "current_commit_real_browser_acceptance": false,
+        "owner_approved_privacy_terms_configured": false,
+        "browser_evidence_status": "STALE_EVIDENCE"
+      },
+      "limitations": "Exit 1 reports missing external evidence and owner configuration, not a passing application test."
+    },
+    {
+      "command": "node tools/browser-preflight.cjs",
+      "exit_code": 2,
+      "tested_sha": "c6135af16a4f785fea443878ff4d6f51962c10f5",
+      "result": "BLOCKED",
+      "scope": "Android/Termux browser capability.",
+      "limitations": "No supported local Playwright/Chromium runtime; do not install unsupported packages."
+    },
+    {
+      "command": "npm run test:browser:contract",
+      "exit_code": 0,
+      "tested_sha": "c6135af16a4f785fea443878ff4d6f51962c10f5",
+      "result": "REUSED_VALID_EVIDENCE",
+      "scope": "Browser workflow/evidence contract, 5/5; not a browser run.",
+      "limitations": "No visual acceptance or screenshots."
+    },
+    {
+      "command": "APP_ENV=testing DB_DRIVER=json APP_STORAGE_PATH=/data/data/com.termux/files/home/boardprep-batch-706/storage php tools/Tests/DoctorSimulatorStateIsolationTest.php",
+      "exit_code": 0,
+      "tested_sha": "8bb75e0c1df578d4f7d710bfc583512f73479682",
+      "result": "REUSED_VALID_EVIDENCE",
+      "scope": "113 repository storage files and learner sessions unchanged through Doctor simulation; relevant isolation boundaries unchanged.",
+      "limitations": "Final Doctor also reports fixture and session cleanup PASS."
+    },
+    {
+      "command": "APP_ENV=testing DB_DRIVER=json APP_STORAGE_PATH=/data/data/com.termux/files/home/boardprep-batch-706/storage php tools/Tests/Batch708ArtSourceDispositionTest.php",
+      "exit_code": 0,
+      "tested_sha": "c6135af16a4f785fea443878ff4d6f51962c10f5",
+      "result": "REUSED_VALID_EVIDENCE",
+      "scope": "26 source-only dispositions and no canonical, answer-key or exact-section mutations.",
+      "limitations": "Five items require subject-expert review."
+    },
+    {
+      "command": "APP_ENV=testing DB_DRIVER=json APP_STORAGE_PATH=/data/data/com.termux/files/home/boardprep-batch-706/storage php tools/Tests/Batch677SourceFirstImprovementsTest.php",
+      "exit_code": 0,
+      "tested_sha": "8bb75e0c1df578d4f7d710bfc583512f73479682",
+      "result": "REUSED_VALID_EVIDENCE",
+      "scope": "Source crosswalk metadata repair; later commit changed PDFs only."
+    },
+    {
+      "command": "php tools/http-test.php",
+      "exit_code": 0,
+      "tested_sha": "c6135af16a4f785fea443878ff4d6f51962c10f5",
+      "result": "REUSED_VALID_EVIDENCE",
+      "scope": "40 HTTP contract assertions passed, zero failed; app routes/controllers unchanged after tested SHA except the simulator fixture correction.",
+      "limitations": "Not visual browser evidence."
+    },
+    {
+      "command": "APP_ENV=testing DB_DRIVER=json APP_STORAGE_PATH=/data/data/com.termux/files/home/boardprep-batch-706/storage php tools/Tests/ProductionQuizCsrfTest.php",
+      "exit_code": 0,
+      "tested_sha": "c6135af16a4f785fea443878ff4d6f51962c10f5",
+      "result": "REUSED_VALID_EVIDENCE",
+      "scope": "Production quiz state-changing request CSRF behavior; quiz/session code unchanged since test."
+    },
+    {
+      "command": "APP_ENV=testing DB_DRIVER=json APP_STORAGE_PATH=/data/data/com.termux/files/home/boardprep-batch-706/storage php tools/Tests/QuestionImportCsrfTest.php",
+      "exit_code": 0,
+      "tested_sha": "c6135af16a4f785fea443878ff4d6f51962c10f5",
+      "result": "REUSED_VALID_EVIDENCE",
+      "scope": "Existing authoring import CSRF boundary; import code unchanged since test."
+    },
+    {
+      "command": "APP_ENV=testing DB_DRIVER=json APP_STORAGE_PATH=/data/data/com.termux/files/home/boardprep-batch-706/storage php tools/Tests/QuestionImportSafetyTest.php",
+      "exit_code": 0,
+      "tested_sha": "c6135af16a4f785fea443878ff4d6f51962c10f5",
+      "result": "REUSED_VALID_EVIDENCE",
+      "scope": "Existing question import safety; no import code changed after test.",
+      "limitations": "Test emitted an rmdir warning for its own fixture; only the known temporary fixture files were removed."
+    }
+  ],
+  "final_sha_scope": "Full Doctor and all NEWLY_TESTED_PASS entries apply to da896f5. Earlier evidence is explicitly tied to its original SHA and reused only on unchanged boundaries.",
+  "hosted_browser_and_ci": "PREPARED_NOT_EXECUTED: current branch is local; no push or workflow dispatch was authorized."
+}
