@@ -2,6 +2,11 @@
 
 declare(strict_types=1);
 
+// The question editor is intentionally unavailable in production. This test
+// exercises its isolated developer/testing route, so make that environment
+// explicit instead of inheriting the application's production default.
+putenv('APP_ENV=testing');
+
 require_once dirname(__DIR__) . '/Doctor/Project/BoardPrep/Simulation/HttpSimulator.php';
 
 use Tools\Doctor\Project\BoardPrep\Simulation\HttpSimulator;
