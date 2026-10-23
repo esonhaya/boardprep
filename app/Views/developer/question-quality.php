@@ -109,6 +109,10 @@ $uncheckedSources = $urlAuditSummary['unchecked_source_count'] ?? null;
                             'check_status' => 'URL check result',
                             'error' => 'Check detail',
                             'checked_at_utc' => 'URL checked',
+                            'board_id' => 'Board',
+                            'override_type' => 'Eligibility override',
+                            'review_status' => 'Eligibility hold status',
+                            'reason' => 'Hold reason',
                         ] as $field => $label): ?>
                             <?php if (array_key_exists($field, $evidence)): ?>
                                 <small><?= htmlspecialchars($label) ?>: <code><?= htmlspecialchars(is_bool($evidence[$field]) ? ($evidence[$field] ? 'yes' : 'no') : (string) ($evidence[$field] ?? 'unknown')) ?></code></small><br>

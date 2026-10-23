@@ -146,6 +146,9 @@ foreach ([
     'Question eligibility review',
     'QUESTION_REUSE_REVIEW_HOLD',
     '#6403',
+    'Board: <code>civil-service</code>',
+    'Eligibility hold status: <code>REVIEW_REQUIRED</code>',
+    'Hold reason: <code>Temporarily exclude Q6403',
 ] as $needle) {
     if (!str_contains($visibleHtml, $needle)) $fail('Rendered dashboard is missing an explicit state: ' . $needle);
 }
