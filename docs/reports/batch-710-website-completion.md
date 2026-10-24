@@ -155,9 +155,9 @@ HAYADOCTOR_PRESERVED=YES; gitlink dc4fcda730d9a922f726593746e34ca0c9c0e890 uncha
 ## === DELIVERY ===
 
 HEAD_AFTER_IMPLEMENTATION=3902351c411432fbb67ee31d8470a3be45438078
-HEAD_AFTER_FINAL=Final report-only commit immediately after f8b2e1c; its exact SHA is recorded in delivery output because a commit cannot contain its own hash.
+HEAD_AFTER_FINAL=Final report-only descendant of f8b2e1c; its exact SHA is recorded in delivery output because a commit cannot contain its own hash.
 TESTED_SHA=3902351c411432fbb67ee31d8470a3be45438078
-COMMITS=3902351c411432fbb67ee31d8470a3be45438078 (implementation); f8b2e1c (evidence reports); final report-status commit to follow
+COMMITS=3902351c411432fbb67ee31d8470a3be45438078 (implementation); f8b2e1c and subsequent report-status commits (documentation); final SHA is in delivery output
 DIFF_STAT=Implementation: 6 files, 431 insertions, 30 deletions. Four B710 evidence files are report-only.
 WORKTREE_STATE=Only pre-existing untracked storage/question-statistics.json remains outside commits
 PUSH_STATUS=NOT_PUSHED
