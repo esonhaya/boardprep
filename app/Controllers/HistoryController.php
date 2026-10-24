@@ -9,6 +9,8 @@ use App\Core\Response;
 use App\Core\View;
 use App\Services\Learning\LearningHistoryService;
 use App\Services\Learning\LearningProgressService;
+use App\Services\Learning\MistakeRecoveryResultService;
+use App\Services\Learning\NotesPracticeResultService;
 use App\Services\Quiz\HistoricalQuizResultService;
 use App\Services\Study\StudyLibraryService;
 
@@ -37,6 +39,21 @@ final class HistoryController
             Response::redirect('/history', 303);
         }
 
+        $noteContext = is_array($result['attempt']['notes_practice'] ?? null)
+            ? $result['attempt']['notes_practice']
+            : null;
+        $recoveryContext = is_array($result['attempt']['mistake_recovery'] ?? null)
+            ? $result['attempt']['mistake_recovery']
+            : null;
+        $notesPracticeReview = $noteContext !== null
+            ? NotesPracticeResultService::create($noteContext, $result['review'])
+            : null;
+        $actions = $result['actions'];
+        if ($notesPracticeReview !== null && ($notesPracticeReview['saved_note_available'] ?? false) !== true) {
+            $actions = array_values(array_filter($actions, static fn(mixed $action): bool => !is_array($action)
+                || !str_starts_with((string) ($action['url'] ?? ''), '/my-notes?note=')));
+        }
+
         View::render('quiz/result', [
             'pageTitle' => 'Historical Quiz Result',
             'summary' => $result['summary'],
@@ -50,11 +67,15 @@ final class HistoryController
                 is_scalar($result['attempt']['board'] ?? null) ? (string) $result['attempt']['board'] : null,
                 is_scalar($result['attempt']['subject'] ?? null) ? (string) $result['attempt']['subject'] : null
             ),
-            'actions' => $result['actions'],
+            'actions' => $actions,
             'historical' => true,
             'completedAt' => $result['completedAt'],
             'historicalContext' => $result['attempt'],
             'reviewUnavailable' => $result['reviewUnavailable'],
+            'notesPracticeReview' => $notesPracticeReview,
+            'mistakeRecovery' => $recoveryContext !== null
+                ? MistakeRecoveryResultService::create($recoveryContext, $result['review'], LearningHistoryService::all())
+                : null,
         ]);
     }
 }

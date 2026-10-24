@@ -42,6 +42,7 @@
     <?php
     $isStudyPath = in_array($currentPath, ["/study", "/study-library", "/my-notes"], true);
     $isProgressPath = in_array($currentPath, ["/progress", "/dashboard"], true);
+    $isMistakePath = str_starts_with($currentPath, "/mistake-notebook");
     ?>
     <nav id="learner-nav" class="learner-navigation" aria-label="Primary navigation">
         <a class="site-nav-link" href="/"<?= $currentPath === "/" ? ' aria-current="page"' : "" ?>>
@@ -53,6 +54,7 @@
         <a class="site-nav-link" href="/quiz"<?= str_starts_with($currentPath, "/quiz") ? ' aria-current="page"' : "" ?>><?php $icon='practice';$iconSize='sm';require __DIR__ . "/../components/icon.php"; ?>Practice</a>
         <a class="site-nav-link" href="/flashcards"<?= str_starts_with($currentPath, "/flashcards") ? ' aria-current="page"' : "" ?>><?php $icon='book';$iconSize='sm';require __DIR__ . "/../components/icon.php"; ?>Flashcards</a>
         <a class="site-nav-link" href="/progress"<?= $isProgressPath ? ' aria-current="page"' : "" ?>><?php $icon='progress';$iconSize='sm';require __DIR__ . "/../components/icon.php"; ?>Progress</a>
+        <a class="site-nav-link" href="/mistake-notebook"<?= $isMistakePath ? ' aria-current="page"' : "" ?>>Mistake Notebook</a>
         <a class="site-nav-link" href="/history"<?= str_starts_with($currentPath, "/history") ? ' aria-current="page"' : "" ?>>
             <?php $icon='history';$iconSize='sm';require __DIR__ . "/../components/icon.php"; ?>History
         </a>

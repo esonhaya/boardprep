@@ -45,6 +45,14 @@ final class QuizStartSessionPayloadFactory
             $studyReturnUrl = '';
         }
         $notesPractice = self::notesPracticeContext($studyContext['notes_practice'] ?? null, $questions);
+        $mistakeRecovery = self::mistakeRecoveryContext(
+            $studyContext['mistake_recovery'] ?? null,
+            $questions,
+            $specification
+        );
+        if ($mistakeRecovery !== null) {
+            $studyReturnUrl = '/mistake-notebook';
+        }
 
         return [
             'id' => 'quiz-' . bin2hex(random_bytes(8)),
@@ -73,6 +81,46 @@ final class QuizStartSessionPayloadFactory
             'selection_notice' => $selectionNotice,
             'study_return_url' => $studyReturnUrl,
             'notes_practice' => $notesPractice,
+            'mistake_recovery' => $mistakeRecovery,
+        ];
+    }
+
+    private static function mistakeRecoveryContext(mixed $context, array $questions, object $specification): ?array
+    {
+        if (!is_array($context) || !in_array($context['mode'] ?? '', ['retry_missed', 'related_topics'], true)) {
+            return null;
+        }
+        $board = is_scalar($context['board'] ?? null) ? trim((string) $context['board']) : '';
+        if ($board === '' || strtolower($board) !== strtolower((string) ($specification->board ?? ''))) return null;
+        $selectedIds = [];
+        foreach ($questions as $question) {
+            if (is_array($question) && is_scalar($question['id'] ?? null)) {
+                $id = trim((string) $question['id']);
+                if ($id !== '') $selectedIds[$id] = true;
+            }
+        }
+        $sourceIds = [];
+        foreach (is_array($context['source_question_ids'] ?? null) ? $context['source_question_ids'] : [] as $rawId) {
+            if (!is_scalar($rawId)) continue;
+            $id = trim((string) $rawId);
+            if ($id !== '' && !in_array($id, $sourceIds, true)) $sourceIds[] = $id;
+            if (count($sourceIds) >= 200) break;
+        }
+        $focusId = is_scalar($context['focus_question_id'] ?? null) ? trim((string) $context['focus_question_id']) : '';
+        if ($focusId !== '' && !in_array($focusId, $sourceIds, true)) $focusId = '';
+        $subject = is_scalar($context['subject'] ?? null) ? trim((string) $context['subject']) : '';
+        $topicId = \App\Services\Learning\MistakeNotebookService::taxonomyId('topics', $context['topic_id'] ?? '');
+        $level = strtoupper(is_scalar($context['civil_service_level'] ?? null) ? trim((string) $context['civil_service_level']) : '');
+        if (!in_array($level, ['', 'PROFESSIONAL', 'SUBPROFESSIONAL'], true)) $level = '';
+        return [
+            'mode' => (string) $context['mode'],
+            'board' => $board,
+            'subject' => $subject,
+            'topic_id' => $topicId,
+            'civil_service_level' => $level,
+            'focus_question_id' => $focusId,
+            'source_question_ids' => $sourceIds,
+            'selected_question_ids' => array_keys($selectedIds),
         ];
     }
 

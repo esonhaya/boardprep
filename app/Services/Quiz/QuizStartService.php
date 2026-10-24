@@ -48,7 +48,9 @@ class QuizStartService
     {
         $returnUrl = is_scalar($studyContext['return_url'] ?? null)
             && (str_starts_with((string) $studyContext['return_url'], '/study-library?material=')
-                || preg_match('#\A/my-notes\?note=note-[a-f0-9]{32}\z#', (string) $studyContext['return_url']) === 1)
+                || preg_match('#\A/my-notes\?note=note-[a-f0-9]{32}\z#', (string) $studyContext['return_url']) === 1
+                || ((string) ($studyContext['return_url'] ?? '') === '/mistake-notebook'
+                    && is_array($studyContext['mistake_recovery'] ?? null)))
             ? (string) $studyContext['return_url']
             : '/study-library';
 
@@ -103,7 +105,8 @@ class QuizStartService
         $input['exam'] = $specification->board;
         $input['subject'] = $specification->subject;
         $input['mode'] = 'practice';
-        $input['count'] = min(10, count($eligiblePool));
+        $requestedCount = is_numeric($input['count'] ?? null) ? (int) $input['count'] : 10;
+        $input['count'] = min(max(1, $requestedCount), count($eligiblePool));
         self::startCandidates($input, $eligiblePool, $eligibilityIndex, $studyContext, $returnUrl);
     }
 

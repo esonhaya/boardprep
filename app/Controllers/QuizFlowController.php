@@ -19,6 +19,8 @@ use App\Services\Study\StudyLibraryService;
 use App\Services\Question\QuestionIdMigrationService;
 use App\Services\Profile\LearnerPreferenceService;
 use App\Services\Learning\NotesPracticeResultService;
+use App\Services\Learning\LearningHistoryService;
+use App\Services\Learning\MistakeRecoveryResultService;
 
 final class QuizFlowController
 {
@@ -297,6 +299,13 @@ final class QuizFlowController
         $notesPracticeReview = is_array($notesContext)
             ? NotesPracticeResultService::create($notesContext, is_array($review) ? $review : [])
             : null;
+        $mistakeRecovery = is_array($session['mistake_recovery'] ?? null)
+            ? MistakeRecoveryResultService::create(
+                $session['mistake_recovery'],
+                is_array($review) ? $review : [],
+                LearningHistoryService::all()
+            )
+            : null;
 
         View::render(
             'quiz/result',
@@ -306,6 +315,7 @@ final class QuizFlowController
                 'quizSession' => is_array($session) ? $session : [],
                 'studyReferencesByQuestion' => $studyReferencesByQuestion,
                 'notesPracticeReview' => $notesPracticeReview,
+                'mistakeRecovery' => $mistakeRecovery,
                 'actions' => QuizResultActionService::build(
                     is_array($session) ? $session : [],
                     $summary,

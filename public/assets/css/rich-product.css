@@ -265,3 +265,44 @@ main#main-content:focus{outline:none}
     .notes-practice-form button { width: 100%; min-height: 44px; }
     .my-notes-page textarea { font-size: 1rem; }
 }
+
+/* Attempt-derived Mistake Notebook */
+.mistake-notebook-page,.mistake-review-page { max-width: 1180px; margin-inline: auto; display: grid; gap: 1rem; min-width: 0; }
+.mistake-filter-panel,.mistake-practice-panel,.mistake-card,.mistake-question-detail,.mistake-note-context,.mistake-study-references,.mistake-attempt-timeline,.mistake-recovery-actions { min-width: 0; }
+.mistake-filter-form { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .65rem 1rem; align-items: center; }
+.mistake-filter-form select,.mistake-practice-form select { width: 100%; min-width: 0; min-height: 44px; }
+.mistake-filter-form>label:not(.mistake-check) { font-weight: 700; }
+.mistake-check { display: flex; align-items: center; gap: .55rem; min-height: 44px; }
+.mistake-check input { width: 22px; height: 22px; margin: 0; }
+.mistake-filter-actions { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; }
+.mistake-practice-panel { display: grid; grid-template-columns: minmax(0,1.2fr) minmax(260px,.8fr); gap: 1rem; align-items: center; }
+.mistake-practice-form { display: grid; gap: .65rem; min-width: 0; }
+.mistake-practice-form .page-actions { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); }
+.mistake-practice-form .button { min-height: 44px; white-space: normal; }
+.mistake-card-list { display: grid; gap: .85rem; }
+.mistake-card-heading { display: flex; flex-wrap: wrap; align-items: start; justify-content: space-between; gap: .75rem; }
+.mistake-card h3,.mistake-card p,.mistake-question-detail h2 { overflow-wrap: anywhere; }
+.mistake-question-preview { white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.55; }
+.mistake-pagination { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: .75rem; padding: 1rem 0; }
+.mistake-answer-choices { display: grid; gap: .5rem; padding-inline-start: 2rem; }
+.mistake-answer-choices li { padding: .75rem; border: 1px solid var(--border); border-radius: 9px; overflow-wrap: anywhere; }
+.mistake-answer-choices li.is-selected { border-color: var(--brand,#2864dc); background: var(--surface-soft,#f5f8fc); }
+.mistake-answer-choices li.is-answer-key { box-shadow: inset 4px 0 var(--success,#17834f); }
+.mistake-answer-choices li strong { display: block; margin-top: .25rem; font-size: .9rem; }
+.mistake-answer-facts { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: .75rem; margin: 1rem 0; }
+.mistake-answer-facts>div { min-width: 0; padding: .75rem; border-radius: 9px; background: var(--surface-soft,#f5f8fc); }
+.mistake-answer-facts dt { color: var(--muted,#58677c); font-size: .85rem; }
+.mistake-answer-facts dd { margin: .25rem 0 0; font-weight: 700; overflow-wrap: anywhere; }
+.mistake-rationale { padding: 1rem; border-left: 4px solid var(--brand,#2864dc); background: var(--surface-soft,#f5f8fc); border-radius: 8px; }
+.mistake-rationale p,.mistake-note-context blockquote { white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.6; }
+.mistake-note-context blockquote { padding-inline-start: 1rem; border-inline-start: 3px solid var(--border); }
+.mistake-attempt-timeline li,.mistake-skipped li { margin-block: .45rem; overflow-wrap: anywhere; }
+.mistake-history-disclosure { padding: .8rem 1rem; border-radius: 9px; background: var(--surface-soft,#f5f8fc); }
+.mistake-notebook-page a:focus-visible,.mistake-review-page a:focus-visible,.mistake-notebook-page button:focus-visible,.mistake-review-page button:focus-visible,.mistake-notebook-page select:focus-visible,.mistake-review-page select:focus-visible { outline: 3px solid var(--brand,#2864dc); outline-offset: 2px; }
+@media (max-width:760px) {
+    .mistake-filter-form,.mistake-practice-panel,.mistake-answer-facts { grid-template-columns: minmax(0,1fr); }
+    .mistake-filter-actions { grid-column: auto; }
+    .mistake-practice-form .page-actions { grid-template-columns: minmax(0,1fr); }
+    .mistake-practice-form .button { width: 100%; min-height: 48px; }
+    .mistake-card-heading { display: grid; }
+}

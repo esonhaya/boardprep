@@ -7,6 +7,7 @@ $formInput = is_array($formInput ?? null) ? $formInput : [];
 $formError = is_scalar($formError ?? null) ? (string) $formError : '';
 $csrfToken = is_scalar($csrfToken ?? null) ? (string) $csrfToken : '';
 $civilServiceLevel = is_scalar($civilServiceLevel ?? null) ? (string) $civilServiceLevel : '';
+$returnTo = is_scalar($returnTo ?? null) ? (string) $returnTo : '';
 $escape = static fn(mixed $value): string => htmlspecialchars(is_scalar($value) ? (string) $value : '', ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
 $isEditing = $selectedNote !== null || trim((string) ($formInput['note_id'] ?? '')) !== '';
 $noteId = $selectedNote['id'] ?? $formInput['note_id'] ?? '';
@@ -25,6 +26,7 @@ $isCse = is_array($selectedBoard) && in_array(strtolower((string) ($selectedBoar
         <div><p class="eyebrow">Private study workspace</p><h1>Practice Based on My Notes</h1><p>Save your own notes and use their topics to find relevant, existing BoardPrep questions for a focused practice session.</p></div>
         <div class="page-actions"><a class="button button-outline" href="/study-library">Browse study materials</a><a class="button button-outline" href="/quiz">Ordinary practice</a></div>
     </section>
+    <?php if ($returnTo !== ''): ?><p><a class="button button-outline" href="<?= $escape($returnTo) ?>">Return to mistake review</a></p><?php endif; ?>
 
     <p class="notes-privacy-note" role="note">Your notes are private to your learner identity and stay within BoardPrep. They are stored as plain text, are not sent to external services, and are not treated as evidence that an answer is correct.</p>
 
@@ -44,6 +46,7 @@ $isCse = is_array($selectedBoard) && in_array(strtolower((string) ($selectedBoar
             <h2 id="note-editor-title"><?= $isEditing ? 'Your study notes' : 'Add study notes' ?></h2>
             <form method="post" action="/my-notes/save" accept-charset="UTF-8">
                 <input type="hidden" name="csrf_token" value="<?= $escape($csrfToken) ?>">
+                <?php if ($returnTo !== ''): ?><input type="hidden" name="return_to" value="<?= $escape($returnTo) ?>"><?php endif; ?>
                 <?php if (is_scalar($noteId) && trim((string) $noteId) !== ''): ?><input type="hidden" name="note_id" value="<?= $escape($noteId) ?>"><?php endif; ?>
                 <label for="my-note-title">Note title</label>
                 <input id="my-note-title" name="title" type="text" maxlength="120" required value="<?= $escape($titleValue) ?>" autocomplete="off">

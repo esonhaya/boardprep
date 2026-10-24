@@ -7,7 +7,7 @@ $bestScore = $hasCompletedAttempts ? (int) ($summary['bestScore'] ?? 0) . '%' : 
 ?>
 
 <div class="history-page">
-<section class="page-header"><div><p class="eyebrow">Learning history</p><h1>Quiz history</h1><p>Completed quizzes, newest first.</p></div><a class="button button-outline" href="/quiz">Start practice</a></section>
+<section class="page-header"><div><p class="eyebrow">Learning history</p><h1>Quiz history</h1><p>Completed quizzes, newest first.</p></div><div class="page-actions"><a class="button button-outline" href="/mistake-notebook">Mistake Notebook</a><a class="button button-outline" href="/quiz">Start practice</a></div></section>
 
 <section class="history-summary" aria-label="Quiz summary">
     <div><span class="stat-label">Completed quizzes</span><strong><?= (int) ($summary["completedAttempts"] ?? 0) ?></strong></div>

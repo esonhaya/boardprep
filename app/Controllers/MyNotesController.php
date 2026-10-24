@@ -42,6 +42,7 @@ final class MyNotesController
             'civilServiceLevel' => $civilServiceLevel,
             'formInput' => [],
             'formError' => '',
+            'returnTo' => self::safeReturnTo(Request::queryString('return_to')),
         ]);
     }
 
@@ -51,7 +52,9 @@ final class MyNotesController
         try {
             $note = (new LearnerNotesService())->save(is_array(Request::input()) ? Request::input() : []);
             \SessionService::flash('success', 'Your note was saved privately.');
-            Response::redirect('/my-notes?note=' . rawurlencode((string) $note['id']), 303);
+            $returnTo = self::safeReturnTo(Request::input('return_to'));
+            Response::redirect('/my-notes?note=' . rawurlencode((string) $note['id'])
+                . ($returnTo !== '' ? '&return_to=' . rawurlencode($returnTo) : ''), 303);
         } catch (InvalidArgumentException $exception) {
             self::render([
                 'notes' => (new LearnerNotesService())->all(),
@@ -61,6 +64,7 @@ final class MyNotesController
                 'civilServiceLevel' => '',
                 'formInput' => is_array(Request::input()) ? Request::input() : [],
                 'formError' => $exception->getMessage(),
+                'returnTo' => self::safeReturnTo(Request::input('return_to')),
             ]);
         } catch (Throwable) {
             self::render([
@@ -71,6 +75,7 @@ final class MyNotesController
                 'civilServiceLevel' => '',
                 'formInput' => is_array(Request::input()) ? Request::input() : [],
                 'formError' => 'The note could not be saved right now. Your submitted text was not changed in canonical question data. Please try again.',
+                'returnTo' => self::safeReturnTo(Request::input('return_to')),
             ]);
         }
     }
@@ -199,5 +204,14 @@ final class MyNotesController
     private static function isCivilService(?array $board): bool
     {
         return is_array($board) && in_array(strtolower((string) ($board['id'] ?? $board['code'] ?? '')), ['cse', 'civil-service'], true);
+    }
+
+    private static function safeReturnTo(mixed $value): string
+    {
+        if (!is_scalar($value)) return '';
+        $path = trim((string) $value);
+        return preg_match('#\A/mistake-notebook/review\?attempt_id=attempt-[a-f0-9]{16}&question_id=[A-Za-z0-9_-]{1,80}\z#', $path) === 1
+            ? $path
+            : '';
     }
 }

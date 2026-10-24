@@ -46,6 +46,14 @@ final class QuizResultActionService
             ['label' => 'View Progress', 'reason' => 'See how this result changed your learning history.', 'url' => '/progress'],
         ];
 
+        if (is_array($session['mistake_recovery'] ?? null)) {
+            $actions[] = [
+                'label' => 'Return to Mistake Notebook',
+                'reason' => 'Review your question-level mistake history and choose another focused recovery session.',
+                'url' => '/mistake-notebook',
+            ];
+        }
+
         $studyReturnUrl = is_scalar($session['study_return_url'] ?? null)
             ? (string) $session['study_return_url']
             : '';

@@ -18,6 +18,7 @@ use App\Controllers\HomeController;
 use App\Controllers\HistoryController;
 use App\Controllers\LearningProfileController;
 use App\Controllers\MyNotesController;
+use App\Controllers\MistakeNotebookController;
 use App\Controllers\MetadataRepairController;
 use App\Controllers\ProgressController;
 use App\Controllers\QuestionEditorController;
@@ -68,6 +69,10 @@ $router->get(
     "/history/result",
     [HistoryController::class, "result"]
 );
+
+$router->get('/mistake-notebook', [MistakeNotebookController::class, 'index']);
+$router->get('/mistake-notebook/review', [MistakeNotebookController::class, 'review']);
+$router->post('/mistake-notebook/practice', [MistakeNotebookController::class, 'practice']);
 
 $router->get(
     "/quiz",

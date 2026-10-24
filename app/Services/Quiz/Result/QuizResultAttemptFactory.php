@@ -38,6 +38,16 @@ final class QuizResultAttemptFactory
             ))
             : [];
 
+        // These are bounded snapshots already validated at quiz start. Keeping them
+        // on the existing attempt makes private note context and recovery origin
+        // available after the session expires without creating another data store.
+        if (is_array($session['notes_practice'] ?? null)) {
+            $attempt['notes_practice'] = $session['notes_practice'];
+        }
+        if (is_array($session['mistake_recovery'] ?? null)) {
+            $attempt['mistake_recovery'] = $session['mistake_recovery'];
+        }
+
         return $attempt;
     }
 }

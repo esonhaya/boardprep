@@ -28,8 +28,13 @@ final class NotesPracticeResultService
             if (($item['correct'] ?? false) === true) $correct++; else $incorrect++;
             $perQuestion[$id] = $note;
         }
+        $noteId = (string) ($context['note_id'] ?? '');
+        $savedNoteAvailable = preg_match('/\Anote-[a-f0-9]{32}\z/', $noteId) === 1
+            && (new LearnerNotesService())->find($noteId) !== null;
+
         return [
-            'note_id' => (string) ($context['note_id'] ?? ''),
+            'note_id' => $noteId,
+            'saved_note_available' => $savedNoteAvailable,
             'note_title' => (string) ($context['note_title'] ?? 'My notes'),
             'topics_practiced' => array_keys($practiced),
             'topics_to_revisit' => array_keys($revisit),
