@@ -155,15 +155,15 @@ HAYADOCTOR_PRESERVED=YES; gitlink dc4fcda730d9a922f726593746e34ca0c9c0e890 uncha
 ## === DELIVERY ===
 
 HEAD_AFTER_IMPLEMENTATION=3902351c411432fbb67ee31d8470a3be45438078
-HEAD_AFTER_FINAL=Report-only descendant of the implementation SHA; exact final branch SHA is recorded in delivery output because a commit cannot contain its own hash.
+HEAD_AFTER_FINAL=Final report-only commit immediately after f8b2e1c; its exact SHA is recorded in delivery output because a commit cannot contain its own hash.
 TESTED_SHA=3902351c411432fbb67ee31d8470a3be45438078
-COMMITS=3902351c411432fbb67ee31d8470a3be45438078 (implementation); report-only commit to follow
+COMMITS=3902351c411432fbb67ee31d8470a3be45438078 (implementation); f8b2e1c (evidence reports); final report-status commit to follow
 DIFF_STAT=Implementation: 6 files, 431 insertions, 30 deletions. Four B710 evidence files are report-only.
 WORKTREE_STATE=Only pre-existing untracked storage/question-statistics.json remains outside commits
 PUSH_STATUS=NOT_PUSHED
 DEPLOY_STATUS=NOT_DEPLOYED
 REPORT_PATH=/data/data/com.termux/files/home/boardprep-batch-706/docs/reports/batch-710-website-completion.md
-CLIPBOARD_STATUS=PENDING_VERIFICATION; final exact-copy readback is recorded before delivery
+CLIPBOARD_STATUS=UNVERIFIED; termux-clipboard-set exited 0, but termux-clipboard-get exited 0 and returned 0 bytes. The final report is available at the absolute REPORT_PATH above.
 
 ## === FINAL DECISION ===
 
