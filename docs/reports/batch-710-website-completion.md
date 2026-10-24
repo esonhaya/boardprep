@@ -8,7 +8,7 @@ BRANCH=batch-710-website-completion
 WORKTREE=/data/data/com.termux/files/home/boardprep-batch-706 (reused; no new worktree)
 RECOVERY_STATUS=Verified ancestry and clean starting state except pre-existing untracked storage/question-statistics.json. Previous refs and both stashes preserved.
 STORAGE_BEFORE=4,121,702,400 bytes available
-STORAGE_AFTER=4,017,647,616 bytes available at final verification; Full Doctor minimum observed 3,777,871,872 bytes. No cleanup performed.
+STORAGE_AFTER=3,911,416 KiB available at the last df check after validation; Full Doctor minimum observed 3,777,871,872 bytes. No cleanup performed.
 
 The implementation commit is 3902351c411432fbb67ee31d8470a3be45438078. It is a descendant of the verified B709 final tip. No B710 work existed at discovery.
 
