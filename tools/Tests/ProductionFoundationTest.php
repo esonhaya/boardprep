@@ -55,6 +55,14 @@ if (extension_loaded('pdo_sqlite')) {
 [$status, $stdout] = $run('tools/doctor.php --smoke --json', $environment);
 $smoke = json_decode(trim($stdout), true);
 $assert($status === 0 && is_array($smoke) && ($smoke['status'] ?? '') === 'PASS', 'operational smoke did not pass');
+$contentEvidence = $smoke['checks']['CONTENT_LOAD']['evidence'] ?? [];
+$eligibilityRecords = json_decode((string) file_get_contents($root . '/storage/question-eligibility.json'), true);
+$assert(
+    is_array($eligibilityRecords)
+    && ($contentEvidence['question_eligibility_records'] ?? null) === count($eligibilityRecords)
+    && !array_key_exists('eligibility', $contentEvidence),
+    'operational smoke must report stored eligibility-record count without labeling it as effective board placements'
+);
 
 [$status, $stdout] = $run('public/health.php', $environment);
 $health = json_decode(trim($stdout), true);

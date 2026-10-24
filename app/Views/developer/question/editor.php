@@ -91,7 +91,7 @@ class="field-control"
 
 <div class="form-spacer"></div>
 
-<label>
+<label for="question-domain">
 
 Domain
 
@@ -100,6 +100,7 @@ Domain
 <br>
 
 <select
+id="question-domain"
 name="domain"
 class="field-control"
 >
@@ -129,7 +130,7 @@ value="<?= htmlspecialchars((string) ($item["id"] ?? "")) ?>"
 
 <div class="form-spacer"></div>
 
-<label>
+<label for="question-difficulty">
 
 Difficulty
 
@@ -138,6 +139,7 @@ Difficulty
 <br>
 
 <select
+id="question-difficulty"
 name="difficulty"
 class="field-control"
 >
@@ -185,7 +187,7 @@ Hard
 
 <div class="form-spacer"></div>
 
-<label>
+<label for="question-topic">
 
 Topic
 
@@ -194,6 +196,7 @@ Topic
 <br>
 
 <select
+id="question-topic"
 name="topic"
 class="field-control"
 >
@@ -242,17 +245,7 @@ Apply Filters
 
 </button>
 
-<a href="/question-editor">
-
-<button
-type="button"
->
-
-Reset
-
-</button>
-
-</a>
+<a class="button button-outline" href="/question-editor">Reset</a>
 
 </form>
 
@@ -410,19 +403,7 @@ $nextPageUrl = '?' . http_build_query($pageFilters + ['page_num' => min((int) ($
 <hr>
 
 <p class="page-actions">
-
-<a
-href="/question-editor/create"
->
-
-<button type="button">
-
-Create New Question
-
-</button>
-
-</a>
-
+    <a class="button" href="/question-editor/create">Create New Question</a>
 </p>
 
 <hr>

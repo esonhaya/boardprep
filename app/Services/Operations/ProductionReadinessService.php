@@ -414,9 +414,19 @@ final class ProductionReadinessService
                 $storage = App::storage();
                 $boards = $storage->all('boards');
                 $questions = $storage->all('questions');
-                $eligibility = $storage->all('question-eligibility');
+                $eligibilityRecords = $storage->all('question-eligibility');
                 self::check($checks, 'APPLICATION_BOOT', 'PASS', 'Application booted in the configured environment.', []);
-                self::check($checks, 'CONTENT_LOAD', ($boards !== [] && $questions !== [] && $eligibility !== []) ? 'PASS' : 'FAIL', 'Boards, questions, and eligibility are readable.', ['boards' => count($boards), 'questions' => count($questions), 'eligibility' => count($eligibility)]);
+                self::check(
+                    $checks,
+                    'CONTENT_LOAD',
+                    ($boards !== [] && $questions !== [] && $eligibilityRecords !== []) ? 'PASS' : 'FAIL',
+                    'Boards, canonical questions, and grouped question-eligibility records are readable.',
+                    [
+                        'boards' => count($boards),
+                        'questions' => count($questions),
+                        'question_eligibility_records' => count($eligibilityRecords),
+                    ]
+                );
                 $selectionServiceLoaded = class_exists('QuestionSelectionService')
                     || class_exists('App\\Services\\Quiz\\QuestionSelectionService');
                 self::check($checks, 'LEARNER_SERVICE_PATH', $selectionServiceLoaded ? 'PASS' : 'FAIL', 'Core learner selection service is loadable.', []);

@@ -13,6 +13,16 @@ use Tools\Doctor\Project\BoardPrep\Simulation\HttpSimulator;
 
 $http = new HttpSimulator(dirname(__DIR__, 2) . '/public/index.php');
 $cookies = ['PHPSESSID' => 'batch684-question-editor-' . bin2hex(random_bytes(8))];
+$startedAt = hrtime(true);
+$maxHtmlBytes = 0;
+$maxResponseRoute = '';
+$recordResponse = static function (array $response, string $route) use (&$maxHtmlBytes, &$maxResponseRoute): void {
+    $bytes = strlen((string) ($response['output'] ?? ''));
+    if ($bytes > $maxHtmlBytes) {
+        $maxHtmlBytes = $bytes;
+        $maxResponseRoute = $route;
+    }
+};
 
 $pages = [];
 foreach ([1, 2] as $pageNumber) {
@@ -20,8 +30,28 @@ foreach ([1, 2] as $pageNumber) {
     if (!$response['success'] || $response['status'] !== 200) {
         throw new RuntimeException('Question editor page ' . $pageNumber . ' did not return HTTP 200.');
     }
+    $recordResponse($response, '/question-editor?page_num=' . $pageNumber);
 
     $html = $response['output'];
+    foreach ([
+        'question-search' => 'Search',
+        'question-board' => 'Examination board',
+        'question-subject' => 'Eligible subject',
+        'question-domain' => 'Domain',
+        'question-difficulty' => 'Difficulty',
+        'question-topic' => 'Topic',
+        'status' => 'Status',
+    ] as $fieldId => $label) {
+        if (!preg_match('/<label\\b[^>]*for="' . preg_quote($fieldId, '/') . '"[^>]*>\\s*' . preg_quote($label, '/') . '\\s*<\\/label>/iu', $html)) {
+            throw new RuntimeException('Question editor filter is missing an explicit label for ' . $fieldId . '.');
+        }
+        if (!preg_match('/<[^>]+\\bid="' . preg_quote($fieldId, '/') . '"[^>]*>/u', $html)) {
+            throw new RuntimeException('Question editor filter control is missing id ' . $fieldId . '.');
+        }
+    }
+    if (preg_match('/<a\\b[^>]*>\\s*<button\\b/su', $html)) {
+        throw new RuntimeException('Question editor reset navigation must not nest a button inside a link.');
+    }
     if (strlen($html) > 400_000) {
         throw new RuntimeException('Question editor page ' . $pageNumber . ' exceeded the 400 KB response budget.');
     }
@@ -57,6 +87,7 @@ if (array_intersect($pages[1], $pages[2]) !== []) {
 $questionSnapshot = json_decode((string) file_get_contents($http->storagePath() . '/questions.json'), true, 512, JSON_THROW_ON_ERROR);
 $canonicalCount = count(array_filter($questionSnapshot, 'is_array'));
 $exactId = $http->request('GET', '/question-editor', ['search' => '6403'], [], [], $cookies);
+$recordResponse($exactId, '/question-editor?search=6403');
 if (!$exactId['success'] || $exactId['status'] !== 200
     || !str_contains($exactId['output'], '#6403')
     || !str_contains($exactId['output'], 'Showing 1 of 1 matches · ' . $canonicalCount . ' canonical questions in repository')) {
@@ -64,6 +95,7 @@ if (!$exactId['success'] || $exactId['status'] !== 200
 }
 
 $heldQuestion = $http->request('GET', '/question-inspector', ['id' => '6403'], [], [], $cookies);
+$recordResponse($heldQuestion, '/question-inspector?id=6403');
 if (!$heldQuestion['success'] || $heldQuestion['status'] !== 200
     || !str_contains($heldQuestion['output'], 'Question selection hold')
     || !str_contains($heldQuestion['output'], 'AB-0072.')) {
@@ -71,10 +103,19 @@ if (!$heldQuestion['success'] || $heldQuestion['status'] !== 200
 }
 
 $sourceQuestion = $http->request('GET', '/question-inspector', ['id' => '361'], [], [], $cookies);
+$recordResponse($sourceQuestion, '/question-inspector?id=361');
 if (!$sourceQuestion['success'] || $sourceQuestion['status'] !== 200
     || !str_contains($sourceQuestion['output'], 'Source-only; no precise lesson section is asserted.')
     || !str_contains($sourceQuestion['output'], 'HTTP_REACHABLE')) {
     throw new RuntimeException('Question inspector did not expose source-only relationship and persisted URL reachability.');
 }
 
-echo "[PASS] Question editor renders distinct 50-item pages with bounded responses and working adjacent-page links.\n";
+echo '[PASS] Question editor renders distinct 50-item pages with bounded responses and working adjacent-page links.' . PHP_EOL;
+echo 'question_editor_measurement=' . json_encode([
+    'canonical_questions' => $canonicalCount,
+    'page_size' => 50,
+    'maximum_html_response_bytes' => $maxHtmlBytes,
+    'maximum_response_route' => $maxResponseRoute,
+    'elapsed_ms' => round((hrtime(true) - $startedAt) / 1_000_000, 2),
+    'peak_php_memory_bytes' => memory_get_peak_usage(true),
+], JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR) . PHP_EOL;

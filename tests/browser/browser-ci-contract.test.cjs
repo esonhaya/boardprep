@@ -83,6 +83,25 @@ test('browser provenance records exact commit and leaves missing browser evidenc
   }
 });
 
+test('Developer Question Repository browser suite covers every required REPO case without mutation', () => {
+  const suitePath = path.join(root, 'tests/browser/acceptance/developer-question-repository.spec.cjs');
+  const suite = fs.readFileSync(suitePath, 'utf8');
+  for (let index = 1; index <= 24; index += 1) {
+    const caseId = `REPO-${String(index).padStart(2, '0')}`;
+    assert.ok(suite.includes(`'${caseId}`), `browser suite omitted ${caseId}`);
+  }
+  assert.match(suite, /question-editor\/archive/);
+  assert.match(suite, /question-editor\/update/);
+  assert.match(suite, /question-inspector/);
+  assert.match(suite, /Q6403/);
+  assert.match(suite, /Not inferred from repository status/);
+  assert.match(suite, /source_ids/);
+  assert.match(suite, /page\.goBack\(\)/);
+  assert.match(suite, /page\.goForward\(\)/);
+  assert.match(suite, /tabToKeyboardFocus/);
+  assert.match(suite, /document\.documentElement\.scrollWidth/);
+});
+
 test('browser preflight explicitly blocks a Termux host instead of implying desktop compatibility', () => {
   const result = spawnSync(process.execPath, ['tools/browser-preflight.cjs'], {
     cwd: root,
