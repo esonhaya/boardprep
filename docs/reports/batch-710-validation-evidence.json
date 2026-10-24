@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "report_type": "BATCH_710_VALIDATION_EVIDENCE",
+  "branch": "batch-710-website-completion",
+  "b709_final_sha": "fcf12c535ed872e7285481efeacb8765fdde9504",
+  "implementation_sha": "3902351c411432fbb67ee31d8470a3be45438078",
+  "evidence": [
+    {
+      "command": "php -l app/Services/Operations/ProductionReadinessService.php && php -l app/Views/developer/question/editor.php && php -l tools/Tests/ProductionFoundationTest.php && php -l tools/Tests/QuestionEditorPaginationHttpTest.php && node --check tests/browser/acceptance/developer-question-repository.spec.cjs && node --check tests/browser/browser-ci-contract.test.cjs && git diff --check",
+      "exit_code": 0,
+      "tested_sha": "3902351c411432fbb67ee31d8470a3be45438078",
+      "status": "NEWLY_TESTED_PASS",
+      "scope": "PHP and JavaScript syntax for changed files and whitespace validation."
+    },
+    {
+      "command": "php -d memory_limit=1G tools/Tests/QuestionEditorPaginationHttpTest.php",
+      "exit_code": 0,
+      "tested_sha": "3902351c411432fbb67ee31d8470a3be45438078",
+      "status": "NEWLY_TESTED_PASS",
+      "scope": "Testing-only repository route, explicit form labels, non-nested navigation markup, 50-row pagination, distinct pages, Q6403 hold, source-only status, and response budget. Maximum HTML response was 123270 bytes; the local simulator measured about 9.1 seconds for the bounded multi-request test, not production latency."
+    },
+    {
+      "command": "php -d memory_limit=1G tools/Tests/ProductionFoundationTest.php",
+      "exit_code": 0,
+      "tested_sha": "3902351c411432fbb67ee31d8470a3be45438078",
+      "status": "NEWLY_TESTED_PASS",
+      "scope": "Production preflight/smoke evidence contract; reports grouped eligibility record count under the explicit question_eligibility_records label."
+    },
+    {
+      "command": "php -d memory_limit=1G tools/Tests/QuestionEditorEligibilityTest.php",
+      "exit_code": 0,
+      "tested_sha": "3902351c411432fbb67ee31d8470a3be45438078",
+      "status": "NEWLY_TESTED_PASS",
+      "scope": "Isolated developer edit/share/placement/unshare operations, validation and CSRF protections."
+    },
+    {
+      "command": "php -d memory_limit=1G tools/Tests/QuestionQuerySingleReadTest.php",
+      "exit_code": 0,
+      "tested_sha": "3902351c411432fbb67ee31d8470a3be45438078",
+      "status": "NEWLY_TESTED_PASS",
+      "scope": "Question repository snapshot is read once for the measured query operation."
+    },
+    {
+      "command": "php -d memory_limit=1G tools/Tests/RepositoryHealthPerformanceContractTest.php",
+      "exit_code": 0,
+      "tested_sha": "3902351c411432fbb67ee31d8470a3be45438078",
+      "status": "NEWLY_TESTED_PASS",
+      "scope": "Bounded health dashboard performance and query contract."
+    },
+    {
+      "command": "npm run test:browser:contract",
+      "exit_code": 0,
+      "tested_sha": "3902351c411432fbb67ee31d8470a3be45438078",
+      "status": "NEWLY_TESTED_PASS",
+      "scope": "Six contract/lifecycle tests; includes all REPO-01..24 case presence, no-mutation contract, browser workflow configuration, evidence provenance, and isolated server lifecycle. It does not launch a browser."
+    },
+    {
+      "command": "node --test tests/browser/browser-ci-contract.test.cjs tests/browser/server-lifecycle.test.cjs tests/browser/storage-fixture.test.cjs",
+      "exit_code": 0,
+      "tested_sha": "3902351c411432fbb67ee31d8470a3be45438078",
+      "status": "NEWLY_TESTED_PASS",
+      "scope": "Seven browser workflow, fixture isolation, and server lifecycle tests; no browser launch."
+    },
+    {
+      "command": "php -d memory_limit=1G tools/Tests/Batch708Q6403QuarantineTest.php",
+      "exit_code": 0,
+      "tested_sha": "3902351c411432fbb67ee31d8470a3be45438078",
+      "status": "NEWLY_TESTED_PASS",
+      "scope": "Q6403 excluded from new CSE normal, random, and blueprint recovery selection; other CSE practice remains available; canonical scoring key unchanged."
+    },
+    {
+      "command": "php -d memory_limit=1G tools/Tests/MultiExamEligibilityTest.php",
+      "exit_code": 0,
+      "tested_sha": "3902351c411432fbb67ee31d8470a3be45438078",
+      "status": "NEWLY_TESTED_PASS",
+      "scope": "Multi-board eligibility and collision-board isolation."
+    },
+    {
+      "command": "APP_ENV=production APP_DEBUG=false DB_DRIVER=json APP_STORAGE_PATH=/data/data/com.termux/files/home/boardprep-batch-706/storage php -d memory_limit=1G tools/doctor.php --release --json",
+      "exit_code": 0,
+      "tested_sha": "3902351c411432fbb67ee31d8470a3be45438078",
+      "status": "NEWLY_TESTED_PASS",
+      "scope": "Unmodified Full Doctor release command. Release gate PASS; decision RELEASE_READY_WITH_NONBLOCKING_DEBT; priority counts P0=0, P1=0, P2=1, P3=2; source traceability domain REVIEW; overall health REVIEW. Doctor evidence generated 2026-10-24T01:23:37Z. Raw command output SHA-256: 14dca993041c5b5b0329dfa791313a5d14aa42218246ec6cc8be80a98f2621ce."
+    },
+    {
+      "command": "node tools/run-browser-tests.cjs --project=desktop tests/browser/acceptance/developer-question-repository.spec.cjs",
+      "exit_code": 2,
+      "tested_sha": "3902351c411432fbb67ee31d8470a3be45438078",
+      "status": "BLOCKED",
+      "scope": "Playwright Chromium is unsupported on the Android/Termux Node runtime; no browser started and no browser result, screenshots, traces, or console observations exist."
+    },
+    {
+      "command": "php -d memory_limit=1G tools/Tests/TenBoardLearnerJourneyHttpTest.php",
+      "exit_code": 0,
+      "tested_sha": "3df950c11a89b5e4a45ca065a850cc916046590d",
+      "status": "REUSED_VALID_EVIDENCE",
+      "scope": "All ten board learner HTTP journeys. No Batch 710 learner routes, scoring, eligibility, history, progress, or state code changed; Full Doctor also passed current-SHA core-flow domains."
+    }
+  ],
+  "preservation": {
+    "canonical_questions_sha256": "73cdc775cd7240b57898868d67902d833db1171f947c8dcc89081ddaf46fb4be",
+    "normalized_answer_key_sha256": "4e5e5d4a6a780b3d23bfd8854110bd04a5cecb936febce3752e3c77b8db97684",
+    "sources_sha256": "dcbe01a1b8ed25821a43fb59d83d03dff1bbf56f5085b5f5d08929c3e220ae38",
+    "study_question_links_sha256": "0e0aebad84afd09e38e477f277bb8086e52eb9b4a2e591c6de41118060a5663d",
+    "attempts_sha256": "e968fd3e8a391065ac2314ab9bcff932fc572cbe6024e16b40569b694bbed84b",
+    "weakness_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "question_statistics_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "flashcard_exclusions_sha256": "236975ba94ef72c223ebe7f78a4725088ca53b7c20395edb52f39e5d5e2f7717",
+    "hayadoctor_gitlink": "dc4fcda730d9a922f726593746e34ca0c9c0e890",
+    "dirty_b695_checkout_preserved": true,
+    "stashes_preserved": 2,
+    "preexisting_untracked_question_statistics_preserved": true
+  },
+  "external_gates": {
+    "browser_ci": "PREPARED_NOT_EXECUTED",
+    "human_acceptance_mvp_01_to_12": "NOT_RUN",
+    "academic_approval": "REVIEW_REQUIRED; zero independent approvals",
+    "privacy_owner_approval": "BLOCKED",
+    "production_configuration": "REVIEW_REQUIRED",
+    "deployment_authorization": "NOT_RUN"
+  }
+}

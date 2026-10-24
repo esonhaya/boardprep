@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "report_type": "BATCH_710_BROWSER_COVERAGE",
+  "implementation_sha": "3902351c411432fbb67ee31d8470a3be45438078",
+  "browser_execution": {
+    "status": "BLOCKED_EXTERNAL_HOST",
+    "host": "Android/Termux",
+    "command": "node tools/run-browser-tests.cjs --project=desktop tests/browser/acceptance/developer-question-repository.spec.cjs",
+    "exit_code": 2,
+    "reason": "Playwright Chromium does not support the Android/Termux Node runtime.",
+    "engine_version": null,
+    "screenshots": [],
+    "traces": [],
+    "console_errors": "NOT_CAPTURED; no browser process started"
+  },
+  "supported_ci_target": {
+    "workflow": ".github/workflows/browser-acceptance.yml",
+    "manual_dispatch": true,
+    "runner": "ubuntu-24.04",
+    "php": "8.3",
+    "node": "22.23.3",
+    "playwright": "1.63.0",
+    "browser": "Chromium installed by the locked Playwright package",
+    "execution_status": "PREPARED_NOT_EXECUTED",
+    "reason": "The branch was not published and no workflow dispatch was authorized."
+  },
+  "learner_browser_coverage": {
+    "suite": "tests/browser/acceptance/boardprep.spec.cjs",
+    "existing_scenarios": "Homepage and board navigation, study/practice/results/history/progress, long content, responsive viewports, answer feedback, timed quiz, stale actions, and learner state.",
+    "changed_this_batch": false,
+    "execution_status": "NOT_EXECUTED"
+  },
+  "developer_repository_cases": [
+    {"id":"REPO-01","coverage":"Repository loads and displays canonical total"},
+    {"id":"REPO-02","coverage":"Exact canonical question ID search"},
+    {"id":"REPO-03","coverage":"Question text search"},
+    {"id":"REPO-04","coverage":"Board filter"},
+    {"id":"REPO-05","coverage":"Eligible subject filter"},
+    {"id":"REPO-06","coverage":"Combined board, subject, and text filters"},
+    {"id":"REPO-07","coverage":"Combined board and exact ID filters"},
+    {"id":"REPO-08","coverage":"Reset clears search and filters"},
+    {"id":"REPO-09","coverage":"Next page contains different records"},
+    {"id":"REPO-10","coverage":"Previous page restores prior records"},
+    {"id":"REPO-11","coverage":"Filtering returns to a valid page"},
+    {"id":"REPO-12","coverage":"No more than 50 rows render per page"},
+    {"id":"REPO-13","coverage":"Canonical and filtered counts remain distinct"},
+    {"id":"REPO-14","coverage":"Question detail opens from a result"},
+    {"id":"REPO-15","coverage":"Full stem and choices render"},
+    {"id":"REPO-16","coverage":"Answer metadata and rationale render"},
+    {"id":"REPO-17","coverage":"Registered source and persisted access status render"},
+    {"id":"REPO-18","coverage":"Unknown academic status is not shown as approval"},
+    {"id":"REPO-19","coverage":"Q6403 selection hold and punctuation evidence render"},
+    {"id":"REPO-20","coverage":"Missing question ID returns to safe search"},
+    {"id":"REPO-21","coverage":"Narrow mobile repository and detail layout"},
+    {"id":"REPO-22","coverage":"Filter labels and keyboard reachability"},
+    {"id":"REPO-23","coverage":"Back and forward preserve question context"},
+    {"id":"REPO-24","coverage":"Production developer and mutation routes remain unavailable"}
+  ],
+  "case_execution_status": "PREPARED_NOT_EXECUTED",
+  "human_acceptance": {
+    "source": "docs/release-evidence/batch-699-acceptance-evidence.json",
+    "cases": "MVP-01 through MVP-12",
+    "completed": 0,
+    "status": "NOT_RUN"
+  }
+}

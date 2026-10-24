@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "report_type": "BATCH_710_RELEASE_SCORECARD",
+  "tested_sha": "3902351c411432fbb67ee31d8470a3be45438078",
+  "areas": [
+    {"area":"QUESTION_STRUCTURE","status":"PASS","evidence":"9,123 canonical questions; current Full Doctor content and taxonomy integrity domains passed."},
+    {"area":"QUESTION_CORRECTNESS","status":"REVIEW_REQUIRED","evidence":"Q6403 punctuation/key contradiction remains quarantined; item owner decision remains outstanding."},
+    {"area":"SOURCE_INTEGRITY","status":"REVIEW_REQUIRED","evidence":"Full Doctor SOURCE_TRACEABILITY=REVIEW; URL reachability does not establish claim verification."},
+    {"area":"STUDY_LINKS","status":"PASS","evidence":"1,049 exact section relationships remain structurally validated; academic approval is separate."},
+    {"area":"DEVELOPER_REPOSITORY_HTTP","status":"PASS","evidence":"Current-SHA pagination, query, eligibility and health performance contracts passed."},
+    {"area":"DEVELOPER_REPOSITORY_BROWSER","status":"BLOCKED","evidence":"REPO-01..24 are prepared; Chromium did not launch in Termux."},
+    {"area":"LEARNER_CORE_JOURNEY_HTTP","status":"PASS","evidence":"Current Full Doctor core-flow domains pass; all-ten-board HTTP suite reused at 3df950c because changed routes do not intersect that boundary."},
+    {"area":"TEN_BOARD_ELIGIBILITY","status":"PASS","evidence":"Current-SHA MultiExamEligibilityTest and Full Doctor eligibility domain pass."},
+    {"area":"MOBILE_USABILITY","status":"BLOCKED","evidence":"Template labels are structurally checked; no rendered desktop/mobile browser executed."},
+    {"area":"SESSION_SECURITY","status":"PASS","evidence":"Current Full Doctor security/session domains and isolated developer CSRF/authorization tests pass."},
+    {"area":"LEARNER_DATA_INTEGRITY","status":"PASS","evidence":"Question, answer, learner-state and flashcard hashes preserved; Doctor isolated release test storage passed and cleaned."},
+    {"area":"FULL_DOCTOR","status":"PASS","evidence":"Current implementation SHA release gate PASS, P0=0, P1=0; overall health remains REVIEW."},
+    {"area":"REAL_BROWSER","status":"BLOCKED","evidence":"No supported local browser host; existing Linux workflow is prepared but unpublished and undispatched."},
+    {"area":"HUMAN_ACCEPTANCE","status":"NOT_RUN","evidence":"Existing MVP-01 through MVP-12 remain unexecuted by a human tester."},
+    {"area":"ACADEMIC_APPROVAL","status":"REVIEW_REQUIRED","evidence":"Zero independent approvals; Nursing, Q6403, and source/currentness review remain distinct gates."},
+    {"area":"PRIVACY_OWNER_APPROVAL","status":"BLOCKED","evidence":"Owner-approved privacy terms and retention/deletion contact remain outstanding."},
+    {"area":"PRODUCTION_CONFIGURATION","status":"REVIEW_REQUIRED","evidence":"Local Doctor preflight passes; live HTTPS, session and provider configuration have not been verified."},
+    {"area":"DEPLOYMENT_AUTHORIZATION","status":"NOT_RUN","evidence":"No deployment authorization or deployment action exists."}
+  ],
+  "classifications": {
+    "engineering_alpha": "ENGINEERING_ALPHA_BLOCKED",
+    "restricted_internal_demo": "SUPPORTED_FOR_TECHNICAL_DEMONSTRATION_WITH_UNREVIEWED_CONTENT_BOUNDARIES",
+    "public_release": "PUBLIC_RELEASE_BLOCKED"
+  },
+  "next_actions": [
+    "Publish only batch-710-website-completion when authorized, then run Browser acceptance and Release gates on the exact branch SHA.",
+    "Complete MVP-01 through MVP-12 with a human tester using the existing Acceptance Center and record genuine results.",
+    "Obtain the Q6403 item-owner decision and required academic/privacy owner approvals before public release."
+  ]
+}
