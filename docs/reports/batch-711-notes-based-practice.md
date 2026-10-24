@@ -2,6 +2,45 @@
 
 ## Practice Based on My Notes
 
+### Required status fields
+
+```text
+BASE_SHA=cb8e5a0dbfdde7a2199f945c2ea7ca076c654617
+FINAL_IMPLEMENTATION_SHA=565b81e5c4294437f07c27a80a07438f496e710f
+BRANCH=batch-711-notes-based-practice
+NOTES_CREATE=PASS
+NOTES_READ=PASS
+NOTES_EDIT=PASS
+NOTES_DELETE=PASS
+NOTES_PRIVACY=PASS
+TOPIC_EXTRACTION=PASS — deterministic headings/paragraphs, English/Filipino normalization and bounded synonyms
+QUESTION_MATCHING=PASS — existing canonical records through standard board eligibility and pool filters
+MATCH_RELEVANCE=PASS — focused relevance and misleading-keyword fixtures; one generic shared term is insufficient
+NO_MATCH_HANDLING=PASS — honest empty state and ordinary-practice route, no padding
+BOARD_ISOLATION=PASS
+QUARANTINE_ENFORCEMENT=PASS — Q6403 remains excluded from new CSE selection
+NOTES_TO_QUIZ_JOURNEY=PASS — production-path isolated HTTP journey
+SCORING=PASS — existing scoring service
+RESULT_REVIEW=PASS — canonical rationale plus bounded note snapshot and topic review
+HISTORY=PASS
+PROGRESS=PASS
+MOBILE_MARKUP=STRUCTURAL_PASS; real browser visual acceptance NOT_RUN
+QUESTION_DATA_UNCHANGED=PASS — 9,123 records; canonical SHA-256 unchanged
+ANSWER_KEYS_UNCHANGED=PASS — derived answer-key SHA-256 unchanged
+LEARNER_DATA_PRESERVED=PASS — protected hashes unchanged; tests used isolated storage
+B695_PRESERVED=PASS — dirty worktree untouched
+FOCUSED_TESTS=PASS — exact commands and exits below
+FULL_DOCTOR=PASS — exit 0, P0=0, P1=0, current implementation SHA
+REAL_BROWSER=PREPARED_NOT_EXECUTED — Termux has no browser executable or Playwright module
+P0_REMAINING=0 technical findings from current-SHA Full Doctor
+P1_REMAINING=0 technical findings from current-SHA Full Doctor
+PERFORMANCE_EVIDENCE=3,481.52 ms one isolated matcher run against 9,123 canonical records on Termux
+KNOWN_LIMITATIONS=No semantic AI; no independent academic approval; encrypted account backup cannot run without ext-sodium; real browser remains external
+COMMITS=565b81e implementation; final report committed separately
+REPORT_PATH=/data/data/com.termux/files/home/boardprep-batch-706/docs/reports/batch-711-notes-based-practice.md
+CLIPBOARD_STATUS=UNVERIFIED
+```
+
 ### Delivery
 
 - **Base SHA:** `cb8e5a0dbfdde7a2199f945c2ea7ca076c654617` (Batch 710 final documentation tip)
