@@ -31,6 +31,7 @@ $escape = static fn(mixed $value): string => htmlspecialchars(is_scalar($value) 
             <?php endif; ?>
             <?php if ($exam !== '' && $subject !== ''): ?><a class="button button-outline" href="/flashcards?board=<?= rawurlencode($exam) ?>&amp;subject=<?= rawurlencode($subject) ?>">Review subject flashcards</a><?php elseif ($exam !== ''): ?><a class="button button-outline" href="/flashcards?board=<?= rawurlencode($exam) ?>">Review board flashcards</a><?php else: ?><a class="button button-outline" href="/flashcards">Review flashcards</a><?php endif; ?>
             <?php if ($exam !== ''): ?><a class="button button-outline" href="/exams?exam=<?= rawurlencode($exam) ?>">Back to subjects</a><?php endif; ?>
+            <a class="button button-outline" href="/my-notes">Practice from My Notes</a>
         </div>
     </section>
     <?php if ($materials === []): ?>

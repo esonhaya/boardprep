@@ -146,6 +146,15 @@ $seed = static function (string $learnerId, string $suffix, int $value) use ($dr
         'review_count' => $value,
         'state' => 'review',
     ]);
+    App::storage()->create('learner_notes', [
+        'id' => 'note-' . str_pad($suffix, 32, 'a'),
+        'user_id' => $learnerId,
+        'title' => 'Synthetic private note ' . $suffix,
+        'board_id' => 'let',
+        'body' => 'Synthetic note body owned by ' . $learnerId,
+        'created_at' => gmdate(DATE_ATOM),
+        'updated_at' => gmdate(DATE_ATOM),
+    ]);
 };
 $seed($learnerA, 'a', 7);
 $seed($learnerB, 'b', 4);
@@ -165,7 +174,7 @@ $questionPath = dirname(__DIR__, 2) . '/storage/questions.json';
 $questionsBefore = hash_file('sha256', $questionPath);
 $stableOwnedHash = static function (string $learnerId): string {
     $collections = [];
-    foreach (['attempts', 'weakness', 'flashcard_state'] as $name) {
+    foreach (['attempts', 'weakness', 'flashcard_state', 'learner_notes'] as $name) {
         $collections[$name] = App::storage()->where($name, ['user_id' => $learnerId]);
     }
     return hash('sha256', serialize($collections));
@@ -184,13 +193,16 @@ try {
     $inventory = (new AccountDataInventoryService())->inspectAuthenticated();
     lifecycleAssert($inventory['collections']['quiz_attempts']['count'] === 2
         && $inventory['collections']['weakness_summaries']['count'] === 2
-        && $inventory['collections']['flashcard_reviews']['count'] === 2,
+        && $inventory['collections']['flashcard_reviews']['count'] === 2
+        && $inventory['collections']['learner_notes']['count'] === 2,
         'Account data inventory did not accurately report owned collections.');
     lifecycleAssert(($inventory['derived']['current_storage_non_account_owned_counts']['anonymous_learner_records']['quiz_attempts'] ?? null) === 1,
         'Account inventory did not keep anonymous learner records separate from account-owned data.');
     $export = (new AccountDataService())->exportCurrent();
     lifecycleAssert(($export['manifest']['record_counts']['account_profile'] ?? null) === 1
         && ($export['manifest']['record_counts']['quiz_attempts'] ?? null) === 2
+        && ($export['manifest']['record_counts']['learner_notes'] ?? null) === 2
+        && count($export['records']['learner_notes'] ?? []) === 2
         && !isset($export['account']['password_hash'], $export['account']['recovery_code_hashes'])
         && !str_contains(json_encode($export, JSON_THROW_ON_ERROR), 'synthetic-quiz-session-d1'),
         'Account export manifest or secret/session exclusions were incorrect.');

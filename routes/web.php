@@ -17,6 +17,7 @@ use App\Controllers\DoctorRunController;
 use App\Controllers\HomeController;
 use App\Controllers\HistoryController;
 use App\Controllers\LearningProfileController;
+use App\Controllers\MyNotesController;
 use App\Controllers\MetadataRepairController;
 use App\Controllers\ProgressController;
 use App\Controllers\QuestionEditorController;
@@ -84,6 +85,10 @@ $router->get(
 );
 $router->get("/study-library", [StudyLibraryController::class, "index"]);
 $router->get("/study-library/practice", [StudyLibraryController::class, "practice"]);
+$router->get('/my-notes', [MyNotesController::class, 'index']);
+$router->post('/my-notes/save', [MyNotesController::class, 'save']);
+$router->post('/my-notes/delete', [MyNotesController::class, 'delete']);
+$router->post('/my-notes/practice', [MyNotesController::class, 'practice']);
 
 $router->get(
     "/profile",

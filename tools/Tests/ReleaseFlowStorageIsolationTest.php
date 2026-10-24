@@ -81,7 +81,7 @@ try {
     $assert(!is_file($fixturePath . '/repository-health.json') && !is_file($fixturePath . '/release-readiness.json'), 'Cached release evidence was copied into the test fixture.');
     $assert(!is_file($fixturePath . '/doctor-report.json') && !is_file($fixturePath . '/doctor/latest-report.json'), 'Cached Doctor evidence was copied into the test fixture.');
     $assert(!is_dir($fixturePath . '/recovery') && !is_dir($fixturePath . '/runtime'), 'Historical recovery or runtime storage was copied into the test fixture.');
-    foreach (['attempts.json', 'weakness.json', 'question-statistics.json', 'flashcard_state.json'] as $learnerState) {
+    foreach (['attempts.json', 'weakness.json', 'question-statistics.json', 'flashcard_state.json', 'learner_notes.json'] as $learnerState) {
         $assert(trim((string) file_get_contents($fixturePath . '/' . $learnerState)) === '[]', "Release fixture did not reset {$learnerState}.");
     }
 
@@ -106,7 +106,7 @@ try {
     $rebuild->invoke(null, $root, $fixturePath);
     $assert(hash_file('sha256', $questionsPath) === $baselineQuestionsHash, 'Fixture rebuild did not restore canonical content from repository storage.');
     $assert(!is_file($fixturePath . '/runner-created.json'), 'Fixture rebuild retained content created by a prior test.');
-    foreach (['attempts.json', 'weakness.json', 'question-statistics.json', 'flashcard_state.json'] as $learnerState) {
+    foreach (['attempts.json', 'weakness.json', 'question-statistics.json', 'flashcard_state.json', 'learner_notes.json'] as $learnerState) {
         $assert(trim((string) file_get_contents($fixturePath . '/' . $learnerState)) === '[]', "Fixture rebuild retained learner state in {$learnerState}.");
     }
 
@@ -115,12 +115,14 @@ try {
     mkdir($smallRoot . '/storage', 0700, true);
     file_put_contents($smallRoot . '/storage/questions.json', "[\n  {\n    \"id\": \"fixture-q\",\n    \"timesUsed\": 5\n  }\n]\n");
     file_put_contents($smallRoot . '/storage/attempts.json', "[{\"private\":true}]\n");
+    file_put_contents($smallRoot . '/storage/learner_notes.json', "[{\"private\":true}]\n");
     file_put_contents($smallRoot . '/storage/doctor-report.json', "{\"stale\":true}\n");
     $smallFixture = $create->invoke(null, $smallRoot);
     try {
         $smallQuestions = json_decode((string) file_get_contents($smallFixture . '/questions.json'), true, 512, JSON_THROW_ON_ERROR);
         $assert(!array_key_exists('timesUsed', $smallQuestions[0] ?? []), 'Fixture creation retained usage data in canonical questions.');
         $assert(trim((string) file_get_contents($smallFixture . '/attempts.json')) === '[]', 'Fixture creation copied learner attempts.');
+        $assert(trim((string) file_get_contents($smallFixture . '/learner_notes.json')) === '[]', 'Fixture creation copied learner notes.');
         $assert(!is_file($smallFixture . '/doctor-report.json'), 'Fixture creation copied stale Doctor evidence.');
     } finally {
         $remove->invoke(null, $smallFixture);

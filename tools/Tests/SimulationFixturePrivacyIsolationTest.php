@@ -19,6 +19,7 @@ $fixtureValues = [
     'weakness.json' => "[\"private-weakness-marker\"]\n",
     'question-statistics.json' => "[\"private-statistics-marker\"]\n",
     'flashcard_state.json' => "[\"private-flashcard-marker\"]\n",
+    'learner_notes.json' => "[\"private-learner-note-marker\"]\n",
     'private/learner-accounts/accounts.json' => "{\"secret\":\"private-credential-marker\"}\n",
 ];
 foreach ($fixtureValues as $relative => $contents) {
@@ -37,7 +38,7 @@ try {
     \Tools\Doctor\Project\BoardPrep\Simulation\SimulationStorageFixture::activate($temporaryRoot);
     $fixtureStorage = \Tools\Doctor\Project\BoardPrep\Simulation\SimulationStorageFixture::storagePath();
 
-    foreach (['attempts.json', 'weakness.json', 'question-statistics.json', 'flashcard_state.json'] as $name) {
+    foreach (['attempts.json', 'weakness.json', 'question-statistics.json', 'flashcard_state.json', 'learner_notes.json'] as $name) {
         $assert(file_get_contents($fixtureStorage . '/' . $name) === "[]\n", 'Mutable learner state was copied into simulator fixture: ' . $name);
     }
     foreach (['results.json', 'history.json', 'progress.json'] as $name) {
@@ -49,7 +50,7 @@ try {
         $assert(file_get_contents($storageSource . '/' . $relative) === $contents, 'Synthetic source storage changed during fixture preparation.');
     }
 
-    echo "[PASS] Simulator browser/HTTP fixtures exclude learner histories, flashcard state, and private account credentials while retaining canonical content.\n";
+    echo "[PASS] Simulator browser/HTTP fixtures exclude learner histories, flashcard state, private notes, and private account credentials while retaining canonical content.\n";
 } finally {
     $safeRoot = rtrim(realpath(sys_get_temp_dir()) ?: sys_get_temp_dir(), DIRECTORY_SEPARATOR);
     $resolved = realpath($temporaryRoot);

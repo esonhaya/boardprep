@@ -49,10 +49,13 @@ final class QuizResultActionService
         $studyReturnUrl = is_scalar($session['study_return_url'] ?? null)
             ? (string) $session['study_return_url']
             : '';
-        if (str_starts_with($studyReturnUrl, '/study-library?material=')) {
+        if (str_starts_with($studyReturnUrl, '/study-library?material=')
+            || preg_match('#\A/my-notes\?note=note-[a-f0-9]{32}\z#', $studyReturnUrl) === 1) {
             array_splice($actions, 1, 0, [[
-                'label' => 'Return to the supporting lesson',
-                'reason' => 'Continue from the lesson that supplied this practice set.',
+                'label' => str_starts_with($studyReturnUrl, '/my-notes?') ? 'Return to my note' : 'Return to the supporting lesson',
+                'reason' => str_starts_with($studyReturnUrl, '/my-notes?')
+                    ? 'Continue from the personal notes used to shape this practice set.'
+                    : 'Continue from the lesson that supplied this practice set.',
                 'url' => $studyReturnUrl,
             ]]);
         }

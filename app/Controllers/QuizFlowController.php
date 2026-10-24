@@ -18,6 +18,7 @@ use App\Services\Quiz\LET\LETVariantRegistry;
 use App\Services\Study\StudyLibraryService;
 use App\Services\Question\QuestionIdMigrationService;
 use App\Services\Profile\LearnerPreferenceService;
+use App\Services\Learning\NotesPracticeResultService;
 
 final class QuizFlowController
 {
@@ -292,6 +293,10 @@ final class QuizFlowController
             is_scalar($session['board'] ?? null) ? (string) $session['board'] : null,
             is_scalar($session['subject'] ?? null) ? (string) $session['subject'] : null
         );
+        $notesContext = is_array($session['notes_practice'] ?? null) ? $session['notes_practice'] : null;
+        $notesPracticeReview = is_array($notesContext)
+            ? NotesPracticeResultService::create($notesContext, is_array($review) ? $review : [])
+            : null;
 
         View::render(
             'quiz/result',
@@ -300,6 +305,7 @@ final class QuizFlowController
                 'review' => $review,
                 'quizSession' => is_array($session) ? $session : [],
                 'studyReferencesByQuestion' => $studyReferencesByQuestion,
+                'notesPracticeReview' => $notesPracticeReview,
                 'actions' => QuizResultActionService::build(
                     is_array($session) ? $session : [],
                     $summary,

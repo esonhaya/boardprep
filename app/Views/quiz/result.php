@@ -20,6 +20,7 @@ $historicalTimeLimit = is_numeric($historicalContext['time_limit_minutes'] ?? nu
     ? max(0, (int) $historicalContext['time_limit_minutes'])
     : 0;
 $reviewUnavailable = ($reviewUnavailable ?? false) === true;
+$notesPracticeReview = is_array($notesPracticeReview ?? null) ? $notesPracticeReview : null;
 $taxonomyLabel = static fn(string $collection, mixed $id): string => \App\Services\Shared\TaxonomyStorageService::label($collection, $id);
 
 ?>
@@ -37,6 +38,24 @@ $taxonomyLabel = static fn(string $collection, mixed $id): string => \App\Servic
         <h3><?= $summary["percentage"] ?? 0 ?>%</h3>
     </div>
 </section>
+
+<?php if ($notesPracticeReview !== null): ?>
+<section class="notes-practice-result card" aria-labelledby="notes-practice-result-title">
+    <p class="eyebrow">Practice from your notes</p>
+    <h2 id="notes-practice-result-title"><?= htmlspecialchars((string) ($notesPracticeReview['note_title'] ?? 'My notes'), ENT_QUOTES, 'UTF-8') ?></h2>
+    <p>Your personal notes helped identify relevant existing questions. They are learner-written material, not independently validated sources, and do not verify an answer.</p>
+    <p><strong>Result:</strong> <?= (int) ($notesPracticeReview['correct'] ?? 0) ?> correct · <?= (int) ($notesPracticeReview['incorrect'] ?? 0) ?> incorrect</p>
+    <?php foreach ([
+        'Topics practiced' => $notesPracticeReview['topics_practiced'] ?? [],
+        'Topics to revisit' => $notesPracticeReview['topics_to_revisit'] ?? [],
+        'Topics with limited question coverage' => $notesPracticeReview['limited_topics'] ?? [],
+        'Topics not yet covered' => $notesPracticeReview['topics_not_yet_covered'] ?? [],
+    ] as $label => $topics): ?>
+        <?php if (is_array($topics) && $topics !== []): ?><p><strong><?= htmlspecialchars($label, ENT_QUOTES, 'UTF-8') ?>:</strong> <?= htmlspecialchars(implode(', ', array_map('strval', $topics)), ENT_QUOTES, 'UTF-8') ?></p><?php endif; ?>
+    <?php endforeach; ?>
+    <?php if (preg_match('/\Anote-[a-f0-9]{32}\z/', (string) ($notesPracticeReview['note_id'] ?? '')) === 1): ?><p><a href="/my-notes?note=<?= rawurlencode((string) $notesPracticeReview['note_id']) ?>">Return to this note</a></p><?php endif; ?>
+</section>
+<?php endif; ?>
 
 <?php if (!empty($actions)): ?>
 <section class="result-next-steps">
@@ -76,6 +95,7 @@ $taxonomyLabel = static fn(string $collection, mixed $id): string => \App\Servic
     <?php endif; ?>
 
     <div class="answer-review">
+        <?php $questionId = is_scalar($item['question']['id'] ?? null) ? (string) $item['question']['id'] : ''; $noteLink = $notesPracticeReview['question_notes'][$questionId] ?? null; ?>
         <div class="answer-review-selected">
             <p class="answer-label">Your answer</p>
             <strong class="answer-value"><?= htmlspecialchars(
@@ -104,7 +124,14 @@ $taxonomyLabel = static fn(string $collection, mixed $id): string => \App\Servic
                 $item["question"]["explanation"] ?? ""
             ) ?></p>
         </div>
-        <?php $questionId = is_scalar($item['question']['id'] ?? null) ? (string) $item['question']['id'] : ''; $studyReferences = $studyReferencesByQuestion[$questionId] ?? []; ?>
+        <?php if (is_array($noteLink)): ?>
+            <div class="notes-answer-connection">
+                <h4>From your note · <?= htmlspecialchars((string) ($noteLink['topic'] ?? ''), ENT_QUOTES, 'UTF-8') ?></h4>
+                <blockquote><?= htmlspecialchars((string) ($noteLink['excerpt'] ?? ''), ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') ?></blockquote>
+                <?php if (($noteLink['possible_answer_discrepancy'] ?? false) === true): ?><p class="notes-discrepancy" role="note"><strong>Compare this carefully:</strong> your note excerpt includes a different listed answer choice. This is only a possible discrepancy; the canonical answer and explanation were not changed.</p><?php endif; ?>
+            </div>
+        <?php endif; ?>
+        <?php $studyReferences = $studyReferencesByQuestion[$questionId] ?? []; ?>
         <?php if (is_array($studyReferences) && $studyReferences !== []): ?>
             <div class="quiz-study-support">
                 <h4>Study support</h4>

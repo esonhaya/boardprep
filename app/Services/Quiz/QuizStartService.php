@@ -47,9 +47,16 @@ class QuizStartService
     public static function startFromQuestionPool(array $input, array $questions, array $studyContext): void
     {
         $returnUrl = is_scalar($studyContext['return_url'] ?? null)
-            && str_starts_with((string) $studyContext['return_url'], '/study-library?material=')
+            && (str_starts_with((string) $studyContext['return_url'], '/study-library?material=')
+                || preg_match('#\A/my-notes\?note=note-[a-f0-9]{32}\z#', (string) $studyContext['return_url']) === 1)
             ? (string) $studyContext['return_url']
             : '/study-library';
+
+        if (is_array($studyContext['notes_practice'] ?? null)) {
+            self::startNotesQuestionPool($input, $questions, $studyContext, $returnUrl);
+            return;
+        }
+
         $exam = strtolower(trim((string) ($input['exam'] ?? '')));
         $level = strtoupper(trim((string) ($input['civil_service_level'] ?? '')));
         if (in_array($exam, ['cse', 'civil-service'], true)
@@ -66,7 +73,10 @@ class QuizStartService
         }
 
         try {
-            $eligibilityIndex = QuestionEligibilityService::index();
+            $eligibilityIndex = $studyContext['eligibility_index'] ?? null;
+            if (!$eligibilityIndex instanceof \App\Services\Question\QuestionEligibilityIndex) {
+                $eligibilityIndex = QuestionEligibilityService::index();
+            }
             $specification = QuizStartSpecificationFactory::create($input);
             $selectionRequest = new \SelectionRequest(
                 subject: $specification->subject,
@@ -95,6 +105,75 @@ class QuizStartService
         $input['mode'] = 'practice';
         $input['count'] = min(10, count($eligiblePool));
         self::startCandidates($input, $eligiblePool, $eligibilityIndex, $studyContext, $returnUrl);
+    }
+
+    /** Use a conservatively ranked note pool while retaining the production quiz session and scoring path. */
+    private static function startNotesQuestionPool(array $input, array $questions, array $studyContext, string $returnUrl): void
+    {
+        $exam = strtolower(trim((string) ($input['exam'] ?? '')));
+        $level = strtoupper(trim((string) ($input['civil_service_level'] ?? '')));
+        if (in_array($exam, ['cse', 'civil-service'], true)
+            && !in_array($level, ['PROFESSIONAL', 'SUBPROFESSIONAL'], true)) {
+            SessionService::flash('error', 'Choose Professional or Subprofessional before practicing from these Civil Service notes.');
+            Response::redirect($returnUrl . '&civil_service_level_required=1', 303);
+            return;
+        }
+
+        try {
+            $input['mode'] = 'practice';
+            $input['subject'] = '*';
+            $eligibilityIndex = QuestionEligibilityService::index();
+            $specification = QuizStartSpecificationFactory::create($input);
+            $request = new \SelectionRequest(
+                subject: '*',
+                domain: null,
+                difficultyDistribution: [],
+                questionCount: max(1, count($questions)),
+                exam: $specification->board,
+                letVariant: $specification->letVariant,
+                civilServiceLevel: $specification->civilServiceLevel
+            );
+            $eligiblePool = \QuestionPoolFilter::filter($questions, $request, $eligibilityIndex);
+        } catch (\InvalidArgumentException $exception) {
+            SessionService::flash('error', $exception->getMessage());
+            Response::redirect($returnUrl, 303);
+            return;
+        }
+
+        if ($eligiblePool === []) {
+            SessionService::flash('error', 'No sufficiently matched, eligible questions remain for this note. Try another note or use ordinary subject practice.');
+            Response::redirect($returnUrl, 303);
+            return;
+        }
+
+        $selected = array_slice($eligiblePool, 0, $specification->questionCount);
+        foreach ($selected as $question) {
+            $placement = QuestionEligibilityService::forExam($question, $specification->board, $eligibilityIndex);
+            if (!is_array($placement) || trim((string) ($placement['subject_id'] ?? '')) === '') {
+                SessionService::flash('error', 'A matched question no longer has a valid placement on this board. Please refresh the note match.');
+                Response::redirect($returnUrl, 303);
+                return;
+            }
+        }
+
+        $preparation = new \App\Services\Quiz\Start\QuizStartPreparation(
+            $specification,
+            $selected,
+            [],
+            []
+        );
+        QuizStartSessionWriter::write(
+            $preparation->specification,
+            $preparation->questions,
+            $preparation->coverage,
+            $preparation->issues,
+            $studyContext
+        );
+        \QuizNavigationService::reset();
+        View::render('quiz/index', QuizStartViewModelFactory::create(
+            $preparation->specification,
+            $preparation->questions
+        ));
     }
 
     private static function startCandidates(

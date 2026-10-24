@@ -23,6 +23,7 @@ final class BackupService
         'weakness.json',
         'question-statistics.json',
         'flashcard_state.json',
+        'learner_notes.json',
         'blueprints.json',
     ];
 

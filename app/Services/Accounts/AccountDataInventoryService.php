@@ -50,6 +50,19 @@ final class AccountDataInventoryService
             'backup' => 'Included in the authenticated encrypted account archive.',
             'retention' => 'Removed after confirmed application deletion; external copies are outside this operation.',
         ],
+        'learner_notes' => [
+            'export_name' => 'learner_notes',
+            'ownership_field' => 'user_id',
+            'schema_version' => 1,
+            'json_location' => 'APP_STORAGE_PATH/learner_notes.json',
+            'sqlite_location' => 'storage_records collection=learner_notes',
+            'read_path' => 'LearnerNotesService::all and find',
+            'write_path' => 'LearnerNotesService::save and delete',
+            'export' => 'Included as private learner-authored plain text without internal user_id.',
+            'deletion' => 'Delete only notes whose user_id exactly matches the verified account learner_id.',
+            'backup' => 'Included in the authenticated encrypted account archive.',
+            'retention' => 'Removed after confirmed application deletion; external copies are outside this operation.',
+        ],
     ];
 
     /** @return array<string,mixed> */

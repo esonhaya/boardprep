@@ -40,7 +40,7 @@
 
     <?php $currentPath = parse_url($_SERVER["REQUEST_URI"] ?? "/", PHP_URL_PATH) ?: "/"; ?>
     <?php
-    $isStudyPath = in_array($currentPath, ["/study", "/study-library"], true);
+    $isStudyPath = in_array($currentPath, ["/study", "/study-library", "/my-notes"], true);
     $isProgressPath = in_array($currentPath, ["/progress", "/dashboard"], true);
     ?>
     <nav id="learner-nav" class="learner-navigation" aria-label="Primary navigation">
@@ -49,6 +49,7 @@
         </a>
         <a class="site-nav-link" href="/exams"<?= $currentPath === "/exams" ? ' aria-current="page"' : "" ?>><?php $icon='exam';$iconSize='sm';require __DIR__ . "/../components/icon.php"; ?>Exams</a>
         <a class="site-nav-link" href="/study-library"<?= $isStudyPath ? ' aria-current="page"' : "" ?>><?php $icon='book';$iconSize='sm';require __DIR__ . "/../components/icon.php"; ?>Study</a>
+        <a class="site-nav-link" href="/my-notes"<?= $currentPath === "/my-notes" ? ' aria-current="page"' : "" ?>>My Notes</a>
         <a class="site-nav-link" href="/quiz"<?= str_starts_with($currentPath, "/quiz") ? ' aria-current="page"' : "" ?>><?php $icon='practice';$iconSize='sm';require __DIR__ . "/../components/icon.php"; ?>Practice</a>
         <a class="site-nav-link" href="/flashcards"<?= str_starts_with($currentPath, "/flashcards") ? ' aria-current="page"' : "" ?>><?php $icon='book';$iconSize='sm';require __DIR__ . "/../components/icon.php"; ?>Flashcards</a>
         <a class="site-nav-link" href="/progress"<?= $isProgressPath ? ' aria-current="page"' : "" ?>><?php $icon='progress';$iconSize='sm';require __DIR__ . "/../components/icon.php"; ?>Progress</a>

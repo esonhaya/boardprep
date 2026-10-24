@@ -18,6 +18,7 @@ $canonicalFiles = [
     'storage/weakness.json',
     'storage/flashcard_state.json',
     'storage/question-statistics.json',
+    'storage/learner_notes.json',
 ];
 $canonicalBefore = [];
 foreach ($canonicalFiles as $relative) {

@@ -15,6 +15,7 @@ final class AccountRestoreService
         'quiz_attempts' => 'attempts',
         'weakness_summaries' => 'weakness',
         'flashcard_reviews' => 'flashcard_state',
+        'learner_notes' => 'learner_notes',
     ];
 
     /** @param null|callable(string):void $afterFile Test-only interruption point. */
@@ -103,6 +104,9 @@ final class AccountRestoreService
             $this->interruptAfter('credential_profile');
 
             foreach (self::COLLECTIONS as $exportName => $storageName) {
+                if (!array_key_exists($exportName, $payload['collections'])) {
+                    continue;
+                }
                 self::writeJson($stage . DIRECTORY_SEPARATOR . $storageName . '.json', $payload['collections'][$exportName], $createdFiles);
                 $this->interruptAfter($exportName);
             }
@@ -144,12 +148,17 @@ final class AccountRestoreService
         }
 
         $manifest = $payload['manifest'];
-        $expectedNames = ['quiz_attempts', 'weakness_summaries', 'flashcard_reviews', 'credential_profile'];
+        $legacyNames = ['quiz_attempts', 'weakness_summaries', 'flashcard_reviews'];
+        $currentNames = [...$legacyNames, 'learner_notes'];
+        $collectionNames = is_array($payload['collections'] ?? null) ? array_keys($payload['collections']) : [];
+        $payloadNames = $collectionNames === $legacyNames ? $legacyNames : ($collectionNames === $currentNames ? $currentNames : []);
+        $expectedNames = [...$payloadNames, 'credential_profile'];
         if (($manifest['format'] ?? null) !== 'boardprep-account-backup-payload-v1'
             || !is_string($manifest['created_at'] ?? null)
             || ($manifest['included_collections'] ?? null) !== $expectedNames
             || !is_array($manifest['record_counts'] ?? null)
             || !is_array($manifest['collection_schema_versions'] ?? null)
+            || $payloadNames === []
             || $manifest['collection_schema_versions'] !== array_fill_keys($expectedNames, 1)) {
             throw new RuntimeException('RESTORE_SCHEMA_UNSUPPORTED: encrypted backup manifest is incomplete or unsupported.');
         }
@@ -181,10 +190,10 @@ final class AccountRestoreService
             $recoverySeen[$hash] = true;
         }
 
-        if (array_keys($payload['collections']) !== ['quiz_attempts', 'weakness_summaries', 'flashcard_reviews']) {
+        if ($payloadNames === [] || array_keys($payload['collections']) !== $payloadNames) {
             throw new RuntimeException('RESTORE_SCHEMA_UNSUPPORTED: required learner data collections are missing or unexpected.');
         }
-        foreach (self::COLLECTIONS as $exportName => $_storageName) {
+        foreach (array_intersect_key(self::COLLECTIONS, $payload['collections']) as $exportName => $_storageName) {
             $records = $payload['collections'][$exportName];
             if (!is_array($records) || !array_is_list($records)) {
                 throw new RuntimeException('RESTORE_SCHEMA_UNSUPPORTED: a learner collection is not a record list.');
