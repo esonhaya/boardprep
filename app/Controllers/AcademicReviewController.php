@@ -75,6 +75,12 @@ final class AcademicReviewController extends BaseDeveloperController
         $conceptOptions = array_values(array_filter(TaxonomyStorageService::concepts(), static fn(array $row): bool => in_array((string) ($row['topic_id'] ?? ''), $topicIds, true)));
         $pilotItem = Batch715AcademicPilotService::find((string) ($proposal['question_id'] ?? ''));
         $pilotEvidence = $pilotItem === null ? null : Batch715AcademicPilotService::evidence((string) ($proposal['question_id'] ?? ''));
+        $batch716SourceRows = $pilotItem === null ? [] : Batch715AcademicPilotService::supplementalSourceRows((string) ($proposal['question_id'] ?? ''));
+        $batch716SourceVersionCurrent = $batch716SourceRows === [];
+        foreach ($batch716SourceRows as $sourceRow) {
+            if (hash_equals((string) ($sourceRow['question_version'] ?? ''), $version)) $batch716SourceVersionCurrent = true;
+            else { $batch716SourceVersionCurrent = false; break; }
+        }
         self::renderDeveloper('developer/academic-review/proposal', [
             'pageTitle' => 'Review Proposal ' . (string) ($proposal['question_id'] ?? ''),
             'proposal' => $currentProposal,
@@ -91,6 +97,8 @@ final class AcademicReviewController extends BaseDeveloperController
             'pilotItem' => $pilotItem,
             'pilotEvidence' => $pilotEvidence,
             'pilotEvidenceVersionCurrent' => $pilotItem === null || hash_equals((string) ($pilotItem['question_version'] ?? ''), $version),
+            'batch716SourceRows' => $batch716SourceRows,
+            'batch716SourceVersionCurrent' => $batch716SourceVersionCurrent,
             'nextReviewerAction' => self::nextReviewerAction($proposal, $workflowRecord, $capabilities, (string) $account['account_id'], $preflight),
             'boardName' => TaxonomyStorageService::label('boards', $proposal['board_id'] ?? ''),
             'subjectName' => TaxonomyStorageService::label('subjects', $proposal['subject_id'] ?? ''),

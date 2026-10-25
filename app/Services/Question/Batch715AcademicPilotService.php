@@ -6,13 +6,15 @@ namespace App\Services\Question;
 
 use RuntimeException;
 
-/** Read-only access to the curated Batch 715 pilot and its prepared evidence. */
+/** Read-only access to the curated academic pilot and its prepared evidence. */
 final class Batch715AcademicPilotService
 {
     private const COHORT_PATH = '/docs/reports/batch-715-pilot-cohort.json';
     private const READINESS_PATH = '/docs/reports/batch-715-review-readiness.json';
+    private const B716_SOURCE_MATRIX_PATH = '/docs/reports/batch-716-source-evidence-matrix.json';
     private static ?array $cohort = null;
     private static ?array $readiness = null;
+    private static ?array $sourceMatrix = null;
 
     /** @return array<string,mixed> */
     public static function cohort(): array
@@ -75,6 +77,22 @@ final class Batch715AcademicPilotService
             if ((string) ($item['question_id'] ?? '') === $questionId) return $item;
         }
         return null;
+    }
+
+    /** @return list<array<string,mixed>> */
+    public static function supplementalSourceRows(string $questionId): array
+    {
+        if (self::$sourceMatrix === null) {
+            $decoded = self::read(self::B716_SOURCE_MATRIX_PATH, 'boardprep.batch-716-source-evidence-matrix.v1');
+            $rows = array_values(array_filter((array) ($decoded['citation_rows'] ?? []), 'is_array'));
+            if (count($rows) !== 41) throw new RuntimeException('BATCH716_SOURCE_MATRIX_INVALID');
+            self::$sourceMatrix = $decoded;
+        }
+        $questionId = trim($questionId);
+        return array_values(array_filter(
+            (array) self::$sourceMatrix['citation_rows'],
+            static fn(array $row): bool => (string) ($row['question_id'] ?? '') === $questionId
+        ));
     }
 
     private static function read(string $relativePath, string $schema): array

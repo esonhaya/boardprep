@@ -1,0 +1,29 @@
+.academic-review-page-actions{display:flex;flex-wrap:wrap;gap:.65rem;align-items:center;justify-content:flex-end}
+.academic-review-print-button{min-height:44px}
+@media print{
+ body.academic-review-print-mode{background:#fff!important;color:#111!important}
+ body.academic-review-print-mode .developer-sidebar,
+ body.academic-review-print-mode .developer-topbar,
+ body.academic-review-print-mode .reviewer-section-nav,
+ body.academic-review-print-mode .academic-review-page-actions,
+ body.academic-review-print-mode .academic-review-print-controls,
+ body.academic-review-print-mode .academic-review-private-metadata,
+ body.academic-review-print-mode #review-actions,
+ body.academic-review-print-mode #import-preflight,
+ body.academic-review-print-mode form,
+ body.academic-review-print-mode .skip-link{display:none!important}
+ body.academic-review-print-mode .developer-shell{display:block!important;min-height:0!important}
+ body.academic-review-print-mode .developer-content{width:100%!important;margin:0!important;padding:0!important}
+ body.academic-review-print-mode #developer-main{width:100%!important;max-width:none!important;margin:0!important;padding:0!important}
+ body.academic-review-print-mode .academic-review-printable{width:100%!important;max-width:none!important;margin:0!important;padding:0!important}
+ body.academic-review-print-mode .card,
+ body.academic-review-print-mode .pilot-review-grid article{break-inside:avoid-page;box-shadow:none!important;border:1px solid #aaa!important;background:#fff!important;color:#111!important}
+ body.academic-review-print-mode .pilot-review-grid{display:block!important}
+ body.academic-review-print-mode .pilot-review-grid article{margin:0 0 12pt!important}
+ body.academic-review-print-mode .pilot-source-dossier{display:block!important}
+ body.academic-review-print-mode .pilot-source-dossier>summary{font-weight:700}
+ body.academic-review-print-mode a{color:#111!important;text-decoration:underline}
+ body.academic-review-print-mode h1,
+ body.academic-review-print-mode h2,
+ body.academic-review-print-mode h3{break-after:avoid-page}
+}

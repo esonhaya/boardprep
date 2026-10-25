@@ -18,6 +18,7 @@
         href="/assets/css/style.css"
     >
     <link rel="stylesheet" href="/assets/css/rich-product.css">
+    <link rel="stylesheet" href="/assets/css/academic-review.css">
 
 </head>
 
