@@ -116,6 +116,8 @@ final class AcademicReviewWorkflowService
         $subject = mb_strtolower(trim((string) ($filters['subject'] ?? '')));
         $status = strtoupper(trim((string) ($filters['status'] ?? '')));
         $assigned = trim((string) ($filters['assigned'] ?? ''));
+        $pilotOnly = trim((string) ($filters['pilot'] ?? '')) === '1';
+        $pilotIds = $pilotOnly ? array_fill_keys(Batch715AcademicPilotService::questionIds(), true) : [];
         $scopes = [];
         foreach (['REVIEW', 'SOURCE_REVIEW', 'TAXONOMY_RECONCILE', 'STUDY_LINK', 'EDIT_PROPOSAL', 'IMPORT'] as $capability) {
             foreach ($this->authorization->scopesForAccount($accountId, $capability) as $scope) {
@@ -127,6 +129,7 @@ final class AcademicReviewWorkflowService
         $rows = [];
         foreach ($this->proposals() as $proposal) {
             $proposalId = (string) ($proposal['id'] ?? '');
+            if ($pilotOnly && !isset($pilotIds[(string) ($proposal['question_id'] ?? '')])) continue;
             $b = (string) ($proposal['board_id'] ?? '');
             $s = (string) ($proposal['subject_id'] ?? '');
             if (!isset($allowed[$b . "\0" . $s])) continue;

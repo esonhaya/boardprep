@@ -11,6 +11,7 @@ use App\Services\Accounts\AccountSessionService;
 use App\Services\Question\AcademicReviewProposalService;
 use App\Services\Question\AcademicReviewerAuthorizationService;
 use App\Services\Question\AcademicReviewWorkflowService;
+use App\Services\Question\Batch715AcademicPilotService;
 use App\Services\Shared\CsrfTokenService;
 use App\Services\Shared\TaxonomyStorageService;
 use App\Services\Shared\SessionService;
@@ -30,17 +31,20 @@ final class AcademicReviewController extends BaseDeveloperController
             'subject' => Request::queryString('subject'),
             'status' => Request::queryString('status'),
             'assigned' => Request::queryString('assigned'),
+            'pilot' => Request::queryString('pilot'),
         ], $pageNumber, 25, (string) $account['account_id']);
         $scopeOptions = self::allScopes($access, (string) $account['account_id']);
+        $pilotSummary = self::pilotSummary($workflow, $scopeOptions, (string) $account['account_id']);
         self::renderDeveloper('developer/academic-review/index', [
             'pageTitle' => 'Academic Review Workbench',
             'page' => $page,
             'filters' => [
                 'search' => Request::queryString('search'), 'board' => Request::queryString('board'),
                 'subject' => Request::queryString('subject'), 'status' => Request::queryString('status'),
-                'assigned' => Request::queryString('assigned'),
+                'assigned' => Request::queryString('assigned'), 'pilot' => Request::queryString('pilot'),
             ],
             'scopeOptions' => $scopeOptions,
+            'pilotSummary' => $pilotSummary,
             'csrfToken' => CsrfTokenService::token(),
         ]);
     }
@@ -69,6 +73,8 @@ final class AcademicReviewController extends BaseDeveloperController
         $topicOptions = array_values(array_filter(TaxonomyStorageService::topics(), static fn(array $row): bool => in_array((string) ($row['domain_id'] ?? ''), array_map(static fn(array $row): string => (string) ($row['id'] ?? ''), $domainOptions), true)));
         $topicIds = array_map(static fn(array $row): string => (string) ($row['id'] ?? ''), $topicOptions);
         $conceptOptions = array_values(array_filter(TaxonomyStorageService::concepts(), static fn(array $row): bool => in_array((string) ($row['topic_id'] ?? ''), $topicIds, true)));
+        $pilotItem = Batch715AcademicPilotService::find((string) ($proposal['question_id'] ?? ''));
+        $pilotEvidence = $pilotItem === null ? null : Batch715AcademicPilotService::evidence((string) ($proposal['question_id'] ?? ''));
         self::renderDeveloper('developer/academic-review/proposal', [
             'pageTitle' => 'Review Proposal ' . (string) ($proposal['question_id'] ?? ''),
             'proposal' => $currentProposal,
@@ -82,6 +88,10 @@ final class AcademicReviewController extends BaseDeveloperController
             'domainOptions' => $domainOptions,
             'topicOptions' => $topicOptions,
             'conceptOptions' => $conceptOptions,
+            'pilotItem' => $pilotItem,
+            'pilotEvidence' => $pilotEvidence,
+            'pilotEvidenceVersionCurrent' => $pilotItem === null || hash_equals((string) ($pilotItem['question_version'] ?? ''), $version),
+            'nextReviewerAction' => self::nextReviewerAction($proposal, $workflowRecord, $capabilities, (string) $account['account_id'], $preflight),
             'boardName' => TaxonomyStorageService::label('boards', $proposal['board_id'] ?? ''),
             'subjectName' => TaxonomyStorageService::label('subjects', $proposal['subject_id'] ?? ''),
             'notice' => Request::queryString('notice'),
@@ -237,6 +247,70 @@ final class AcademicReviewController extends BaseDeveloperController
             }
         }
         return array_values($scopes);
+    }
+
+    /** @param list<array{board_id:string,subject_id:string,capabilities:list<string>}> $scopes
+     * @return array<string,mixed>
+     */
+    private static function pilotSummary(AcademicReviewWorkflowService $workflow, array $scopes, string $accountId): array
+    {
+        $scopeKeys = [];
+        foreach ($scopes as $scope) $scopeKeys[$scope['board_id'] . "\0" . $scope['subject_id']] = true;
+        $summary = [
+            'target' => 20, 'visible_in_scope' => 0, 'assigned_to_me' => 0,
+            'states' => array_fill_keys(['PENDING_REVIEW','ASSIGNED','IN_REVIEW','REVISION_REQUESTED','APPROVED','REJECTED','DEFERRED'], 0),
+            'decisions_recorded' => 0, 'source_reviews_pending' => 0,
+            'taxonomy_adjudications_pending' => 0, 'study_adjudications_pending' => 0,
+        ];
+        foreach (Batch715AcademicPilotService::cohort()['items'] as $item) {
+            $scopeKey = (string) ($item['board']['id'] ?? '') . "\0" . (string) ($item['subject']['id'] ?? '');
+            if (!isset($scopeKeys[$scopeKey])) continue;
+            $summary['visible_in_scope']++;
+            $record = $workflow->record((string) ($item['proposal_id'] ?? ''));
+            $state = strtoupper((string) ($record['state'] ?? 'PENDING_REVIEW'));
+            if (isset($summary['states'][$state])) $summary['states'][$state]++;
+            if ((string) ($record['assigned_reviewer_id'] ?? '') === $accountId) $summary['assigned_to_me']++;
+            foreach ((array) ($record['decisions'] ?? []) as $event) {
+                if (is_array($event) && in_array(strtoupper((string) ($event['decision'] ?? '')), ['APPROVE','REQUEST_REVISION','REJECT','DEFER'], true)) {
+                    $summary['decisions_recorded']++;
+                    break;
+                }
+            }
+            $proposal = $workflow->findProposal((string) ($item['proposal_id'] ?? '')) ?? [];
+            $requiredSources = array_values((array) ($proposal['source_ids'] ?? []));
+            $reviewedSources = is_array($record['source_reviews'] ?? null) ? $record['source_reviews'] : [];
+            if (count(array_intersect($requiredSources, array_keys($reviewedSources))) < count($requiredSources)) $summary['source_reviews_pending']++;
+            if (!is_array($record['taxonomy_mapping'] ?? null)) $summary['taxonomy_adjudications_pending']++;
+            if (!is_array($record['study_mapping'] ?? null)) $summary['study_adjudications_pending']++;
+        }
+        return $summary;
+    }
+
+    /** @param array<string,mixed> $proposal @param array<string,mixed> $workflow
+     * @param array<string,bool> $capabilities @param array<string,mixed>|null $preflight
+     */
+    private static function nextReviewerAction(array $proposal, array $workflow, array $capabilities, string $accountId, ?array $preflight): string
+    {
+        $state = strtoupper((string) ($workflow['state'] ?? 'PENDING_REVIEW'));
+        $assigned = (string) ($workflow['assigned_reviewer_id'] ?? '');
+        if ($state === 'PENDING_REVIEW' || $state === 'DEFERRED') return !empty($capabilities['REVIEW']) ? 'Assign this proposal to yourself, then start its version-bound review.' : 'No action: this account has no academic-review capability for this scope.';
+        if ($state === 'ASSIGNED') return $assigned === $accountId ? 'Start the assigned review, then inspect each evidence and classification gate.' : 'Assigned to another reviewer; wait for that reviewer or use the scoped assignment policy.';
+        if ($state === 'IN_REVIEW' && $assigned !== $accountId) return 'Another reviewer owns the active review; do not submit a decision from this account.';
+        if ($state === 'IN_REVIEW') {
+            $proposalSources = array_values((array) ($proposal['source_ids'] ?? []));
+            $reviewedSources = is_array($workflow['source_reviews'] ?? null) ? $workflow['source_reviews'] : [];
+            if (!empty($capabilities['SOURCE_REVIEW']) && count(array_intersect($proposalSources, array_keys($reviewedSources))) < count($proposalSources)) return 'Inspect the cited content and record the independent item-level source review.';
+            if (!is_array($workflow['taxonomy_mapping'] ?? null)) return !empty($capabilities['TAXONOMY_RECONCILE']) ? 'Reconcile taxonomy to an active scoped entry or leave a documented governance request pending.' : 'Taxonomy is unresolved; a scoped taxonomy reviewer must adjudicate it.';
+            if (!is_array($workflow['study_mapping'] ?? null)) return !empty($capabilities['STUDY_LINK']) ? 'Verify the exact published section, or explicitly record the relationship as unresolved/optional.' : 'Study relationship is unresolved; a scoped study-link reviewer must adjudicate it.';
+            return 'Complete the exact-version academic checklist and record an explicit decision; source review remains independent.';
+        }
+        if ($state === 'APPROVED') {
+            if (is_array($preflight) && !empty($preflight['eligible'])) return 'Inspect the exact preview and confirm this single item under a separate import authorization.';
+            $blocked = array_values((array) ($preflight['blocked'] ?? []));
+            return $blocked === [] ? 'A separate authorized importer must run preflight.' : 'Import remains blocked: ' . implode(', ', array_slice($blocked, 0, 3));
+        }
+        if (in_array($state, ['REVISION_REQUESTED','REJECTED'], true)) return 'Review the preserved decision history and follow the authorized revision or closure process.';
+        return 'Inspect the proposal history and follow the next action allowed by the current state and scope.';
     }
 
     private static function input(string $key): string
