@@ -174,6 +174,44 @@ $proposals = [
 $workflow = new \App\Services\Question\AcademicReviewWorkflowService($storage, $proposals, $authorization, $fixture);
 $versionOf = static fn(string $id): string => $workflow->version($id);
 
+// The real pilot package is read-only: its exact versions bind to production proposal snapshots, not synthetic approvals.
+$pilotCohort = \App\Services\Question\Batch715AcademicPilotService::cohort();
+$pilotReadiness = \App\Services\Question\Batch715AcademicPilotService::readiness();
+$realProposalWorkflow = new \App\Services\Question\AcademicReviewWorkflowService(
+    $storage, \App\Services\Question\AcademicReviewProposalService::all(), $authorization, $fixture
+);
+$assert(count($pilotCohort['items'] ?? []) === 20 && count($pilotReadiness['items'] ?? []) === 20, 'The bounded real pilot cohort or its evidence dossier is incomplete.');
+$readinessByQuestion = [];
+foreach ($pilotReadiness['items'] as $evidenceItem) $readinessByQuestion[(string) $evidenceItem['question_id']] = $evidenceItem;
+$pilotBoards = $pilotSubjects = [];
+foreach ($pilotCohort['items'] as $pilotItem) {
+    $pilotQuestionId = (string) ($pilotItem['question_id'] ?? '');
+    $pilotBoards[(string) ($pilotItem['board']['id'] ?? '')] = true;
+    $pilotSubjects[(string) ($pilotItem['subject']['id'] ?? '')] = true;
+    $assert(\App\Services\Question\Batch715AcademicPilotService::isSelected($pilotQuestionId), 'Pilot membership lookup omitted an item.');
+    $assert($storage->find('questions', $pilotQuestionId) === null, 'A B695 pilot proposal was present in the canonical question collection.');
+    $assert(($pilotItem['review_state'] ?? '') === 'PENDING_REVIEW'
+        && ($pilotItem['production_status'] ?? '') === 'NONCANONICAL_NOT_IN_LEARNER_POOLS', 'A real pilot item was promoted out of its pending noncanonical state.');
+    $assert(hash_equals((string) ($pilotItem['question_version'] ?? ''), $realProposalWorkflow->version((string) ($pilotItem['proposal_id'] ?? ''))), 'Pilot evidence is not bound to the current exact proposal version for ' . $pilotQuestionId . '.');
+    $evidenceItem = $readinessByQuestion[$pilotQuestionId] ?? null;
+    $assert(is_array($evidenceItem) && ($evidenceItem['academic_approval'] ?? '') === 'NOT_APPROVED', 'Pilot dossier implies an academic approval.');
+    foreach ((array) ($evidenceItem['sources'] ?? []) as $sourceEvidence) {
+        foreach (['url_reachable','source_identity_confirmed','content_examined'] as $evidenceState) {
+            $assert(array_key_exists($evidenceState, $sourceEvidence), 'Source dossier omitted the distinct evidence state ' . $evidenceState . '.');
+        }
+        $assert(($sourceEvidence['expert_source_review'] ?? '') === 'PENDING_QUALIFIED_REVIEWER', 'Machine-prepared source evidence claimed qualified review.');
+    }
+    $study = (array) ($pilotItem['study_relationships'] ?? []);
+    if (($study['status'] ?? '') === 'EXACT_SECTION_MATCH') {
+        $material = \App\Services\Study\StudyLibraryService::find((string) ($study['material_id'] ?? ''));
+        $lesson = is_array($material['lesson'] ?? null) ? $material['lesson'] : [];
+        $sectionIds = array_map(static fn(array $section): string => (string) ($section['id'] ?? ''), array_values(array_filter((array) ($lesson['sections'] ?? []), 'is_array')));
+        $assert(in_array((string) ($study['section_id'] ?? ''), $sectionIds, true), 'A proposed exact study section is not present in the published Study Library.');
+        $assert(\App\Services\Study\StudyLibraryService::forQuestion($pilotQuestionId, (string) ($pilotItem['board']['id'] ?? ''), (string) ($pilotItem['subject']['id'] ?? '')) === [], 'A pilot proposal unexpectedly had an active study link before review.');
+    }
+}
+$assert(count($pilotBoards) > 1 && count($pilotSubjects) >= 5, 'Pilot selection does not provide cross-board and representative subject coverage.');
+
 // Authentication, assignment, state transitions, revision invalidation, and audit history.
 $revisionId = 'b714-test-revision';
 $revisionVersion = $versionOf($revisionId);
@@ -286,6 +324,34 @@ $assert($storage->find('questions', $rollbackQuestionId) === null && $storage->f
 $rollbackJournal = $storage->find('academic-import-journal', 'academic-import-' . hash('sha256', $rollbackId));
 $assert(($rollbackJournal['state'] ?? '') === 'ROLLED_BACK', 'A failed staged import did not retain a rollback journal event.');
 
+// The exact study link may be ready before learner visibility, but a draft canonical item must remain unselectable.
+$activationPreflight = $workflow->importPreflight($rollbackId, $importerId);
+$visibilityFaultWorkflow = new \App\Services\Question\AcademicReviewWorkflowService(
+    $storage, $proposals, $authorization, $fixture,
+    static function (string $stage) use ($storage, $assert): void {
+        if ($stage !== 'after_study_link_activation_before_canonical') return;
+        $draft = $storage->find('questions', 'synthetic-b714-rollback');
+        $linkId = 'link-b714-' . substr(hash('sha256', 'b714-test-rollback'), 0, 24);
+        $link = $storage->find('study-question-links', $linkId);
+        $assert(($draft['status'] ?? '') === 'draft', 'Canonical question became learner-visible before the linked section was ready.');
+        $assert(($link['status'] ?? '') === 'APPROVED', 'Import did not prepare its reviewed exact link before canonical activation.');
+        $selection = new \SelectionRequest('english', 'english-reading-comprehension', [], 1, exam: 'let');
+        $visible = \QuestionPoolFilter::filter(
+            [$draft], $selection, \App\Services\Question\QuestionEligibilityService::index()
+        );
+        $assert($visible === [], 'A staged draft question entered the production learner question pool.');
+        throw new RuntimeException('INJECTED_TEST_FAILURE_AFTER_LINK_ACTIVATION');
+    }
+);
+$expectFailure(
+    fn() => $visibilityFaultWorkflow->import($rollbackId, $importerId, $rollbackVersion, $activationPreflight['preview_token'], true),
+    'INJECTED_TEST_FAILURE_AFTER_LINK_ACTIVATION',
+    'learner visibility boundary rollback'
+);
+$assert($storage->find('questions', 'synthetic-b714-rollback') === null
+    && $storage->find('study-question-links', 'link-b714-' . substr(hash('sha256', $rollbackId), 0, 24)) === null,
+    'Failure after study-link activation left a partial import published.');
+
 // Recovery repairs a simulated process interruption without deleting unrelated records.
 $recoveryQuestionId = 'synthetic-b714-recovery';
 $recoveryLinkId = 'synthetic-link-b714-recovery';
@@ -300,6 +366,41 @@ $assert(($storage->find('academic-import-journal', $recoveryOperationId)['state'
 $recovered = $workflow->recoverIncompleteImports();
 $assert(in_array($recoveryOperationId . ':ROLLED_BACK', $recovered, true), 'Interrupted import recovery did not roll back the staged state.');
 $assert($storage->find('questions', $recoveryQuestionId) === null && $storage->find('study-question-links', $recoveryLinkId) === null, 'Interrupted recovery left staged data visible.');
+
+// Simulate process termination after canonical activation but before journal commit, including a missing link write.
+$committedRecoveryQuestionId = 'synthetic-b714-committed-recovery';
+$committedRecoveryLinkId = 'synthetic-link-b714-committed-recovery';
+$committedRecoveryOperationId = 'academic-import-test-active-interrupted';
+$committedRecoveryLink = [
+    'id' => $committedRecoveryLinkId, 'question_id' => $committedRecoveryQuestionId,
+    'material_id' => 'let-english-reading-language-and-composition',
+    'section_id' => 'reading-claim-and-evidence', 'status' => 'STAGED',
+    'import_operation_id' => $committedRecoveryOperationId,
+];
+$storage->create('questions', [
+    'id' => $committedRecoveryQuestionId, 'status' => 'active',
+    'academic_import' => [
+        'state' => 'IMPORTED', 'operation_id' => $committedRecoveryOperationId,
+        'audit_id' => 'synthetic-b714-recovery-audit',
+    ],
+]);
+$storage->create('academic-import-journal', [
+    'id' => $committedRecoveryOperationId, 'question_id' => $committedRecoveryQuestionId,
+    'study_link_id' => $committedRecoveryLinkId, 'study_link' => $committedRecoveryLink,
+    'state' => 'PREPARING',
+]);
+$committedRecovery = $workflow->recoverIncompleteImports();
+$recoveredJournal = $storage->find('academic-import-journal', $committedRecoveryOperationId);
+$recoveredLink = $storage->find('study-question-links', $committedRecoveryLinkId);
+$assert(in_array($committedRecoveryOperationId . ':COMMITTED', $committedRecovery, true)
+    && ($recoveredJournal['state'] ?? '') === 'COMMITTED'
+    && ($recoveredLink['status'] ?? '') === 'APPROVED',
+    'Recovery did not finish an active audited import with a partially written study link.');
+$secondRecovery = $workflow->recoverIncompleteImports();
+$assert($secondRecovery === []
+    && ($storage->find('academic-import-journal', $committedRecoveryOperationId)['state'] ?? '') === 'COMMITTED'
+    && ($storage->find('study-question-links', $committedRecoveryLinkId)['status'] ?? '') === 'APPROVED',
+    'Repeated recovery changed an already committed import or duplicated its study link.');
 
 // A missing taxonomy/approval, source-registry change, ID collision, and exact duplicate are independent blockers.
 $unreviewed = $workflow->importPreflight('b714-test-concurrent', $importerId);
@@ -473,7 +574,26 @@ $cookies = ['PHPSESSID' => $sessionId];
 $anonymous = $http->request('GET', '/developer/academic-review', [], [], [], ['PHPSESSID' => 'b714anonymous']);
 $assert($anonymous['status'] === 401, 'Anonymous academic review workbench access was not denied.');
 $httpQueue = $http->request('GET', '/developer/academic-review', ['board' => 'let', 'subject' => $httpSubjectId], [], [], $cookies);
-$assert($httpQueue['status'] === 200 && str_contains($httpQueue['output'], 'Academic review') && str_contains($httpQueue['output'], 'Page 1 of'), 'Authenticated reviewer could not open the bounded proposal workbench.');
+$assert($httpQueue['status'] === 200 && str_contains($httpQueue['output'], 'Academic review') && str_contains($httpQueue['output'], 'Page 1 of'), 'Authenticated reviewer could not open the bounded proposal workbench (HTTP ' . $httpQueue['status'] . '): ' . substr(strip_tags((string) $httpQueue['output']), 0, 500));
+$pilotWorkflowBeforeHttp = $storage->all('academic-proposal-workflow');
+$pilotHttpQueue = $http->request('GET', '/developer/academic-review', [
+    'board' => 'let', 'subject' => $httpSubjectId, 'pilot' => '1', 'page_num' => '1',
+], [], [], $cookies);
+preg_match_all('/data-proposal-id="(batch695-[0-9]+)"/', (string) $pilotHttpQueue['output'], $pilotQueueMatches);
+$pilotVisibleIds = $pilotQueueMatches[1] ?? [];
+sort($pilotVisibleIds, SORT_STRING);
+$assert($pilotHttpQueue['status'] === 200 && $pilotVisibleIds === ['batch695-9200','batch695-9204','batch695-9210','batch695-9228'], 'Scoped pilot filter did not return exactly the four authorized ECE pilot proposals.');
+$assert(str_contains($pilotHttpQueue['output'], '20-item academic pilot')
+    && str_contains($pilotHttpQueue['output'], 'Source dossier:')
+    && str_contains($pilotHttpQueue['output'], 'Page 1 of 1'), 'Pilot queue omitted progress, evidence readiness, or bounded pagination cues.');
+$assert($storage->all('academic-proposal-workflow') === $pilotWorkflowBeforeHttp, 'Reading the pilot queue wrote review decisions or assignments.');
+$pilotDetail = $http->request('GET', '/developer/academic-review/proposal', ['id' => 'batch695-9200'], [], [], $cookies);
+$assert($pilotDetail['status'] === 200
+    && str_contains($pilotDetail['output'], 'Machine-prepared dossier')
+    && str_contains($pilotDetail['output'], 'independent review pending')
+    && str_contains($pilotDetail['output'], 'What the evidence establishes')
+    && str_contains($pilotDetail['output'], 'Proposed answer:')
+    && str_contains($pilotDetail['output'], 'Next eligible action:'), 'Pilot inspector did not present the version-bound evidence and next-review action.');
 $httpProposal = null;
 foreach (\App\Services\Question\AcademicReviewProposalService::all() as $candidate) {
     if (($candidate['board_id'] ?? '') === 'let' && ($candidate['subject_id'] ?? '') === $httpSubjectId) { $httpProposal = $candidate; break; }

@@ -654,9 +654,14 @@ final class AcademicReviewWorkflowService
                 }
                 $this->inject('after_study_link');
                 $audit = $this->importAudit($preflight, $proposal, $record, $accountId, $journalId);
+                // Keep the canonical question in draft until its optional exact
+                // study link has been activated. The question becoming active
+                // is the final learner-visibility boundary: interruption before
+                // that point is recoverable as rollback without practice access.
+                if (is_array($link)) $this->activateJournalStudyLink($journal);
+                $this->inject('after_study_link_activation_before_canonical');
                 $committed = $this->storage->update('questions', $questionId, ['status' => 'active', 'academic_import' => $audit]);
                 if (!is_array($committed) || ($committed['status'] ?? '') !== 'active') throw new RuntimeException('CANONICAL_ACTIVATION_FAILED');
-                $this->activateJournalStudyLink($journal);
                 $this->inject('after_activation');
                 $journal['state'] = 'COMMITTED';
                 $journal['canonical_audit_id'] = (string) $audit['audit_id'];
