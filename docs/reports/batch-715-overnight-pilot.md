@@ -116,7 +116,7 @@ PUBLIC_RELEASE_GATE=NOT_AUTHORIZED; no GitHub push, merge, production publicatio
 
 === STORAGE ===
 STORAGE_BEFORE=initial report rounded to about 2.7 GB free; Full Doctor fixture check measured 3,143,565,312 bytes available
-STORAGE_AFTER=3,064,172 KiB available at final measurement
+STORAGE_AFTER=3,063,696 KiB available at final measurement
 BYTES_RECLAIMED=387,551,919 measured bytes
 DISPOSABLE_PATHS_REMOVED=Four verified BoardPrep-generated Batch 711/712 fixture directories (386,409,137 bytes total) and bounded Batch 715 official-source download directory (1,142,782 bytes); no source binaries retained
 PROTECTED_PATHS_PRESERVED=Dirty B695 checkout at its original SHA with 14 dirty paths; both stashes; HayaDoctor gitlink; all 11 worktrees other than the active B715 worktree; storage/question-statistics.json; learner/review state
@@ -128,7 +128,7 @@ HEAD_AFTER_IMPLEMENTATION=6cae6ee3fc061324c7266b41f358d66050548603; production i
 HEAD_AFTER_FINAL=Final documentation/evidence commit is reported in the delivery message; a Git commit cannot contain its own SHA
 WORKTREE_STATE=After documentation commit, only the pre-existing untracked storage/question-statistics.json remains
 STORAGE_RECLAIMED=387,551,919 bytes; paths and exclusions listed above
-STORAGE_AFTER=3,064,172 KiB available
+STORAGE_AFTER=3,063,696 KiB available
 PUSH_STATUS=NOT_PUSHED
 DEPLOY_STATUS=NOT_DEPLOYED
 REPORT_PATH=/data/data/com.termux/files/home/boardprep-batch-706/docs/reports/batch-715-overnight-pilot.md
