@@ -15,6 +15,17 @@ Every mutation also checks the authenticated account, its exact board/subject
 scope, capability, CSRF token, and current proposal version. A form-supplied
 reviewer ID or role is ignored.
 
+The Batch 715 20-item pilot is a read-only, version-bound package exposed by
+the **Pilot cohort** queue filter. It preserves the same board/subject scope
+filters, assignment rules, and page bound as the full review queue. The
+proposal inspector presents the current question beside a machine-prepared
+evidence dossier and identifies whether the dossier still matches the current
+proposal version. The dossier distinguishes URL reachability, source identity,
+direct content inspection, candidate item-level support, expert source review,
+and academic approval. It is not a review decision. See
+[`ACADEMIC_PILOT_OPERATIONS.md`](ACADEMIC_PILOT_OPERATIONS.md) for the human
+pilot procedure and package limits.
+
 ## Provisioning a qualified reviewer
 
 There is intentionally no reviewer-grant web route. An application owner must
@@ -116,8 +127,8 @@ study navigation.
 
 The proposal inspector shows the current canonical record (if any), proposed
 content, source record snapshots and review history, taxonomy and study
-findings, revisions, warnings, and the exact import preflight. Preflight is a
-read-only GET. It rejects an item unless:
+findings, revision before/after content, warnings, and the exact import
+preflight. Preflight is a read-only GET. It rejects an item unless:
 
 - The latest proposal version has a current `APPROVED` decision with all
   required checks and a still-active matching reviewer grant.
@@ -136,14 +147,16 @@ Approval by itself never imports.
 
 JSON collections are written through the existing lock and atomic-replacement
 storage implementation. The workflow serializes mutations under a private
-lock, journals a staged question and optional study link, activates only after
-preflight, and records the complete import audit. Failed operations roll back
-owned staged records. If a process stops mid-import, the next authorized import
-submission recovers the pending journal before proceeding; recovery never
-deletes records it cannot prove belong to that operation. Repeated submissions
-are idempotently blocked. Existing SQLite learner collections remain behind
-the same `StorageRouter`; tests exercise both JSON and SQLite persistence in
-isolated storage.
+lock and journals the staged question and optional study link. It prepares the
+exact approved link while the canonical question remains a draft, then
+activates the question as the final learner-visibility boundary and records
+the complete import audit. Failed operations roll back owned staged records.
+If a process stops mid-import, the next authorized import submission recovers
+the pending journal before proceeding; recovery never deletes records it cannot
+prove belong to that operation. Repeated submissions and repeated recovery are
+idempotent. Existing SQLite learner collections remain behind the same
+`StorageRouter`; tests exercise JSON and SQLite persistence in isolated
+storage.
 
 ## Verification and current cohort
 
