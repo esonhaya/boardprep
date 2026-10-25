@@ -283,9 +283,8 @@ final class SourceReadinessValidator
         if (($record['readiness'] ?? '') !== 'DEFER' && trim((string) ($record['defer_reason'] ?? '')) !== '') {
             self::error($errors, 'SOURCE_READINESS.CONTRADICTION', $leafId, 'DEFER_REASON must be empty outside DEFER.', []);
         }
-        $expectedBatch = (int) ($context['reviewed_at_batch'] ?? 641);
-        if ((int) ($record['reviewed_at_batch'] ?? 0) !== $expectedBatch) {
-            self::error($errors, 'SOURCE_READINESS.INVALID_RECORD', $leafId, 'REVIEWED_AT_BATCH does not match the readiness collection contract.', ['expected_batch' => $expectedBatch, 'reviewed_at_batch' => $record['reviewed_at_batch'] ?? null]);
+        if ((int) ($record['reviewed_at_batch'] ?? 0) < 1) {
+            self::error($errors, 'SOURCE_READINESS.INVALID_RECORD', $leafId, 'REVIEWED_AT_BATCH must identify a positive review batch.', ['reviewed_at_batch' => $record['reviewed_at_batch'] ?? null]);
         }
         $hash = trim((string) ($record['evidence_hash'] ?? ''));
         if ($hash === '' || !hash_equals(SourceReadinessRecord::evidenceHash($record), $hash)) {

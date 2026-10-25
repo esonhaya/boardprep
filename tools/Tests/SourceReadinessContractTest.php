@@ -31,6 +31,22 @@ $records = SourceReadinessService::records($collections);
 $validation = SourceReadinessService::validateCollections($collections);
 $assert(count($records) === 37, 'Expected exactly 37 Criminologist readiness records.');
 $assert(($validation['valid'] ?? false) === true, 'Persisted readiness records do not satisfy the permanent contract.');
+$letReadiness = array_values(array_filter((array) ($collections['source-readiness-let'] ?? []), 'is_array'));
+if (count($letReadiness) > 1) {
+    $mixedBatches = $collections;
+    $mixedBatches['source-readiness-let'][1]['reviewed_at_batch'] = (int) ($mixedBatches['source-readiness-let'][0]['reviewed_at_batch'] ?? 641) + 1;
+    $mixedBatches['source-readiness-let'][1]['evidence_hash'] = SourceReadinessRecord::evidenceHash($mixedBatches['source-readiness-let'][1]);
+    $mixedValidation = SourceReadinessService::validateCollections($mixedBatches);
+    $assert(($mixedValidation['valid'] ?? false) === true, 'Valid per-record review-batch provenance was rejected for a mixed-batch collection.');
+
+    $invalidBatch = $mixedBatches;
+    $invalidBatch['source-readiness-let'][1]['reviewed_at_batch'] = 0;
+    $invalidBatch['source-readiness-let'][1]['evidence_hash'] = SourceReadinessRecord::evidenceHash($invalidBatch['source-readiness-let'][1]);
+    $invalidValidation = SourceReadinessService::validateCollections($invalidBatch);
+    $invalidCodes = array_column((array) ($invalidValidation['errors'] ?? []), 'code');
+    $assert(($invalidValidation['valid'] ?? true) === false
+        && in_array('SOURCE_READINESS.INVALID_RECORD', $invalidCodes, true), 'A non-positive review batch was accepted.');
+}
 $ids = array_map(static fn(array $record): string => (string) ($record['leaf_id'] ?? ''), $records);
 $assert(count($ids) === count(array_unique($ids)), 'Readiness records contain duplicate leaf IDs.');
 $assert(count($ids) === count(SourceReadinessService::nativeLeafCounts($collections, 'criminologist')), 'Readiness records do not cover every active leaf.');

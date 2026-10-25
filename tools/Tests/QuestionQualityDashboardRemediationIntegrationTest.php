@@ -46,13 +46,33 @@ foreach ($issues as $issue) {
 $assertCount = static function (string $code, int $expected) use ($byCode, $fail): void {
     if (($byCode[$code] ?? 0) !== $expected) $fail($code . ' expected ' . $expected . ', found ' . ($byCode[$code] ?? 0));
 };
+$auditIsStale = ($snapshotInspection['status'] ?? '') === 'STALE';
 $assertCount('INVALID_QUESTION_SOURCE_REFERENCE', 0);
-$assertCount('SOURCE_URL_CONFIRMED_404', (int) ($snapshotStatusCounts['CONFIRMED_404'] ?? 0));
-$assertCount('SOURCE_URL_ACCESS_RESTRICTED', (int) ($snapshotStatusCounts['ACCESS_RESTRICTED'] ?? 0));
+$assertCount('SOURCE_URL_CONFIRMED_404', $auditIsStale ? 0 : (int) ($snapshotStatusCounts['CONFIRMED_404'] ?? 0));
+$assertCount('SOURCE_URL_ACCESS_RESTRICTED', $auditIsStale ? 0 : (int) ($snapshotStatusCounts['ACCESS_RESTRICTED'] ?? 0));
 $assertCount('SOURCE_TEXT_ACCESS_LIMITED', 6);
 $inconclusiveCount = 0;
 foreach ($snapshotStatusCounts as $status => $count) {
     if (!in_array($status, ['HTTP_REACHABLE', 'CONFIRMED_404', 'ACCESS_RESTRICTED'], true)) $inconclusiveCount += $count;
+}
+$ifrsFinding = null;
+foreach ($findingsByCode['SOURCE_URL_CHECK_INCONCLUSIVE'] ?? [] as $issue) {
+    if (($issue->entityId ?? '') === 'ifrs-ias-21-foreign-exchange') $ifrsFinding = $issue;
+}
+if ($auditIsStale) {
+    $inconclusiveCount = 0;
+    $assertCount('SOURCE_URL_AUDIT_STALE', 1);
+    $staleFinding = ($findingsByCode['SOURCE_URL_AUDIT_STALE'] ?? [])[0] ?? null;
+    if (!is_object($staleFinding) || ($staleFinding->status ?? '') !== 'REVIEW'
+        || !str_contains((string) ($staleFinding->message ?? ''), 'source registry changed')) {
+        $fail('A registry change must invalidate the old URL outcomes until refreshed.');
+    }
+    if (is_object($ifrsFinding)) $fail('Stale per-source URL outcomes must not be presented as current individual findings.');
+} else {
+    $assertCount('SOURCE_URL_AUDIT_STALE', 0);
+    if (is_object($ifrsFinding)) {
+        $fail('The one authorized IAS 21 retry returned current evidence but the dashboard still shows its prior DNS observation.');
+    }
 }
 $assertCount('SOURCE_URL_CHECK_INCONCLUSIVE', $inconclusiveCount);
 $assertCount('SOURCE_URL_AUDIT_PARTIAL', ($snapshot['coverage']['complete'] ?? false) === true ? 0 : 1);
@@ -65,22 +85,15 @@ foreach ($findingsByCode['SOURCE_URL_CONFIRMED_404'] ?? [] as $issue) {
     }
 }
 
-$ifrsFinding = null;
-foreach ($findingsByCode['SOURCE_URL_CHECK_INCONCLUSIVE'] ?? [] as $issue) {
-    if (($issue->entityId ?? '') === 'ifrs-ias-21-foreign-exchange') $ifrsFinding = $issue;
-}
-if (is_object($ifrsFinding)) {
-    $fail('The one authorized IAS 21 retry returned current evidence but the dashboard still shows its prior DNS observation.');
-}
-if (($snapshotStatusCounts['HTTP_REACHABLE'] ?? 0) < 1
-    || (($snapshot['coverage']['complete'] ?? false) !== true && $snapshotInspection['status'] === 'CURRENT_COMPLETE')) {
+if (!$auditIsStale && (($snapshotStatusCounts['HTTP_REACHABLE'] ?? 0) < 1
+    || (($snapshot['coverage']['complete'] ?? false) !== true && $snapshotInspection['status'] === 'CURRENT_COMPLETE'))) {
     $fail('The current complete URL snapshot did not reconcile its reachable and coverage status.');
 }
 sort($deadIds);
-if ($deadIds !== ['aasc-psa-500-currentness-review', 'deped-matatag-general-education-framework', 'prc-lept-program-march-2026']) {
+if (!$auditIsStale && $deadIds !== ['aasc-psa-500-currentness-review', 'deped-matatag-general-education-framework', 'prc-lept-program-march-2026']) {
     $fail('The remaining confirmed-404 records do not match the three unreferenced source records.');
 }
-foreach ($findingsByCode['SOURCE_URL_ACCESS_RESTRICTED'] ?? [] as $issue) {
+foreach ($auditIsStale ? [] : ($findingsByCode['SOURCE_URL_ACCESS_RESTRICTED'] ?? []) as $issue) {
     if (($issue->status ?? '') !== 'WARN') $fail('HTTP access restriction must remain a nonfatal warning.');
 }
 foreach ($findingsByCode['SOURCE_TEXT_ACCESS_LIMITED'] ?? [] as $issue) {
@@ -94,8 +107,16 @@ foreach ($findingsByCode['SOURCE_TEXT_ACCESS_LIMITED'] ?? [] as $issue) {
 $report = $result['report'] ?? null;
 if (!is_object($report)) $fail('The production question-quality report was not returned.');
 $urlAudit = (array) ($report->summary['source_url_audit'] ?? []);
-if (($urlAudit['status'] ?? '') !== ($snapshotInspection['status'] ?? '')
-    || (int) ($urlAudit['checked_source_count'] ?? 0) !== count((array) ($snapshot['records'] ?? []))
+if (($urlAudit['status'] ?? '') !== ($snapshotInspection['status'] ?? '')) {
+    $fail('The production dashboard did not display the URL snapshot validation state accurately.');
+}
+if ($auditIsStale) {
+    if ((int) ($urlAudit['checked_source_count'] ?? -1) !== 0
+        || !array_key_exists('total_url_source_count', $urlAudit) || $urlAudit['total_url_source_count'] !== null
+        || !array_key_exists('unchecked_source_count', $urlAudit) || $urlAudit['unchecked_source_count'] !== null) {
+        $fail('The stale URL snapshot must not expose old source counts as current.');
+    }
+} elseif ((int) ($urlAudit['checked_source_count'] ?? 0) !== count((array) ($snapshot['records'] ?? []))
     || (int) ($urlAudit['total_url_source_count'] ?? 0) !== count(array_filter($sources, static fn(array $source): bool => is_string($source['url'] ?? null) && trim($source['url']) !== ''))
     || (int) ($urlAudit['unchecked_source_count'] ?? -1) !== 0) {
     $fail('The production dashboard did not display the validated current URL snapshot accurately.');
@@ -137,12 +158,11 @@ $html = (string) ob_get_clean();
 $visibleHtml = preg_replace('/\s+/', ' ', $html) ?? $html;
 foreach ([
     'Source reachability and text access',
+    'Snapshot status',
     'Access status:',
     'Full source text verified: <code>no</code>',
     'Independent review status: <code>REVIEW_REQUIRED</code>',
-    'Affects 0 question(s): none currently linked',
     'Exact links with unknown or unreviewed status',
-    'URL check result: <code>DNS_ERROR</code>',
     'Question eligibility review',
     'QUESTION_REUSE_REVIEW_HOLD',
     '#6403',
@@ -152,6 +172,17 @@ foreach ([
 ] as $needle) {
     if (!str_contains($visibleHtml, $needle)) $fail('Rendered dashboard is missing an explicit state: ' . $needle);
 }
+if ($auditIsStale) {
+    foreach ([
+        'Snapshot status</strong><span>STALE',
+        'The source registry changed after this URL audit snapshot was generated.',
+    ] as $needle) {
+        if (!str_contains($visibleHtml, $needle)) $fail('The dashboard did not make its stale source audit state explicit: ' . $needle);
+    }
+} elseif (!str_contains($visibleHtml, 'URL check result: <code>DNS_ERROR</code>')
+    || !str_contains($visibleHtml, 'Affects 0 question(s): none currently linked')) {
+    $fail('Rendered dashboard is missing the current bounded DNS outcome or its source impact context.');
+}
 
 foreach ($protected as $relative => $before) {
     if (!hash_equals($before, (string) hash_file('sha256', $root . '/' . $relative))) {
@@ -160,11 +191,11 @@ foreach ($protected as $relative => $before) {
 }
 
 echo 'QUESTION_QUALITY_DASHBOARD_REMEDIATION_PASS=1' . PHP_EOL;
-echo 'CONFIRMED_404_REVIEW=' . count($deadIds) . PHP_EOL;
+echo 'CONFIRMED_404_REVIEW=' . count($deadIds) . ($auditIsStale ? '_HISTORICAL_STATUS_NOT_CURRENT' : '') . PHP_EOL;
 echo 'REQUIRED_BROKEN_SOURCE_ERRORS=0' . PHP_EOL;
 echo 'SOURCE_TEXT_ACCESS_WARNINGS=' . ($byCode['SOURCE_TEXT_ACCESS_LIMITED'] ?? 0) . PHP_EOL;
 echo 'INCONCLUSIVE_URL_CHECKS=' . $inconclusiveCount . PHP_EOL;
-echo 'URL_AUDIT_COVERAGE=' . count((array) ($snapshot['records'] ?? [])) . '/' . (int) ($snapshot['coverage']['total_url_source_count'] ?? 0) . '_' . $snapshotInspection['status'] . PHP_EOL;
+echo 'URL_AUDIT_COVERAGE=' . ($auditIsStale ? 'NOT_CURRENT' : count((array) ($snapshot['records'] ?? [])) . '/' . (int) ($snapshot['coverage']['total_url_source_count'] ?? 0)) . '_' . $snapshotInspection['status'] . PHP_EOL;
 echo 'EXACT_LINKS=1049_PENDING_OR_UNKNOWN=1049_APPROVED=0' . PHP_EOL;
 echo 'Q6403_REVIEW_HOLD=VISIBLE' . PHP_EOL;
 echo 'RENDERED_DASHBOARD_AND_PROTECTED_HASHES=PASS' . PHP_EOL;

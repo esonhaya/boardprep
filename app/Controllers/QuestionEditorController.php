@@ -6,6 +6,7 @@ namespace App\Controllers;
 use App\Core\Request;
 use App\Core\Response;
 use App\Services\Question\QuestionAuthoringService;
+use App\Services\Question\AcademicReviewProposalService;
 use App\Services\Question\QuestionEditorService;
 use App\Services\Question\QuestionEligibilityService;
 use App\Services\Question\QuestionQueryService;
@@ -67,6 +68,15 @@ class QuestionEditorController extends BaseDeveloperController
 
     public static function index(): void
     {
+        $proposalBatch = Request::queryString('proposal_batch');
+        if ($proposalBatch !== '') {
+            if ($proposalBatch !== '695') {
+                Response::redirect('/question-editor');
+            }
+            self::proposalsIndex();
+            return;
+        }
+
         $search =
             Request::queryString("search");
 
@@ -121,7 +131,11 @@ class QuestionEditorController extends BaseDeveloperController
                         $topic,
                     "status" => $status,
                     "board" => $board,
-                    "subject" => $subject
+                    "subject" => $subject,
+                    "pendingProposalCount" => count(array_filter(
+                        AcademicReviewProposalService::all(),
+                        static fn(array $proposal): bool => ($proposal['current_status'] ?? '') === 'PENDING_INDEPENDENT_SUBJECT_EXPERT_REVIEW'
+                    )),
                 ],
                 QuestionViewService::taxonomy(),
                 [
@@ -129,6 +143,35 @@ class QuestionEditorController extends BaseDeveloperController
                     "csrfToken" => CsrfTokenService::token(),
                 ]
             )
+        );
+    }
+
+    private static function proposalsIndex(): void
+    {
+        $search = Request::queryString('search');
+        $board = Request::queryString('board');
+        $subject = Request::queryString('subject');
+        $pageNumber = filter_var(Request::queryString('page_num'), FILTER_VALIDATE_INT, ['options' => ['min_range' => 1]]) ?: 1;
+        $page = AcademicReviewProposalService::page([
+            'search' => $search,
+            'board' => $board,
+            'subject' => $subject,
+        ], $pageNumber, 50);
+
+        self::renderDeveloper(
+            'developer/question/proposals',
+            [
+                'pageTitle' => 'Batch 695 Academic Review Proposals',
+                'proposals' => $page['items'],
+                'totalProposals' => $page['total'],
+                'pageNumber' => $page['page'],
+                'pageCount' => $page['pages'],
+                'search' => $search,
+                'board' => $board,
+                'subject' => $subject,
+                'boards' => AcademicReviewProposalService::boardOptions(),
+                'subjects' => AcademicReviewProposalService::subjectOptions(),
+            ]
         );
     }
 

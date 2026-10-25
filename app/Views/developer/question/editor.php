@@ -1,5 +1,11 @@
 <section class="page-header"><div><h1>Question Inventory</h1><p>Question Editor · Browse, search and manage your question repository.</p></div><a class="button" href="/question-editor/create">New question</a></section>
 
+<section class="card" aria-label="Pending academic review proposals">
+    <h2>Recovered academic review proposals</h2>
+    <p><?= (int) ($pendingProposalCount ?? 0) ?> Batch 695 proposals remain pending independent review. They are kept outside the canonical question bank and learner pools.</p>
+    <a class="button secondary" href="/question-editor?proposal_batch=695">Browse Batch 695 proposals</a>
+</section>
+
 <hr>
 
 <?php if (isset($_GET['saved'])): ?><p role="status">✅ Question saved.</p><?php endif; ?>

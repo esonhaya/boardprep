@@ -106,8 +106,8 @@ $sourceQuestion = $http->request('GET', '/question-inspector', ['id' => '361'], 
 $recordResponse($sourceQuestion, '/question-inspector?id=361');
 if (!$sourceQuestion['success'] || $sourceQuestion['status'] !== 200
     || !str_contains($sourceQuestion['output'], 'Source-only; no precise lesson section is asserted.')
-    || !str_contains($sourceQuestion['output'], 'HTTP_REACHABLE')) {
-    throw new RuntimeException('Question inspector did not expose source-only relationship and persisted URL reachability.');
+    || !str_contains($sourceQuestion['output'], 'STALE')) {
+    throw new RuntimeException('Question inspector did not expose its source-only relationship and the stale URL-audit state after source-registry integration.');
 }
 
 echo '[PASS] Question editor renders distinct 50-item pages with bounded responses and working adjacent-page links.' . PHP_EOL;

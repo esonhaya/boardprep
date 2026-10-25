@@ -71,7 +71,6 @@ final class SourceReadinessService
                     'active_leaf_ids' => $activeLeaves,
                     'board_id' => $boardId,
                     'official_areas' => self::officialAreas($collections, $boardId, $records),
-                    'reviewed_at_batch' => self::reviewedAtBatch($records),
                 ]
             );
             $validation['board_id'] = $boardId;
@@ -124,17 +123,6 @@ final class SourceReadinessService
         return $collectionName === 'source-readiness'
             ? 'criminologist'
             : strtolower(trim(substr($collectionName, strlen('source-readiness-'))));
-    }
-
-    /** @param array<int, array<string, mixed>> $records */
-    private static function reviewedAtBatch(array $records): int
-    {
-        foreach ($records as $record) {
-            if (is_int($record['reviewed_at_batch'] ?? null)) {
-                return (int) $record['reviewed_at_batch'];
-            }
-        }
-        return 641;
     }
 
     /** @param array<string, array> $collections @param array<int, array<string, mixed>> $records @return string[] */

@@ -32,8 +32,10 @@ if (($validation['valid'] ?? false) !== true) {
 }
 $snapshot = $storage->all('source-url-health');
 $audit = SourceUrlHealthSnapshot::inspect($snapshot, $sources);
-if (($audit['status'] ?? '') !== 'CURRENT_COMPLETE') {
-    throw new RuntimeException('Persisted source URL evidence is not a current complete snapshot.');
+if (($audit['status'] ?? '') !== 'STALE'
+    || ($audit['findings'][0]['code'] ?? '') !== 'SOURCE_URL_AUDIT_STALE'
+    || !str_contains((string) ($audit['findings'][0]['message'] ?? ''), 'source registry changed')) {
+    throw new RuntimeException('The old URL audit must be explicitly stale after Batch 713 expanded the source registry.');
 }
 $statusById = [];
 foreach ((array) ($snapshot[0]['records'] ?? []) as $record) {
@@ -41,7 +43,7 @@ foreach ((array) ($snapshot[0]['records'] ?? []) as $record) {
 }
 foreach ([$chapterFour, $chapterThree, $deped] as $sourceId) {
     if (($statusById[$sourceId] ?? '') !== 'HTTP_REACHABLE') {
-        throw new RuntimeException('New source lacks its bounded persisted HTTP reachability result: ' . $sourceId);
+        throw new RuntimeException('Historical URL audit record was not preserved for source: ' . $sourceId);
     }
 }
 
@@ -78,4 +80,4 @@ foreach ($links as $link) {
     }
 }
 
-echo "[PASS] Twenty-six source-only LET art references resolve to accessible, scope-limited sources; no exact lesson mappings were created.\n";
+echo "[PASS] Twenty-six source-only LET art references resolve; the prior URL results remain preserved and are correctly treated as stale after source-registry integration.\n";
