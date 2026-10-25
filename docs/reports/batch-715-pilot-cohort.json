@@ -1,0 +1,1506 @@
+{
+    "schema": "boardprep.batch-715-pilot-cohort.v1",
+    "generated_at_utc": "2026-10-25T17:43:21+00:00",
+    "source_cohort": {
+        "path": "docs/reports/batch-713-cohort-disposition.json",
+        "sha256": "a8a33dbe48a04fafdf89e6c9ecb78213d92e2ba0dd38ff941c763aac1f2611b9",
+        "b695_commit": "c3d6b217aed480ebda1c81c1900f907a749befe3",
+        "expected_total": 276
+    },
+    "selection_algorithm": {
+        "id": "b715-curated-stratified-pilot-v1",
+        "target": 20,
+        "deterministic": true,
+        "tie_breaker": "Explicit proposal IDs are fixed in the selection manifest; source inventory order and random sampling are not used.",
+        "rules": [
+            "Include all 4 Architecture items so every known historical-program currentness recheck is represented.",
+            "Select 3 items each from Culture and Arts, Physical Education, Special Needs Education, and Technical-Vocational Teacher Education, using distinct proposed concepts and different evidence questions.",
+            "Select 4 Early Childhood Education items to cover an exact registered topic, exact published study sections, and one known child-protection source-scope limitation.",
+            "Cover all five LET subjects. The 4-of-20 Architecture share intentionally oversamples the small board cohort to exercise its unique currentness risk; the remaining 16 represent the LET-heavy cohort.",
+            "Prefer proposals with an inspectable authoritative source where possible, while retaining cases with missing/limited evidence and both exact and missing study-section relationships."
+        ],
+        "selection_rationales_by_question_id": {
+            "9124": "Include all four Architecture proposals: this one is a bounded accessibility rule application and its cited June 2026 exam program is historical.",
+            "9125": "Include all four Architecture proposals: this one tests a numeric grating requirement and the same historical exam-scope warning.",
+            "9126": "Include all four Architecture proposals: this one tests accessible-corridor coordination and the same historical exam-scope warning.",
+            "9127": "Include all four Architecture proposals: this one tests statutory architecture scope and the same historical exam-scope warning.",
+            "9128": "Culture and Arts sample: observable visual-form evidence; pair the current Grades 4/7 curriculum with the unavailable-this-pass PRC scope annex.",
+            "9140": "Culture and Arts sample: include the Indigenous Peoples Rights Act citation to make the boundary between cultural-rights support and image attribution reviewable.",
+            "9164": "Culture and Arts sample: include an assessment-alignment case with an accessible official curriculum assessment section.",
+            "9200": "ECE sample: an exact published study section exists while the proposed topic is not registered; checks portfolio-context claims.",
+            "9204": "ECE sample: the proposed topic and exact published study section exist; the proposed concept remains unregistered.",
+            "9210": "ECE sample: a second exact published study section exists while the proposal needs separate language/family evidence review.",
+            "9228": "ECE sample: include the known child-protection scope limitation; only the official order page was machine-inspected, not its scanned annex.",
+            "9238": "PE sample: movement-analysis case whose official curriculum pages were downloaded and inspected in this pass.",
+            "9250": "PE sample: fitness-construct case; inspected curriculum passages do not establish the specific muscular-endurance claim.",
+            "9280": "PE sample: inclusive activity adaptation case; reviewer must distinguish curricular inclusion from evidence for this exact adaptation.",
+            "9290": "SNE sample: compares the official inclusive-education statute with current CAST UDL guidance.",
+            "9302": "SNE sample: an accessible-material accommodation case with a separate construct-validity question for the expert.",
+            "9320": "SNE sample: include behavior-in-context reasoning where the cited statute does not itself establish the proposed instructional inference.",
+            "9348": "TVTEd sample: translate an observable workplace standard into an outcome; TESDA definitions provide a direct candidate locator.",
+            "9360": "TVTEd sample: direct performance/product evidence; TESDA competency-assessment definitions are inspectable.",
+            "9378": "TVTEd sample: safety-sensitive item; the glossary does not establish a site-specific guard/reporting procedure."
+        }
+    },
+    "selected_count": 20,
+    "boards_represented": [
+        "architecture",
+        "let"
+    ],
+    "subjects_represented": [
+        "architecture-utilities-and-construction",
+        "culture-and-arts-education",
+        "early-childhood-education",
+        "physical-education",
+        "special-needs-education",
+        "technical-vocational-teacher-education"
+    ],
+    "items": [
+        {
+            "proposal_id": "batch695-9124",
+            "question_id": "9124",
+            "board": {
+                "id": "architecture",
+                "name": "Licensure Examination for Architects"
+            },
+            "subject": {
+                "id": "architecture-utilities-and-construction",
+                "name": "Architecture Utilities and Construction"
+            },
+            "topic": {
+                "id": "architecture-accessible-route-detailing",
+                "proposed_name": "Accessible Routes and Floor Details",
+                "registered": false
+            },
+            "concept": {
+                "id": "arch-bp344-continuous-accessible-route",
+                "proposed_name": "Continuous Accessible Route",
+                "registered": false
+            },
+            "question_version": "e15d1ac0934ea23a591702c2e8596d821394631f1e77aeec12577ee68781e7bf",
+            "review_state": "PENDING_REVIEW",
+            "production_status": "NONCANONICAL_NOT_IN_LEARNER_POOLS",
+            "source_identities": [
+                {
+                    "id": "bp344-2024-irr",
+                    "title": "Revised 2024 Rules and Regulations Implementing Batas Pambansa Blg. 344",
+                    "role": ""
+                },
+                {
+                    "id": "prc-architecture-exam-program-june-2026",
+                    "title": "Program for the June 8 and 10, 2026 Licensure Examination for Architects",
+                    "role": "SCOPE_SOURCE"
+                }
+            ],
+            "source_scope": {
+                "scope_source_ids": [
+                    "prc-architecture-exam-program-june-2026"
+                ],
+                "status": "HISTORICAL_PROGRAM_RECHECK_REQUIRED"
+            },
+            "source_currentness": {
+                "status": "HISTORICAL_SCOPE_NOT_CURRENT",
+                "checked_at": "2026-10-26"
+            },
+            "study_relationships": {
+                "material_id": "architecture-building-systems-and-construction",
+                "material_title": "Building Systems, Construction Coordination, and Life Safety",
+                "section_id": "5-accessible-routes-and-vertical-transitions",
+                "section_heading": "5. Accessible routes and vertical transitions",
+                "status": "MISSING_SECTION",
+                "current_material_exists": true,
+                "current_section_exists": false,
+                "current_question_link_exists": false,
+                "required_for_import": false
+            },
+            "review_blockers": [
+                "PENDING_QUALIFIED_ACADEMIC_REVIEW",
+                "PENDING_INDEPENDENT_ITEM_LEVEL_SOURCE_REVIEW",
+                "PROPOSED_TOPIC_NOT_REGISTERED",
+                "PROPOSED_CONCEPT_NOT_REGISTERED",
+                "PROPOSED_STUDY_SECTION_MISSING",
+                "HISTORICAL_EXAM_SCOPE_RECHECK_REQUIRED"
+            ],
+            "required_reviewer_capability": [
+                "REVIEW",
+                "SOURCE_REVIEW",
+                "TAXONOMY_RECONCILE",
+                "STUDY_LINK"
+            ],
+            "selection_rationale": "Include all four Architecture proposals: this one is a bounded accessibility rule application and its cited June 2026 exam program is historical."
+        },
+        {
+            "proposal_id": "batch695-9125",
+            "question_id": "9125",
+            "board": {
+                "id": "architecture",
+                "name": "Licensure Examination for Architects"
+            },
+            "subject": {
+                "id": "architecture-utilities-and-construction",
+                "name": "Architecture Utilities and Construction"
+            },
+            "topic": {
+                "id": "architecture-accessible-route-detailing",
+                "proposed_name": "Accessible Routes and Floor Details",
+                "registered": false
+            },
+            "concept": {
+                "id": "arch-bp344-grating-and-cover-detail",
+                "proposed_name": "Grating and Channel-Cover Detail",
+                "registered": false
+            },
+            "question_version": "efcce496dd6901a3235c20e1d8219e40b9b908f8a17fe164f36bd6655dff42e5",
+            "review_state": "PENDING_REVIEW",
+            "production_status": "NONCANONICAL_NOT_IN_LEARNER_POOLS",
+            "source_identities": [
+                {
+                    "id": "bp344-2024-irr",
+                    "title": "Revised 2024 Rules and Regulations Implementing Batas Pambansa Blg. 344",
+                    "role": ""
+                },
+                {
+                    "id": "prc-architecture-exam-program-june-2026",
+                    "title": "Program for the June 8 and 10, 2026 Licensure Examination for Architects",
+                    "role": "SCOPE_SOURCE"
+                }
+            ],
+            "source_scope": {
+                "scope_source_ids": [
+                    "prc-architecture-exam-program-june-2026"
+                ],
+                "status": "HISTORICAL_PROGRAM_RECHECK_REQUIRED"
+            },
+            "source_currentness": {
+                "status": "HISTORICAL_SCOPE_NOT_CURRENT",
+                "checked_at": "2026-10-26"
+            },
+            "study_relationships": {
+                "material_id": "architecture-building-systems-and-construction",
+                "material_title": "Building Systems, Construction Coordination, and Life Safety",
+                "section_id": "6-accessible-floor-and-service-details",
+                "section_heading": "6. Accessible floor and service details",
+                "status": "MISSING_SECTION",
+                "current_material_exists": true,
+                "current_section_exists": false,
+                "current_question_link_exists": false,
+                "required_for_import": false
+            },
+            "review_blockers": [
+                "PENDING_QUALIFIED_ACADEMIC_REVIEW",
+                "PENDING_INDEPENDENT_ITEM_LEVEL_SOURCE_REVIEW",
+                "PROPOSED_TOPIC_NOT_REGISTERED",
+                "PROPOSED_CONCEPT_NOT_REGISTERED",
+                "PROPOSED_STUDY_SECTION_MISSING",
+                "HISTORICAL_EXAM_SCOPE_RECHECK_REQUIRED"
+            ],
+            "required_reviewer_capability": [
+                "REVIEW",
+                "SOURCE_REVIEW",
+                "TAXONOMY_RECONCILE",
+                "STUDY_LINK"
+            ],
+            "selection_rationale": "Include all four Architecture proposals: this one tests a numeric grating requirement and the same historical exam-scope warning."
+        },
+        {
+            "proposal_id": "batch695-9126",
+            "question_id": "9126",
+            "board": {
+                "id": "architecture",
+                "name": "Licensure Examination for Architects"
+            },
+            "subject": {
+                "id": "architecture-utilities-and-construction",
+                "name": "Architecture Utilities and Construction"
+            },
+            "topic": {
+                "id": "architecture-accessible-route-detailing",
+                "proposed_name": "Accessible Routes and Floor Details",
+                "registered": false
+            },
+            "concept": {
+                "id": "arch-bp344-services-away-from-routes",
+                "proposed_name": "Services Away from Accessible Routes",
+                "registered": false
+            },
+            "question_version": "eedfa00493c31ef2654564bb2eac0267e33779963532e48dee87cfef4629adad",
+            "review_state": "PENDING_REVIEW",
+            "production_status": "NONCANONICAL_NOT_IN_LEARNER_POOLS",
+            "source_identities": [
+                {
+                    "id": "bp344-2024-irr",
+                    "title": "Revised 2024 Rules and Regulations Implementing Batas Pambansa Blg. 344",
+                    "role": ""
+                },
+                {
+                    "id": "prc-architecture-exam-program-june-2026",
+                    "title": "Program for the June 8 and 10, 2026 Licensure Examination for Architects",
+                    "role": "SCOPE_SOURCE"
+                }
+            ],
+            "source_scope": {
+                "scope_source_ids": [
+                    "prc-architecture-exam-program-june-2026"
+                ],
+                "status": "HISTORICAL_PROGRAM_RECHECK_REQUIRED"
+            },
+            "source_currentness": {
+                "status": "HISTORICAL_SCOPE_NOT_CURRENT",
+                "checked_at": "2026-10-26"
+            },
+            "study_relationships": {
+                "material_id": "architecture-building-systems-and-construction",
+                "material_title": "Building Systems, Construction Coordination, and Life Safety",
+                "section_id": "6-accessible-floor-and-service-details",
+                "section_heading": "6. Accessible floor and service details",
+                "status": "MISSING_SECTION",
+                "current_material_exists": true,
+                "current_section_exists": false,
+                "current_question_link_exists": false,
+                "required_for_import": false
+            },
+            "review_blockers": [
+                "PENDING_QUALIFIED_ACADEMIC_REVIEW",
+                "PENDING_INDEPENDENT_ITEM_LEVEL_SOURCE_REVIEW",
+                "PROPOSED_TOPIC_NOT_REGISTERED",
+                "PROPOSED_CONCEPT_NOT_REGISTERED",
+                "PROPOSED_STUDY_SECTION_MISSING",
+                "HISTORICAL_EXAM_SCOPE_RECHECK_REQUIRED"
+            ],
+            "required_reviewer_capability": [
+                "REVIEW",
+                "SOURCE_REVIEW",
+                "TAXONOMY_RECONCILE",
+                "STUDY_LINK"
+            ],
+            "selection_rationale": "Include all four Architecture proposals: this one tests accessible-corridor coordination and the same historical exam-scope warning."
+        },
+        {
+            "proposal_id": "batch695-9127",
+            "question_id": "9127",
+            "board": {
+                "id": "architecture",
+                "name": "Licensure Examination for Architects"
+            },
+            "subject": {
+                "id": "architecture-utilities-and-construction",
+                "name": "Architecture Utilities and Construction"
+            },
+            "topic": {
+                "id": "architecture-utility-systems-integration",
+                "proposed_name": "Utility Systems Integration",
+                "registered": false
+            },
+            "concept": {
+                "id": "arch-ra9266-utility-systems-coordination",
+                "proposed_name": "Utility Systems Coordination",
+                "registered": false
+            },
+            "question_version": "9b034dfb37d0e32b5b676ba100d28262d7618c3a5749474e09d5099921bbab75",
+            "review_state": "PENDING_REVIEW",
+            "production_status": "NONCANONICAL_NOT_IN_LEARNER_POOLS",
+            "source_identities": [
+                {
+                    "id": "ra-9266-architecture-act",
+                    "title": "Republic Act No. 9266, The Architecture Act of 2004",
+                    "role": ""
+                },
+                {
+                    "id": "prc-architecture-exam-program-june-2026",
+                    "title": "Program for the June 8 and 10, 2026 Licensure Examination for Architects",
+                    "role": "SCOPE_SOURCE"
+                }
+            ],
+            "source_scope": {
+                "scope_source_ids": [
+                    "prc-architecture-exam-program-june-2026"
+                ],
+                "status": "HISTORICAL_PROGRAM_RECHECK_REQUIRED"
+            },
+            "source_currentness": {
+                "status": "HISTORICAL_SCOPE_NOT_CURRENT",
+                "checked_at": "2026-10-26"
+            },
+            "study_relationships": {
+                "material_id": "architecture-building-systems-and-construction",
+                "material_title": "Building Systems, Construction Coordination, and Life Safety",
+                "section_id": "7-integrated-utilities-and-access-coordination",
+                "section_heading": "7. Integrated utilities and access coordination",
+                "status": "MISSING_SECTION",
+                "current_material_exists": true,
+                "current_section_exists": false,
+                "current_question_link_exists": false,
+                "required_for_import": false
+            },
+            "review_blockers": [
+                "PENDING_QUALIFIED_ACADEMIC_REVIEW",
+                "PENDING_INDEPENDENT_ITEM_LEVEL_SOURCE_REVIEW",
+                "PROPOSED_TOPIC_NOT_REGISTERED",
+                "PROPOSED_CONCEPT_NOT_REGISTERED",
+                "PROPOSED_STUDY_SECTION_MISSING",
+                "HISTORICAL_EXAM_SCOPE_RECHECK_REQUIRED"
+            ],
+            "required_reviewer_capability": [
+                "REVIEW",
+                "SOURCE_REVIEW",
+                "TAXONOMY_RECONCILE",
+                "STUDY_LINK"
+            ],
+            "selection_rationale": "Include all four Architecture proposals: this one tests statutory architecture scope and the same historical exam-scope warning."
+        },
+        {
+            "proposal_id": "batch695-9128",
+            "question_id": "9128",
+            "board": {
+                "id": "let",
+                "name": "Licensure Examination for Professional Teachers (LET)"
+            },
+            "subject": {
+                "id": "culture-and-arts-education",
+                "name": "Culture and Arts Education"
+            },
+            "topic": {
+                "id": "cae-context-and-heritage",
+                "proposed_name": "Context, Identity, and Heritage",
+                "registered": false
+            },
+            "concept": {
+                "id": "cae-cultural-context-and-artistic-evidence",
+                "proposed_name": "Cultural Context and Artistic Evidence",
+                "registered": false
+            },
+            "question_version": "11af4c4ed286b56172b91d1cf83d81c985304c3d1e607882e0c3a9a11a21f1ab",
+            "review_state": "PENDING_REVIEW",
+            "production_status": "NONCANONICAL_NOT_IN_LEARNER_POOLS",
+            "source_identities": [
+                {
+                    "id": "prc-resolution-20-2025-annex-a",
+                    "title": "PRC Board Resolution No. 20, s. 2025, Annex A: LEPT alignment and specialization syllabi",
+                    "role": "SCOPE_SOURCE"
+                },
+                {
+                    "id": "deped-matatag-music-arts-2023-g4-g7",
+                    "title": "MATATAG Music and Arts Curriculum Guide, Grades 4 and 7",
+                    "role": "CURRICULUM_SOURCE"
+                }
+            ],
+            "source_scope": {
+                "scope_source_ids": [
+                    "prc-resolution-20-2025-annex-a"
+                ],
+                "status": "CURRENT_SCOPE_SOURCE_INSPECTION_REQUIRED"
+            },
+            "source_currentness": {
+                "status": "VERSIONED_OR_REGULATORY_SOURCE_REVIEW_REQUIRED",
+                "checked_at": "2026-10-26"
+            },
+            "study_relationships": {
+                "material_id": "let-culture-arts-learning-foundation",
+                "material_title": "Arts Learning: Elements, Making, Context, and Reflection",
+                "section_id": "5-context-identity-and-interpretation",
+                "section_heading": "5. Context, identity, and interpretation",
+                "status": "MISSING_SECTION",
+                "current_material_exists": true,
+                "current_section_exists": false,
+                "current_question_link_exists": false,
+                "required_for_import": false
+            },
+            "review_blockers": [
+                "PENDING_QUALIFIED_ACADEMIC_REVIEW",
+                "PENDING_INDEPENDENT_ITEM_LEVEL_SOURCE_REVIEW",
+                "PROPOSED_TOPIC_NOT_REGISTERED",
+                "PROPOSED_CONCEPT_NOT_REGISTERED",
+                "PROPOSED_STUDY_SECTION_MISSING"
+            ],
+            "required_reviewer_capability": [
+                "REVIEW",
+                "SOURCE_REVIEW",
+                "TAXONOMY_RECONCILE",
+                "STUDY_LINK"
+            ],
+            "selection_rationale": "Culture and Arts sample: observable visual-form evidence; pair the current Grades 4/7 curriculum with the unavailable-this-pass PRC scope annex."
+        },
+        {
+            "proposal_id": "batch695-9140",
+            "question_id": "9140",
+            "board": {
+                "id": "let",
+                "name": "Licensure Examination for Professional Teachers (LET)"
+            },
+            "subject": {
+                "id": "culture-and-arts-education",
+                "name": "Culture and Arts Education"
+            },
+            "topic": {
+                "id": "cae-ethical-engagement",
+                "proposed_name": "Ethical Cultural Engagement",
+                "registered": false
+            },
+            "concept": {
+                "id": "cae-ethical-community-engagement",
+                "proposed_name": "Ethical Community Engagement",
+                "registered": false
+            },
+            "question_version": "fad09694b302c968066e4845c0bc1b5bf4d25fddf8bf09b372168387c5dbf299",
+            "review_state": "PENDING_REVIEW",
+            "production_status": "NONCANONICAL_NOT_IN_LEARNER_POOLS",
+            "source_identities": [
+                {
+                    "id": "prc-resolution-20-2025-annex-a",
+                    "title": "PRC Board Resolution No. 20, s. 2025, Annex A: LEPT alignment and specialization syllabi",
+                    "role": "SCOPE_SOURCE"
+                },
+                {
+                    "id": "ra-8371-ipra-e-library",
+                    "title": "Republic Act No. 8371: Indigenous Peoples’ Rights Act of 1997",
+                    "role": "STATUTORY_SOURCE"
+                }
+            ],
+            "source_scope": {
+                "scope_source_ids": [
+                    "prc-resolution-20-2025-annex-a"
+                ],
+                "status": "CURRENT_SCOPE_SOURCE_INSPECTION_REQUIRED"
+            },
+            "source_currentness": {
+                "status": "VERSIONED_OR_REGULATORY_SOURCE_REVIEW_REQUIRED",
+                "checked_at": "2026-10-26"
+            },
+            "study_relationships": {
+                "material_id": "let-culture-arts-learning-foundation",
+                "material_title": "Arts Learning: Elements, Making, Context, and Reflection",
+                "section_id": "6-ethical-cultural-engagement",
+                "section_heading": "6. Ethical cultural engagement",
+                "status": "MISSING_SECTION",
+                "current_material_exists": true,
+                "current_section_exists": false,
+                "current_question_link_exists": false,
+                "required_for_import": false
+            },
+            "review_blockers": [
+                "PENDING_QUALIFIED_ACADEMIC_REVIEW",
+                "PENDING_INDEPENDENT_ITEM_LEVEL_SOURCE_REVIEW",
+                "PROPOSED_TOPIC_NOT_REGISTERED",
+                "PROPOSED_CONCEPT_NOT_REGISTERED",
+                "PROPOSED_STUDY_SECTION_MISSING"
+            ],
+            "required_reviewer_capability": [
+                "REVIEW",
+                "SOURCE_REVIEW",
+                "TAXONOMY_RECONCILE",
+                "STUDY_LINK"
+            ],
+            "selection_rationale": "Culture and Arts sample: include the Indigenous Peoples Rights Act citation to make the boundary between cultural-rights support and image attribution reviewable."
+        },
+        {
+            "proposal_id": "batch695-9164",
+            "question_id": "9164",
+            "board": {
+                "id": "let",
+                "name": "Licensure Examination for Professional Teachers (LET)"
+            },
+            "subject": {
+                "id": "culture-and-arts-education",
+                "name": "Culture and Arts Education"
+            },
+            "topic": {
+                "id": "cae-performance-and-assessment",
+                "proposed_name": "Performance, Critique, and Assessment",
+                "registered": false
+            },
+            "concept": {
+                "id": "cae-authentic-arts-assessment",
+                "proposed_name": "Authentic Arts Assessment",
+                "registered": false
+            },
+            "question_version": "adfca55cae935bdea3bd7e8e62af58b15b9fca51457203f6b7d012b9f667353c",
+            "review_state": "PENDING_REVIEW",
+            "production_status": "NONCANONICAL_NOT_IN_LEARNER_POOLS",
+            "source_identities": [
+                {
+                    "id": "prc-resolution-20-2025-annex-a",
+                    "title": "PRC Board Resolution No. 20, s. 2025, Annex A: LEPT alignment and specialization syllabi",
+                    "role": "SCOPE_SOURCE"
+                },
+                {
+                    "id": "deped-matatag-music-arts-2023-g4-g7",
+                    "title": "MATATAG Music and Arts Curriculum Guide, Grades 4 and 7",
+                    "role": "CURRICULUM_SOURCE"
+                }
+            ],
+            "source_scope": {
+                "scope_source_ids": [
+                    "prc-resolution-20-2025-annex-a"
+                ],
+                "status": "CURRENT_SCOPE_SOURCE_INSPECTION_REQUIRED"
+            },
+            "source_currentness": {
+                "status": "VERSIONED_OR_REGULATORY_SOURCE_REVIEW_REQUIRED",
+                "checked_at": "2026-10-26"
+            },
+            "study_relationships": {
+                "material_id": "let-culture-arts-learning-foundation",
+                "material_title": "Arts Learning: Elements, Making, Context, and Reflection",
+                "section_id": "9-critique-assessment-and-access",
+                "section_heading": "9. Critique, assessment, and access",
+                "status": "MISSING_SECTION",
+                "current_material_exists": true,
+                "current_section_exists": false,
+                "current_question_link_exists": false,
+                "required_for_import": false
+            },
+            "review_blockers": [
+                "PENDING_QUALIFIED_ACADEMIC_REVIEW",
+                "PENDING_INDEPENDENT_ITEM_LEVEL_SOURCE_REVIEW",
+                "PROPOSED_TOPIC_NOT_REGISTERED",
+                "PROPOSED_CONCEPT_NOT_REGISTERED",
+                "PROPOSED_STUDY_SECTION_MISSING"
+            ],
+            "required_reviewer_capability": [
+                "REVIEW",
+                "SOURCE_REVIEW",
+                "TAXONOMY_RECONCILE",
+                "STUDY_LINK"
+            ],
+            "selection_rationale": "Culture and Arts sample: include an assessment-alignment case with an accessible official curriculum assessment section."
+        },
+        {
+            "proposal_id": "batch695-9200",
+            "question_id": "9200",
+            "board": {
+                "id": "let",
+                "name": "Licensure Examination for Professional Teachers (LET)"
+            },
+            "subject": {
+                "id": "early-childhood-education",
+                "name": "Early Childhood Education"
+            },
+            "topic": {
+                "id": "ece-observation-to-planning",
+                "proposed_name": "Observation to Responsive Planning",
+                "registered": false
+            },
+            "concept": {
+                "id": "ece-observation-to-responsive-planning",
+                "proposed_name": "Observation to Responsive Planning",
+                "registered": false
+            },
+            "question_version": "05528bb8aeda64151da2729ad8f2db1307383ffe877e3f9122037a4adb96db4d",
+            "review_state": "PENDING_REVIEW",
+            "production_status": "NONCANONICAL_NOT_IN_LEARNER_POOLS",
+            "source_identities": [
+                {
+                    "id": "prc-resolution-20-2025-annex-a",
+                    "title": "PRC Board Resolution No. 20, s. 2025, Annex A: LEPT alignment and specialization syllabi",
+                    "role": "SCOPE_SOURCE"
+                },
+                {
+                    "id": "deped-kindergarten-curriculum-guide-2023",
+                    "title": "MATATAG Kindergarten Curriculum Guide",
+                    "role": "CURRICULUM_SOURCE"
+                }
+            ],
+            "source_scope": {
+                "scope_source_ids": [
+                    "prc-resolution-20-2025-annex-a"
+                ],
+                "status": "CURRENT_SCOPE_SOURCE_INSPECTION_REQUIRED"
+            },
+            "source_currentness": {
+                "status": "VERSIONED_OR_REGULATORY_SOURCE_REVIEW_REQUIRED",
+                "checked_at": "2026-10-26"
+            },
+            "study_relationships": {
+                "material_id": "let-early-childhood-learning-and-inclusion",
+                "material_title": "Early Childhood Learning, Assessment, and Inclusive Practice",
+                "section_id": "3-observation-and-assessment",
+                "section_heading": "3. Observation and assessment",
+                "status": "EXACT_SECTION_MATCH",
+                "current_material_exists": true,
+                "current_section_exists": true,
+                "current_question_link_exists": false,
+                "required_for_import": false
+            },
+            "review_blockers": [
+                "PENDING_QUALIFIED_ACADEMIC_REVIEW",
+                "PENDING_INDEPENDENT_ITEM_LEVEL_SOURCE_REVIEW",
+                "PROPOSED_TOPIC_NOT_REGISTERED",
+                "PROPOSED_CONCEPT_NOT_REGISTERED"
+            ],
+            "required_reviewer_capability": [
+                "REVIEW",
+                "SOURCE_REVIEW",
+                "TAXONOMY_RECONCILE",
+                "STUDY_LINK"
+            ],
+            "selection_rationale": "ECE sample: an exact published study section exists while the proposed topic is not registered; checks portfolio-context claims."
+        },
+        {
+            "proposal_id": "batch695-9204",
+            "question_id": "9204",
+            "board": {
+                "id": "let",
+                "name": "Licensure Examination for Professional Teachers (LET)"
+            },
+            "subject": {
+                "id": "early-childhood-education",
+                "name": "Early Childhood Education"
+            },
+            "topic": {
+                "id": "ece-development-and-learning",
+                "proposed_name": "Development and Learning",
+                "registered": true
+            },
+            "concept": {
+                "id": "ece-guided-play-scaffolding",
+                "proposed_name": "Guided Play Scaffolding",
+                "registered": false
+            },
+            "question_version": "cfa76113ac40f76c28c2484d5cb4881849f04d6aa0d693abbb50e9215f5f0863",
+            "review_state": "PENDING_REVIEW",
+            "production_status": "NONCANONICAL_NOT_IN_LEARNER_POOLS",
+            "source_identities": [
+                {
+                    "id": "prc-resolution-20-2025-annex-a",
+                    "title": "PRC Board Resolution No. 20, s. 2025, Annex A: LEPT alignment and specialization syllabi",
+                    "role": "SCOPE_SOURCE"
+                },
+                {
+                    "id": "deped-kindergarten-curriculum-guide-2023",
+                    "title": "MATATAG Kindergarten Curriculum Guide",
+                    "role": "CURRICULUM_SOURCE"
+                }
+            ],
+            "source_scope": {
+                "scope_source_ids": [
+                    "prc-resolution-20-2025-annex-a"
+                ],
+                "status": "CURRENT_SCOPE_SOURCE_INSPECTION_REQUIRED"
+            },
+            "source_currentness": {
+                "status": "VERSIONED_OR_REGULATORY_SOURCE_REVIEW_REQUIRED",
+                "checked_at": "2026-10-26"
+            },
+            "study_relationships": {
+                "material_id": "let-early-childhood-learning-and-inclusion",
+                "material_title": "Early Childhood Learning, Assessment, and Inclusive Practice",
+                "section_id": "2-play-and-guided-learning",
+                "section_heading": "2. Play and guided learning",
+                "status": "EXACT_SECTION_MATCH",
+                "current_material_exists": true,
+                "current_section_exists": true,
+                "current_question_link_exists": false,
+                "required_for_import": false
+            },
+            "review_blockers": [
+                "PENDING_QUALIFIED_ACADEMIC_REVIEW",
+                "PENDING_INDEPENDENT_ITEM_LEVEL_SOURCE_REVIEW",
+                "PROPOSED_CONCEPT_NOT_REGISTERED"
+            ],
+            "required_reviewer_capability": [
+                "REVIEW",
+                "SOURCE_REVIEW",
+                "TAXONOMY_RECONCILE",
+                "STUDY_LINK"
+            ],
+            "selection_rationale": "ECE sample: the proposed topic and exact published study section exist; the proposed concept remains unregistered."
+        },
+        {
+            "proposal_id": "batch695-9210",
+            "question_id": "9210",
+            "board": {
+                "id": "let",
+                "name": "Licensure Examination for Professional Teachers (LET)"
+            },
+            "subject": {
+                "id": "early-childhood-education",
+                "name": "Early Childhood Education"
+            },
+            "topic": {
+                "id": "ece-family-culture-language",
+                "proposed_name": "Family, Culture, and Language",
+                "registered": false
+            },
+            "concept": {
+                "id": "ece-home-language-partnership",
+                "proposed_name": "Home-Language Partnership",
+                "registered": false
+            },
+            "question_version": "2daa77bd6430c6fb7cb2839293d78b742d2b6f62205b93837b02c038152edfba",
+            "review_state": "PENDING_REVIEW",
+            "production_status": "NONCANONICAL_NOT_IN_LEARNER_POOLS",
+            "source_identities": [
+                {
+                    "id": "prc-resolution-20-2025-annex-a",
+                    "title": "PRC Board Resolution No. 20, s. 2025, Annex A: LEPT alignment and specialization syllabi",
+                    "role": "SCOPE_SOURCE"
+                },
+                {
+                    "id": "deped-kindergarten-curriculum-guide-2023",
+                    "title": "MATATAG Kindergarten Curriculum Guide",
+                    "role": "CURRICULUM_SOURCE"
+                }
+            ],
+            "source_scope": {
+                "scope_source_ids": [
+                    "prc-resolution-20-2025-annex-a"
+                ],
+                "status": "CURRENT_SCOPE_SOURCE_INSPECTION_REQUIRED"
+            },
+            "source_currentness": {
+                "status": "VERSIONED_OR_REGULATORY_SOURCE_REVIEW_REQUIRED",
+                "checked_at": "2026-10-26"
+            },
+            "study_relationships": {
+                "material_id": "let-early-childhood-learning-and-inclusion",
+                "material_title": "Early Childhood Learning, Assessment, and Inclusive Practice",
+                "section_id": "4-family-partnership-and-inclusion",
+                "section_heading": "4. Family partnership and inclusion",
+                "status": "EXACT_SECTION_MATCH",
+                "current_material_exists": true,
+                "current_section_exists": true,
+                "current_question_link_exists": false,
+                "required_for_import": false
+            },
+            "review_blockers": [
+                "PENDING_QUALIFIED_ACADEMIC_REVIEW",
+                "PENDING_INDEPENDENT_ITEM_LEVEL_SOURCE_REVIEW",
+                "PROPOSED_TOPIC_NOT_REGISTERED",
+                "PROPOSED_CONCEPT_NOT_REGISTERED"
+            ],
+            "required_reviewer_capability": [
+                "REVIEW",
+                "SOURCE_REVIEW",
+                "TAXONOMY_RECONCILE",
+                "STUDY_LINK"
+            ],
+            "selection_rationale": "ECE sample: a second exact published study section exists while the proposal needs separate language/family evidence review."
+        },
+        {
+            "proposal_id": "batch695-9228",
+            "question_id": "9228",
+            "board": {
+                "id": "let",
+                "name": "Licensure Examination for Professional Teachers (LET)"
+            },
+            "subject": {
+                "id": "early-childhood-education",
+                "name": "Early Childhood Education"
+            },
+            "topic": {
+                "id": "ece-socioemotional-and-safeguarding",
+                "proposed_name": "Social-Emotional Learning and Safeguarding",
+                "registered": false
+            },
+            "concept": {
+                "id": "ece-safeguarding-response-and-boundaries",
+                "proposed_name": "Safeguarding Response and Boundaries",
+                "registered": false
+            },
+            "question_version": "07cc00629ad57ff2df1d92560bc0870fe2eb02e3c7a5ee8ef7dfbb9c8625dc95",
+            "review_state": "PENDING_REVIEW",
+            "production_status": "NONCANONICAL_NOT_IN_LEARNER_POOLS",
+            "source_identities": [
+                {
+                    "id": "prc-resolution-20-2025-annex-a",
+                    "title": "PRC Board Resolution No. 20, s. 2025, Annex A: LEPT alignment and specialization syllabi",
+                    "role": "SCOPE_SOURCE"
+                },
+                {
+                    "id": "deped-do-40-2012-child-protection",
+                    "title": "DepEd Order No. 40, s. 2012: DepEd Child Protection Policy",
+                    "role": "CHILD_PROTECTION_SOURCE"
+                }
+            ],
+            "source_scope": {
+                "scope_source_ids": [
+                    "prc-resolution-20-2025-annex-a"
+                ],
+                "status": "CURRENT_SCOPE_SOURCE_INSPECTION_REQUIRED"
+            },
+            "source_currentness": {
+                "status": "VERSIONED_OR_REGULATORY_SOURCE_REVIEW_REQUIRED",
+                "checked_at": "2026-10-26"
+            },
+            "study_relationships": {
+                "material_id": "let-early-childhood-learning-and-inclusion",
+                "material_title": "Early Childhood Learning, Assessment, and Inclusive Practice",
+                "section_id": "9-child-protection-and-safeguarding",
+                "section_heading": "9. Child protection and safeguarding",
+                "status": "MISSING_SECTION",
+                "current_material_exists": true,
+                "current_section_exists": false,
+                "current_question_link_exists": false,
+                "required_for_import": false
+            },
+            "review_blockers": [
+                "PENDING_QUALIFIED_ACADEMIC_REVIEW",
+                "PENDING_INDEPENDENT_ITEM_LEVEL_SOURCE_REVIEW",
+                "PROPOSED_TOPIC_NOT_REGISTERED",
+                "PROPOSED_CONCEPT_NOT_REGISTERED",
+                "PROPOSED_STUDY_SECTION_MISSING",
+                "SOURCE_SCOPE_RECHECK_REQUIRED"
+            ],
+            "required_reviewer_capability": [
+                "REVIEW",
+                "SOURCE_REVIEW",
+                "TAXONOMY_RECONCILE",
+                "STUDY_LINK"
+            ],
+            "selection_rationale": "ECE sample: include the known child-protection scope limitation; only the official order page was machine-inspected, not its scanned annex."
+        },
+        {
+            "proposal_id": "batch695-9238",
+            "question_id": "9238",
+            "board": {
+                "id": "let",
+                "name": "Licensure Examination for Professional Teachers (LET)"
+            },
+            "subject": {
+                "id": "physical-education",
+                "name": "Physical Education"
+            },
+            "topic": {
+                "id": "pe-movement-and-learning",
+                "proposed_name": "Movement Analysis and Motor Learning",
+                "registered": false
+            },
+            "concept": {
+                "id": "pe-fundamental-movement-analysis",
+                "proposed_name": "Fundamental Movement Analysis",
+                "registered": false
+            },
+            "question_version": "f891cedaaddb52c3aad57616e50d3142be3861c1ed6dd7ef5f9593a8942734a5",
+            "review_state": "PENDING_REVIEW",
+            "production_status": "NONCANONICAL_NOT_IN_LEARNER_POOLS",
+            "source_identities": [
+                {
+                    "id": "prc-resolution-20-2025-annex-a",
+                    "title": "PRC Board Resolution No. 20, s. 2025, Annex A: LEPT alignment and specialization syllabi",
+                    "role": "SCOPE_SOURCE"
+                },
+                {
+                    "id": "deped-matatag-pe-health-2023-g4-g7",
+                    "title": "MATATAG Physical Education and Health Curriculum Guide, Grades 4 and 7",
+                    "role": "CURRICULUM_SOURCE"
+                }
+            ],
+            "source_scope": {
+                "scope_source_ids": [
+                    "prc-resolution-20-2025-annex-a"
+                ],
+                "status": "CURRENT_SCOPE_SOURCE_INSPECTION_REQUIRED"
+            },
+            "source_currentness": {
+                "status": "VERSIONED_OR_REGULATORY_SOURCE_REVIEW_REQUIRED",
+                "checked_at": "2026-10-26"
+            },
+            "study_relationships": {
+                "material_id": "let-physical-education-movement-and-safety",
+                "material_title": "Physical Education: Movement, Fitness, Safety, and Assessment",
+                "section_id": "5-movement-analysis-and-motor-learning",
+                "section_heading": "5. Movement analysis and motor learning",
+                "status": "MISSING_SECTION",
+                "current_material_exists": true,
+                "current_section_exists": false,
+                "current_question_link_exists": false,
+                "required_for_import": false
+            },
+            "review_blockers": [
+                "PENDING_QUALIFIED_ACADEMIC_REVIEW",
+                "PENDING_INDEPENDENT_ITEM_LEVEL_SOURCE_REVIEW",
+                "PROPOSED_TOPIC_NOT_REGISTERED",
+                "PROPOSED_CONCEPT_NOT_REGISTERED",
+                "PROPOSED_STUDY_SECTION_MISSING"
+            ],
+            "required_reviewer_capability": [
+                "REVIEW",
+                "SOURCE_REVIEW",
+                "TAXONOMY_RECONCILE",
+                "STUDY_LINK"
+            ],
+            "selection_rationale": "PE sample: movement-analysis case whose official curriculum pages were downloaded and inspected in this pass."
+        },
+        {
+            "proposal_id": "batch695-9250",
+            "question_id": "9250",
+            "board": {
+                "id": "let",
+                "name": "Licensure Examination for Professional Teachers (LET)"
+            },
+            "subject": {
+                "id": "physical-education",
+                "name": "Physical Education"
+            },
+            "topic": {
+                "id": "pe-fitness-assessment-and-progression",
+                "proposed_name": "Fitness Assessment and Safe Progression",
+                "registered": false
+            },
+            "concept": {
+                "id": "pe-fitness-component-interpretation",
+                "proposed_name": "Fitness Component Interpretation",
+                "registered": false
+            },
+            "question_version": "c13dedd0404019bc4920361f24547698414402d8a81f8fbcce8052d1ad0865d7",
+            "review_state": "PENDING_REVIEW",
+            "production_status": "NONCANONICAL_NOT_IN_LEARNER_POOLS",
+            "source_identities": [
+                {
+                    "id": "prc-resolution-20-2025-annex-a",
+                    "title": "PRC Board Resolution No. 20, s. 2025, Annex A: LEPT alignment and specialization syllabi",
+                    "role": "SCOPE_SOURCE"
+                },
+                {
+                    "id": "deped-matatag-pe-health-2023-g4-g7",
+                    "title": "MATATAG Physical Education and Health Curriculum Guide, Grades 4 and 7",
+                    "role": "CURRICULUM_SOURCE"
+                }
+            ],
+            "source_scope": {
+                "scope_source_ids": [
+                    "prc-resolution-20-2025-annex-a"
+                ],
+                "status": "CURRENT_SCOPE_SOURCE_INSPECTION_REQUIRED"
+            },
+            "source_currentness": {
+                "status": "VERSIONED_OR_REGULATORY_SOURCE_REVIEW_REQUIRED",
+                "checked_at": "2026-10-26"
+            },
+            "study_relationships": {
+                "material_id": "let-physical-education-movement-and-safety",
+                "material_title": "Physical Education: Movement, Fitness, Safety, and Assessment",
+                "section_id": "6-fitness-progression-and-assessment",
+                "section_heading": "6. Fitness, progression, and assessment",
+                "status": "MISSING_SECTION",
+                "current_material_exists": true,
+                "current_section_exists": false,
+                "current_question_link_exists": false,
+                "required_for_import": false
+            },
+            "review_blockers": [
+                "PENDING_QUALIFIED_ACADEMIC_REVIEW",
+                "PENDING_INDEPENDENT_ITEM_LEVEL_SOURCE_REVIEW",
+                "PROPOSED_TOPIC_NOT_REGISTERED",
+                "PROPOSED_CONCEPT_NOT_REGISTERED",
+                "PROPOSED_STUDY_SECTION_MISSING"
+            ],
+            "required_reviewer_capability": [
+                "REVIEW",
+                "SOURCE_REVIEW",
+                "TAXONOMY_RECONCILE",
+                "STUDY_LINK"
+            ],
+            "selection_rationale": "PE sample: fitness-construct case; inspected curriculum passages do not establish the specific muscular-endurance claim."
+        },
+        {
+            "proposal_id": "batch695-9280",
+            "question_id": "9280",
+            "board": {
+                "id": "let",
+                "name": "Licensure Examination for Professional Teachers (LET)"
+            },
+            "subject": {
+                "id": "physical-education",
+                "name": "Physical Education"
+            },
+            "topic": {
+                "id": "pe-games-dance-and-inclusion",
+                "proposed_name": "Games, Dance, and Inclusive Participation",
+                "registered": false
+            },
+            "concept": {
+                "id": "pe-inclusive-activity-design",
+                "proposed_name": "Inclusive Activity Design",
+                "registered": false
+            },
+            "question_version": "b0ac2ff0e048ad850d9f3b82c8d5d5b58d92dfd33afbe208cae272c10606cef5",
+            "review_state": "PENDING_REVIEW",
+            "production_status": "NONCANONICAL_NOT_IN_LEARNER_POOLS",
+            "source_identities": [
+                {
+                    "id": "prc-resolution-20-2025-annex-a",
+                    "title": "PRC Board Resolution No. 20, s. 2025, Annex A: LEPT alignment and specialization syllabi",
+                    "role": "SCOPE_SOURCE"
+                },
+                {
+                    "id": "deped-matatag-pe-health-2023-g4-g7",
+                    "title": "MATATAG Physical Education and Health Curriculum Guide, Grades 4 and 7",
+                    "role": "CURRICULUM_SOURCE"
+                }
+            ],
+            "source_scope": {
+                "scope_source_ids": [
+                    "prc-resolution-20-2025-annex-a"
+                ],
+                "status": "CURRENT_SCOPE_SOURCE_INSPECTION_REQUIRED"
+            },
+            "source_currentness": {
+                "status": "VERSIONED_OR_REGULATORY_SOURCE_REVIEW_REQUIRED",
+                "checked_at": "2026-10-26"
+            },
+            "study_relationships": {
+                "material_id": "let-physical-education-movement-and-safety",
+                "material_title": "Physical Education: Movement, Fitness, Safety, and Assessment",
+                "section_id": "8-games-rhythm-and-inclusive-participation",
+                "section_heading": "8. Games, rhythm, and inclusive participation",
+                "status": "MISSING_SECTION",
+                "current_material_exists": true,
+                "current_section_exists": false,
+                "current_question_link_exists": false,
+                "required_for_import": false
+            },
+            "review_blockers": [
+                "PENDING_QUALIFIED_ACADEMIC_REVIEW",
+                "PENDING_INDEPENDENT_ITEM_LEVEL_SOURCE_REVIEW",
+                "PROPOSED_TOPIC_NOT_REGISTERED",
+                "PROPOSED_CONCEPT_NOT_REGISTERED",
+                "PROPOSED_STUDY_SECTION_MISSING"
+            ],
+            "required_reviewer_capability": [
+                "REVIEW",
+                "SOURCE_REVIEW",
+                "TAXONOMY_RECONCILE",
+                "STUDY_LINK"
+            ],
+            "selection_rationale": "PE sample: inclusive activity adaptation case; reviewer must distinguish curricular inclusion from evidence for this exact adaptation."
+        },
+        {
+            "proposal_id": "batch695-9290",
+            "question_id": "9290",
+            "board": {
+                "id": "let",
+                "name": "Licensure Examination for Professional Teachers (LET)"
+            },
+            "subject": {
+                "id": "special-needs-education",
+                "name": "Special Needs Education"
+            },
+            "topic": {
+                "id": "sne-udl-and-access",
+                "proposed_name": "Universal Design and Access",
+                "registered": false
+            },
+            "concept": {
+                "id": "sne-udl-flexible-engagement-representation-expression",
+                "proposed_name": "Flexible Engagement, Representation, and Expression",
+                "registered": false
+            },
+            "question_version": "89eaecef6aeaffbbbc2b45bd782aad1e6d6f504cc4978c6e79aefbf95988573f",
+            "review_state": "PENDING_REVIEW",
+            "production_status": "NONCANONICAL_NOT_IN_LEARNER_POOLS",
+            "source_identities": [
+                {
+                    "id": "prc-resolution-20-2025-annex-a",
+                    "title": "PRC Board Resolution No. 20, s. 2025, Annex A: LEPT alignment and specialization syllabi",
+                    "role": "SCOPE_SOURCE"
+                },
+                {
+                    "id": "republic-act-11650",
+                    "title": "Republic Act No. 11650: Inclusive Education Act",
+                    "role": "STATUTORY_SOURCE"
+                },
+                {
+                    "id": "cast-udl-guidelines-3-0-2024",
+                    "title": "CAST Universal Design for Learning Guidelines, Version 3.0",
+                    "role": "INSTRUCTIONAL_REFERENCE"
+                }
+            ],
+            "source_scope": {
+                "scope_source_ids": [
+                    "prc-resolution-20-2025-annex-a"
+                ],
+                "status": "CURRENT_SCOPE_SOURCE_INSPECTION_REQUIRED"
+            },
+            "source_currentness": {
+                "status": "VERSIONED_OR_REGULATORY_SOURCE_REVIEW_REQUIRED",
+                "checked_at": "2026-10-26"
+            },
+            "study_relationships": {
+                "material_id": "let-special-needs-inclusive-education",
+                "material_title": "Inclusive Education: Access, Participation, and Support",
+                "section_id": "5-udl-access-and-action",
+                "section_heading": "5. UDL, access, and action",
+                "status": "MISSING_SECTION",
+                "current_material_exists": true,
+                "current_section_exists": false,
+                "current_question_link_exists": false,
+                "required_for_import": false
+            },
+            "review_blockers": [
+                "PENDING_QUALIFIED_ACADEMIC_REVIEW",
+                "PENDING_INDEPENDENT_ITEM_LEVEL_SOURCE_REVIEW",
+                "PROPOSED_TOPIC_NOT_REGISTERED",
+                "PROPOSED_CONCEPT_NOT_REGISTERED",
+                "PROPOSED_STUDY_SECTION_MISSING"
+            ],
+            "required_reviewer_capability": [
+                "REVIEW",
+                "SOURCE_REVIEW",
+                "TAXONOMY_RECONCILE",
+                "STUDY_LINK"
+            ],
+            "selection_rationale": "SNE sample: compares the official inclusive-education statute with current CAST UDL guidance."
+        },
+        {
+            "proposal_id": "batch695-9302",
+            "question_id": "9302",
+            "board": {
+                "id": "let",
+                "name": "Licensure Examination for Professional Teachers (LET)"
+            },
+            "subject": {
+                "id": "special-needs-education",
+                "name": "Special Needs Education"
+            },
+            "topic": {
+                "id": "sne-assessment-and-planning",
+                "proposed_name": "Accessible Assessment and Individualized Planning",
+                "registered": false
+            },
+            "concept": {
+                "id": "sne-assessment-accommodation-validity",
+                "proposed_name": "Assessment Accommodation and Validity",
+                "registered": false
+            },
+            "question_version": "913ef327b2d54a622d04c8c96f483b43e647fa6451927d9adb36cbbcbb42332d",
+            "review_state": "PENDING_REVIEW",
+            "production_status": "NONCANONICAL_NOT_IN_LEARNER_POOLS",
+            "source_identities": [
+                {
+                    "id": "prc-resolution-20-2025-annex-a",
+                    "title": "PRC Board Resolution No. 20, s. 2025, Annex A: LEPT alignment and specialization syllabi",
+                    "role": "SCOPE_SOURCE"
+                },
+                {
+                    "id": "republic-act-11650",
+                    "title": "Republic Act No. 11650: Inclusive Education Act",
+                    "role": "STATUTORY_SOURCE"
+                }
+            ],
+            "source_scope": {
+                "scope_source_ids": [
+                    "prc-resolution-20-2025-annex-a"
+                ],
+                "status": "CURRENT_SCOPE_SOURCE_INSPECTION_REQUIRED"
+            },
+            "source_currentness": {
+                "status": "VERSIONED_OR_REGULATORY_SOURCE_REVIEW_REQUIRED",
+                "checked_at": "2026-10-26"
+            },
+            "study_relationships": {
+                "material_id": "let-special-needs-inclusive-education",
+                "material_title": "Inclusive Education: Access, Participation, and Support",
+                "section_id": "6-assessment-validity-and-accommodations",
+                "section_heading": "6. Assessment validity and accommodations",
+                "status": "MISSING_SECTION",
+                "current_material_exists": true,
+                "current_section_exists": false,
+                "current_question_link_exists": false,
+                "required_for_import": false
+            },
+            "review_blockers": [
+                "PENDING_QUALIFIED_ACADEMIC_REVIEW",
+                "PENDING_INDEPENDENT_ITEM_LEVEL_SOURCE_REVIEW",
+                "PROPOSED_TOPIC_NOT_REGISTERED",
+                "PROPOSED_CONCEPT_NOT_REGISTERED",
+                "PROPOSED_STUDY_SECTION_MISSING"
+            ],
+            "required_reviewer_capability": [
+                "REVIEW",
+                "SOURCE_REVIEW",
+                "TAXONOMY_RECONCILE",
+                "STUDY_LINK"
+            ],
+            "selection_rationale": "SNE sample: an accessible-material accommodation case with a separate construct-validity question for the expert."
+        },
+        {
+            "proposal_id": "batch695-9320",
+            "question_id": "9320",
+            "board": {
+                "id": "let",
+                "name": "Licensure Examination for Professional Teachers (LET)"
+            },
+            "subject": {
+                "id": "special-needs-education",
+                "name": "Special Needs Education"
+            },
+            "topic": {
+                "id": "sne-positive-support-and-participation",
+                "proposed_name": "Positive Support and Participation",
+                "registered": false
+            },
+            "concept": {
+                "id": "sne-positive-behavior-support",
+                "proposed_name": "Positive Behavior Support",
+                "registered": false
+            },
+            "question_version": "53a731ba403470968073d667da70b231804f32510d229b24134d0183205f8fc7",
+            "review_state": "PENDING_REVIEW",
+            "production_status": "NONCANONICAL_NOT_IN_LEARNER_POOLS",
+            "source_identities": [
+                {
+                    "id": "prc-resolution-20-2025-annex-a",
+                    "title": "PRC Board Resolution No. 20, s. 2025, Annex A: LEPT alignment and specialization syllabi",
+                    "role": "SCOPE_SOURCE"
+                },
+                {
+                    "id": "republic-act-11650",
+                    "title": "Republic Act No. 11650: Inclusive Education Act",
+                    "role": "STATUTORY_SOURCE"
+                }
+            ],
+            "source_scope": {
+                "scope_source_ids": [
+                    "prc-resolution-20-2025-annex-a"
+                ],
+                "status": "CURRENT_SCOPE_SOURCE_INSPECTION_REQUIRED"
+            },
+            "source_currentness": {
+                "status": "VERSIONED_OR_REGULATORY_SOURCE_REVIEW_REQUIRED",
+                "checked_at": "2026-10-26"
+            },
+            "study_relationships": {
+                "material_id": "let-special-needs-inclusive-education",
+                "material_title": "Inclusive Education: Access, Participation, and Support",
+                "section_id": "8-positive-behavior-and-environment",
+                "section_heading": "8. Positive behavior and environment",
+                "status": "MISSING_SECTION",
+                "current_material_exists": true,
+                "current_section_exists": false,
+                "current_question_link_exists": false,
+                "required_for_import": false
+            },
+            "review_blockers": [
+                "PENDING_QUALIFIED_ACADEMIC_REVIEW",
+                "PENDING_INDEPENDENT_ITEM_LEVEL_SOURCE_REVIEW",
+                "PROPOSED_TOPIC_NOT_REGISTERED",
+                "PROPOSED_CONCEPT_NOT_REGISTERED",
+                "PROPOSED_STUDY_SECTION_MISSING"
+            ],
+            "required_reviewer_capability": [
+                "REVIEW",
+                "SOURCE_REVIEW",
+                "TAXONOMY_RECONCILE",
+                "STUDY_LINK"
+            ],
+            "selection_rationale": "SNE sample: include behavior-in-context reasoning where the cited statute does not itself establish the proposed instructional inference."
+        },
+        {
+            "proposal_id": "batch695-9348",
+            "question_id": "9348",
+            "board": {
+                "id": "let",
+                "name": "Licensure Examination for Professional Teachers (LET)"
+            },
+            "subject": {
+                "id": "technical-vocational-teacher-education",
+                "name": "Technical-Vocational Teacher Education"
+            },
+            "topic": {
+                "id": "tvted-outcomes-and-instruction",
+                "proposed_name": "Competency Outcomes and Technical Instruction",
+                "registered": false
+            },
+            "concept": {
+                "id": "tvted-workplace-standard-to-outcome",
+                "proposed_name": "Workplace Standard to Learning Outcome",
+                "registered": false
+            },
+            "question_version": "7e6047b01a5c6cdbb1872e8e404c1d3ed5a2a97ff234fde15eebb1daaaaea516",
+            "review_state": "PENDING_REVIEW",
+            "production_status": "NONCANONICAL_NOT_IN_LEARNER_POOLS",
+            "source_identities": [
+                {
+                    "id": "prc-resolution-20-2025-annex-a",
+                    "title": "PRC Board Resolution No. 20, s. 2025, Annex A: LEPT alignment and specialization syllabi",
+                    "role": "SCOPE_SOURCE"
+                },
+                {
+                    "id": "tesda-tvet-glossary-2025",
+                    "title": "2025 TVET Glossary",
+                    "role": "COMPETENCY_STANDARD"
+                }
+            ],
+            "source_scope": {
+                "scope_source_ids": [
+                    "prc-resolution-20-2025-annex-a"
+                ],
+                "status": "CURRENT_SCOPE_SOURCE_INSPECTION_REQUIRED"
+            },
+            "source_currentness": {
+                "status": "VERSIONED_OR_REGULATORY_SOURCE_REVIEW_REQUIRED",
+                "checked_at": "2026-10-26"
+            },
+            "study_relationships": {
+                "material_id": "let-tvted-competency-based-teaching",
+                "material_title": "Competency-Based Technical and Vocational Teaching",
+                "section_id": "5-from-competency-standard-to-learning-outcome",
+                "section_heading": "5. From competency standard to learning outcome",
+                "status": "MISSING_SECTION",
+                "current_material_exists": true,
+                "current_section_exists": false,
+                "current_question_link_exists": false,
+                "required_for_import": false
+            },
+            "review_blockers": [
+                "PENDING_QUALIFIED_ACADEMIC_REVIEW",
+                "PENDING_INDEPENDENT_ITEM_LEVEL_SOURCE_REVIEW",
+                "PROPOSED_TOPIC_NOT_REGISTERED",
+                "PROPOSED_CONCEPT_NOT_REGISTERED",
+                "PROPOSED_STUDY_SECTION_MISSING"
+            ],
+            "required_reviewer_capability": [
+                "REVIEW",
+                "SOURCE_REVIEW",
+                "TAXONOMY_RECONCILE",
+                "STUDY_LINK"
+            ],
+            "selection_rationale": "TVTEd sample: translate an observable workplace standard into an outcome; TESDA definitions provide a direct candidate locator."
+        },
+        {
+            "proposal_id": "batch695-9360",
+            "question_id": "9360",
+            "board": {
+                "id": "let",
+                "name": "Licensure Examination for Professional Teachers (LET)"
+            },
+            "subject": {
+                "id": "technical-vocational-teacher-education",
+                "name": "Technical-Vocational Teacher Education"
+            },
+            "topic": {
+                "id": "tvted-evidence-and-assessment",
+                "proposed_name": "Workplace Evidence and Assessment",
+                "registered": false
+            },
+            "concept": {
+                "id": "tvted-evidence-based-performance-assessment",
+                "proposed_name": "Evidence-Based Performance Assessment",
+                "registered": false
+            },
+            "question_version": "b08995f57891d61e788589920662ac220b0c4bcfbfbfefd2facaa025a7f29a01",
+            "review_state": "PENDING_REVIEW",
+            "production_status": "NONCANONICAL_NOT_IN_LEARNER_POOLS",
+            "source_identities": [
+                {
+                    "id": "prc-resolution-20-2025-annex-a",
+                    "title": "PRC Board Resolution No. 20, s. 2025, Annex A: LEPT alignment and specialization syllabi",
+                    "role": "SCOPE_SOURCE"
+                },
+                {
+                    "id": "tesda-tvet-glossary-2025",
+                    "title": "2025 TVET Glossary",
+                    "role": "COMPETENCY_STANDARD"
+                }
+            ],
+            "source_scope": {
+                "scope_source_ids": [
+                    "prc-resolution-20-2025-annex-a"
+                ],
+                "status": "CURRENT_SCOPE_SOURCE_INSPECTION_REQUIRED"
+            },
+            "source_currentness": {
+                "status": "VERSIONED_OR_REGULATORY_SOURCE_REVIEW_REQUIRED",
+                "checked_at": "2026-10-26"
+            },
+            "study_relationships": {
+                "material_id": "let-tvted-competency-based-teaching",
+                "material_title": "Competency-Based Technical and Vocational Teaching",
+                "section_id": "7-performance-evidence-and-assessment",
+                "section_heading": "7. Performance evidence and assessment",
+                "status": "MISSING_SECTION",
+                "current_material_exists": true,
+                "current_section_exists": false,
+                "current_question_link_exists": false,
+                "required_for_import": false
+            },
+            "review_blockers": [
+                "PENDING_QUALIFIED_ACADEMIC_REVIEW",
+                "PENDING_INDEPENDENT_ITEM_LEVEL_SOURCE_REVIEW",
+                "PROPOSED_TOPIC_NOT_REGISTERED",
+                "PROPOSED_CONCEPT_NOT_REGISTERED",
+                "PROPOSED_STUDY_SECTION_MISSING"
+            ],
+            "required_reviewer_capability": [
+                "REVIEW",
+                "SOURCE_REVIEW",
+                "TAXONOMY_RECONCILE",
+                "STUDY_LINK"
+            ],
+            "selection_rationale": "TVTEd sample: direct performance/product evidence; TESDA competency-assessment definitions are inspectable."
+        },
+        {
+            "proposal_id": "batch695-9378",
+            "question_id": "9378",
+            "board": {
+                "id": "let",
+                "name": "Licensure Examination for Professional Teachers (LET)"
+            },
+            "subject": {
+                "id": "technical-vocational-teacher-education",
+                "name": "Technical-Vocational Teacher Education"
+            },
+            "topic": {
+                "id": "tvted-safety-and-workplace",
+                "proposed_name": "Safety and Workplace Learning",
+                "registered": false
+            },
+            "concept": {
+                "id": "tvted-hazard-control-and-safe-practice",
+                "proposed_name": "Hazard Control and Safe Practice",
+                "registered": false
+            },
+            "question_version": "c9c341b9d8342d8483faa009c3ac8fb1d90092f789c52db266f9fce65a03a402",
+            "review_state": "PENDING_REVIEW",
+            "production_status": "NONCANONICAL_NOT_IN_LEARNER_POOLS",
+            "source_identities": [
+                {
+                    "id": "prc-resolution-20-2025-annex-a",
+                    "title": "PRC Board Resolution No. 20, s. 2025, Annex A: LEPT alignment and specialization syllabi",
+                    "role": "SCOPE_SOURCE"
+                },
+                {
+                    "id": "tesda-tvet-glossary-2025",
+                    "title": "2025 TVET Glossary",
+                    "role": "COMPETENCY_STANDARD"
+                }
+            ],
+            "source_scope": {
+                "scope_source_ids": [
+                    "prc-resolution-20-2025-annex-a"
+                ],
+                "status": "CURRENT_SCOPE_SOURCE_INSPECTION_REQUIRED"
+            },
+            "source_currentness": {
+                "status": "VERSIONED_OR_REGULATORY_SOURCE_REVIEW_REQUIRED",
+                "checked_at": "2026-10-26"
+            },
+            "study_relationships": {
+                "material_id": "let-tvted-competency-based-teaching",
+                "material_title": "Competency-Based Technical and Vocational Teaching",
+                "section_id": "9-safety-and-workplace-learning",
+                "section_heading": "9. Safety and workplace learning",
+                "status": "MISSING_SECTION",
+                "current_material_exists": true,
+                "current_section_exists": false,
+                "current_question_link_exists": false,
+                "required_for_import": false
+            },
+            "review_blockers": [
+                "PENDING_QUALIFIED_ACADEMIC_REVIEW",
+                "PENDING_INDEPENDENT_ITEM_LEVEL_SOURCE_REVIEW",
+                "PROPOSED_TOPIC_NOT_REGISTERED",
+                "PROPOSED_CONCEPT_NOT_REGISTERED",
+                "PROPOSED_STUDY_SECTION_MISSING"
+            ],
+            "required_reviewer_capability": [
+                "REVIEW",
+                "SOURCE_REVIEW",
+                "TAXONOMY_RECONCILE",
+                "STUDY_LINK"
+            ],
+            "selection_rationale": "TVTEd sample: safety-sensitive item; the glossary does not establish a site-specific guard/reporting procedure."
+        }
+    ]
+}

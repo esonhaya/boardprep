@@ -1,0 +1,2790 @@
+{
+    "schema": "boardprep.batch-715-review-readiness.v1",
+    "generated_at_utc": "2026-10-25T17:43:21+00:00",
+    "source_cohort_sha256": "a8a33dbe48a04fafdf89e6c9ecb78213d92e2ba0dd38ff941c763aac1f2611b9",
+    "source_inspection_date": "2026-10-26",
+    "interpretation": "Machine-prepared evidence dossier. Source reachability, registry identity, examined content, candidate item support, qualified source review, and academic approval are independent states. No selected item is approved or canonical.",
+    "items": [
+        {
+            "proposal_id": "batch695-9124",
+            "question_id": "9124",
+            "question_version": "e15d1ac0934ea23a591702c2e8596d821394631f1e77aeec12577ee68781e7bf",
+            "version_basis": "B714 AcademicReviewWorkflowService::version() payload for the original B695 proposal; any later revision makes this package version stale.",
+            "review_state": "PENDING_REVIEW",
+            "academic_approval": "NOT_APPROVED",
+            "production_status": "NONCANONICAL_NOT_IN_LEARNER_POOLS",
+            "question": {
+                "stem": "A planned accessible route to a public learning room crosses a short change in level that is currently drawn as a step. What is the strongest design response?",
+                "choices": [
+                    "Provide an applicable step-free transition and verify the full route and relevant ramp or mechanical-access provisions in the current BP 344 rules.",
+                    "Keep the step and add a sign telling users to request assistance.",
+                    "Rely on a portable board without reviewing its suitability or route conditions.",
+                    "Move the room label while leaving the level change on the accessible path."
+                ],
+                "proposed_answer": "Provide an applicable step-free transition and verify the full route and relevant ramp or mechanical-access provisions in the current BP 344 rules.",
+                "explanation": "The 2024 BP 344 IRR states that level changes require a ramp except where specified alternatives serve them. A route review must check the whole path and the exact applicable conditions.",
+                "difficulty": "medium"
+            },
+            "specific_claim_to_review": "Resolve steps, level changes, and interruptions along a planned accessible route using the current applicable rules.",
+            "proposed_source_locator": "NCDA 2024 BP 344 IRR §1; PRC Architecture exam scope.",
+            "sources": [
+                {
+                    "source_id": "bp344-2024-irr",
+                    "title": "Revised 2024 Rules and Regulations Implementing Batas Pambansa Blg. 344",
+                    "authority": "National Council on Disability Affairs",
+                    "url": "https://ncda.gov.ph/revised-2024-rules-and-regulations-implementing-batas-pambansa-344/",
+                    "source_role": "",
+                    "source_type": "OFFICIAL_GUIDANCE",
+                    "publication_date": "2024-11-25",
+                    "version": "Revised 2024 BP 344 IRR",
+                    "registry_snapshot_match": true,
+                    "b695_evidence_status": "AUTHOR_REPORTED_VERIFIED_REFERENCE",
+                    "b695_limitations": [
+                        "Use the current exact rule text and exceptions; item-level fit remains pending independent review."
+                    ],
+                    "url_reachable": true,
+                    "source_identity_confirmed": true,
+                    "content_examined": true,
+                    "source_examination": {
+                        "reachability": "REACHABLE_OFFICIAL_PAGE_TEXT_FETCHED",
+                        "identity_confirmed_this_pass": true,
+                        "content_examined_this_pass": true,
+                        "retrieval_date": "2026-10-26",
+                        "inspection_locator": "NCDA 2024 BP 344 IRR page: Accessible Ramps; Floors and Ground Surfaces; Gratings.",
+                        "content_digest_sha256": null,
+                        "retention": "No source binary retained; official page text was inspected.",
+                        "content_summary": "The current page states that level changes require ramps subject to listed alternatives, limits grating gaps to 13 mm, calls for level and slip-resistant grates, and says wiring/outlets must not create trip hazards and should be away from accessible routes.",
+                        "scope_limit": "Each question still needs item-level expert review against the complete rule and exceptions; the page does not validate the complete route design."
+                    },
+                    "claim_support_candidate": {
+                        "status": "DIRECT_RULE_CANDIDATE",
+                        "note": "The current NCDA page describes level-change ramp requirements and listed alternatives; reviewer must test whether the stem supplies enough context for one strongest response."
+                    },
+                    "expert_source_review": "PENDING_QUALIFIED_REVIEWER"
+                },
+                {
+                    "source_id": "prc-architecture-exam-program-june-2026",
+                    "title": "Program for the June 8 and 10, 2026 Licensure Examination for Architects",
+                    "authority": "Professional Regulation Commission; Professional Regulatory Board of Architecture",
+                    "url": "https://www.prc.gov.ph/sites/default/files/Program%20for%20June%202026%20LEA%28Architect%29_rev.pdf",
+                    "source_role": "SCOPE_SOURCE",
+                    "source_type": "OFFICIAL_PROGRAM",
+                    "publication_date": null,
+                    "version": "June 2026 Architecture examination program",
+                    "registry_snapshot_match": true,
+                    "b695_evidence_status": "AUTHOR_REPORTED_VERIFIED_REFERENCE_HISTORICAL_PROGRAM",
+                    "b695_limitations": [
+                        "Official June 2026 program is now historical; PRC calendar records the June 8 and 10, 2026 examination as past. It supports only that historical program scope; current examination scope requires recheck."
+                    ],
+                    "url_reachable": true,
+                    "source_identity_confirmed": true,
+                    "content_examined": true,
+                    "source_examination": {
+                        "reachability": "REACHABLE_OFFICIAL_PRC_INDEX_TEXT_FETCHED",
+                        "identity_confirmed_this_pass": true,
+                        "content_examined_this_pass": true,
+                        "retrieval_date": "2026-10-26",
+                        "inspection_locator": "PRC June 2026 Architecture program; PRC 2026 exam schedule lists the June 8 and 10, 2026 examination.",
+                        "content_digest_sha256": null,
+                        "retention": "PDF exceeded the bounded 18 MB download cap; official PRC indexed text was inspected instead.",
+                        "content_summary": "The official indexed program identifies the June 2026 Architecture subject areas and weights. The PRC 2026 schedule confirms that cycle has passed as of this package date.",
+                        "scope_limit": "Historical program scope only. A current exam program/scope was not established; every Architecture item retains a currentness blocker."
+                    },
+                    "claim_support_candidate": {
+                        "status": "EXAM_SCOPE_ONLY",
+                        "note": "This source does not independently establish the proposed answer; inspect only for its assigned role."
+                    },
+                    "expert_source_review": "PENDING_QUALIFIED_REVIEWER"
+                }
+            ],
+            "source_review_status": "PENDING_QUALIFIED_SOURCE_REVIEW",
+            "taxonomy_resolution": {
+                "proposed_domain": {
+                    "id": "architecture-utilities-construction",
+                    "name": "Architecture Utilities Construction"
+                },
+                "proposed_topic": {
+                    "id": "architecture-accessible-route-detailing",
+                    "name": "Accessible Routes and Floor Details",
+                    "registered": false
+                },
+                "topic_candidates": [],
+                "proposed_concept": {
+                    "id": "arch-bp344-continuous-accessible-route",
+                    "name": "Continuous Accessible Route",
+                    "registered": false
+                },
+                "concept_candidates": [],
+                "status": "AWAITING_REVIEW_OR_TAXONOMY_GOVERNANCE",
+                "activation": "NONE; recommendations are read-only and require an authorized reviewer decision or governance action."
+            },
+            "study_resolution": {
+                "status": "MISSING_SECTION",
+                "material_id": "architecture-building-systems-and-construction",
+                "material_title": "Building Systems, Construction Coordination, and Life Safety",
+                "section_id": "5-accessible-routes-and-vertical-transitions",
+                "section_heading": "5. Accessible routes and vertical transitions",
+                "section_body": null,
+                "current_material_exists": true,
+                "current_section_exists": false,
+                "current_question_link_exists": false,
+                "relationship_activation": "NONE; an exact section still requires an authorized reviewer action. Missing sections remain unresolved; no lesson was created."
+            },
+            "review_questions": [
+                "Does the proposed alternative match the exact site/building conditions and current rule exceptions?",
+                "Does the question give enough detail to distinguish a ramp from other permitted step-free alternatives?",
+                "Does the current Architecture exam scope still cover this competency?"
+            ],
+            "reviewer_action": "Inspect the cited passages, record item-level source evidence and currentness, resolve taxonomy only against active scoped taxonomy, decide whether the exact study section is appropriate, then make an independent academic decision. Do not treat this dossier as approval.",
+            "required_independent_review": {
+                "SOURCE_EXPERT_REVIEW": "PENDING",
+                "ACADEMIC_APPROVAL": "PENDING"
+            }
+        },
+        {
+            "proposal_id": "batch695-9125",
+            "question_id": "9125",
+            "question_version": "efcce496dd6901a3235c20e1d8219e40b9b908f8a17fe164f36bd6655dff42e5",
+            "version_basis": "B714 AcademicReviewWorkflowService::version() payload for the original B695 proposal; any later revision makes this package version stale.",
+            "review_state": "PENDING_REVIEW",
+            "academic_approval": "NOT_APPROVED",
+            "production_status": "NONCANONICAL_NOT_IN_LEARNER_POOLS",
+            "question": {
+                "stem": "A floor grate on an accessible path is level with the adjacent finish and slip-resistant, but the gaps measure 16 mm. What revision addresses the identified deficiency?",
+                "choices": [
+                    "Keep the grate because levelness and slip resistance satisfy every requirement.",
+                    "Specify a grate with spacing no greater than 13 mm and verify levelness and slip resistance after installation.",
+                    "Cover the grate with a loose mat that can shift during use.",
+                    "Move the grate to another part of the accessible path without checking its opening size."
+                ],
+                "proposed_answer": "Specify a grate with spacing no greater than 13 mm and verify levelness and slip resistance after installation.",
+                "explanation": "The current NCDA rule limits spacing between grates to 13 mm; the other features remain separate checks.",
+                "difficulty": "medium"
+            },
+            "specific_claim_to_review": "Coordinate level, slip-resistant grating and flush service covers with controlled openings.",
+            "proposed_source_locator": "NCDA 2024 BP 344 IRR §§2–4.",
+            "sources": [
+                {
+                    "source_id": "bp344-2024-irr",
+                    "title": "Revised 2024 Rules and Regulations Implementing Batas Pambansa Blg. 344",
+                    "authority": "National Council on Disability Affairs",
+                    "url": "https://ncda.gov.ph/revised-2024-rules-and-regulations-implementing-batas-pambansa-344/",
+                    "source_role": "",
+                    "source_type": "OFFICIAL_GUIDANCE",
+                    "publication_date": "2024-11-25",
+                    "version": "Revised 2024 BP 344 IRR",
+                    "registry_snapshot_match": true,
+                    "b695_evidence_status": "AUTHOR_REPORTED_VERIFIED_REFERENCE",
+                    "b695_limitations": [
+                        "Use the current exact rule text and exceptions; item-level fit remains pending independent review."
+                    ],
+                    "url_reachable": true,
+                    "source_identity_confirmed": true,
+                    "content_examined": true,
+                    "source_examination": {
+                        "reachability": "REACHABLE_OFFICIAL_PAGE_TEXT_FETCHED",
+                        "identity_confirmed_this_pass": true,
+                        "content_examined_this_pass": true,
+                        "retrieval_date": "2026-10-26",
+                        "inspection_locator": "NCDA 2024 BP 344 IRR page: Accessible Ramps; Floors and Ground Surfaces; Gratings.",
+                        "content_digest_sha256": null,
+                        "retention": "No source binary retained; official page text was inspected.",
+                        "content_summary": "The current page states that level changes require ramps subject to listed alternatives, limits grating gaps to 13 mm, calls for level and slip-resistant grates, and says wiring/outlets must not create trip hazards and should be away from accessible routes.",
+                        "scope_limit": "Each question still needs item-level expert review against the complete rule and exceptions; the page does not validate the complete route design."
+                    },
+                    "claim_support_candidate": {
+                        "status": "DIRECT_NUMERIC_RULE_CANDIDATE",
+                        "note": "The page states a 13 mm maximum spacing between grates and separately addresses levelness/slip resistance; confirm the cited clause applies to this floor grate/path context."
+                    },
+                    "expert_source_review": "PENDING_QUALIFIED_REVIEWER"
+                },
+                {
+                    "source_id": "prc-architecture-exam-program-june-2026",
+                    "title": "Program for the June 8 and 10, 2026 Licensure Examination for Architects",
+                    "authority": "Professional Regulation Commission; Professional Regulatory Board of Architecture",
+                    "url": "https://www.prc.gov.ph/sites/default/files/Program%20for%20June%202026%20LEA%28Architect%29_rev.pdf",
+                    "source_role": "SCOPE_SOURCE",
+                    "source_type": "OFFICIAL_PROGRAM",
+                    "publication_date": null,
+                    "version": "June 2026 Architecture examination program",
+                    "registry_snapshot_match": true,
+                    "b695_evidence_status": "AUTHOR_REPORTED_VERIFIED_REFERENCE_HISTORICAL_PROGRAM",
+                    "b695_limitations": [
+                        "Official June 2026 program is now historical; PRC calendar records the June 8 and 10, 2026 examination as past. It supports only that historical program scope; current examination scope requires recheck."
+                    ],
+                    "url_reachable": true,
+                    "source_identity_confirmed": true,
+                    "content_examined": true,
+                    "source_examination": {
+                        "reachability": "REACHABLE_OFFICIAL_PRC_INDEX_TEXT_FETCHED",
+                        "identity_confirmed_this_pass": true,
+                        "content_examined_this_pass": true,
+                        "retrieval_date": "2026-10-26",
+                        "inspection_locator": "PRC June 2026 Architecture program; PRC 2026 exam schedule lists the June 8 and 10, 2026 examination.",
+                        "content_digest_sha256": null,
+                        "retention": "PDF exceeded the bounded 18 MB download cap; official PRC indexed text was inspected instead.",
+                        "content_summary": "The official indexed program identifies the June 2026 Architecture subject areas and weights. The PRC 2026 schedule confirms that cycle has passed as of this package date.",
+                        "scope_limit": "Historical program scope only. A current exam program/scope was not established; every Architecture item retains a currentness blocker."
+                    },
+                    "claim_support_candidate": {
+                        "status": "EXAM_SCOPE_ONLY",
+                        "note": "This source does not independently establish the proposed answer; inspect only for its assigned role."
+                    },
+                    "expert_source_review": "PENDING_QUALIFIED_REVIEWER"
+                }
+            ],
+            "source_review_status": "PENDING_QUALIFIED_SOURCE_REVIEW",
+            "taxonomy_resolution": {
+                "proposed_domain": {
+                    "id": "architecture-utilities-construction",
+                    "name": "Architecture Utilities Construction"
+                },
+                "proposed_topic": {
+                    "id": "architecture-accessible-route-detailing",
+                    "name": "Accessible Routes and Floor Details",
+                    "registered": false
+                },
+                "topic_candidates": [],
+                "proposed_concept": {
+                    "id": "arch-bp344-grating-and-cover-detail",
+                    "name": "Grating and Channel-Cover Detail",
+                    "registered": false
+                },
+                "concept_candidates": [],
+                "status": "AWAITING_REVIEW_OR_TAXONOMY_GOVERNANCE",
+                "activation": "NONE; recommendations are read-only and require an authorized reviewer decision or governance action."
+            },
+            "study_resolution": {
+                "status": "MISSING_SECTION",
+                "material_id": "architecture-building-systems-and-construction",
+                "material_title": "Building Systems, Construction Coordination, and Life Safety",
+                "section_id": "6-accessible-floor-and-service-details",
+                "section_heading": "6. Accessible floor and service details",
+                "section_body": null,
+                "current_material_exists": true,
+                "current_section_exists": false,
+                "current_question_link_exists": false,
+                "relationship_activation": "NONE; an exact section still requires an authorized reviewer action. Missing sections remain unresolved; no lesson was created."
+            },
+            "review_questions": [
+                "Does the 13 mm requirement apply to the exact grate location shown in the stem?",
+                "Are the other stated grate properties independently supported and not conflated with the identified defect?",
+                "Is the item relevant to the current Architecture program?"
+            ],
+            "reviewer_action": "Inspect the cited passages, record item-level source evidence and currentness, resolve taxonomy only against active scoped taxonomy, decide whether the exact study section is appropriate, then make an independent academic decision. Do not treat this dossier as approval.",
+            "required_independent_review": {
+                "SOURCE_EXPERT_REVIEW": "PENDING",
+                "ACADEMIC_APPROVAL": "PENDING"
+            }
+        },
+        {
+            "proposal_id": "batch695-9126",
+            "question_id": "9126",
+            "question_version": "eedfa00493c31ef2654564bb2eac0267e33779963532e48dee87cfef4629adad",
+            "version_basis": "B714 AcademicReviewWorkflowService::version() payload for the original B695 proposal; any later revision makes this package version stale.",
+            "review_state": "PENDING_REVIEW",
+            "academic_approval": "NOT_APPROVED",
+            "production_status": "NONCANONICAL_NOT_IN_LEARNER_POOLS",
+            "question": {
+                "stem": "An electrical outlet and temporary cable are shown across a required accessible corridor. What is the most appropriate coordination action?",
+                "choices": [
+                    "Add a floor sign and retain the cable crossing as drawn.",
+                    "Ask building users to lift the cable when passing.",
+                    "Reroute the wiring and locate the outlet away from the accessible path, then verify the corridor remains free of trip hazards.",
+                    "Keep the layout because the outlet is needed near the corridor."
+                ],
+                "proposed_answer": "Reroute the wiring and locate the outlet away from the accessible path, then verify the corridor remains free of trip hazards.",
+                "explanation": "The 2024 BP 344 IRR says wiring and outlets must not create trip hazards and should be positioned away from accessible paths and corridors.",
+                "difficulty": "medium"
+            },
+            "specific_claim_to_review": "Locate outlets and wiring to avoid trip hazards in accessible paths and corridors.",
+            "proposed_source_locator": "NCDA 2024 BP 344 IRR, §3.",
+            "sources": [
+                {
+                    "source_id": "bp344-2024-irr",
+                    "title": "Revised 2024 Rules and Regulations Implementing Batas Pambansa Blg. 344",
+                    "authority": "National Council on Disability Affairs",
+                    "url": "https://ncda.gov.ph/revised-2024-rules-and-regulations-implementing-batas-pambansa-344/",
+                    "source_role": "",
+                    "source_type": "OFFICIAL_GUIDANCE",
+                    "publication_date": "2024-11-25",
+                    "version": "Revised 2024 BP 344 IRR",
+                    "registry_snapshot_match": true,
+                    "b695_evidence_status": "AUTHOR_REPORTED_VERIFIED_REFERENCE",
+                    "b695_limitations": [
+                        "Use the current exact rule text and exceptions; item-level fit remains pending independent review."
+                    ],
+                    "url_reachable": true,
+                    "source_identity_confirmed": true,
+                    "content_examined": true,
+                    "source_examination": {
+                        "reachability": "REACHABLE_OFFICIAL_PAGE_TEXT_FETCHED",
+                        "identity_confirmed_this_pass": true,
+                        "content_examined_this_pass": true,
+                        "retrieval_date": "2026-10-26",
+                        "inspection_locator": "NCDA 2024 BP 344 IRR page: Accessible Ramps; Floors and Ground Surfaces; Gratings.",
+                        "content_digest_sha256": null,
+                        "retention": "No source binary retained; official page text was inspected.",
+                        "content_summary": "The current page states that level changes require ramps subject to listed alternatives, limits grating gaps to 13 mm, calls for level and slip-resistant grates, and says wiring/outlets must not create trip hazards and should be away from accessible routes.",
+                        "scope_limit": "Each question still needs item-level expert review against the complete rule and exceptions; the page does not validate the complete route design."
+                    },
+                    "claim_support_candidate": {
+                        "status": "DIRECT_RULE_CANDIDATE",
+                        "note": "The page states wiring/outlets should not create trip hazards and should be positioned away from accessible pathways/corridors. Confirm exact applicability and any contextual assumptions."
+                    },
+                    "expert_source_review": "PENDING_QUALIFIED_REVIEWER"
+                },
+                {
+                    "source_id": "prc-architecture-exam-program-june-2026",
+                    "title": "Program for the June 8 and 10, 2026 Licensure Examination for Architects",
+                    "authority": "Professional Regulation Commission; Professional Regulatory Board of Architecture",
+                    "url": "https://www.prc.gov.ph/sites/default/files/Program%20for%20June%202026%20LEA%28Architect%29_rev.pdf",
+                    "source_role": "SCOPE_SOURCE",
+                    "source_type": "OFFICIAL_PROGRAM",
+                    "publication_date": null,
+                    "version": "June 2026 Architecture examination program",
+                    "registry_snapshot_match": true,
+                    "b695_evidence_status": "AUTHOR_REPORTED_VERIFIED_REFERENCE_HISTORICAL_PROGRAM",
+                    "b695_limitations": [
+                        "Official June 2026 program is now historical; PRC calendar records the June 8 and 10, 2026 examination as past. It supports only that historical program scope; current examination scope requires recheck."
+                    ],
+                    "url_reachable": true,
+                    "source_identity_confirmed": true,
+                    "content_examined": true,
+                    "source_examination": {
+                        "reachability": "REACHABLE_OFFICIAL_PRC_INDEX_TEXT_FETCHED",
+                        "identity_confirmed_this_pass": true,
+                        "content_examined_this_pass": true,
+                        "retrieval_date": "2026-10-26",
+                        "inspection_locator": "PRC June 2026 Architecture program; PRC 2026 exam schedule lists the June 8 and 10, 2026 examination.",
+                        "content_digest_sha256": null,
+                        "retention": "PDF exceeded the bounded 18 MB download cap; official PRC indexed text was inspected instead.",
+                        "content_summary": "The official indexed program identifies the June 2026 Architecture subject areas and weights. The PRC 2026 schedule confirms that cycle has passed as of this package date.",
+                        "scope_limit": "Historical program scope only. A current exam program/scope was not established; every Architecture item retains a currentness blocker."
+                    },
+                    "claim_support_candidate": {
+                        "status": "EXAM_SCOPE_ONLY",
+                        "note": "This source does not independently establish the proposed answer; inspect only for its assigned role."
+                    },
+                    "expert_source_review": "PENDING_QUALIFIED_REVIEWER"
+                }
+            ],
+            "source_review_status": "PENDING_QUALIFIED_SOURCE_REVIEW",
+            "taxonomy_resolution": {
+                "proposed_domain": {
+                    "id": "architecture-utilities-construction",
+                    "name": "Architecture Utilities Construction"
+                },
+                "proposed_topic": {
+                    "id": "architecture-accessible-route-detailing",
+                    "name": "Accessible Routes and Floor Details",
+                    "registered": false
+                },
+                "topic_candidates": [],
+                "proposed_concept": {
+                    "id": "arch-bp344-services-away-from-routes",
+                    "name": "Services Away from Accessible Routes",
+                    "registered": false
+                },
+                "concept_candidates": [],
+                "status": "AWAITING_REVIEW_OR_TAXONOMY_GOVERNANCE",
+                "activation": "NONE; recommendations are read-only and require an authorized reviewer decision or governance action."
+            },
+            "study_resolution": {
+                "status": "MISSING_SECTION",
+                "material_id": "architecture-building-systems-and-construction",
+                "material_title": "Building Systems, Construction Coordination, and Life Safety",
+                "section_id": "6-accessible-floor-and-service-details",
+                "section_heading": "6. Accessible floor and service details",
+                "section_body": null,
+                "current_material_exists": true,
+                "current_section_exists": false,
+                "current_question_link_exists": false,
+                "relationship_activation": "NONE; an exact section still requires an authorized reviewer action. Missing sections remain unresolved; no lesson was created."
+            },
+            "review_questions": [
+                "Does the source require the stated relocation/rerouting in this scenario?",
+                "Is the proposed answer uniquely best without adding unsupported site assumptions?",
+                "Is the current Architecture exam scope verified?"
+            ],
+            "reviewer_action": "Inspect the cited passages, record item-level source evidence and currentness, resolve taxonomy only against active scoped taxonomy, decide whether the exact study section is appropriate, then make an independent academic decision. Do not treat this dossier as approval.",
+            "required_independent_review": {
+                "SOURCE_EXPERT_REVIEW": "PENDING",
+                "ACADEMIC_APPROVAL": "PENDING"
+            }
+        },
+        {
+            "proposal_id": "batch695-9127",
+            "question_id": "9127",
+            "question_version": "9b034dfb37d0e32b5b676ba100d28262d7618c3a5749474e09d5099921bbab75",
+            "version_basis": "B714 AcademicReviewWorkflowService::version() payload for the original B695 proposal; any later revision makes this package version stale.",
+            "review_state": "PENDING_REVIEW",
+            "academic_approval": "NOT_APPROVED",
+            "production_status": "NONCANONICAL_NOT_IN_LEARNER_POOLS",
+            "question": {
+                "stem": "During design review, mechanical, electrical, sanitary, and plumbing routes conflict with a clear circulation path. Which response best reflects the architect’s scope and coordination role?",
+                "choices": [
+                    "Leave each system where drawn because only contractors resolve design conflicts.",
+                    "Remove the circulation requirement to make room for every utility route.",
+                    "Select a utility route without consulting the responsible specialist.",
+                    "Coordinate a revised utility layout with the relevant specialists and verify that system performance and accessible circulation are preserved."
+                ],
+                "proposed_answer": "Coordinate a revised utility layout with the relevant specialists and verify that system performance and accessible circulation are preserved.",
+                "explanation": "RA 9266 includes utility system layouting in architecture services. Resolving interfaces requires coordination with the relevant technical professionals and applicable rules.",
+                "difficulty": "medium"
+            },
+            "specific_claim_to_review": "Coordinate mechanical, electrical, electronic, sanitary, plumbing, and communication layouts within architectural practice.",
+            "proposed_source_locator": "RA 9266 §3; PRC Architecture exam scope.",
+            "sources": [
+                {
+                    "source_id": "ra-9266-architecture-act",
+                    "title": "Republic Act No. 9266, The Architecture Act of 2004",
+                    "authority": "Republic of the Philippines",
+                    "url": "https://lawphil.net/statutes/repacts/ra2004/ra_9266_2004.html",
+                    "source_role": "",
+                    "source_type": "PRIMARY_LAW",
+                    "publication_date": "2004-03-17",
+                    "version": "Republic Act No. 9266",
+                    "registry_snapshot_match": true,
+                    "b695_evidence_status": "AUTHOR_REPORTED_VERIFIED_REFERENCE",
+                    "b695_limitations": [
+                        "Statutory scope only; detailed engineering compliance remains subject to applicable specialists and codes."
+                    ],
+                    "url_reachable": true,
+                    "source_identity_confirmed": true,
+                    "content_examined": true,
+                    "source_examination": {
+                        "reachability": "REACHABLE_LEGAL_TEXT_FETCHED",
+                        "identity_confirmed_this_pass": true,
+                        "content_examined_this_pass": true,
+                        "retrieval_date": "2026-10-26",
+                        "inspection_locator": "Republic Act No. 9266, §3(4)(g), Lawphil text matching the registry identity.",
+                        "content_digest_sha256": null,
+                        "retention": "No source binary retained; official law text page was inspected.",
+                        "content_summary": "The statutory list of architecture services includes architectural layout of mechanical, electrical, electronic, sanitary, plumbing, communications and other utility systems.",
+                        "scope_limit": "The cited provision establishes scope language, not detailed engineering compliance or a substitute for coordination with the relevant specialists."
+                    },
+                    "claim_support_candidate": {
+                        "status": "SCOPE_LANGUAGE_CANDIDATE",
+                        "note": "RA 9266 §3(4)(g) includes utility-system layout within architecture services; it does not resolve detailed engineering performance."
+                    },
+                    "expert_source_review": "PENDING_QUALIFIED_REVIEWER"
+                },
+                {
+                    "source_id": "prc-architecture-exam-program-june-2026",
+                    "title": "Program for the June 8 and 10, 2026 Licensure Examination for Architects",
+                    "authority": "Professional Regulation Commission; Professional Regulatory Board of Architecture",
+                    "url": "https://www.prc.gov.ph/sites/default/files/Program%20for%20June%202026%20LEA%28Architect%29_rev.pdf",
+                    "source_role": "SCOPE_SOURCE",
+                    "source_type": "OFFICIAL_PROGRAM",
+                    "publication_date": null,
+                    "version": "June 2026 Architecture examination program",
+                    "registry_snapshot_match": true,
+                    "b695_evidence_status": "AUTHOR_REPORTED_VERIFIED_REFERENCE_HISTORICAL_PROGRAM",
+                    "b695_limitations": [
+                        "Official June 2026 program is now historical; PRC calendar records the June 8 and 10, 2026 examination as past. It supports only that historical program scope; current examination scope requires recheck."
+                    ],
+                    "url_reachable": true,
+                    "source_identity_confirmed": true,
+                    "content_examined": true,
+                    "source_examination": {
+                        "reachability": "REACHABLE_OFFICIAL_PRC_INDEX_TEXT_FETCHED",
+                        "identity_confirmed_this_pass": true,
+                        "content_examined_this_pass": true,
+                        "retrieval_date": "2026-10-26",
+                        "inspection_locator": "PRC June 2026 Architecture program; PRC 2026 exam schedule lists the June 8 and 10, 2026 examination.",
+                        "content_digest_sha256": null,
+                        "retention": "PDF exceeded the bounded 18 MB download cap; official PRC indexed text was inspected instead.",
+                        "content_summary": "The official indexed program identifies the June 2026 Architecture subject areas and weights. The PRC 2026 schedule confirms that cycle has passed as of this package date.",
+                        "scope_limit": "Historical program scope only. A current exam program/scope was not established; every Architecture item retains a currentness blocker."
+                    },
+                    "claim_support_candidate": {
+                        "status": "EXAM_SCOPE_ONLY",
+                        "note": "This source does not independently establish the proposed answer; inspect only for its assigned role."
+                    },
+                    "expert_source_review": "PENDING_QUALIFIED_REVIEWER"
+                }
+            ],
+            "source_review_status": "PENDING_QUALIFIED_SOURCE_REVIEW",
+            "taxonomy_resolution": {
+                "proposed_domain": {
+                    "id": "architecture-utilities-construction",
+                    "name": "Architecture Utilities Construction"
+                },
+                "proposed_topic": {
+                    "id": "architecture-utility-systems-integration",
+                    "name": "Utility Systems Integration",
+                    "registered": false
+                },
+                "topic_candidates": [],
+                "proposed_concept": {
+                    "id": "arch-ra9266-utility-systems-coordination",
+                    "name": "Utility Systems Coordination",
+                    "registered": false
+                },
+                "concept_candidates": [],
+                "status": "AWAITING_REVIEW_OR_TAXONOMY_GOVERNANCE",
+                "activation": "NONE; recommendations are read-only and require an authorized reviewer decision or governance action."
+            },
+            "study_resolution": {
+                "status": "MISSING_SECTION",
+                "material_id": "architecture-building-systems-and-construction",
+                "material_title": "Building Systems, Construction Coordination, and Life Safety",
+                "section_id": "7-integrated-utilities-and-access-coordination",
+                "section_heading": "7. Integrated utilities and access coordination",
+                "section_body": null,
+                "current_material_exists": true,
+                "current_section_exists": false,
+                "current_question_link_exists": false,
+                "relationship_activation": "NONE; an exact section still requires an authorized reviewer action. Missing sections remain unresolved; no lesson was created."
+            },
+            "review_questions": [
+                "Does the item distinguish architectural coordination from the specialist’s detailed engineering responsibility?",
+                "Does the cited Act directly support the whole answer, or only professional scope?",
+                "Is the historical PRC program still a valid exam-scope reference?"
+            ],
+            "reviewer_action": "Inspect the cited passages, record item-level source evidence and currentness, resolve taxonomy only against active scoped taxonomy, decide whether the exact study section is appropriate, then make an independent academic decision. Do not treat this dossier as approval.",
+            "required_independent_review": {
+                "SOURCE_EXPERT_REVIEW": "PENDING",
+                "ACADEMIC_APPROVAL": "PENDING"
+            }
+        },
+        {
+            "proposal_id": "batch695-9128",
+            "question_id": "9128",
+            "question_version": "11af4c4ed286b56172b91d1cf83d81c985304c3d1e607882e0c3a9a11a21f1ab",
+            "version_basis": "B714 AcademicReviewWorkflowService::version() payload for the original B695 proposal; any later revision makes this package version stale.",
+            "review_state": "PENDING_REVIEW",
+            "academic_approval": "NOT_APPROVED",
+            "production_status": "NONCANONICAL_NOT_IN_LEARNER_POOLS",
+            "question": {
+                "stem": "A class views a contemporary sculpture with repeated curved forms and open spaces. Which first response is grounded in artistic evidence?",
+                "choices": [
+                    "Describe the repeated curves and open spaces before proposing what the work may communicate.",
+                    "State that the sculpture represents the whole community where it was displayed.",
+                    "Assume the artist intended a specific message without consulting any source.",
+                    "Rank the sculpture by how closely it resembles a familiar object."
+                ],
+                "proposed_answer": "Describe the repeated curves and open spaces before proposing what the work may communicate.",
+                "explanation": "Formal description identifies observable features; interpretation should be distinguished from unsupported claims about meaning.",
+                "difficulty": "easy"
+            },
+            "specific_claim_to_review": "Distinguish direct formal evidence from contextual interpretation of an artistic work.",
+            "proposed_source_locator": "PRC Annex C; MATATAG Music & Arts pp. 3–5, 8–15.",
+            "sources": [
+                {
+                    "source_id": "prc-resolution-20-2025-annex-a",
+                    "title": "PRC Board Resolution No. 20, s. 2025, Annex A: LEPT alignment and specialization syllabi",
+                    "authority": "Professional Regulatory Board for Professional Teachers / Professional Regulation Commission",
+                    "url": "https://www.prc.gov.ph/sites/default/files/2025-20%20Annex%20teachers.pdf",
+                    "source_role": "SCOPE_SOURCE",
+                    "source_type": "OFFICIAL_EXAM_SPEC",
+                    "publication_date": "2025-07-03",
+                    "version": "Resolution No. 20 s. 2025 Annex A",
+                    "registry_snapshot_match": true,
+                    "b695_evidence_status": "AUTHOR_REPORTED_VERIFIED_REFERENCE",
+                    "b695_limitations": [
+                        "Official scope source; cited scope and competency claims still require independent item-level review."
+                    ],
+                    "url_reachable": true,
+                    "source_identity_confirmed": false,
+                    "content_examined": false,
+                    "source_examination": {
+                        "reachability": "HTTP_200_PDF_BOUNDED_DOWNLOAD_LIMIT",
+                        "identity_confirmed_this_pass": false,
+                        "content_examined_this_pass": false,
+                        "retrieval_date": "2026-10-26",
+                        "inspection_locator": "Official PRC PDF URL returned application/pdf; full transfer exceeded the 18,000,000-byte limit. B695 records author-reported text extraction at the relevant annexes.",
+                        "content_digest_sha256": null,
+                        "retention": "No partial PDF retained; content was not inspected in this pass.",
+                        "content_summary": "No content claim is made from the title, URL, or B695 author note. The assigned reviewer must inspect the applicable Annex A/B/C/D pages.",
+                        "scope_limit": "Source identity/contents require independent reviewer confirmation; no claim about answer correctness follows from the exam-scope citation."
+                    },
+                    "claim_support_candidate": {
+                        "status": "EXAM_SCOPE_ONLY",
+                        "note": "This source does not independently establish the proposed answer; inspect only for its assigned role."
+                    },
+                    "expert_source_review": "PENDING_QUALIFIED_REVIEWER"
+                },
+                {
+                    "source_id": "deped-matatag-music-arts-2023-g4-g7",
+                    "title": "MATATAG Music and Arts Curriculum Guide, Grades 4 and 7",
+                    "authority": "Department of Education, Philippines",
+                    "url": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-MUSIC-and-ARTS_CG-2023_GRADE-4-and-7.pdf",
+                    "source_role": "CURRICULUM_SOURCE",
+                    "source_type": "OFFICIAL_GUIDANCE",
+                    "publication_date": "2023",
+                    "version": "MATATAG Music and Arts Curriculum Guide, Grades 4 and 7",
+                    "registry_snapshot_match": true,
+                    "b695_evidence_status": "AUTHOR_REPORTED_VERIFIED_REFERENCE",
+                    "b695_limitations": [
+                        "Official Grades 4 and 7 guide only; not a complete all-grade syllabus."
+                    ],
+                    "url_reachable": true,
+                    "source_identity_confirmed": true,
+                    "content_examined": true,
+                    "source_examination": {
+                        "reachability": "REACHABLE_OFFICIAL_PDF_TEXT_FETCHED",
+                        "identity_confirmed_this_pass": true,
+                        "content_examined_this_pass": true,
+                        "retrieval_date": "2026-10-26",
+                        "inspection_locator": "DepEd MATATAG Music and Arts Curriculum Guide, Grades 4 and 7, inspected pages 17–18 and 22 (PDF page labels 16–17 and 21 where shown).",
+                        "content_digest_sha256": null,
+                        "retention": "Official PDF text was inspected through a bounded text extraction; no binary retained.",
+                        "content_summary": "The guide describes formative/summative assessment against standards and performance criteria, with assessment strategies aligned to learning standards; the competencies use local arts works and cultural context.",
+                        "scope_limit": "Grades 4 and 7 only; it is not a complete all-grade curriculum and does not by itself determine a unique answer for a specific item."
+                    },
+                    "claim_support_candidate": {
+                        "status": "PARTIAL_CURRICULUM_CANDIDATE",
+                        "note": "The guide grounds learning in observable creative work and local context; it does not alone establish that this is the unique strongest first interpretive response."
+                    },
+                    "expert_source_review": "PENDING_QUALIFIED_REVIEWER"
+                }
+            ],
+            "source_review_status": "PENDING_QUALIFIED_SOURCE_REVIEW",
+            "taxonomy_resolution": {
+                "proposed_domain": {
+                    "id": "cae-arts-and-culture",
+                    "name": "Arts and Culture"
+                },
+                "proposed_topic": {
+                    "id": "cae-context-and-heritage",
+                    "name": "Context, Identity, and Heritage",
+                    "registered": false
+                },
+                "topic_candidates": [],
+                "proposed_concept": {
+                    "id": "cae-cultural-context-and-artistic-evidence",
+                    "name": "Cultural Context and Artistic Evidence",
+                    "registered": false
+                },
+                "concept_candidates": [],
+                "status": "AWAITING_REVIEW_OR_TAXONOMY_GOVERNANCE",
+                "activation": "NONE; recommendations are read-only and require an authorized reviewer decision or governance action."
+            },
+            "study_resolution": {
+                "status": "MISSING_SECTION",
+                "material_id": "let-culture-arts-learning-foundation",
+                "material_title": "Arts Learning: Elements, Making, Context, and Reflection",
+                "section_id": "5-context-identity-and-interpretation",
+                "section_heading": "5. Context, identity, and interpretation",
+                "section_body": null,
+                "current_material_exists": true,
+                "current_section_exists": false,
+                "current_question_link_exists": false,
+                "relationship_activation": "NONE; an exact section still requires an authorized reviewer action. Missing sections remain unresolved; no lesson was created."
+            },
+            "review_questions": [
+                "Does describing observable formal features before interpreting meaning match the board-specific competency?",
+                "Are multiple interpretations possible from the stem’s sparse visual description?",
+                "Which current PRC Annex C competency is the item intended to assess?"
+            ],
+            "reviewer_action": "Inspect the cited passages, record item-level source evidence and currentness, resolve taxonomy only against active scoped taxonomy, decide whether the exact study section is appropriate, then make an independent academic decision. Do not treat this dossier as approval.",
+            "required_independent_review": {
+                "SOURCE_EXPERT_REVIEW": "PENDING",
+                "ACADEMIC_APPROVAL": "PENDING"
+            }
+        },
+        {
+            "proposal_id": "batch695-9140",
+            "question_id": "9140",
+            "question_version": "fad09694b302c968066e4845c0bc1b5bf4d25fddf8bf09b372168387c5dbf299",
+            "version_basis": "B714 AcademicReviewWorkflowService::version() payload for the original B695 proposal; any later revision makes this package version stale.",
+            "review_state": "PENDING_REVIEW",
+            "academic_approval": "NOT_APPROVED",
+            "production_status": "NONCANONICAL_NOT_IN_LEARNER_POOLS",
+            "question": {
+                "stem": "A teacher finds an online image of a community design with no creator or context listed. What is the best next step before using it as a model?",
+                "choices": [
+                    "Seek a reliable source and appropriate community context, or choose a documented alternative.",
+                    "Use the image because public access means every use is appropriate.",
+                    "Ask learners to copy the design before checking its source.",
+                    "Describe it as traditional without identifying the community."
+                ],
+                "proposed_answer": "Seek a reliable source and appropriate community context, or choose a documented alternative.",
+                "explanation": "Public availability does not establish context or appropriate use; documented sourcing protects accurate and respectful teaching.",
+                "difficulty": "easy"
+            },
+            "specific_claim_to_review": "Seek appropriate knowledge, attribution, and respectful use when teaching living cultural traditions.",
+            "proposed_source_locator": "PRC Annex C; RA 8371 §§2, 32; MATATAG Music & Arts.",
+            "sources": [
+                {
+                    "source_id": "prc-resolution-20-2025-annex-a",
+                    "title": "PRC Board Resolution No. 20, s. 2025, Annex A: LEPT alignment and specialization syllabi",
+                    "authority": "Professional Regulatory Board for Professional Teachers / Professional Regulation Commission",
+                    "url": "https://www.prc.gov.ph/sites/default/files/2025-20%20Annex%20teachers.pdf",
+                    "source_role": "SCOPE_SOURCE",
+                    "source_type": "OFFICIAL_EXAM_SPEC",
+                    "publication_date": "2025-07-03",
+                    "version": "Resolution No. 20 s. 2025 Annex A",
+                    "registry_snapshot_match": true,
+                    "b695_evidence_status": "AUTHOR_REPORTED_VERIFIED_REFERENCE",
+                    "b695_limitations": [
+                        "Official scope source; cited scope and competency claims still require independent item-level review."
+                    ],
+                    "url_reachable": true,
+                    "source_identity_confirmed": false,
+                    "content_examined": false,
+                    "source_examination": {
+                        "reachability": "HTTP_200_PDF_BOUNDED_DOWNLOAD_LIMIT",
+                        "identity_confirmed_this_pass": false,
+                        "content_examined_this_pass": false,
+                        "retrieval_date": "2026-10-26",
+                        "inspection_locator": "Official PRC PDF URL returned application/pdf; full transfer exceeded the 18,000,000-byte limit. B695 records author-reported text extraction at the relevant annexes.",
+                        "content_digest_sha256": null,
+                        "retention": "No partial PDF retained; content was not inspected in this pass.",
+                        "content_summary": "No content claim is made from the title, URL, or B695 author note. The assigned reviewer must inspect the applicable Annex A/B/C/D pages.",
+                        "scope_limit": "Source identity/contents require independent reviewer confirmation; no claim about answer correctness follows from the exam-scope citation."
+                    },
+                    "claim_support_candidate": {
+                        "status": "EXAM_SCOPE_ONLY",
+                        "note": "This source does not independently establish the proposed answer; inspect only for its assigned role."
+                    },
+                    "expert_source_review": "PENDING_QUALIFIED_REVIEWER"
+                },
+                {
+                    "source_id": "ra-8371-ipra-e-library",
+                    "title": "Republic Act No. 8371: Indigenous Peoples’ Rights Act of 1997",
+                    "authority": "Republic of the Philippines; Supreme Court E-Library",
+                    "url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/2/2562",
+                    "source_role": "STATUTORY_SOURCE",
+                    "source_type": "PRIMARY_LAW",
+                    "publication_date": "1997-10-29",
+                    "version": "Republic Act No. 8371",
+                    "registry_snapshot_match": true,
+                    "b695_evidence_status": "AUTHOR_REPORTED_VERIFIED_REFERENCE",
+                    "b695_limitations": [
+                        "Used for community identity and cultural/intellectual rights; does not decide consent requirements for a particular community."
+                    ],
+                    "url_reachable": true,
+                    "source_identity_confirmed": true,
+                    "content_examined": true,
+                    "source_examination": {
+                        "reachability": "REACHABLE_SUPREME_COURT_E_LIBRARY_TEXT_FETCHED",
+                        "identity_confirmed_this_pass": true,
+                        "content_examined_this_pass": true,
+                        "retrieval_date": "2026-10-26",
+                        "inspection_locator": "Republic Act No. 8371, §§2–3; Supreme Court E-Library.",
+                        "content_digest_sha256": null,
+                        "retention": "No source binary retained; statutory text page was inspected.",
+                        "content_summary": "The Act recognizes cultural preservation, cultural integrity and participation; it defines Free and Prior Informed Consent in relation to covered activities.",
+                        "scope_limit": "These provisions do not establish copyright, attribution, or permission rules for an arbitrary online image; the dossier flags that gap."
+                    },
+                    "claim_support_candidate": {
+                        "status": "RIGHTS_CONTEXT_ONLY",
+                        "note": "RA 8371 supports cultural integrity and participation, but does not establish attribution/copyright or permission rules for a found image."
+                    },
+                    "expert_source_review": "PENDING_QUALIFIED_REVIEWER"
+                }
+            ],
+            "source_review_status": "PENDING_QUALIFIED_SOURCE_REVIEW",
+            "taxonomy_resolution": {
+                "proposed_domain": {
+                    "id": "cae-arts-and-culture",
+                    "name": "Arts and Culture"
+                },
+                "proposed_topic": {
+                    "id": "cae-ethical-engagement",
+                    "name": "Ethical Cultural Engagement",
+                    "registered": false
+                },
+                "topic_candidates": [],
+                "proposed_concept": {
+                    "id": "cae-ethical-community-engagement",
+                    "name": "Ethical Community Engagement",
+                    "registered": false
+                },
+                "concept_candidates": [],
+                "status": "AWAITING_REVIEW_OR_TAXONOMY_GOVERNANCE",
+                "activation": "NONE; recommendations are read-only and require an authorized reviewer decision or governance action."
+            },
+            "study_resolution": {
+                "status": "MISSING_SECTION",
+                "material_id": "let-culture-arts-learning-foundation",
+                "material_title": "Arts Learning: Elements, Making, Context, and Reflection",
+                "section_id": "6-ethical-cultural-engagement",
+                "section_heading": "6. Ethical cultural engagement",
+                "section_body": null,
+                "current_material_exists": true,
+                "current_section_exists": false,
+                "current_question_link_exists": false,
+                "relationship_activation": "NONE; an exact section still requires an authorized reviewer action. Missing sections remain unresolved; no lesson was created."
+            },
+            "review_questions": [
+                "What exact primary source governs creator attribution and reuse of this image?",
+                "Does the item avoid equating online availability with consent or permission?",
+                "Is the answer supported by the cited curriculum and law rather than general intuition?"
+            ],
+            "reviewer_action": "Inspect the cited passages, record item-level source evidence and currentness, resolve taxonomy only against active scoped taxonomy, decide whether the exact study section is appropriate, then make an independent academic decision. Do not treat this dossier as approval.",
+            "required_independent_review": {
+                "SOURCE_EXPERT_REVIEW": "PENDING",
+                "ACADEMIC_APPROVAL": "PENDING"
+            }
+        },
+        {
+            "proposal_id": "batch695-9164",
+            "question_id": "9164",
+            "question_version": "adfca55cae935bdea3bd7e8e62af58b15b9fca51457203f6b7d012b9f667353c",
+            "version_basis": "B714 AcademicReviewWorkflowService::version() payload for the original B695 proposal; any later revision makes this package version stale.",
+            "review_state": "PENDING_REVIEW",
+            "academic_approval": "NOT_APPROVED",
+            "production_status": "NONCANONICAL_NOT_IN_LEARNER_POOLS",
+            "question": {
+                "stem": "A learner’s objective is to explain how texture changes a visual composition. Which assessment is best aligned?",
+                "choices": [
+                    "Ask the learner to identify a texture choice and explain its effect using the artwork as evidence.",
+                    "Score the learner on how neatly the art table was cleaned.",
+                    "Ask the learner to name every artist in the textbook.",
+                    "Rank the artwork by whether the teacher would display it."
+                ],
+                "proposed_answer": "Ask the learner to identify a texture choice and explain its effect using the artwork as evidence.",
+                "explanation": "The assessment directly elicits the stated understanding of texture and effect.",
+                "difficulty": "easy"
+            },
+            "specific_claim_to_review": "Align assessment criteria with artistic process, technique, intention, presentation, and reflection.",
+            "proposed_source_locator": "PRC Annex C; MATATAG Music & Arts pp. 5, 8, 13–15.",
+            "sources": [
+                {
+                    "source_id": "prc-resolution-20-2025-annex-a",
+                    "title": "PRC Board Resolution No. 20, s. 2025, Annex A: LEPT alignment and specialization syllabi",
+                    "authority": "Professional Regulatory Board for Professional Teachers / Professional Regulation Commission",
+                    "url": "https://www.prc.gov.ph/sites/default/files/2025-20%20Annex%20teachers.pdf",
+                    "source_role": "SCOPE_SOURCE",
+                    "source_type": "OFFICIAL_EXAM_SPEC",
+                    "publication_date": "2025-07-03",
+                    "version": "Resolution No. 20 s. 2025 Annex A",
+                    "registry_snapshot_match": true,
+                    "b695_evidence_status": "AUTHOR_REPORTED_VERIFIED_REFERENCE",
+                    "b695_limitations": [
+                        "Official scope source; cited scope and competency claims still require independent item-level review."
+                    ],
+                    "url_reachable": true,
+                    "source_identity_confirmed": false,
+                    "content_examined": false,
+                    "source_examination": {
+                        "reachability": "HTTP_200_PDF_BOUNDED_DOWNLOAD_LIMIT",
+                        "identity_confirmed_this_pass": false,
+                        "content_examined_this_pass": false,
+                        "retrieval_date": "2026-10-26",
+                        "inspection_locator": "Official PRC PDF URL returned application/pdf; full transfer exceeded the 18,000,000-byte limit. B695 records author-reported text extraction at the relevant annexes.",
+                        "content_digest_sha256": null,
+                        "retention": "No partial PDF retained; content was not inspected in this pass.",
+                        "content_summary": "No content claim is made from the title, URL, or B695 author note. The assigned reviewer must inspect the applicable Annex A/B/C/D pages.",
+                        "scope_limit": "Source identity/contents require independent reviewer confirmation; no claim about answer correctness follows from the exam-scope citation."
+                    },
+                    "claim_support_candidate": {
+                        "status": "EXAM_SCOPE_ONLY",
+                        "note": "This source does not independently establish the proposed answer; inspect only for its assigned role."
+                    },
+                    "expert_source_review": "PENDING_QUALIFIED_REVIEWER"
+                },
+                {
+                    "source_id": "deped-matatag-music-arts-2023-g4-g7",
+                    "title": "MATATAG Music and Arts Curriculum Guide, Grades 4 and 7",
+                    "authority": "Department of Education, Philippines",
+                    "url": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-MUSIC-and-ARTS_CG-2023_GRADE-4-and-7.pdf",
+                    "source_role": "CURRICULUM_SOURCE",
+                    "source_type": "OFFICIAL_GUIDANCE",
+                    "publication_date": "2023",
+                    "version": "MATATAG Music and Arts Curriculum Guide, Grades 4 and 7",
+                    "registry_snapshot_match": true,
+                    "b695_evidence_status": "AUTHOR_REPORTED_VERIFIED_REFERENCE",
+                    "b695_limitations": [
+                        "Official Grades 4 and 7 guide only; not a complete all-grade syllabus."
+                    ],
+                    "url_reachable": true,
+                    "source_identity_confirmed": true,
+                    "content_examined": true,
+                    "source_examination": {
+                        "reachability": "REACHABLE_OFFICIAL_PDF_TEXT_FETCHED",
+                        "identity_confirmed_this_pass": true,
+                        "content_examined_this_pass": true,
+                        "retrieval_date": "2026-10-26",
+                        "inspection_locator": "DepEd MATATAG Music and Arts Curriculum Guide, Grades 4 and 7, inspected pages 17–18 and 22 (PDF page labels 16–17 and 21 where shown).",
+                        "content_digest_sha256": null,
+                        "retention": "Official PDF text was inspected through a bounded text extraction; no binary retained.",
+                        "content_summary": "The guide describes formative/summative assessment against standards and performance criteria, with assessment strategies aligned to learning standards; the competencies use local arts works and cultural context.",
+                        "scope_limit": "Grades 4 and 7 only; it is not a complete all-grade curriculum and does not by itself determine a unique answer for a specific item."
+                    },
+                    "claim_support_candidate": {
+                        "status": "DIRECT_ASSESSMENT_ALIGNMENT_CANDIDATE",
+                        "note": "The guide says assessment should align with standards and teaching strategies and refers to performance criteria; the reviewer must verify the texture-specific learning target."
+                    },
+                    "expert_source_review": "PENDING_QUALIFIED_REVIEWER"
+                }
+            ],
+            "source_review_status": "PENDING_QUALIFIED_SOURCE_REVIEW",
+            "taxonomy_resolution": {
+                "proposed_domain": {
+                    "id": "cae-arts-and-culture",
+                    "name": "Arts and Culture"
+                },
+                "proposed_topic": {
+                    "id": "cae-performance-and-assessment",
+                    "name": "Performance, Critique, and Assessment",
+                    "registered": false
+                },
+                "topic_candidates": [],
+                "proposed_concept": {
+                    "id": "cae-authentic-arts-assessment",
+                    "name": "Authentic Arts Assessment",
+                    "registered": false
+                },
+                "concept_candidates": [],
+                "status": "AWAITING_REVIEW_OR_TAXONOMY_GOVERNANCE",
+                "activation": "NONE; recommendations are read-only and require an authorized reviewer decision or governance action."
+            },
+            "study_resolution": {
+                "status": "MISSING_SECTION",
+                "material_id": "let-culture-arts-learning-foundation",
+                "material_title": "Arts Learning: Elements, Making, Context, and Reflection",
+                "section_id": "9-critique-assessment-and-access",
+                "section_heading": "9. Critique, assessment, and access",
+                "section_body": null,
+                "current_material_exists": true,
+                "current_section_exists": false,
+                "current_question_link_exists": false,
+                "relationship_activation": "NONE; an exact section still requires an authorized reviewer action. Missing sections remain unresolved; no lesson was created."
+            },
+            "review_questions": [
+                "Does the selected evidence directly measure the stated texture-effect objective?",
+                "Could another distractor also elicit the same objective?",
+                "Does the exact learning competency apply to the cited grade band?"
+            ],
+            "reviewer_action": "Inspect the cited passages, record item-level source evidence and currentness, resolve taxonomy only against active scoped taxonomy, decide whether the exact study section is appropriate, then make an independent academic decision. Do not treat this dossier as approval.",
+            "required_independent_review": {
+                "SOURCE_EXPERT_REVIEW": "PENDING",
+                "ACADEMIC_APPROVAL": "PENDING"
+            }
+        },
+        {
+            "proposal_id": "batch695-9200",
+            "question_id": "9200",
+            "question_version": "05528bb8aeda64151da2729ad8f2db1307383ffe877e3f9122037a4adb96db4d",
+            "version_basis": "B714 AcademicReviewWorkflowService::version() payload for the original B695 proposal; any later revision makes this package version stale.",
+            "review_state": "PENDING_REVIEW",
+            "academic_approval": "NOT_APPROVED",
+            "production_status": "NONCANONICAL_NOT_IN_LEARNER_POOLS",
+            "question": {
+                "stem": "A portfolio includes one painting but no date, prompt, or learner explanation. What addition most improves its value for planning?",
+                "choices": [
+                    "Add the date, activity context, relevant observation, and the learner’s own explanation of the work.",
+                    "Add a score comparing the painting with classmates’ work.",
+                    "Replace the painting with a teacher-written summary of the child’s personality.",
+                    "Add the child’s age and assume the painting shows age-level mastery."
+                ],
+                "proposed_answer": "Add the date, activity context, relevant observation, and the learner’s own explanation of the work.",
+                "explanation": "Context and the learner’s explanation support interpretation and comparison over time.",
+                "difficulty": "medium"
+            },
+            "specific_claim_to_review": "Use clear, repeated documentation to choose a next teaching experience rather than infer from one event.",
+            "proposed_source_locator": "DepEd KCG p. 16; PRC Annex A.",
+            "sources": [
+                {
+                    "source_id": "prc-resolution-20-2025-annex-a",
+                    "title": "PRC Board Resolution No. 20, s. 2025, Annex A: LEPT alignment and specialization syllabi",
+                    "authority": "Professional Regulatory Board for Professional Teachers / Professional Regulation Commission",
+                    "url": "https://www.prc.gov.ph/sites/default/files/2025-20%20Annex%20teachers.pdf",
+                    "source_role": "SCOPE_SOURCE",
+                    "source_type": "OFFICIAL_EXAM_SPEC",
+                    "publication_date": "2025-07-03",
+                    "version": "Resolution No. 20 s. 2025 Annex A",
+                    "registry_snapshot_match": true,
+                    "b695_evidence_status": "AUTHOR_REPORTED_VERIFIED_REFERENCE",
+                    "b695_limitations": [
+                        "Official scope source; cited scope and competency claims still require independent item-level review."
+                    ],
+                    "url_reachable": true,
+                    "source_identity_confirmed": false,
+                    "content_examined": false,
+                    "source_examination": {
+                        "reachability": "HTTP_200_PDF_BOUNDED_DOWNLOAD_LIMIT",
+                        "identity_confirmed_this_pass": false,
+                        "content_examined_this_pass": false,
+                        "retrieval_date": "2026-10-26",
+                        "inspection_locator": "Official PRC PDF URL returned application/pdf; full transfer exceeded the 18,000,000-byte limit. B695 records author-reported text extraction at the relevant annexes.",
+                        "content_digest_sha256": null,
+                        "retention": "No partial PDF retained; content was not inspected in this pass.",
+                        "content_summary": "No content claim is made from the title, URL, or B695 author note. The assigned reviewer must inspect the applicable Annex A/B/C/D pages.",
+                        "scope_limit": "Source identity/contents require independent reviewer confirmation; no claim about answer correctness follows from the exam-scope citation."
+                    },
+                    "claim_support_candidate": {
+                        "status": "EXAM_SCOPE_ONLY",
+                        "note": "This source does not independently establish the proposed answer; inspect only for its assigned role."
+                    },
+                    "expert_source_review": "PENDING_QUALIFIED_REVIEWER"
+                },
+                {
+                    "source_id": "deped-kindergarten-curriculum-guide-2023",
+                    "title": "MATATAG Kindergarten Curriculum Guide",
+                    "authority": "Department of Education, Philippines",
+                    "url": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-Kindergarten-CG.pdf",
+                    "source_role": "CURRICULUM_SOURCE",
+                    "source_type": "OFFICIAL_GUIDANCE",
+                    "publication_date": "2023-01-01",
+                    "version": "MATATAG Kindergarten Curriculum Guide",
+                    "registry_snapshot_match": true,
+                    "b695_evidence_status": "AUTHOR_REPORTED_VERIFIED_REFERENCE",
+                    "b695_limitations": [
+                        "Limited to the stated Kindergarten curriculum pages; not a complete all-grade syllabus."
+                    ],
+                    "url_reachable": true,
+                    "source_identity_confirmed": true,
+                    "content_examined": true,
+                    "source_examination": {
+                        "reachability": "REACHABLE_OFFICIAL_PDF_TEXT_FETCHED",
+                        "identity_confirmed_this_pass": true,
+                        "content_examined_this_pass": true,
+                        "retrieval_date": "2026-10-26",
+                        "inspection_locator": "MATATAG Kindergarten Curriculum Guide, including the curriculum framework and assessment section (B695 proposed locators pp. 5, 13, 16, 30).",
+                        "content_digest_sha256": null,
+                        "retention": "Official PDF text was inspected through bounded page text extraction; no binary retained.",
+                        "content_summary": "The guide identifies play-based, learner-centered learning and describes regular, continuous observation for monitoring children’s growth and development.",
+                        "scope_limit": "Kindergarten scope only. The inspected passages do not by themselves verify the proposed portfolio documentation fields or every home-language claim."
+                    },
+                    "claim_support_candidate": {
+                        "status": "PARTIAL_OBSERVATION_CANDIDATE",
+                        "note": "The guide describes regular continuous observation for growth/development; the checked text does not explicitly require every portfolio field in the answer."
+                    },
+                    "expert_source_review": "PENDING_QUALIFIED_REVIEWER"
+                }
+            ],
+            "source_review_status": "PENDING_QUALIFIED_SOURCE_REVIEW",
+            "taxonomy_resolution": {
+                "proposed_domain": {
+                    "id": "child-development",
+                    "name": "Child Development"
+                },
+                "proposed_topic": {
+                    "id": "ece-observation-to-planning",
+                    "name": "Observation to Responsive Planning",
+                    "registered": false
+                },
+                "topic_candidates": [],
+                "proposed_concept": {
+                    "id": "ece-observation-to-responsive-planning",
+                    "name": "Observation to Responsive Planning",
+                    "registered": false
+                },
+                "concept_candidates": [],
+                "status": "AWAITING_REVIEW_OR_TAXONOMY_GOVERNANCE",
+                "activation": "NONE; recommendations are read-only and require an authorized reviewer decision or governance action."
+            },
+            "study_resolution": {
+                "status": "EXACT_SECTION_MATCH",
+                "material_id": "let-early-childhood-learning-and-inclusion",
+                "material_title": "Early Childhood Learning, Assessment, and Inclusive Practice",
+                "section_id": "3-observation-and-assessment",
+                "section_heading": "3. Observation and assessment",
+                "section_body": "A useful record separates what was seen or heard from the interpretation. A running note, work sample, conversation, and repeated observation can answer different questions. Avoid turning one event into a stable label. Assessment should inform planning and communication, use suitable tools, and protect confidential information. If evidence raises a concern, follow the authorized referral and family communication process.",
+                "current_material_exists": true,
+                "current_section_exists": true,
+                "current_question_link_exists": false,
+                "relationship_activation": "NONE; an exact section still requires an authorized reviewer action. Missing sections remain unresolved; no lesson was created."
+            },
+            "review_questions": [
+                "Does the curriculum or another authoritative assessment source require the proposed context/date/learner-explanation evidence?",
+                "Is the answer stronger than alternatives based on the exact planning objective?",
+                "Does the existing section’s content match the new question without creating an unapproved link?"
+            ],
+            "reviewer_action": "Inspect the cited passages, record item-level source evidence and currentness, resolve taxonomy only against active scoped taxonomy, decide whether the exact study section is appropriate, then make an independent academic decision. Do not treat this dossier as approval.",
+            "required_independent_review": {
+                "SOURCE_EXPERT_REVIEW": "PENDING",
+                "ACADEMIC_APPROVAL": "PENDING"
+            }
+        },
+        {
+            "proposal_id": "batch695-9204",
+            "question_id": "9204",
+            "question_version": "cfa76113ac40f76c28c2484d5cb4881849f04d6aa0d693abbb50e9215f5f0863",
+            "version_basis": "B714 AcademicReviewWorkflowService::version() payload for the original B695 proposal; any later revision makes this package version stale.",
+            "review_state": "PENDING_REVIEW",
+            "academic_approval": "NOT_APPROVED",
+            "production_status": "NONCANONICAL_NOT_IN_LEARNER_POOLS",
+            "question": {
+                "stem": "Children build a pretend bus station with blocks. Which teacher action best extends the play without taking it over?",
+                "choices": [
+                    "Ask where passengers will wait and offer a few picture route cards for children to use if they choose.",
+                    "Redesign the station while children watch so it matches the teacher’s model.",
+                    "Pause the play and require a worksheet about buses.",
+                    "Assign each child a fixed role before asking what they want to build."
+                ],
+                "proposed_answer": "Ask where passengers will wait and offer a few picture route cards for children to use if they choose.",
+                "explanation": "An open question and optional material extend thinking while preserving child choice and play direction.",
+                "difficulty": "easy"
+            },
+            "specific_claim_to_review": "Extend child-initiated play with timely prompts and materials while preserving agency.",
+            "proposed_source_locator": "DepEd KCG pp. 5, 13, 30; PRC Annex A.",
+            "sources": [
+                {
+                    "source_id": "prc-resolution-20-2025-annex-a",
+                    "title": "PRC Board Resolution No. 20, s. 2025, Annex A: LEPT alignment and specialization syllabi",
+                    "authority": "Professional Regulatory Board for Professional Teachers / Professional Regulation Commission",
+                    "url": "https://www.prc.gov.ph/sites/default/files/2025-20%20Annex%20teachers.pdf",
+                    "source_role": "SCOPE_SOURCE",
+                    "source_type": "OFFICIAL_EXAM_SPEC",
+                    "publication_date": "2025-07-03",
+                    "version": "Resolution No. 20 s. 2025 Annex A",
+                    "registry_snapshot_match": true,
+                    "b695_evidence_status": "AUTHOR_REPORTED_VERIFIED_REFERENCE",
+                    "b695_limitations": [
+                        "Official scope source; cited scope and competency claims still require independent item-level review."
+                    ],
+                    "url_reachable": true,
+                    "source_identity_confirmed": false,
+                    "content_examined": false,
+                    "source_examination": {
+                        "reachability": "HTTP_200_PDF_BOUNDED_DOWNLOAD_LIMIT",
+                        "identity_confirmed_this_pass": false,
+                        "content_examined_this_pass": false,
+                        "retrieval_date": "2026-10-26",
+                        "inspection_locator": "Official PRC PDF URL returned application/pdf; full transfer exceeded the 18,000,000-byte limit. B695 records author-reported text extraction at the relevant annexes.",
+                        "content_digest_sha256": null,
+                        "retention": "No partial PDF retained; content was not inspected in this pass.",
+                        "content_summary": "No content claim is made from the title, URL, or B695 author note. The assigned reviewer must inspect the applicable Annex A/B/C/D pages.",
+                        "scope_limit": "Source identity/contents require independent reviewer confirmation; no claim about answer correctness follows from the exam-scope citation."
+                    },
+                    "claim_support_candidate": {
+                        "status": "EXAM_SCOPE_ONLY",
+                        "note": "This source does not independently establish the proposed answer; inspect only for its assigned role."
+                    },
+                    "expert_source_review": "PENDING_QUALIFIED_REVIEWER"
+                },
+                {
+                    "source_id": "deped-kindergarten-curriculum-guide-2023",
+                    "title": "MATATAG Kindergarten Curriculum Guide",
+                    "authority": "Department of Education, Philippines",
+                    "url": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-Kindergarten-CG.pdf",
+                    "source_role": "CURRICULUM_SOURCE",
+                    "source_type": "OFFICIAL_GUIDANCE",
+                    "publication_date": "2023-01-01",
+                    "version": "MATATAG Kindergarten Curriculum Guide",
+                    "registry_snapshot_match": true,
+                    "b695_evidence_status": "AUTHOR_REPORTED_VERIFIED_REFERENCE",
+                    "b695_limitations": [
+                        "Limited to the stated Kindergarten curriculum pages; not a complete all-grade syllabus."
+                    ],
+                    "url_reachable": true,
+                    "source_identity_confirmed": true,
+                    "content_examined": true,
+                    "source_examination": {
+                        "reachability": "REACHABLE_OFFICIAL_PDF_TEXT_FETCHED",
+                        "identity_confirmed_this_pass": true,
+                        "content_examined_this_pass": true,
+                        "retrieval_date": "2026-10-26",
+                        "inspection_locator": "MATATAG Kindergarten Curriculum Guide, including the curriculum framework and assessment section (B695 proposed locators pp. 5, 13, 16, 30).",
+                        "content_digest_sha256": null,
+                        "retention": "Official PDF text was inspected through bounded page text extraction; no binary retained.",
+                        "content_summary": "The guide identifies play-based, learner-centered learning and describes regular, continuous observation for monitoring children’s growth and development.",
+                        "scope_limit": "Kindergarten scope only. The inspected passages do not by themselves verify the proposed portfolio documentation fields or every home-language claim."
+                    },
+                    "claim_support_candidate": {
+                        "status": "PLAY_BASED_CURRICULUM_CANDIDATE",
+                        "note": "The guide describes learner-centered play-based learning; verify that the optional prompt/material preserves the child’s initiative in this particular vignette."
+                    },
+                    "expert_source_review": "PENDING_QUALIFIED_REVIEWER"
+                }
+            ],
+            "source_review_status": "PENDING_QUALIFIED_SOURCE_REVIEW",
+            "taxonomy_resolution": {
+                "proposed_domain": {
+                    "id": "early-childhood-development",
+                    "name": "Early Childhood Development"
+                },
+                "proposed_topic": {
+                    "id": "ece-development-and-learning",
+                    "name": "Development and Learning",
+                    "registered": true
+                },
+                "topic_candidates": [
+                    {
+                        "id": "ece-development-and-learning",
+                        "name": "Development and Learning",
+                        "similarity": 1,
+                        "status": "EXACT_REGISTERED_TOPIC_REQUIRES_REVIEWER_MAPPING"
+                    }
+                ],
+                "proposed_concept": {
+                    "id": "ece-guided-play-scaffolding",
+                    "name": "Guided Play Scaffolding",
+                    "registered": false
+                },
+                "concept_candidates": [],
+                "status": "AWAITING_REVIEW_OR_TAXONOMY_GOVERNANCE",
+                "activation": "NONE; recommendations are read-only and require an authorized reviewer decision or governance action."
+            },
+            "study_resolution": {
+                "status": "EXACT_SECTION_MATCH",
+                "material_id": "let-early-childhood-learning-and-inclusion",
+                "material_title": "Early Childhood Learning, Assessment, and Inclusive Practice",
+                "section_id": "2-play-and-guided-learning",
+                "section_heading": "2. Play and guided learning",
+                "section_body": "Play can support language, symbolic thought, movement, cooperation, and self-regulation when materials and adult prompts fit the learning aim. Guided play preserves meaningful child choice while a teacher notices, models language, asks an open question, or changes a material to extend thinking. A worksheet or adult-directed task may be appropriate for some purposes, but it is not a universal substitute for active exploration.",
+                "current_material_exists": true,
+                "current_section_exists": true,
+                "current_question_link_exists": false,
+                "relationship_activation": "NONE; an exact section still requires an authorized reviewer action. Missing sections remain unresolved; no lesson was created."
+            },
+            "review_questions": [
+                "Is the prompt genuinely optional and responsive rather than directing the play?",
+                "Is there authoritative support for the proposed scaffolding decision?",
+                "Should the existing exact study section be linked after content and board/subject fit review?"
+            ],
+            "reviewer_action": "Inspect the cited passages, record item-level source evidence and currentness, resolve taxonomy only against active scoped taxonomy, decide whether the exact study section is appropriate, then make an independent academic decision. Do not treat this dossier as approval.",
+            "required_independent_review": {
+                "SOURCE_EXPERT_REVIEW": "PENDING",
+                "ACADEMIC_APPROVAL": "PENDING"
+            }
+        },
+        {
+            "proposal_id": "batch695-9210",
+            "question_id": "9210",
+            "question_version": "2daa77bd6430c6fb7cb2839293d78b742d2b6f62205b93837b02c038152edfba",
+            "version_basis": "B714 AcademicReviewWorkflowService::version() payload for the original B695 proposal; any later revision makes this package version stale.",
+            "review_state": "PENDING_REVIEW",
+            "academic_approval": "NOT_APPROVED",
+            "production_status": "NONCANONICAL_NOT_IN_LEARNER_POOLS",
+            "question": {
+                "stem": "A caregiver shares that a child enjoys counting market items in a home language. How can the teacher use this knowledge?",
+                "choices": [
+                    "Ask the caregiver to stop the home counting routine during the school year.",
+                    "Use the information to assign the child a lower number task.",
+                    "Invite the child to count familiar objects in that language and connect the quantity to classroom number words.",
+                    "Assume the child can count every classroom object in the same way without checking."
+                ],
+                "proposed_answer": "Invite the child to count familiar objects in that language and connect the quantity to classroom number words.",
+                "explanation": "Family knowledge offers a bridge to the concept; the teacher still observes how the child uses it in the classroom.",
+                "difficulty": "easy"
+            },
+            "specific_claim_to_review": "Use family knowledge and familiar language as resources for participation and continuity.",
+            "proposed_source_locator": "DepEd KCG pp. 5, 7, 16; PRC Annex A.",
+            "sources": [
+                {
+                    "source_id": "prc-resolution-20-2025-annex-a",
+                    "title": "PRC Board Resolution No. 20, s. 2025, Annex A: LEPT alignment and specialization syllabi",
+                    "authority": "Professional Regulatory Board for Professional Teachers / Professional Regulation Commission",
+                    "url": "https://www.prc.gov.ph/sites/default/files/2025-20%20Annex%20teachers.pdf",
+                    "source_role": "SCOPE_SOURCE",
+                    "source_type": "OFFICIAL_EXAM_SPEC",
+                    "publication_date": "2025-07-03",
+                    "version": "Resolution No. 20 s. 2025 Annex A",
+                    "registry_snapshot_match": true,
+                    "b695_evidence_status": "AUTHOR_REPORTED_VERIFIED_REFERENCE",
+                    "b695_limitations": [
+                        "Official scope source; cited scope and competency claims still require independent item-level review."
+                    ],
+                    "url_reachable": true,
+                    "source_identity_confirmed": false,
+                    "content_examined": false,
+                    "source_examination": {
+                        "reachability": "HTTP_200_PDF_BOUNDED_DOWNLOAD_LIMIT",
+                        "identity_confirmed_this_pass": false,
+                        "content_examined_this_pass": false,
+                        "retrieval_date": "2026-10-26",
+                        "inspection_locator": "Official PRC PDF URL returned application/pdf; full transfer exceeded the 18,000,000-byte limit. B695 records author-reported text extraction at the relevant annexes.",
+                        "content_digest_sha256": null,
+                        "retention": "No partial PDF retained; content was not inspected in this pass.",
+                        "content_summary": "No content claim is made from the title, URL, or B695 author note. The assigned reviewer must inspect the applicable Annex A/B/C/D pages.",
+                        "scope_limit": "Source identity/contents require independent reviewer confirmation; no claim about answer correctness follows from the exam-scope citation."
+                    },
+                    "claim_support_candidate": {
+                        "status": "EXAM_SCOPE_ONLY",
+                        "note": "This source does not independently establish the proposed answer; inspect only for its assigned role."
+                    },
+                    "expert_source_review": "PENDING_QUALIFIED_REVIEWER"
+                },
+                {
+                    "source_id": "deped-kindergarten-curriculum-guide-2023",
+                    "title": "MATATAG Kindergarten Curriculum Guide",
+                    "authority": "Department of Education, Philippines",
+                    "url": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-Kindergarten-CG.pdf",
+                    "source_role": "CURRICULUM_SOURCE",
+                    "source_type": "OFFICIAL_GUIDANCE",
+                    "publication_date": "2023-01-01",
+                    "version": "MATATAG Kindergarten Curriculum Guide",
+                    "registry_snapshot_match": true,
+                    "b695_evidence_status": "AUTHOR_REPORTED_VERIFIED_REFERENCE",
+                    "b695_limitations": [
+                        "Limited to the stated Kindergarten curriculum pages; not a complete all-grade syllabus."
+                    ],
+                    "url_reachable": true,
+                    "source_identity_confirmed": true,
+                    "content_examined": true,
+                    "source_examination": {
+                        "reachability": "REACHABLE_OFFICIAL_PDF_TEXT_FETCHED",
+                        "identity_confirmed_this_pass": true,
+                        "content_examined_this_pass": true,
+                        "retrieval_date": "2026-10-26",
+                        "inspection_locator": "MATATAG Kindergarten Curriculum Guide, including the curriculum framework and assessment section (B695 proposed locators pp. 5, 13, 16, 30).",
+                        "content_digest_sha256": null,
+                        "retention": "Official PDF text was inspected through bounded page text extraction; no binary retained.",
+                        "content_summary": "The guide identifies play-based, learner-centered learning and describes regular, continuous observation for monitoring children’s growth and development.",
+                        "scope_limit": "Kindergarten scope only. The inspected passages do not by themselves verify the proposed portfolio documentation fields or every home-language claim."
+                    },
+                    "claim_support_candidate": {
+                        "status": "LANGUAGE_SUPPORT_NOT_LOCATED",
+                        "note": "The official guide was inspected, but the proposed specific home-language partnership claim was not located in the checked passages; the source title alone is not support."
+                    },
+                    "expert_source_review": "PENDING_QUALIFIED_REVIEWER"
+                }
+            ],
+            "source_review_status": "PENDING_QUALIFIED_SOURCE_REVIEW",
+            "taxonomy_resolution": {
+                "proposed_domain": {
+                    "id": "family-engagement",
+                    "name": "Family Engagement"
+                },
+                "proposed_topic": {
+                    "id": "ece-family-culture-language",
+                    "name": "Family, Culture, and Language",
+                    "registered": false
+                },
+                "topic_candidates": [],
+                "proposed_concept": {
+                    "id": "ece-home-language-partnership",
+                    "name": "Home-Language Partnership",
+                    "registered": false
+                },
+                "concept_candidates": [],
+                "status": "AWAITING_REVIEW_OR_TAXONOMY_GOVERNANCE",
+                "activation": "NONE; recommendations are read-only and require an authorized reviewer decision or governance action."
+            },
+            "study_resolution": {
+                "status": "EXACT_SECTION_MATCH",
+                "material_id": "let-early-childhood-learning-and-inclusion",
+                "material_title": "Early Childhood Learning, Assessment, and Inclusive Practice",
+                "section_id": "4-family-partnership-and-inclusion",
+                "section_heading": "4. Family partnership and inclusion",
+                "section_body": "Families contribute knowledge about a child’s interests, routines, language, strengths, and support needs. Partnership is a two-way exchange, not a request that a family simply endorse a teacher’s conclusion. Identify access barriers in the environment and adjust materials, communication, timing, or response options. Coordinate specialist support through the applicable school process while maintaining the child’s participation and dignity.",
+                "current_material_exists": true,
+                "current_section_exists": true,
+                "current_question_link_exists": false,
+                "relationship_activation": "NONE; an exact section still requires an authorized reviewer action. Missing sections remain unresolved; no lesson was created."
+            },
+            "review_questions": [
+                "Which current DepEd policy/curriculum passage supports using this home-language bridge?",
+                "Does the activity preserve the child’s language choice and avoid making a family-reported example a diagnostic claim?",
+                "Is the source locator sufficiently specific?"
+            ],
+            "reviewer_action": "Inspect the cited passages, record item-level source evidence and currentness, resolve taxonomy only against active scoped taxonomy, decide whether the exact study section is appropriate, then make an independent academic decision. Do not treat this dossier as approval.",
+            "required_independent_review": {
+                "SOURCE_EXPERT_REVIEW": "PENDING",
+                "ACADEMIC_APPROVAL": "PENDING"
+            }
+        },
+        {
+            "proposal_id": "batch695-9228",
+            "question_id": "9228",
+            "question_version": "07cc00629ad57ff2df1d92560bc0870fe2eb02e3c7a5ee8ef7dfbb9c8625dc95",
+            "version_basis": "B714 AcademicReviewWorkflowService::version() payload for the original B695 proposal; any later revision makes this package version stale.",
+            "review_state": "PENDING_REVIEW",
+            "academic_approval": "NOT_APPROVED",
+            "production_status": "NONCANONICAL_NOT_IN_LEARNER_POOLS",
+            "question": {
+                "stem": "A child reports being repeatedly mocked and excluded by classmates because of a disability. Which school response best fits the documented policy scope?",
+                "choices": [
+                    "Recognize bullying and discrimination as child-protection concerns and use the school’s applicable protection process.",
+                    "Treat the pattern only as a disagreement about game rules.",
+                    "Wait until the child stops attending the activity before responding.",
+                    "Ask classmates to decide whether the behavior is serious enough."
+                ],
+                "proposed_answer": "Recognize bullying and discrimination as child-protection concerns and use the school’s applicable protection process.",
+                "explanation": "DepEd Order 40 identifies bullying and discrimination among the harms addressed by the Child Protection Policy.",
+                "difficulty": "easy"
+            },
+            "specific_claim_to_review": "Respond to a child-protection concern calmly, document observable facts, and use school procedures.",
+            "proposed_source_locator": "DO 40 s. 2012; PRC Annex A.",
+            "sources": [
+                {
+                    "source_id": "prc-resolution-20-2025-annex-a",
+                    "title": "PRC Board Resolution No. 20, s. 2025, Annex A: LEPT alignment and specialization syllabi",
+                    "authority": "Professional Regulatory Board for Professional Teachers / Professional Regulation Commission",
+                    "url": "https://www.prc.gov.ph/sites/default/files/2025-20%20Annex%20teachers.pdf",
+                    "source_role": "SCOPE_SOURCE",
+                    "source_type": "OFFICIAL_EXAM_SPEC",
+                    "publication_date": "2025-07-03",
+                    "version": "Resolution No. 20 s. 2025 Annex A",
+                    "registry_snapshot_match": true,
+                    "b695_evidence_status": "AUTHOR_REPORTED_VERIFIED_REFERENCE",
+                    "b695_limitations": [
+                        "Official scope source; cited scope and competency claims still require independent item-level review."
+                    ],
+                    "url_reachable": true,
+                    "source_identity_confirmed": false,
+                    "content_examined": false,
+                    "source_examination": {
+                        "reachability": "HTTP_200_PDF_BOUNDED_DOWNLOAD_LIMIT",
+                        "identity_confirmed_this_pass": false,
+                        "content_examined_this_pass": false,
+                        "retrieval_date": "2026-10-26",
+                        "inspection_locator": "Official PRC PDF URL returned application/pdf; full transfer exceeded the 18,000,000-byte limit. B695 records author-reported text extraction at the relevant annexes.",
+                        "content_digest_sha256": null,
+                        "retention": "No partial PDF retained; content was not inspected in this pass.",
+                        "content_summary": "No content claim is made from the title, URL, or B695 author note. The assigned reviewer must inspect the applicable Annex A/B/C/D pages.",
+                        "scope_limit": "Source identity/contents require independent reviewer confirmation; no claim about answer correctness follows from the exam-scope citation."
+                    },
+                    "claim_support_candidate": {
+                        "status": "EXAM_SCOPE_ONLY",
+                        "note": "This source does not independently establish the proposed answer; inspect only for its assigned role."
+                    },
+                    "expert_source_review": "PENDING_QUALIFIED_REVIEWER"
+                },
+                {
+                    "source_id": "deped-do-40-2012-child-protection",
+                    "title": "DepEd Order No. 40, s. 2012: DepEd Child Protection Policy",
+                    "authority": "Department of Education, Philippines",
+                    "url": "https://www.deped.gov.ph/2012/05/14/do-40-s-2012-deped-child-protection-policy/",
+                    "source_role": "CHILD_PROTECTION_SOURCE",
+                    "source_type": "OFFICIAL_GUIDANCE",
+                    "publication_date": "2012-05-14",
+                    "version": "DO 40 s. 2012",
+                    "registry_snapshot_match": true,
+                    "b695_evidence_status": "PARTIALLY_VERIFIED_SCOPE_LIMITED",
+                    "b695_limitations": [
+                        "The official policy page, scope, and current policy index were inspected; the 26-page annex is scanned and did not yield text. No local reporting deadline or later procedure is verified."
+                    ],
+                    "url_reachable": true,
+                    "source_identity_confirmed": true,
+                    "content_examined": true,
+                    "source_examination": {
+                        "reachability": "HTTP_200_OFFICIAL_DEPED_POLICY_PAGE",
+                        "identity_confirmed_this_pass": true,
+                        "content_examined_this_pass": true,
+                        "retrieval_date": "2026-10-26",
+                        "inspection_locator": "DepEd DO 40, s. 2012 official order page; order title names abuse, violence, exploitation, discrimination, bullying and other forms of abuse.",
+                        "content_digest_sha256": "68cb78e0d09f6dc6a81b25eaca089068ee57ad92d3c95ff51ae38bd5b0f61b4f",
+                        "retention": "Bounded 263,125-byte HTML response hashed and discarded after text inspection; scanned annex not retained or text-extracted.",
+                        "content_summary": "The official order page identifies the policy and expressly names bullying and discrimination in the covered school harms.",
+                        "scope_limit": "The scanned policy annex and current local reporting/referral procedure were not examined; no deadline or specific response protocol is inferred."
+                    },
+                    "claim_support_candidate": {
+                        "status": "POLICY_IDENTITY_AND_SCOPE_ONLY",
+                        "note": "The official order page names bullying and discrimination within the policy scope; the scanned annex and operational procedure were not inspected."
+                    },
+                    "expert_source_review": "PENDING_QUALIFIED_REVIEWER"
+                }
+            ],
+            "source_review_status": "PENDING_QUALIFIED_SOURCE_REVIEW",
+            "taxonomy_resolution": {
+                "proposed_domain": {
+                    "id": "health-safety-and-care",
+                    "name": "Health, Safety and Care"
+                },
+                "proposed_topic": {
+                    "id": "ece-socioemotional-and-safeguarding",
+                    "name": "Social-Emotional Learning and Safeguarding",
+                    "registered": false
+                },
+                "topic_candidates": [],
+                "proposed_concept": {
+                    "id": "ece-safeguarding-response-and-boundaries",
+                    "name": "Safeguarding Response and Boundaries",
+                    "registered": false
+                },
+                "concept_candidates": [],
+                "status": "AWAITING_REVIEW_OR_TAXONOMY_GOVERNANCE",
+                "activation": "NONE; recommendations are read-only and require an authorized reviewer decision or governance action."
+            },
+            "study_resolution": {
+                "status": "MISSING_SECTION",
+                "material_id": "let-early-childhood-learning-and-inclusion",
+                "material_title": "Early Childhood Learning, Assessment, and Inclusive Practice",
+                "section_id": "9-child-protection-and-safeguarding",
+                "section_heading": "9. Child protection and safeguarding",
+                "section_body": null,
+                "current_material_exists": true,
+                "current_section_exists": false,
+                "current_question_link_exists": false,
+                "relationship_activation": "NONE; an exact section still requires an authorized reviewer action. Missing sections remain unresolved; no lesson was created."
+            },
+            "review_questions": [
+                "Which current Child Protection Committee/school process applies, and has the policy been amended or supplemented?",
+                "Does “recognize as a concern and use applicable process” avoid promising a specific legal finding?",
+                "What exact annex provision supports classification of this scenario?"
+            ],
+            "reviewer_action": "Inspect the cited passages, record item-level source evidence and currentness, resolve taxonomy only against active scoped taxonomy, decide whether the exact study section is appropriate, then make an independent academic decision. Do not treat this dossier as approval.",
+            "required_independent_review": {
+                "SOURCE_EXPERT_REVIEW": "PENDING",
+                "ACADEMIC_APPROVAL": "PENDING"
+            }
+        },
+        {
+            "proposal_id": "batch695-9238",
+            "question_id": "9238",
+            "question_version": "f891cedaaddb52c3aad57616e50d3142be3861c1ed6dd7ef5f9593a8942734a5",
+            "version_basis": "B714 AcademicReviewWorkflowService::version() payload for the original B695 proposal; any later revision makes this package version stale.",
+            "review_state": "PENDING_REVIEW",
+            "academic_approval": "NOT_APPROVED",
+            "production_status": "NONCANONICAL_NOT_IN_LEARNER_POOLS",
+            "question": {
+                "stem": "A learner can move toward a target but repeatedly steps outside the marked lane. Which observation lens best identifies the issue?",
+                "choices": [
+                    "Measure the learner’s heart rate after the activity.",
+                    "Assess the learner’s ability to name the target color.",
+                    "Examine the learner’s pathway and spatial relationship to the lane.",
+                    "Compare the learner’s uniform with classmates’ uniforms."
+                ],
+                "proposed_answer": "Examine the learner’s pathway and spatial relationship to the lane.",
+                "explanation": "Pathway and space are movement concepts that directly relate to staying within the lane.",
+                "difficulty": "easy"
+            },
+            "specific_claim_to_review": "Observe movement through body, effort, space, and relationships and select a useful instructional focus.",
+            "proposed_source_locator": "PRC Annex D; MATATAG PE & Health pp. 5–8, 20–21.",
+            "sources": [
+                {
+                    "source_id": "prc-resolution-20-2025-annex-a",
+                    "title": "PRC Board Resolution No. 20, s. 2025, Annex A: LEPT alignment and specialization syllabi",
+                    "authority": "Professional Regulatory Board for Professional Teachers / Professional Regulation Commission",
+                    "url": "https://www.prc.gov.ph/sites/default/files/2025-20%20Annex%20teachers.pdf",
+                    "source_role": "SCOPE_SOURCE",
+                    "source_type": "OFFICIAL_EXAM_SPEC",
+                    "publication_date": "2025-07-03",
+                    "version": "Resolution No. 20 s. 2025 Annex A",
+                    "registry_snapshot_match": true,
+                    "b695_evidence_status": "AUTHOR_REPORTED_VERIFIED_REFERENCE",
+                    "b695_limitations": [
+                        "Official scope source; cited scope and competency claims still require independent item-level review."
+                    ],
+                    "url_reachable": true,
+                    "source_identity_confirmed": false,
+                    "content_examined": false,
+                    "source_examination": {
+                        "reachability": "HTTP_200_PDF_BOUNDED_DOWNLOAD_LIMIT",
+                        "identity_confirmed_this_pass": false,
+                        "content_examined_this_pass": false,
+                        "retrieval_date": "2026-10-26",
+                        "inspection_locator": "Official PRC PDF URL returned application/pdf; full transfer exceeded the 18,000,000-byte limit. B695 records author-reported text extraction at the relevant annexes.",
+                        "content_digest_sha256": null,
+                        "retention": "No partial PDF retained; content was not inspected in this pass.",
+                        "content_summary": "No content claim is made from the title, URL, or B695 author note. The assigned reviewer must inspect the applicable Annex A/B/C/D pages.",
+                        "scope_limit": "Source identity/contents require independent reviewer confirmation; no claim about answer correctness follows from the exam-scope citation."
+                    },
+                    "claim_support_candidate": {
+                        "status": "EXAM_SCOPE_ONLY",
+                        "note": "This source does not independently establish the proposed answer; inspect only for its assigned role."
+                    },
+                    "expert_source_review": "PENDING_QUALIFIED_REVIEWER"
+                },
+                {
+                    "source_id": "deped-matatag-pe-health-2023-g4-g7",
+                    "title": "MATATAG Physical Education and Health Curriculum Guide, Grades 4 and 7",
+                    "authority": "Department of Education, Philippines",
+                    "url": "https://www.deped.gov.ph/wp-content/uploads/PE-and-HEALTH_CG-2023_Grade-4-and-7.pdf",
+                    "source_role": "CURRICULUM_SOURCE",
+                    "source_type": "OFFICIAL_GUIDANCE",
+                    "publication_date": "2023",
+                    "version": "MATATAG Physical Education and Health Curriculum Guide, Grades 4 and 7",
+                    "registry_snapshot_match": true,
+                    "b695_evidence_status": "AUTHOR_REPORTED_VERIFIED_REFERENCE",
+                    "b695_limitations": [
+                        "Official Grades 4 and 7 guide only; not medical guidance or a complete all-grade syllabus."
+                    ],
+                    "url_reachable": true,
+                    "source_identity_confirmed": true,
+                    "content_examined": true,
+                    "source_examination": {
+                        "reachability": "HTTP_200_OFFICIAL_DEPED_PDF",
+                        "identity_confirmed_this_pass": true,
+                        "content_examined_this_pass": true,
+                        "retrieval_date": "2026-10-26",
+                        "inspection_locator": "MATATAG Physical Education and Health Curriculum Guide, Grades 4 and 7, PDF pp. 5–8, 15–16, 20–23.",
+                        "content_digest_sha256": "5637b2f067a6bac007e214aca1343c37df80d7c13345cfdd4b308116ca453dc3",
+                        "retention": "Bounded 878,014-byte PDF downloaded, signature-checked, page text extracted, hashed, then discarded.",
+                        "content_summary": "The guide lists body, space, effort and relationships as movement concepts, and describes fitness/movement competencies and assessment. The checked Grade 4 pages emphasize agility, balance, coordination and speed; “muscular endurance” was not located in the checked passages.",
+                        "scope_limit": "Grades 4 and 7 only and not medical guidance. Do not infer an age-specific fitness test or safety protocol from these pages."
+                    },
+                    "claim_support_candidate": {
+                        "status": "DIRECT_MOVEMENT_CONCEPT_CANDIDATE",
+                        "note": "The guide defines space as where the body moves and lists body/space/effort/relationships; examine whether stepping outside a lane is best diagnosed as pathway/space."
+                    },
+                    "expert_source_review": "PENDING_QUALIFIED_REVIEWER"
+                }
+            ],
+            "source_review_status": "PENDING_QUALIFIED_SOURCE_REVIEW",
+            "taxonomy_resolution": {
+                "proposed_domain": {
+                    "id": "pe-movement-and-fitness",
+                    "name": "Movement and Fitness"
+                },
+                "proposed_topic": {
+                    "id": "pe-movement-and-learning",
+                    "name": "Movement Analysis and Motor Learning",
+                    "registered": false
+                },
+                "topic_candidates": [],
+                "proposed_concept": {
+                    "id": "pe-fundamental-movement-analysis",
+                    "name": "Fundamental Movement Analysis",
+                    "registered": false
+                },
+                "concept_candidates": [],
+                "status": "AWAITING_REVIEW_OR_TAXONOMY_GOVERNANCE",
+                "activation": "NONE; recommendations are read-only and require an authorized reviewer decision or governance action."
+            },
+            "study_resolution": {
+                "status": "MISSING_SECTION",
+                "material_id": "let-physical-education-movement-and-safety",
+                "material_title": "Physical Education: Movement, Fitness, Safety, and Assessment",
+                "section_id": "5-movement-analysis-and-motor-learning",
+                "section_heading": "5. Movement analysis and motor learning",
+                "section_body": null,
+                "current_material_exists": true,
+                "current_section_exists": false,
+                "current_question_link_exists": false,
+                "relationship_activation": "NONE; an exact section still requires an authorized reviewer action. Missing sections remain unresolved; no lesson was created."
+            },
+            "review_questions": [
+                "Is the lane task about space/pathway rather than balance, control or task comprehension?",
+                "Does the answer use the curriculum’s actual movement-concept terms?",
+                "Does the cited Grade 4/7 guide cover the intended learner level?"
+            ],
+            "reviewer_action": "Inspect the cited passages, record item-level source evidence and currentness, resolve taxonomy only against active scoped taxonomy, decide whether the exact study section is appropriate, then make an independent academic decision. Do not treat this dossier as approval.",
+            "required_independent_review": {
+                "SOURCE_EXPERT_REVIEW": "PENDING",
+                "ACADEMIC_APPROVAL": "PENDING"
+            }
+        },
+        {
+            "proposal_id": "batch695-9250",
+            "question_id": "9250",
+            "question_version": "c13dedd0404019bc4920361f24547698414402d8a81f8fbcce8052d1ad0865d7",
+            "version_basis": "B714 AcademicReviewWorkflowService::version() payload for the original B695 proposal; any later revision makes this package version stale.",
+            "review_state": "PENDING_REVIEW",
+            "academic_approval": "NOT_APPROVED",
+            "production_status": "NONCANONICAL_NOT_IN_LEARNER_POOLS",
+            "question": {
+                "stem": "A lesson objective concerns muscular endurance. Which activity evidence best matches that construct?",
+                "choices": [
+                    "Measure a single short sprint time.",
+                    "Assess how far a learner can reach while seated.",
+                    "Observe repeated controlled muscle actions over the stated task conditions.",
+                    "Record how accurately the learner names a sports rule."
+                ],
+                "proposed_answer": "Observe repeated controlled muscle actions over the stated task conditions.",
+                "explanation": "Repeated controlled muscular work is more directly related to endurance than sprint speed or flexibility.",
+                "difficulty": "easy"
+            },
+            "specific_claim_to_review": "Match a fitness measure and learning response to the component it validly represents.",
+            "proposed_source_locator": "PRC Annex D; MATATAG PE & Health pp. 5–8, 15.",
+            "sources": [
+                {
+                    "source_id": "prc-resolution-20-2025-annex-a",
+                    "title": "PRC Board Resolution No. 20, s. 2025, Annex A: LEPT alignment and specialization syllabi",
+                    "authority": "Professional Regulatory Board for Professional Teachers / Professional Regulation Commission",
+                    "url": "https://www.prc.gov.ph/sites/default/files/2025-20%20Annex%20teachers.pdf",
+                    "source_role": "SCOPE_SOURCE",
+                    "source_type": "OFFICIAL_EXAM_SPEC",
+                    "publication_date": "2025-07-03",
+                    "version": "Resolution No. 20 s. 2025 Annex A",
+                    "registry_snapshot_match": true,
+                    "b695_evidence_status": "AUTHOR_REPORTED_VERIFIED_REFERENCE",
+                    "b695_limitations": [
+                        "Official scope source; cited scope and competency claims still require independent item-level review."
+                    ],
+                    "url_reachable": true,
+                    "source_identity_confirmed": false,
+                    "content_examined": false,
+                    "source_examination": {
+                        "reachability": "HTTP_200_PDF_BOUNDED_DOWNLOAD_LIMIT",
+                        "identity_confirmed_this_pass": false,
+                        "content_examined_this_pass": false,
+                        "retrieval_date": "2026-10-26",
+                        "inspection_locator": "Official PRC PDF URL returned application/pdf; full transfer exceeded the 18,000,000-byte limit. B695 records author-reported text extraction at the relevant annexes.",
+                        "content_digest_sha256": null,
+                        "retention": "No partial PDF retained; content was not inspected in this pass.",
+                        "content_summary": "No content claim is made from the title, URL, or B695 author note. The assigned reviewer must inspect the applicable Annex A/B/C/D pages.",
+                        "scope_limit": "Source identity/contents require independent reviewer confirmation; no claim about answer correctness follows from the exam-scope citation."
+                    },
+                    "claim_support_candidate": {
+                        "status": "EXAM_SCOPE_ONLY",
+                        "note": "This source does not independently establish the proposed answer; inspect only for its assigned role."
+                    },
+                    "expert_source_review": "PENDING_QUALIFIED_REVIEWER"
+                },
+                {
+                    "source_id": "deped-matatag-pe-health-2023-g4-g7",
+                    "title": "MATATAG Physical Education and Health Curriculum Guide, Grades 4 and 7",
+                    "authority": "Department of Education, Philippines",
+                    "url": "https://www.deped.gov.ph/wp-content/uploads/PE-and-HEALTH_CG-2023_Grade-4-and-7.pdf",
+                    "source_role": "CURRICULUM_SOURCE",
+                    "source_type": "OFFICIAL_GUIDANCE",
+                    "publication_date": "2023",
+                    "version": "MATATAG Physical Education and Health Curriculum Guide, Grades 4 and 7",
+                    "registry_snapshot_match": true,
+                    "b695_evidence_status": "AUTHOR_REPORTED_VERIFIED_REFERENCE",
+                    "b695_limitations": [
+                        "Official Grades 4 and 7 guide only; not medical guidance or a complete all-grade syllabus."
+                    ],
+                    "url_reachable": true,
+                    "source_identity_confirmed": true,
+                    "content_examined": true,
+                    "source_examination": {
+                        "reachability": "HTTP_200_OFFICIAL_DEPED_PDF",
+                        "identity_confirmed_this_pass": true,
+                        "content_examined_this_pass": true,
+                        "retrieval_date": "2026-10-26",
+                        "inspection_locator": "MATATAG Physical Education and Health Curriculum Guide, Grades 4 and 7, PDF pp. 5–8, 15–16, 20–23.",
+                        "content_digest_sha256": "5637b2f067a6bac007e214aca1343c37df80d7c13345cfdd4b308116ca453dc3",
+                        "retention": "Bounded 878,014-byte PDF downloaded, signature-checked, page text extracted, hashed, then discarded.",
+                        "content_summary": "The guide lists body, space, effort and relationships as movement concepts, and describes fitness/movement competencies and assessment. The checked Grade 4 pages emphasize agility, balance, coordination and speed; “muscular endurance” was not located in the checked passages.",
+                        "scope_limit": "Grades 4 and 7 only and not medical guidance. Do not infer an age-specific fitness test or safety protocol from these pages."
+                    },
+                    "claim_support_candidate": {
+                        "status": "SPECIFIC_CONSTRUCT_NOT_LOCATED",
+                        "note": "The checked curriculum pages list fitness concepts such as agility, balance, coordination and speed; “muscular endurance” was not located in those inspected passages."
+                    },
+                    "expert_source_review": "PENDING_QUALIFIED_REVIEWER"
+                }
+            ],
+            "source_review_status": "PENDING_QUALIFIED_SOURCE_REVIEW",
+            "taxonomy_resolution": {
+                "proposed_domain": {
+                    "id": "pe-movement-and-fitness",
+                    "name": "Movement and Fitness"
+                },
+                "proposed_topic": {
+                    "id": "pe-fitness-assessment-and-progression",
+                    "name": "Fitness Assessment and Safe Progression",
+                    "registered": false
+                },
+                "topic_candidates": [
+                    {
+                        "id": "pe-fitness-and-wellness",
+                        "name": "Fitness programming and progression",
+                        "similarity": 0.4,
+                        "status": "REVIEW_CANDIDATE_ONLY"
+                    }
+                ],
+                "proposed_concept": {
+                    "id": "pe-fitness-component-interpretation",
+                    "name": "Fitness Component Interpretation",
+                    "registered": false
+                },
+                "concept_candidates": [],
+                "status": "AWAITING_REVIEW_OR_TAXONOMY_GOVERNANCE",
+                "activation": "NONE; recommendations are read-only and require an authorized reviewer decision or governance action."
+            },
+            "study_resolution": {
+                "status": "MISSING_SECTION",
+                "material_id": "let-physical-education-movement-and-safety",
+                "material_title": "Physical Education: Movement, Fitness, Safety, and Assessment",
+                "section_id": "6-fitness-progression-and-assessment",
+                "section_heading": "6. Fitness, progression, and assessment",
+                "section_body": null,
+                "current_material_exists": true,
+                "current_section_exists": false,
+                "current_question_link_exists": false,
+                "relationship_activation": "NONE; an exact section still requires an authorized reviewer action. Missing sections remain unresolved; no lesson was created."
+            },
+            "review_questions": [
+                "Which current grade-level standard defines muscular endurance for this task?",
+                "Is repeated controlled action a valid measure under the stated conditions, and are competing fitness components excluded?",
+                "Does this source edition actually cover the intended grade and construct?"
+            ],
+            "reviewer_action": "Inspect the cited passages, record item-level source evidence and currentness, resolve taxonomy only against active scoped taxonomy, decide whether the exact study section is appropriate, then make an independent academic decision. Do not treat this dossier as approval.",
+            "required_independent_review": {
+                "SOURCE_EXPERT_REVIEW": "PENDING",
+                "ACADEMIC_APPROVAL": "PENDING"
+            }
+        },
+        {
+            "proposal_id": "batch695-9280",
+            "question_id": "9280",
+            "question_version": "b0ac2ff0e048ad850d9f3b82c8d5d5b58d92dfd33afbe208cae272c10606cef5",
+            "version_basis": "B714 AcademicReviewWorkflowService::version() payload for the original B695 proposal; any later revision makes this package version stale.",
+            "review_state": "PENDING_REVIEW",
+            "academic_approval": "NOT_APPROVED",
+            "production_status": "NONCANONICAL_NOT_IN_LEARNER_POOLS",
+            "question": {
+                "stem": "A target game requires a long throw, but several learners are not yet accurate at that distance. What adaptation best supports learning?",
+                "choices": [
+                    "Offer closer targets or lighter equipment while keeping the aiming decision.",
+                    "Remove aiming from the activity for those learners.",
+                    "Score only the strongest throw.",
+                    "Have the teacher throw for each learner."
+                ],
+                "proposed_answer": "Offer closer targets or lighter equipment while keeping the aiming decision.",
+                "explanation": "The adjustment changes access and difficulty while preserving the target skill.",
+                "difficulty": "easy"
+            },
+            "specific_claim_to_review": "Adapt space, equipment, rules, grouping, and response options for meaningful participation.",
+            "proposed_source_locator": "PRC Annex D; MATATAG PE & Health pp. 5–8, 15.",
+            "sources": [
+                {
+                    "source_id": "prc-resolution-20-2025-annex-a",
+                    "title": "PRC Board Resolution No. 20, s. 2025, Annex A: LEPT alignment and specialization syllabi",
+                    "authority": "Professional Regulatory Board for Professional Teachers / Professional Regulation Commission",
+                    "url": "https://www.prc.gov.ph/sites/default/files/2025-20%20Annex%20teachers.pdf",
+                    "source_role": "SCOPE_SOURCE",
+                    "source_type": "OFFICIAL_EXAM_SPEC",
+                    "publication_date": "2025-07-03",
+                    "version": "Resolution No. 20 s. 2025 Annex A",
+                    "registry_snapshot_match": true,
+                    "b695_evidence_status": "AUTHOR_REPORTED_VERIFIED_REFERENCE",
+                    "b695_limitations": [
+                        "Official scope source; cited scope and competency claims still require independent item-level review."
+                    ],
+                    "url_reachable": true,
+                    "source_identity_confirmed": false,
+                    "content_examined": false,
+                    "source_examination": {
+                        "reachability": "HTTP_200_PDF_BOUNDED_DOWNLOAD_LIMIT",
+                        "identity_confirmed_this_pass": false,
+                        "content_examined_this_pass": false,
+                        "retrieval_date": "2026-10-26",
+                        "inspection_locator": "Official PRC PDF URL returned application/pdf; full transfer exceeded the 18,000,000-byte limit. B695 records author-reported text extraction at the relevant annexes.",
+                        "content_digest_sha256": null,
+                        "retention": "No partial PDF retained; content was not inspected in this pass.",
+                        "content_summary": "No content claim is made from the title, URL, or B695 author note. The assigned reviewer must inspect the applicable Annex A/B/C/D pages.",
+                        "scope_limit": "Source identity/contents require independent reviewer confirmation; no claim about answer correctness follows from the exam-scope citation."
+                    },
+                    "claim_support_candidate": {
+                        "status": "EXAM_SCOPE_ONLY",
+                        "note": "This source does not independently establish the proposed answer; inspect only for its assigned role."
+                    },
+                    "expert_source_review": "PENDING_QUALIFIED_REVIEWER"
+                },
+                {
+                    "source_id": "deped-matatag-pe-health-2023-g4-g7",
+                    "title": "MATATAG Physical Education and Health Curriculum Guide, Grades 4 and 7",
+                    "authority": "Department of Education, Philippines",
+                    "url": "https://www.deped.gov.ph/wp-content/uploads/PE-and-HEALTH_CG-2023_Grade-4-and-7.pdf",
+                    "source_role": "CURRICULUM_SOURCE",
+                    "source_type": "OFFICIAL_GUIDANCE",
+                    "publication_date": "2023",
+                    "version": "MATATAG Physical Education and Health Curriculum Guide, Grades 4 and 7",
+                    "registry_snapshot_match": true,
+                    "b695_evidence_status": "AUTHOR_REPORTED_VERIFIED_REFERENCE",
+                    "b695_limitations": [
+                        "Official Grades 4 and 7 guide only; not medical guidance or a complete all-grade syllabus."
+                    ],
+                    "url_reachable": true,
+                    "source_identity_confirmed": true,
+                    "content_examined": true,
+                    "source_examination": {
+                        "reachability": "HTTP_200_OFFICIAL_DEPED_PDF",
+                        "identity_confirmed_this_pass": true,
+                        "content_examined_this_pass": true,
+                        "retrieval_date": "2026-10-26",
+                        "inspection_locator": "MATATAG Physical Education and Health Curriculum Guide, Grades 4 and 7, PDF pp. 5–8, 15–16, 20–23.",
+                        "content_digest_sha256": "5637b2f067a6bac007e214aca1343c37df80d7c13345cfdd4b308116ca453dc3",
+                        "retention": "Bounded 878,014-byte PDF downloaded, signature-checked, page text extracted, hashed, then discarded.",
+                        "content_summary": "The guide lists body, space, effort and relationships as movement concepts, and describes fitness/movement competencies and assessment. The checked Grade 4 pages emphasize agility, balance, coordination and speed; “muscular endurance” was not located in the checked passages.",
+                        "scope_limit": "Grades 4 and 7 only and not medical guidance. Do not infer an age-specific fitness test or safety protocol from these pages."
+                    },
+                    "claim_support_candidate": {
+                        "status": "PARTIAL_INCLUSION_CANDIDATE",
+                        "note": "The guide includes inclusive participation as a curriculum principle, but the checked passages do not establish the exact lighter-equipment/closer-target adaptation."
+                    },
+                    "expert_source_review": "PENDING_QUALIFIED_REVIEWER"
+                }
+            ],
+            "source_review_status": "PENDING_QUALIFIED_SOURCE_REVIEW",
+            "taxonomy_resolution": {
+                "proposed_domain": {
+                    "id": "pe-movement-and-fitness",
+                    "name": "Movement and Fitness"
+                },
+                "proposed_topic": {
+                    "id": "pe-games-dance-and-inclusion",
+                    "name": "Games, Dance, and Inclusive Participation",
+                    "registered": false
+                },
+                "topic_candidates": [],
+                "proposed_concept": {
+                    "id": "pe-inclusive-activity-design",
+                    "name": "Inclusive Activity Design",
+                    "registered": false
+                },
+                "concept_candidates": [],
+                "status": "AWAITING_REVIEW_OR_TAXONOMY_GOVERNANCE",
+                "activation": "NONE; recommendations are read-only and require an authorized reviewer decision or governance action."
+            },
+            "study_resolution": {
+                "status": "MISSING_SECTION",
+                "material_id": "let-physical-education-movement-and-safety",
+                "material_title": "Physical Education: Movement, Fitness, Safety, and Assessment",
+                "section_id": "8-games-rhythm-and-inclusive-participation",
+                "section_heading": "8. Games, rhythm, and inclusive participation",
+                "section_body": null,
+                "current_material_exists": true,
+                "current_section_exists": false,
+                "current_question_link_exists": false,
+                "relationship_activation": "NONE; an exact section still requires an authorized reviewer action. Missing sections remain unresolved; no lesson was created."
+            },
+            "review_questions": [
+                "Does the adaptation preserve the target skill and decision process for all learners in the scenario?",
+                "What source supports this specific adaptation and not only inclusion in general?",
+                "Could another response preserve the same skill more safely or equitably?"
+            ],
+            "reviewer_action": "Inspect the cited passages, record item-level source evidence and currentness, resolve taxonomy only against active scoped taxonomy, decide whether the exact study section is appropriate, then make an independent academic decision. Do not treat this dossier as approval.",
+            "required_independent_review": {
+                "SOURCE_EXPERT_REVIEW": "PENDING",
+                "ACADEMIC_APPROVAL": "PENDING"
+            }
+        },
+        {
+            "proposal_id": "batch695-9290",
+            "question_id": "9290",
+            "question_version": "89eaecef6aeaffbbbc2b45bd782aad1e6d6f504cc4978c6e79aefbf95988573f",
+            "version_basis": "B714 AcademicReviewWorkflowService::version() payload for the original B695 proposal; any later revision makes this package version stale.",
+            "review_state": "PENDING_REVIEW",
+            "academic_approval": "NOT_APPROVED",
+            "production_status": "NONCANONICAL_NOT_IN_LEARNER_POOLS",
+            "question": {
+                "stem": "A lesson objective asks learners to explain how a plant grows, but the only resource is dense printed text. Which design choice best anticipates learner variability?",
+                "choices": [
+                    "Keep the printed text unchanged and provide help only after a learner fails.",
+                    "Replace the plant-growth objective with a coloring task for the entire class.",
+                    "Pair clear text with a labeled diagram or oral explanation and allow learners to show understanding in an aligned format.",
+                    "Let learners choose any activity, even when it does not address the objective."
+                ],
+                "proposed_answer": "Pair clear text with a labeled diagram or oral explanation and allow learners to show understanding in an aligned format.",
+                "explanation": "UDL anticipates access barriers through purposeful options while keeping the shared learning goal visible.",
+                "difficulty": "easy"
+            },
+            "specific_claim_to_review": "Anticipate barriers and provide meaningful ways to engage, access information, and express learning.",
+            "proposed_source_locator": "PRC Annex B; CAST UDL 3.0; RA 11650.",
+            "sources": [
+                {
+                    "source_id": "prc-resolution-20-2025-annex-a",
+                    "title": "PRC Board Resolution No. 20, s. 2025, Annex A: LEPT alignment and specialization syllabi",
+                    "authority": "Professional Regulatory Board for Professional Teachers / Professional Regulation Commission",
+                    "url": "https://www.prc.gov.ph/sites/default/files/2025-20%20Annex%20teachers.pdf",
+                    "source_role": "SCOPE_SOURCE",
+                    "source_type": "OFFICIAL_EXAM_SPEC",
+                    "publication_date": "2025-07-03",
+                    "version": "Resolution No. 20 s. 2025 Annex A",
+                    "registry_snapshot_match": true,
+                    "b695_evidence_status": "AUTHOR_REPORTED_VERIFIED_REFERENCE",
+                    "b695_limitations": [
+                        "Official scope source; cited scope and competency claims still require independent item-level review."
+                    ],
+                    "url_reachable": true,
+                    "source_identity_confirmed": false,
+                    "content_examined": false,
+                    "source_examination": {
+                        "reachability": "HTTP_200_PDF_BOUNDED_DOWNLOAD_LIMIT",
+                        "identity_confirmed_this_pass": false,
+                        "content_examined_this_pass": false,
+                        "retrieval_date": "2026-10-26",
+                        "inspection_locator": "Official PRC PDF URL returned application/pdf; full transfer exceeded the 18,000,000-byte limit. B695 records author-reported text extraction at the relevant annexes.",
+                        "content_digest_sha256": null,
+                        "retention": "No partial PDF retained; content was not inspected in this pass.",
+                        "content_summary": "No content claim is made from the title, URL, or B695 author note. The assigned reviewer must inspect the applicable Annex A/B/C/D pages.",
+                        "scope_limit": "Source identity/contents require independent reviewer confirmation; no claim about answer correctness follows from the exam-scope citation."
+                    },
+                    "claim_support_candidate": {
+                        "status": "EXAM_SCOPE_ONLY",
+                        "note": "This source does not independently establish the proposed answer; inspect only for its assigned role."
+                    },
+                    "expert_source_review": "PENDING_QUALIFIED_REVIEWER"
+                },
+                {
+                    "source_id": "republic-act-11650",
+                    "title": "Republic Act No. 11650: Inclusive Education Act",
+                    "authority": "Republic of the Philippines; Supreme Court E-Library",
+                    "url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/2/94483",
+                    "source_role": "STATUTORY_SOURCE",
+                    "source_type": "OFFICIAL_GUIDANCE",
+                    "publication_date": "2022-03-11",
+                    "version": "Republic Act No. 11650",
+                    "registry_snapshot_match": true,
+                    "b695_evidence_status": "AUTHOR_REPORTED_VERIFIED_REFERENCE",
+                    "b695_limitations": [
+                        "The Act text was inspected; the separate scanned IRR extraction was unavailable and its detailed provisions were not used for answer-critical claims."
+                    ],
+                    "url_reachable": true,
+                    "source_identity_confirmed": true,
+                    "content_examined": true,
+                    "source_examination": {
+                        "reachability": "REACHABLE_SUPREME_COURT_E_LIBRARY_TEXT_FETCHED",
+                        "identity_confirmed_this_pass": true,
+                        "content_examined_this_pass": true,
+                        "retrieval_date": "2026-10-26",
+                        "inspection_locator": "Republic Act No. 11650, §§2–4; Supreme Court E-Library.",
+                        "content_digest_sha256": null,
+                        "retention": "No source binary retained; statutory text page was inspected.",
+                        "content_summary": "The Act addresses accessible inclusive education, participation, accommodations and modifications; its definitions include accessible instructional media and reasonable accommodation.",
+                        "scope_limit": "The scanned implementing-rules extraction cited in B695 was unavailable there; this Act does not itself establish every assessment-validity or behavior-support inference in the pilot."
+                    },
+                    "claim_support_candidate": {
+                        "status": "STATUTORY_ACCESS_CANDIDATE",
+                        "note": "The Act addresses accessible learning and reasonable accommodations; it does not specify this exact plant-growth instructional option."
+                    },
+                    "expert_source_review": "PENDING_QUALIFIED_REVIEWER"
+                },
+                {
+                    "source_id": "cast-udl-guidelines-3-0-2024",
+                    "title": "CAST Universal Design for Learning Guidelines, Version 3.0",
+                    "authority": "CAST",
+                    "url": "https://udlguidelines.cast.org/",
+                    "source_role": "INSTRUCTIONAL_REFERENCE",
+                    "source_type": "PROFESSIONAL_GUIDANCE",
+                    "publication_date": "2024-07-30",
+                    "version": "UDL Guidelines 3.0",
+                    "registry_snapshot_match": true,
+                    "b695_evidence_status": "AUTHOR_REPORTED_VERIFIED_REFERENCE",
+                    "b695_limitations": [
+                        "Instructional guidance, not Philippine law; version 3.0 dated 2024."
+                    ],
+                    "url_reachable": true,
+                    "source_identity_confirmed": true,
+                    "content_examined": true,
+                    "source_examination": {
+                        "reachability": "REACHABLE_CAST_GUIDELINES_TEXT_FETCHED",
+                        "identity_confirmed_this_pass": true,
+                        "content_examined_this_pass": true,
+                        "retrieval_date": "2026-10-26",
+                        "inspection_locator": "CAST UDL Guidelines 3.0, public guideline page: multiple means of engagement, representation, and action/expression.",
+                        "content_digest_sha256": null,
+                        "retention": "Official guideline page text was inspected; no PDF binary retained.",
+                        "content_summary": "The framework presents options for perception, multiple media, accessible materials and technologies, varied methods of response, and learner agency.",
+                        "scope_limit": "Professional guidance, not Philippine law and not a subject-expert judgment about the exact proposed answer."
+                    },
+                    "claim_support_candidate": {
+                        "status": "FRAMEWORK_CANDIDATE",
+                        "note": "CAST lists multiple ways to perceive information, accessible materials and varied expression; it is professional guidance, not Philippine law."
+                    },
+                    "expert_source_review": "PENDING_QUALIFIED_REVIEWER"
+                }
+            ],
+            "source_review_status": "PENDING_QUALIFIED_SOURCE_REVIEW",
+            "taxonomy_resolution": {
+                "proposed_domain": {
+                    "id": "inclusive-special-needs-education",
+                    "name": "Inclusive Special Needs Education"
+                },
+                "proposed_topic": {
+                    "id": "sne-udl-and-access",
+                    "name": "Universal Design and Access",
+                    "registered": false
+                },
+                "topic_candidates": [],
+                "proposed_concept": {
+                    "id": "sne-udl-flexible-engagement-representation-expression",
+                    "name": "Flexible Engagement, Representation, and Expression",
+                    "registered": false
+                },
+                "concept_candidates": [],
+                "status": "AWAITING_REVIEW_OR_TAXONOMY_GOVERNANCE",
+                "activation": "NONE; recommendations are read-only and require an authorized reviewer decision or governance action."
+            },
+            "study_resolution": {
+                "status": "MISSING_SECTION",
+                "material_id": "let-special-needs-inclusive-education",
+                "material_title": "Inclusive Education: Access, Participation, and Support",
+                "section_id": "5-udl-access-and-action",
+                "section_heading": "5. UDL, access, and action",
+                "section_body": null,
+                "current_material_exists": true,
+                "current_section_exists": false,
+                "current_question_link_exists": false,
+                "relationship_activation": "NONE; an exact section still requires an authorized reviewer action. Missing sections remain unresolved; no lesson was created."
+            },
+            "review_questions": [
+                "Do both options preserve the same learning goal while removing the stated text-access barrier?",
+                "Does the item distinguish accessible representation from changing the science construct?",
+                "Which exact CAST UDL consideration best supports the proposed option?"
+            ],
+            "reviewer_action": "Inspect the cited passages, record item-level source evidence and currentness, resolve taxonomy only against active scoped taxonomy, decide whether the exact study section is appropriate, then make an independent academic decision. Do not treat this dossier as approval.",
+            "required_independent_review": {
+                "SOURCE_EXPERT_REVIEW": "PENDING",
+                "ACADEMIC_APPROVAL": "PENDING"
+            }
+        },
+        {
+            "proposal_id": "batch695-9302",
+            "question_id": "9302",
+            "question_version": "913ef327b2d54a622d04c8c96f483b43e647fa6451927d9adb36cbbcbb42332d",
+            "version_basis": "B714 AcademicReviewWorkflowService::version() payload for the original B695 proposal; any later revision makes this package version stale.",
+            "review_state": "PENDING_REVIEW",
+            "academic_approval": "NOT_APPROVED",
+            "production_status": "NONCANONICAL_NOT_IN_LEARNER_POOLS",
+            "question": {
+                "stem": "A science quiz assesses understanding of water-cycle stages, but the printed diagram is too small for a learner to access. Which support is most appropriate?",
+                "choices": [
+                    "Replace the quiz with an unrelated activity about classroom rules.",
+                    "Score only the learner’s handwriting rather than the science response.",
+                    "Provide an accessible enlarged or digital diagram while keeping the same water-cycle reasoning task.",
+                    "Ask a classmate to choose the stages for the learner."
+                ],
+                "proposed_answer": "Provide an accessible enlarged or digital diagram while keeping the same water-cycle reasoning task.",
+                "explanation": "The diagram access barrier can be removed without changing the science construct or another person answering.",
+                "difficulty": "easy"
+            },
+            "specific_claim_to_review": "Remove irrelevant access barriers while preserving evidence of the intended competency.",
+            "proposed_source_locator": "PRC Annex B; RA 11650.",
+            "sources": [
+                {
+                    "source_id": "prc-resolution-20-2025-annex-a",
+                    "title": "PRC Board Resolution No. 20, s. 2025, Annex A: LEPT alignment and specialization syllabi",
+                    "authority": "Professional Regulatory Board for Professional Teachers / Professional Regulation Commission",
+                    "url": "https://www.prc.gov.ph/sites/default/files/2025-20%20Annex%20teachers.pdf",
+                    "source_role": "SCOPE_SOURCE",
+                    "source_type": "OFFICIAL_EXAM_SPEC",
+                    "publication_date": "2025-07-03",
+                    "version": "Resolution No. 20 s. 2025 Annex A",
+                    "registry_snapshot_match": true,
+                    "b695_evidence_status": "AUTHOR_REPORTED_VERIFIED_REFERENCE",
+                    "b695_limitations": [
+                        "Official scope source; cited scope and competency claims still require independent item-level review."
+                    ],
+                    "url_reachable": true,
+                    "source_identity_confirmed": false,
+                    "content_examined": false,
+                    "source_examination": {
+                        "reachability": "HTTP_200_PDF_BOUNDED_DOWNLOAD_LIMIT",
+                        "identity_confirmed_this_pass": false,
+                        "content_examined_this_pass": false,
+                        "retrieval_date": "2026-10-26",
+                        "inspection_locator": "Official PRC PDF URL returned application/pdf; full transfer exceeded the 18,000,000-byte limit. B695 records author-reported text extraction at the relevant annexes.",
+                        "content_digest_sha256": null,
+                        "retention": "No partial PDF retained; content was not inspected in this pass.",
+                        "content_summary": "No content claim is made from the title, URL, or B695 author note. The assigned reviewer must inspect the applicable Annex A/B/C/D pages.",
+                        "scope_limit": "Source identity/contents require independent reviewer confirmation; no claim about answer correctness follows from the exam-scope citation."
+                    },
+                    "claim_support_candidate": {
+                        "status": "EXAM_SCOPE_ONLY",
+                        "note": "This source does not independently establish the proposed answer; inspect only for its assigned role."
+                    },
+                    "expert_source_review": "PENDING_QUALIFIED_REVIEWER"
+                },
+                {
+                    "source_id": "republic-act-11650",
+                    "title": "Republic Act No. 11650: Inclusive Education Act",
+                    "authority": "Republic of the Philippines; Supreme Court E-Library",
+                    "url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/2/94483",
+                    "source_role": "STATUTORY_SOURCE",
+                    "source_type": "OFFICIAL_GUIDANCE",
+                    "publication_date": "2022-03-11",
+                    "version": "Republic Act No. 11650",
+                    "registry_snapshot_match": true,
+                    "b695_evidence_status": "AUTHOR_REPORTED_VERIFIED_REFERENCE",
+                    "b695_limitations": [
+                        "The Act text was inspected; the separate scanned IRR extraction was unavailable and its detailed provisions were not used for answer-critical claims."
+                    ],
+                    "url_reachable": true,
+                    "source_identity_confirmed": true,
+                    "content_examined": true,
+                    "source_examination": {
+                        "reachability": "REACHABLE_SUPREME_COURT_E_LIBRARY_TEXT_FETCHED",
+                        "identity_confirmed_this_pass": true,
+                        "content_examined_this_pass": true,
+                        "retrieval_date": "2026-10-26",
+                        "inspection_locator": "Republic Act No. 11650, §§2–4; Supreme Court E-Library.",
+                        "content_digest_sha256": null,
+                        "retention": "No source binary retained; statutory text page was inspected.",
+                        "content_summary": "The Act addresses accessible inclusive education, participation, accommodations and modifications; its definitions include accessible instructional media and reasonable accommodation.",
+                        "scope_limit": "The scanned implementing-rules extraction cited in B695 was unavailable there; this Act does not itself establish every assessment-validity or behavior-support inference in the pilot."
+                    },
+                    "claim_support_candidate": {
+                        "status": "ACCOMMODATION_CANDIDATE_VALIDITY_GAP",
+                        "note": "The Act defines reasonable accommodation and accessible instructional materials; a separate assessment-validity source is needed for the “same reasoning task” condition."
+                    },
+                    "expert_source_review": "PENDING_QUALIFIED_REVIEWER"
+                }
+            ],
+            "source_review_status": "PENDING_QUALIFIED_SOURCE_REVIEW",
+            "taxonomy_resolution": {
+                "proposed_domain": {
+                    "id": "assessment-and-identification",
+                    "name": "Assessment and Identification"
+                },
+                "proposed_topic": {
+                    "id": "sne-assessment-and-planning",
+                    "name": "Accessible Assessment and Individualized Planning",
+                    "registered": false
+                },
+                "topic_candidates": [],
+                "proposed_concept": {
+                    "id": "sne-assessment-accommodation-validity",
+                    "name": "Assessment Accommodation and Validity",
+                    "registered": false
+                },
+                "concept_candidates": [],
+                "status": "AWAITING_REVIEW_OR_TAXONOMY_GOVERNANCE",
+                "activation": "NONE; recommendations are read-only and require an authorized reviewer decision or governance action."
+            },
+            "study_resolution": {
+                "status": "MISSING_SECTION",
+                "material_id": "let-special-needs-inclusive-education",
+                "material_title": "Inclusive Education: Access, Participation, and Support",
+                "section_id": "6-assessment-validity-and-accommodations",
+                "section_heading": "6. Assessment validity and accommodations",
+                "section_body": null,
+                "current_material_exists": true,
+                "current_section_exists": false,
+                "current_question_link_exists": false,
+                "relationship_activation": "NONE; an exact section still requires an authorized reviewer action. Missing sections remain unresolved; no lesson was created."
+            },
+            "review_questions": [
+                "Does enlargement/digital access remove an irrelevant barrier for this learner without altering the assessed construct?",
+                "What assessment guidance supports preserving the same reasoning demand?",
+                "Does the answer avoid prescribing an accommodation without learner context?"
+            ],
+            "reviewer_action": "Inspect the cited passages, record item-level source evidence and currentness, resolve taxonomy only against active scoped taxonomy, decide whether the exact study section is appropriate, then make an independent academic decision. Do not treat this dossier as approval.",
+            "required_independent_review": {
+                "SOURCE_EXPERT_REVIEW": "PENDING",
+                "ACADEMIC_APPROVAL": "PENDING"
+            }
+        },
+        {
+            "proposal_id": "batch695-9320",
+            "question_id": "9320",
+            "question_version": "53a731ba403470968073d667da70b231804f32510d229b24134d0183205f8fc7",
+            "version_basis": "B714 AcademicReviewWorkflowService::version() payload for the original B695 proposal; any later revision makes this package version stale.",
+            "review_state": "PENDING_REVIEW",
+            "academic_approval": "NOT_APPROVED",
+            "production_status": "NONCANONICAL_NOT_IN_LEARNER_POOLS",
+            "question": {
+                "stem": "A learner leaves a seat during long verbal directions but remains engaged when instructions are shown in short steps. What should the teacher examine first?",
+                "choices": [
+                    "Whether the direction format and task duration create barriers that can be adjusted.",
+                    "Whether the learner should lose access to the activity.",
+                    "Whether leaving the seat proves the learner is choosing to misbehave.",
+                    "Whether peers should be asked to keep the learner seated."
+                ],
+                "proposed_answer": "Whether the direction format and task duration create barriers that can be adjusted.",
+                "explanation": "The difference across conditions suggests that task access and instruction may affect participation.",
+                "difficulty": "easy"
+            },
+            "specific_claim_to_review": "Understand behavior in context and teach/support safer, more effective participation without aversive practice.",
+            "proposed_source_locator": "PRC Annex B; RA 11650.",
+            "sources": [
+                {
+                    "source_id": "prc-resolution-20-2025-annex-a",
+                    "title": "PRC Board Resolution No. 20, s. 2025, Annex A: LEPT alignment and specialization syllabi",
+                    "authority": "Professional Regulatory Board for Professional Teachers / Professional Regulation Commission",
+                    "url": "https://www.prc.gov.ph/sites/default/files/2025-20%20Annex%20teachers.pdf",
+                    "source_role": "SCOPE_SOURCE",
+                    "source_type": "OFFICIAL_EXAM_SPEC",
+                    "publication_date": "2025-07-03",
+                    "version": "Resolution No. 20 s. 2025 Annex A",
+                    "registry_snapshot_match": true,
+                    "b695_evidence_status": "AUTHOR_REPORTED_VERIFIED_REFERENCE",
+                    "b695_limitations": [
+                        "Official scope source; cited scope and competency claims still require independent item-level review."
+                    ],
+                    "url_reachable": true,
+                    "source_identity_confirmed": false,
+                    "content_examined": false,
+                    "source_examination": {
+                        "reachability": "HTTP_200_PDF_BOUNDED_DOWNLOAD_LIMIT",
+                        "identity_confirmed_this_pass": false,
+                        "content_examined_this_pass": false,
+                        "retrieval_date": "2026-10-26",
+                        "inspection_locator": "Official PRC PDF URL returned application/pdf; full transfer exceeded the 18,000,000-byte limit. B695 records author-reported text extraction at the relevant annexes.",
+                        "content_digest_sha256": null,
+                        "retention": "No partial PDF retained; content was not inspected in this pass.",
+                        "content_summary": "No content claim is made from the title, URL, or B695 author note. The assigned reviewer must inspect the applicable Annex A/B/C/D pages.",
+                        "scope_limit": "Source identity/contents require independent reviewer confirmation; no claim about answer correctness follows from the exam-scope citation."
+                    },
+                    "claim_support_candidate": {
+                        "status": "EXAM_SCOPE_ONLY",
+                        "note": "This source does not independently establish the proposed answer; inspect only for its assigned role."
+                    },
+                    "expert_source_review": "PENDING_QUALIFIED_REVIEWER"
+                },
+                {
+                    "source_id": "republic-act-11650",
+                    "title": "Republic Act No. 11650: Inclusive Education Act",
+                    "authority": "Republic of the Philippines; Supreme Court E-Library",
+                    "url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/2/94483",
+                    "source_role": "STATUTORY_SOURCE",
+                    "source_type": "OFFICIAL_GUIDANCE",
+                    "publication_date": "2022-03-11",
+                    "version": "Republic Act No. 11650",
+                    "registry_snapshot_match": true,
+                    "b695_evidence_status": "AUTHOR_REPORTED_VERIFIED_REFERENCE",
+                    "b695_limitations": [
+                        "The Act text was inspected; the separate scanned IRR extraction was unavailable and its detailed provisions were not used for answer-critical claims."
+                    ],
+                    "url_reachable": true,
+                    "source_identity_confirmed": true,
+                    "content_examined": true,
+                    "source_examination": {
+                        "reachability": "REACHABLE_SUPREME_COURT_E_LIBRARY_TEXT_FETCHED",
+                        "identity_confirmed_this_pass": true,
+                        "content_examined_this_pass": true,
+                        "retrieval_date": "2026-10-26",
+                        "inspection_locator": "Republic Act No. 11650, §§2–4; Supreme Court E-Library.",
+                        "content_digest_sha256": null,
+                        "retention": "No source binary retained; statutory text page was inspected.",
+                        "content_summary": "The Act addresses accessible inclusive education, participation, accommodations and modifications; its definitions include accessible instructional media and reasonable accommodation.",
+                        "scope_limit": "The scanned implementing-rules extraction cited in B695 was unavailable there; this Act does not itself establish every assessment-validity or behavior-support inference in the pilot."
+                    },
+                    "claim_support_candidate": {
+                        "status": "INCLUSION_CONTEXT_ONLY_BEHAVIOR_CLAIM_NOT_ESTABLISHED",
+                        "note": "The Act provides an inclusion/accommodation framework but does not itself establish the proposed behavior-function inference."
+                    },
+                    "expert_source_review": "PENDING_QUALIFIED_REVIEWER"
+                }
+            ],
+            "source_review_status": "PENDING_QUALIFIED_SOURCE_REVIEW",
+            "taxonomy_resolution": {
+                "proposed_domain": {
+                    "id": "behavior-and-support",
+                    "name": "Behavior and Support"
+                },
+                "proposed_topic": {
+                    "id": "sne-positive-support-and-participation",
+                    "name": "Positive Support and Participation",
+                    "registered": false
+                },
+                "topic_candidates": [],
+                "proposed_concept": {
+                    "id": "sne-positive-behavior-support",
+                    "name": "Positive Behavior Support",
+                    "registered": false
+                },
+                "concept_candidates": [],
+                "status": "AWAITING_REVIEW_OR_TAXONOMY_GOVERNANCE",
+                "activation": "NONE; recommendations are read-only and require an authorized reviewer decision or governance action."
+            },
+            "study_resolution": {
+                "status": "MISSING_SECTION",
+                "material_id": "let-special-needs-inclusive-education",
+                "material_title": "Inclusive Education: Access, Participation, and Support",
+                "section_id": "8-positive-behavior-and-environment",
+                "section_heading": "8. Positive behavior and environment",
+                "section_body": null,
+                "current_material_exists": true,
+                "current_section_exists": false,
+                "current_question_link_exists": false,
+                "relationship_activation": "NONE; an exact section still requires an authorized reviewer action. Missing sections remain unresolved; no lesson was created."
+            },
+            "review_questions": [
+                "What qualified pedagogical source supports examining task format and duration first?",
+                "Does one observation justify the inference, or should the item ask the teacher to gather more evidence?",
+                "Does the explanation avoid diagnosis or overclaiming causation?"
+            ],
+            "reviewer_action": "Inspect the cited passages, record item-level source evidence and currentness, resolve taxonomy only against active scoped taxonomy, decide whether the exact study section is appropriate, then make an independent academic decision. Do not treat this dossier as approval.",
+            "required_independent_review": {
+                "SOURCE_EXPERT_REVIEW": "PENDING",
+                "ACADEMIC_APPROVAL": "PENDING"
+            }
+        },
+        {
+            "proposal_id": "batch695-9348",
+            "question_id": "9348",
+            "question_version": "7e6047b01a5c6cdbb1872e8e404c1d3ed5a2a97ff234fde15eebb1daaaaea516",
+            "version_basis": "B714 AcademicReviewWorkflowService::version() payload for the original B695 proposal; any later revision makes this package version stale.",
+            "review_state": "PENDING_REVIEW",
+            "academic_approval": "NOT_APPROVED",
+            "production_status": "NONCANONICAL_NOT_IN_LEARNER_POOLS",
+            "question": {
+                "stem": "A workplace standard states that a trainee must measure stock, cut it to specification, and check the finished part. Which learning outcome is strongest?",
+                "choices": [
+                    "With specified tools, measure and cut stock to dimensions, then verify the finished part.",
+                    "Describe why accurate measurement matters without performing the task or checking a part.",
+                    "Observe a demonstration, then explain the cutting sequence without producing a measured part.",
+                    "Measure and cut stock, then accept the result without checking dimensions against criteria."
+                ],
+                "proposed_answer": "With specified tools, measure and cut stock to dimensions, then verify the finished part.",
+                "explanation": "The outcome states observable performance, conditions, and a verification step aligned to the standard. It asks the trainee to demonstrate the complete practical task rather than only describe or observe it.",
+                "difficulty": "easy"
+            },
+            "specific_claim_to_review": "Translate a workplace competency standard into observable instructional outcomes and conditions.",
+            "proposed_source_locator": "PRC Annex A pp. 65–66; TESDA Glossary pp. 25–27, 40.",
+            "sources": [
+                {
+                    "source_id": "prc-resolution-20-2025-annex-a",
+                    "title": "PRC Board Resolution No. 20, s. 2025, Annex A: LEPT alignment and specialization syllabi",
+                    "authority": "Professional Regulatory Board for Professional Teachers / Professional Regulation Commission",
+                    "url": "https://www.prc.gov.ph/sites/default/files/2025-20%20Annex%20teachers.pdf",
+                    "source_role": "SCOPE_SOURCE",
+                    "source_type": "OFFICIAL_EXAM_SPEC",
+                    "publication_date": "2025-07-03",
+                    "version": "Resolution No. 20 s. 2025 Annex A",
+                    "registry_snapshot_match": true,
+                    "b695_evidence_status": "AUTHOR_REPORTED_VERIFIED_REFERENCE",
+                    "b695_limitations": [
+                        "Official scope source; cited scope and competency claims still require independent item-level review."
+                    ],
+                    "url_reachable": true,
+                    "source_identity_confirmed": false,
+                    "content_examined": false,
+                    "source_examination": {
+                        "reachability": "HTTP_200_PDF_BOUNDED_DOWNLOAD_LIMIT",
+                        "identity_confirmed_this_pass": false,
+                        "content_examined_this_pass": false,
+                        "retrieval_date": "2026-10-26",
+                        "inspection_locator": "Official PRC PDF URL returned application/pdf; full transfer exceeded the 18,000,000-byte limit. B695 records author-reported text extraction at the relevant annexes.",
+                        "content_digest_sha256": null,
+                        "retention": "No partial PDF retained; content was not inspected in this pass.",
+                        "content_summary": "No content claim is made from the title, URL, or B695 author note. The assigned reviewer must inspect the applicable Annex A/B/C/D pages.",
+                        "scope_limit": "Source identity/contents require independent reviewer confirmation; no claim about answer correctness follows from the exam-scope citation."
+                    },
+                    "claim_support_candidate": {
+                        "status": "EXAM_SCOPE_ONLY",
+                        "note": "This source does not independently establish the proposed answer; inspect only for its assigned role."
+                    },
+                    "expert_source_review": "PENDING_QUALIFIED_REVIEWER"
+                },
+                {
+                    "source_id": "tesda-tvet-glossary-2025",
+                    "title": "2025 TVET Glossary",
+                    "authority": "Technical Education and Skills Development Authority, Philippines",
+                    "url": "https://www.tesda.gov.ph/Uploads/File/Glossary/2025%20TVET%20Glossary.pdf",
+                    "source_role": "COMPETENCY_STANDARD",
+                    "source_type": "OFFICIAL_GUIDANCE",
+                    "publication_date": "2025",
+                    "version": "2025 TVET Glossary",
+                    "registry_snapshot_match": true,
+                    "b695_evidence_status": "AUTHOR_REPORTED_VERIFIED_REFERENCE",
+                    "b695_limitations": [
+                        "Glossary definitions are used as stable concepts; time-sensitive circular details are not asserted."
+                    ],
+                    "url_reachable": true,
+                    "source_identity_confirmed": true,
+                    "content_examined": true,
+                    "source_examination": {
+                        "reachability": "REACHABLE_TESDA_OFFICIAL_PDF_TEXT_FETCHED",
+                        "identity_confirmed_this_pass": true,
+                        "content_examined_this_pass": true,
+                        "retrieval_date": "2026-10-26",
+                        "inspection_locator": "TESDA 2025 TVET Glossary, pp. 25–27 and competency-assessment definitions; official 180-page PDF text.",
+                        "content_digest_sha256": null,
+                        "retention": "Official indexed PDF text was inspected; no full PDF retained.",
+                        "content_summary": "Definitions connect competency to demonstrated workplace performance, define competency assessment as evidence collection/judgment, and describe competency-based curricula through outcomes, conditions and assessment methods.",
+                        "scope_limit": "The glossary is not a current machine-specific occupational-safety procedure; it does not establish the exact local response to a loose guard."
+                    },
+                    "claim_support_candidate": {
+                        "status": "DIRECT_COMPETENCY_OUTCOME_CANDIDATE",
+                        "note": "The glossary ties competency to workplace performance and describes outcome/condition components in competency-based curricula; inspect the specific applicable definition and source circular."
+                    },
+                    "expert_source_review": "PENDING_QUALIFIED_REVIEWER"
+                }
+            ],
+            "source_review_status": "PENDING_QUALIFIED_SOURCE_REVIEW",
+            "taxonomy_resolution": {
+                "proposed_domain": {
+                    "id": "tvted-common-competencies",
+                    "name": "TVTEd Common Competencies"
+                },
+                "proposed_topic": {
+                    "id": "tvted-outcomes-and-instruction",
+                    "name": "Competency Outcomes and Technical Instruction",
+                    "registered": false
+                },
+                "topic_candidates": [],
+                "proposed_concept": {
+                    "id": "tvted-workplace-standard-to-outcome",
+                    "name": "Workplace Standard to Learning Outcome",
+                    "registered": false
+                },
+                "concept_candidates": [],
+                "status": "AWAITING_REVIEW_OR_TAXONOMY_GOVERNANCE",
+                "activation": "NONE; recommendations are read-only and require an authorized reviewer decision or governance action."
+            },
+            "study_resolution": {
+                "status": "MISSING_SECTION",
+                "material_id": "let-tvted-competency-based-teaching",
+                "material_title": "Competency-Based Technical and Vocational Teaching",
+                "section_id": "5-from-competency-standard-to-learning-outcome",
+                "section_heading": "5. From competency standard to learning outcome",
+                "section_body": null,
+                "current_material_exists": true,
+                "current_section_exists": false,
+                "current_question_link_exists": false,
+                "relationship_activation": "NONE; an exact section still requires an authorized reviewer action. Missing sections remain unresolved; no lesson was created."
+            },
+            "review_questions": [
+                "Does the outcome identify an observable task, conditions/tools and a checkable criterion?",
+                "Does the cited workplace standard actually require this measurement/cut/verification task?",
+                "Is the PRC common-competency scope current?"
+            ],
+            "reviewer_action": "Inspect the cited passages, record item-level source evidence and currentness, resolve taxonomy only against active scoped taxonomy, decide whether the exact study section is appropriate, then make an independent academic decision. Do not treat this dossier as approval.",
+            "required_independent_review": {
+                "SOURCE_EXPERT_REVIEW": "PENDING",
+                "ACADEMIC_APPROVAL": "PENDING"
+            }
+        },
+        {
+            "proposal_id": "batch695-9360",
+            "question_id": "9360",
+            "question_version": "b08995f57891d61e788589920662ac220b0c4bcfbfbfefd2facaa025a7f29a01",
+            "version_basis": "B714 AcademicReviewWorkflowService::version() payload for the original B695 proposal; any later revision makes this package version stale.",
+            "review_state": "PENDING_REVIEW",
+            "academic_approval": "NOT_APPROVED",
+            "production_status": "NONCANONICAL_NOT_IN_LEARNER_POOLS",
+            "question": {
+                "stem": "A learner is assessed on assembling a small product. Which evidence is most direct?",
+                "choices": [
+                    "Observation of the learner’s assembly and inspection of the completed product against criteria.",
+                    "The learner’s attendance record for the assembly unit.",
+                    "A peer’s description of the learner’s work.",
+                    "The learner’s confidence rating before practice."
+                ],
+                "proposed_answer": "Observation of the learner’s assembly and inspection of the completed product against criteria.",
+                "explanation": "Direct observation and product evidence connect to the required performance.",
+                "difficulty": "easy"
+            },
+            "specific_claim_to_review": "Gather sufficient direct evidence and judge demonstrated performance against a standard.",
+            "proposed_source_locator": "PRC Annex A; TESDA Glossary pp. 25–27, 89.",
+            "sources": [
+                {
+                    "source_id": "prc-resolution-20-2025-annex-a",
+                    "title": "PRC Board Resolution No. 20, s. 2025, Annex A: LEPT alignment and specialization syllabi",
+                    "authority": "Professional Regulatory Board for Professional Teachers / Professional Regulation Commission",
+                    "url": "https://www.prc.gov.ph/sites/default/files/2025-20%20Annex%20teachers.pdf",
+                    "source_role": "SCOPE_SOURCE",
+                    "source_type": "OFFICIAL_EXAM_SPEC",
+                    "publication_date": "2025-07-03",
+                    "version": "Resolution No. 20 s. 2025 Annex A",
+                    "registry_snapshot_match": true,
+                    "b695_evidence_status": "AUTHOR_REPORTED_VERIFIED_REFERENCE",
+                    "b695_limitations": [
+                        "Official scope source; cited scope and competency claims still require independent item-level review."
+                    ],
+                    "url_reachable": true,
+                    "source_identity_confirmed": false,
+                    "content_examined": false,
+                    "source_examination": {
+                        "reachability": "HTTP_200_PDF_BOUNDED_DOWNLOAD_LIMIT",
+                        "identity_confirmed_this_pass": false,
+                        "content_examined_this_pass": false,
+                        "retrieval_date": "2026-10-26",
+                        "inspection_locator": "Official PRC PDF URL returned application/pdf; full transfer exceeded the 18,000,000-byte limit. B695 records author-reported text extraction at the relevant annexes.",
+                        "content_digest_sha256": null,
+                        "retention": "No partial PDF retained; content was not inspected in this pass.",
+                        "content_summary": "No content claim is made from the title, URL, or B695 author note. The assigned reviewer must inspect the applicable Annex A/B/C/D pages.",
+                        "scope_limit": "Source identity/contents require independent reviewer confirmation; no claim about answer correctness follows from the exam-scope citation."
+                    },
+                    "claim_support_candidate": {
+                        "status": "EXAM_SCOPE_ONLY",
+                        "note": "This source does not independently establish the proposed answer; inspect only for its assigned role."
+                    },
+                    "expert_source_review": "PENDING_QUALIFIED_REVIEWER"
+                },
+                {
+                    "source_id": "tesda-tvet-glossary-2025",
+                    "title": "2025 TVET Glossary",
+                    "authority": "Technical Education and Skills Development Authority, Philippines",
+                    "url": "https://www.tesda.gov.ph/Uploads/File/Glossary/2025%20TVET%20Glossary.pdf",
+                    "source_role": "COMPETENCY_STANDARD",
+                    "source_type": "OFFICIAL_GUIDANCE",
+                    "publication_date": "2025",
+                    "version": "2025 TVET Glossary",
+                    "registry_snapshot_match": true,
+                    "b695_evidence_status": "AUTHOR_REPORTED_VERIFIED_REFERENCE",
+                    "b695_limitations": [
+                        "Glossary definitions are used as stable concepts; time-sensitive circular details are not asserted."
+                    ],
+                    "url_reachable": true,
+                    "source_identity_confirmed": true,
+                    "content_examined": true,
+                    "source_examination": {
+                        "reachability": "REACHABLE_TESDA_OFFICIAL_PDF_TEXT_FETCHED",
+                        "identity_confirmed_this_pass": true,
+                        "content_examined_this_pass": true,
+                        "retrieval_date": "2026-10-26",
+                        "inspection_locator": "TESDA 2025 TVET Glossary, pp. 25–27 and competency-assessment definitions; official 180-page PDF text.",
+                        "content_digest_sha256": null,
+                        "retention": "Official indexed PDF text was inspected; no full PDF retained.",
+                        "content_summary": "Definitions connect competency to demonstrated workplace performance, define competency assessment as evidence collection/judgment, and describe competency-based curricula through outcomes, conditions and assessment methods.",
+                        "scope_limit": "The glossary is not a current machine-specific occupational-safety procedure; it does not establish the exact local response to a loose guard."
+                    },
+                    "claim_support_candidate": {
+                        "status": "DIRECT_EVIDENCE_COLLECTION_CANDIDATE",
+                        "note": "The glossary defines competency assessment through collecting evidence and making judgments against performance standards; verify the cited assessment context."
+                    },
+                    "expert_source_review": "PENDING_QUALIFIED_REVIEWER"
+                }
+            ],
+            "source_review_status": "PENDING_QUALIFIED_SOURCE_REVIEW",
+            "taxonomy_resolution": {
+                "proposed_domain": {
+                    "id": "tvted-common-competencies",
+                    "name": "TVTEd Common Competencies"
+                },
+                "proposed_topic": {
+                    "id": "tvted-evidence-and-assessment",
+                    "name": "Workplace Evidence and Assessment",
+                    "registered": false
+                },
+                "topic_candidates": [],
+                "proposed_concept": {
+                    "id": "tvted-evidence-based-performance-assessment",
+                    "name": "Evidence-Based Performance Assessment",
+                    "registered": false
+                },
+                "concept_candidates": [],
+                "status": "AWAITING_REVIEW_OR_TAXONOMY_GOVERNANCE",
+                "activation": "NONE; recommendations are read-only and require an authorized reviewer decision or governance action."
+            },
+            "study_resolution": {
+                "status": "MISSING_SECTION",
+                "material_id": "let-tvted-competency-based-teaching",
+                "material_title": "Competency-Based Technical and Vocational Teaching",
+                "section_id": "7-performance-evidence-and-assessment",
+                "section_heading": "7. Performance evidence and assessment",
+                "section_body": null,
+                "current_material_exists": true,
+                "current_section_exists": false,
+                "current_question_link_exists": false,
+                "relationship_activation": "NONE; an exact section still requires an authorized reviewer action. Missing sections remain unresolved; no lesson was created."
+            },
+            "review_questions": [
+                "Are observation and product evidence both required by the task standard?",
+                "Are the criteria valid, sufficient and current for this qualification?",
+                "Does the answer distinguish direct performance evidence from indirect knowledge evidence?"
+            ],
+            "reviewer_action": "Inspect the cited passages, record item-level source evidence and currentness, resolve taxonomy only against active scoped taxonomy, decide whether the exact study section is appropriate, then make an independent academic decision. Do not treat this dossier as approval.",
+            "required_independent_review": {
+                "SOURCE_EXPERT_REVIEW": "PENDING",
+                "ACADEMIC_APPROVAL": "PENDING"
+            }
+        },
+        {
+            "proposal_id": "batch695-9378",
+            "question_id": "9378",
+            "question_version": "c9c341b9d8342d8483faa009c3ac8fb1d90092f789c52db266f9fce65a03a402",
+            "version_basis": "B714 AcademicReviewWorkflowService::version() payload for the original B695 proposal; any later revision makes this package version stale.",
+            "review_state": "PENDING_REVIEW",
+            "academic_approval": "NOT_APPROVED",
+            "production_status": "NONCANONICAL_NOT_IN_LEARNER_POOLS",
+            "question": {
+                "stem": "A trainee notices that a machine guard is loose before practice begins. What should happen?",
+                "choices": [
+                    "Begin at a slower speed and ask the trainer to watch.",
+                    "Ask another trainee to hold the guard in place.",
+                    "Do not start the task; report the condition and follow the training site’s procedure to make the equipment safe.",
+                    "Skip the safety check and complete only the easy part."
+                ],
+                "proposed_answer": "Do not start the task; report the condition and follow the training site’s procedure to make the equipment safe.",
+                "explanation": "A known equipment hazard must be addressed before work proceeds under the applicable safety procedure.",
+                "difficulty": "easy"
+            },
+            "specific_claim_to_review": "Recognize hazards, pause unsafe activity, apply controls, and resume only in safe conditions.",
+            "proposed_source_locator": "PRC Annex A pp. 65–66; TESDA Glossary's OSH terms.",
+            "sources": [
+                {
+                    "source_id": "prc-resolution-20-2025-annex-a",
+                    "title": "PRC Board Resolution No. 20, s. 2025, Annex A: LEPT alignment and specialization syllabi",
+                    "authority": "Professional Regulatory Board for Professional Teachers / Professional Regulation Commission",
+                    "url": "https://www.prc.gov.ph/sites/default/files/2025-20%20Annex%20teachers.pdf",
+                    "source_role": "SCOPE_SOURCE",
+                    "source_type": "OFFICIAL_EXAM_SPEC",
+                    "publication_date": "2025-07-03",
+                    "version": "Resolution No. 20 s. 2025 Annex A",
+                    "registry_snapshot_match": true,
+                    "b695_evidence_status": "AUTHOR_REPORTED_VERIFIED_REFERENCE",
+                    "b695_limitations": [
+                        "Official scope source; cited scope and competency claims still require independent item-level review."
+                    ],
+                    "url_reachable": true,
+                    "source_identity_confirmed": false,
+                    "content_examined": false,
+                    "source_examination": {
+                        "reachability": "HTTP_200_PDF_BOUNDED_DOWNLOAD_LIMIT",
+                        "identity_confirmed_this_pass": false,
+                        "content_examined_this_pass": false,
+                        "retrieval_date": "2026-10-26",
+                        "inspection_locator": "Official PRC PDF URL returned application/pdf; full transfer exceeded the 18,000,000-byte limit. B695 records author-reported text extraction at the relevant annexes.",
+                        "content_digest_sha256": null,
+                        "retention": "No partial PDF retained; content was not inspected in this pass.",
+                        "content_summary": "No content claim is made from the title, URL, or B695 author note. The assigned reviewer must inspect the applicable Annex A/B/C/D pages.",
+                        "scope_limit": "Source identity/contents require independent reviewer confirmation; no claim about answer correctness follows from the exam-scope citation."
+                    },
+                    "claim_support_candidate": {
+                        "status": "EXAM_SCOPE_ONLY",
+                        "note": "This source does not independently establish the proposed answer; inspect only for its assigned role."
+                    },
+                    "expert_source_review": "PENDING_QUALIFIED_REVIEWER"
+                },
+                {
+                    "source_id": "tesda-tvet-glossary-2025",
+                    "title": "2025 TVET Glossary",
+                    "authority": "Technical Education and Skills Development Authority, Philippines",
+                    "url": "https://www.tesda.gov.ph/Uploads/File/Glossary/2025%20TVET%20Glossary.pdf",
+                    "source_role": "COMPETENCY_STANDARD",
+                    "source_type": "OFFICIAL_GUIDANCE",
+                    "publication_date": "2025",
+                    "version": "2025 TVET Glossary",
+                    "registry_snapshot_match": true,
+                    "b695_evidence_status": "AUTHOR_REPORTED_VERIFIED_REFERENCE",
+                    "b695_limitations": [
+                        "Glossary definitions are used as stable concepts; time-sensitive circular details are not asserted."
+                    ],
+                    "url_reachable": true,
+                    "source_identity_confirmed": true,
+                    "content_examined": true,
+                    "source_examination": {
+                        "reachability": "REACHABLE_TESDA_OFFICIAL_PDF_TEXT_FETCHED",
+                        "identity_confirmed_this_pass": true,
+                        "content_examined_this_pass": true,
+                        "retrieval_date": "2026-10-26",
+                        "inspection_locator": "TESDA 2025 TVET Glossary, pp. 25–27 and competency-assessment definitions; official 180-page PDF text.",
+                        "content_digest_sha256": null,
+                        "retention": "Official indexed PDF text was inspected; no full PDF retained.",
+                        "content_summary": "Definitions connect competency to demonstrated workplace performance, define competency assessment as evidence collection/judgment, and describe competency-based curricula through outcomes, conditions and assessment methods.",
+                        "scope_limit": "The glossary is not a current machine-specific occupational-safety procedure; it does not establish the exact local response to a loose guard."
+                    },
+                    "claim_support_candidate": {
+                        "status": "SAFETY_PROCEDURE_NOT_ESTABLISHED",
+                        "note": "The glossary does not establish the exact machine-guard hazard control or training-site reporting procedure; a current OSH and site procedure source is needed."
+                    },
+                    "expert_source_review": "PENDING_QUALIFIED_REVIEWER"
+                }
+            ],
+            "source_review_status": "PENDING_QUALIFIED_SOURCE_REVIEW",
+            "taxonomy_resolution": {
+                "proposed_domain": {
+                    "id": "tvted-common-competencies",
+                    "name": "TVTEd Common Competencies"
+                },
+                "proposed_topic": {
+                    "id": "tvted-safety-and-workplace",
+                    "name": "Safety and Workplace Learning",
+                    "registered": false
+                },
+                "topic_candidates": [
+                    {
+                        "id": "tvted-workplace-learning",
+                        "name": "Workplace learning",
+                        "similarity": 0.667,
+                        "status": "REVIEW_CANDIDATE_ONLY"
+                    },
+                    {
+                        "id": "tvted-workplace-safety",
+                        "name": "TVTEd workplace safety",
+                        "similarity": 0.5,
+                        "status": "REVIEW_CANDIDATE_ONLY"
+                    }
+                ],
+                "proposed_concept": {
+                    "id": "tvted-hazard-control-and-safe-practice",
+                    "name": "Hazard Control and Safe Practice",
+                    "registered": false
+                },
+                "concept_candidates": [],
+                "status": "AWAITING_REVIEW_OR_TAXONOMY_GOVERNANCE",
+                "activation": "NONE; recommendations are read-only and require an authorized reviewer decision or governance action."
+            },
+            "study_resolution": {
+                "status": "MISSING_SECTION",
+                "material_id": "let-tvted-competency-based-teaching",
+                "material_title": "Competency-Based Technical and Vocational Teaching",
+                "section_id": "9-safety-and-workplace-learning",
+                "section_heading": "9. Safety and workplace learning",
+                "section_body": null,
+                "current_material_exists": true,
+                "current_section_exists": false,
+                "current_question_link_exists": false,
+                "relationship_activation": "NONE; an exact section still requires an authorized reviewer action. Missing sections remain unresolved; no lesson was created."
+            },
+            "review_questions": [
+                "Which current TESDA/OHS/industry rule applies to this machine and hazard?",
+                "Does the training site procedure require isolation, tagging or a specific report route?",
+                "Does the answer avoid inventing a universal procedure from a glossary?"
+            ],
+            "reviewer_action": "Inspect the cited passages, record item-level source evidence and currentness, resolve taxonomy only against active scoped taxonomy, decide whether the exact study section is appropriate, then make an independent academic decision. Do not treat this dossier as approval.",
+            "required_independent_review": {
+                "SOURCE_EXPERT_REVIEW": "PENDING",
+                "ACADEMIC_APPROVAL": "PENDING"
+            }
+        }
+    ]
+}
