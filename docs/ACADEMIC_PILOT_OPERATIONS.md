@@ -13,6 +13,9 @@ The durable cohort and item-level machine-prepared evidence are in:
 
 - `docs/reports/batch-715-pilot-cohort.json`
 - `docs/reports/batch-715-review-readiness.json`
+- `docs/reports/batch-716-pilot-review-packets.json`
+- `docs/reports/batch-716-source-evidence-matrix.json`
+- `docs/reports/batch-716-taxonomy-study-governance.json`
 
 The `question_version` binds each dossier to the exact B695 proposal snapshot.
 If the proposal is revised, the prepared dossier becomes historical context;
@@ -101,3 +104,54 @@ The pilot package does not add real reviewer grants, decisions, approvals,
 canonical questions, taxonomy entries, or study links. Verify the current
 review state in the workbench before beginning a real pilot; all 20 items are
 expected to remain pending until independently authorized people act.
+
+## Batch 716 source recheck and packet export
+
+The B716 matrix reconciles the 41 pilot citation rows with 12 current
+registered source identities. Forty rows have a recorded content-examination
+locator. The remaining row is the Q9228 DepEd Order 40 PDF: the official file
+is scanned with no text layer, so its relevant policy content is explicitly
+`CONTENT_NOT_EXAMINED` even though its identity and official-index entry were
+checked. The official PRC Resolution 20 linked PDF's previously unexamined
+pilot sections were inspected using bounded HTTP byte ranges.
+That document is 18,103,170 bytes, so the complete binary was not downloaded
+or hashed. Direct page text was examined for pages 1–12 and 65–66; the matrix
+records the page and Annex label for each affected proposal and preserves the
+document's title/Annex-label ambiguity. The inspection is exam-scope context,
+not a verdict on any answer. All 41 citations still require independent
+qualified source review and all 20 proposals still require academic review.
+The official PRC calendar was directly rechecked on 2026-10-25 UTC. It lists
+Architecture examination dates in January, June, and October 2026; the
+October event had passed at retrieval, and the schedule index did not link a
+2027 detailed subject program. These dates do not replace current scope
+evidence for the four Architecture proposals. See the
+[PRC schedule index](https://prc.gov.ph/exam-schedules-menu) and
+[2026 examination schedule](https://prc.gov.ph/2026-schedule-examination).
+For Q9228, the official [DepEd child-protection policy index](https://www.deped.gov.ph/deped-policies-and-child-protection-related-laws/)
+was reachable and lists DO 40 (2012), DO 55 (2013), and DO 3 (2021). The
+official DO 40 PDF remains scanned with no extractable text, and its
+item-level procedural support is unresolved.
+
+The governance worksheet rechecks current taxonomy IDs, existing B715
+suggestions, and published lesson section IDs. It records 19 unregistered
+topic proposal instances (17 distinct topic IDs), one exact registered topic
+candidate, four existing candidate edges (three nonexact), 20 unregistered
+concepts, three exact published section candidates, and 17 missing sections.
+It creates no taxonomy record, lesson, study link, assignment, or review
+decision.
+
+The private inspector displays the supplemental rows beside the existing
+source dossier. Its **Print review packet** action prints the visible proposal,
+provenance, blockers and decision history; print CSS suppresses reviewer
+account identifiers, forms, mutation actions, and import confirmation. The
+JSON packets provide bounded per-item export with question version, question,
+proposed answer/explanation, citation rows, taxonomy and study candidates,
+selection rationale, and reviewer questions. Treat exports as restricted
+proposal content and share only through the organization's approved reviewer
+channel. The complete result and validation handoff is
+[`batch-716-overnight-academic-handoff.md`](reports/batch-716-overnight-academic-handoff.md);
+exact test commands and result evidence are in
+[`batch-716-verification.json`](reports/batch-716-verification.json). See
+[`reports/batch-716-reviewer-onboarding.md`](reports/batch-716-reviewer-onboarding.md)
+for the owner checklist. No genuine account, grant, source adjudication,
+academic decision, or import was added by B716.

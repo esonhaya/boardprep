@@ -26,6 +26,18 @@ and academic approval. It is not a review decision. See
 [`ACADEMIC_PILOT_OPERATIONS.md`](ACADEMIC_PILOT_OPERATIONS.md) for the human
 pilot procedure and package limits.
 
+Batch 716 adds a citation-level source matrix and per-question review packets
+for the same 20 proposals. The supplemental matrix is shown in the private
+inspector and print view; it is bound to the exact proposal version and
+labels machine page examination separately from source-expert review and
+academic approval. Taxonomy and study candidates are rechecked against current
+registries in the read-only
+[`batch-716-taxonomy-study-governance.json`](reports/batch-716-taxonomy-study-governance.json)
+worksheet; none is activated by a suggestion. Read the owner-operated
+[`batch-716-reviewer-onboarding.md`](reports/batch-716-reviewer-onboarding.md)
+checklist before provisioning anyone. It documents the existing grant model
+without creating a grant endpoint or reviewer identity.
+
 ## Provisioning a qualified reviewer
 
 There is intentionally no reviewer-grant web route. An application owner must

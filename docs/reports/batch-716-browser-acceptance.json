@@ -1,0 +1,53 @@
+{
+  "schema": "boardprep.batch-716-browser-acceptance.v1",
+  "status": "PREPARED_NOT_EXECUTED",
+  "local_runner": {
+    "platform": "Android/Termux",
+    "supported_browser_runner_available": false,
+    "playwright_package_installed": false,
+    "chromium_executable_available": false,
+    "reason": "This Termux environment has no @playwright/test installation or supported desktop Chromium binary. No browser assertions are reported as executed."
+  },
+  "supported_ci_path": {
+    "workflow": ".github/workflows/browser-acceptance.yml",
+    "runner": "ubuntu-24.04",
+    "node": "22.23.3",
+    "playwright_test": "1.63.0 (exact package.json/package-lock.json pin)",
+    "browser": "Chromium installed by the existing workflow with Playwright",
+    "invocation": "npm run test:browser",
+    "isolated_fixture": "tests/browser/server.cjs extracts the committed HEAD into a temporary directory; its synthetic reviewer/account and deliberately stale Q9348 matrix row exist only in that fixture.",
+    "ci_triggered": false,
+    "ci_trigger_reason": "No push, PR creation, workflow dispatch, or external account action was authorized."
+  },
+  "prepared_scenarios": [
+    {
+      "id": "B715-PILOT-SEC-01",
+      "scenario": "Production academic-review URL remains absent.",
+      "execution": "NOT_EXECUTED"
+    },
+    {
+      "id": "B715-PILOT-SEC-02",
+      "scenario": "Anonymous access to the restricted pilot queue is denied.",
+      "execution": "NOT_EXECUTED"
+    },
+    {
+      "id": "B716-PILOT-UX-01",
+      "scenario": "Synthetic scoped reviewer filters the queue, searches, tabs to the filter action, checks result count, and sees an empty Assigned-to-me state without a real assignment.",
+      "execution": "NOT_EXECUTED"
+    },
+    {
+      "id": "B716-PILOT-UX-02",
+      "scenario": "Synthetic reviewer inspects the proposal and direct source provenance, sees a deliberately stale supplemental evidence warning, opens source details, invokes print, verifies print-only expansion and private-marker hiding, and confirms no decision or import.",
+      "execution": "NOT_EXECUTED"
+    },
+    {
+      "id": "B716-PILOT-SEC-03",
+      "scenario": "Synthetic reviewer is denied a proposal outside the granted subject scope.",
+      "execution": "NOT_EXECUTED"
+    }
+  ],
+  "human_acceptance": "NOT_OBTAINED",
+  "screenshots": [],
+  "traces": [],
+  "production_accounts_or_mutations": 0
+}
