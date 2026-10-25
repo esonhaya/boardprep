@@ -18,11 +18,11 @@ $nextUrl = '?' . http_build_query($filters + ['page_num' => min($pageCount, $cur
         <h1>Batch 695 academic review proposals</h1>
         <p>276 proposed questions from the recovered B695 cohort. These records are pending independent review and are not canonical or available in learner question pools.</p>
     </div>
-    <a class="button secondary" href="/question-editor">Canonical question inventory</a>
+    <div class="page-actions"><a class="button" href="/developer/academic-review">Open restricted reviewer workbench</a><a class="button secondary" href="/question-editor">Canonical question inventory</a></div>
 </section>
 
 <section class="card" aria-label="Proposal review status">
-    <p><strong>Review state:</strong> All listed items remain pending. This read-only view does not approve a proposal, write a canonical answer key, or change board eligibility.</p>
+    <p><strong>Review state:</strong> Live human-workflow states are shown per proposal below. This inventory view does not approve a proposal, write a canonical answer key, or change board eligibility.</p>
     <p><strong>Matching current filters:</strong> <?= (int) ($totalProposals ?? 0) ?> proposals · Page <?= $currentPage ?> of <?= $pageCount ?></p>
 </section>
 
@@ -64,7 +64,7 @@ $nextUrl = '?' . http_build_query($filters + ['page_num' => min($pageCount, $cur
             ?>
             <article class="card proposal-item" data-proposal-id="<?= $escape($proposal['id'] ?? '') ?>">
                 <h2>Proposal #<?= $escape($proposal['question_id'] ?? '') ?></h2>
-                <p><strong>Pending independent review</strong> · Not canonical · Not selectable in learner pools</p>
+                <p><strong><?= $escape(str_replace('_', ' ', (string) (($proposal['academic_workflow']['state'] ?? '') ?: 'PENDING_REVIEW'))) ?></strong> · Not canonical unless separately imported · Not selectable in learner pools before import</p>
                 <p><strong>Board:</strong> <?= $escape($proposal['board_name'] ?? $proposal['board_id'] ?? '') ?> · <strong>Subject:</strong> <?= $escape($proposal['subject_name'] ?? $proposal['subject_id'] ?? '') ?></p>
                 <p><strong>Topic:</strong> <?= $escape($proposal['topic_name'] ?? $proposal['topic_id'] ?? '') ?> · <strong>Concept:</strong> <?= $escape($proposal['concept_name'] ?? $proposal['concept_id'] ?? '') ?></p>
                 <p><?= $escape($question['stem'] ?? '') ?></p>
@@ -72,6 +72,7 @@ $nextUrl = '?' . http_build_query($filters + ['page_num' => min($pageCount, $cur
                 <p><strong>Proposed study section:</strong> <?= $escape($study['material_title'] ?? $study['material_id'] ?? '') ?> — <?= $escape($study['section_heading'] ?? $study['section_id'] ?? '') ?> · <?= !empty($study['current_section_exists']) ? 'section currently exists' : 'section is proposal-only' ?></p>
                 <p><strong>Sources:</strong> <?= $escape(implode(', ', array_map('strval', (array) ($proposal['source_ids'] ?? [])))) ?></p>
                 <a class="button" href="/question-inspector?proposal_id=<?= rawurlencode((string) ($proposal['id'] ?? '')) ?>&amp;return=<?= rawurlencode('/question-editor?proposal_batch=695') ?>">Review proposal details</a>
+                <a class="button button-outline" href="/developer/academic-review/proposal?id=<?= rawurlencode((string) ($proposal['id'] ?? '')) ?>">Open academic workflow</a>
             </article>
         <?php endforeach; ?>
     </div>

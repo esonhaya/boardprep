@@ -167,7 +167,7 @@ final class StudyLibraryService
 
         $linksByMaterial = [];
         foreach (App::storage()->all('study-question-links') as $link) {
-            if (!is_array($link)) {
+            if (!is_array($link) || !self::isVisibleQuestionLink($link)) {
                 continue;
             }
             $id = $link['material_id'] ?? '';
@@ -230,8 +230,14 @@ final class StudyLibraryService
     {
         return array_values(array_filter(
             App::storage()->all('study-question-links'),
-            static fn(mixed $link): bool => is_array($link) && ($link['material_id'] ?? '') === $materialId
+            static fn(mixed $link): bool => is_array($link) && self::isVisibleQuestionLink($link) && ($link['material_id'] ?? '') === $materialId
         ));
+    }
+
+    private static function isVisibleQuestionLink(array $link): bool
+    {
+        $status = strtoupper(trim((string) ($link['status'] ?? '')));
+        return $status === '' || in_array($status, ['ACTIVE', 'APPROVED', 'APPROVED_BY_AUTHORIZED_REVIEWER'], true);
     }
 
     public static function forQuestion(string $questionId, ?string $boardId = null, ?string $subjectId = null): array
@@ -332,7 +338,7 @@ final class StudyLibraryService
         $references = [];
         $resolvedSubjects = [];
         foreach (App::storage()->all('study-question-links') as $link) {
-            if (!is_array($link)) {
+            if (!is_array($link) || !self::isVisibleQuestionLink($link)) {
                 continue;
             }
             $questionId = is_scalar($link['question_id'] ?? null) ? trim((string) $link['question_id']) : '';
@@ -544,6 +550,7 @@ final class StudyLibraryService
         $seenLinkIds = [];
         $seenPairs = [];
         foreach (array_values(array_filter($collections['study-question-links'] ?? [], 'is_array')) as $link) {
+            if (!self::isVisibleQuestionLink($link)) continue;
             $linkId = self::scalarText($link['id'] ?? null);
             $questionId = self::scalarText($link['question_id'] ?? null);
             $materialId = self::scalarText($link['material_id'] ?? null);
@@ -601,7 +608,7 @@ final class StudyLibraryService
         $unlinkedPublishedMaterials = [];
         $justifiedStandaloneMaterials = [];
         $linkedMaterials = [];
-        foreach (array_values(array_filter($collections['study-question-links'] ?? [], 'is_array')) as $link) $linkedMaterials[self::scalarText($link['material_id'] ?? null)] = true;
+        foreach (array_values(array_filter($collections['study-question-links'] ?? [], 'is_array')) as $link) if (self::isVisibleQuestionLink($link)) $linkedMaterials[self::scalarText($link['material_id'] ?? null)] = true;
         $lessonMaterials = [];
         foreach ($lessons as $lesson) if (($lesson['status'] ?? '') === 'published') $lessonMaterials[self::scalarText($lesson['material_id'] ?? null)] = true;
         foreach ($materials as $materialId => $material) {

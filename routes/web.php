@@ -5,6 +5,7 @@ declare(strict_types=1);
 use App\Controllers\BoardController;
 use App\Controllers\AcceptanceCenterController;
 use App\Controllers\AccountController;
+use App\Controllers\AcademicReviewController;
 use App\Controllers\BlueprintController;
 use App\Controllers\BlueprintHealthController;
 use App\Controllers\CoverageController;
@@ -306,6 +307,18 @@ $router->get(
     "/question-inspector",
     [QuestionInspectorController::class, "index"]
 );
+
+$router->get('/developer/academic-review', [AcademicReviewController::class, 'index']);
+$router->get('/developer/academic-review/proposal', [AcademicReviewController::class, 'proposal']);
+$router->post('/developer/academic-review/assign', [AcademicReviewController::class, 'assign']);
+$router->post('/developer/academic-review/start', [AcademicReviewController::class, 'start']);
+$router->post('/developer/academic-review/decision', [AcademicReviewController::class, 'decision']);
+$router->post('/developer/academic-review/source-review', [AcademicReviewController::class, 'sourceReview']);
+$router->post('/developer/academic-review/taxonomy', [AcademicReviewController::class, 'taxonomy']);
+$router->post('/developer/academic-review/taxonomy-proposal', [AcademicReviewController::class, 'taxonomyProposal']);
+$router->post('/developer/academic-review/study-link', [AcademicReviewController::class, 'studyLink']);
+$router->post('/developer/academic-review/revision', [AcademicReviewController::class, 'revision']);
+$router->post('/developer/academic-review/import', [AcademicReviewController::class, 'import']);
 
 $router->get(
     "/coverage",

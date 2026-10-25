@@ -7,6 +7,7 @@ use App\Core\Request;
 use App\Core\Response;
 use App\Services\Question\QuestionAuthoringService;
 use App\Services\Question\AcademicReviewProposalService;
+use App\Services\Question\AcademicReviewWorkflowService;
 use App\Services\Question\QuestionEditorService;
 use App\Services\Question\QuestionEligibilityService;
 use App\Services\Question\QuestionQueryService;
@@ -157,6 +158,11 @@ class QuestionEditorController extends BaseDeveloperController
             'board' => $board,
             'subject' => $subject,
         ], $pageNumber, 50);
+        $reviewWorkflow = new AcademicReviewWorkflowService();
+        foreach ($page['items'] as &$proposalRow) {
+            if (is_array($proposalRow)) $proposalRow['academic_workflow'] = $reviewWorkflow->record((string) ($proposalRow['id'] ?? ''));
+        }
+        unset($proposalRow);
 
         self::renderDeveloper(
             'developer/question/proposals',
