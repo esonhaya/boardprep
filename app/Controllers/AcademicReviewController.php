@@ -105,7 +105,7 @@ final class AcademicReviewController extends BaseDeveloperController
     public static function decision(): void
     {
         self::post('REVIEW', static function (AcademicReviewWorkflowService $service, array $account, array $proposal): void {
-            $keys = ['question_accuracy','correct_answer','explanation_correctness','exam_relevance','subject_classification','adequate_source_support','source_currentness','clinical_safety'];
+            $keys = ['question_accuracy','correct_answer','explanation_correctness','exam_relevance','subject_classification','adequate_source_support','source_currentness','clinical_safety','regulatory_scope_currentness'];
             $confirmations = [];
             foreach ($keys as $key) $confirmations[$key] = self::input($key) === '1';
             $service->decide((string) $proposal['id'], (string) $account['account_id'], [

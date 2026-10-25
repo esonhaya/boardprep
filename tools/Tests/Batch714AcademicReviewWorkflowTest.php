@@ -203,6 +203,11 @@ $assert($workflow->version($revisionId) !== $revisionVersion, 'Material revision
 $revisionPreflight = $workflow->importPreflight($revisionId, $importerId);
 $assert(in_array('ACADEMIC_APPROVAL_REQUIRED', $revisionPreflight['blocked'], true)
     && in_array('CURRENT_VERSION_APPROVAL_REQUIRED', $revisionPreflight['blocked'], true), 'A prior-version approval was allowed to apply to a revision.');
+$revisedVersion = $workflow->version($revisionId);
+$workflow->assign($revisionId, $reviewerId, $revisedVersion);
+$workflow->startReview($revisionId, $reviewerId, $revisedVersion);
+$missingRegulatoryCheck = ['decision' => 'APPROVE', 'rationale' => 'Synthetic negative test leaves required LET scope currentness unchecked.', 'confirmations' => array_fill_keys(['question_accuracy','correct_answer','explanation_correctness','exam_relevance','subject_classification','adequate_source_support','source_currentness'], true)];
+$expectFailure(fn() => $workflow->decide($revisionId, $reviewerId, ['proposal_version' => $revisedVersion] + $missingRegulatoryCheck), 'APPROVAL_CONFIRMATION_REQUIRED:regulatory_scope_currentness', 'missing LET scope currentness confirmation');
 
 // Read-only methods do not persist review decisions or proposals.
 $workflowRowsBeforeRead = $storage->all('academic-proposal-workflow');
@@ -239,7 +244,7 @@ $sourceReviewInput = [
 $approvalInput = [
     'decision' => 'APPROVE',
     'rationale' => 'Synthetic approval exists only inside this isolated workflow test fixture.',
-    'confirmations' => array_fill_keys(['question_accuracy','correct_answer','explanation_correctness','exam_relevance','subject_classification','adequate_source_support','source_currentness'], true),
+    'confirmations' => array_fill_keys(['question_accuracy','correct_answer','explanation_correctness','exam_relevance','subject_classification','adequate_source_support','source_currentness','regulatory_scope_currentness'], true),
 ];
 $prepare = static function (string $proposalId, bool $withSourceReview = true) use ($workflow, $reviewerId, $taxonomy, $sourceReviewInput, $approvalInput): string {
     $version = $workflow->version($proposalId);

@@ -206,6 +206,10 @@ final class AcademicReviewWorkflowService
                 foreach (['question_accuracy', 'correct_answer', 'explanation_correctness', 'exam_relevance', 'subject_classification', 'adequate_source_support', 'source_currentness'] as $key) {
                     if (($checks[$key] ?? false) !== true) throw new RuntimeException('APPROVAL_CONFIRMATION_REQUIRED:' . $key);
                 }
+                if (in_array(strtolower((string) ($proposal['board_id'] ?? '')), ['let', 'architecture'], true)
+                    && ($checks['regulatory_scope_currentness'] ?? false) !== true) {
+                    throw new RuntimeException('APPROVAL_CONFIRMATION_REQUIRED:regulatory_scope_currentness');
+                }
                 if (strtolower((string) ($proposal['board_id'] ?? '')) === 'nursing') {
                     if (($checks['clinical_safety'] ?? false) !== true) throw new RuntimeException('APPROVAL_CONFIRMATION_REQUIRED:clinical_safety');
                     $clinicalGrant = $this->authorization->grantFor($accountId, (string) $proposal['board_id'], (string) $proposal['subject_id'], 'REVIEW') ?? [];
@@ -466,14 +470,14 @@ final class AcademicReviewWorkflowService
         $blocked = [];
         $version = $this->proposalVersion($proposal, $record);
         $taxonomy = is_array($record['taxonomy_mapping'] ?? null) ? $record['taxonomy_mapping'] : [];
-        $this->require($blocked, $record['state'] === 'APPROVED', 'ACADEMIC_APPROVAL_REQUIRED');
+        $this->addGateRequirement($blocked, $record['state'] === 'APPROVED', 'ACADEMIC_APPROVAL_REQUIRED');
         $approval = null;
         foreach (array_reverse((array) ($record['decisions'] ?? [])) as $event) {
             if (is_array($event) && ($event['decision'] ?? '') === 'APPROVE' && ($event['proposal_version'] ?? '') === $version) { $approval = $event; break; }
         }
-        $this->require($blocked, $approval !== null, 'CURRENT_VERSION_APPROVAL_REQUIRED');
+        $this->addGateRequirement($blocked, $approval !== null, 'CURRENT_VERSION_APPROVAL_REQUIRED');
         if ($approval !== null) {
-            $this->require($blocked, (string) ($approval['reviewer_id'] ?? '') !== $accountId, 'IMPORTER_MUST_DIFFER_FROM_APPROVER');
+            $this->addGateRequirement($blocked, (string) ($approval['reviewer_id'] ?? '') !== $accountId, 'IMPORTER_MUST_DIFFER_FROM_APPROVER');
             $approvalReviewerId = (string) ($approval['reviewer_id'] ?? '');
             $approvalGrant = $approvalReviewerId === '' ? null : $this->authorization->grantFor(
                 $approvalReviewerId,
@@ -487,18 +491,18 @@ final class AcademicReviewWorkflowService
                 && (string) ($approvalGrant['qualification_reference'] ?? '') === (string) ($approval['reviewer_qualification_reference'] ?? '')
                 && ($approvalScope['board_id'] ?? '') === (string) $proposal['board_id']
                 && ($approvalScope['subject_id'] ?? '') === (string) $proposal['subject_id'];
-            $this->require($blocked, $approvalAuthorizationValid, 'APPROVAL_REVIEWER_AUTHORIZATION_INVALID');
+            $this->addGateRequirement($blocked, $approvalAuthorizationValid, 'APPROVAL_REVIEWER_AUTHORIZATION_INVALID');
         }
-        $this->require($blocked, is_array($taxonomy) && ($taxonomy['proposal_version'] ?? '') === $version && self::taxonomyErrors($taxonomy) === [], 'VALID_REVIEWED_TAXONOMY_REQUIRED');
+        $this->addGateRequirement($blocked, is_array($taxonomy) && ($taxonomy['proposal_version'] ?? '') === $version && self::taxonomyErrors($taxonomy) === [], 'VALID_REVIEWED_TAXONOMY_REQUIRED');
         if ($approval !== null) {
-            $this->require($blocked, ($approval['taxonomy_mapping_sha256'] ?? '') === $this->taxonomyMappingHash($taxonomy), 'APPROVAL_TAXONOMY_VERSION_MISMATCH');
-            $this->require($blocked, ($approval['study_mapping_sha256'] ?? '') === $this->studyMappingHash($record['study_mapping'] ?? null), 'APPROVAL_STUDY_MAPPING_MISMATCH');
+            $this->addGateRequirement($blocked, ($approval['taxonomy_mapping_sha256'] ?? '') === $this->taxonomyMappingHash($taxonomy), 'APPROVAL_TAXONOMY_VERSION_MISMATCH');
+            $this->addGateRequirement($blocked, ($approval['study_mapping_sha256'] ?? '') === $this->studyMappingHash($record['study_mapping'] ?? null), 'APPROVAL_STUDY_MAPPING_MISMATCH');
         }
         foreach ((array) ($proposal['source_evidence'] ?? []) as $evidence) {
             if (!is_array($evidence)) continue;
             $sourceId = (string) ($evidence['source_id'] ?? '');
             $snapshot = is_array($evidence['source_record_snapshot'] ?? null) ? $evidence['source_record_snapshot'] : [];
-            $this->require($blocked, $sourceId !== '' && $snapshot !== [] && (string) ($snapshot['id'] ?? '') === $sourceId, 'SOURCE_PROVENANCE_SNAPSHOT_REQUIRED:' . ($sourceId !== '' ? $sourceId : 'UNKNOWN'));
+            $this->addGateRequirement($blocked, $sourceId !== '' && $snapshot !== [] && (string) ($snapshot['id'] ?? '') === $sourceId, 'SOURCE_PROVENANCE_SNAPSHOT_REQUIRED:' . ($sourceId !== '' ? $sourceId : 'UNKNOWN'));
             $review = $record['source_reviews'][$sourceId] ?? null;
             $sourceReviewerId = is_array($review) ? (string) ($review['reviewer_id'] ?? '') : '';
             $sourceReviewerGrant = $sourceReviewerId === '' ? null : $this->authorization->grantFor(
@@ -512,7 +516,7 @@ final class AcademicReviewWorkflowService
                 && (string) ($sourceReviewerGrant['id'] ?? '') === (string) ($review['reviewer_grant_id'] ?? '')
                 && (($review['reviewer_scope']['board_id'] ?? '') === (string) $proposal['board_id'])
                 && (($review['reviewer_scope']['subject_id'] ?? '') === (string) $proposal['subject_id']);
-            $this->require($blocked, $sourceReviewerAuthorizationValid, 'SOURCE_REVIEWER_AUTHORIZATION_INVALID:' . ($sourceId !== '' ? $sourceId : 'UNKNOWN'));
+            $this->addGateRequirement($blocked, $sourceReviewerAuthorizationValid, 'SOURCE_REVIEWER_AUTHORIZATION_INVALID:' . ($sourceId !== '' ? $sourceId : 'UNKNOWN'));
             $ok = is_array($review)
                 && ($review['proposal_version'] ?? '') === $version
                 && ($review['status'] ?? '') === 'ITEM_LEVEL_CLAIM_SUPPORTED'
@@ -526,27 +530,27 @@ final class AcademicReviewWorkflowService
                 $registered = $this->storage->find('sources', $sourceId);
                 $registeredHash = is_array($registered) ? hash('sha256', json_encode($registered, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR)) : '';
                 $registryUnchanged = $registeredHash !== '' && hash_equals((string) ($review['source_registry_snapshot_sha256'] ?? ''), $registeredHash);
-                $this->require($blocked, $registryUnchanged, 'SOURCE_REGISTRY_CHANGED:' . $sourceId);
+                $this->addGateRequirement($blocked, $registryUnchanged, 'SOURCE_REGISTRY_CHANGED:' . $sourceId);
                 $ok = $registryUnchanged;
             }
-            $this->require($blocked, $ok, 'SOURCE_REVIEW_REQUIRED:' . ($sourceId !== '' ? $sourceId : 'UNKNOWN'));
+            $this->addGateRequirement($blocked, $ok, 'SOURCE_REVIEW_REQUIRED:' . ($sourceId !== '' ? $sourceId : 'UNKNOWN'));
         }
         $sourceEvidence = array_values(array_filter((array) ($proposal['source_evidence'] ?? []), 'is_array'));
         $proposalSourceIds = array_values(array_unique(array_map('strval', (array) ($proposal['source_ids'] ?? []))));
         $evidenceSourceIds = array_values(array_unique(array_map(static fn(array $item): string => trim((string) ($item['source_id'] ?? '')), $sourceEvidence)));
-        $this->require($blocked, $sourceEvidence !== [] && $proposalSourceIds !== [], 'SOURCE_EVIDENCE_REQUIRED');
-        $this->require($blocked, array_diff($proposalSourceIds, $evidenceSourceIds) === [] && array_diff($evidenceSourceIds, $proposalSourceIds) === [], 'SOURCE_EVIDENCE_CITATION_MISMATCH');
-        $this->require($blocked, $this->authorization->allows($accountId, (string) $proposal['board_id'], (string) $proposal['subject_id'], 'IMPORT'), 'IMPORT_AUTHORIZATION_REQUIRED');
+        $this->addGateRequirement($blocked, $sourceEvidence !== [] && $proposalSourceIds !== [], 'SOURCE_EVIDENCE_REQUIRED');
+        $this->addGateRequirement($blocked, array_diff($proposalSourceIds, $evidenceSourceIds) === [] && array_diff($evidenceSourceIds, $proposalSourceIds) === [], 'SOURCE_EVIDENCE_CITATION_MISMATCH');
+        $this->addGateRequirement($blocked, $this->authorization->allows($accountId, (string) $proposal['board_id'], (string) $proposal['subject_id'], 'IMPORT'), 'IMPORT_AUTHORIZATION_REQUIRED');
         $current = $this->currentProposal((string) $proposal['id']);
         $question = $this->canonicalQuestion($current, $record, 'active');
         $id = (string) ($question['id'] ?? '');
         $existing = $this->storage->find('questions', $id);
         $alreadyImported = is_array($existing['academic_import'] ?? null)
             && ($existing['academic_import']['proposal_id'] ?? '') === (string) $proposal['id'];
-        $this->require($blocked, !$alreadyImported, 'ALREADY_IMPORTED');
-        $this->require($blocked, !is_array($record['imported'] ?? null), 'WORKFLOW_ALREADY_IMPORTED');
-        $this->require($blocked, $existing === null, 'CANONICAL_ID_COLLISION');
-        $this->require($blocked, $approval !== null && $this->approvalChecksComplete($approval, (string) $proposal['board_id']), 'APPROVAL_CHECKLIST_INCOMPLETE');
+        $this->addGateRequirement($blocked, !$alreadyImported, 'ALREADY_IMPORTED');
+        $this->addGateRequirement($blocked, !is_array($record['imported'] ?? null), 'WORKFLOW_ALREADY_IMPORTED');
+        $this->addGateRequirement($blocked, $existing === null, 'CANONICAL_ID_COLLISION');
+        $this->addGateRequirement($blocked, $approval !== null && $this->approvalChecksComplete($approval, (string) $proposal['board_id']), 'APPROVAL_CHECKLIST_INCOMPLETE');
         if ($blocked !== []) {
             return [
                 'eligible' => false,
@@ -563,7 +567,7 @@ final class AcademicReviewWorkflowService
                 if ($this->attemptContainsQuestion($attempt, $id)) { $historyCollision = true; break; }
             }
         }
-        $this->require($blocked, !$historyCollision, 'LEARNER_HISTORY_ID_COLLISION');
+        $this->addGateRequirement($blocked, !$historyCollision, 'LEARNER_HISTORY_ID_COLLISION');
         if ($blocked !== []) {
             return [
                 'eligible' => false,
@@ -574,16 +578,16 @@ final class AcademicReviewWorkflowService
                 'canonical_exists' => $existing !== null,
             ];
         }
-        $this->require($blocked, $this->noExactDuplicate($question), 'EXACT_DUPLICATE_QUESTION');
+        $this->addGateRequirement($blocked, $this->noExactDuplicate($question), 'EXACT_DUPLICATE_QUESTION');
         $validation = \App\Services\Question\QuestionService::validate($question);
         $readiness = \App\Services\RepositoryHealth\Readiness\SourceReadinessService::validateQuestionForCreate($question);
         $validationErrors = array_merge((array) ($validation['errors'] ?? []), (array) ($readiness['errors'] ?? []));
-        $this->require($blocked, ($validation['valid'] ?? false) === true && ($readiness['valid'] ?? true) === true, 'CANONICAL_VALIDATION_FAILED:' . implode('|', $validationErrors));
-        $this->require($blocked, $this->taxonomyMappingMatchesQuestion($question, $taxonomy), 'TAXONOMY_MAPPING_MISMATCH');
-        $this->require($blocked, $this->answerChoiceIsUnique($question), 'PROPOSED_ANSWER_NOT_UNIQUE_CHOICE');
+        $this->addGateRequirement($blocked, ($validation['valid'] ?? false) === true && ($readiness['valid'] ?? true) === true, 'CANONICAL_VALIDATION_FAILED:' . implode('|', $validationErrors));
+        $this->addGateRequirement($blocked, $this->taxonomyMappingMatchesQuestion($question, $taxonomy), 'TAXONOMY_MAPPING_MISMATCH');
+        $this->addGateRequirement($blocked, $this->answerChoiceIsUnique($question), 'PROPOSED_ANSWER_NOT_UNIQUE_CHOICE');
         $studyLink = $this->approvedStudyLink($proposal, $record, $question, $version);
         if (is_array($studyLink)) {
-            $this->require($blocked, $this->storage->find('study-question-links', (string) $studyLink['id']) === null, 'STUDY_LINK_ID_COLLISION');
+            $this->addGateRequirement($blocked, $this->storage->find('study-question-links', (string) $studyLink['id']) === null, 'STUDY_LINK_ID_COLLISION');
         }
         $previewQuestion = $question;
         unset($previewQuestion['status']);
@@ -1011,7 +1015,7 @@ final class AcademicReviewWorkflowService
         if ($expected === '' || !hash_equals($actual, $expected)) throw new RuntimeException('STALE_PROPOSAL_VERSION');
     }
 
-    private function require(array &$blocked, bool $condition, string $reason): void
+    private function addGateRequirement(array &$blocked, bool $condition, string $reason): void
     {
         if (!$condition) $blocked[] = $reason;
     }
@@ -1039,6 +1043,7 @@ final class AcademicReviewWorkflowService
     {
         $checks = is_array($approval['confirmations'] ?? null) ? $approval['confirmations'] : [];
         foreach (['question_accuracy','correct_answer','explanation_correctness','exam_relevance','subject_classification','adequate_source_support','source_currentness'] as $key) if (($checks[$key] ?? false) !== true) return false;
+        if (in_array(strtolower($boardId), ['let', 'architecture'], true) && ($checks['regulatory_scope_currentness'] ?? false) !== true) return false;
         return strtolower($boardId) !== 'nursing' || ($checks['clinical_safety'] ?? false) === true;
     }
 
