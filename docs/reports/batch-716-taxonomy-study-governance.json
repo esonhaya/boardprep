@@ -1,0 +1,1244 @@
+{
+    "schema": "boardprep.batch-716-taxonomy-study-governance.v1",
+    "generated_at_utc": "2026-10-25T21:01:52+00:00",
+    "purpose": "Read-only, version-bound governance worksheet. Candidate matches are recommendations only; no taxonomy record, lesson, study link, review state, canonical question, or learner record is modified.",
+    "provenance": {
+        "pilot_manifest": {
+            "path": "docs/reports/batch-715-pilot-cohort.json",
+            "sha256": "30af5f427e5ad5752f4bb2798ae362bf8957d01d74b01eb8f1d6f9cdaf2ca2fd"
+        },
+        "review_packets": {
+            "path": "docs/reports/batch-716-pilot-review-packets.json",
+            "sha256": "1136340d87a136c9ac204044a7d0d10bb332b9fc8a1f93a1de5c3450f08d4a60"
+        },
+        "taxonomy_domains": {
+            "path": "storage/taxonomy/domains.json",
+            "sha256": "965cc4a7f7033b4642b5f1ac5c8abd79a32850ecc643d476bad3848fc3941ccc"
+        },
+        "taxonomy_topics": {
+            "path": "storage/taxonomy/topics.json",
+            "sha256": "4a76a6a7f096e1880c14ac7227da0550a4a75ce49e7b354ae3875715451ab899"
+        },
+        "taxonomy_concepts": {
+            "path": "storage/taxonomy/concepts.json",
+            "sha256": "33d7e75887d29f5bc34d2b7af80c8fc83f5bebfcdfd7efcaa211b95ff9ba3c42"
+        },
+        "study_materials": {
+            "path": "storage/study-materials.json",
+            "sha256": "1cc2c4ac1b9073779cde5f85f3e577958aed7ec2c0a36a2f6ea49f9f30b278b5"
+        },
+        "study_lessons": {
+            "path": "storage/study-lessons.json",
+            "sha256": "666dece7bd5cd3eed5627b53410be2f893a00e71c0755e121419c1ffb8fd9944"
+        },
+        "study_question_links": {
+            "path": "storage/study-question-links.json",
+            "sha256": "0e0aebad84afd09e38e477f277bb8086e52eb9b4a2e591c6de41118060a5663d"
+        }
+    },
+    "matching_policy": {
+        "topic_registry_identity": "Exact taxonomy ID and normalized exact name are checked against the current registry. Existing B715 candidate suggestions are rechecked for current record presence and exactness.",
+        "near_match_policy": "No new fuzzy candidates are generated in B716. Similarity values are preserved only from the existing B715 deterministic candidate list and remain nonbinding.",
+        "study_section_policy": "Exact section match is recomputed from current published study material and its published lesson sections; related material is never upgraded to exact support.",
+        "activation": "NONE"
+    },
+    "summary": {
+        "proposal_items": 20,
+        "unique_proposed_topic_ids": 18,
+        "topic_items_unregistered": 19,
+        "unique_unregistered_topic_ids": 17,
+        "topic_items_with_exact_registered_record": 1,
+        "recorded_topic_candidate_edges": 4,
+        "exact_registered_candidate_edges": 1,
+        "nonexact_candidate_edges": 3,
+        "unique_proposed_concept_ids": 20,
+        "concept_items_unregistered": 20,
+        "study_relationships": {
+            "EXACT_SECTION_MATCH": 3,
+            "RELATED_MATERIAL_ONLY": 0,
+            "MISSING_SECTION": 17,
+            "SOURCE_ONLY": 0,
+            "NOT_APPLICABLE": 0,
+            "OTHER": 0
+        },
+        "exact_study_section_candidates": 3,
+        "study_link_activations": 0,
+        "taxonomy_activations": 0
+    },
+    "items": [
+        {
+            "proposal_id": "batch695-9124",
+            "question_id": "9124",
+            "question_version": "e15d1ac0934ea23a591702c2e8596d821394631f1e77aeec12577ee68781e7bf",
+            "board": {
+                "id": "architecture",
+                "name": "Licensure Examination for Architects"
+            },
+            "subject": {
+                "id": "architecture-utilities-and-construction",
+                "name": "Architecture Utilities and Construction"
+            },
+            "taxonomy": {
+                "proposed_domain": {
+                    "id": "architecture-utilities-construction",
+                    "name": "Architecture Utilities Construction",
+                    "registered": true
+                },
+                "proposed_topic": {
+                    "id": "architecture-accessible-route-detailing",
+                    "name": "Accessible Routes and Floor Details",
+                    "registered": false,
+                    "current_name": null,
+                    "exact_normalized_name_matches": []
+                },
+                "proposed_concept": {
+                    "id": "arch-bp344-continuous-accessible-route",
+                    "name": "Continuous Accessible Route",
+                    "registered": false,
+                    "current_topic_id": null,
+                    "topic_relationship_conflict": false
+                },
+                "existing_topic_candidates": [],
+                "shared_proposed_topic_group": {
+                    "question_ids": [
+                        "9124",
+                        "9125",
+                        "9126"
+                    ],
+                    "meaning": "Same proposed topic ID is reused across proposals; preserve one label and review its applicability per item. This is not an instruction to merge or activate taxonomy."
+                },
+                "review_status": "AWAITING_REVIEW",
+                "required_action": "A scoped TAXONOMY_RECONCILE reviewer must explicitly map to a current valid topic or submit a separate owner-governed taxonomy request. Concepts remain unresolved until a governed decision. No label is activated by this worksheet."
+            },
+            "study_relationship": {
+                "proposed_material_id": "architecture-building-systems-and-construction",
+                "material_exists": true,
+                "material_published": true,
+                "published_lesson_exists": true,
+                "proposed_section_id": "5-accessible-routes-and-vertical-transitions",
+                "section_heading": "5. Accessible routes and vertical transitions",
+                "current_registry_match": "MISSING_SECTION",
+                "current_question_link_exists": false,
+                "required_for_import": false,
+                "decision": "UNRESOLVED_NO_SECTION_CREATED_OR_LINK_ACTIVATED"
+            },
+            "governance_actions": {
+                "taxonomy": "Resolve candidate ambiguity or submit a governed taxonomy request; do not auto-map by text similarity.",
+                "study": "Owner/content-governance decision is required to author a real lesson section; otherwise retain relationship unresolved/optional.",
+                "academic": "Source review and version-bound academic review remain separate and pending."
+            }
+        },
+        {
+            "proposal_id": "batch695-9125",
+            "question_id": "9125",
+            "question_version": "efcce496dd6901a3235c20e1d8219e40b9b908f8a17fe164f36bd6655dff42e5",
+            "board": {
+                "id": "architecture",
+                "name": "Licensure Examination for Architects"
+            },
+            "subject": {
+                "id": "architecture-utilities-and-construction",
+                "name": "Architecture Utilities and Construction"
+            },
+            "taxonomy": {
+                "proposed_domain": {
+                    "id": "architecture-utilities-construction",
+                    "name": "Architecture Utilities Construction",
+                    "registered": true
+                },
+                "proposed_topic": {
+                    "id": "architecture-accessible-route-detailing",
+                    "name": "Accessible Routes and Floor Details",
+                    "registered": false,
+                    "current_name": null,
+                    "exact_normalized_name_matches": []
+                },
+                "proposed_concept": {
+                    "id": "arch-bp344-grating-and-cover-detail",
+                    "name": "Grating and Channel-Cover Detail",
+                    "registered": false,
+                    "current_topic_id": null,
+                    "topic_relationship_conflict": false
+                },
+                "existing_topic_candidates": [],
+                "shared_proposed_topic_group": {
+                    "question_ids": [
+                        "9124",
+                        "9125",
+                        "9126"
+                    ],
+                    "meaning": "Same proposed topic ID is reused across proposals; preserve one label and review its applicability per item. This is not an instruction to merge or activate taxonomy."
+                },
+                "review_status": "AWAITING_REVIEW",
+                "required_action": "A scoped TAXONOMY_RECONCILE reviewer must explicitly map to a current valid topic or submit a separate owner-governed taxonomy request. Concepts remain unresolved until a governed decision. No label is activated by this worksheet."
+            },
+            "study_relationship": {
+                "proposed_material_id": "architecture-building-systems-and-construction",
+                "material_exists": true,
+                "material_published": true,
+                "published_lesson_exists": true,
+                "proposed_section_id": "6-accessible-floor-and-service-details",
+                "section_heading": "6. Accessible floor and service details",
+                "current_registry_match": "MISSING_SECTION",
+                "current_question_link_exists": false,
+                "required_for_import": false,
+                "decision": "UNRESOLVED_NO_SECTION_CREATED_OR_LINK_ACTIVATED"
+            },
+            "governance_actions": {
+                "taxonomy": "Resolve candidate ambiguity or submit a governed taxonomy request; do not auto-map by text similarity.",
+                "study": "Owner/content-governance decision is required to author a real lesson section; otherwise retain relationship unresolved/optional.",
+                "academic": "Source review and version-bound academic review remain separate and pending."
+            }
+        },
+        {
+            "proposal_id": "batch695-9126",
+            "question_id": "9126",
+            "question_version": "eedfa00493c31ef2654564bb2eac0267e33779963532e48dee87cfef4629adad",
+            "board": {
+                "id": "architecture",
+                "name": "Licensure Examination for Architects"
+            },
+            "subject": {
+                "id": "architecture-utilities-and-construction",
+                "name": "Architecture Utilities and Construction"
+            },
+            "taxonomy": {
+                "proposed_domain": {
+                    "id": "architecture-utilities-construction",
+                    "name": "Architecture Utilities Construction",
+                    "registered": true
+                },
+                "proposed_topic": {
+                    "id": "architecture-accessible-route-detailing",
+                    "name": "Accessible Routes and Floor Details",
+                    "registered": false,
+                    "current_name": null,
+                    "exact_normalized_name_matches": []
+                },
+                "proposed_concept": {
+                    "id": "arch-bp344-services-away-from-routes",
+                    "name": "Services Away from Accessible Routes",
+                    "registered": false,
+                    "current_topic_id": null,
+                    "topic_relationship_conflict": false
+                },
+                "existing_topic_candidates": [],
+                "shared_proposed_topic_group": {
+                    "question_ids": [
+                        "9124",
+                        "9125",
+                        "9126"
+                    ],
+                    "meaning": "Same proposed topic ID is reused across proposals; preserve one label and review its applicability per item. This is not an instruction to merge or activate taxonomy."
+                },
+                "review_status": "AWAITING_REVIEW",
+                "required_action": "A scoped TAXONOMY_RECONCILE reviewer must explicitly map to a current valid topic or submit a separate owner-governed taxonomy request. Concepts remain unresolved until a governed decision. No label is activated by this worksheet."
+            },
+            "study_relationship": {
+                "proposed_material_id": "architecture-building-systems-and-construction",
+                "material_exists": true,
+                "material_published": true,
+                "published_lesson_exists": true,
+                "proposed_section_id": "6-accessible-floor-and-service-details",
+                "section_heading": "6. Accessible floor and service details",
+                "current_registry_match": "MISSING_SECTION",
+                "current_question_link_exists": false,
+                "required_for_import": false,
+                "decision": "UNRESOLVED_NO_SECTION_CREATED_OR_LINK_ACTIVATED"
+            },
+            "governance_actions": {
+                "taxonomy": "Resolve candidate ambiguity or submit a governed taxonomy request; do not auto-map by text similarity.",
+                "study": "Owner/content-governance decision is required to author a real lesson section; otherwise retain relationship unresolved/optional.",
+                "academic": "Source review and version-bound academic review remain separate and pending."
+            }
+        },
+        {
+            "proposal_id": "batch695-9127",
+            "question_id": "9127",
+            "question_version": "9b034dfb37d0e32b5b676ba100d28262d7618c3a5749474e09d5099921bbab75",
+            "board": {
+                "id": "architecture",
+                "name": "Licensure Examination for Architects"
+            },
+            "subject": {
+                "id": "architecture-utilities-and-construction",
+                "name": "Architecture Utilities and Construction"
+            },
+            "taxonomy": {
+                "proposed_domain": {
+                    "id": "architecture-utilities-construction",
+                    "name": "Architecture Utilities Construction",
+                    "registered": true
+                },
+                "proposed_topic": {
+                    "id": "architecture-utility-systems-integration",
+                    "name": "Utility Systems Integration",
+                    "registered": false,
+                    "current_name": null,
+                    "exact_normalized_name_matches": []
+                },
+                "proposed_concept": {
+                    "id": "arch-ra9266-utility-systems-coordination",
+                    "name": "Utility Systems Coordination",
+                    "registered": false,
+                    "current_topic_id": null,
+                    "topic_relationship_conflict": false
+                },
+                "existing_topic_candidates": [],
+                "shared_proposed_topic_group": null,
+                "review_status": "AWAITING_REVIEW",
+                "required_action": "A scoped TAXONOMY_RECONCILE reviewer must explicitly map to a current valid topic or submit a separate owner-governed taxonomy request. Concepts remain unresolved until a governed decision. No label is activated by this worksheet."
+            },
+            "study_relationship": {
+                "proposed_material_id": "architecture-building-systems-and-construction",
+                "material_exists": true,
+                "material_published": true,
+                "published_lesson_exists": true,
+                "proposed_section_id": "7-integrated-utilities-and-access-coordination",
+                "section_heading": "7. Integrated utilities and access coordination",
+                "current_registry_match": "MISSING_SECTION",
+                "current_question_link_exists": false,
+                "required_for_import": false,
+                "decision": "UNRESOLVED_NO_SECTION_CREATED_OR_LINK_ACTIVATED"
+            },
+            "governance_actions": {
+                "taxonomy": "Resolve candidate ambiguity or submit a governed taxonomy request; do not auto-map by text similarity.",
+                "study": "Owner/content-governance decision is required to author a real lesson section; otherwise retain relationship unresolved/optional.",
+                "academic": "Source review and version-bound academic review remain separate and pending."
+            }
+        },
+        {
+            "proposal_id": "batch695-9128",
+            "question_id": "9128",
+            "question_version": "11af4c4ed286b56172b91d1cf83d81c985304c3d1e607882e0c3a9a11a21f1ab",
+            "board": {
+                "id": "let",
+                "name": "Licensure Examination for Professional Teachers (LET)"
+            },
+            "subject": {
+                "id": "culture-and-arts-education",
+                "name": "Culture and Arts Education"
+            },
+            "taxonomy": {
+                "proposed_domain": {
+                    "id": "cae-arts-and-culture",
+                    "name": "Arts and Culture",
+                    "registered": true
+                },
+                "proposed_topic": {
+                    "id": "cae-context-and-heritage",
+                    "name": "Context, Identity, and Heritage",
+                    "registered": false,
+                    "current_name": null,
+                    "exact_normalized_name_matches": []
+                },
+                "proposed_concept": {
+                    "id": "cae-cultural-context-and-artistic-evidence",
+                    "name": "Cultural Context and Artistic Evidence",
+                    "registered": false,
+                    "current_topic_id": null,
+                    "topic_relationship_conflict": false
+                },
+                "existing_topic_candidates": [],
+                "shared_proposed_topic_group": null,
+                "review_status": "AWAITING_REVIEW",
+                "required_action": "A scoped TAXONOMY_RECONCILE reviewer must explicitly map to a current valid topic or submit a separate owner-governed taxonomy request. Concepts remain unresolved until a governed decision. No label is activated by this worksheet."
+            },
+            "study_relationship": {
+                "proposed_material_id": "let-culture-arts-learning-foundation",
+                "material_exists": true,
+                "material_published": true,
+                "published_lesson_exists": true,
+                "proposed_section_id": "5-context-identity-and-interpretation",
+                "section_heading": "5. Context, identity, and interpretation",
+                "current_registry_match": "MISSING_SECTION",
+                "current_question_link_exists": false,
+                "required_for_import": false,
+                "decision": "UNRESOLVED_NO_SECTION_CREATED_OR_LINK_ACTIVATED"
+            },
+            "governance_actions": {
+                "taxonomy": "Resolve candidate ambiguity or submit a governed taxonomy request; do not auto-map by text similarity.",
+                "study": "Owner/content-governance decision is required to author a real lesson section; otherwise retain relationship unresolved/optional.",
+                "academic": "Source review and version-bound academic review remain separate and pending."
+            }
+        },
+        {
+            "proposal_id": "batch695-9140",
+            "question_id": "9140",
+            "question_version": "fad09694b302c968066e4845c0bc1b5bf4d25fddf8bf09b372168387c5dbf299",
+            "board": {
+                "id": "let",
+                "name": "Licensure Examination for Professional Teachers (LET)"
+            },
+            "subject": {
+                "id": "culture-and-arts-education",
+                "name": "Culture and Arts Education"
+            },
+            "taxonomy": {
+                "proposed_domain": {
+                    "id": "cae-arts-and-culture",
+                    "name": "Arts and Culture",
+                    "registered": true
+                },
+                "proposed_topic": {
+                    "id": "cae-ethical-engagement",
+                    "name": "Ethical Cultural Engagement",
+                    "registered": false,
+                    "current_name": null,
+                    "exact_normalized_name_matches": []
+                },
+                "proposed_concept": {
+                    "id": "cae-ethical-community-engagement",
+                    "name": "Ethical Community Engagement",
+                    "registered": false,
+                    "current_topic_id": null,
+                    "topic_relationship_conflict": false
+                },
+                "existing_topic_candidates": [],
+                "shared_proposed_topic_group": null,
+                "review_status": "AWAITING_REVIEW",
+                "required_action": "A scoped TAXONOMY_RECONCILE reviewer must explicitly map to a current valid topic or submit a separate owner-governed taxonomy request. Concepts remain unresolved until a governed decision. No label is activated by this worksheet."
+            },
+            "study_relationship": {
+                "proposed_material_id": "let-culture-arts-learning-foundation",
+                "material_exists": true,
+                "material_published": true,
+                "published_lesson_exists": true,
+                "proposed_section_id": "6-ethical-cultural-engagement",
+                "section_heading": "6. Ethical cultural engagement",
+                "current_registry_match": "MISSING_SECTION",
+                "current_question_link_exists": false,
+                "required_for_import": false,
+                "decision": "UNRESOLVED_NO_SECTION_CREATED_OR_LINK_ACTIVATED"
+            },
+            "governance_actions": {
+                "taxonomy": "Resolve candidate ambiguity or submit a governed taxonomy request; do not auto-map by text similarity.",
+                "study": "Owner/content-governance decision is required to author a real lesson section; otherwise retain relationship unresolved/optional.",
+                "academic": "Source review and version-bound academic review remain separate and pending."
+            }
+        },
+        {
+            "proposal_id": "batch695-9164",
+            "question_id": "9164",
+            "question_version": "adfca55cae935bdea3bd7e8e62af58b15b9fca51457203f6b7d012b9f667353c",
+            "board": {
+                "id": "let",
+                "name": "Licensure Examination for Professional Teachers (LET)"
+            },
+            "subject": {
+                "id": "culture-and-arts-education",
+                "name": "Culture and Arts Education"
+            },
+            "taxonomy": {
+                "proposed_domain": {
+                    "id": "cae-arts-and-culture",
+                    "name": "Arts and Culture",
+                    "registered": true
+                },
+                "proposed_topic": {
+                    "id": "cae-performance-and-assessment",
+                    "name": "Performance, Critique, and Assessment",
+                    "registered": false,
+                    "current_name": null,
+                    "exact_normalized_name_matches": []
+                },
+                "proposed_concept": {
+                    "id": "cae-authentic-arts-assessment",
+                    "name": "Authentic Arts Assessment",
+                    "registered": false,
+                    "current_topic_id": null,
+                    "topic_relationship_conflict": false
+                },
+                "existing_topic_candidates": [],
+                "shared_proposed_topic_group": null,
+                "review_status": "AWAITING_REVIEW",
+                "required_action": "A scoped TAXONOMY_RECONCILE reviewer must explicitly map to a current valid topic or submit a separate owner-governed taxonomy request. Concepts remain unresolved until a governed decision. No label is activated by this worksheet."
+            },
+            "study_relationship": {
+                "proposed_material_id": "let-culture-arts-learning-foundation",
+                "material_exists": true,
+                "material_published": true,
+                "published_lesson_exists": true,
+                "proposed_section_id": "9-critique-assessment-and-access",
+                "section_heading": "9. Critique, assessment, and access",
+                "current_registry_match": "MISSING_SECTION",
+                "current_question_link_exists": false,
+                "required_for_import": false,
+                "decision": "UNRESOLVED_NO_SECTION_CREATED_OR_LINK_ACTIVATED"
+            },
+            "governance_actions": {
+                "taxonomy": "Resolve candidate ambiguity or submit a governed taxonomy request; do not auto-map by text similarity.",
+                "study": "Owner/content-governance decision is required to author a real lesson section; otherwise retain relationship unresolved/optional.",
+                "academic": "Source review and version-bound academic review remain separate and pending."
+            }
+        },
+        {
+            "proposal_id": "batch695-9200",
+            "question_id": "9200",
+            "question_version": "05528bb8aeda64151da2729ad8f2db1307383ffe877e3f9122037a4adb96db4d",
+            "board": {
+                "id": "let",
+                "name": "Licensure Examination for Professional Teachers (LET)"
+            },
+            "subject": {
+                "id": "early-childhood-education",
+                "name": "Early Childhood Education"
+            },
+            "taxonomy": {
+                "proposed_domain": {
+                    "id": "child-development",
+                    "name": "Child Development",
+                    "registered": true
+                },
+                "proposed_topic": {
+                    "id": "ece-observation-to-planning",
+                    "name": "Observation to Responsive Planning",
+                    "registered": false,
+                    "current_name": null,
+                    "exact_normalized_name_matches": []
+                },
+                "proposed_concept": {
+                    "id": "ece-observation-to-responsive-planning",
+                    "name": "Observation to Responsive Planning",
+                    "registered": false,
+                    "current_topic_id": null,
+                    "topic_relationship_conflict": false
+                },
+                "existing_topic_candidates": [],
+                "shared_proposed_topic_group": null,
+                "review_status": "AWAITING_REVIEW",
+                "required_action": "A scoped TAXONOMY_RECONCILE reviewer must explicitly map to a current valid topic or submit a separate owner-governed taxonomy request. Concepts remain unresolved until a governed decision. No label is activated by this worksheet."
+            },
+            "study_relationship": {
+                "proposed_material_id": "let-early-childhood-learning-and-inclusion",
+                "material_exists": true,
+                "material_published": true,
+                "published_lesson_exists": true,
+                "proposed_section_id": "3-observation-and-assessment",
+                "section_heading": "3. Observation and assessment",
+                "current_registry_match": "EXACT_SECTION_MATCH",
+                "current_question_link_exists": false,
+                "required_for_import": false,
+                "decision": "EXACT_CANDIDATE_REQUIRES_SCOPED_STUDY_LINK_REVIEW"
+            },
+            "governance_actions": {
+                "taxonomy": "Resolve candidate ambiguity or submit a governed taxonomy request; do not auto-map by text similarity.",
+                "study": "Scoped STUDY_LINK reviewer confirms section fit and separately authorizes the link.",
+                "academic": "Source review and version-bound academic review remain separate and pending."
+            }
+        },
+        {
+            "proposal_id": "batch695-9204",
+            "question_id": "9204",
+            "question_version": "cfa76113ac40f76c28c2484d5cb4881849f04d6aa0d693abbb50e9215f5f0863",
+            "board": {
+                "id": "let",
+                "name": "Licensure Examination for Professional Teachers (LET)"
+            },
+            "subject": {
+                "id": "early-childhood-education",
+                "name": "Early Childhood Education"
+            },
+            "taxonomy": {
+                "proposed_domain": {
+                    "id": "early-childhood-development",
+                    "name": "Early Childhood Development",
+                    "registered": true
+                },
+                "proposed_topic": {
+                    "id": "ece-development-and-learning",
+                    "name": "Development and Learning",
+                    "registered": true,
+                    "current_name": "Development and Learning",
+                    "exact_normalized_name_matches": [
+                        {
+                            "id": "ece-development-and-learning",
+                            "name": "Development and Learning"
+                        }
+                    ]
+                },
+                "proposed_concept": {
+                    "id": "ece-guided-play-scaffolding",
+                    "name": "Guided Play Scaffolding",
+                    "registered": false,
+                    "current_topic_id": null,
+                    "topic_relationship_conflict": false
+                },
+                "existing_topic_candidates": [
+                    {
+                        "topic_id": "ece-development-and-learning",
+                        "current_name": "Development and Learning",
+                        "current_record_exists": true,
+                        "recorded_candidate_name": "Development and Learning",
+                        "recorded_similarity": 1,
+                        "recorded_status": "EXACT_REGISTERED_TOPIC_REQUIRES_REVIEWER_MAPPING",
+                        "deterministic_recheck": "EXACT_ID_OR_NORMALIZED_NAME",
+                        "decision": "SUGGESTION_ONLY_REQUIRES_SCOPED_TAXONOMY_REVIEW"
+                    }
+                ],
+                "shared_proposed_topic_group": null,
+                "review_status": "AWAITING_REVIEW",
+                "required_action": "A scoped TAXONOMY_RECONCILE reviewer must explicitly map to a current valid topic or submit a separate owner-governed taxonomy request. Concepts remain unresolved until a governed decision. No label is activated by this worksheet."
+            },
+            "study_relationship": {
+                "proposed_material_id": "let-early-childhood-learning-and-inclusion",
+                "material_exists": true,
+                "material_published": true,
+                "published_lesson_exists": true,
+                "proposed_section_id": "2-play-and-guided-learning",
+                "section_heading": "2. Play and guided learning",
+                "current_registry_match": "EXACT_SECTION_MATCH",
+                "current_question_link_exists": false,
+                "required_for_import": false,
+                "decision": "EXACT_CANDIDATE_REQUIRES_SCOPED_STUDY_LINK_REVIEW"
+            },
+            "governance_actions": {
+                "taxonomy": "Resolve candidate ambiguity or submit a governed taxonomy request; do not auto-map by text similarity.",
+                "study": "Scoped STUDY_LINK reviewer confirms section fit and separately authorizes the link.",
+                "academic": "Source review and version-bound academic review remain separate and pending."
+            }
+        },
+        {
+            "proposal_id": "batch695-9210",
+            "question_id": "9210",
+            "question_version": "2daa77bd6430c6fb7cb2839293d78b742d2b6f62205b93837b02c038152edfba",
+            "board": {
+                "id": "let",
+                "name": "Licensure Examination for Professional Teachers (LET)"
+            },
+            "subject": {
+                "id": "early-childhood-education",
+                "name": "Early Childhood Education"
+            },
+            "taxonomy": {
+                "proposed_domain": {
+                    "id": "family-engagement",
+                    "name": "Family Engagement",
+                    "registered": true
+                },
+                "proposed_topic": {
+                    "id": "ece-family-culture-language",
+                    "name": "Family, Culture, and Language",
+                    "registered": false,
+                    "current_name": null,
+                    "exact_normalized_name_matches": []
+                },
+                "proposed_concept": {
+                    "id": "ece-home-language-partnership",
+                    "name": "Home-Language Partnership",
+                    "registered": false,
+                    "current_topic_id": null,
+                    "topic_relationship_conflict": false
+                },
+                "existing_topic_candidates": [],
+                "shared_proposed_topic_group": null,
+                "review_status": "AWAITING_REVIEW",
+                "required_action": "A scoped TAXONOMY_RECONCILE reviewer must explicitly map to a current valid topic or submit a separate owner-governed taxonomy request. Concepts remain unresolved until a governed decision. No label is activated by this worksheet."
+            },
+            "study_relationship": {
+                "proposed_material_id": "let-early-childhood-learning-and-inclusion",
+                "material_exists": true,
+                "material_published": true,
+                "published_lesson_exists": true,
+                "proposed_section_id": "4-family-partnership-and-inclusion",
+                "section_heading": "4. Family partnership and inclusion",
+                "current_registry_match": "EXACT_SECTION_MATCH",
+                "current_question_link_exists": false,
+                "required_for_import": false,
+                "decision": "EXACT_CANDIDATE_REQUIRES_SCOPED_STUDY_LINK_REVIEW"
+            },
+            "governance_actions": {
+                "taxonomy": "Resolve candidate ambiguity or submit a governed taxonomy request; do not auto-map by text similarity.",
+                "study": "Scoped STUDY_LINK reviewer confirms section fit and separately authorizes the link.",
+                "academic": "Source review and version-bound academic review remain separate and pending."
+            }
+        },
+        {
+            "proposal_id": "batch695-9228",
+            "question_id": "9228",
+            "question_version": "07cc00629ad57ff2df1d92560bc0870fe2eb02e3c7a5ee8ef7dfbb9c8625dc95",
+            "board": {
+                "id": "let",
+                "name": "Licensure Examination for Professional Teachers (LET)"
+            },
+            "subject": {
+                "id": "early-childhood-education",
+                "name": "Early Childhood Education"
+            },
+            "taxonomy": {
+                "proposed_domain": {
+                    "id": "health-safety-and-care",
+                    "name": "Health, Safety and Care",
+                    "registered": true
+                },
+                "proposed_topic": {
+                    "id": "ece-socioemotional-and-safeguarding",
+                    "name": "Social-Emotional Learning and Safeguarding",
+                    "registered": false,
+                    "current_name": null,
+                    "exact_normalized_name_matches": []
+                },
+                "proposed_concept": {
+                    "id": "ece-safeguarding-response-and-boundaries",
+                    "name": "Safeguarding Response and Boundaries",
+                    "registered": false,
+                    "current_topic_id": null,
+                    "topic_relationship_conflict": false
+                },
+                "existing_topic_candidates": [],
+                "shared_proposed_topic_group": null,
+                "review_status": "AWAITING_REVIEW",
+                "required_action": "A scoped TAXONOMY_RECONCILE reviewer must explicitly map to a current valid topic or submit a separate owner-governed taxonomy request. Concepts remain unresolved until a governed decision. No label is activated by this worksheet."
+            },
+            "study_relationship": {
+                "proposed_material_id": "let-early-childhood-learning-and-inclusion",
+                "material_exists": true,
+                "material_published": true,
+                "published_lesson_exists": true,
+                "proposed_section_id": "9-child-protection-and-safeguarding",
+                "section_heading": "9. Child protection and safeguarding",
+                "current_registry_match": "MISSING_SECTION",
+                "current_question_link_exists": false,
+                "required_for_import": false,
+                "decision": "UNRESOLVED_NO_SECTION_CREATED_OR_LINK_ACTIVATED"
+            },
+            "governance_actions": {
+                "taxonomy": "Resolve candidate ambiguity or submit a governed taxonomy request; do not auto-map by text similarity.",
+                "study": "Owner/content-governance decision is required to author a real lesson section; otherwise retain relationship unresolved/optional.",
+                "academic": "Source review and version-bound academic review remain separate and pending."
+            }
+        },
+        {
+            "proposal_id": "batch695-9238",
+            "question_id": "9238",
+            "question_version": "f891cedaaddb52c3aad57616e50d3142be3861c1ed6dd7ef5f9593a8942734a5",
+            "board": {
+                "id": "let",
+                "name": "Licensure Examination for Professional Teachers (LET)"
+            },
+            "subject": {
+                "id": "physical-education",
+                "name": "Physical Education"
+            },
+            "taxonomy": {
+                "proposed_domain": {
+                    "id": "pe-movement-and-fitness",
+                    "name": "Movement and Fitness",
+                    "registered": true
+                },
+                "proposed_topic": {
+                    "id": "pe-movement-and-learning",
+                    "name": "Movement Analysis and Motor Learning",
+                    "registered": false,
+                    "current_name": null,
+                    "exact_normalized_name_matches": []
+                },
+                "proposed_concept": {
+                    "id": "pe-fundamental-movement-analysis",
+                    "name": "Fundamental Movement Analysis",
+                    "registered": false,
+                    "current_topic_id": null,
+                    "topic_relationship_conflict": false
+                },
+                "existing_topic_candidates": [],
+                "shared_proposed_topic_group": null,
+                "review_status": "AWAITING_REVIEW",
+                "required_action": "A scoped TAXONOMY_RECONCILE reviewer must explicitly map to a current valid topic or submit a separate owner-governed taxonomy request. Concepts remain unresolved until a governed decision. No label is activated by this worksheet."
+            },
+            "study_relationship": {
+                "proposed_material_id": "let-physical-education-movement-and-safety",
+                "material_exists": true,
+                "material_published": true,
+                "published_lesson_exists": true,
+                "proposed_section_id": "5-movement-analysis-and-motor-learning",
+                "section_heading": "5. Movement analysis and motor learning",
+                "current_registry_match": "MISSING_SECTION",
+                "current_question_link_exists": false,
+                "required_for_import": false,
+                "decision": "UNRESOLVED_NO_SECTION_CREATED_OR_LINK_ACTIVATED"
+            },
+            "governance_actions": {
+                "taxonomy": "Resolve candidate ambiguity or submit a governed taxonomy request; do not auto-map by text similarity.",
+                "study": "Owner/content-governance decision is required to author a real lesson section; otherwise retain relationship unresolved/optional.",
+                "academic": "Source review and version-bound academic review remain separate and pending."
+            }
+        },
+        {
+            "proposal_id": "batch695-9250",
+            "question_id": "9250",
+            "question_version": "c13dedd0404019bc4920361f24547698414402d8a81f8fbcce8052d1ad0865d7",
+            "board": {
+                "id": "let",
+                "name": "Licensure Examination for Professional Teachers (LET)"
+            },
+            "subject": {
+                "id": "physical-education",
+                "name": "Physical Education"
+            },
+            "taxonomy": {
+                "proposed_domain": {
+                    "id": "pe-movement-and-fitness",
+                    "name": "Movement and Fitness",
+                    "registered": true
+                },
+                "proposed_topic": {
+                    "id": "pe-fitness-assessment-and-progression",
+                    "name": "Fitness Assessment and Safe Progression",
+                    "registered": false,
+                    "current_name": null,
+                    "exact_normalized_name_matches": []
+                },
+                "proposed_concept": {
+                    "id": "pe-fitness-component-interpretation",
+                    "name": "Fitness Component Interpretation",
+                    "registered": false,
+                    "current_topic_id": null,
+                    "topic_relationship_conflict": false
+                },
+                "existing_topic_candidates": [
+                    {
+                        "topic_id": "pe-fitness-and-wellness",
+                        "current_name": "Fitness programming and progression",
+                        "current_record_exists": true,
+                        "recorded_candidate_name": "Fitness programming and progression",
+                        "recorded_similarity": 0.4,
+                        "recorded_status": "REVIEW_CANDIDATE_ONLY",
+                        "deterministic_recheck": "NONEXACT_RECORDED_CANDIDATE",
+                        "decision": "SUGGESTION_ONLY_REQUIRES_SCOPED_TAXONOMY_REVIEW"
+                    }
+                ],
+                "shared_proposed_topic_group": null,
+                "review_status": "AWAITING_REVIEW",
+                "required_action": "A scoped TAXONOMY_RECONCILE reviewer must explicitly map to a current valid topic or submit a separate owner-governed taxonomy request. Concepts remain unresolved until a governed decision. No label is activated by this worksheet."
+            },
+            "study_relationship": {
+                "proposed_material_id": "let-physical-education-movement-and-safety",
+                "material_exists": true,
+                "material_published": true,
+                "published_lesson_exists": true,
+                "proposed_section_id": "6-fitness-progression-and-assessment",
+                "section_heading": "6. Fitness, progression, and assessment",
+                "current_registry_match": "MISSING_SECTION",
+                "current_question_link_exists": false,
+                "required_for_import": false,
+                "decision": "UNRESOLVED_NO_SECTION_CREATED_OR_LINK_ACTIVATED"
+            },
+            "governance_actions": {
+                "taxonomy": "Resolve candidate ambiguity or submit a governed taxonomy request; do not auto-map by text similarity.",
+                "study": "Owner/content-governance decision is required to author a real lesson section; otherwise retain relationship unresolved/optional.",
+                "academic": "Source review and version-bound academic review remain separate and pending."
+            }
+        },
+        {
+            "proposal_id": "batch695-9280",
+            "question_id": "9280",
+            "question_version": "b0ac2ff0e048ad850d9f3b82c8d5d5b58d92dfd33afbe208cae272c10606cef5",
+            "board": {
+                "id": "let",
+                "name": "Licensure Examination for Professional Teachers (LET)"
+            },
+            "subject": {
+                "id": "physical-education",
+                "name": "Physical Education"
+            },
+            "taxonomy": {
+                "proposed_domain": {
+                    "id": "pe-movement-and-fitness",
+                    "name": "Movement and Fitness",
+                    "registered": true
+                },
+                "proposed_topic": {
+                    "id": "pe-games-dance-and-inclusion",
+                    "name": "Games, Dance, and Inclusive Participation",
+                    "registered": false,
+                    "current_name": null,
+                    "exact_normalized_name_matches": []
+                },
+                "proposed_concept": {
+                    "id": "pe-inclusive-activity-design",
+                    "name": "Inclusive Activity Design",
+                    "registered": false,
+                    "current_topic_id": null,
+                    "topic_relationship_conflict": false
+                },
+                "existing_topic_candidates": [],
+                "shared_proposed_topic_group": null,
+                "review_status": "AWAITING_REVIEW",
+                "required_action": "A scoped TAXONOMY_RECONCILE reviewer must explicitly map to a current valid topic or submit a separate owner-governed taxonomy request. Concepts remain unresolved until a governed decision. No label is activated by this worksheet."
+            },
+            "study_relationship": {
+                "proposed_material_id": "let-physical-education-movement-and-safety",
+                "material_exists": true,
+                "material_published": true,
+                "published_lesson_exists": true,
+                "proposed_section_id": "8-games-rhythm-and-inclusive-participation",
+                "section_heading": "8. Games, rhythm, and inclusive participation",
+                "current_registry_match": "MISSING_SECTION",
+                "current_question_link_exists": false,
+                "required_for_import": false,
+                "decision": "UNRESOLVED_NO_SECTION_CREATED_OR_LINK_ACTIVATED"
+            },
+            "governance_actions": {
+                "taxonomy": "Resolve candidate ambiguity or submit a governed taxonomy request; do not auto-map by text similarity.",
+                "study": "Owner/content-governance decision is required to author a real lesson section; otherwise retain relationship unresolved/optional.",
+                "academic": "Source review and version-bound academic review remain separate and pending."
+            }
+        },
+        {
+            "proposal_id": "batch695-9290",
+            "question_id": "9290",
+            "question_version": "89eaecef6aeaffbbbc2b45bd782aad1e6d6f504cc4978c6e79aefbf95988573f",
+            "board": {
+                "id": "let",
+                "name": "Licensure Examination for Professional Teachers (LET)"
+            },
+            "subject": {
+                "id": "special-needs-education",
+                "name": "Special Needs Education"
+            },
+            "taxonomy": {
+                "proposed_domain": {
+                    "id": "inclusive-special-needs-education",
+                    "name": "Inclusive Special Needs Education",
+                    "registered": true
+                },
+                "proposed_topic": {
+                    "id": "sne-udl-and-access",
+                    "name": "Universal Design and Access",
+                    "registered": false,
+                    "current_name": null,
+                    "exact_normalized_name_matches": []
+                },
+                "proposed_concept": {
+                    "id": "sne-udl-flexible-engagement-representation-expression",
+                    "name": "Flexible Engagement, Representation, and Expression",
+                    "registered": false,
+                    "current_topic_id": null,
+                    "topic_relationship_conflict": false
+                },
+                "existing_topic_candidates": [],
+                "shared_proposed_topic_group": null,
+                "review_status": "AWAITING_REVIEW",
+                "required_action": "A scoped TAXONOMY_RECONCILE reviewer must explicitly map to a current valid topic or submit a separate owner-governed taxonomy request. Concepts remain unresolved until a governed decision. No label is activated by this worksheet."
+            },
+            "study_relationship": {
+                "proposed_material_id": "let-special-needs-inclusive-education",
+                "material_exists": true,
+                "material_published": true,
+                "published_lesson_exists": true,
+                "proposed_section_id": "5-udl-access-and-action",
+                "section_heading": "5. UDL, access, and action",
+                "current_registry_match": "MISSING_SECTION",
+                "current_question_link_exists": false,
+                "required_for_import": false,
+                "decision": "UNRESOLVED_NO_SECTION_CREATED_OR_LINK_ACTIVATED"
+            },
+            "governance_actions": {
+                "taxonomy": "Resolve candidate ambiguity or submit a governed taxonomy request; do not auto-map by text similarity.",
+                "study": "Owner/content-governance decision is required to author a real lesson section; otherwise retain relationship unresolved/optional.",
+                "academic": "Source review and version-bound academic review remain separate and pending."
+            }
+        },
+        {
+            "proposal_id": "batch695-9302",
+            "question_id": "9302",
+            "question_version": "913ef327b2d54a622d04c8c96f483b43e647fa6451927d9adb36cbbcbb42332d",
+            "board": {
+                "id": "let",
+                "name": "Licensure Examination for Professional Teachers (LET)"
+            },
+            "subject": {
+                "id": "special-needs-education",
+                "name": "Special Needs Education"
+            },
+            "taxonomy": {
+                "proposed_domain": {
+                    "id": "assessment-and-identification",
+                    "name": "Assessment and Identification",
+                    "registered": true
+                },
+                "proposed_topic": {
+                    "id": "sne-assessment-and-planning",
+                    "name": "Accessible Assessment and Individualized Planning",
+                    "registered": false,
+                    "current_name": null,
+                    "exact_normalized_name_matches": []
+                },
+                "proposed_concept": {
+                    "id": "sne-assessment-accommodation-validity",
+                    "name": "Assessment Accommodation and Validity",
+                    "registered": false,
+                    "current_topic_id": null,
+                    "topic_relationship_conflict": false
+                },
+                "existing_topic_candidates": [],
+                "shared_proposed_topic_group": null,
+                "review_status": "AWAITING_REVIEW",
+                "required_action": "A scoped TAXONOMY_RECONCILE reviewer must explicitly map to a current valid topic or submit a separate owner-governed taxonomy request. Concepts remain unresolved until a governed decision. No label is activated by this worksheet."
+            },
+            "study_relationship": {
+                "proposed_material_id": "let-special-needs-inclusive-education",
+                "material_exists": true,
+                "material_published": true,
+                "published_lesson_exists": true,
+                "proposed_section_id": "6-assessment-validity-and-accommodations",
+                "section_heading": "6. Assessment validity and accommodations",
+                "current_registry_match": "MISSING_SECTION",
+                "current_question_link_exists": false,
+                "required_for_import": false,
+                "decision": "UNRESOLVED_NO_SECTION_CREATED_OR_LINK_ACTIVATED"
+            },
+            "governance_actions": {
+                "taxonomy": "Resolve candidate ambiguity or submit a governed taxonomy request; do not auto-map by text similarity.",
+                "study": "Owner/content-governance decision is required to author a real lesson section; otherwise retain relationship unresolved/optional.",
+                "academic": "Source review and version-bound academic review remain separate and pending."
+            }
+        },
+        {
+            "proposal_id": "batch695-9320",
+            "question_id": "9320",
+            "question_version": "53a731ba403470968073d667da70b231804f32510d229b24134d0183205f8fc7",
+            "board": {
+                "id": "let",
+                "name": "Licensure Examination for Professional Teachers (LET)"
+            },
+            "subject": {
+                "id": "special-needs-education",
+                "name": "Special Needs Education"
+            },
+            "taxonomy": {
+                "proposed_domain": {
+                    "id": "behavior-and-support",
+                    "name": "Behavior and Support",
+                    "registered": true
+                },
+                "proposed_topic": {
+                    "id": "sne-positive-support-and-participation",
+                    "name": "Positive Support and Participation",
+                    "registered": false,
+                    "current_name": null,
+                    "exact_normalized_name_matches": []
+                },
+                "proposed_concept": {
+                    "id": "sne-positive-behavior-support",
+                    "name": "Positive Behavior Support",
+                    "registered": false,
+                    "current_topic_id": null,
+                    "topic_relationship_conflict": false
+                },
+                "existing_topic_candidates": [],
+                "shared_proposed_topic_group": null,
+                "review_status": "AWAITING_REVIEW",
+                "required_action": "A scoped TAXONOMY_RECONCILE reviewer must explicitly map to a current valid topic or submit a separate owner-governed taxonomy request. Concepts remain unresolved until a governed decision. No label is activated by this worksheet."
+            },
+            "study_relationship": {
+                "proposed_material_id": "let-special-needs-inclusive-education",
+                "material_exists": true,
+                "material_published": true,
+                "published_lesson_exists": true,
+                "proposed_section_id": "8-positive-behavior-and-environment",
+                "section_heading": "8. Positive behavior and environment",
+                "current_registry_match": "MISSING_SECTION",
+                "current_question_link_exists": false,
+                "required_for_import": false,
+                "decision": "UNRESOLVED_NO_SECTION_CREATED_OR_LINK_ACTIVATED"
+            },
+            "governance_actions": {
+                "taxonomy": "Resolve candidate ambiguity or submit a governed taxonomy request; do not auto-map by text similarity.",
+                "study": "Owner/content-governance decision is required to author a real lesson section; otherwise retain relationship unresolved/optional.",
+                "academic": "Source review and version-bound academic review remain separate and pending."
+            }
+        },
+        {
+            "proposal_id": "batch695-9348",
+            "question_id": "9348",
+            "question_version": "7e6047b01a5c6cdbb1872e8e404c1d3ed5a2a97ff234fde15eebb1daaaaea516",
+            "board": {
+                "id": "let",
+                "name": "Licensure Examination for Professional Teachers (LET)"
+            },
+            "subject": {
+                "id": "technical-vocational-teacher-education",
+                "name": "Technical-Vocational Teacher Education"
+            },
+            "taxonomy": {
+                "proposed_domain": {
+                    "id": "tvted-common-competencies",
+                    "name": "TVTEd Common Competencies",
+                    "registered": true
+                },
+                "proposed_topic": {
+                    "id": "tvted-outcomes-and-instruction",
+                    "name": "Competency Outcomes and Technical Instruction",
+                    "registered": false,
+                    "current_name": null,
+                    "exact_normalized_name_matches": []
+                },
+                "proposed_concept": {
+                    "id": "tvted-workplace-standard-to-outcome",
+                    "name": "Workplace Standard to Learning Outcome",
+                    "registered": false,
+                    "current_topic_id": null,
+                    "topic_relationship_conflict": false
+                },
+                "existing_topic_candidates": [],
+                "shared_proposed_topic_group": null,
+                "review_status": "AWAITING_REVIEW",
+                "required_action": "A scoped TAXONOMY_RECONCILE reviewer must explicitly map to a current valid topic or submit a separate owner-governed taxonomy request. Concepts remain unresolved until a governed decision. No label is activated by this worksheet."
+            },
+            "study_relationship": {
+                "proposed_material_id": "let-tvted-competency-based-teaching",
+                "material_exists": true,
+                "material_published": true,
+                "published_lesson_exists": true,
+                "proposed_section_id": "5-from-competency-standard-to-learning-outcome",
+                "section_heading": "5. From competency standard to learning outcome",
+                "current_registry_match": "MISSING_SECTION",
+                "current_question_link_exists": false,
+                "required_for_import": false,
+                "decision": "UNRESOLVED_NO_SECTION_CREATED_OR_LINK_ACTIVATED"
+            },
+            "governance_actions": {
+                "taxonomy": "Resolve candidate ambiguity or submit a governed taxonomy request; do not auto-map by text similarity.",
+                "study": "Owner/content-governance decision is required to author a real lesson section; otherwise retain relationship unresolved/optional.",
+                "academic": "Source review and version-bound academic review remain separate and pending."
+            }
+        },
+        {
+            "proposal_id": "batch695-9360",
+            "question_id": "9360",
+            "question_version": "b08995f57891d61e788589920662ac220b0c4bcfbfbfefd2facaa025a7f29a01",
+            "board": {
+                "id": "let",
+                "name": "Licensure Examination for Professional Teachers (LET)"
+            },
+            "subject": {
+                "id": "technical-vocational-teacher-education",
+                "name": "Technical-Vocational Teacher Education"
+            },
+            "taxonomy": {
+                "proposed_domain": {
+                    "id": "tvted-common-competencies",
+                    "name": "TVTEd Common Competencies",
+                    "registered": true
+                },
+                "proposed_topic": {
+                    "id": "tvted-evidence-and-assessment",
+                    "name": "Workplace Evidence and Assessment",
+                    "registered": false,
+                    "current_name": null,
+                    "exact_normalized_name_matches": []
+                },
+                "proposed_concept": {
+                    "id": "tvted-evidence-based-performance-assessment",
+                    "name": "Evidence-Based Performance Assessment",
+                    "registered": false,
+                    "current_topic_id": null,
+                    "topic_relationship_conflict": false
+                },
+                "existing_topic_candidates": [],
+                "shared_proposed_topic_group": null,
+                "review_status": "AWAITING_REVIEW",
+                "required_action": "A scoped TAXONOMY_RECONCILE reviewer must explicitly map to a current valid topic or submit a separate owner-governed taxonomy request. Concepts remain unresolved until a governed decision. No label is activated by this worksheet."
+            },
+            "study_relationship": {
+                "proposed_material_id": "let-tvted-competency-based-teaching",
+                "material_exists": true,
+                "material_published": true,
+                "published_lesson_exists": true,
+                "proposed_section_id": "7-performance-evidence-and-assessment",
+                "section_heading": "7. Performance evidence and assessment",
+                "current_registry_match": "MISSING_SECTION",
+                "current_question_link_exists": false,
+                "required_for_import": false,
+                "decision": "UNRESOLVED_NO_SECTION_CREATED_OR_LINK_ACTIVATED"
+            },
+            "governance_actions": {
+                "taxonomy": "Resolve candidate ambiguity or submit a governed taxonomy request; do not auto-map by text similarity.",
+                "study": "Owner/content-governance decision is required to author a real lesson section; otherwise retain relationship unresolved/optional.",
+                "academic": "Source review and version-bound academic review remain separate and pending."
+            }
+        },
+        {
+            "proposal_id": "batch695-9378",
+            "question_id": "9378",
+            "question_version": "c9c341b9d8342d8483faa009c3ac8fb1d90092f789c52db266f9fce65a03a402",
+            "board": {
+                "id": "let",
+                "name": "Licensure Examination for Professional Teachers (LET)"
+            },
+            "subject": {
+                "id": "technical-vocational-teacher-education",
+                "name": "Technical-Vocational Teacher Education"
+            },
+            "taxonomy": {
+                "proposed_domain": {
+                    "id": "tvted-common-competencies",
+                    "name": "TVTEd Common Competencies",
+                    "registered": true
+                },
+                "proposed_topic": {
+                    "id": "tvted-safety-and-workplace",
+                    "name": "Safety and Workplace Learning",
+                    "registered": false,
+                    "current_name": null,
+                    "exact_normalized_name_matches": []
+                },
+                "proposed_concept": {
+                    "id": "tvted-hazard-control-and-safe-practice",
+                    "name": "Hazard Control and Safe Practice",
+                    "registered": false,
+                    "current_topic_id": null,
+                    "topic_relationship_conflict": false
+                },
+                "existing_topic_candidates": [
+                    {
+                        "topic_id": "tvted-workplace-learning",
+                        "current_name": "Workplace learning",
+                        "current_record_exists": true,
+                        "recorded_candidate_name": "Workplace learning",
+                        "recorded_similarity": 0.667,
+                        "recorded_status": "REVIEW_CANDIDATE_ONLY",
+                        "deterministic_recheck": "NONEXACT_RECORDED_CANDIDATE",
+                        "decision": "SUGGESTION_ONLY_REQUIRES_SCOPED_TAXONOMY_REVIEW"
+                    },
+                    {
+                        "topic_id": "tvted-workplace-safety",
+                        "current_name": "TVTEd workplace safety",
+                        "current_record_exists": true,
+                        "recorded_candidate_name": "TVTEd workplace safety",
+                        "recorded_similarity": 0.5,
+                        "recorded_status": "REVIEW_CANDIDATE_ONLY",
+                        "deterministic_recheck": "NONEXACT_RECORDED_CANDIDATE",
+                        "decision": "SUGGESTION_ONLY_REQUIRES_SCOPED_TAXONOMY_REVIEW"
+                    }
+                ],
+                "shared_proposed_topic_group": null,
+                "review_status": "AWAITING_REVIEW",
+                "required_action": "A scoped TAXONOMY_RECONCILE reviewer must explicitly map to a current valid topic or submit a separate owner-governed taxonomy request. Concepts remain unresolved until a governed decision. No label is activated by this worksheet."
+            },
+            "study_relationship": {
+                "proposed_material_id": "let-tvted-competency-based-teaching",
+                "material_exists": true,
+                "material_published": true,
+                "published_lesson_exists": true,
+                "proposed_section_id": "9-safety-and-workplace-learning",
+                "section_heading": "9. Safety and workplace learning",
+                "current_registry_match": "MISSING_SECTION",
+                "current_question_link_exists": false,
+                "required_for_import": false,
+                "decision": "UNRESOLVED_NO_SECTION_CREATED_OR_LINK_ACTIVATED"
+            },
+            "governance_actions": {
+                "taxonomy": "Resolve candidate ambiguity or submit a governed taxonomy request; do not auto-map by text similarity.",
+                "study": "Owner/content-governance decision is required to author a real lesson section; otherwise retain relationship unresolved/optional.",
+                "academic": "Source review and version-bound academic review remain separate and pending."
+            }
+        }
+    ],
+    "required_owner_and_reviewer_path": {
+        "taxonomy": "Owner confirms taxonomy governance route and delegates only to a reviewer with active exact-board/exact-subject TAXONOMY_RECONCILE scope; reviewer records an explicit item-level mapping or an owner-governed proposal. Unregistered labels stay inactive.",
+        "study": "A reviewer with active exact-board/exact-subject STUDY_LINK scope verifies the currently published material and exact section. Missing lessons/sections require actual content governance; no placeholder section or link is created.",
+        "audit": "Keep proposal version, current taxonomy/study snapshot, reviewer identity/grant and explicit decision together. Any relevant snapshot change invalidates downstream approval/import readiness."
+    }
+}
