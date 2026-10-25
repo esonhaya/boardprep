@@ -222,7 +222,8 @@ STORAGE_RECLAIMED=0 bytes
 PROTECTED_TEMP_DATA=Pre-existing Doctor fixture/session directories retained; the new Doctor fixture and sessions were cleaned by the passing Doctor cleanup.
 UNTRACKED_USER_FILE=`storage/question-statistics.json`, SHA-256 `4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945`
 REPORT_PATH=`/data/data/com.termux/files/home/boardprep-batch-706/docs/reports/batch-716-overnight-academic-handoff.md`
-CLIPBOARD_STATUS=TO_BE_VERIFIED
+CLIPBOARD_STATUS=UNVERIFIED
+CLIPBOARD_REASON=`termux-clipboard-get` returned 0 bytes for the report; the complete file remains at the path above
 
 ## OUTCOME AND NEXT ACTION
 
