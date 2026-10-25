@@ -170,6 +170,7 @@ $proposals = [
     $proposalFactory('b714-test-rollback', 'synthetic-b714-rollback', 'TEST ONLY: Which reading claim matches the synthetic evidence?'),
     $proposalFactory('b714-test-concurrent', 'synthetic-b714-concurrent', 'TEST ONLY: Which inference is limited to the reported synthetic evidence?'),
     $proposalFactory('b714-test-collision', '1', 'TEST ONLY: Which conclusion stays inside the synthetic passage?'),
+    $proposalFactory('b714-test-taxonomy-preview', 'synthetic-b714-taxonomy-preview', 'TEST ONLY: Which reviewed taxonomy mapping still matches the approved proposal?'),
 ];
 $workflow = new \App\Services\Question\AcademicReviewWorkflowService($storage, $proposals, $authorization, $fixture);
 $versionOf = static fn(string $id): string => $workflow->version($id);
@@ -296,6 +297,27 @@ $prepare = static function (string $proposalId, bool $withSourceReview = true) u
     $workflow->decide($proposalId, $reviewerId, ['proposal_version' => $version] + $approvalInput);
     return $version;
 };
+
+// A taxonomy reconciliation after preview invalidates the earlier approval and confirmation token.
+$taxonomyPreviewId = 'b714-test-taxonomy-preview';
+$taxonomyPreviewVersion = $prepare($taxonomyPreviewId, true);
+$taxonomyPreflight = $workflow->importPreflight($taxonomyPreviewId, $importerId);
+$assert($taxonomyPreflight['eligible'] === true, 'Synthetic taxonomy preview did not pass its isolated preflight.');
+$updatedTaxonomy = $taxonomy + ['required_depth' => 3];
+$workflow->reconcileTaxonomy(
+    $taxonomyPreviewId,
+    $reviewerId,
+    $taxonomyPreviewVersion,
+    $updatedTaxonomy,
+    'TEST ONLY: a post-preview taxonomy depth change requires fresh academic approval.'
+);
+$expectFailure(
+    fn() => $workflow->import($taxonomyPreviewId, $importerId, $taxonomyPreviewVersion, $taxonomyPreflight['preview_token'], true),
+    'IMPORT_PREFLIGHT_BLOCKED:ACADEMIC_APPROVAL_REQUIRED',
+    'taxonomy mapping change after import preview'
+);
+$assert($storage->find('questions', 'synthetic-b714-taxonomy-preview') === null, 'A taxonomy change after preview published a synthetic canonical question.');
+$assert($storage->find('academic-import-journal', 'academic-import-' . hash('sha256', $taxonomyPreviewId)) === null, 'A taxonomy change after preview wrote an import journal.');
 
 // A missing independent source decision blocks import. Adding a source decision after approval invalidates approval.
 $rollbackId = 'b714-test-rollback';
@@ -451,6 +473,46 @@ $assert(($concurrentPreflight['question']['id'] ?? '') === 'synthetic-b714-concu
 $assert(count($concurrentPreflight['source_review_ids']) === 1, 'Import preview did not bind the reviewed source list.');
 $assert(!$workflow->importPreflight($concurrentId, 'account-unprivileged')['eligible'], 'An unauthorized importer passed the import gate.');
 $expectFailure(fn() => $workflow->import($concurrentId, $importerId, $concurrentVersion, $concurrentPreflight['preview_token'], false), 'IMPORT_CONFIRMATION_REQUIRED', 'missing import confirmation');
+
+// The importer grant is rechecked at confirmation; expiry and revocation after preview fail closed.
+$expiredImporterGrants = array_map(static function (array $grant) use ($importerId): array {
+    if (($grant['account_id'] ?? '') === $importerId) $grant['expires_at'] = '2000-01-01T00:00:00+00:00';
+    return $grant;
+}, $grants);
+$storage->replace('academic-reviewer-authorizations', $expiredImporterGrants);
+$expectFailure(
+    fn() => $workflow->import($concurrentId, $importerId, $concurrentVersion, $concurrentPreflight['preview_token'], true),
+    'IMPORT_PREFLIGHT_BLOCKED:IMPORT_AUTHORIZATION_REQUIRED',
+    'expired importer authorization after preview'
+);
+$assert($storage->find('questions', 'synthetic-b714-concurrent') === null, 'An expired importer grant published the synthetic question.');
+$storage->replace('academic-reviewer-authorizations', $grants);
+$revokedImporterGrants = array_values(array_filter(
+    $grants,
+    static fn(array $grant): bool => ($grant['id'] ?? '') !== 'grant-test-importer'
+));
+$storage->replace('academic-reviewer-authorizations', $revokedImporterGrants);
+$expectFailure(
+    fn() => $workflow->import($concurrentId, $importerId, $concurrentVersion, $concurrentPreflight['preview_token'], true),
+    'IMPORT_PREFLIGHT_BLOCKED:IMPORT_AUTHORIZATION_REQUIRED',
+    'revoked importer authorization after preview'
+);
+$assert($storage->find('questions', 'synthetic-b714-concurrent') === null, 'A revoked importer grant published the synthetic question.');
+$storage->replace('academic-reviewer-authorizations', $grants);
+
+// Source registry evidence is checked again after preview, not just when the preview was created.
+$sourceRowsBeforeConfirmation = $storage->all('sources');
+$storage->replace('sources', array_map(static function (array $row) use ($sourceId): array {
+    if (($row['id'] ?? '') === $sourceId) $row['notes'] = 'TEST-ONLY source change after import preview.';
+    return $row;
+}, $sourceRowsBeforeConfirmation));
+$expectFailure(
+    fn() => $workflow->import($concurrentId, $importerId, $concurrentVersion, $concurrentPreflight['preview_token'], true),
+    'IMPORT_PREFLIGHT_BLOCKED:SOURCE_REGISTRY_CHANGED:' . $sourceId,
+    'source snapshot change after import preview'
+);
+$assert($storage->find('questions', 'synthetic-b714-concurrent') === null, 'A changed source snapshot after preview published the synthetic question.');
+$storage->replace('sources', $sourceRowsBeforeConfirmation);
 
 $parallelResults = [$fixture . '/concurrent-a.json', $fixture . '/concurrent-b.json'];
 if (function_exists('pcntl_fork') && function_exists('pcntl_waitpid')) {
