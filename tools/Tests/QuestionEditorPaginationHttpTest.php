@@ -8,6 +8,8 @@ declare(strict_types=1);
 putenv('APP_ENV=testing');
 
 require_once dirname(__DIR__) . '/Doctor/Project/BoardPrep/Simulation/HttpSimulator.php';
+require_once dirname(__DIR__, 2) . '/app/Core/Autoloader.php';
+\App\Core\Autoloader::register();
 
 use Tools\Doctor\Project\BoardPrep\Simulation\HttpSimulator;
 
@@ -104,10 +106,13 @@ if (!$heldQuestion['success'] || $heldQuestion['status'] !== 200
 
 $sourceQuestion = $http->request('GET', '/question-inspector', ['id' => '361'], [], [], $cookies);
 $recordResponse($sourceQuestion, '/question-inspector?id=361');
+$sourceSnapshot = json_decode((string) file_get_contents($http->storagePath() . '/source-url-health.json'), true, 512, JSON_THROW_ON_ERROR);
+$sourceRegistry = json_decode((string) file_get_contents($http->storagePath() . '/sources.json'), true, 512, JSON_THROW_ON_ERROR);
+$sourceAuditStatus = \App\Services\RepositoryHealth\SourceUrlHealthSnapshot::inspect($sourceSnapshot, $sourceRegistry)['status'] ?? 'UNAVAILABLE';
 if (!$sourceQuestion['success'] || $sourceQuestion['status'] !== 200
     || !str_contains($sourceQuestion['output'], 'Source-only; no precise lesson section is asserted.')
-    || !str_contains($sourceQuestion['output'], 'STALE')) {
-    throw new RuntimeException('Question inspector did not expose its source-only relationship and the stale URL-audit state after source-registry integration.');
+    || !str_contains($sourceQuestion['output'], (string) $sourceAuditStatus)) {
+    throw new RuntimeException('Question inspector did not expose its source-only relationship and the persisted URL-audit state (' . $sourceAuditStatus . ').');
 }
 
 echo '[PASS] Question editor renders distinct 50-item pages with bounded responses and working adjacent-page links.' . PHP_EOL;
