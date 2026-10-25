@@ -58,6 +58,30 @@ documented policy requires it. Never weaken mandatory release checks. A passing
 focused test does not establish product launch readiness, human acceptance, or
 live deployment.
 
+## Academic review and controlled question import
+
+Batch 695 proposals use the restricted, nonproduction academic-review
+workbench at `/developer/academic-review`. Read
+[`ACADEMIC_REVIEW_WORKFLOW.md`](ACADEMIC_REVIEW_WORKFLOW.md) before provisioning
+review access or operating the import workflow. Reviewer access is an explicit
+owner-provisioned, expiring grant scoped to board, subject, and capabilities;
+developer/admin membership alone is never a qualification. There is no grant
+management web endpoint. Real proposals require real authenticated human
+decisions, and an academic approval never imports a question by itself.
+
+The Batch 714 workflow regression uses disposable JSON and SQLite storage and
+test-only synthetic grants, proposals, approvals, and imports. Run it with:
+
+```sh
+php tools/Tests/Batch714AcademicReviewWorkflowTest.php
+```
+
+When the workflow or shared learner paths change, include the relevant source,
+study-reference, eligibility, question-pool, Developer Repository, Batch 711,
+Batch 712, and Batch 713 regressions. Report each command, exit code, and exact
+tested SHA. Keep the real B695 cohort pending unless independent human review
+and the separately authorized per-item import have actually happened.
+
 ## Integrating a batch
 
 Commit coherent changes on the batch branch and run the relevant content and
