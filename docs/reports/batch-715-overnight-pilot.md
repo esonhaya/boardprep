@@ -132,7 +132,7 @@ STORAGE_AFTER=3,064,172 KiB available
 PUSH_STATUS=NOT_PUSHED
 DEPLOY_STATUS=NOT_DEPLOYED
 REPORT_PATH=/data/data/com.termux/files/home/boardprep-batch-706/docs/reports/batch-715-overnight-pilot.md
-CLIPBOARD_STATUS=PENDING_ATTEMPT
+CLIPBOARD_STATUS=UNVERIFIED
 
 === OUTCOME ===
 B715_COMPLETED=YES for the technical pilot-readiness, reviewer workflow, and import-hardening scope
