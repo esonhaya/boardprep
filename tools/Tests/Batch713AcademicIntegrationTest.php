@@ -30,7 +30,8 @@ $answerKeyHash = static function (array $questions): string {
 };
 $ids = array_map(static fn(array $item): string => (string) ($item['question_id'] ?? ''), $items);
 $assert(count($items) === 276 && count(array_unique($ids)) === 276, 'The recovered cohort must contain exactly 276 unique proposal records.');
-$assert(($inventory['cohort_summary']['primary_dispositions']['REVIEW_REQUIRED'] ?? 0) === 276, 'All recovered proposals must remain pending review.');
+$assert(($inventory['cohort_summary']['primary_dispositions']['PENDING_ACADEMIC_REVIEW'] ?? 0) === 276, 'All recovered proposals must remain pending independent academic review.');
+$assert(($inventory['cohort_summary']['primary_dispositions']['PENDING_SOURCE_EVIDENCE'] ?? -1) === 0, 'Resolved source records must not be misclassified as missing source evidence.');
 $assert(($inventory['cohort_summary']['new_question_records_added_to_canonical'] ?? -1) === 0, 'The cohort must not be represented as canonical question additions.');
 
 $questionPath = $root . '/storage/questions.json';
@@ -65,7 +66,9 @@ foreach (['domains', 'topics', 'concepts'] as $collection) {
     }
 }
 foreach ($items as $item) {
-    $assert(($item['primary_disposition'] ?? '') === 'REVIEW_REQUIRED', 'A proposal was promoted out of the review-required disposition.');
+    $assert(($item['primary_disposition'] ?? '') === 'PENDING_ACADEMIC_REVIEW', 'A proposal was promoted out of the pending academic-review disposition.');
+    $assert(($item['classifier_disposition'] ?? '') === 'REVIEW_REQUIRED', 'The recovered classifier label was not retained for provenance.');
+    $assert(in_array('PENDING_ITEM_LEVEL_SOURCE_REVIEW', (array) ($item['secondary_flags'] ?? []), true), 'The overlapping item-level source-review requirement was dropped.');
     $assert(($item['current_status'] ?? '') === 'PENDING_INDEPENDENT_SUBJECT_EXPERT_REVIEW', 'A proposal is missing its pending academic review state.');
     $assert(($item['production_status'] ?? '') === 'NOT_CANONICAL_NOT_IN_LEARNER_POOLS', 'A proposal is marked as production-eligible.');
     $assert(!isset($canonicalById[(string) ($item['question_id'] ?? '')]), 'A proposal ID appears in the canonical bank.');
