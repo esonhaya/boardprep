@@ -61,6 +61,25 @@ if (evidenceDirectory) {
   fs.mkdirSync(evidenceDirectory, { recursive: true, mode: 0o700 });
   fs.writeFileSync(path.join(evidenceDirectory, 'account-fixture-private.json'), JSON.stringify({ storage: authStorage }) + '\n', { mode: 0o600 });
 }
+const academicSeed = spawnSync('php', [path.join(applicationRoot, 'tests/browser/seed-academic-review-fixture.php')], {
+  cwd: applicationRoot,
+  encoding: 'utf8',
+  env: {
+    ...process.env,
+    APP_ENV: 'testing',
+    APP_DEBUG: 'false',
+    APP_TIMEZONE: 'Asia/Manila',
+    BOARDPREP_ACCOUNTS_ENABLED: 'true',
+    DB_DRIVER: 'json',
+    APP_STORAGE_PATH: authStorage,
+    APP_SESSION_PATH: authSessionStorage,
+  },
+});
+if (academicSeed.status !== 0) {
+  process.stderr.write(academicSeed.stderr || 'Unable to prepare the isolated academic reviewer fixture.\n');
+  fs.rmSync(temporaryRoot, { recursive: true, force: true });
+  process.exit(1);
+}
 const port = String(process.env.BOARDPREP_BROWSER_PORT || '4173');
 const developerPort = String(process.env.BOARDPREP_DEVELOPER_BROWSER_PORT || '4174');
 const authPort = String(process.env.BOARDPREP_AUTH_BROWSER_PORT || '4175');
