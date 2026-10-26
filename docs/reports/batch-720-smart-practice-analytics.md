@@ -122,7 +122,7 @@ Notes, attempts, weakness state, review records and Flashcards were not changed 
 - Final documentation commit SHA is reported in the delivery response; it is intentionally not embedded in its own commit.
 - Final Git status after documentation commit: no tracked modifications; only the three preserved pre-existing untracked storage files remain: `storage/academic-proposal-workflow.json`, `storage/flashcard_state.json`, and `storage/question-statistics.json`.
 - Push/deploy: **NOT PERFORMED**.
-- Clipboard status is finalized only after comparing the complete final report SHA-256 with Termux readback. The final delivery records `CLIPBOARD_STATUS=VERIFIED` on an exact match or `CLIPBOARD_STATUS=UNVERIFIED` with the specific error and full terminal fallback.
+- **CLIPBOARD_STATUS=UNVERIFIED.** `termux-clipboard-set` exited 0, but `termux-clipboard-get` also exited 0 and returned zero bytes. The attempted report SHA-256 was `c45d0ff4956a7b9510d02f48bb49ca74c3708b16f304dd07674c9da2e8ea89df`; an empty readback cannot match it. The complete final report is printed as the terminal fallback after this delivery status is committed.
 - Remaining non-blocking engineering debt: source traceability review, evidence-thin content planning, and Architecture visual questions; these are not B720 release blockers.
 - Deferred academic dependency: qualified human source/factual, answer-key, explanation, taxonomy and study decisions for the 276 pending B695 proposals. They remain noncanonical and excluded from learner selection.
 - Browser limitation: actual rendered browser acceptance was not executed. Static, Node and HTTP contracts are not a substitute for it.

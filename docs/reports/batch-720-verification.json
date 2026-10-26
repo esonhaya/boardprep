@@ -170,7 +170,17 @@
   },
   "browser_acceptance": "NOT_EXECUTED: Android/Termux runtime did not provide supported rendered Chromium/Playwright acceptance; Node and HTTP contracts passed.",
   "individual_focused_test_logs": "Console output was not preserved as standalone files; successful commands and tested revisions are recorded here. Full Doctor JSON is preserved at the artifact path above.",
-  "clipboard_status": "PENDING final report SHA-256 readback verification",
+  "clipboard_status": "UNVERIFIED",
+  "clipboard": {
+    "set_command": "termux-clipboard-set",
+    "set_exit_code": 0,
+    "get_command": "termux-clipboard-get",
+    "get_exit_code": 0,
+    "readback_bytes": 0,
+    "attempted_report_sha256": "c45d0ff4956a7b9510d02f48bb49ca74c3708b16f304dd07674c9da2e8ea89df",
+    "error": "termux-clipboard-get returned empty content; no complete-content SHA-256 comparison was possible.",
+    "fallback": "The final complete report is printed to terminal after the final documentation commit."
+  },
   "push_status": "NOT PERFORMED",
   "merge_status": "NOT PERFORMED",
   "deployment_status": "NOT PERFORMED"

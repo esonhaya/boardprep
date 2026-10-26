@@ -23,5 +23,5 @@
 - Do not claim eight hours: productive elapsed time was not instrumented.
 - 276 B695 proposals remain noncanonical and pending qualified academic review.
 - Final Full Doctor and protected-data checks passed; reports and verification JSON are prepared.
-- Remaining delivery action: commit these report files separately, confirm only the three pre-existing storage files remain untracked, then copy the final report and verify its complete SHA-256 readback with Termux clipboard.
+- Documentation is committed separately. The clipboard set command exited 0, but readback was empty; status is UNVERIFIED and the final complete report is provided through the terminal fallback.
 - No push, merge, deployment or Batch 721 work.
