@@ -30,6 +30,6 @@
 
 ## Reports and delivery
 
-The main report and structured technical, exam, mobile, performance and verification reports are in `docs/reports/batch-719-*`. Commit documentation separately after confirming JSON validity and final status. The final delivery copy will record the documentation commit SHA, end timestamp and clipboard readback outcome; those self-referential values are intentionally not embedded in the commit containing the report.
+The main report and structured technical, exam, mobile, performance and verification reports are in `docs/reports/batch-719-*`. All five JSON artifacts parsed successfully, and the report whitespace check passed before documentation commits. The implementation, report set and line-break cleanup are committed separately. Only the three pre-existing untracked storage JSON files remain in Git status. The external final delivery copy records its end timestamp, final documentation SHA and clipboard readback outcome; self-referential values are intentionally not embedded in the commit containing the report.
 
 Do not push, merge, deploy or start Batch 720.
