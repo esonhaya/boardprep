@@ -143,7 +143,7 @@ The exact protected answer-key map is built by sorting question IDs and JSON-enc
 - This recovery report is committed separately after implementation. Its final commit SHA and file SHA-256 are emitted with the terminal delivery result (the report cannot embed its own content hash).
 - No push, merge or deployment was performed.
 - Final worktree retains only the three pre-existing untracked storage JSON files listed under RECOVERY; no generated test/Doctor output was added to the repository.
-- `CLIPBOARD_STATUS=VERIFY_AFTER_COMMIT` pending exact readback SHA-256 comparison of the final committed report.
+- `CLIPBOARD_STATUS=UNVERIFIED`: `termux-clipboard-set` exited 0, but `termux-clipboard-get` exited 0 and returned 0 bytes for the 15,048-byte report. The empty readback SHA-256 was `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`; it does not match the report SHA-256 `cc12c3af391328c3e6a9fa72da059a9267a403a7addecf77ed9a19a066158161`. The final committed report will be retried once and printed as a terminal fallback if the readback remains empty.
 
 ## NEXT
 
