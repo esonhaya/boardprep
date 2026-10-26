@@ -26,7 +26,7 @@
 | Developer review classification and evidence display | `PARTIALLY_IMPLEMENTED` at recovery | Completed in `d58c609`; proposal status is projected from current records and evidence. |
 | Interrupted Full Doctor | `NOT_STARTED` for a valid final result | Reran to completion on `d58c609`; exit 0 and release gate PASS. |
 | Static tests expecting an obsolete direct service call/read count | `FAILED_REQUIRES_REPAIR` | Corrected the tests to reflect the current cache delegation and two query entry points; both then passed. This was stale test logic, not a demonstrated application defect. |
-| Final report and clipboard delivery | `NOT_STARTED` at recovery | Report committed after the implementation; clipboard readback is verified after the final report bytes are committed. |
+| Final report and clipboard delivery | `NOT_STARTED` at recovery | Report committed after the implementation; clipboard write returned success but readback was empty, so status is UNVERIFIED and the report is supplied as terminal fallback. |
 
 The old empty Doctor output and any test result from code preceding `d58c609` were not reused as final evidence.
 
