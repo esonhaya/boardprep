@@ -1,0 +1,44 @@
+{
+  "batch": 721,
+  "tested_sha": "ef58ceaf653c0543518320e5285712a12bb1f0c7",
+  "status": "PASS",
+  "mechanism": "bounded deterministic statistics and existing BoardPrep actions; no external AI or mastery inference",
+  "priority_inputs": [
+    "repeated incorrect question events across completed attempts",
+    "overall and recent topic accuracy when at least two observations exist",
+    "board, subject and candidate-variant scoped performance",
+    "recent canonical question exposure",
+    "current eligible pool availability",
+    "published source-linked study relationships"
+  ],
+  "ranking_policy": {
+    "weakness_signal": "40% overall accuracy gap plus 60% recent accuracy gap when available",
+    "repeated_mistake_bonus_max": 20,
+    "recent_exposure_penalty_max": 48,
+    "topic_concentration_penalty_max": 36,
+    "selection_scope": "already-filtered eligible questions within the original difficulty slots",
+    "small_pool_behavior": "preserve the existing selection/fallback when a same-difficulty pool cannot fill its slots"
+  },
+  "actions": [
+    {"condition": "recorded persistent mistakes", "destination": "/mistake-notebook", "label": "Review recorded mistakes"},
+    {"condition": "unassessed subject with an exact eligible pool", "destination": "existing /quiz route with the selected board, subject and required variant", "label": "Try this subject"},
+    {"condition": "registered LET candidate variant", "destination": "existing /quiz balanced selector with the validated level and specialization", "label": "Start balanced practice"},
+    {"condition": "no eligible practice pool or no exact study link", "destination": "/study-library", "label": "Open published Study Library"},
+    {"condition": "repeated weak topic with exact published relationship", "destination": "existing topic-practice action and exact source-linked study section", "label": "Practice topic / review notes"},
+    {"condition": "no learner history", "destination": "/exams or existing balanced /quiz setup", "label": "Choose a board or start diagnostic practice"}
+  ],
+  "cold_start": "no weakness is assigned; learner is directed to board selection or balanced practice",
+  "invalid_destination_protection": [
+    "CSE Professional Clerical Ability is not recommended because its exact eligible pool is empty",
+    "CSE and LET subject starts are withheld until the required variant is valid",
+    "LET specialization recommendations use the balanced variant-aware selection route",
+    "published study links are derived only from existing exact approved relationships"
+  ],
+  "test_evidence": {
+    "synthetic_profiles": 12,
+    "fixture_mutations": 0,
+    "production_eligibility": "separately verified against the canonical filtered pool across all 10 active board configurations",
+    "tests": ["AdaptiveLearningEvaluationTest.php", "MixedBoardSubjectAnalyticsTest.php", "StudyRecommendationProductionTest.php", "StudyRecommendationSubjectRoutingTest.php", "TenBoardLearnerJourneyHttpTest.php"]
+  },
+  "academic_boundary": "The 276 pending B695 proposals remain noncanonical, unapproved and excluded from learner selection."
+}

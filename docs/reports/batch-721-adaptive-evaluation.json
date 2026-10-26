@@ -1,0 +1,278 @@
+{
+    "report": "BATCH_721_ADAPTIVE_SELECTION_EVALUATION",
+    "result": "PASS",
+    "synthetic_profiles": 12,
+    "profiles": [
+        {
+            "name": "new_learner_cold_start",
+            "history_attempts": 0,
+            "weak_topics": [],
+            "selected_ids": [
+                "weak-1"
+            ],
+            "selected_topics": [
+                "weak"
+            ],
+            "question_exposure_entries": 0,
+            "selection_count": 1,
+            "unique_selection_count": 1
+        },
+        {
+            "name": "single_completed_attempt",
+            "history_attempts": 1,
+            "weak_topics": [],
+            "selected_ids": [
+                "broad-1"
+            ],
+            "selected_topics": [
+                "broad"
+            ],
+            "question_exposure_entries": 1,
+            "selection_count": 1,
+            "unique_selection_count": 1
+        },
+        {
+            "name": "repeated_mistakes",
+            "history_attempts": 2,
+            "weak_topics": [
+                {
+                    "topic": "weak",
+                    "subject": "english",
+                    "overall_accuracy": 0,
+                    "recent_accuracy": 0,
+                    "priority": 105,
+                    "priority_basis": "40_PERCENT_OVERALL_60_PERCENT_RECENT"
+                }
+            ],
+            "selected_ids": [
+                "weak-2"
+            ],
+            "selected_topics": [
+                "weak"
+            ],
+            "question_exposure_entries": 1,
+            "selection_count": 1,
+            "unique_selection_count": 1
+        },
+        {
+            "name": "weak_subject",
+            "history_attempts": 2,
+            "weak_topics": [
+                {
+                    "topic": "weak",
+                    "subject": "english",
+                    "overall_accuracy": 0,
+                    "recent_accuracy": 0,
+                    "priority": 105,
+                    "priority_basis": "40_PERCENT_OVERALL_60_PERCENT_RECENT"
+                }
+            ],
+            "selected_ids": [
+                "weak-2"
+            ],
+            "selected_topics": [
+                "weak"
+            ],
+            "question_exposure_entries": 1,
+            "selection_count": 1,
+            "unique_selection_count": 1
+        },
+        {
+            "name": "multiple_weak_topics_diversity",
+            "history_attempts": 2,
+            "weak_topics": [
+                {
+                    "topic": "strong",
+                    "subject": "english",
+                    "overall_accuracy": 0,
+                    "recent_accuracy": 0,
+                    "priority": 105,
+                    "priority_basis": "40_PERCENT_OVERALL_60_PERCENT_RECENT"
+                },
+                {
+                    "topic": "weak",
+                    "subject": "english",
+                    "overall_accuracy": 0,
+                    "recent_accuracy": 0,
+                    "priority": 105,
+                    "priority_basis": "40_PERCENT_OVERALL_60_PERCENT_RECENT"
+                }
+            ],
+            "selected_ids": [
+                "strong-2",
+                "weak-2",
+                "strong-4",
+                "weak-4"
+            ],
+            "selected_topics": [
+                "strong",
+                "weak",
+                "strong",
+                "weak"
+            ],
+            "question_exposure_entries": 2,
+            "selection_count": 4,
+            "unique_selection_count": 4
+        },
+        {
+            "name": "high_performing_learner",
+            "history_attempts": 2,
+            "weak_topics": [],
+            "selected_ids": [
+                "broad-1"
+            ],
+            "selected_topics": [
+                "broad"
+            ],
+            "question_exposure_entries": 2,
+            "selection_count": 1,
+            "unique_selection_count": 1
+        },
+        {
+            "name": "uneven_subject_coverage",
+            "history_attempts": 4,
+            "weak_topics": [
+                {
+                    "topic": "weak",
+                    "subject": "english",
+                    "overall_accuracy": 0,
+                    "recent_accuracy": 0,
+                    "priority": 105,
+                    "priority_basis": "40_PERCENT_OVERALL_60_PERCENT_RECENT"
+                }
+            ],
+            "selected_ids": [
+                "weak-2"
+            ],
+            "selected_topics": [
+                "weak"
+            ],
+            "question_exposure_entries": 2,
+            "selection_count": 1,
+            "unique_selection_count": 1
+        },
+        {
+            "name": "repeated_question_exposure",
+            "history_attempts": 1,
+            "weak_topics": [],
+            "selected_ids": [
+                "broad-2"
+            ],
+            "selected_topics": [
+                "broad"
+            ],
+            "question_exposure_entries": 1,
+            "selection_count": 1,
+            "unique_selection_count": 1
+        },
+        {
+            "name": "stale_history_recency_weight",
+            "history_attempts": 15,
+            "weak_topics": [
+                {
+                    "topic": "persistent",
+                    "subject": "english",
+                    "overall_accuracy": 0,
+                    "recent_accuracy": 0,
+                    "priority": 105,
+                    "priority_basis": "40_PERCENT_OVERALL_60_PERCENT_RECENT"
+                },
+                {
+                    "topic": "stale",
+                    "subject": "english",
+                    "overall_accuracy": 20,
+                    "recent_accuracy": 67,
+                    "priority": 57,
+                    "priority_basis": "40_PERCENT_OVERALL_60_PERCENT_RECENT"
+                }
+            ],
+            "selected_ids": [
+                "persistent-candidate"
+            ],
+            "selected_topics": [
+                "persistent"
+            ],
+            "question_exposure_entries": 4,
+            "selection_count": 1,
+            "unique_selection_count": 1
+        },
+        {
+            "name": "very_small_eligible_pool",
+            "selected_ids": [
+                "small-base-1",
+                "small-base-2"
+            ],
+            "selection_count": 2,
+            "unique_selection_count": 2
+        },
+        {
+            "name": "historical_questions_now_ineligible",
+            "selected_ids": [
+                "eligible-q1",
+                "eligible-q2"
+            ],
+            "selection_count": 2,
+            "unique_selection_count": 2
+        },
+        {
+            "name": "cross_board_question_exposure",
+            "weak_topics": [],
+            "selected_ids": [
+                "unseen-shared-board"
+            ],
+            "selection_count": 1,
+            "unique_selection_count": 1
+        }
+    ],
+    "ranking_policy": {
+        "weakness_signal": "40% overall topic accuracy gap plus 60% recent topic accuracy gap when at least two topic observations exist",
+        "repeated_mistake_bonus_max": 20,
+        "recent_exposure_penalty_max": 48,
+        "topic_concentration_penalty_max": 36
+    },
+    "benchmark": {
+        "candidate_count": 1200,
+        "history_attempt_count": 30,
+        "history_answer_events": 600,
+        "selected_count": 20,
+        "warmups": 1,
+        "measured_runs": 7,
+        "timings_ms": [
+            52.253,
+            51.447,
+            51.966,
+            51.183,
+            51.68,
+            51.764,
+            51.446
+        ],
+        "median_ms": 51.68,
+        "minimum_ms": 51.183,
+        "maximum_ms": 52.253,
+        "php_peak_memory_bytes": 6291456,
+        "storage_reads": 0,
+        "fixture_mutations": 0
+    },
+    "assertions": {
+        "cold_start_no_weakness_inference": true,
+        "single_attempt_sample_gate": true,
+        "repeated_mistake_topic_priority": true,
+        "subject_scope": true,
+        "multi_topic_diversity": true,
+        "high_performance_not_weak": true,
+        "recency_weight_reduces_stale_signal": true,
+        "small_pool_fallback": true,
+        "ineligible_history_not_reintroduced": true,
+        "cross_board_weakness_isolation_and_exposure": true,
+        "duplicate_prevention": true,
+        "deterministic_ranking": true
+    },
+    "limits": [
+        "synthetic_fixtures_do_not_establish_learning_outcomes",
+        "candidate pool is synthetic and bypasses the production eligibility filter; eligibility remains enforced by the upstream selector and separately tested production journey",
+        "no official blueprint or mastery claim is derived"
+    ],
+    "tested_sha": "ef58ceaf653c0543518320e5285712a12bb1f0c7",
+    "test_command": "php tools/Tests/AdaptiveLearningEvaluationTest.php",
+    "exit_code": 0
+}

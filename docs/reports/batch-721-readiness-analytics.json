@@ -1,0 +1,58 @@
+{
+  "batch": 721,
+  "tested_sha": "ef58ceaf653c0543518320e5285712a12bb1f0c7",
+  "status": "PASS",
+  "metrics": {
+    "accuracy_denominator": "answered question events; unanswered items are not incorrect answers",
+    "quiz_score_denominator": "all questions in a completed attempt, including unanswered items",
+    "recent_subject_window": "most recent five deduplicated completed attempt records in the exact board and variant context",
+    "minimum_subject_evidence": {
+      "completed_attempts": 2,
+      "answered_question_events": 5
+    },
+    "trend_comparison": "recent five subject attempts versus the preceding five; change of at least 5 percentage points is improving or declining",
+    "unique_question_totals": "not inferred from legacy summary rows without question identity"
+  },
+  "mixed_board_fixture": {
+    "verbal_ability": {
+      "completed_attempts": 2,
+      "answered_events": 5,
+      "correct_events": 3,
+      "incorrect_events": 2,
+      "accuracy_percent": 60,
+      "recent_accuracy_percent": 60
+    },
+    "general_information": {
+      "completed_attempts": 2,
+      "answered_events": 2,
+      "correct_events": 2,
+      "accuracy_percent": 100
+    },
+    "legacy_cross_board_answer_events": 1,
+    "legacy_attribution": "omitted from subject/topic comparisons and disclosed as unattributed; retained in overall history"
+  },
+  "readiness": {
+    "indicator": "practice coverage and observed performance; not mastery and not an examination pass probability",
+    "states": ["INSUFFICIENT_PRACTICE_DATA", "VARIANT_REQUIRED", "PRACTICE_DATA_AVAILABLE"],
+    "pool_availability": "uses current board, candidate variant, canonical eligibility, quarantine and question-selection filters",
+    "no_pool_state": "NO_ELIGIBLE_PRACTICE_POOL is separated from an unassessed learner subject",
+    "board_limits": {
+      "CPA": "blueprint weighting unavailable; no official percentages or pass threshold are inferred",
+      "Architecture": "existing content-depth caveat remains visible",
+      "CSE_and_LET": "candidate variant is required before exact pool coverage or subject starts are recommended"
+    }
+  },
+  "preservation": {
+    "historical_attempts_rewritten": false,
+    "synthetic_fixture_mutations_to_production": 0,
+    "analytics_cache_scope": "request-local only; no cross-learner cache"
+  },
+  "regressions": [
+    "MixedBoardSubjectAnalyticsTest.php",
+    "PerformanceAnalyticsPipelineTest.php",
+    "BoardScopedLearningContextTest.php",
+    "LearnerDashboardReliabilityTest.php",
+    "LearnerJourneyHttpTest.php",
+    "TenBoardLearnerJourneyHttpTest.php"
+  ]
+}
