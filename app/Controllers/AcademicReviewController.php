@@ -75,6 +75,12 @@ final class AcademicReviewController extends BaseDeveloperController
         $conceptOptions = array_values(array_filter(TaxonomyStorageService::concepts(), static fn(array $row): bool => in_array((string) ($row['topic_id'] ?? ''), $topicIds, true)));
         $pilotItem = Batch715AcademicPilotService::find((string) ($proposal['question_id'] ?? ''));
         $pilotEvidence = $pilotItem === null ? null : Batch715AcademicPilotService::evidence((string) ($proposal['question_id'] ?? ''));
+        $batch717Evidence = $pilotItem === null ? null : Batch715AcademicPilotService::batch717EvidenceItem((string) ($proposal['question_id'] ?? ''));
+        $batch717Supplemental = $pilotItem === null ? [] : (array) (Batch715AcademicPilotService::batch717EvidencePackage()['supplemental_source_inspections'] ?? []);
+        $batch717EvidenceVersionCurrent = is_array($batch717Evidence)
+            && hash_equals((string) ($batch717Evidence['question_version_sha256'] ?? ''), $version)
+            && !empty($batch717Evidence['current_version_matches_all_b715_b716_artifacts']);
+        $batch717SourceSnapshotCurrent = $pilotItem === null || Batch715AcademicPilotService::batch717SourceSnapshotCurrent();
         $batch716SourceRows = $pilotItem === null ? [] : Batch715AcademicPilotService::supplementalSourceRows((string) ($proposal['question_id'] ?? ''));
         $batch716SourceVersionCurrent = $batch716SourceRows === [];
         foreach ($batch716SourceRows as $sourceRow) {
@@ -97,6 +103,10 @@ final class AcademicReviewController extends BaseDeveloperController
             'pilotItem' => $pilotItem,
             'pilotEvidence' => $pilotEvidence,
             'pilotEvidenceVersionCurrent' => $pilotItem === null || hash_equals((string) ($pilotItem['question_version'] ?? ''), $version),
+            'batch717Evidence' => $batch717Evidence,
+            'batch717Supplemental' => $batch717Supplemental,
+            'batch717EvidenceVersionCurrent' => $batch717EvidenceVersionCurrent,
+            'batch717SourceSnapshotCurrent' => $batch717SourceSnapshotCurrent,
             'batch716SourceRows' => $batch716SourceRows,
             'batch716SourceVersionCurrent' => $batch716SourceVersionCurrent,
             'nextReviewerAction' => self::nextReviewerAction($proposal, $workflowRecord, $capabilities, (string) $account['account_id'], $preflight),
@@ -123,7 +133,7 @@ final class AcademicReviewController extends BaseDeveloperController
     public static function decision(): void
     {
         self::post('REVIEW', static function (AcademicReviewWorkflowService $service, array $account, array $proposal): void {
-            $keys = ['question_accuracy','correct_answer','explanation_correctness','exam_relevance','subject_classification','adequate_source_support','source_currentness','clinical_safety','regulatory_scope_currentness'];
+            $keys = ['conflict_of_interest_acknowledged','question_accuracy','correct_answer','explanation_correctness','exam_relevance','subject_classification','adequate_source_support','source_currentness','clinical_safety','regulatory_scope_currentness'];
             $confirmations = [];
             foreach ($keys as $key) $confirmations[$key] = self::input($key) === '1';
             $service->decide((string) $proposal['id'], (string) $account['account_id'], [

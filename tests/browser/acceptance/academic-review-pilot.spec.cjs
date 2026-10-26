@@ -122,4 +122,43 @@ test.describe('Academic review pilot access boundary', () => {
     allowExpectedDocumentError(page, response, 403);
     await expect(page.locator('body')).not.toContainText('Proposal #9290');
   });
+
+  test('B717-PILOT-EVIDENCE-01 mobile reviewer sees bounded claim evidence and unresolved policy limits', async ({ page }, testInfo) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await signInSyntheticReviewer(page);
+    const response = await page.goto(`${authBase}/developer/academic-review/proposal?id=batch695-9228`);
+    expect(response?.status()).toBe(200);
+    await expect(page.getByRole('heading', { name: 'Proposal #9228' })).toBeVisible();
+
+    const evidence = page.locator('#batch717-evidence');
+    await expect(evidence.getByRole('heading', { name: 'Batch 717 claim-level evidence · machine preparation only' })).toBeVisible();
+    await expect(evidence).toContainText('CLAIM_CANDIDATE');
+    await expect(evidence).toContainText('PENDING_QUALIFIED_REVIEWER');
+    await expect(evidence).toContainText('document observable facts');
+    await expect(evidence).toContainText('§2, printed p. 2 / PDF p. 3');
+    await expect(evidence).toContainText('2025_REVISED_ANTI_BULLYING_IRR');
+    await expect(evidence).toContainText('DO006_2026_CURRENTNESS');
+    await expect(evidence).toContainText('NOT_EXAMINED');
+    await expect(evidence).toContainText('No change, approval, assignment');
+    await expect(evidence.locator('.batch717-citation')).toHaveCount(2);
+    await expect(evidence.getByRole('link', { name: '2025 Revised IRR PDF' })).toHaveAttribute('href', /Anti-bullying-IRR-Clean-version/);
+    await expect(page.getByRole('button', { name: 'Import this approved proposal' })).toHaveCount(0);
+    await expect(page.locator('#decision-history')).toContainText('No academic decision or source review has been recorded');
+
+    const evidenceNav = page.getByRole('link', { name: 'B717 claim evidence' });
+    await tabToKeyboardFocus(page, evidenceNav);
+    await page.keyboard.press('Enter');
+    await expect(page).toHaveURL(/#batch717-evidence$/);
+    await assertPageHealthy(page, testInfo, 'b717-q9228-mobile-evidence', { screenshot: false });
+    recordBrowserEvidence('b717-academic-pilot', {
+      proposal: '9228',
+      viewport: '390x844',
+      machine_claim_status: 'CLAIM_CANDIDATE',
+      source_expert_review: 'PENDING_QUALIFIED_REVIEWER',
+      academic_decision: 'PENDING_REVIEW',
+      current_policy_source: 'NOT_EXAMINED; oversized source retained as a visible blocker',
+      real_mutations: 0,
+      result: 'ASSERTIONS_PREPARED_FOR_SUPPORTED_RUNNER',
+    }, testInfo);
+  });
 });

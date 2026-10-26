@@ -206,6 +206,9 @@ final class AcademicReviewWorkflowService
             if (mb_strlen($rationale) < 20) throw new RuntimeException('RATIONALE_TOO_SHORT');
             $checks = is_array($input['confirmations'] ?? null) ? $input['confirmations'] : [];
             if ($action === 'APPROVE') {
+                if (($checks['conflict_of_interest_acknowledged'] ?? false) !== true) {
+                    throw new RuntimeException('APPROVAL_CONFIRMATION_REQUIRED:conflict_of_interest_acknowledged');
+                }
                 foreach (['question_accuracy', 'correct_answer', 'explanation_correctness', 'exam_relevance', 'subject_classification', 'adequate_source_support', 'source_currentness'] as $key) {
                     if (($checks[$key] ?? false) !== true) throw new RuntimeException('APPROVAL_CONFIRMATION_REQUIRED:' . $key);
                 }
@@ -1050,6 +1053,7 @@ final class AcademicReviewWorkflowService
     private function approvalChecksComplete(array $approval, string $boardId): bool
     {
         $checks = is_array($approval['confirmations'] ?? null) ? $approval['confirmations'] : [];
+        if (($checks['conflict_of_interest_acknowledged'] ?? false) !== true) return false;
         foreach (['question_accuracy','correct_answer','explanation_correctness','exam_relevance','subject_classification','adequate_source_support','source_currentness'] as $key) if (($checks[$key] ?? false) !== true) return false;
         if (in_array(strtolower($boardId), ['let', 'architecture'], true) && ($checks['regulatory_scope_currentness'] ?? false) !== true) return false;
         return strtolower($boardId) !== 'nursing' || ($checks['clinical_safety'] ?? false) === true;

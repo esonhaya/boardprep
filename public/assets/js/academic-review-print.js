@@ -1,6 +1,19 @@
 'use strict';
 
 (() => {
+  const decisionForm = document.querySelector('#academic-review-decision-form');
+  const decisionSelect = decisionForm?.querySelector('#academic-review-decision');
+  const conflictAcknowledgement = decisionForm?.querySelector('[data-required-for-approval]');
+  if (decisionSelect && conflictAcknowledgement) {
+    const updateConflictRequirement = () => {
+      const required = decisionSelect.value === 'APPROVE';
+      conflictAcknowledgement.required = required;
+      conflictAcknowledgement.setAttribute('aria-required', required ? 'true' : 'false');
+    };
+    decisionSelect.addEventListener('change', updateConflictRequirement);
+    updateConflictRequirement();
+  }
+
   const packet = document.querySelector('[data-review-packet]');
   const button = packet?.querySelector('[data-academic-review-print]');
   if (!packet || !button) return;
