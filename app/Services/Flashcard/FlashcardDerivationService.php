@@ -81,9 +81,9 @@ final class FlashcardDerivationService
         return $this->deriveMany($questions);
     }
 
-    public function all(array $filters = [], array $topicIds = []): array
+    public function all(array $filters = [], array $topicIds = [], ?array $questionSnapshot = null): array
     {
-        $questions = $this->questions->all();
+        $questions = $questionSnapshot ?? $this->questions->all();
         if (isset($filters['board']) && $this->eligibilityIndex === null) {
             // Eligibility relationship validation can reuse the canonical
             // snapshot already loaded for card derivation instead of decoding

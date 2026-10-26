@@ -93,16 +93,16 @@ if (!str_contains($html, '<h1>Flashcards</h1>')
     || $availableCount === null) {
     throw new RuntimeException('Scoped production flashcard controller did not preserve its learner route output.');
 }
-if (array_sum(array_column($runs, 'question_reads')) > 6) {
+if (array_sum(array_column($runs, 'question_reads')) > 3) {
     throw new RuntimeException(sprintf(
-        'Three scoped flashcard page requests reread the full question collection %d times; expected no more than two reads per request.',
+        'Three scoped flashcard page requests reread the full question collection %d times; expected one read per request.',
         $countingStorage->questionCollectionReads
     ));
 }
 
 foreach ($runs as $index => $run) {
-    if ($run['question_reads'] > 2) {
-        throw new RuntimeException('Scoped flashcard page exceeded the optimized two-read limit.');
+    if ($run['question_reads'] > 1) {
+        throw new RuntimeException('Scoped flashcard page reloaded the canonical bank after deriving filter options.');
     }
     printf("[PASS] flashcard request %d: reads=%d elapsed_ms=%.1f\n", $index + 1, $run['question_reads'], $run['elapsed_ms']);
 }
