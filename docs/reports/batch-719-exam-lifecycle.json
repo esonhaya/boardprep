@@ -1,0 +1,55 @@
+{
+  "batch": 719,
+  "tested_implementation_sha": "6f3159f2277ed78c70cc177a4c6636afe16639e7",
+  "result": "PASS",
+  "scope": "Audit and regression verification; no exam-engine code change was warranted.",
+  "setup": {
+    "ordinary_practice_limit": 20,
+    "exam_simulation_default_count": 150,
+    "modes_remain_separate": true,
+    "simulation_disclosure_separates_official_exam": true,
+    "invalid_timer_values_rejected": true,
+    "official_thresholds_or_weights_invented": false
+  },
+  "allocation_and_pool": {
+    "deterministic_largest_remainder_test": "PASS",
+    "test_weights_are_synthetic": true,
+    "malformed_questions_excluded": true,
+    "duplicate_question_ids_prevented": true,
+    "insufficient_pool_preserves_requested_and_generated_counts": true,
+    "ineligible_fallback_introduced": false
+  },
+  "navigation": {
+    "answers_persist_across_navigation": true,
+    "editable_exam_answers_supported": true,
+    "previous_next_jump_and_review_tested": true,
+    "stale_actions_rejected": true
+  },
+  "timer": {
+    "server_deadline_authoritative": true,
+    "timed_expiration_tested": true,
+    "untimed_resume_tested": true,
+    "partial_saved_answers_submitted_on_expiry": true
+  },
+  "submission_and_scoring": {
+    "repeated_submission_idempotent": true,
+    "concurrent_submission_exact_once": true,
+    "attempt_history_not_duplicated": true,
+    "statistics_not_inflated_by_navigation_or_repeat_click": true,
+    "score_uses_authoritative_question_keys": true,
+    "unanswered_questions_remain_in_generated_total": true,
+    "selected_answer_correct_answer_explanation_reviewed": true
+  },
+  "regressions": [
+    {"command": "php tools/Tests/ExamSimulationBlueprintTest.php", "exit_code": 0},
+    {"command": "php tools/Tests/ExamSimulationHttpTest.php", "exit_code": 0},
+    {"command": "php tools/Tests/QuizCompletionHttpTest.php", "exit_code": 0},
+    {"command": "php tools/Tests/QuizSessionResilienceTest.php", "exit_code": 0},
+    {"command": "php tools/Tests/QuizExperienceResilienceTest.php", "exit_code": 0},
+    {"command": "php tools/Tests/QuizResultReviewContractTest.php", "exit_code": 0},
+    {"command": "php tools/Tests/QuizSubmissionStatisticsBoundaryTest.php", "exit_code": 0},
+    {"command": "php tools/Tests/QuizScoringExtractionTest.php", "exit_code": 0},
+    {"command": "php tools/Tests/ProductionQuizCsrfTest.php", "exit_code": 0},
+    {"command": "Full Doctor embedded TenBoardLearnerJourneyHttpTest.php", "exit_code": 0}
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "batch": 719,
+  "result": "STATIC_AND_HTTP_CONTRACTS_PASS",
+  "real_browser_acceptance": "NOT_EXECUTED",
+  "limitation": "No Chromium or Playwright runtime was available on Android/Termux.",
+  "viewport_contracts": [
+    {"width_css_px": 320, "applicable_max_width_rules": [360, 480, 600, 640, 768], "verification": "CSS source inspection; not rendered"},
+    {"width_css_px": 360, "applicable_max_width_rules": [360, 480, 600, 640, 768], "verification": "CSS source inspection; not rendered"},
+    {"width_css_px": 390, "applicable_max_width_rules": [480, 600, 640, 768], "verification": "CSS source inspection; not rendered"},
+    {"width_css_px": 430, "applicable_max_width_rules": [480, 600, 640, 768], "verification": "CSS source inspection; not rendered"}
+  ],
+  "contracts": {
+    "mobile_accessibility_assertions": 18,
+    "learner_navigation_assertions": 8,
+    "key_touch_controls_minimum_44px": true,
+    "keyboard_focus_visible": true,
+    "labels_and_live_status": true,
+    "long_content_wrap_contract": true,
+    "responsive_exam_navigation": true,
+    "real_visual_overflow_claimed": false
+  },
+  "reproducible_mobile_defects": [],
+  "changes": "No mobile redesign or unsupported browser claim; existing responsive behavior was audited and regression-checked."
+}

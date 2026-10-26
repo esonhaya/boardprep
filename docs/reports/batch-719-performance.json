@@ -1,0 +1,51 @@
+{
+  "batch": 719,
+  "implementation_sha": "6f3159f2277ed78c70cc177a4c6636afe16639e7",
+  "flashcard_controller_read_path": {
+    "workload": "Three sequential scoped GET controller renders in one isolated process; board=let, subject=english; final rendered availability 312 cards.",
+    "question_reads_measure": "Full canonical questions collection reads.",
+    "before": {
+      "question_reads_by_request": [3, 2, 2],
+      "elapsed_ms_by_request": [4546, 3362, 3119],
+      "peak_php_memory_mib": 291.5
+    },
+    "after_final_valid_run": {
+      "question_reads_by_request": [2, 2, 2],
+      "elapsed_ms_by_request": [5043.1, 3251.6, 3036.0],
+      "peak_php_memory_mib": 207.5,
+      "rendered_available_cards": 312,
+      "exit_code": 0
+    },
+    "measured_change": {
+      "cold_question_reads": "3 to 2",
+      "warm_question_reads": "2 to 2",
+      "peak_memory_mib_delta": -84.0,
+      "peak_memory_relative_delta_percent": -28.8,
+      "latency_conclusion": "inconclusive; cold elapsed time varied and no stable latency gain is claimed"
+    },
+    "repair": "Reuse the already-loaded canonical question snapshot to validate derived eligibility via a compact question-to-concept map."
+  },
+  "other_isolated_fixture_timings_ms": {
+    "B711_notes_matcher": 3782.99,
+    "B712_mistake_notebook_initial_load": 513.77,
+    "B712_board_subject_topic_filter": 336.46,
+    "B712_question_detail": 1307.7,
+    "B712_retry_pool_selection_and_quiz_start": 3485.3,
+    "B712_recovery_result_summary": 3118.38,
+    "B712_related_pool_selection": 1818.57
+  },
+  "measurement_limits": [
+    "Fixture timings are single-run observations and have no before/after comparator.",
+    "No concurrent benchmark was used for the controlled flashcard comparison.",
+    "Cold/warm refers to first and subsequent requests in one process; it is not a persistent cross-user cache."
+  ],
+  "doctor_flashcard_health": {
+    "eligible": 9123,
+    "derivable": 9105,
+    "justified_exclusions": 18,
+    "nonderivable_defects": 0,
+    "duplicate_card_keys": 0,
+    "malformed_cards": 0,
+    "broken_card_sources": 0
+  }
+}

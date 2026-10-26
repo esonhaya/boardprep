@@ -1,0 +1,143 @@
+{
+  "batch": 719,
+  "status": "PASS",
+  "implementation_sha": "6f3159f2277ed78c70cc177a4c6636afe16639e7",
+  "focused_test_revision": "Tests ran against the working-tree source and fixtures; the application changes were committed unchanged as the implementation SHA above.",
+  "test_groups": [
+    {
+      "name": "exam lifecycle, scoring, result review and CSRF",
+      "exit_code": 0,
+      "command_prefix": "php tools/Tests/",
+      "tests": [
+        "ExamSimulationBlueprintTest.php",
+        "ExamSimulationHttpTest.php",
+        "QuizCompletionHttpTest.php",
+        "QuizSessionResilienceTest.php",
+        "QuizExperienceResilienceTest.php",
+        "QuizResultReviewContractTest.php",
+        "QuizSubmissionStatisticsBoundaryTest.php",
+        "QuizScoringExtractionTest.php",
+        "ProductionQuizCsrfTest.php"
+      ],
+      "log": "/data/data/com.termux/files/usr/tmp/batch719-exam-regressions.log"
+    },
+    {
+      "name": "flashcards and derived eligibility",
+      "exit_code": 0,
+      "command_prefix": "php tools/Tests/",
+      "initial_aggregate_exit_code": 1,
+      "initial_aggregate_reason": "The first read-path assertion referenced a controller-local variable; all subsequent tests in that initial group passed, and the corrected read-path test was rerun successfully.",
+      "final_read_path_retest_exit_code": 0,
+      "tests": [
+        "FlashcardControllerReadPathTest.php final retest",
+        "FlashcardSelectionOptimizationTest.php",
+        "FlashcardScopeMatcherTest.php",
+        "FlashcardFoundationTest.php",
+        "FlashcardIntegrationTest.php",
+        "FlashcardSchedulingTest.php",
+        "FlashcardHttpTest.php",
+        "QuestionReuseMetadataTest.php",
+        "Batch610ConceptDerivedEligibilityTest.php",
+        "CrossBoardCanonicalReuseTest.php",
+        "QuestionQueryEligibilityFilterTest.php"
+      ],
+      "final_read_path_log": "/data/data/com.termux/files/usr/tmp/b719-FlashcardControllerReadPathTest-final.log"
+    },
+    {
+      "name": "Notes, recovery, study library and mobile navigation",
+      "exit_code": 0,
+      "command_prefix": "php tools/Tests/",
+      "tests": [
+        "Batch711NotesBasedPracticeTest.php",
+        "Batch712MistakeRecoveryTest.php",
+        "StudyLibraryNavigationTest.php",
+        "StudyNavigationTest.php",
+        "SourceStudyLibraryTest.php",
+        "LearnerMobileAccessibilityViewTest.php (18 assertions)",
+        "LearnerNavigationUxTest.php (8 assertions)",
+        "Batch678StudyReviewNavigationTest.php"
+      ],
+      "log": "/data/data/com.termux/files/usr/tmp/batch719-learning-mobile-regressions.log"
+    },
+    {
+      "name": "Developer review and import safeguards",
+      "exit_code": 0,
+      "command_prefix": "php tools/Tests/",
+      "tests": [
+        "DeveloperToolsTest.php (291 assertions)",
+        "QuestionImportSafetyTest.php",
+        "QuestionImportCsrfTest.php",
+        "QuestionQualityDashboardRemediationIntegrationTest.php",
+        "QuestionQualityServiceProductionContractTest.php",
+        "Batch717AcademicGateClosureTest.php"
+      ],
+      "log": "/data/data/com.termux/files/usr/tmp/batch719-developer-regressions.log"
+    },
+    {
+      "name": "question and study quarantine",
+      "exit_code": 0,
+      "command_prefix": "php tools/Tests/",
+      "tests": [
+        "Batch708Q6403QuarantineTest.php",
+        "Batch705NursingEligibilityIsolationTest.php",
+        "Batch706CriticalMappingSafetyTest.php (53 assertions)"
+      ],
+      "log": "/data/data/com.termux/files/usr/tmp/batch719-quarantine-regressions.log"
+    },
+    {
+      "name": "browser failure contract",
+      "command": "node tools/Tests/BrowserFailureSummaryTest.cjs",
+      "exit_code": 0,
+      "real_browser_executed": false,
+      "log": "/data/data/com.termux/files/usr/tmp/b719-BrowserFailureSummaryTest.log"
+    }
+  ],
+  "repaired_test_harness_failure": {
+    "test": "FlashcardControllerReadPathTest.php initial attempted assertion",
+    "initial_exit_code": 255,
+    "cause": "The test referenced a controller-local selection variable from global test scope while asserting availability.",
+    "repair": "Read the available-card total from the controller's rendered HTML instead.",
+    "final_exit_code": 0,
+    "product_failure": false
+  },
+  "php_lint": {
+    "exit_code": 0,
+    "command_prefix": "php -l ",
+    "files": [
+      "app/Controllers/FlashcardController.php",
+      "app/Services/Flashcard/FlashcardDerivationService.php",
+      "app/Services/Question/QuestionEligibilityService.php",
+      "app/Services/Question/QuestionReuseEligibilityResolver.php",
+      "tools/Tests/FlashcardControllerReadPathTest.php"
+    ]
+  },
+  "git_diff_check_exit_code": 0,
+  "full_doctor": {
+    "command": "APP_ENV=production APP_DEBUG=false DB_DRIVER=json APP_STORAGE_PATH=/data/data/com.termux/files/home/boardprep-batch-706/storage php -d memory_limit=1G tools/doctor.php --release --json",
+    "tested_head": "6f3159f2277ed78c70cc177a4c6636afe16639e7",
+    "exit_code": 0,
+    "result_artifact": "/data/data/com.termux/files/usr/tmp/batch719-full-doctor-6f3159f.json",
+    "stderr_artifact": "/data/data/com.termux/files/usr/tmp/batch719-full-doctor-6f3159f.stderr",
+    "embedded_tests": {"total": 84, "pass": 84, "fail": 0},
+    "release_domains": {"pass": 25, "review": 1, "fail": 0},
+    "review_domain": "SOURCE_TRACEABILITY",
+    "release_gate": "PASS",
+    "decision": "RELEASE_READY_WITH_NONBLOCKING_DEBT",
+    "priority_counts": {"P0": 0, "P1": 0, "P2": 1, "P3": 2},
+    "health": {"status": "REVIEW", "issue_entities": 838, "warn_entities": 804, "review_entities": 34, "fail_entities": 0},
+    "storage": {
+      "status": "PASS",
+      "available_before_bytes": 3975544832,
+      "minimum_observed_available_bytes": 3438534656,
+      "required_available_bytes": 1837241842,
+      "additional_user_safety_margin_bytes": 536870912,
+      "cleanup_status": "PASS",
+      "preexisting_fixture_directories_left_untouched": 2
+    }
+  },
+  "browser_acceptance": "NOT_EXECUTED; no supported Chromium/Playwright runtime was available on Termux.",
+  "production_learner_mutations": 0,
+  "push": "NOT_AUTHORIZED_NOT_PERFORMED",
+  "merge": "NOT_PERFORMED",
+  "deployment": "NOT_PERFORMED"
+}
