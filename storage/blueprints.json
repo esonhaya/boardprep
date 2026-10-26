@@ -543,17 +543,23 @@
             {
                 "id": "mathematics",
                 "name": "Mathematics",
-                "target_percent": null
+                "target_percent": null,
+                "subject_id": "registered-electrical-engineering-mathematics",
+                "domain_id": "ree-mathematics"
             },
             {
                 "id": "engineering-sciences-and-allied-subjects",
                 "name": "Engineering Sciences and Allied Subjects",
-                "target_percent": null
+                "target_percent": null,
+                "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+                "domain_id": "engineering-sciences-and-allied-subjects"
             },
             {
                 "id": "electrical-engineering-professional-subjects",
                 "name": "Electrical Engineering Professional Subjects",
-                "target_percent": null
+                "target_percent": null,
+                "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+                "domain_id": "electrical-engineering-professional-subjects"
             }
         ],
         "label": "Current official REE scope: Mathematics 25%; Engineering Sciences and Allied Subjects 30%; Electrical Engineering Professional Subjects 45%.",
@@ -601,22 +607,30 @@
             {
                 "id": "history-and-theory",
                 "name": "History and Theory",
-                "target_percent": null
+                "target_percent": null,
+                "subject_id": "architecture-history-and-theory",
+                "domain_id": "architecture-history-theory"
             },
             {
                 "id": "planning-and-practice",
                 "name": "Planning and Practice",
-                "target_percent": null
+                "target_percent": null,
+                "subject_id": "architecture-planning-and-practice",
+                "domain_id": "architecture-planning-practice"
             },
             {
                 "id": "utilities-and-construction",
                 "name": "Utilities and Construction",
-                "target_percent": null
+                "target_percent": null,
+                "subject_id": "architecture-utilities-and-construction",
+                "domain_id": "architecture-utilities-construction"
             },
             {
                 "id": "architectural-design-and-site-planning",
                 "name": "Architectural Design and Site Planning",
-                "target_percent": null
+                "target_percent": null,
+                "subject_id": "architecture-architectural-design-and-site-planning",
+                "domain_id": "architecture-design-site"
             }
         ],
         "label": "Current official Architecture scope: History/Theory, Planning and Practice 30%; Utilities, Structural Conceptualization, Materials/Technology 30%; Architectural Design and Site Planning 40%.",
@@ -634,17 +648,20 @@
             {
                 "id": "arch-area-a",
                 "name": "History/Theory, Planning and Practice",
-                "weight": 30
+                "weight": 30,
+                "section_ids": ["history-and-theory", "planning-and-practice"]
             },
             {
                 "id": "arch-area-b",
                 "name": "Utilities, Structural Conceptualization, Materials/Technology",
-                "weight": 30
+                "weight": 30,
+                "section_ids": ["utilities-and-construction"]
             },
             {
                 "id": "arch-area-c",
                 "name": "Architectural Design and Site Planning",
-                "weight": 40
+                "weight": 40,
+                "section_ids": ["architectural-design-and-site-planning"]
             }
         ]
     }

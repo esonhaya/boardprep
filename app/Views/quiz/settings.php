@@ -130,12 +130,38 @@ Review Mode
 
 </select><small class="form-help mode-disclosure">Exam simulation withholds answer feedback until submission. It is a BoardPrep study tool, separate from the official board examination.</small></div>
 
+<p class="exam-blueprint-focused-note form-help" data-exam-blueprint-focused-note role="status" hidden>A focused subject simulation uses only that subject's eligible questions; it does not represent the full-board subject distribution.</p>
+<?php $examBlueprintPreviews = is_array($examBlueprintPreviews ?? null) ? $examBlueprintPreviews : []; $selectedPreviewKey = strtolower((string) ($settings['board'] ?? 'let')); ?>
+<?php foreach ($examBlueprintPreviews as $previewBoard => $examBlueprintPreview): ?>
+<?php $examBlueprintPreview = is_array($examBlueprintPreview) ? $examBlueprintPreview : []; $previewHeadingId = 'exam-blueprint-preview-heading-' . preg_replace('/[^a-z0-9_-]/i', '', (string) $previewBoard); ?>
+<section class="exam-blueprint-preview" data-exam-blueprint-preview data-board="<?= htmlspecialchars((string) $previewBoard, ENT_QUOTES, 'UTF-8') ?>" aria-labelledby="<?= htmlspecialchars($previewHeadingId, ENT_QUOTES, 'UTF-8') ?>" <?= ($settings['mode'] ?? 'practice') === 'exam' && $selectedPreviewKey === strtolower((string) $previewBoard) ? '' : 'hidden' ?>>
+    <div class="exam-blueprint-preview-heading">
+        <div><p class="eyebrow">Exam simulation setup</p><h2 id="<?= htmlspecialchars($previewHeadingId, ENT_QUOTES, 'UTF-8') ?>">Subject distribution</h2></div>
+        <span class="badge badge-info"><?= htmlspecialchars((string) ($examBlueprintPreview['status_label'] ?? 'Blueprint status unavailable'), ENT_QUOTES, 'UTF-8') ?></span>
+    </div>
+    <?php if (($examBlueprintPreview['lines'] ?? []) !== []): ?>
+    <ul class="exam-blueprint-preview-list">
+        <?php foreach ($examBlueprintPreview['lines'] as $line): ?>
+        <li data-blueprint-weight="<?= htmlspecialchars((string) ($line['percentage'] ?? 0), ENT_QUOTES, 'UTF-8') ?>">
+            <span class="exam-blueprint-preview-area"><strong><?= htmlspecialchars((string) ($line['name'] ?? 'Configured area'), ENT_QUOTES, 'UTF-8') ?></strong><span><?= rtrim(rtrim(number_format((float) ($line['percentage'] ?? 0), 2, '.', ''), '0'), '.') ?>%</span></span>
+            <small><span data-blueprint-count><?= (int) ($line['question_count'] ?? 0) ?></span> of <span data-blueprint-total><?= (int) ($settings['count'] ?? 0) ?></span> requested questions</small>
+            <?php if (($line['subareas'] ?? []) !== []): ?><small class="exam-blueprint-preview-subareas">BoardPrep splits this combined area across its mapped pools: <?php foreach ($line['subareas'] as $index => $subarea): ?><?php if ($index > 0): ?>; <?php endif; ?><span data-blueprint-subarea-weight="<?= htmlspecialchars((string) ($subarea['weight'] ?? 1), ENT_QUOTES, 'UTF-8') ?>"><?= htmlspecialchars((string) ($subarea['name'] ?? ''), ENT_QUOTES, 'UTF-8') ?> (<span data-blueprint-subarea-count><?= (int) ($subarea['question_count'] ?? 0) ?></span>)</span><?php endforeach; ?>. No official subarea weights are asserted.</small><?php endif; ?>
+        </li>
+        <?php endforeach; ?>
+    </ul>
+    <?php else: ?>
+    <p class="exam-blueprint-preview-empty" role="status">No weighted full-board distribution is available for this configuration.</p>
+    <?php endif; ?>
+    <p class="form-help exam-blueprint-preview-note"><?= htmlspecialchars((string) ($examBlueprintPreview['note'] ?? ''), ENT_QUOTES, 'UTF-8') ?></p>
+</section>
+<?php endforeach; ?>
+
 <div id="exam-timer-fields" class="quiz-variant-fields" <?= ($settings['mode'] ?? 'practice') === 'exam' ? '' : 'hidden' ?>>
 <div class="form-field"><label for="quiz-timer-mode">Exam simulation timer</label><select id="quiz-timer-mode" name="timer_mode" aria-controls="quiz-time-limit"><option value="untimed" <?= ($settings['timer_mode'] ?? 'untimed') === 'untimed' ? 'selected' : '' ?>>Untimed</option><option value="timed" <?= ($settings['timer_mode'] ?? '') === 'timed' ? 'selected' : '' ?>>Timed</option></select><small class="form-help">Choose a timer for this study session. This does not represent an official examination duration.</small></div>
 <div id="quiz-time-limit-field" class="form-field" <?= ($settings['timer_mode'] ?? 'untimed') === 'timed' ? '' : 'hidden' ?>><label for="quiz-time-limit">Time limit in minutes</label><input id="quiz-time-limit" name="time_limit_minutes" type="number" min="1" max="600" step="1" value="<?= htmlspecialchars((string) ($settings['time_limit_minutes_input'] ?? (($settings['time_limit_minutes'] ?? 0) > 0 ? $settings['time_limit_minutes'] : 60)), ENT_QUOTES, 'UTF-8') ?>"><small class="form-help">Use a whole number from 1 to 600. The timer continues when you move between questions or refresh.</small></div>
 <p class="small-note" id="timer-mode-help">Untimed sessions ignore the minutes value. Choose Timed to enter a duration. With JavaScript off, both timer choices and the duration stay available.</p>
 </div>
-<noscript><style>#exam-timer-fields[hidden],#quiz-time-limit-field[hidden]{display:block!important}</style></noscript>
+<noscript><style>#exam-timer-fields[hidden],#quiz-time-limit-field[hidden]{display:block!important}</style><p class="small-note">The distribution preview updates when you change boards, subjects or question counts. JavaScript is needed for that live preview; exam simulation remains available without it.</p></noscript>
 
 
 

@@ -19,18 +19,43 @@ final class BlueprintCoverageAnalyzer
 
                 $questions,
 
-                static function (array $question) use ($request): bool {
+                static function (array $question) use ($request, $boardBlueprint): bool {
                     $taxonomy = is_array($question['taxonomy'] ?? null)
                         ? $question['taxonomy'] : [];
-                    $subject = $question['subject'] ?? $taxonomy['subject_id'] ?? null;
-                    $domain = $question['domain'] ?? $taxonomy['domain_id'] ?? null;
+                    $subjects = array_filter([
+                        $taxonomy['subject_id'] ?? null,
+                        $question['subject'] ?? null,
+                    ], 'is_scalar');
+                    foreach (is_array($boardBlueprint['selection_subject_aliases'] ?? null)
+                        ? $boardBlueprint['selection_subject_aliases']
+                        : [] as $selectionSubject => $aliases) {
+                        if (strcasecmp((string) $selectionSubject, $request->subject) === 0
+                            && is_array($aliases)) {
+                            $subjects = array_merge($subjects, array_filter($aliases, 'is_scalar'));
+                            $subjects[] = $selectionSubject;
+                            break;
+                        }
+                    }
+                    $domains = array_filter([
+                        $taxonomy['domain_id'] ?? null,
+                        $question['domain'] ?? null,
+                    ], 'is_scalar');
 
-                    return is_scalar($subject)
-                        && strcasecmp(trim((string) $subject), $request->subject) === 0
-                        && ($request->domain === null || (
-                            is_scalar($domain)
-                            && strcasecmp(trim((string) $domain), $request->domain) === 0
-                        ));
+                    $subjectMatches = false;
+                    foreach ($subjects as $subject) {
+                        $subjectMatches = $subjectMatches
+                            || strcasecmp(trim((string) $subject), $request->subject) === 0;
+                    }
+                    if (!$subjectMatches || $request->domain === null) {
+                        return $subjectMatches;
+                    }
+
+                    foreach ($domains as $domain) {
+                        if (strcasecmp(trim((string) $domain), $request->domain) === 0) {
+                            return true;
+                        }
+                    }
+                    return false;
 
                 }
 

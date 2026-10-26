@@ -90,6 +90,7 @@ final class Autoloader
         'BlueprintCoverageFinalizer' => __DIR__ . '/../Services/Quiz/Blueprint/BlueprintCoverageFinalizer.php',
         'BlueprintExecutionResultFactory' => __DIR__ . '/../Services/Quiz/Blueprint/BlueprintExecutionResultFactory.php',
         'BlueprintResolverService' => __DIR__ . '/../Services/Quiz/Blueprint/BlueprintResolverService.php',
+        'ExamBlueprintPreviewService' => __DIR__ . '/../Services/Quiz/Blueprint/ExamBlueprintPreviewService.php',
         'RequestExecutionPlan' => __DIR__ . '/../Services/Quiz/Blueprint/RequestExecutionPlan.php',
         'RequestExecutionPlanService' => __DIR__ . '/../Services/Quiz/Blueprint/RequestExecutionPlanService.php',
         'RequestPriorityService' => __DIR__ . '/../Services/Quiz/Blueprint/RequestPriorityService.php',

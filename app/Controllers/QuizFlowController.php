@@ -166,6 +166,24 @@ final class QuizFlowController
                 }
             }
         }
+        $examBlueprintPreviews = [];
+        foreach ($boards as $candidate) {
+            $boardCode = strtolower(trim((string) ($candidate['code'] ?? '')));
+            if ($boardCode === '') {
+                continue;
+            }
+            $examBlueprintPreviews[$boardCode] = \ExamBlueprintPreviewService::forSetup(
+                (string) ($candidate['id'] ?? $candidate['code']),
+                '*',
+                (int) ($settings['count'] ?? 0)
+            );
+        }
+        $selectedPreviewKey = strtolower(trim((string) ($settings['board'] ?? 'let')));
+        $examBlueprintPreviews[$selectedPreviewKey] = \ExamBlueprintPreviewService::forSetup(
+            (string) ($settings['board'] ?? 'let'),
+            (string) ($settings['subject'] ?? '*'),
+            (int) ($settings['count'] ?? 0)
+        );
         View::render(
             'quiz/settings',
             [
@@ -174,6 +192,7 @@ final class QuizFlowController
                 'boards' => $boards,
                 'boardContext' => $boardContext,
                 'subjectContext' => $subjectContext,
+                'examBlueprintPreviews' => $examBlueprintPreviews,
                 'preferences' => LearnerPreferenceService::get(),
                 'letSpecializations' => LETVariantRegistry::specializations(),
                 'activeSession' => $activeSession ?? self::activeSessionSummary(),

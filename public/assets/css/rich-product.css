@@ -108,6 +108,21 @@ main#main-content:focus{outline:none}
 .quiz-settings .quiz-variant-fields .form-field{min-width:0}
 .quiz-settings #timer-mode-help{grid-column:1/-1;margin:0}
 .quiz-settings .mode-disclosure{grid-column:1/-1;margin-top:-8px}
+.quiz-settings .exam-blueprint-preview{grid-column:1/-1;min-width:0;padding:16px;border:1px solid var(--border);border-radius:12px;background:#f8faff}
+.quiz-settings .exam-blueprint-preview[hidden]{display:none!important}
+.quiz-settings .exam-blueprint-focused-note{grid-column:1/-1;margin:0;padding:12px;border-left:3px solid var(--ui-blue);background:#f2f7ff}
+.exam-blueprint-preview-heading{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 16px}
+.exam-blueprint-preview-heading h2{margin:0;font-size:1.1rem}
+.exam-blueprint-preview-heading .eyebrow{margin:0 0 4px}
+.exam-blueprint-preview-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 16px;margin:14px 0;padding:0;list-style:none}
+.exam-blueprint-preview-list li{min-width:0;padding:10px;border:1px solid var(--border);border-radius:8px;background:#fff}
+.exam-blueprint-preview-area{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.exam-blueprint-preview-area strong{overflow-wrap:anywhere}
+.exam-blueprint-preview-area>span{flex:0 0 auto;font-weight:700}
+.exam-blueprint-preview-list small{display:block;margin-top:4px}
+.exam-blueprint-preview-subareas{color:var(--muted)}
+.exam-blueprint-preview-note{margin:10px 0 0}
+.exam-blueprint-preview-empty{margin:12px 0 0}
 .quiz-settings .adaptive-option{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:14px;border:1px solid var(--border);border-radius:12px;background:#f8faff}
 .quiz-settings .adaptive-option label{display:flex;align-items:center;gap:10px;margin:0;font-size:1rem}
 .quiz-settings .adaptive-option small{flex-basis:100%;margin-left:30px}
@@ -213,6 +228,8 @@ main#main-content:focus{outline:none}
     .quiz-settings,.quiz-settings .quiz-variant-fields{grid-template-columns:1fr}
     .quiz-settings .quiz-variant-fields{padding:12px}
     .quiz-settings .mode-disclosure,.quiz-settings .form-actions{grid-column:1}
+    .quiz-settings .exam-blueprint-preview{grid-column:1}
+    .exam-blueprint-preview-list{grid-template-columns:1fr}
     .quiz-meta{align-items:flex-start;flex-direction:column}
     .quiz-actions button,.quiz-shell form[action="/quiz"] button{width:100%}
     .result-summary{flex-direction:row;gap:12px}

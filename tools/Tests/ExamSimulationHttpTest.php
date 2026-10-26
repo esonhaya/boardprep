@@ -59,6 +59,32 @@ try {
     }
     $csrfToken = $csrfMatch[1];
 
+    $blueprintPreview = $http->request('GET', '/quiz', [
+        'exam' => 'CE', 'subject' => '*', 'mode' => 'exam', 'count' => 20,
+    ], [], [], $cookies);
+    preg_match('/<section[^>]*data-exam-blueprint-preview[^>]*data-board="ce".*?<\/section>/s', $blueprintPreview['output'], $cePreviewMatch);
+    $cePreview = (string) ($cePreviewMatch[0] ?? '');
+    if (!$blueprintPreview['success'] || $blueprintPreview['status'] !== 200
+        || !str_contains($cePreview, 'Subject distribution')
+        || !str_contains($cePreview, 'Principles of Structural Analysis and Design')
+        || !preg_match('/data-blueprint-count[^>]*>7<\/span> of <span data-blueprint-total[^>]*>20<\/span> requested questions/', $cePreview)
+        || !str_contains($cePreview, 'Registered source weighting')) {
+        throw new RuntimeException('Exam setup did not preview the selected board\'s registered weighting and exact question allocation: '
+            . json_encode(['status' => $blueprintPreview['status'] ?? null, 'preview' => substr(strip_tags($cePreview), 0, 700)]));
+    }
+
+    $focusedBlueprintPreview = $http->request('GET', '/quiz', [
+        'exam' => 'CE', 'subject' => 'civil-engineering-structural-engineering', 'mode' => 'exam', 'count' => 20,
+    ], [], [], $cookies);
+    preg_match('/<section[^>]*data-exam-blueprint-preview[^>]*data-board="ce".*?<\/section>/s', $focusedBlueprintPreview['output'], $focusedPreviewMatch);
+    $focusedPreview = (string) ($focusedPreviewMatch[0] ?? '');
+    if (!$focusedBlueprintPreview['success'] || $focusedBlueprintPreview['status'] !== 200
+        || !str_contains($focusedPreview, 'Focused subject session')
+        || !str_contains($focusedPreview, 'does not represent the full-board subject distribution')
+        || str_contains($focusedPreview, 'data-blueprint-count')) {
+        throw new RuntimeException('Focused subject setup falsely displayed a full-board distribution.');
+    }
+
     $start = $http->request('POST', '/quiz', [], [
         'action' => 'start', 'exam' => 'LET', 'subject' => 'English',
         'mode' => 'exam', 'timer_mode' => 'timed', 'time_limit_minutes' => 5,

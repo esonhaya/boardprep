@@ -44,6 +44,20 @@ final class BlueprintExecutor
             && trim($specification->subject) !== ''
             && trim($specification->subject) !== '*') {
             $aliases = self::subjectAliases($specification->subject);
+            foreach (is_array($boardBlueprint['selection_subject_aliases'] ?? null)
+                ? $boardBlueprint['selection_subject_aliases']
+                : [] as $selectionSubject => $canonicalAliases) {
+                if (!is_array($canonicalAliases)) {
+                    continue;
+                }
+                foreach ($canonicalAliases as $canonicalAlias) {
+                    if (is_scalar($canonicalAlias)
+                        && isset($aliases[strtolower(trim((string) $canonicalAlias))])) {
+                        $aliases[strtolower(trim((string) $selectionSubject))] = true;
+                        break;
+                    }
+                }
+            }
             $subjectRequests = array_values(array_filter(
                 $requests,
                 static fn(SelectionRequest $request): bool => isset($aliases[strtolower(trim($request->subject))])
