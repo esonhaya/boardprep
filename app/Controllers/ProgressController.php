@@ -15,11 +15,13 @@ final class ProgressController
     public static function index(): void
     {
         $attempts = LearningHistoryService::all();
-        $dashboard = StudyDashboardService::build($attempts);
+        $preferences = \App\Services\Profile\LearnerPreferenceService::get();
+        $dashboard = StudyDashboardService::build($attempts, $preferences);
 
         View::render(
             "progress/index",
             [
+                "dashboard" => $dashboard,
                 "summary" => $dashboard["progress"],
                 "history" => PreviewCollection::items($attempts),
                 "historyHasMore" => PreviewCollection::hasMore($attempts),
@@ -32,6 +34,7 @@ final class ProgressController
                 "insight" => $dashboard["insight"],
                 "recommendations" => $dashboard["recommendations"],
                 "weaknesses" => WeaknessService::all(),
+                "preferences" => $preferences,
             ]
         );
     }
@@ -39,7 +42,8 @@ final class ProgressController
     public static function data(): array
     {
         return StudyDashboardService::build(
-            LearningHistoryService::all()
+            LearningHistoryService::all(),
+            \App\Services\Profile\LearnerPreferenceService::get()
         );
     }
 }

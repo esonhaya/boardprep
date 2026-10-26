@@ -14,14 +14,15 @@ final class StudyDashboardController
     public static function index(): void
     {
         $attempts = LearningHistoryService::all();
+        $preferences = \App\Services\Profile\LearnerPreferenceService::get();
         \App\Core\View::render(
             "study/index",
             [
-                "dashboard" => StudyDashboardService::build($attempts),
+                "dashboard" => StudyDashboardService::build($attempts, $preferences, false),
                 "history" => PreviewCollection::items($attempts),
                 "historyHasMore" => PreviewCollection::hasMore($attempts),
                 "weaknesses" => WeaknessService::all(),
-                "preferences" => \App\Services\Profile\LearnerPreferenceService::get(),
+                "preferences" => $preferences,
             ]
         );
     }
@@ -29,7 +30,9 @@ final class StudyDashboardController
     public static function data(): array
     {
         return StudyDashboardService::build(
-            LearningHistoryService::all()
+            LearningHistoryService::all(),
+            \App\Services\Profile\LearnerPreferenceService::get(),
+            false
         );
     }
 }

@@ -197,9 +197,12 @@ final class TopicPerformanceAccumulator
             if ($topic === '') {
                 $topic = 'General';
             }
-            $topicContext = $context;
+            $topicContext = LearningAttemptContext::fromQuestion($question, $context);
+            if (($topicContext['question_placement_resolved'] ?? true) !== true) {
+                continue;
+            }
             $topicContext['topic'] = $topic;
-            $key = strtolower($topic);
+            $key = self::key($topicContext);
             if (!isset($groups[$key])) {
                 $groups[$key] = [
                     'context' => $topicContext,

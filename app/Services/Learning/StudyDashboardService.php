@@ -5,7 +5,7 @@ namespace App\Services\Learning;
 
 final class StudyDashboardService
 {
-    public static function build(array $attempts = []): array
+    public static function build(array $attempts = [], array $preferences = [], bool $includeReadiness = true): array
     {
         $progress = LearningProgressService::build($attempts);
         $attempts = LearningHistoryService::ordered($attempts);
@@ -16,6 +16,7 @@ final class StudyDashboardService
         $strongestSubjects = RelativePerformanceComparisonService::aboveContextAverage($subjects, 3);
         $streak = LearningStreakService::current($attempts);
         $insight = StudyInsightService::build($attempts, $focusTopics);
+        $readiness = $includeReadiness ? LearningReadinessService::build($attempts, $preferences) : null;
         $recommendations = StudyRecommendationService::build($attempts, $weakestTopics, 3);
 
         $dashboard = [
@@ -29,6 +30,10 @@ final class StudyDashboardService
             "insight" => $insight,
             "recommendations" => $recommendations,
         ];
+
+        if ($readiness !== null) {
+            $dashboard["readiness"] = $readiness;
+        }
 
         $dashboard["studyPlan"] = StudyPlanService::build($dashboard);
 

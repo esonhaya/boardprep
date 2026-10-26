@@ -85,10 +85,15 @@ final class AdaptiveQuizService
                 'let_specialization' => self::text($row['let_specialization'] ?? ''),
                 'civil_service_level' => self::text($row['civil_service_level'] ?? ''),
                 'average' => max(0, min(100, (int) $row['average'])),
+                'recent_average' => is_numeric($row['recent_average'] ?? null)
+                    ? max(0, min(100, (int) $row['recent_average']))
+                    : null,
                 'attempts' => (int) $row['attempts'],
                 'repeated_mistakes' => max(0, (int) ($row['repeated_mistakes'] ?? 0)),
-                'priority' => max(1, 100 - (int) $row['average'])
-                    + min(20, max(0, (int) ($row['repeated_mistakes'] ?? 0)) * 5),
+                'priority' => self::weakTopicPriority($row),
+                'priority_basis' => is_numeric($row['recent_average'] ?? null)
+                    ? '40_PERCENT_OVERALL_60_PERCENT_RECENT'
+                    : 'OVERALL_ACCURACY',
             ];
             if (count($weakTopics) >= self::WEAK_TOPIC_LIMIT) {
                 break;
@@ -123,6 +128,12 @@ final class AdaptiveQuizService
             'question_exposure' => $exposure,
             'history_attempt_count' => count($attempts),
             'exposure_window_attempt_count' => count($recentAttempts),
+            'ranking_policy' => [
+                'weakness_signal' => '40% overall topic accuracy gap plus 60% recent topic accuracy gap when at least two topic observations exist',
+                'repeated_mistake_bonus_max' => 20,
+                'recent_exposure_penalty_max' => 48,
+                'topic_concentration_penalty_max' => 36,
+            ],
         ];
     }
 
@@ -156,14 +167,14 @@ final class AdaptiveQuizService
 
         if ($prioritized !== []) {
             return sprintf(
-                'Adaptive practice prioritized %d topic%s with lower accuracy across at least two completed question-level attempts. Among otherwise eligible questions at the same difficulty, it favored questions seen less often in your latest completed sessions.',
+                'Adaptive practice prioritized %d topic%s with lower accuracy across at least two completed question-level attempts. It balances recency, repeated mistakes, and topic coverage, and favors less recently seen eligible questions at the same difficulty.',
                 count($prioritized),
                 count($prioritized) === 1 ? '' : 's'
             );
         }
 
         if ((int) ($context['exposure_window_attempt_count'] ?? 0) > 0) {
-            return 'No repeatedly lower-performing topic matched the questions selected for this session. Adaptive practice favored less recently encountered questions when an eligible question with the same difficulty was available.';
+            return 'No repeatedly lower-performing topic matched the questions selected for this session. Adaptive practice favors less recently encountered eligible questions and spreads selections across topics when their ranking signals are close.';
         }
 
         return 'There is not enough completed question-level history to target lower-performing topics or avoid recent repeats. The session keeps the configured board, subject, eligibility, and difficulty rules.';
@@ -218,6 +229,18 @@ final class AdaptiveQuizService
         $civilServiceLevel = strtoupper(trim($specification->civilServiceLevel ?? ''));
         $rowCivilServiceLevel = strtoupper(trim(self::text($row['civil_service_level'] ?? '')));
         return $civilServiceLevel === $rowCivilServiceLevel;
+    }
+
+    private static function weakTopicPriority(array $row): int
+    {
+        $overallGap = 100 - max(0, min(100, (int) ($row['average'] ?? 100)));
+        $recent = $row['recent_average'] ?? null;
+        $weaknessSignal = is_numeric($recent)
+            ? (int) round($overallGap * 0.4 + (100 - max(0, min(100, (int) $recent))) * 0.6)
+            : $overallGap;
+        $repeatedMistakeBonus = min(20, max(0, (int) ($row['repeated_mistakes'] ?? 0)) * 5);
+
+        return max(1, min(120, $weaknessSignal + $repeatedMistakeBonus));
     }
 
     public static function boardKey(mixed $value): string

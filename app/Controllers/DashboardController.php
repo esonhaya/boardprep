@@ -15,11 +15,12 @@ final class DashboardController
     public static function index(): void
     {
         $attempts = LearningHistoryService::all();
+        $preferences = \App\Services\Profile\LearnerPreferenceService::get();
         View::render(
             "dashboard/index",
             [
                 "pageTitle" => "Learner Dashboard",
-                "dashboard" => StudyDashboardService::build($attempts),
+                "dashboard" => StudyDashboardService::build($attempts, $preferences),
                 "history" => PreviewCollection::items($attempts),
                 "historyHasMore" => PreviewCollection::hasMore($attempts),
                 "weaknesses" => WeaknessService::all(),

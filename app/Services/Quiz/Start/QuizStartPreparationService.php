@@ -28,6 +28,7 @@ final class QuizStartPreparationService
                 if ($name !== '') $subjectAliases[$name] = true;
             }
         }
+        $preparedQuestions = [];
         foreach ($result->questions as $question) {
             $effective = \App\Services\Question\QuestionEligibilityService::forExam(
                 $question,
@@ -39,11 +40,25 @@ final class QuizStartPreparationService
                 || ($requested !== '*' && !isset($subjectAliases[$effectiveSubject]))) {
                 throw new \InvalidArgumentException('Selected questions did not pass the requested board and subject eligibility check. Please retry with a narrower supported selection.');
             }
+
+            // Keep the board-resolved identity beside this session snapshot.
+            // A canonical question may be reusable on another board under a
+            // different subject, so taxonomy alone is not enough to attribute
+            // later full-board answer analytics safely.
+            $variant = is_array($specification->letVariant) ? $specification->letVariant : [];
+            $question['attempt_context'] = [
+                'board' => (string) ($effective['exam_id'] ?? $specification->board),
+                'subject' => (string) ($effective['subject_id'] ?? ''),
+                'let_level' => (string) ($variant['level'] ?? ''),
+                'let_specialization' => (string) ($variant['specialization_id'] ?? ''),
+                'civil_service_level' => (string) ($specification->civilServiceLevel ?? ''),
+            ];
+            $preparedQuestions[] = $question;
         }
 
         return new QuizStartPreparation(
             $specification,
-            $result->questions,
+            $preparedQuestions,
             $result->coverage,
             $result->issues,
             \AdaptiveQuizService::selectionExplanation($adaptiveContext, $result->questions)

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Services\Learning\Recommendation;
 
-use App\Core\App;
 use App\Services\Study\StudyLibraryService;
 use App\Services\Learning\StudyActionService;
 use App\Services\Shared\TaxonomyStorageService;
@@ -13,6 +12,8 @@ final class StudyRecommendationFactory
 {
     /** @var array<string, array<string, array<string, string>>> */
     private static array $studyLinksByContext = [];
+    /** @var array<string,string>|null Request-local canonical question topic lookup shared by board contexts. */
+    private static ?array $topicByQuestionId = null;
 
     public static function forTopic(array $topic): ?array
     {
@@ -170,18 +171,7 @@ final class StudyRecommendationFactory
         $contextKey = strtolower(trim($board));
         if (!array_key_exists($contextKey, self::$studyLinksByContext)) {
             $materials = StudyLibraryService::all($board !== '' ? $board : null);
-            $questionsById = [];
-            foreach (App::storage()->all('questions') as $question) {
-                if (!is_array($question)) {
-                    continue;
-                }
-                $id = self::text($question['id'] ?? '');
-                $taxonomy = is_array($question['taxonomy'] ?? null) ? $question['taxonomy'] : [];
-                $topicId = self::text($taxonomy['topic_id'] ?? $question['topic'] ?? '');
-                if ($id !== '' && $topicId !== '') {
-                    $questionsById[$id] = $topicId;
-                }
-            }
+            $questionsById = self::questionTopics();
 
             $index = [];
             foreach ($materials as $material) {
@@ -237,5 +227,15 @@ final class StudyRecommendationFactory
             unset($link['question_ids']);
         }
         return $link;
+    }
+
+    /** Load canonical taxonomy once per request, even when recommendations span boards. */
+    private static function questionTopics(): array
+    {
+        if (self::$topicByQuestionId !== null) {
+            return self::$topicByQuestionId;
+        }
+        self::$topicByQuestionId = LearningQuestionCatalog::topicByQuestionId();
+        return self::$topicByQuestionId;
     }
 }
