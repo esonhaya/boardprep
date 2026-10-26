@@ -1,4 +1,4 @@
-<section class="page-header"><div><h1>Question Inventory</h1><p>Question Editor · Browse, search and manage your question repository.</p></div><a class="button" href="/question-editor/create">New question</a></section>
+<section class="page-header"><div><h1>Question Inventory</h1><p>Question Editor · Browse, search and manage your question repository.</p></div><div class="page-actions"><a class="button secondary" href="/question-quality?queue=needs-review">Needs Review</a><a class="button" href="/question-editor/create">New question</a></div></section>
 
 <section class="card" aria-label="Pending academic review proposals">
     <h2>Recovered academic review proposals</h2>

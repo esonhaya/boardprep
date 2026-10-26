@@ -54,7 +54,12 @@ if (($collision['success'] ?? true) !== false || count($repository->all()) !== 1
     throw new RuntimeException('duplicate import ID overwrote existing content');
 }
 
-unlink($directory . '/questions.json');
+foreach (['questions.json', 'question-reuse-metadata.json', 'question-statistics.json', '.storage.lock'] as $filename) {
+    $path = $directory . '/' . $filename;
+    if (is_file($path)) {
+        unlink($path);
+    }
+}
 rmdir($directory);
 
 echo "[PASS] imports are validated before writes and reject ID collisions safely.\n";

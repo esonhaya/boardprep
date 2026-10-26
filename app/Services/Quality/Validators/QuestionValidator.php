@@ -1,35 +1,19 @@
 <?php
 
-class QuestionValidator
-{
+declare(strict_types=1);
 
+namespace App\Services\Quality\Validators;
+
+final class QuestionValidator
+{
+    /** @return array<int, array{severity:string,type:string,message:string}> */
     public static function validate(array $question): array
     {
-
-        $issues = [];
-
-        $issues = array_merge(
-            $issues,
-            ContentValidator::validate($question)
-        );
-
-        $issues = array_merge(
-            $issues,
-            ChoiceValidator::validate($question)
-        );
-
-        $issues = array_merge(
-            $issues,
-            MetadataValidator::validate($question)
-        );
-
-        $issues = array_merge(
-            $issues,
+        return array_merge(
+            ContentValidator::validate($question),
+            ChoiceValidator::validate($question),
+            MetadataValidator::validate($question),
             TaxonomyValidator::validate($question)
         );
-
-        return $issues;
-
     }
-
 }

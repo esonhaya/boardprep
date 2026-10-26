@@ -6,6 +6,8 @@ require_once dirname(__DIR__, 2) . '/app/Core/Autoloader.php';
 App\Core\Autoloader::register();
 
 use App\Services\Question\QuestionQualityService;
+use App\Services\Question\Quality\QuestionQualityIssueQueueService;
+use App\Core\App;
 use App\Services\RepositoryHealth\SourceUrlHealthSnapshot;
 
 $root = dirname(__DIR__, 2);
@@ -34,7 +36,24 @@ $affected = SourceUrlHealthSnapshot::affectedQuestionsBySource(
 );
 $snapshotInspection = SourceUrlHealthSnapshot::inspect($snapshots, $sources, new DateTimeImmutable('now'), $affected);
 
+$analysisStarted = microtime(true);
 $result = QuestionQualityService::analyze();
+$firstAnalysisMs = round((microtime(true) - $analysisStarted) * 1000, 2);
+$databaseConfig = App::config('database', []);
+$configuredStorage = is_array($databaseConfig) ? realpath((string) ($databaseConfig['path'] ?? '')) : false;
+$repositoryStorage = realpath($root . '/storage');
+if (App::config('environment') !== 'testing'
+    && $configuredStorage !== false
+    && $configuredStorage === $repositoryStorage) {
+    $cacheStarted = microtime(true);
+    $cachedResult = QuestionQualityService::analyze();
+    $cachedAnalysisMs = round((microtime(true) - $cacheStarted) * 1000, 2);
+    if (($cachedResult['qualityEvidenceState'] ?? '') !== 'CACHED_CURRENT'
+        || json_encode($cachedResult['issues'] ?? null, JSON_THROW_ON_ERROR)
+            !== json_encode($result['issues'] ?? null, JSON_THROW_ON_ERROR)) {
+        $fail('An unchanged report was not reused from the provenance-validated quality cache.');
+    }
+}
 $issues = (array) ($result['issues'] ?? []);
 $byCode = [];
 $findingsByCode = [];
@@ -151,11 +170,29 @@ if (!is_object($q6403Finding)
     $fail('The active Q6403 scoped integrity hold is absent or inaccurately represented.');
 }
 
-extract($result, EXTR_OVERWRITE);
-ob_start();
-require $root . '/app/Views/developer/question-quality.php';
-$html = (string) ob_get_clean();
-$visibleHtml = preg_replace('/\s+/', ' ', $html) ?? $html;
+$renderQualityQueue = static function (array $filters) use ($root, $result): string {
+    $viewData = $result;
+    $viewData['qualityQueue'] = QuestionQualityIssueQueueService::paginate(
+        (array) ($result['issues'] ?? []),
+        $filters
+    );
+    extract($viewData, EXTR_OVERWRITE);
+    ob_start();
+    require $root . '/app/Views/developer/question-quality.php';
+    return (string) ob_get_clean();
+};
+$defaultQueueHtml = $renderQualityQueue([]);
+$sourceQueueHtml = $renderQualityQueue(['entity_type' => 'source', 'per_page' => '100']);
+$questionReviewHtml = $renderQualityQueue([
+    'status' => 'REVIEW',
+    'category' => 'ELIGIBILITY',
+    'entity_type' => 'question',
+]);
+$visibleHtml = preg_replace('/\s+/', ' ', $defaultQueueHtml . $sourceQueueHtml . $questionReviewHtml) ?? '';
+if (substr_count($defaultQueueHtml, '<article class="record-card">') !== 25
+    || !str_contains($defaultQueueHtml, 'Showing 25 of ' . count($issues) . ' matching records')) {
+    $fail('The dashboard did not bound the unfiltered quality queue to the default page size.');
+}
 foreach ([
     'Source reachability and text access',
     'Snapshot status',
@@ -199,3 +236,10 @@ echo 'URL_AUDIT_COVERAGE=' . ($auditIsStale ? 'NOT_CURRENT' : count((array) ($sn
 echo 'EXACT_LINKS=1049_PENDING_OR_UNKNOWN=1049_APPROVED=0' . PHP_EOL;
 echo 'Q6403_REVIEW_HOLD=VISIBLE' . PHP_EOL;
 echo 'RENDERED_DASHBOARD_AND_PROTECTED_HASHES=PASS' . PHP_EOL;
+$queueSummary = QuestionQualityIssueQueueService::paginate($issues, []);
+echo 'QUALITY_ISSUE_STATUS_COUNTS=' . json_encode($queueSummary['status_counts'], JSON_THROW_ON_ERROR) . PHP_EOL;
+echo 'QUALITY_ISSUE_FLAG_COUNTS=' . json_encode($queueSummary['issue_type_counts'], JSON_THROW_ON_ERROR) . PHP_EOL;
+echo 'QUALITY_ISSUE_CATEGORY_COUNTS=' . json_encode($queueSummary['category_counts'], JSON_THROW_ON_ERROR) . PHP_EOL;
+echo 'QUALITY_REPORT_FIRST_STATE=' . (string) ($result['qualityEvidenceState'] ?? 'UNAVAILABLE') . PHP_EOL;
+echo 'QUALITY_REPORT_FIRST_ANALYSIS_MS=' . $firstAnalysisMs . PHP_EOL;
+if (isset($cachedAnalysisMs)) echo 'QUALITY_REPORT_CACHED_ANALYSIS_MS=' . $cachedAnalysisMs . PHP_EOL;

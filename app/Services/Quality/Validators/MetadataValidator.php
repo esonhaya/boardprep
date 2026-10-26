@@ -58,9 +58,9 @@ final class MetadataValidator
 
         $issues = [];
 
-        $taxonomy =
-            $question['taxonomy']
-            ?? [];
+        $taxonomy = is_array($question['taxonomy'] ?? null)
+            ? $question['taxonomy']
+            : [];
 
         foreach (
             [
@@ -105,15 +105,15 @@ final class MetadataValidator
         array $question
     ): array {
 
-        $difficulty =
-            strtolower(
-                trim(
-                    (string) (
-                        $question['difficulty']
-                        ?? ''
-                    )
-                )
-            );
+        $rawDifficulty = $question['difficulty'] ?? '';
+        if (!is_scalar($rawDifficulty)) {
+            return [[
+                'severity' => 'warning',
+                'type' => 'invalid-difficulty',
+                'message' => 'Difficulty value must be a scalar.',
+            ]];
+        }
+        $difficulty = strtolower(trim((string) $rawDifficulty));
 
         if (
             $difficulty === ''
@@ -141,32 +141,18 @@ final class MetadataValidator
         array $question
     ): array {
 
-        $status =
-            strtolower(
-                trim(
-                    (string) (
-                        $question['status']
-                        ?? ''
-                    )
-                )
-            );
+        $rawStatus = $question['status'] ?? '';
+        $statusIsScalar = is_scalar($rawStatus);
+        $status = $statusIsScalar ? strtolower(trim((string) $rawStatus)) : '';
 
         $issues = [];
 
-        if (
-            $status !== ''
-            &&
-            !in_array(
-                $status,
-                self::VALID_STATUSES,
-                true
-            )
-        ) {
+        if (!$statusIsScalar || ($status !== '' && !in_array($status, self::VALID_STATUSES, true))) {
 
             $issues[] = [
                 'severity' => 'warning',
                 'type' => 'invalid-status',
-                'message' => 'Status value is invalid.',
+                'message' => 'Status value must be a supported scalar value.',
             ];
 
         }

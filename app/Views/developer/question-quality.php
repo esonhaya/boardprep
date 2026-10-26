@@ -61,6 +61,11 @@ $uncheckedSources = $urlAuditSummary['unchecked_source_count'] ?? null;
 
 <section class="card">
     <h2>Repository summary</h2>
+    <?php $qualityEvidenceState = (string) ($qualityEvidenceState ?? 'UNKNOWN'); ?>
+    <p><strong>Quality analysis:</strong> <?= htmlspecialchars($qualityEvidenceState, ENT_QUOTES, 'UTF-8') ?>
+        <?php if (!empty($qualityEvidenceGeneratedAt)): ?> · generated <?= htmlspecialchars((string) $qualityEvidenceGeneratedAt, ENT_QUOTES, 'UTF-8') ?><?php endif; ?>
+        <?php if ($qualityEvidenceState === 'CACHED_CURRENT'): ?> · cached evidence matched the current Git/worktree fingerprint and freshness window<?php elseif ($qualityEvidenceState === 'FRESH_ANALYSIS'): ?> · freshly analyzed repository state<?php endif; ?>
+    </p>
     <div class="metric-list">
         <?php foreach (['Total Questions' => 'totalQuestions', 'Total Issues' => 'totalIssues', 'Errors' => 'errors', 'Warnings' => 'warnings', 'Information' => 'infos'] as $label => $key): ?>
             <div class="metric-row"><strong><?= htmlspecialchars($label) ?></strong><span><?= (int) $report->statistics->{$key} ?></span></div>
@@ -78,29 +83,116 @@ $uncheckedSources = $urlAuditSummary['unchecked_source_count'] ?? null;
     <?php endforeach; ?>
 </div></section>
 
-<section class="card">
-    <h2>Repository issues</h2>
-    <?php if (empty($report->issues)): ?>
-        <div class="empty-state">No issues found.</div>
+<?php
+$qualityQueue = is_array($qualityQueue ?? null) ? $qualityQueue : [
+    'items' => [], 'total' => 0, 'page' => 1, 'pages' => 1, 'per_page' => 25,
+    'filters' => [], 'status_counts' => [], 'category_counts' => [], 'issue_type_counts' => [],
+    'entity_counts' => [], 'board_counts' => [], 'source_count' => 0,
+];
+$qualityFilters = (array) ($qualityQueue['filters'] ?? []);
+$qualityQuery = array_filter([
+    'queue' => (string) ($qualityFilters['queue'] ?? ''),
+    'status' => (string) ($qualityFilters['status'] ?? ''),
+    'category' => (string) ($qualityFilters['category'] ?? ''),
+    'issue_type' => (string) ($qualityFilters['issue_type'] ?? ''),
+    'entity_type' => (string) ($qualityFilters['entity_type'] ?? ''),
+    'board' => (string) ($qualityFilters['board'] ?? ''),
+    'search' => (string) ($qualityFilters['search'] ?? ''),
+    'per_page' => (string) ($qualityFilters['per_page'] ?? 25),
+], static fn(string $value): bool => $value !== '');
+$qualityPageUrl = static fn(int $page): string => '/question-quality?' . http_build_query($qualityQuery + ['page_num' => $page]);
+?>
+<section class="card" aria-labelledby="needs-review-heading">
+    <h2 id="needs-review-heading">Needs Review</h2>
+    <p>Machine findings and review signals help developers triage work. A warning or review signal does not establish that a question or answer is incorrect. Academic decisions for B695 proposals remain separate.</p>
+    <p class="page-actions">
+        <a class="button secondary" href="/question-editor">Canonical question inventory</a>
+        <a class="button secondary" href="/question-editor?proposal_batch=695">Pending B695 proposals</a>
+        <a class="button secondary" href="/question-quality?queue=needs-review">Needs Review queue</a>
+    </p>
+    <div class="metric-list" aria-label="Quality issue status counts">
+        <?php foreach (['FAIL' => 'Deterministic findings', 'WARN' => 'Warnings to triage', 'REVIEW' => 'Human review signals', 'INFO' => 'Informational'] as $status => $label): ?>
+            <div class="metric-row"><strong><?= htmlspecialchars($label, ENT_QUOTES, 'UTF-8') ?></strong><span><?= (int) ($qualityQueue['status_counts'][$status] ?? 0) ?></span></div>
+        <?php endforeach; ?>
+    </div>
+    <form method="get" action="/question-quality" class="filter-bar" aria-label="Filter question quality issues">
+        <label for="quality-search">Search question ID, issue code, or evidence text</label>
+        <input id="quality-search" name="search" type="search" maxlength="120" value="<?= htmlspecialchars((string) ($qualityFilters['search'] ?? ''), ENT_QUOTES, 'UTF-8') ?>">
+        <label for="quality-status">Machine status</label>
+        <select id="quality-status" name="status">
+            <option value="">All statuses</option>
+            <?php foreach (['FAIL' => 'Deterministic finding', 'WARN' => 'Warning', 'REVIEW' => 'Human review signal', 'INFO' => 'Information'] as $value => $label): ?>
+                <option value="<?= $value ?>" <?= ($qualityFilters['status'] ?? '') === $value ? 'selected' : '' ?>><?= htmlspecialchars($label, ENT_QUOTES, 'UTF-8') ?> (<?= (int) ($qualityQueue['status_counts'][$value] ?? 0) ?>)</option>
+            <?php endforeach; ?>
+        </select>
+        <label for="quality-category">Issue category</label>
+        <select id="quality-category" name="category">
+            <option value="">All categories</option>
+            <?php foreach ((array) ($qualityQueue['category_counts'] ?? []) as $value => $count): ?>
+                <option value="<?= htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8') ?>" <?= ($qualityFilters['category'] ?? '') === $value ? 'selected' : '' ?>><?= htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8') ?> (<?= (int) $count ?>)</option>
+            <?php endforeach; ?>
+        </select>
+        <label for="quality-issue-type">Review or technical flag</label>
+        <select id="quality-issue-type" name="issue_type">
+            <option value="">All flags</option>
+            <?php foreach ((array) ($qualityQueue['issue_type_counts'] ?? []) as $value => $count): ?>
+                <option value="<?= htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8') ?>" <?= ($qualityFilters['issue_type'] ?? '') === $value ? 'selected' : '' ?>><?= htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8') ?> (<?= (int) $count ?>)</option>
+            <?php endforeach; ?>
+        </select>
+        <label for="quality-entity">Record type</label>
+        <select id="quality-entity" name="entity_type">
+            <option value="">All record types</option>
+            <?php foreach ((array) ($qualityQueue['entity_counts'] ?? []) as $value => $count): ?>
+                <option value="<?= htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8') ?>" <?= ($qualityFilters['entity_type'] ?? '') === $value ? 'selected' : '' ?>><?= htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8') ?> (<?= (int) $count ?>)</option>
+            <?php endforeach; ?>
+        </select>
+        <label for="quality-board">Board ID</label>
+        <select id="quality-board" name="board">
+            <option value="">All boards</option>
+            <?php foreach ((array) ($qualityQueue['board_counts'] ?? []) as $value => $count): ?>
+                <option value="<?= htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8') ?>" <?= ($qualityFilters['board'] ?? '') === $value ? 'selected' : '' ?>><?= htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8') ?> (<?= (int) $count ?>)</option>
+            <?php endforeach; ?>
+        </select>
+        <label for="quality-queue">Queue</label>
+        <select id="quality-queue" name="queue">
+            <option value="">All signals</option>
+            <option value="needs-review" <?= ($qualityFilters['queue'] ?? '') === 'needs-review' ? 'selected' : '' ?>>Needs review (exclude informational)</option>
+        </select>
+        <label for="quality-page-size">Rows per page</label>
+        <select id="quality-page-size" name="per_page">
+            <?php foreach ([25, 50, 100] as $size): ?>
+                <option value="<?= $size ?>" <?= (int) ($qualityFilters['per_page'] ?? 25) === $size ? 'selected' : '' ?>><?= $size ?></option>
+            <?php endforeach; ?>
+        </select>
+        <button type="submit">Filter issues</button>
+        <a class="button button-outline" href="/question-quality">Clear filters</a>
+    </form>
+    <h3>Repository issue records</h3>
+    <p>Showing <?= count($qualityQueue['items'] ?? []) ?> of <?= (int) ($qualityQueue['total'] ?? 0) ?> matching records from <?= (int) ($qualityQueue['source_count'] ?? 0) ?> current machine findings · page <?= (int) ($qualityQueue['page'] ?? 1) ?> of <?= (int) ($qualityQueue['pages'] ?? 1) ?>.</p>
+    <?php if (empty($qualityQueue['items'])): ?>
+        <div class="empty-state">No issue records match these filters.</div>
     <?php else: ?>
         <div class="record-list">
-            <?php foreach ($report->issues as $issue): ?>
+            <?php foreach ($qualityQueue['items'] as $issue): ?>
                 <?php
-                $evidence = is_array($issue->evidence ?? null) ? $issue->evidence : [];
+                $evidence = is_array($issue['evidence'] ?? null) ? $issue['evidence'] : [];
                 $affectedIds = array_values(array_unique(array_map('strval', (array) ($evidence['affected_question_ids'] ?? []))));
                 $hasAffectedCount = array_key_exists('affected_question_count', $evidence);
-                $badgeClass = match (strtoupper((string) $issue->status)) {
+                $status = strtoupper((string) ($issue['status'] ?? ''));
+                $badgeClass = match ($status) {
                     'FAIL' => 'badge-danger',
-                    'WARN' => 'badge-warning',
-                    'REVIEW' => 'badge-warning',
+                    'WARN', 'REVIEW' => 'badge-warning',
                     default => 'badge-success',
                 };
+                $entityType = (string) ($issue['entity_type'] ?? 'repository');
+                $entityId = (string) ($issue['entity_id'] ?? '');
                 ?>
                 <article class="record-card">
                     <div>
-                        <strong><?= htmlspecialchars((string) ($issue->entityType ?? 'repository')) ?> #<?= htmlspecialchars((string) ($issue->entityId ?? '')) ?></strong>
-                        <p><?= htmlspecialchars($issue->message) ?></p>
-                        <?php if (isset($evidence['url'])): ?><small>URL: <code><?= htmlspecialchars((string) $evidence['url']) ?></code></small><?php endif; ?>
+                        <strong><?= htmlspecialchars($entityType, ENT_QUOTES, 'UTF-8') ?> #<?= htmlspecialchars($entityId, ENT_QUOTES, 'UTF-8') ?></strong>
+                        <?php if ($entityType === 'question' && $entityId !== ''): ?><p><a href="/question-inspector?id=<?= rawurlencode($entityId) ?>">Inspect question #<?= htmlspecialchars($entityId, ENT_QUOTES, 'UTF-8') ?></a></p><?php endif; ?>
+                        <p><?= htmlspecialchars((string) ($issue['message'] ?? ''), ENT_QUOTES, 'UTF-8') ?></p>
+                        <?php if (isset($evidence['url'])): ?><small>URL: <code><?= htmlspecialchars((string) $evidence['url'], ENT_QUOTES, 'UTF-8') ?></code></small><?php endif; ?>
                         <?php foreach ([
                             'access_status' => 'Access status',
                             'source_text_verified' => 'Full source text verified',
@@ -115,22 +207,30 @@ $uncheckedSources = $urlAuditSummary['unchecked_source_count'] ?? null;
                             'reason' => 'Hold reason',
                         ] as $field => $label): ?>
                             <?php if (array_key_exists($field, $evidence)): ?>
-                                <small><?= htmlspecialchars($label) ?>: <code><?= htmlspecialchars(is_bool($evidence[$field]) ? ($evidence[$field] ? 'yes' : 'no') : (string) ($evidence[$field] ?? 'unknown')) ?></code></small><br>
+                                <small><?= htmlspecialchars($label, ENT_QUOTES, 'UTF-8') ?>: <code><?= htmlspecialchars(is_bool($evidence[$field]) ? ($evidence[$field] ? 'yes' : 'no') : (string) ($evidence[$field] ?? 'unknown'), ENT_QUOTES, 'UTF-8') ?></code></small><br>
                             <?php endif; ?>
                         <?php endforeach; ?>
                         <?php if ($affectedIds !== [] || $hasAffectedCount): ?>
                             <p><small>Affects <?= (int) ($evidence['affected_question_count'] ?? count($affectedIds)) ?> question(s):
                                 <?php if ($affectedIds === []): ?>none currently linked<?php endif; ?>
                                 <?php foreach (array_slice($affectedIds, 0, 12) as $index => $questionId): ?>
-                                    <?php if ($index > 0): ?>, <?php endif; ?><a href="/question-editor/edit?id=<?= rawurlencode($questionId) ?>"><code>#<?= htmlspecialchars($questionId) ?></code></a>
+                                    <?php if ($index > 0): ?>, <?php endif; ?><a href="/question-inspector?id=<?= rawurlencode($questionId) ?>"><code>#<?= htmlspecialchars($questionId, ENT_QUOTES, 'UTF-8') ?></code></a>
                                 <?php endforeach; ?>
                                 <?php if (count($affectedIds) > 12): ?> and <?= count($affectedIds) - 12 ?> more<?php endif; ?>
                             </small></p>
                         <?php endif; ?>
+                        <?php if (trim((string) ($issue['suggested_action'] ?? '')) !== ''): ?><p><strong>Next action:</strong> <?= htmlspecialchars((string) $issue['suggested_action'], ENT_QUOTES, 'UTF-8') ?></p><?php endif; ?>
                     </div>
-                    <div class="record-meta"><span class="badge <?= $badgeClass ?>"><?= htmlspecialchars((string) $issue->status) ?></span><code><?= htmlspecialchars($issue->code) ?></code></div>
+                    <div class="record-meta"><span class="badge <?= $badgeClass ?>"><?= htmlspecialchars($status, ENT_QUOTES, 'UTF-8') ?></span><code><?= htmlspecialchars((string) ($issue['code'] ?? ''), ENT_QUOTES, 'UTF-8') ?></code><small><?= htmlspecialchars((string) ($issue['issue_type'] ?? ''), ENT_QUOTES, 'UTF-8') ?></small><small><?= htmlspecialchars((string) ($issue['quality_classification'] ?? ''), ENT_QUOTES, 'UTF-8') ?></small></div>
                 </article>
             <?php endforeach; ?>
         </div>
     <?php endif; ?>
+    <nav class="pagination question-quality-pagination" aria-label="Question quality issue pages">
+        <span>Page <?= (int) ($qualityQueue['page'] ?? 1) ?> of <?= (int) ($qualityQueue['pages'] ?? 1) ?></span>
+        <div class="page-actions">
+            <?php if (($qualityQueue['page'] ?? 1) > 1): ?><a class="button button-outline" rel="prev" href="<?= htmlspecialchars($qualityPageUrl((int) $qualityQueue['page'] - 1), ENT_QUOTES, 'UTF-8') ?>">Previous page</a><?php endif; ?>
+            <?php if (($qualityQueue['page'] ?? 1) < ($qualityQueue['pages'] ?? 1)): ?><a class="button button-outline" rel="next" href="<?= htmlspecialchars($qualityPageUrl((int) $qualityQueue['page'] + 1), ENT_QUOTES, 'UTF-8') ?>">Next page</a><?php endif; ?>
+        </div>
+    </nav>
 </section>

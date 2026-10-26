@@ -90,7 +90,7 @@ try {
         throw new RuntimeException('invalid timed duration did not return to a usable form with its error and value');
     }
 
-    foreach (['/developer', '/developer/doctor', '/developer/question-origin?id=1', '/question-editor'] as $protectedPath) {
+    foreach (['/developer', '/developer/doctor', '/developer/question-origin?id=1', '/question-editor', '/question-quality?queue=needs-review'] as $protectedPath) {
         $protected = $http->request('GET', $protectedPath, [], [], [], $cookies);
         if ($protected['status'] !== 404) {
             throw new RuntimeException('production exposed a developer/admin route: ' . $protectedPath);
