@@ -4,87 +4,87 @@
 
 ### BASELINE
 
-`HEAD_BEFORE=6a79317e2baeeb7a8675557067a060d494834719`  
-`HEAD_AFTER_IMPLEMENTATION=6f3159f2277ed78c70cc177a4c6636afe16639e7`  
-`HEAD_AFTER_FINAL=SEE_FINAL_DELIVERY_COPY (omitted from the commit that contains this report)`  
-`BRANCH=batch-719-overnight-learner-experience`  
-`WORKTREE=/data/data/com.termux/files/home/boardprep-batch-706`  
-`STORAGE_BEFORE=4,267,724 KiB available (preflight)`  
+`HEAD_BEFORE=6a79317e2baeeb7a8675557067a060d494834719`<br>
+`HEAD_AFTER_IMPLEMENTATION=6f3159f2277ed78c70cc177a4c6636afe16639e7`<br>
+`HEAD_AFTER_FINAL=SEE_FINAL_DELIVERY_COPY (omitted from the commit that contains this report)`<br>
+`BRANCH=batch-719-overnight-learner-experience`<br>
+`WORKTREE=/data/data/com.termux/files/home/boardprep-batch-706`<br>
+`STORAGE_BEFORE=4,267,724 KiB available (preflight)`<br>
 `STORAGE_AFTER=3,554,740 KiB available (post-Doctor)`
 
 B718 was independently verified at implementation SHA `d58c609f2c86e2ad33b2c731da4f0f4468e2ff0f`; its final documentation tip was `6a79317`. The B718 Doctor release gate passed with P0=0/P1=0. B719 did not exist at recovery, so the intended branch was created from that tip. The dirty B695 checkout, existing worktrees and two stashes were preserved.
 
 ### OVERNIGHT EXECUTION
 
-`START_TIME=2026-10-26T22:20:21+08:00 (first B719 reflog event; earliest recorded repository action)`  
-`END_TIME=RECORDED IN FINAL DELIVERY COPY AFTER CLIPBOARD VERIFICATION`  
-`ELAPSED_TIME=ABOUT 1 HOUR FROM FIRST RECORDED ACTION; start was not separately instrumented`  
-`WORKSTREAMS_COMPLETED=exam lifecycle audit; results/scoring; Mistake Notebook; Notes; Study Library; Flashcards; mobile/accessibility contracts; performance; Developer/import safeguards; security/integrity; release Doctor`  
-`WORKSTREAMS_PARTIAL=real-browser visual acceptance unavailable on Termux`  
-`CHECKPOINT_COMMITS=6f3159f2277ed78c70cc177a4c6636afe16639e7`  
-`INTERRUPTIONS=none during B719 execution`  
+`START_TIME=2026-10-26T22:20:21+08:00 (first B719 reflog event; earliest recorded repository action)`<br>
+`END_TIME=RECORDED IN FINAL DELIVERY COPY AFTER CLIPBOARD VERIFICATION`<br>
+`ELAPSED_TIME=ABOUT 1 HOUR FROM FIRST RECORDED ACTION; start was not separately instrumented`<br>
+`WORKSTREAMS_COMPLETED=exam lifecycle audit; results/scoring; Mistake Notebook; Notes; Study Library; Flashcards; mobile/accessibility contracts; performance; Developer/import safeguards; security/integrity; release Doctor`<br>
+`WORKSTREAMS_PARTIAL=real-browser visual acceptance unavailable on Termux`<br>
+`CHECKPOINT_COMMITS=6f3159f2277ed78c70cc177a4c6636afe16639e7`<br>
+`INTERRUPTIONS=none during B719 execution`<br>
 `RECOVERY_STATUS=RECOVERED_FROM_VERIFIED_B718; B719 completed without restarting prior learner features`
 
 ### EXAM EXPERIENCE
 
-`EXAM_SETUP=PASS; existing practice/exam limits remain separate; timer input and insufficient-pool behavior are covered`  
-`QUESTION_NAVIGATION=PASS; answer persistence, previous/next/jump/review and stale actions covered`  
-`TIMER=PASS; server deadline is authoritative; timed expiry and untimed resume covered`  
-`SUBMISSION=PASS; repeated and concurrent finalization persists one attempt`  
-`SCORING=PASS; authoritative question keys; unanswered items remain in the generated-question denominator`  
-`RESULTS=PASS; selected/correct answers, explanations, history and recovery actions covered`  
+`EXAM_SETUP=PASS; existing practice/exam limits remain separate; timer input and insufficient-pool behavior are covered`<br>
+`QUESTION_NAVIGATION=PASS; answer persistence, previous/next/jump/review and stale actions covered`<br>
+`TIMER=PASS; server deadline is authoritative; timed expiry and untimed resume covered`<br>
+`SUBMISSION=PASS; repeated and concurrent finalization persists one attempt`<br>
+`SCORING=PASS; authoritative question keys; unanswered items remain in the generated-question denominator`<br>
+`RESULTS=PASS; selected/correct answers, explanations, history and recovery actions covered`<br>
 `FIXES_IMPLEMENTED=none in exam code; no reproducible defect found, and no official threshold or blueprint weight was invented or changed`
 
 The simulation remains disclosed as separate from official board examinations. Existing configured subject allocation and largest-remainder behavior were not altered. A synthetic 20/40/40 allocation test verifies deterministic rounding; those numbers are test inputs, not official weights. Sparse pools exclude malformed/duplicate items and report the generated count rather than silently filling from ineligible content.
 
 ### LEARNER EXPERIENCE
 
-`MISTAKE_NOTEBOOK=PASS; historical mistakes persist and skipped/foreign/Q6403 cases remain distinct`  
-`RECOVERY_PRACTICE=PASS; retries use eligible questions and preserve original attempt context`  
-`STUDY_LIBRARY=PASS; published material, exact section links and source-only relationships retain their existing distinctions`  
-`MY_NOTES=PASS; isolated CRUD, ownership, save/reopen, validation, escaping and note-context behavior passed`  
-`FLASHCARDS=PASS; selection, scheduling, HTTP, identity isolation and review journey passed`  
+`MISTAKE_NOTEBOOK=PASS; historical mistakes persist and skipped/foreign/Q6403 cases remain distinct`<br>
+`RECOVERY_PRACTICE=PASS; retries use eligible questions and preserve original attempt context`<br>
+`STUDY_LIBRARY=PASS; published material, exact section links and source-only relationships retain their existing distinctions`<br>
+`MY_NOTES=PASS; isolated CRUD, ownership, save/reopen, validation, escaping and note-context behavior passed`<br>
+`FLASHCARDS=PASS; selection, scheduling, HTTP, identity isolation and review journey passed`<br>
 `FEATURE_INTEGRATION=PASS; result → mistake review/retry, study references and flashcard flows passed`
 
 No learner record, note, attempt, weakness value, flashcard schedule, academic decision or canonical question was changed by this batch. Synthetic changes used isolated fixtures.
 
 ### MOBILE UX
 
-`ISSUES_FOUND=no reproducible defect in the existing static/HTTP accessibility contracts`  
-`ISSUES_FIXED=no unrelated redesign; existing responsive controls and wrapping contracts retained`  
-`VIEWPORT_CONTRACTS=320/360 px covered by max-width 360/480/640/768 rules; 390/430 px covered by max-width 480/600/640/768 rules (CSS inspection only)`  
-`ACCESSIBILITY=18 mobile/accessibility assertions and 8 learner navigation assertions PASS; touch sizing, labels, focus and live status covered`  
+`ISSUES_FOUND=no reproducible defect in the existing static/HTTP accessibility contracts`<br>
+`ISSUES_FIXED=no unrelated redesign; existing responsive controls and wrapping contracts retained`<br>
+`VIEWPORT_CONTRACTS=320/360 px covered by max-width 360/480/640/768 rules; 390/430 px covered by max-width 480/600/640/768 rules (CSS inspection only)`<br>
+`ACCESSIBILITY=18 mobile/accessibility assertions and 8 learner navigation assertions PASS; touch sizing, labels, focus and live status covered`<br>
 `REAL_BROWSER_STATUS=NOT_EXECUTED; Chromium/Playwright unavailable on Android/Termux`
 
 These checks establish responsive CSS and HTML/HTTP contracts, not rendered visual acceptance or a measured absence of overflow in a browser.
 
 ### PERFORMANCE
 
-`EXAM_INITIALIZATION=fixture journey covered by Full Doctor and focused exam regressions; no before/after optimization claimed`  
-`QUESTION_SELECTION=flashcard cold/warm request measurement below; exam sparse-pool selection preserved`  
-`RESULTS_LOADING=quiz result/review HTTP regressions PASS; no standalone before/after latency claim`  
-`MISTAKE_RETRIEVAL=B712 isolated fixture: initial notebook 513.77 ms; detail 1,307.70 ms; retry selection/start 3,485.30 ms; result summary 3,118.38 ms; related selection 1,818.57 ms`  
-`FLASHCARD_READS=pre-fix cold/warm reads 3/2/2; final reads 2/2/2; final route reported 312 available cards`  
-`COLD_WARM_RESULTS=pre-fix 4,546/3,362/3,119 ms, peak 291.5 MiB; final valid run 5,043/3,252/3,036 ms, peak 207.5 MiB`  
+`EXAM_INITIALIZATION=fixture journey covered by Full Doctor and focused exam regressions; no before/after optimization claimed`<br>
+`QUESTION_SELECTION=flashcard cold/warm request measurement below; exam sparse-pool selection preserved`<br>
+`RESULTS_LOADING=quiz result/review HTTP regressions PASS; no standalone before/after latency claim`<br>
+`MISTAKE_RETRIEVAL=B712 isolated fixture: initial notebook 513.77 ms; detail 1,307.70 ms; retry selection/start 3,485.30 ms; result summary 3,118.38 ms; related selection 1,818.57 ms`<br>
+`FLASHCARD_READS=pre-fix cold/warm reads 3/2/2; final reads 2/2/2; final route reported 312 available cards`<br>
+`COLD_WARM_RESULTS=pre-fix 4,546/3,362/3,119 ms, peak 291.5 MiB; final valid run 5,043/3,252/3,036 ms, peak 207.5 MiB`<br>
 `MEASURED_OPTIMIZATIONS=passed the already-loaded canonical question snapshot into derived-eligibility validation; one redundant cold full-bank read removed; peak memory fell 84 MiB in the controlled three-request process`
 
 Latency varied between runs, so no stable response-time improvement is claimed. The observed cold read count fell from 3 to 2; warm requests remained at 2 reads. The implementation reuses the existing question snapshot and eligibility rules and retains only a compact question-to-concept map during validation.
 
 ### SECURITY
 
-`AUTHORIZATION=PASS; developer/import/learner ownership boundaries retained`  
-`CSRF=PASS; production quiz, preference, flashcard and import mutations covered`  
-`SESSION_SAFETY=PASS; expiry, malformed state, resume and stale-action handling covered`  
-`LEARNER_ISOLATION=PASS; Notes, attempts and flashcard state checks use isolated synthetic identities`  
-`DUPLICATE_SUBMISSION=PASS; concurrent/repeated result finalization is exact-once`  
+`AUTHORIZATION=PASS; developer/import/learner ownership boundaries retained`<br>
+`CSRF=PASS; production quiz, preference, flashcard and import mutations covered`<br>
+`SESSION_SAFETY=PASS; expiry, malformed state, resume and stale-action handling covered`<br>
+`LEARNER_ISOLATION=PASS; Notes, attempts and flashcard state checks use isolated synthetic identities`<br>
+`DUPLICATE_SUBMISSION=PASS; concurrent/repeated result finalization is exact-once`<br>
 `PRODUCTION_MUTATIONS=NONE`
 
 ### DEVELOPER QUALITY
 
-`CANONICAL_COUNT=9123`  
-`B695_PENDING_PROPOSALS=276`  
-`ACADEMIC_APPROVALS=0 fabricated; proposals remain noncanonical and unapproved`  
-`REAL_IMPORTS=0`  
+`CANONICAL_COUNT=9123`<br>
+`B695_PENDING_PROPOSALS=276`<br>
+`ACADEMIC_APPROVALS=0 fabricated; proposals remain noncanonical and unapproved`<br>
+`REAL_IMPORTS=0`<br>
 `REVIEW_FLAGS_PRESERVED=YES; B717 readiness and quality classifications passed`
 
 Question-quality evidence covers 329/329 registered source URLs. The Doctor records 3 confirmed 404 reviews, 29 inconclusive URL checks, 51 access-restricted checks and 6 source-text access warnings; there are zero required broken-source errors. Registered identities were not silently replaced. The Doctor classifies `SOURCE_TRACEABILITY` as review-only P2, not a release blocker. Human review of source fit/currentness and all 276 proposals remains deferred.
@@ -97,14 +97,14 @@ Focused tests ran on the working-tree source later committed unchanged as `6f315
 
 ### FULL DOCTOR
 
-`DOCTOR_EXIT=0`  
-`RELEASE_GATE=PASS`  
-`P0=0`  
-`P1=0`  
-`P2=1 (SOURCE_TRACEABILITY review; nonblocking)`  
-`P3=2 (thin/evidence-exhausted content planning; architecture visual backlog; nonblocking)`  
-`HEALTH_STATUS=REVIEW; 838 issue entities: 804 WARN, 34 REVIEW, 0 FAIL`  
-`DOCTOR_STORAGE=PASS; 3,975,544,832 bytes available before; 3,438,534,656-byte minimum observed; 1,837,241,842 bytes required; 512 MiB additional safety margin remained`  
+`DOCTOR_EXIT=0`<br>
+`RELEASE_GATE=PASS`<br>
+`P0=0`<br>
+`P1=0`<br>
+`P2=1 (SOURCE_TRACEABILITY review; nonblocking)`<br>
+`P3=2 (thin/evidence-exhausted content planning; architecture visual backlog; nonblocking)`<br>
+`HEALTH_STATUS=REVIEW; 838 issue entities: 804 WARN, 34 REVIEW, 0 FAIL`<br>
+`DOCTOR_STORAGE=PASS; 3,975,544,832 bytes available before; 3,438,534,656-byte minimum observed; 1,837,241,842 bytes required; 512 MiB additional safety margin remained`<br>
 `RESULT_ARTIFACT=/data/data/com.termux/files/usr/tmp/batch719-full-doctor-6f3159f.json`
 
 All 84 embedded release test entries passed; 25 release domains passed and `SOURCE_TRACEABILITY` was the sole review domain. Test-storage cleanup passed and pre-existing fixture/session directories were left untouched. Full Doctor action-queue classifications are reproduced in `batch-719-verification.json`.
@@ -127,25 +127,25 @@ All 84 embedded release test entries passed; 25 release domains passed and `SOUR
 | Academic source reviews | `ae9341dc97f54bc96b75a49bd06619c5bdbdf4abd1d5b9885851e1e76c9aa656` |
 | Flashcard exclusions | `236975ba94ef72c223ebe7f78a4725088ca53b7c20395edb52f39e5d5e2f7717` |
 
-`Q6403_QUARANTINE=PASS`  
-`Q1536_Q1537_SOURCE_ONLY=PASS`  
+`Q6403_QUARANTINE=PASS`<br>
+`Q1536_Q1537_SOURCE_ONLY=PASS`<br>
 No persisted Notes collection file existed in the JSON storage; B711 CRUD/ownership tests used isolated storage. The three pre-existing untracked storage JSON files remain untouched and unstaged.
 
 ### DELIVERY
 
-`IMPLEMENTATION_COMMITS=6f3159f2277ed78c70cc177a4c6636afe16639e7`  
-`DOCUMENTATION_COMMIT=EMITTED IN FINAL DELIVERY COPY; not embedded in its own commit`  
-`GIT_STATUS=only the three pre-existing untracked storage JSON files remain`  
-`PUSH_STATUS=NOT_PUSHED`  
-`DEPLOY_STATUS=NOT_DEPLOYED`  
+`IMPLEMENTATION_COMMITS=6f3159f2277ed78c70cc177a4c6636afe16639e7`<br>
+`DOCUMENTATION_COMMIT=EMITTED IN FINAL DELIVERY COPY; not embedded in its own commit`<br>
+`GIT_STATUS=only the three pre-existing untracked storage JSON files remain`<br>
+`PUSH_STATUS=NOT_PUSHED`<br>
+`DEPLOY_STATUS=NOT_DEPLOYED`<br>
 `CLIPBOARD_STATUS=RECORDED IN FINAL DELIVERY COPY AFTER FULL SHA-256 READBACK`
 
 ### OUTCOME
 
-`B719_COMPLETED=YES; release gate PASS, zero P0/P1 defects, protected data unchanged`  
-`REMAINING_TECHNICAL_BLOCKERS=NONE`  
-`REMAINING_NONBLOCKING_DEBT=Doctor P2 source traceability review and two P3 planning items`  
-`DEFERRED_ACADEMIC_REVIEW=276 B695 proposals and source/factual/answer-key/explanation/taxonomy review; no approvals fabricated`  
+`B719_COMPLETED=YES; release gate PASS, zero P0/P1 defects, protected data unchanged`<br>
+`REMAINING_TECHNICAL_BLOCKERS=NONE`<br>
+`REMAINING_NONBLOCKING_DEBT=Doctor P2 source traceability review and two P3 planning items`<br>
+`DEFERRED_ACADEMIC_REVIEW=276 B695 proposals and source/factual/answer-key/explanation/taxonomy review; no approvals fabricated`<br>
 `NEXT_RECOMMENDED_ENGINEERING_MILESTONE=none started; keep the Doctor’s post-release debt queue and human academic review separate`
 
 Full structured evidence is in `batch-719-technical-audit.json`, `batch-719-exam-lifecycle.json`, `batch-719-mobile-ux.json`, `batch-719-performance.json` and `batch-719-verification.json`. No Batch 720 was started.
