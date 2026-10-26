@@ -12,7 +12,16 @@ $trend = $summary['trend']['direction'] ?? 'insufficient_history';
 $weaknesses = is_array($weaknesses ?? null) ? $weaknesses : [];
 $hasCompletedAttempts = (int) ($summary['completedAttempts'] ?? 0) > 0;
 $hasAnsweredQuestions = (int) ($summary['answeredCount'] ?? 0) > 0;
+$hasRecentAnswerAccuracy = is_numeric($summary['recentAccuracy'] ?? null);
 $answerAccuracy = $hasAnsweredQuestions ? (int) ($summary['accuracy'] ?? 0) . '%' : '—';
+$recentAnswerAccuracy = $hasRecentAnswerAccuracy ? (int) $summary['recentAccuracy'] . '%' : '—';
+$recentAccuracyDetail = $hasRecentAnswerAccuracy
+    ? number_format((int) ($summary['recentAnsweredCount'] ?? 0)) . ' answer events across '
+        . (int) ($summary['recentAttemptCount'] ?? 0) . ' recent quizzes'
+    : ((int) ($summary['recentAnsweredCount'] ?? 0) === 0
+        ? 'No recent answered questions yet'
+        : 'Need at least 5 recent answer events; '
+            . (int) $summary['recentAnsweredCount'] . ' available');
 $averageQuizScore = $hasCompletedAttempts ? (int) ($summary['averageScore'] ?? 0) . '%' : '—';
 $bestScore = $hasCompletedAttempts ? (int) ($summary['bestScore'] ?? 0) . '%' : '—';
 if (!$hasCompletedAttempts) {
@@ -52,9 +61,10 @@ $learningContextLabel = static function (array $row) use ($taxonomyLabel): strin
     <section class="ui-metric-grid progress-summary" data-ui-component="metric-grid" aria-label="Progress summary">
         <article class="card stat-card"><span class="stat-label">Completed quizzes</span><strong class="stat-value"><?= (int)($summary['completedAttempts']??0) ?></strong></article>
         <article class="card stat-card"><span class="stat-label">Answer accuracy</span><strong class="stat-value"><?= htmlspecialchars($answerAccuracy) ?></strong><small class="muted-note"><?= number_format((int) ($summary['answeredCount'] ?? 0)) ?> answered question events</small><?php if (!$hasAnsweredQuestions): ?><small class="muted-note">No answered questions yet</small><?php endif; ?></article>
+        <article class="card stat-card"><span class="stat-label">Recent answer accuracy</span><strong class="stat-value"><?= htmlspecialchars($recentAnswerAccuracy) ?></strong><small class="muted-note"><?= htmlspecialchars($recentAccuracyDetail, ENT_QUOTES, 'UTF-8') ?></small></article>
         <article class="card stat-card"><span class="stat-label">Average quiz score</span><strong class="stat-value"><?= htmlspecialchars($averageQuizScore) ?></strong><?php if (!$hasCompletedAttempts): ?><small class="muted-note">No completed quizzes yet</small><?php endif; ?></article>
         <article class="card stat-card"><span class="stat-label">Best score</span><strong class="stat-value"><?= htmlspecialchars($bestScore) ?></strong><?php if (!$hasCompletedAttempts): ?><small class="muted-note">No completed quizzes yet</small><?php endif; ?></article>
-        <article class="card stat-card"><span class="stat-label">Recent trend</span><strong class="stat-value stat-value-small"><?= htmlspecialchars(ucwords(str_replace('_',' ',$trend))) ?></strong></article>
+        <article class="card stat-card"><span class="stat-label">Recent trend</span><strong class="stat-value stat-value-small"><?= htmlspecialchars(ucwords(str_replace('_',' ',$trend))) ?></strong><small class="muted-note">Compares the latest two completed quiz scores.</small></article>
     </section>
 
     <section class="progress-answer-totals" aria-labelledby="progress-answer-totals-heading">

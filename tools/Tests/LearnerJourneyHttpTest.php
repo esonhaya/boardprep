@@ -138,6 +138,8 @@ try {
                 throw new RuntimeException('fresh learner dashboard did not explain how to begin and unlock progress insights');
             }
             if (!preg_match('/Answer accuracy\s*—/', $emptyText)
+                || !preg_match('/Recent answer accuracy\s*—/', $emptyText)
+                || !str_contains($emptyText, 'No recent answered questions yet')
                 || !preg_match('/Average quiz score\s*—/', $emptyText)
                 || !preg_match('/Best score\s*—/', $emptyText)
                 || !preg_match('/Recent trend\s*Not started/', $emptyText)

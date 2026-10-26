@@ -25,6 +25,12 @@ final class PerformanceAnalyticsService
                 'correctCount' => 0,
                 'incorrectCount' => 0,
                 'accuracy' => 0,
+                'recentAccuracy' => null,
+                'recentAnsweredCount' => 0,
+                'recentCorrectCount' => 0,
+                'recentAttemptCount' => 0,
+                'recentAttemptLimit' => $progress['recentAttemptLimit'],
+                'recentAccuracyStatus' => $progress['recentAccuracyStatus'],
                 'trend' => PerformanceTrendService::summarize([]),
             ];
         }
@@ -64,6 +70,12 @@ final class PerformanceAnalyticsService
             'correctCount' => $progress['correctCount'],
             'incorrectCount' => $progress['incorrectCount'],
             'accuracy' => $progress['accuracy'],
+            'recentAccuracy' => $progress['recentAccuracy'],
+            'recentAnsweredCount' => $progress['recentAnsweredCount'],
+            'recentCorrectCount' => $progress['recentCorrectCount'],
+            'recentAttemptCount' => $progress['recentAttemptCount'],
+            'recentAttemptLimit' => $progress['recentAttemptLimit'],
+            'recentAccuracyStatus' => $progress['recentAccuracyStatus'],
             'trend' => $progress['trend'],
         ];
     }

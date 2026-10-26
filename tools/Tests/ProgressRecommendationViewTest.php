@@ -15,6 +15,12 @@ $summary = [
     'incorrectCount' => 2,
     'unansweredCount' => 3,
     'accuracy' => 75,
+    'recentAccuracy' => 68,
+    'recentAnsweredCount' => 25,
+    'recentCorrectCount' => 17,
+    'recentAttemptCount' => 5,
+    'recentAttemptLimit' => 5,
+    'recentAccuracyStatus' => 'AVAILABLE',
 ];
 $recommendations = [[
     'title' => 'Review Grammar',
@@ -35,6 +41,8 @@ if (!str_contains($html, 'Review Grammar')
 }
 $plain = preg_replace('/\s+/', ' ', strip_tags($html)) ?? '';
 if (!preg_match('/Answer accuracy\s*75%/', $plain)
+    || !preg_match('/Recent answer accuracy\s*68%/', $plain)
+    || !str_contains($plain, '25 answer events across 5 recent quizzes')
     || !preg_match('/Average quiz score\s*40%/', $plain)
     || !preg_match('/Questions answered\s*8/', $plain)
     || !preg_match('/Correct answers\s*6/', $plain)
