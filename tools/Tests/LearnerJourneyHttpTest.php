@@ -137,7 +137,8 @@ try {
                 || !str_contains($emptyText, 'after your first quiz')) {
                 throw new RuntimeException('fresh learner dashboard did not explain how to begin and unlock progress insights');
             }
-            if (!preg_match('/Average accuracy\s*—/', $emptyText)
+            if (!preg_match('/Answer accuracy\s*—/', $emptyText)
+                || !preg_match('/Average quiz score\s*—/', $emptyText)
                 || !preg_match('/Best score\s*—/', $emptyText)
                 || !preg_match('/Recent trend\s*Not started/', $emptyText)
                 || !str_contains($emptyText, 'No completed quizzes yet')) {

@@ -15,7 +15,9 @@ final class SelectionRequest
         /** @var array<string,mixed>|null */
         public readonly ?array $letVariant = null,
         public readonly ?string $letComponent = null,
-        public readonly ?string $civilServiceLevel = null
+        public readonly ?string $civilServiceLevel = null,
+        /** @var array<string,mixed>|null */
+        public readonly ?array $adaptiveContext = null
     ) {
     }
 }

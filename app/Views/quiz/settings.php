@@ -155,7 +155,7 @@ Adaptive Learning
 
 <small class="form-help">
 
-Prioritizes questions from your weak topics.
+In practice mode, prioritizes topics with repeated lower question-level accuracy and favors less recently seen questions when eligible alternatives share the same difficulty. Exam simulations keep their configured blueprint allocation.
 
 </small></div>
 

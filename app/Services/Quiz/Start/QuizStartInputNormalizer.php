@@ -87,7 +87,7 @@ final class QuizStartInputNormalizer
             'mode' => $mode,
             'timer_mode' => $timerMode,
             'time_limit_minutes' => $timeLimitMinutes,
-            'adaptive' => isset($input['adaptive']),
+            'adaptive' => isset($input['adaptive']) && $mode === 'practice',
             'shuffle' => true,
             'let_variant' => $letVariant,
             'let_level' => $letVariant['level'] ?? ($level !== '' ? $level : ''),

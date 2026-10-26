@@ -36,7 +36,9 @@ final class BlueprintRequestExecutor
                     questionCount: $request->questionCount,
                     letVariant: $request->letVariant,
                     letComponent: $request->letComponent,
-                    exam: $request->exam
+                    exam: $request->exam,
+                    civilServiceLevel: $request->civilServiceLevel,
+                    adaptiveContext: $request->adaptiveContext
                 ),
                 $eligibilityIndex
             );
@@ -77,7 +79,9 @@ final class BlueprintRequestExecutor
                     questionCount: $needed,
                     letVariant: $request->letVariant,
                     letComponent: $request->letComponent,
-                    exam: $request->exam
+                    exam: $request->exam,
+                    civilServiceLevel: $request->civilServiceLevel,
+                    adaptiveContext: $request->adaptiveContext
                 );
                 $eligible = QuestionPoolFilter::filter($available, $recoveryRequest, $eligibilityIndex);
                 $result = QuestionSelectionService::fulfillRequest($eligible, $recoveryRequest, $eligibilityIndex);
@@ -100,7 +104,8 @@ final class BlueprintRequestExecutor
                         exam: $request->exam,
                         letVariant: $request->letVariant,
                         letComponent: $request->letComponent,
-                        civilServiceLevel: $request->civilServiceLevel
+                        civilServiceLevel: $request->civilServiceLevel,
+                        adaptiveContext: $request->adaptiveContext
                     );
                     $duplicateFallback = QuestionPoolFilter::filter(
                         $session->available($questions, includeContentDuplicates: true),

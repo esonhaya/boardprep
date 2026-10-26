@@ -11,7 +11,9 @@ $recommendations = $recommendations ?? [];
 $trend = $summary['trend']['direction'] ?? 'insufficient_history';
 $weaknesses = is_array($weaknesses ?? null) ? $weaknesses : [];
 $hasCompletedAttempts = (int) ($summary['completedAttempts'] ?? 0) > 0;
-$averageAccuracy = $hasCompletedAttempts ? (int) ($summary['averageScore'] ?? 0) . '%' : '—';
+$hasAnsweredQuestions = (int) ($summary['answeredCount'] ?? 0) > 0;
+$answerAccuracy = $hasAnsweredQuestions ? (int) ($summary['accuracy'] ?? 0) . '%' : '—';
+$averageQuizScore = $hasCompletedAttempts ? (int) ($summary['averageScore'] ?? 0) . '%' : '—';
 $bestScore = $hasCompletedAttempts ? (int) ($summary['bestScore'] ?? 0) . '%' : '—';
 if (!$hasCompletedAttempts) {
     $trend = 'not_started';
@@ -49,9 +51,21 @@ $learningContextLabel = static function (array $row) use ($taxonomyLabel): strin
 
     <section class="ui-metric-grid progress-summary" data-ui-component="metric-grid" aria-label="Progress summary">
         <article class="card stat-card"><span class="stat-label">Completed quizzes</span><strong class="stat-value"><?= (int)($summary['completedAttempts']??0) ?></strong></article>
-        <article class="card stat-card"><span class="stat-label">Average accuracy</span><strong class="stat-value"><?= htmlspecialchars($averageAccuracy) ?></strong><?php if (!$hasCompletedAttempts): ?><small class="muted-note">No completed quizzes yet</small><?php endif; ?></article>
+        <article class="card stat-card"><span class="stat-label">Answer accuracy</span><strong class="stat-value"><?= htmlspecialchars($answerAccuracy) ?></strong><small class="muted-note"><?= number_format((int) ($summary['answeredCount'] ?? 0)) ?> answered question events</small><?php if (!$hasAnsweredQuestions): ?><small class="muted-note">No answered questions yet</small><?php endif; ?></article>
+        <article class="card stat-card"><span class="stat-label">Average quiz score</span><strong class="stat-value"><?= htmlspecialchars($averageQuizScore) ?></strong><?php if (!$hasCompletedAttempts): ?><small class="muted-note">No completed quizzes yet</small><?php endif; ?></article>
         <article class="card stat-card"><span class="stat-label">Best score</span><strong class="stat-value"><?= htmlspecialchars($bestScore) ?></strong><?php if (!$hasCompletedAttempts): ?><small class="muted-note">No completed quizzes yet</small><?php endif; ?></article>
         <article class="card stat-card"><span class="stat-label">Recent trend</span><strong class="stat-value stat-value-small"><?= htmlspecialchars(ucwords(str_replace('_',' ',$trend))) ?></strong></article>
+    </section>
+
+    <section class="progress-answer-totals" aria-labelledby="progress-answer-totals-heading">
+        <div class="section-heading"><h2 id="progress-answer-totals-heading">Question answer totals</h2></div>
+        <p class="muted-note">Answer accuracy uses correct answers divided by answered question events. Skipped questions are separate, and repeated questions count each time they were answered.</p>
+        <div class="ui-metric-grid" aria-label="Answer event totals">
+            <article class="card stat-card"><span class="stat-label">Questions answered</span><strong class="stat-value"><?= (int) ($summary['answeredCount'] ?? 0) ?></strong></article>
+            <article class="card stat-card"><span class="stat-label">Correct answers</span><strong class="stat-value"><?= (int) ($summary['correctCount'] ?? 0) ?></strong></article>
+            <article class="card stat-card"><span class="stat-label">Incorrect answers</span><strong class="stat-value"><?= (int) ($summary['incorrectCount'] ?? 0) ?></strong></article>
+            <article class="card stat-card"><span class="stat-label">Unanswered questions</span><strong class="stat-value"><?= (int) ($summary['unansweredCount'] ?? 0) ?></strong></article>
+        </div>
     </section>
 
     <section class="progress-next-steps" aria-labelledby="progress-next-steps-heading">

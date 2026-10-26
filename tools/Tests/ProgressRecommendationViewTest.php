@@ -10,6 +10,11 @@ $summary = [
     'completedAttempts' => 1,
     'averageScore' => 40,
     'bestScore' => 40,
+    'answeredCount' => 8,
+    'correctCount' => 6,
+    'incorrectCount' => 2,
+    'unansweredCount' => 3,
+    'accuracy' => 75,
 ];
 $recommendations = [[
     'title' => 'Review Grammar',
@@ -27,6 +32,15 @@ if (!str_contains($html, 'Review Grammar')
     || !str_contains($html, 'topic=Grammar')
     || !str_contains($html, 'href="/quiz?action=start')) {
     throw new RuntimeException('progress recommendations are not rendered as usable study actions');
+}
+$plain = preg_replace('/\s+/', ' ', strip_tags($html)) ?? '';
+if (!preg_match('/Answer accuracy\s*75%/', $plain)
+    || !preg_match('/Average quiz score\s*40%/', $plain)
+    || !preg_match('/Questions answered\s*8/', $plain)
+    || !preg_match('/Correct answers\s*6/', $plain)
+    || !preg_match('/Incorrect answers\s*2/', $plain)
+    || !preg_match('/Unanswered questions\s*3/', $plain)) {
+    throw new RuntimeException('progress page conflated pooled answer accuracy with average quiz score or omitted answer totals');
 }
 
 echo "[PASS] progress recommendations render canonical quiz actions.\n";

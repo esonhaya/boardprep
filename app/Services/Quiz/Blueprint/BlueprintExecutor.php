@@ -9,7 +9,8 @@ final class BlueprintExecutor
         array $boardBlueprint,
         array $subjectBlueprints,
         QuizSpecification $specification,
-        ?\App\Services\Question\QuestionEligibilityIndex $eligibilityIndex = null
+        ?\App\Services\Question\QuestionEligibilityIndex $eligibilityIndex = null,
+        ?array $adaptiveContext = null
     ): BlueprintExecutionResult {
         $requests = BlueprintRequestPlanBuilder::build(
             $boardBlueprint,
@@ -28,7 +29,9 @@ final class BlueprintExecutor
                 concept: $request->concept,
                 exam: $specification->board,
                 letVariant: $specification->letVariant,
-                letComponent: $request->letComponent
+                letComponent: $request->letComponent,
+                civilServiceLevel: $specification->civilServiceLevel,
+                adaptiveContext: $adaptiveContext
             ),
             $requests
         );
@@ -61,7 +64,8 @@ final class BlueprintExecutor
                     exam: $specification->board,
                     letVariant: $specification->letVariant,
                     letComponent: $base->letComponent,
-                    civilServiceLevel: $specification->civilServiceLevel
+                    civilServiceLevel: $specification->civilServiceLevel,
+                    adaptiveContext: $adaptiveContext
                 )];
             }
         }

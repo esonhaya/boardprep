@@ -10,8 +10,13 @@ final class QuizGenerationService
     public static function generate(
         array $questions,
         QuizSpecification $specification,
-        ?QuestionEligibilityIndex $eligibilityIndex = null
+        ?QuestionEligibilityIndex $eligibilityIndex = null,
+        ?array $adaptiveContext = null
     ): BlueprintExecutionResult {
+
+        if ($adaptiveContext === null && $specification->adaptive && $specification->mode === 'practice') {
+            $adaptiveContext = AdaptiveQuizService::selectionContext($specification);
+        }
 
         if (strtolower(trim($specification->board)) === 'let'
             && $specification->mode === 'exam'
@@ -53,7 +58,9 @@ final class QuizGenerationService
             specification:
                 $specification,
             eligibilityIndex:
-                $eligibilityIndex
+                $eligibilityIndex,
+            adaptiveContext:
+                $adaptiveContext
         );
     }
 }

@@ -63,6 +63,9 @@ if ($civilServiceLevel !== '') {
 <?php if (is_scalar($quizSession['selection_notice'] ?? null) && trim((string) $quizSession['selection_notice']) !== ''): ?>
 <p class="quiz-selection-notice" role="status"><?= htmlspecialchars((string) $quizSession['selection_notice'], ENT_QUOTES, 'UTF-8') ?></p>
 <?php endif; ?>
+<?php if (is_scalar($quizSession['adaptive_selection_explanation'] ?? null) && trim((string) $quizSession['adaptive_selection_explanation']) !== ''): ?>
+<p class="quiz-adaptive-selection-explanation" role="note"><?= htmlspecialchars((string) $quizSession['adaptive_selection_explanation'], ENT_QUOTES, 'UTF-8') ?></p>
+<?php endif; ?>
 <div class="quiz-meta"><span class="quiz-position">Question <?= $current + 1 ?> / <?= $total ?></span><span class="quiz-mode-label">
 <?= $isExamSimulation ? 'Exam simulation' : 'Mode' ?>:
 <strong><?= $isExamSimulation ? 'No official exam authority' : htmlspecialchars(ucfirst((string) $mode), ENT_QUOTES, 'UTF-8') ?></strong>

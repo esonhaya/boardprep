@@ -11,7 +11,8 @@ final class QuizStartPreparationService
     public static function prepare(array $input, array $questions, ?QuestionEligibilityIndex $eligibilityIndex = null): QuizStartPreparation
     {
         $specification = QuizStartSpecificationFactory::create($input);
-        $result = \QuizGenerationService::generate($questions, $specification, $eligibilityIndex);
+        $adaptiveContext = \AdaptiveQuizService::selectionContext($specification);
+        $result = \QuizGenerationService::generate($questions, $specification, $eligibilityIndex, $adaptiveContext);
 
         // Verify the delivered set independently of the pool-building path.
         // This is a last boundary before questions enter learner session state.
@@ -44,7 +45,8 @@ final class QuizStartPreparationService
             $specification,
             $result->questions,
             $result->coverage,
-            $result->issues
+            $result->issues,
+            \AdaptiveQuizService::selectionExplanation($adaptiveContext, $result->questions)
         );
     }
 }

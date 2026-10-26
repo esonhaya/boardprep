@@ -82,6 +82,7 @@ final class Autoloader
         'QuestionBalanceShuffler' => __DIR__ . '/../Services/Quiz/Balance/QuestionBalanceShuffler.php',
         'QuestionBalanceRoundRobin' => __DIR__ . '/../Services/Quiz/Balance/QuestionBalanceRoundRobin.php',
         'AdaptiveQuizService' => __DIR__ . '/../Services/Quiz/AdaptiveQuizService.php',
+        'AdaptiveQuestionSelectionService' => __DIR__ . '/../Services/Quiz/Adaptive/AdaptiveQuestionSelectionService.php',
         'ExamAssemblyService' => __DIR__ . '/../Services/Quiz/ExamAssemblyService.php',
         'BlueprintExecutor' => __DIR__ . '/../Services/Quiz/Blueprint/BlueprintExecutor.php',
         'BlueprintRequestPlanBuilder' => __DIR__ . '/../Services/Quiz/Blueprint/BlueprintRequestPlanBuilder.php',

@@ -11,7 +11,8 @@ final class QuizStartSessionPayloadFactory
         array $questions,
         array $coverage = [],
         array $issues = [],
-        array $studyContext = []
+        array $studyContext = [],
+        ?string $selectionExplanation = null
     ): array
     {
         $timeLimitMinutes = $specification->mode === 'exam'
@@ -79,6 +80,10 @@ final class QuizStartSessionPayloadFactory
             'blueprint_coverage' => $coverage,
             'blueprint_issues' => $issues,
             'selection_notice' => $selectionNotice,
+            'adaptive_selection_explanation' => $specification->mode === 'practice'
+                && $specification->adaptive
+                ? (is_string($selectionExplanation) ? substr(trim($selectionExplanation), 0, 500) : '')
+                : '',
             'study_return_url' => $studyReturnUrl,
             'notes_practice' => $notesPractice,
             'mistake_recovery' => $mistakeRecovery,

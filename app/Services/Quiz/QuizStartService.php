@@ -208,7 +208,8 @@ class QuizStartService
             $preparation->questions,
             $preparation->coverage,
             $preparation->issues,
-            $studyContext
+            $studyContext,
+            $preparation->selectionExplanation
         );
         QuizNavigationService::reset();
 

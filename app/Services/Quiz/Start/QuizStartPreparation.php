@@ -11,6 +11,7 @@ final class QuizStartPreparation
         public readonly array $questions,
         public readonly array $coverage = [],
         public readonly array $issues = [],
+        public readonly ?string $selectionExplanation = null,
     ) {
     }
 

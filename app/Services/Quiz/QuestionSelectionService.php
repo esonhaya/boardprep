@@ -20,7 +20,10 @@ final class QuestionSelectionService
             concept: $specification->concepts[0] ?? null,
             exam: $specification->board,
             letVariant: $specification->letVariant,
-            civilServiceLevel: $specification->civilServiceLevel
+            civilServiceLevel: $specification->civilServiceLevel,
+            adaptiveContext: $specification->adaptive && $specification->mode === 'practice'
+                ? AdaptiveQuizService::selectionContext($specification)
+                : null
         );
 
         return self::fulfillRequest($questions, $request, $eligibilityIndex)->questions;
@@ -34,6 +37,14 @@ final class QuestionSelectionService
         }
         $pool = QuestionPoolFilter::filter($questions, $request, $eligibilityIndex);
         $selected = SelectionPipeline::run($pool, $request);
+        if ($request->adaptiveContext !== null) {
+            $selected = AdaptiveQuestionSelectionService::apply(
+                $selected,
+                $pool,
+                $request,
+                $request->adaptiveContext
+            );
+        }
         return SelectionFulfillmentFactory::create($selected, $request);
     }
 }

@@ -9,13 +9,26 @@ require_once dirname(__DIR__) . '/Doctor/Project/BoardPrep/Simulation/HttpSimula
 $http = new \Tools\Doctor\Project\BoardPrep\Simulation\HttpSimulator(
     dirname(__DIR__, 2) . '/public/index.php'
 );
+$sessionCookie = 'batch676-content-selection-' . bin2hex(random_bytes(8));
+$settings = $http->request(
+    'GET',
+    '/quiz',
+    [],
+    [],
+    [],
+    ['PHPSESSID' => $sessionCookie]
+);
+if (!$settings['success'] || $settings['status'] !== 200
+    || !preg_match('/name="csrf_token"\s+value="([^"]+)"/', $settings['output'], $csrfMatch)) {
+    throw new RuntimeException('HTTP quiz settings did not provide a session CSRF token');
+}
 $start = $http->request(
     'POST',
     '/quiz',
     [],
-    ['action' => 'start', 'exam' => 'LET', 'subject' => 'English', 'topic' => 'Grammar', 'difficulty' => 'mixed', 'mode' => 'practice', 'count' => 1],
+    ['action' => 'start', 'exam' => 'LET', 'subject' => 'English', 'topic' => 'Grammar', 'difficulty' => 'mixed', 'mode' => 'practice', 'count' => 1, 'csrf_token' => $csrfMatch[1]],
     [],
-    ['PHPSESSID' => 'batch676-content-selection-' . bin2hex(random_bytes(8))]
+    ['PHPSESSID' => $sessionCookie]
 );
 if (!$start['success'] || $start['status'] !== 200 || !str_contains($start['output'], 'Question 1 / 1') ||
     !preg_match('/name="question_id"\s+value="([^"]+)"/', $start['output'])) {
