@@ -15,6 +15,8 @@ use Tools\Doctor\Project\BoardPrep\Simulation\SimulationStorageFixture;
 final class FlashcardReadCountingStorage implements StorageInterface
 {
     public int $questionCollectionReads = 0;
+    /** @var list<string> */
+    public array $questionReadCallers = [];
 
     public function __construct(private StorageInterface $inner)
     {
@@ -22,7 +24,20 @@ final class FlashcardReadCountingStorage implements StorageInterface
 
     public function all(string $collection): array
     {
-        if ($collection === 'questions') $this->questionCollectionReads++;
+        if ($collection === 'questions') {
+            $this->questionCollectionReads++;
+            if (getenv('BOARDPREP_TRACE_QUESTION_READS') === '1') {
+                foreach (debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 12) as $frame) {
+                    $file = (string) ($frame['file'] ?? '');
+                    if ($file !== '' && str_contains($file, '/app/')) {
+                        $this->questionReadCallers[] = basename($file) . ':' . (int) ($frame['line'] ?? 0)
+                            . ' ' . (string) ($frame['class'] ?? '') . (string) ($frame['type'] ?? '')
+                            . (string) ($frame['function'] ?? '');
+                        break;
+                    }
+                }
+            }
+        }
         return $this->inner->all($collection);
     }
 
@@ -54,29 +69,44 @@ if (!session_start()) throw new RuntimeException('Unable to start isolated flash
 $_GET = ['board' => 'let', 'subject' => 'english'];
 $_SERVER['REQUEST_METHOD'] = 'GET';
 $_SERVER['REQUEST_URI'] = '/flashcards?board=let&subject=english';
-ob_start();
-$startedAt = hrtime(true);
-FlashcardController::index();
-$html = (string) ob_get_clean();
-$elapsedMs = (hrtime(true) - $startedAt) / 1_000_000;
+$runs = [];
+for ($run = 0; $run < 3; $run++) {
+    ob_start();
+    $startedAt = hrtime(true);
+    FlashcardController::index();
+    $html = (string) ob_get_clean();
+    $runs[] = [
+        'elapsed_ms' => (hrtime(true) - $startedAt) / 1_000_000,
+        'question_reads' => $countingStorage->questionCollectionReads - array_sum(array_column($runs, 'question_reads')),
+    ];
+}
 $peakMemoryMb = memory_get_peak_usage(true) / 1_048_576;
 session_write_close();
+$availableCount = null;
+if (preg_match('/<span class="stat-label">Available in this focus<\/span>\s*<strong class="stat-value">(\d+)<\/strong>/s', $html, $availableMatch) === 1) {
+    $availableCount = (int) $availableMatch[1];
+}
 
 if (!str_contains($html, '<h1>Flashcards</h1>')
     || !str_contains($html, '<option value="let" selected')
-    || !str_contains($html, '<option value="english" selected')) {
+    || !str_contains($html, '<option value="english" selected')
+    || $availableCount === null) {
     throw new RuntimeException('Scoped production flashcard controller did not preserve its learner route output.');
 }
-if ($countingStorage->questionCollectionReads > 3) {
+if (array_sum(array_column($runs, 'question_reads')) > 6) {
     throw new RuntimeException(sprintf(
-        'Scoped flashcard page reread the full question collection %d times; expected no more than three reads for eligibility validation, selection, and exact lesson-reference resolution.',
+        'Three scoped flashcard page requests reread the full question collection %d times; expected no more than two reads per request.',
         $countingStorage->questionCollectionReads
     ));
 }
 
-printf(
-    "[PASS] Scoped flashcard controller reads the canonical question collection %d times; elapsed_ms=%.1f peak_mb=%.1f.\n",
-    $countingStorage->questionCollectionReads,
-    $elapsedMs,
-    $peakMemoryMb
-);
+foreach ($runs as $index => $run) {
+    if ($run['question_reads'] > 2) {
+        throw new RuntimeException('Scoped flashcard page exceeded the optimized two-read limit.');
+    }
+    printf("[PASS] flashcard request %d: reads=%d elapsed_ms=%.1f\n", $index + 1, $run['question_reads'], $run['elapsed_ms']);
+}
+printf("[PASS] flashcard controller available_cards=%d 3-run peak_mb=%.1f total_question_reads=%d.\n", $availableCount, $peakMemoryMb, $countingStorage->questionCollectionReads);
+if (getenv('BOARDPREP_TRACE_QUESTION_READS') === '1') {
+    foreach ($countingStorage->questionReadCallers as $caller) echo "[READ] {$caller}\n";
+}

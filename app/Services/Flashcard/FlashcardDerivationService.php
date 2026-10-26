@@ -84,6 +84,12 @@ final class FlashcardDerivationService
     public function all(array $filters = [], array $topicIds = []): array
     {
         $questions = $this->questions->all();
+        if (isset($filters['board']) && $this->eligibilityIndex === null) {
+            // Eligibility relationship validation can reuse the canonical
+            // snapshot already loaded for card derivation instead of decoding
+            // the full question bank a second time on a cold request.
+            $this->eligibilityIndex = QuestionEligibilityService::index($questions);
+        }
         $selectedIndexes = [];
         $boardsByQuestion = [];
         $topicIds = array_fill_keys(array_values(array_filter(

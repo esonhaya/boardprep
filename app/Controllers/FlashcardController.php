@@ -427,7 +427,7 @@ final class FlashcardController
         $subjects = [];
         $topics = [];
         $questions = App::container()->get(QuestionRepository::class)->all();
-        $index = $wantedBoard !== '' ? QuestionEligibilityService::index() : null;
+        $index = $wantedBoard !== '' ? QuestionEligibilityService::index($questions) : null;
         $scopeFilters = $filters;
         unset($scopeFilters['subject'], $scopeFilters['topic']);
         foreach ($questions as $question) {

@@ -845,7 +845,7 @@ final class QuestionEligibilityService
      * Persisted INCLUDE overrides are validated before indexing so callers
      * retain the same acceptance rules as the storage-backed resolver.
      */
-    public static function index(): QuestionEligibilityIndex
+    public static function index(?array $questionSnapshot = null): QuestionEligibilityIndex
     {
         $overrides = array_values(array_filter(
             App::storage()->all('question-reuse-overrides'),
@@ -857,7 +857,7 @@ final class QuestionEligibilityService
         return new QuestionEligibilityIndex(
             App::storage()->all('question-eligibility'),
             App::storage()->all('blueprints'),
-            QuestionReuseEligibilityResolver::productionDerivedRelationships(),
+            QuestionReuseEligibilityResolver::productionDerivedRelationships($questionSnapshot),
             $overrides
         );
     }

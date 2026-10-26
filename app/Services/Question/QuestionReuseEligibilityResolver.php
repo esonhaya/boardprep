@@ -140,7 +140,7 @@ final class QuestionReuseEligibilityResolver
     }
 
     /** @return array<int, array> */
-    public static function productionDerivedRelationships(): array
+    public static function productionDerivedRelationships(?array $questionSnapshot = null): array
     {
         if (self::$productionRelationshipsCache !== null) {
             return self::$productionRelationshipsCache;
@@ -148,28 +148,39 @@ final class QuestionReuseEligibilityResolver
         if (!self::productionDerivationEnabled()) {
             return self::$productionRelationshipsCache = [];
         }
+        $questionConceptById = $questionSnapshot === null
+            ? null
+            : self::questionConcepts($questionSnapshot);
         $valid = [];
         foreach (App::storage()->all('concept-derived-eligibility') as $record) {
             if (is_array($record)
                 && ($record['record_type'] ?? '') === 'RELATIONSHIP'
-                && self::validateDerivedRelationship($record) === []) {
+                && self::validateDerivedRelationship($record, $questionConceptById) === []) {
                 $valid[] = $record;
             }
         }
         return self::$productionRelationshipsCache = $valid;
     }
 
-    public static function validateDerivedRelationship(array $relationship): array
+    public static function validateDerivedRelationship(array $relationship, ?array $questionConceptById = null): array
     {
         $errors = [];
         $questionId = (string)($relationship['question_id'] ?? '');
         $targetBoard = self::board((string)($relationship['target_board'] ?? ''));
         $conceptId = (string)($relationship['concept_id'] ?? '');
-        $question = $questionId === '' ? null : self::questionById()[$questionId] ?? null;
-        if ($question === null) $errors[] = 'INVALID_DERIVED_QUESTION';
+        $question = $questionConceptById === null
+            ? ($questionId === '' ? null : self::questionById()[$questionId] ?? null)
+            : null;
+        $questionExists = $questionConceptById === null
+            ? is_array($question)
+            : $questionId !== '' && array_key_exists($questionId, $questionConceptById);
+        $questionConceptId = $questionConceptById === null
+            ? (string) ($question['taxonomy']['concept_id'] ?? '')
+            : (string) ($questionConceptById[$questionId] ?? '');
+        if (!$questionExists) $errors[] = 'INVALID_DERIVED_QUESTION';
         if ($targetBoard === '' || TaxonomyStorageService::find('boards', $targetBoard) === null) $errors[] = 'INVALID_DERIVED_BOARD';
         if ($conceptId === '' || TaxonomyStorageService::find('taxonomy/concepts', $conceptId) === null) $errors[] = 'INVALID_DERIVED_CONCEPT';
-        if (is_array($question) && (string)(($question['taxonomy']['concept_id'] ?? '')) !== $conceptId) $errors[] = 'DERIVED_CONCEPT_MISMATCH';
+        if ($questionExists && $questionConceptId !== $conceptId) $errors[] = 'DERIVED_CONCEPT_MISMATCH';
         $metadata = self::reuseMetadataByQuestion()[$questionId] ?? null;
         if (!is_array($metadata) || ($metadata['reuse_policy'] ?? '') !== 'AUTO') $errors[] = 'DERIVED_POLICY_NOT_AUTO';
         if (is_array($metadata) && ($metadata['context_mode'] ?? '') !== 'NEUTRAL') $errors[] = 'DERIVED_CONTEXT_BLOCKED';
@@ -222,6 +233,21 @@ final class QuestionReuseEligibilityResolver
             if (is_array($question) && isset($question['id'])) $index[(string) $question['id']] = $question;
         }
         return self::$questionByIdCache = $index;
+    }
+
+    /** @return array<string, string> */
+    private static function questionConcepts(array $questions): array
+    {
+        $concepts = [];
+        foreach ($questions as $question) {
+            if (!is_array($question) || !is_scalar($question['id'] ?? null)) {
+                continue;
+            }
+            $taxonomy = is_array($question['taxonomy'] ?? null) ? $question['taxonomy'] : [];
+            $concept = $taxonomy['concept_id'] ?? '';
+            $concepts[(string) $question['id']] = is_scalar($concept) ? (string) $concept : '';
+        }
+        return $concepts;
     }
 
     /** @return array<string, array> */
