@@ -38,6 +38,20 @@ worksheet; none is activated by a suggestion. Read the owner-operated
 checklist before provisioning anyone. It documents the existing grant model
 without creating a grant endpoint or reviewer identity.
 
+Batch 717 adds a version- and source-registry-bound claim-evidence panel to
+each pilot proposal. It exposes each citation locator, observed scope, machine
+claim state, warnings, and human blocker without treating machine evidence as
+claim verification. The complete B717 evidence and 276-item readiness
+inventory are in [`batch-717-evidence-verification.json`](reports/batch-717-evidence-verification.json)
+and [`batch-717-cohort-readiness.json`](reports/batch-717-cohort-readiness.json).
+The owner and reviewer handoff is in
+[`batch-717-reviewer-handoff.md`](reports/batch-717-reviewer-handoff.md).
+For Q9228, targeted DO 40 OCR and separate 2025 Revised Anti-Bullying IRR
+context are presented as machine-prepared evidence; the oversized 2026 DO 006
+remains explicitly unexamined. Architecture items retain their current-scope
+blockers. Rendering this evidence does not change a source, answer, or review
+state.
+
 ## Provisioning a qualified reviewer
 
 There is intentionally no reviewer-grant web route. An application owner must
@@ -157,6 +171,13 @@ submit a CSRF-protected confirmation for that individual proposal. The signed
 preview token binds the importer, question payload, and proposal version.
 Approval by itself never imports.
 
+An academic `APPROVE` also requires the reviewer to acknowledge that any
+potential conflict was disclosed to the owner and no unmanaged conflict
+remains. This confirmation is stored in the version-bound decision event and
+included in import preflight. If the reviewer cannot make that attestation,
+they must stop and request reassignment; the form does not resolve or waive a
+conflict.
+
 JSON collections are written through the existing lock and atomic-replacement
 storage implementation. The workflow serializes mutations under a private
 lock and journals the staged question and optional study link. It prepares the
@@ -173,7 +194,8 @@ storage.
 ## Verification and current cohort
 
 Use the focused tests listed in `docs/DEVELOPMENT_WORKFLOW.md`, including
-`tools/Tests/Batch714AcademicReviewWorkflowTest.php`. Synthetic approvals and
+`tools/Tests/Batch714AcademicReviewWorkflowTest.php` and
+`tools/Tests/Batch717AcademicGateClosureTest.php`. Synthetic approvals and
 imports are created only in a disposable fixture. No real Batch 695 proposal is
 approved or imported by the test. The B695 original checkout is preserved and
 is not a storage source for the live workbench; the recovered proposal records

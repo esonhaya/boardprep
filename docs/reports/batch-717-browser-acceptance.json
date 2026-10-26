@@ -1,0 +1,90 @@
+{
+  "schema": "boardprep.batch-717-browser-acceptance.v1",
+  "generated_at_utc": "2026-10-26T01:08:06Z",
+  "status": "PREPARED_NOT_EXECUTED",
+  "runner": {
+    "current_environment": "Android / Termux",
+    "supported_browser_runner_available": false,
+    "local_node_version": "v26.4.0",
+    "local_playwright_module": "lockfile pins 1.63.0; driver import is unsupported on Android/Termux",
+    "chromium_executable": "no system browser candidate found; compatible Playwright Chromium unavailable",
+    "reason_not_executed": "Termux is not the supported desktop Linux browser runtime; preflight blocked the Playwright driver as unsupported Android/arm64. No authorized Ubuntu runner or remote workflow execution was available. GitHub Actions was not dispatched."
+  },
+  "configured_supported_runner": {
+    "workflow": ".github/workflows/browser-acceptance.yml",
+    "os": "ubuntu-24.04",
+    "timeout_minutes": 15,
+    "node": "22.23.3",
+    "php": "8.3",
+    "playwright_test": "1.63.0 (package-lock pinned)",
+    "browser": "Chromium",
+    "synthetic_fixture_only": true,
+    "permissions": "contents: read",
+    "execution_trigger": "matching push or pull_request path, or an explicitly authorized workflow dispatch"
+  },
+  "prepared_scenarios": [
+    {
+      "id": "B715-PILOT-SEC-01",
+      "scope": "production academic-review route is absent",
+      "execution": "not executed in B717"
+    },
+    {
+      "id": "B715-PILOT-SEC-02",
+      "scope": "anonymous reviewer denied",
+      "execution": "not executed in B717"
+    },
+    {
+      "id": "B716-PILOT-UX-01",
+      "scope": "synthetic scoped queue, filtering, search, keyboard focus, empty state",
+      "execution": "not executed in B717"
+    },
+    {
+      "id": "B716-PILOT-UX-02",
+      "scope": "version-bound inspector, source provenance, print privacy, blocked import",
+      "execution": "not executed in B717"
+    },
+    {
+      "id": "B716-PILOT-SEC-03",
+      "scope": "foreign scope denied",
+      "execution": "not executed in B717"
+    },
+    {
+      "id": "B717-PILOT-EVIDENCE-01",
+      "scope": "390x844 mobile Q9228 claim evidence, supplemental policy disclosures, evidence states, source links, keyboard anchor navigation, no decision/import",
+      "execution": "prepared in tests/browser/acceptance/academic-review-pilot.spec.cjs; not executed"
+    }
+  ],
+  "local_contract_validation": {
+    "workflow_yaml": "PASS; npm run test:browser:contract validated pinned Ubuntu workflow/config contracts, exit 0, 6 tests passed",
+    "browser_test_syntax": "PASS; node --check tests/browser/acceptance/academic-review-pilot.spec.cjs, exit 0",
+    "browser_ci_contract": "PASS; npm run test:browser:contract, exit 0, 6 passed / 0 failed",
+    "isolated_storage_fixture": "PASS; npm run test:browser:fixture, exit 0",
+    "browser_preflight": "BLOCKED as expected on Android/arm64 Termux; node tools/browser-preflight.cjs exit 2; no system browser candidates",
+    "browser_assertions": "not executed",
+    "screenshots_or_traces": "none generated",
+    "tested_git_sha": "86d0978222fbc4b48c818f206005e1f8a2dd76cf",
+    "contract_command": "npm run test:browser:contract",
+    "contract_exit_code": 0,
+    "contract_result": "6 passed / 0 failed; includes pinned Ubuntu workflow, test/provenance contract, developer repository scenario contract, and fixture server lifecycle",
+    "fixture_command": "npm run test:browser:fixture",
+    "fixture_exit_code": 0,
+    "preflight_command": "node tools/browser-preflight.cjs",
+    "preflight_exit_code": 2,
+    "preflight_status": "BLOCKED as expected; Android/arm64 Termux has no supported Playwright driver or Chromium executable",
+    "test_sha_after_implementation_commit": true
+  },
+  "authorized_handoff": {
+    "workflow_file": ".github/workflows/browser-acceptance.yml",
+    "action": "An owner may publish this branch or open an authorized pull request; the configured path filter runs the Ubuntu browser workflow. No push, pull request, dispatch, or remote action was performed by B717.",
+    "manual_command_on_supported_linux": "npm ci && npm run test:browser:contract && npm run test:browser:fixture && npx playwright install --with-deps chromium && npm run test:browser",
+    "real_reviewer_or_production_credentials": "prohibited; workflow uses the synthetic B716 browser fixture"
+  },
+  "limits": [
+    "HTTP simulation and PHP integration tests are not browser acceptance.",
+    "A syntactically valid test or configured workflow is not an executed browser PASS.",
+    "No real human reviewer accepted the pilot in this batch.",
+    "The local browser contract tests validate workflow configuration and fixture behavior; they do not execute the reviewer journey in Chromium.",
+    "No real human reviewer, external CI runner, GitHub Actions dispatch, or production credential was used."
+  ],
+  "verification_commit": "86d0978222fbc4b48c818f206005e1f8a2dd76cf"
+}
