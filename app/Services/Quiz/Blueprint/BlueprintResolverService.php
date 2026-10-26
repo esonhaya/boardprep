@@ -313,7 +313,11 @@ final class BlueprintResolverService
             $sectionSubject = trim((string) ($section['subject_id'] ?? ''));
             $sectionDomain = trim((string) ($section['domain_id'] ?? ''));
             if ($sectionId === $domainId || $sectionDomain === $domainId || $sectionSubject === $subjectId) {
-                $matches[$sectionId] = true;
+                // A configured subject_id is the canonical learner-facing
+                // identity and the key QuestionEligibilityIndex returns.
+                // Keep legacy section IDs only where no canonical mapping is
+                // present, so allocation and eligibility use the same key.
+                $matches[$sectionSubject !== '' ? $sectionSubject : $sectionId] = true;
             }
         }
 

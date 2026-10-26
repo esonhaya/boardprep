@@ -264,7 +264,10 @@ final class QuestionEligibilityIndex
         foreach ($this->blueprintsByBoard[$exam] ?? [] as $blueprint) {
             foreach (($blueprint['sections'] ?? []) as $section) {
                 if (($section['id'] ?? '') === $domain || ($section['domain_id'] ?? '') === $domain) {
-                    return (string) ($section['id'] ?? '');
+                    $configuredSubject = trim((string) ($section['subject_id'] ?? ''));
+                    return $configuredSubject !== ''
+                        ? $configuredSubject
+                        : (string) ($section['id'] ?? '');
                 }
             }
         }
