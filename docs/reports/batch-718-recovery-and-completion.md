@@ -143,7 +143,7 @@ The exact protected answer-key map is built by sorting question IDs and JSON-enc
 - This recovery report is committed separately after implementation. Its final commit SHA and file SHA-256 are emitted with the terminal delivery result (the report cannot embed its own content hash).
 - No push, merge or deployment was performed.
 - Final worktree retains only the three pre-existing untracked storage JSON files listed under RECOVERY; no generated test/Doctor output was added to the repository.
-- `CLIPBOARD_STATUS=UNVERIFIED`: `termux-clipboard-set` exited 0, but `termux-clipboard-get` exited 0 and returned 0 bytes for the 15,048-byte report. The empty readback SHA-256 was `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`; it does not match the report SHA-256 `cc12c3af391328c3e6a9fa72da059a9267a403a7addecf77ed9a19a066158161`. The final committed report will be retried once and printed as a terminal fallback if the readback remains empty.
+- `CLIPBOARD_STATUS=UNVERIFIED`: `termux-clipboard-set` exited 0, but `termux-clipboard-get` exited 0 and returned 0 bytes. On the first attempt, the 15,048-byte report SHA-256 was `cc12c3af391328c3e6a9fa72da059a9267a403a7addecf77ed9a19a066158161`; the empty readback SHA-256 was `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`. A retry on the committed 15,403-byte report also returned 0 bytes (report SHA-256 `57dbca4d18babd237877edd0bee1876f5fed0af3b79248bef85f7b3b7ff296a3`). No readback matched; the complete report is printed as the terminal fallback.
 
 ## NEXT
 
