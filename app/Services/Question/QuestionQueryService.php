@@ -25,14 +25,24 @@ class QuestionQueryService
     }
 
     /** @return array{items: array<int, array<string, mixed>>, total: int, canonical_total: int, page: int, per_page: int, pages: int} */
-    public static function getQuestionPage(array $filters, int $page = 1, int $perPage = 50): array
+    public static function getQuestionPage(
+        array $filters,
+        int $page = 1,
+        int $perPage = 50,
+        string $technicalStatus = '',
+        array $technicalIssueIds = []
+    ): array
     {
         $perPage = max(1, min(100, $perPage));
         $repositorySnapshot = App::container()
             ->get(QuestionRepository::class)
             ->all();
         $canonicalTotal = count($repositorySnapshot);
-        $all = self::applyFilters($repositorySnapshot, QuestionQueryFilters::from($filters));
+        $filterInput = array_merge($filters, [
+            'technical_status' => $technicalStatus,
+            'technical_issue_ids' => $technicalIssueIds,
+        ]);
+        $all = self::applyFilters($repositorySnapshot, QuestionQueryFilters::from($filterInput));
         $total = count($all);
         $pages = max(1, (int) ceil($total / $perPage));
         $page = max(1, min($page, $pages));
@@ -70,6 +80,8 @@ class QuestionQueryService
                         'status' => $filters->status,
                         'board' => $filters->board,
                         'subject' => $filters->subject,
+                        'technical_status' => $filters->technicalStatus,
+                        'technical_issue_ids' => array_keys($filters->technicalIssueIds),
                     ]);
                     break;
                 }

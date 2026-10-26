@@ -57,7 +57,13 @@ final class AcademicReviewWorkflowService
     {
         $proposal = $this->findProposal($proposalId);
         if ($proposal === null) throw new RuntimeException('PROPOSAL_NOT_FOUND');
-        return $this->proposalVersion($proposal, $this->record($this->normalizeProposalId($proposalId)));
+        return $this->versionForProposalRecord($proposal, $this->record($this->normalizeProposalId($proposalId)));
+    }
+
+    /** @param array<string, mixed> $proposal @param array<string, mixed> $record */
+    public function versionForProposalRecord(array $proposal, array $record): string
+    {
+        return $this->proposalVersion($proposal, $record);
     }
 
     /** @return array<string,mixed> */

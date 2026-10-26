@@ -101,15 +101,23 @@ $qualityQuery = array_filter([
     'per_page' => (string) ($qualityFilters['per_page'] ?? 25),
 ], static fn(string $value): bool => $value !== '');
 $qualityPageUrl = static fn(int $page): string => '/question-quality?' . http_build_query($qualityQuery + ['page_num' => $page]);
+$formatQualityEvidence = static function (mixed $value): string {
+    if (is_bool($value)) return $value ? 'yes' : 'no';
+    if (is_scalar($value) || $value === null) return (string) ($value ?? 'unknown');
+    $encoded = json_encode($value, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+    return is_string($encoded) ? $encoded : 'unavailable';
+};
 ?>
 <section class="card" aria-labelledby="needs-review-heading">
     <h2 id="needs-review-heading">Needs Review</h2>
     <p>Machine findings and review signals help developers triage work. A warning or review signal does not establish that a question or answer is incorrect. Academic decisions for B695 proposals remain separate.</p>
     <p class="page-actions">
         <a class="button secondary" href="/question-editor">Canonical question inventory</a>
+        <a class="button secondary" href="/question-editor?technical_status=clear">Canonical questions with no detected technical issue (<?= (int) ($canonicalNoTechnicalIssueCount ?? 0) ?>)</a>
         <a class="button secondary" href="/question-editor?proposal_batch=695">Pending B695 proposals</a>
         <a class="button secondary" href="/question-quality?queue=needs-review">Needs Review queue</a>
     </p>
+    <p><?= (int) ($academicApprovalPendingCount ?? 0) ?> B695 proposals have no current-version academic approval. These flags identify pending evidence work and do not claim that an answer is incorrect.</p>
     <div class="metric-list" aria-label="Quality issue status counts">
         <?php foreach (['FAIL' => 'Deterministic findings', 'WARN' => 'Warnings to triage', 'REVIEW' => 'Human review signals', 'INFO' => 'Informational'] as $status => $label): ?>
             <div class="metric-row"><strong><?= htmlspecialchars($label, ENT_QUOTES, 'UTF-8') ?></strong><span><?= (int) ($qualityQueue['status_counts'][$status] ?? 0) ?></span></div>
@@ -168,7 +176,7 @@ $qualityPageUrl = static fn(int $page): string => '/question-quality?' . http_bu
         <a class="button button-outline" href="/question-quality">Clear filters</a>
     </form>
     <h3>Repository issue records</h3>
-    <p>Showing <?= count($qualityQueue['items'] ?? []) ?> of <?= (int) ($qualityQueue['total'] ?? 0) ?> matching records from <?= (int) ($qualityQueue['source_count'] ?? 0) ?> current machine findings · page <?= (int) ($qualityQueue['page'] ?? 1) ?> of <?= (int) ($qualityQueue['pages'] ?? 1) ?>.</p>
+    <p>Showing <?= count($qualityQueue['items'] ?? []) ?> of <?= (int) ($qualityQueue['total'] ?? 0) ?> matching records from <?= (int) ($qualityQueue['source_count'] ?? 0) ?> current quality findings and proposal review signals · page <?= (int) ($qualityQueue['page'] ?? 1) ?> of <?= (int) ($qualityQueue['pages'] ?? 1) ?>.</p>
     <?php if (empty($qualityQueue['items'])): ?>
         <div class="empty-state">No issue records match these filters.</div>
     <?php else: ?>
@@ -191,6 +199,9 @@ $qualityPageUrl = static fn(int $page): string => '/question-quality?' . http_bu
                     <div>
                         <strong><?= htmlspecialchars($entityType, ENT_QUOTES, 'UTF-8') ?> #<?= htmlspecialchars($entityId, ENT_QUOTES, 'UTF-8') ?></strong>
                         <?php if ($entityType === 'question' && $entityId !== ''): ?><p><a href="/question-inspector?id=<?= rawurlencode($entityId) ?>">Inspect question #<?= htmlspecialchars($entityId, ENT_QUOTES, 'UTF-8') ?></a></p><?php endif; ?>
+                        <?php if ($entityType === 'proposal' && $entityId !== ''): ?><p><a href="/question-editor?proposal_batch=695&amp;search=<?= rawurlencode($entityId) ?>">Open proposal #<?= htmlspecialchars($entityId, ENT_QUOTES, 'UTF-8') ?></a></p><?php endif; ?>
+                        <?php if (trim((string) ($issue['current_status'] ?? '')) !== ''): ?><small>Current status: <code><?= htmlspecialchars((string) $issue['current_status'], ENT_QUOTES, 'UTF-8') ?></code></small><br><?php endif; ?>
+                        <?php if (trim((string) ($issue['question_version_sha256'] ?? '')) !== ''): ?><small>Question version SHA-256: <code><?= htmlspecialchars((string) $issue['question_version_sha256'], ENT_QUOTES, 'UTF-8') ?></code></small><br><?php endif; ?>
                         <p><?= htmlspecialchars((string) ($issue['message'] ?? ''), ENT_QUOTES, 'UTF-8') ?></p>
                         <?php if (isset($evidence['url'])): ?><small>URL: <code><?= htmlspecialchars((string) $evidence['url'], ENT_QUOTES, 'UTF-8') ?></code></small><?php endif; ?>
                         <?php foreach ([
@@ -205,9 +216,38 @@ $qualityPageUrl = static fn(int $page): string => '/question-quality?' . http_bu
                             'override_type' => 'Eligibility override',
                             'review_status' => 'Eligibility hold status',
                             'reason' => 'Hold reason',
+                            'question_version_sha256' => 'Question version SHA-256',
+                            'readiness_version_status' => 'Readiness version status',
+                            'source_ids' => 'Cited source IDs',
+                            'pending_source_review_ids' => 'Sources awaiting review',
+                            'source_snapshot_status' => 'Source snapshot status',
+                            'source_snapshot_validation_status' => 'Proposal source-reference validation',
+                            'readiness_source_snapshot_validation_status' => 'Readiness source-snapshot validation',
+                            'source_registry_snapshots_current' => 'Source registry snapshots current',
+                            'currentness_flags' => 'Currentness evidence',
+                            'source_scope_flags' => 'Scope evidence',
+                            'taxonomy_topic_id' => 'Topic mapping',
+                            'taxonomy_topic_registered' => 'Topic registered',
+                            'taxonomy_concept_id' => 'Concept mapping',
+                            'taxonomy_concept_registered' => 'Concept registered',
+                            'study_material_id' => 'Study material',
+                            'study_section_id' => 'Study section',
+                            'study_status' => 'Study-link status',
+                            'study_import_requirement' => 'Study-link requirement',
+                            'reviewer_assignment' => 'Reviewer assignment',
+                            'academic_approval' => 'Academic approval',
+                            'technical_status' => 'Technical status',
+                            'technical_validator' => 'Technical validator',
+                            'technical_validation_status' => 'Technical validation status',
+                            'technical_issue_count' => 'Deterministic technical issue count',
+                            'validator_issue_type' => 'Validation issue type',
+                            'validator_severity' => 'Validation severity',
+                            'duplicate_scope' => 'Duplicate comparison scope',
+                            'duplicate_match_method' => 'Duplicate match method',
+                            'duplicate_question_ids' => 'Matching question IDs',
                         ] as $field => $label): ?>
                             <?php if (array_key_exists($field, $evidence)): ?>
-                                <small><?= htmlspecialchars($label, ENT_QUOTES, 'UTF-8') ?>: <code><?= htmlspecialchars(is_bool($evidence[$field]) ? ($evidence[$field] ? 'yes' : 'no') : (string) ($evidence[$field] ?? 'unknown'), ENT_QUOTES, 'UTF-8') ?></code></small><br>
+                                <small><?= htmlspecialchars($label, ENT_QUOTES, 'UTF-8') ?>: <code><?= htmlspecialchars($formatQualityEvidence($evidence[$field]), ENT_QUOTES, 'UTF-8') ?></code></small><br>
                             <?php endif; ?>
                         <?php endforeach; ?>
                         <?php if ($affectedIds !== [] || $hasAffectedCount): ?>

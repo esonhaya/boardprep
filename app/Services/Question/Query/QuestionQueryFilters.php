@@ -13,12 +13,25 @@ final class QuestionQueryFilters
         public readonly string $topic,
         public readonly string $status,
         public readonly string $board,
-        public readonly string $subject
+        public readonly string $subject,
+        public readonly string $technicalStatus = '',
+        public readonly array $technicalIssueIds = []
     ) {
     }
 
     public static function from(array $filters): self
     {
+        $technicalStatus = strtolower(self::text($filters['technical_status'] ?? ''));
+        if (!in_array($technicalStatus, ['issue', 'clear'], true)) {
+            $technicalStatus = '';
+        }
+        $technicalIssueIds = [];
+        foreach ((array) ($filters['technical_issue_ids'] ?? []) as $id) {
+            if (is_scalar($id) && trim((string) $id) !== '') {
+                $technicalIssueIds[(string) $id] = true;
+            }
+        }
+
         return new self(
             self::text($filters['search'] ?? ''),
             self::text($filters['domain'] ?? ''),
@@ -26,7 +39,9 @@ final class QuestionQueryFilters
             self::text($filters['topic'] ?? ''),
             self::text($filters['status'] ?? ''),
             self::text($filters['board'] ?? ''),
-            self::text($filters['subject'] ?? '')
+            self::text($filters['subject'] ?? ''),
+            $technicalStatus,
+            $technicalIssueIds
         );
     }
 

@@ -94,4 +94,23 @@ if ($typedFinding['total'] !== 1
     throw new RuntimeException('Evidence-backed answer-key review flags were not derived or filtered correctly.');
 }
 
+$duplicateFinding = QuestionQualityIssueQueueService::paginate([[
+    'status' => 'REVIEW',
+    'entity_type' => 'proposal',
+    'entity_id' => '9124',
+    'proposal_id' => 'batch695-9124',
+    'issue_type' => 'DUPLICATE_REVIEW_REQUIRED',
+    'code' => 'EXACT_CANONICAL_STEM_DUPLICATE',
+    'message' => 'The normalized proposal stem exactly matches a canonical question.',
+    'evidence' => [
+        'duplicate_scope' => 'CANONICAL_QUESTION_BANK',
+        'duplicate_match_method' => 'lower-case and whitespace-normalized exact stem',
+        'duplicate_question_ids' => ['4512'],
+    ],
+]], ['search' => '4512']);
+if ($duplicateFinding['total'] !== 1
+    || ($duplicateFinding['items'][0]['issue_type'] ?? '') !== 'DUPLICATE_REVIEW_REQUIRED') {
+    throw new RuntimeException('Search did not include duplicate IDs nested in evidence.');
+}
+
 echo "[PASS] Quality issue queue filtering, evidence classifications, and bounded pagination verified.\n";

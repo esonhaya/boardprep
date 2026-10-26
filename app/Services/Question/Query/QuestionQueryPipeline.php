@@ -17,9 +17,20 @@ final class QuestionQueryPipeline
                     }
 
                     return QuestionFilterMatcher::matches($question, $filters)
-                        && QuestionSearchMatcher::matches($question, $filters->search);
+                        && QuestionSearchMatcher::matches($question, $filters->search)
+                        && self::matchesTechnicalStatus($question, $filters);
                 }
             )
         );
+    }
+
+    private static function matchesTechnicalStatus(array $question, QuestionQueryFilters $filters): bool
+    {
+        if ($filters->technicalStatus === '') {
+            return true;
+        }
+
+        $hasTechnicalIssue = isset($filters->technicalIssueIds[(string) ($question['id'] ?? '')]);
+        return $filters->technicalStatus === 'issue' ? $hasTechnicalIssue : !$hasTechnicalIssue;
     }
 }

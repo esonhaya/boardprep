@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Services\Question\Quality;
 
 /**
- * Bounded, filterable projection of the authoritative repository-health
- * findings. The queue never creates or persists issue classifications.
+ * Bounded, filterable projection of authoritative health and review evidence.
+ * The queue never creates or persists issue classifications.
  */
 final class QuestionQualityIssueQueueService
 {
@@ -48,6 +48,17 @@ final class QuestionQualityIssueQueueService
             $row['category'] = $category;
             $row['entity_type'] = $entityType;
             $row['board_id'] = $board;
+            $row['current_status'] = self::scalarText(
+                $row['current_status'] ?? $evidence['current_status'] ?? '',
+                80
+            );
+            $row['question_version_sha256'] = self::scalarText(
+                $row['question_version_sha256']
+                    ?? $evidence['question_version_sha256']
+                    ?? $evidence['question_version']
+                    ?? '',
+                128
+            );
             $row['issue_type'] = self::issueType($row);
             $row['quality_classification'] = match ($status) {
                 'FAIL' => 'DETERMINISTIC_FINDING',
@@ -173,13 +184,22 @@ final class QuestionQualityIssueQueueService
             return true;
         }
 
+        $evidence = is_array($row['evidence'] ?? null) ? $row['evidence'] : [];
+        $evidenceTerms = [];
+        self::collectSearchTerms($evidence, $evidenceTerms, 128);
         $searchable = implode(' ', array_map(
             static fn(mixed $value): string => is_scalar($value) ? (string) $value : '',
             [
                 $row['entity_id'] ?? '',
+                $row['proposal_id'] ?? '',
                 $row['code'] ?? '',
                 $row['message'] ?? '',
                 $row['suggested_action'] ?? '',
+                $row['issue_type'] ?? '',
+                $row['current_status'] ?? '',
+                $row['question_version_sha256'] ?? '',
+                $row['board_id'] ?? '',
+                implode(' ', $evidenceTerms),
             ]
         ));
 
@@ -190,9 +210,32 @@ final class QuestionQualityIssueQueueService
         return $position !== false;
     }
 
+    /** @param array<int|string, mixed> $value @param list<string> $terms */
+    private static function collectSearchTerms(array $value, array &$terms, int $remaining): void
+    {
+        foreach ($value as $item) {
+            if (count($terms) >= $remaining) {
+                return;
+            }
+            if (is_array($item)) {
+                self::collectSearchTerms($item, $terms, $remaining);
+            } elseif (is_scalar($item)) {
+                $text = trim((string) $item);
+                if ($text !== '') {
+                    $terms[] = $text;
+                }
+            }
+        }
+    }
+
     /** Classify only what an existing machine finding directly supports. */
     private static function issueType(array $row): string
     {
+        $explicitType = strtoupper(trim((string) ($row['issue_type'] ?? '')));
+        if ($explicitType !== '') {
+            return $explicitType;
+        }
+
         $code = strtoupper((string) ($row['code'] ?? ''));
         $category = strtoupper((string) ($row['category'] ?? ''));
         $status = strtoupper((string) ($row['status'] ?? ''));
@@ -200,13 +243,16 @@ final class QuestionQualityIssueQueueService
         if (str_contains($code, 'DUPLICATE')) {
             return 'DUPLICATE_REVIEW_REQUIRED';
         }
+        if (str_contains($code, 'FACTUAL') || str_contains($code, 'QUESTION_ACCURACY')) {
+            return 'FACTUAL_VERIFICATION_REQUIRED';
+        }
         if (str_contains($code, 'ANSWER') || $code === 'QUESTION_REUSE_REVIEW_HOLD') {
             return 'ANSWER_KEY_REVIEW_REQUIRED';
         }
         if (str_contains($code, 'EXPLANATION')) {
             return 'EXPLANATION_REVIEW_REQUIRED';
         }
-        if (str_contains($code, 'VERSION') || str_contains($code, 'CURRENTNESS')) {
+        if (str_contains($code, 'CURRENTNESS') || str_contains($code, 'HISTORICAL_EXAM_PROGRAM')) {
             return 'SOURCE_CURRENTNESS_WARNING';
         }
         if (str_contains($code, 'SCOPE') || str_contains($code, 'SEMANTIC_FIT')) {
@@ -218,6 +264,12 @@ final class QuestionQualityIssueQueueService
         if (str_contains($code, 'STUDY_LINK') && (str_contains($code, 'BROKEN') || str_contains($code, 'MISSING') || str_contains($code, 'UNRESOLVED'))) {
             return 'STUDY_SECTION_MISSING';
         }
+        if (str_contains($code, 'ACADEMIC_APPROVAL') || str_contains($code, 'VERSION_BOUND_ACADEMIC_DECISION')) {
+            return 'ACADEMIC_APPROVAL_PENDING';
+        }
+        if (str_contains($code, 'READY_FOR_AUTHORIZED_REVIEW')) {
+            return 'READY_FOR_AUTHORIZED_REVIEW';
+        }
         if (str_contains($code, 'SOURCE_URL') || str_contains($code, 'SOURCE_TEXT')
             || str_contains($code, 'SOURCE_REFERENCE') || str_contains($code, 'SOURCE_RECORD')) {
             return 'SOURCE_REVIEW_REQUIRED';
@@ -226,7 +278,7 @@ final class QuestionQualityIssueQueueService
             return 'REPOSITORY_COVERAGE_SIGNAL';
         }
         if ($status === 'FAIL') {
-            return 'DETERMINISTIC_TECHNICAL_ERROR';
+            return 'TECHNICAL_ISSUE';
         }
 
         return 'REVIEW_SIGNAL';

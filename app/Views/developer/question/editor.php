@@ -40,6 +40,12 @@ Use the filters below to quickly locate questions.
 
 </p>
 
+<?php if (($technicalStatus ?? '') === 'clear'): ?>
+<p role="status"><strong>NO_DETECTED_TECHNICAL_ISSUE:</strong> <?= (int) ($technicalClearCount ?? 0) ?> canonical questions have no deterministic technical failure in the current health analysis. This is not an academic approval.</p>
+<?php elseif (($technicalStatus ?? '') === 'issue'): ?>
+<p role="status"><strong>TECHNICAL_ISSUE:</strong> Showing canonical questions with deterministic technical failures from the current health analysis.</p>
+<?php endif; ?>
+
 <hr>
 
 <form class="filter-bar" method="GET">
@@ -245,6 +251,16 @@ value="<?= htmlspecialchars((string) ($item["id"] ?? "")) ?>"
 
 <div class="form-spacer"></div>
 
+<label for="technical-status">Technical status</label>
+<br>
+<select name="technical_status" id="technical-status" class="field-control">
+<option value="">All technical statuses</option>
+<option value="issue" <?= (($technicalStatus ?? '') === 'issue') ? 'selected' : '' ?>>Technical issue</option>
+<option value="clear" <?= (($technicalStatus ?? '') === 'clear') ? 'selected' : '' ?>>No detected technical issue</option>
+</select>
+
+<div class="form-spacer"></div>
+
 <button type="submit">
 
 Apply Filters
@@ -394,6 +410,7 @@ $pageFilters = array_filter([
     'status' => (string) ($status ?? ''),
     'board' => (string) ($board ?? ''),
     'subject' => (string) ($subject ?? ''),
+    'technical_status' => (string) ($technicalStatus ?? ''),
 ], static fn(string $value): bool => $value !== '');
 $previousPageUrl = '?' . http_build_query($pageFilters + ['page_num' => max(1, (int) ($pageNumber ?? 1) - 1)]);
 $nextPageUrl = '?' . http_build_query($pageFilters + ['page_num' => min((int) ($pageCount ?? 1), (int) ($pageNumber ?? 1) + 1)]);

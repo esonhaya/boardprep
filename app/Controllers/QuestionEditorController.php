@@ -10,6 +10,8 @@ use App\Services\Question\AcademicReviewProposalService;
 use App\Services\Question\AcademicReviewWorkflowService;
 use App\Services\Question\QuestionEditorService;
 use App\Services\Question\QuestionEligibilityService;
+use App\Services\Question\Quality\QuestionQualityReviewSignalService;
+use App\Services\Question\QuestionQualityService;
 use App\Services\Question\QuestionQueryService;
 use App\Services\Question\QuestionService;
 use App\Services\Question\QuestionViewService;
@@ -93,6 +95,17 @@ class QuestionEditorController extends BaseDeveloperController
         $status = Request::queryString("status");
         $board = Request::queryString("board");
         $subject = Request::queryString("subject");
+        $technicalStatus = Request::queryString('technical_status');
+        if (!in_array($technicalStatus, ['issue', 'clear'], true)) {
+            $technicalStatus = '';
+        }
+        $technicalIssueIds = [];
+        if ($technicalStatus !== '') {
+            $qualityAnalysis = QuestionQualityService::analyze();
+            $technicalIssueIds = QuestionQualityReviewSignalService::canonicalTechnicalQuestionIds(
+                (array) ($qualityAnalysis['issues'] ?? [])
+            );
+        }
 
         $pageNumber = filter_var(Request::queryString('page_num'), FILTER_VALIDATE_INT, ['options' => ['min_range' => 1]]) ?: 1;
         $page = QuestionQueryService::getQuestionPage([
@@ -103,7 +116,7 @@ class QuestionEditorController extends BaseDeveloperController
                 "status" => $status,
                 "board" => $board,
                 "subject" => $subject
-            ], $pageNumber, 50);
+            ], $pageNumber, 50, $technicalStatus, $technicalIssueIds);
 
         self::renderDeveloper(
             "developer/question/editor",
@@ -133,6 +146,9 @@ class QuestionEditorController extends BaseDeveloperController
                     "status" => $status,
                     "board" => $board,
                     "subject" => $subject,
+                    "technicalStatus" => $technicalStatus,
+                    "technicalIssueCount" => count($technicalIssueIds),
+                    "technicalClearCount" => max(0, (int) $page['canonical_total'] - count($technicalIssueIds)),
                     "pendingProposalCount" => count(array_filter(
                         AcademicReviewProposalService::all(),
                         static fn(array $proposal): bool => ($proposal['current_status'] ?? '') === 'PENDING_INDEPENDENT_SUBJECT_EXPERT_REVIEW'
