@@ -1,0 +1,33 @@
+{
+  "batch": 720,
+  "implementation_sha": "4ae65f299af48895591af677446076e5a45a552b",
+  "scope": "Board exam setup preview and existing learner mobile/accessibility contracts",
+  "changes": [
+    "Full-board distribution preview is limited to the selected board and hidden in focused-subject mode.",
+    "A live status message explains that a focused-subject simulation does not represent the full-board distribution.",
+    "Changing boards clears a selected subject that is no longer eligible before calculating the displayed preview.",
+    "Official group and mapped subarea counts update after the question-count control changes.",
+    "Distribution areas use one column under the existing narrow-screen media rule; long area labels wrap.",
+    "Without JavaScript, the server-rendered selected-board state remains available and the page no longer forces all ten board previews open. Timer fallback behavior is preserved."
+  ],
+  "accessibility": {
+    "focused_subject_notice": "role=status",
+    "subject_and_count_controls": "existing labelled select controls; keyboard-operable",
+    "new_focus_behavior": "No custom pointer-only action added",
+    "static_regression": "tools/Tests/LearnerMobileAccessibilityViewTest.php passed 18 assertions"
+  },
+  "responsive_verification": {
+    "commands": [
+      "php tools/Tests/ExamBlueprintPreviewContractTest.php",
+      "node tools/Tests/QuizSettingsBlueprintClientTest.cjs",
+      "php tools/Tests/LearnerMobileAccessibilityViewTest.php"
+    ],
+    "tested_css_contract": "Single-column distribution list at the existing narrow-screen breakpoint; wrap-safe labels; existing 44px touch-target/accessibility contracts.",
+    "viewport_emulation_320_360_390_430_px": "NOT_EXECUTED",
+    "real_browser": "NOT_EXECUTED; Chromium/Playwright visual acceptance unavailable on this Termux runtime"
+  },
+  "known_limitations": [
+    "No rendered screenshots, actual viewport overflow measurements, or screen-reader session were produced.",
+    "The contract confirms responsive rules and control state transitions, not rendered visual acceptance."
+  ]
+}

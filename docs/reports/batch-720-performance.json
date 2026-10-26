@@ -1,0 +1,85 @@
+{
+  "batch": 720,
+  "implementation_sha": "4ae65f299af48895591af677446076e5a45a552b",
+  "environment": "Android ARM64 / Termux; PHP 8.5.1; single sequential process; no concurrent test suite",
+  "workload": {
+    "canonical_question_records_read": 9123,
+    "runtime_valid_deduplicated_candidate_count": 8899,
+    "board_eligibility_scope": "Unscoped benchmark fixture; this is a selection-cost comparison, not a board-specific production request.",
+    "selected_count": 20,
+    "synthetic_completed_attempts": 30,
+    "synthetic_question_answer_events": 600,
+    "learner_storage_mutations": 0
+  },
+  "measurement_method": "The same in-memory canonical candidate set and request were used for baseline and adaptive selection. Each mode had one warm-up and five timed selections; reported selection values are medians of those five runs. Synthetic attempt history was used only to build the adaptive context. The candidate-filter measurement is reported separately. PHP memory_limit was 512M after a first 128M CLI run hit the harness limit during full-bank filtering.",
+  "before_bounded_top_k": {
+    "tested_sha": "c4a58f8c614b44f06e36fc8baf7d6f72a89404c4",
+    "baseline_selection_median_ms": 877.78,
+    "adaptive_selection_median_ms": 1212.49,
+    "adaptive_added_selection_ms": 334.72,
+    "peak_php_memory_mib": 134,
+    "exit_code": 0
+  },
+  "after_bounded_top_k": {
+    "tested_sha": "c4a58f8c614b44f06e36fc8baf7d6f72a89404c4",
+    "candidate_filter_ms": 943.23,
+    "adaptive_context_build_ms": 44.49,
+    "baseline_selection_ms": [936.81, 870.57, 872.39, 880.45, 880.14],
+    "adaptive_selection_ms": [1083.36, 1031.68, 998.36, 1015.5, 1025.43],
+    "baseline_selection_median_ms": 880.14,
+    "adaptive_selection_median_ms": 1025.43,
+    "adaptive_added_selection_ms": 145.29,
+    "peak_php_memory_mib": 132,
+    "exit_code": 0
+  },
+  "measured_change": {
+    "adaptive_added_selection_cost_reduction_percent": 56.6,
+    "interpretation": "The selector now keeps only the best candidates needed for the realized difficulty slots instead of sorting every candidate. Overall selection remains slower than the baseline because the adaptive ranking is additional work; no claim is made that total request time improved over non-adaptive practice.",
+    "latency_limitations": "Device-specific single-process measurements. Baseline timings varied by run. No browser timing, multi-user load test, production learner-history benchmark, or persistent-cache benchmark was executed."
+  },
+  "flashcard_controller_read_path": {
+    "test": "tools/Tests/FlashcardControllerReadPathTest.php",
+    "workload": "Three scoped /flashcards controller renders with an isolated learner/session and canonical question-bank fixture; same in-process sequential harness before and after.",
+    "before": {
+      "question_bank_reads_per_request": [2, 2, 2],
+      "elapsed_ms": [3507.9, 2912.7, 2877.6],
+      "three_run_median_ms": 2912.7,
+      "peak_php_memory_mib": 207.5
+    },
+    "after": {
+      "tested_sha": "a5472677c239e3b3f5e49830217bdb622ef83902",
+      "question_bank_reads_per_request": [1, 1, 1],
+      "elapsed_ms": [2518.1, 1863.5, 1880.7],
+      "three_run_median_ms": 1880.7,
+      "peak_php_memory_mib": 207.5
+    },
+    "measured_change": {
+      "bank_read_reduction_percent": 50,
+      "three_run_median_latency_reduction_percent": 35.4,
+      "first_run_latency_reduction_percent": 28.2,
+      "interpretation": "Filter-option derivation and due-card derivation now share one request-local canonical snapshot. No cross-request or learner-state cache was introduced. Peak memory did not improve."
+    }
+  },
+  "final_code_validation": {
+    "tested_sha": "4ae65f299af48895591af677446076e5a45a552b",
+    "regression": "The final change only corrects configured subject identity resolution. Blueprint and cross-board journey tests were rerun; Full Doctor passed on the final SHA.",
+    "execution_time_claim": "No eight-hour duration is claimed; wall-clock productive time was not instrumented."
+  },
+  "recent_accuracy_pipeline": {
+    "tested_sha": "ccb9196d99050b5851eb632076732008c1034841",
+    "policy": "Most recent five completed, deduplicated attempt records; pooled correct/answered events; hidden until at least five answered events are available.",
+    "historical_question_ids": "Not present in the legacy summary rows, so unique-question totals are not inferred.",
+    "timing_before_after": "No controlled before/after timing was collected for this small aggregation; no performance claim is made."
+  },
+  "blueprint_setup_preview": {
+    "tested_sha": "384cc8e9a616cc401a3c44aa157a1133dc187e9d",
+    "workload": "Ten supported board codes, 150 requested questions per preview; same PHP process and storage context",
+    "first_pass_ms": 42.25,
+    "warm_second_pass_ms": 20.51,
+    "preview_lines_per_pass": 32,
+    "peak_php_memory_mib": 2,
+    "question_bank_reads": 0,
+    "question_bank_read_basis": "The preview resolver uses board, blueprint, taxonomy and subject configuration only; it does not invoke the question repository. This count is from inspected service dependencies, not an I/O counter.",
+    "caveat": "The first pass starts in a fresh PHP process. The repeated pass benefits from in-process cached taxonomy data. OS filesystem cache was not cleared, so this is not a device-level cold-storage benchmark. No before timing is available for previously unresolvable official boards because they generated no requests."
+  }
+}

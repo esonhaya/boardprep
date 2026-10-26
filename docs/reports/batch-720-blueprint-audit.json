@@ -1,0 +1,188 @@
+{
+  "batch": 720,
+  "implementation_sha": "4ae65f299af48895591af677446076e5a45a552b",
+  "audited_at": "2026-10-26",
+  "canonical_questions": 9123,
+  "active_supported_boards": 10,
+  "method": "Read existing active board, board-subject, and blueprint records. Counted the runtime-valid, content-deduplicated pool with QuestionPoolFilter and a single QuestionEligibilityIndex. Civil Service pools are reported separately by registered level. LET's count is broad because exact availability depends on the selected registered level/specialization.",
+  "boards": [
+    {
+      "board_id": "let",
+      "code": "LET",
+      "registered_subject_count": 14,
+      "runtime_eligible_pool": 1987,
+      "pool_scope": "Broad across LET variants; selected-level/specialization pool varies.",
+      "blueprint_id": "let-boardprep-coverage-v1",
+      "configured_question_count": 100,
+      "weighting_status": "NOT_REGISTERED",
+      "official_weights": null,
+      "internal_targets": true,
+      "configuration_note": "The record contains sourced official component-structure metadata but marks intra-component subject targets as internal; its label says the 50/50 section targets are not official weights."
+    },
+    {
+      "board_id": "civil-service",
+      "code": "CSE",
+      "registered_subject_count": 5,
+      "runtime_eligible_pool": 2115,
+      "runtime_eligible_by_level": {"PROFESSIONAL": 1930, "SUBPROFESSIONAL": 2113},
+      "blueprint_id": "cse-boardprep-coverage-v1",
+      "configured_question_count": 100,
+      "weighting_status": "NOT_REGISTERED",
+      "official_weights": null,
+      "internal_targets": true,
+      "configuration_note": "Subject allocation percentages are internal BoardPrep coverage targets. The professional and subprofessional pools differ."
+    },
+    {
+      "board_id": "criminologist",
+      "code": "CLE",
+      "registered_subject_count": 1,
+      "runtime_eligible_pool": 554,
+      "blueprint_id": "criminologist-boardprep-coverage-v1",
+      "configured_question_count": 80,
+      "weighting_status": "NOT_REGISTERED",
+      "configured_target_weights": {"criminal-jurisprudence": 20, "law-enforcement": 15, "investigation": 20, "forensics": 15, "criminology": 20, "corrections": 10},
+      "internal_targets": true,
+      "configuration_note": "The stored weight vector is retained as an internal target; the registry does not attest it as an official examination distribution."
+    },
+    {
+      "board_id": "nursing",
+      "code": "NLE",
+      "registered_subject_count": 1,
+      "runtime_eligible_pool": 878,
+      "blueprint_id": "nursing-boardprep-coverage-v1",
+      "configured_question_count": 80,
+      "weighting_status": "NOT_REGISTERED",
+      "official_weights": null,
+      "internal_targets": true,
+      "configuration_note": "Stored section targets are internal; no official weights were registered."
+    },
+    {
+      "board_id": "psychometrician",
+      "code": "PLE",
+      "registered_subject_count": 1,
+      "runtime_eligible_pool": 461,
+      "blueprint_id": "psychometrician-boardprep-coverage-v1",
+      "configured_question_count": 80,
+      "weighting_status": "NOT_REGISTERED",
+      "configured_target_weights": {"psychological_assessment": 40, "developmental_psychology": 20, "abnormal_psychology": 20, "industrial_organizational": 20},
+      "internal_targets": true,
+      "configuration_note": "The stored vector is an internal target, not an official distribution."
+    },
+    {
+      "board_id": "civil-engineering",
+      "code": "CE",
+      "registered_subject_count": 4,
+      "runtime_eligible_pool": 698,
+      "blueprint_id": "portfolio-civil-engineering-v1",
+      "configured_question_count": 80,
+      "weighting_status": "OFFICIAL",
+      "official_weights": {"ce-structural": 35, "ce-applied": 35, "ce-hydraulics-geotech": 30},
+      "internal_targets": false,
+      "configuration_note": "Uses the existing sourced official program configuration."
+    },
+    {
+      "board_id": "cpa",
+      "code": "CPA",
+      "registered_subject_count": 6,
+      "runtime_eligible_pool": 1132,
+      "blueprint_id": "portfolio-cpa-v1",
+      "configured_question_count": 120,
+      "weighting_status": "UNAVAILABLE",
+      "official_weights": null,
+      "internal_targets": false,
+      "configuration_note": "Official weighting is explicitly unavailable; no weights were inferred."
+    },
+    {
+      "board_id": "mechanical-engineering",
+      "code": "ME",
+      "registered_subject_count": 3,
+      "runtime_eligible_pool": 511,
+      "blueprint_id": "portfolio-mechanical-engineering-v1",
+      "configured_question_count": 120,
+      "weighting_status": "VERIFIED_CURRENT_PROGRAM",
+      "official_weights": {"mathematics": 35, "power-plant-engineering": 35, "machine-design-materials-shop-practice": 30},
+      "internal_targets": false,
+      "configuration_note": "Uses the existing current-program source record."
+    },
+    {
+      "board_id": "registered-electrical-engineering",
+      "code": "REE",
+      "registered_subject_count": 3,
+      "runtime_eligible_pool": 842,
+      "blueprint_id": "portfolio-registered-electrical-engineering-v1",
+      "configured_question_count": 80,
+      "weighting_status": "OFFICIAL_CURRENT",
+      "official_weights": {"mathematics": 25, "engineering-sciences-and-allied-subjects": 30, "electrical-engineering-professional-subjects": 45},
+      "internal_targets": false,
+      "configuration_note": "Uses the existing current official program record."
+    },
+    {
+      "board_id": "architecture",
+      "code": "ARCH",
+      "registered_subject_count": 4,
+      "runtime_eligible_pool": 484,
+      "blueprint_id": "portfolio-architecture-v1",
+      "configured_question_count": 80,
+      "weighting_status": "OFFICIAL_CURRENT",
+      "official_weights": {"arch-area-a": 30, "arch-area-b": 30, "arch-area-c": 40},
+      "internal_targets": false,
+      "configuration_note": "Official areas and runtime subject mappings differ in granularity; stored mapping remains authoritative."
+    }
+  ],
+  "runtime_resolution": {
+    "before": {
+      "let": "existing internal subject targets resolved",
+      "civil-service": "existing internal subject targets resolved",
+      "criminologist": "existing internal target vector resolved",
+      "nursing": "existing internal target vector resolved",
+      "psychometrician": "existing internal target vector resolved",
+      "civil-engineering": "0 allocations; sourced official areas did not resolve to runtime taxonomy sections",
+      "cpa": "0 allocations; official weighting explicitly unavailable",
+      "mechanical-engineering": "0 allocations; sourced official areas did not resolve to runtime taxonomy sections",
+      "registered-electrical-engineering": "0 allocations; sourced official areas did not resolve to runtime taxonomy sections",
+      "architecture": "0 allocations; sourced official areas did not resolve to runtime taxonomy sections"
+    },
+    "after": {
+      "civil-engineering": {"requested": 20, "allocated": 20, "area_counts": [7, 7, 6], "eligible_generation_count": 20, "explicit_subject_count": 5, "coverage_issues": 0},
+      "mechanical-engineering": {"requested": 20, "allocated": 20, "area_counts": [7, 7, 6], "eligible_generation_count": 20, "explicit_subject_count": 5, "coverage_issues": 0},
+      "registered-electrical-engineering": {"requested": 20, "allocated": 20, "area_counts": [5, 6, 9], "eligible_generation_count": 20, "explicit_subject_count": 5, "coverage_issues": 0},
+      "architecture": {"requested": 20, "allocated": 20, "official_area_counts": [6, 6, 8], "eligible_generation_count": 20, "explicit_subject_count": 5, "coverage_issues": 0},
+      "cpa": {"full_board_weights_available": false, "fabricated_weights": false}
+    },
+    "configuration_mapping_notes": [
+      "Runtime execution now consumes the existing sourced board blueprint and exact taxonomy domain identities for CE, ME, REE, and Architecture.",
+      "Architecture's official 30% Area A is preserved as a combined allocation, then split 50/50 over the two mapped sections as an internal selection rule; no official subarea weights are asserted.",
+      "Architecture Area B's configured question pool is Utilities and Construction only and does not separately cover every structural-conceptualization/materials topic in the official area title; this is a content-depth caveat, not an eligibility change."
+    ]
+  },
+  "final_subject_identity_repair": {
+    "implementation_sha": "4ae65f299af48895591af677446076e5a45a552b",
+    "issue": "A final Full Doctor exposed canonical subject identity mismatch for REE study-library routing and Architecture cross-board allocation.",
+    "repair": "Prefer explicit configured section subject_id for runtime allocation and eligibility resolution; retain legacy section id fallback.",
+    "retested": [
+      "tools/Tests/BlueprintOfficialBoardResolutionTest.php",
+      "tools/Tests/CrossBoardCanonicalReuseTest.php",
+      "tools/Tests/TenBoardLearnerJourneyHttpTest.php"
+    ],
+    "result": "PASS"
+  },
+  "preserved_behavior": {
+    "blueprint_records_modified": 2,
+    "blueprint_fields_added": ["sections.subject_id", "sections.domain_id", "official_areas.section_ids"],
+    "official_or_internal_weights_changed": 0,
+    "eligibility_metadata_changed": 0,
+    "passing_score_metadata_changed": 0,
+    "exam_simulation_label": "No official exam authority",
+    "deterministic_rounding": "Existing RuntimeAllocationService and BlueprintDistributionAllocator contracts are retained and regression-tested.",
+    "explicit_random_seed_api": "None exists in QuizSpecification or the selection request path. Existing random selection behavior remains; adaptive ranking is deterministic for the realized eligible pool and difficulty slot counts."
+  },
+  "verification": [
+    "tools/Tests/BlueprintRequestExecutorTest.php",
+    "tools/Tests/BlueprintExecutorIntegrationTest.php",
+    "tools/Tests/BlueprintDistributionIntegrationTest.php",
+    "tools/Tests/BlueprintDuplicateExposureTest.php",
+    "tools/Tests/MultiExamEligibilityTest.php",
+    "tools/Tests/QuestionCoverageBlueprintTest.php",
+    "tools/Tests/ExamSimulationBlueprintTest.php"
+  ]
+}
