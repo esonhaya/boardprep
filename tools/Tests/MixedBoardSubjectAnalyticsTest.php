@@ -168,6 +168,24 @@ $assert(strtolower((string) ($normalizedLetAction['board'] ?? '')) === 'let'
     && ($normalizedLetAction['subject'] ?? '') === '*',
     'LET balanced recommendation failed to preserve the registered candidate variant.');
 
+$letVariantMissing = LearningReadinessService::build([], ['preferred_board' => 'LET']);
+$assert(($letVariantMissing['status'] ?? '') === 'VARIANT_REQUIRED'
+    && count($letVariantMissing['recommendations'] ?? []) === 1
+    && ($letVariantMissing['recommendations'][0]['action'] ?? '') === '/quiz'
+    && count(array_filter($letVariantMissing['subjects'] ?? [], static fn(array $row): bool =>
+        ($row['status'] ?? '') === 'VARIANT_REQUIRED'
+            && array_key_exists('eligible_question_count', $row)
+            && $row['eligible_question_count'] === null
+    )) > 0,
+    'LET readiness exposed board-wide subject pool counts before a valid level and specialization were selected.');
+$letSpecializationMissing = LearningReadinessService::build([], [
+    'preferred_board' => 'LET',
+    'let_level' => 'SECONDARY',
+]);
+$assert(($letSpecializationMissing['status'] ?? '') === 'VARIANT_REQUIRED'
+    && ($letSpecializationMissing['recommendations'][0]['action'] ?? '') === '/quiz',
+    'Secondary LET readiness did not require its registered specialization.');
+
 $coldStart = LearningReadinessService::build([], []);
 $assert(($coldStart['status'] ?? '') === 'INSUFFICIENT_PRACTICE_DATA'
     && ($coldStart['is_pass_probability'] ?? true) === false,

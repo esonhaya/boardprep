@@ -411,7 +411,7 @@ final class LearningReadinessService
         if ($scope['board'] === 'civil-service') {
             return !in_array($scope['civil_service_level'], ['PROFESSIONAL', 'SUBPROFESSIONAL'], true);
         }
-        if ($scope['board'] === 'let' && $scope['let_level'] !== '') {
+        if ($scope['board'] === 'let') {
             $validation = \App\Services\Quiz\LET\LETVariantRegistry::validateConfiguration([
                 'level' => $scope['let_level'],
                 'specialization_id' => $scope['let_specialization'],
