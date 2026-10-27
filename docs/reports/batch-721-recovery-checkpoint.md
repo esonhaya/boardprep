@@ -79,3 +79,16 @@ Cumulative productive time across the interrupted B721 session is not measurable
 - `STORAGE_AVAILABLE`: 3,162,260 KiB at checkpoint time.
 - `NEXT_ACTION`: Run Full Doctor with the required production/JSON environment and 1 GiB PHP limit; save stdout JSON and stderr, record exit code, artifact byte count and SHA-256, parse release gate and P0–P3. If it is incomplete or fails, diagnose and rerun/repair before finalization.
 - `RECOVERY_NOTES`: The canonical question, eligibility, source and study-link hashes match the protected values. All three named pre-existing untracked files still have SHA-256 `4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945`. Existing attached tmux/Codex session remains active; no process was recreated or terminated. Wake-lock command returned 0; Android lock state remains unverified.
+
+## Current-HEAD Full Doctor checkpoint
+
+- `CHECKPOINT_TIME_UTC`: `2026-10-27T22:15:34Z` (2026-10-28 06:15:34 PHT).
+- `CURRENT_HEAD`: `4a05da3c1da64f74ca170aca583b168ae0b19743`.
+- `CURRENT_BRANCH`: `batch-721-adaptive-learning-readiness`.
+- `COMPLETED_WORK`: Adaptive helper autoload repair is committed at `933d83f`. All 12 targeted post-fix tests passed with assertions enabled. The required Full Doctor command completed on current HEAD with exit `0`, valid complete JSON, release gate PASS, P0=0, P1=0, P2=1, P3=2; health fail entities=0; storage cleanup PASS.
+- `FILES_CHANGED`: `docs/reports/batch-721-overnight-adaptive-learning.md`, `docs/reports/batch-721-verification.json`, and this checkpoint are being updated with current-HEAD results. No additional application source changes after `933d83f`.
+- `TESTS_PASSED`: Prior 55 focused regression commands remain relevant; current continuation 12/12 focused tests passed; Full Doctor passed on this current HEAD. Current Doctor artifact is 2,353,200 bytes at `/data/data/com.termux/files/usr/tmp/batch721-full-doctor-933d83f.json`, SHA-256 `59b2f0bde8c7dd34715eff6675aebc89deb9f0f8d5ae05fed377ee622f44f7ad`.
+- `TESTS_FAILED`: 0 final assertion failures. Two initial helper scripts failed before assertions due missing autoloader entries and passed after repair.
+- `STORAGE_AVAILABLE`: 3,152,500 KiB after Doctor; minimum observed during Doctor 2,973,507,584 bytes, above the required 1,837,243,096-byte floor.
+- `NEXT_ACTION`: Finalize the report/checkpoint/verification JSON; retry Termux clipboard with the final report content and compare full SHA-256; record final time, commit hashes and readback result. Do not start Batch 722.
+- `RECOVERY_NOTES`: Protected canonical, eligibility, source, study-link, attempts, weakness, academic decision/review, flashcard exclusion and three pre-existing untracked file hashes match their saved values. `boardprep721` remains attached; `termux-wake-lock` returned exit 0, but Android lock state is not independently observable. Browser acceptance remains `NOT_EXECUTED`.

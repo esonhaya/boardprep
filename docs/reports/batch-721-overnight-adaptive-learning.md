@@ -1,6 +1,6 @@
 # BoardPrep Batch 721 — Adaptive Learning, Readiness & Progress Intelligence
 
-**Outcome: COMPLETE.** Adaptive learning and readiness implementation `ef58ceaf653c0543518320e5285712a12bb1f0c7`, delivery documentation `817dd96`, and the final LET-variant readiness guard `460b145b51ae171984cb172286f3c6e8320f41b3` are committed on `batch-721-adaptive-learning-readiness`. The final-HEAD Full Doctor gate passed with P0=0 and P1=0. Human academic review remains deferred; no pending proposal was approved or imported.
+**Outcome: COMPLETE.** Adaptive learning and readiness implementation `ef58ceaf653c0543518320e5285712a12bb1f0c7`, final LET-variant readiness guard `460b145b51ae171984cb172286f3c6e8320f41b3`, and recovered-session adaptive-helper autoload repair `933d83fe9ad6419dc1cb14b2a253c4cfdcbb1b5c` are committed on `batch-721-adaptive-learning-readiness`. The current Full Doctor release gate passed with P0=0 and P1=0. Human academic review remains deferred; no pending proposal was approved or imported.
 
 ## Baseline and recovery
 
@@ -8,6 +8,7 @@
 - B720 implementation: `4ae65f299af48895591af677446076e5a45a552b`.
 - B720 final report/documentation tip and B721 base: `f65de54404678d07a2a0fb09665f5ceff1808220`. Git history and `batch-720-verification.json` confirm the final release gate PASS, P0=0 and P1=0.
 - The existing B721 branch was recovered at `460b145b51ae171984cb172286f3c6e8320f41b3`; the adaptive implementation and final readiness guard were already committed. The only recovery edit at entry was the in-progress checkpoint; it was preserved and completed. No implementation was restarted and no second worktree was created.
+- During this continuation, two adaptive helper tests exposed missing legacy autoloader entries. Five mappings were added in `933d83f`; all 12 targeted adaptive, analytics, mobile, recommendation, eligibility and attempt-placement tests passed with PHP assertions enabled.
 - Existing worktrees, both stashes, the dirty B695 checkout, HayaDoctor gitlink and unrelated project data were retained.
 - Free space immediately before Doctor was about 3.07 GiB. Doctor measured 3,296,985,088 bytes available before fixtures, a 1,837,243,096-byte required floor (including its reserve), and 3,037,720,576 bytes minimum observed.
 - The earlier B721 session did not maintain an active-work timer. Its cumulative productive duration and start time cannot be reconstructed from commit timestamps. The resumed verification window began about 2026-10-28 01:01 PHT and continued through final report delivery; its wall time is recorded in the final execution fields below. No eight-hour duration is claimed and no runtime was padded.
@@ -21,6 +22,7 @@ The existing adaptive path ranked topic weakness and exposure but could repeated
 - Candidate ordering is deterministic for an equivalent request/history. Canonical question IDs are deduplicated; board/subject/variant eligibility, quarantine, blueprint count and difficulty allocation remain authoritative. A too-small difficulty pool preserves the existing safe fallback instead of silently substituting an ineligible question.
 - Practice explanations describe the deterministic evidence and limits; they do not claim AI reasoning or mastery.
 - The isolated evaluator covers 12 profiles: cold start, one attempt, repeated mistakes, weak subject, multiple weak topics, high performance, uneven coverage, recent exposure, stale history, tiny pool, removed eligibility and cross-board exposure. It checks deterministic ranking, uniqueness, fallback and scoped weakness. Synthetic rankings do not prove learning outcomes. Production eligibility was separately tested against all 10 board configurations.
+- The five global adaptive helper classes now resolve through the legacy autoloader map. Their isolated orderer/partitioner tests and the adaptive extraction contract had failed before assertions because those entries were missing; the repaired tests pass with assertions enabled.
 
 The session-start snapshot now stores the exact resolved board, subject and candidate variant beside each attempt question. This fixes ambiguous cross-board question attribution for new history without modifying canonical questions. Legacy mixed-board answers that lack this placement are retained in overall history, omitted from unsafe subject/topic comparisons and disclosed as unattributed.
 
@@ -96,7 +98,7 @@ The final-HEAD Doctor's simulator-state isolation and release-storage checks pas
 
 ## Verification and Full Doctor
 
-The recovered final HEAD passed 55 fresh focused and integration test commands with zero failures, plus the Full Doctor release suite. Coverage includes 12-profile adaptive evaluation; multi-board mapping and learner journeys; subject/topic/readiness calculations; cold starts, invalid and incomplete variants, thin pools, invalid routes, deterministic selection and no duplicates; simulations and blueprint allocation; results, Mistake Notebook, Notes, Flashcards, Study Library, CSRF, privacy, Developer tools, academic import authorization, the B717 276-proposal gate and Q6403/Q1536/Q1537 safeguards. Current-HEAD PHP syntax and report consistency checks are recorded in the verification report.
+The recovered implementation passed 55 focused and integration test commands with zero assertion failures, plus the prior Full Doctor release suite. This continuation then ran 12 targeted tests after the autoloader repair; all 12 passed with assertions enabled. Coverage includes 12-profile adaptive evaluation; multi-board mapping and learner journeys; subject/topic/readiness calculations; cold starts, invalid and incomplete variants, thin pools, invalid routes, deterministic selection and no duplicates; simulations and blueprint allocation; results, Mistake Notebook, Notes, Flashcards, Study Library, CSRF, privacy, Developer tools, academic import authorization, the B717 276-proposal gate and Q6403/Q1536/Q1537 safeguards. Current-HEAD PHP syntax and report consistency checks are recorded in the verification report.
 
 One early `LearnerJourneyHttpTest` destination assertion failed after eligibility IDs replaced a matching human-readable label. The code now preserves the display label only when both values resolve to the same configured subject; the retest passed and confirmed exact-once persistence. A separate test-loop filename typo was corrected by running the actual `Batch712MistakeRecoveryTest.php`; no assertion failure remained.
 
@@ -106,10 +108,10 @@ Full Doctor command:
 APP_ENV=production APP_DEBUG=false DB_DRIVER=json APP_STORAGE_PATH=/data/data/com.termux/files/home/boardprep-batch-706/storage php -d memory_limit=1G tools/doctor.php --release --json
 ```
 
-- Final tested SHA: `460b145b51ae171984cb172286f3c6e8320f41b3`; exit code `0`. An earlier same-SHA attempt returned exit 1 with empty stdout and only a Termux linker warning, so it was treated as incomplete and not reused.
-- Final JSON artifact: `/data/data/com.termux/files/usr/tmp/batch721-full-doctor-460b145-recovery.json`, 2,353,205 bytes, SHA-256 `5b02bf3ad71f3ed746d0ea24184ca8a7cc808861997c5fb77ff6da8d25f2815d`; generated at `2026-10-27T17:43:53Z`. The earlier `ef58cea` PASS artifact is retained as historical evidence.
-- Release decision `RELEASE_READY_WITH_NONBLOCKING_DEBT`; gate `PASS`; P0=0, P1=0, P2=1, P3=2. Health is `REVIEW` with 835 warning/review signals and zero fail entities. 25 of 26 release domains passed; Source Traceability remains `REVIEW` with eight review signals and zero hard source defects.
-- Storage flow PASS: required available 1,837,243,096 bytes; available before Doctor fixtures 2,779,484,160 bytes; minimum observed 2,406,301,696 bytes; cleanup PASS. Existing fixture and session directories remained untouched.
+- Current tested HEAD: `4a05da3c1da64f74ca170aca583b168ae0b19743`; application-source commit `933d83fe9ad6419dc1cb14b2a253c4cfdcbb1b5c`; exit code `0`.
+- Current JSON artifact: `/data/data/com.termux/files/usr/tmp/batch721-full-doctor-933d83f.json`, 2,353,200 bytes, SHA-256 `59b2f0bde8c7dd34715eff6675aebc89deb9f0f8d5ae05fed377ee622f44f7ad`; generated at `2026-10-27T22:12:07Z`. Release decision `RELEASE_READY_WITH_NONBLOCKING_DEBT`; gate `PASS`; P0=0, P1=0, P2=1, P3=2. Health is `REVIEW` with 835 review/warning signals and zero fail entities. 25 of 26 release domains passed; Source Traceability remains `REVIEW` with eight review signals and zero hard source defects.
+- The earlier successful Doctor artifact on `460b145` remains historical evidence; this current-HEAD run is the release result for the continuation.
+- Storage flow PASS: required available 1,837,243,096 bytes; available before Doctor fixtures 3,237,502,976 bytes; minimum observed 2,973,507,584 bytes; cleanup PASS. Existing fixture and session directories remained untouched.
 - Remaining Doctor queue is one nonblocking P2 Source Traceability item and P3 Content and Feature items, all post-release. Academic review remains independently deferred.
 
 Exact command groups, tests, exit codes, metrics and integrity values are in `batch-721-verification.json` and the related JSON reports.
@@ -117,6 +119,7 @@ Exact command groups, tests, exit codes, metrics and integrity values are in `ba
 ## Delivery
 
 - Implementation commit: `ef58ceaf653c0543518320e5285712a12bb1f0c7`.
+- Recovered-session autoloader testability fix: `933d83fe9ad6419dc1cb14b2a253c4cfdcbb1b5c`.
 - Documentation is committed separately. To avoid a self-referential report, the final documentation commit SHA is returned outside the report after that commit.
 - Final Git status is expected to retain only the three named pre-existing untracked storage files; no unrelated file was staged.
 - Push, merge and deployment were not performed. Batch 722 was not started.
@@ -131,39 +134,39 @@ See also: `batch-721-adaptive-evaluation.json`, `batch-721-readiness-analytics.j
 ## Final execution fields
 
 ```text
-START_TIME=Not recorded; B721 branch checkout was 2026-10-27 04:05 PHT and first implementation commit was 05:03:03 PHT
-RECOVERY_WINDOW_START=2026-10-28 01:01 PHT
-END_TIME=2026-10-28 01:59 PHT (after final clipboard readback and report finalization)
-ACTUAL_ELAPSED_TIME=Cumulative B721 duration not measurable; resumed verification segment was approximately 58 minutes wall time (01:01–01:59 PHT)
-PRODUCTIVE_RUNTIME_ESTIMATE_IF_MEASURABLE=Not measurable across the interrupted batch; the earlier session had no active-work timer. No runtime padding was used.
-TERMUX_WAKE_LOCK_REQUEST_STATUS=termux-wake-lock available; command exit status 0; Android wake-lock state not independently verified
-TMUX_SESSION_STATUS=tmux installed; no active tmux session; existing Codex session left running
-INTERRUPTIONS=At least one prior recovered/interrupted state; exact count unknown. No interruption during this verification segment.
-RECOVERY_STATUS=Recovered existing B721 branch and completed final-HEAD verification; no duplicate worktree created
-HEAD_BEFORE=460b145b51ae171984cb172286f3c6e8320f41b3
-HEAD_AFTER_IMPLEMENTATION=460b145b51ae171984cb172286f3c6e8320f41b3
+START_TIME=2026-10-28 05:41:45 PHT (active continuation; original Batch 721 active start time is not recorded)
+RECOVERY_WINDOW_START=2026-10-28 05:41:45 PHT
+END_TIME=2026-10-28 06:18 PHT (final documentation commit and clipboard readback; minute-resolution time)
+ACTUAL_ELAPSED_TIME=Approximately 37 minutes for this continuation (05:41:45–06:18 PHT); cumulative original B721 duration is not measurable
+PRODUCTIVE_RUNTIME_ESTIMATE_IF_MEASURABLE=Approximately 37 minutes in this continuation, including the autoloader repair, 12 focused tests, Full Doctor and finalization; prior batch time is unmeasurable. No runtime padding was used.
+TERMUX_WAKE_LOCK_REQUEST_STATUS=termux-wake-lock available; command exit status 0 during this continuation; Android wake-lock state not independently verified
+TMUX_SESSION_STATUS=tmux installed; existing boardprep721 session available and attached with active Codex; session not recreated or terminated
+INTERRUPTIONS=At least one prior recovered/interrupted B721 state; exact count unknown. No interruption during this continuation.
+RECOVERY_STATUS=Recovered the completed B721 branch, fixed the adaptive helper autoload test gap, reran targeted tests and current-HEAD Full Doctor; no duplicate worktree created
+HEAD_BEFORE=3294b8d584f42cb46bfcaf2ec7927b4b108c8018
+HEAD_AFTER_IMPLEMENTATION=933d83fe9ad6419dc1cb14b2a253c4cfdcbb1b5c
 HEAD_AFTER_FINAL=Supplied in final delivery message; not embedded to avoid self-reference
 WORKSTREAMS_COMPLETED=A-H; mobile static, responsive-contract, and HTTP checks passed
 WORKSTREAMS_PARTIAL=Real-browser viewport and device accessibility acceptance NOT_EXECUTED
 FEATURES_IMPLEMENTED=Adaptive topic selection; answer-event and scoped topic/subject analytics; transparent readiness coverage; actionable recommendations; ten-board practice/simulation consistency; mobile readiness views; request-local bank-read reduction
-ISSUES_FIXED=LET readiness now withholds exact subject pool counts until level and specialization validate; current metrics and recommendations preserve saved board/variant attribution
-TESTS_EXECUTED=55 focused/relevant regression commands plus final Full Doctor; four PHP lint checks, six modified-JSON validations, and git diff --check
-TESTS_PASSED=55 focused commands; final Full Doctor release gate PASS; all finalization checks PASS
-TESTS_FAILED=0 focused assertions. First final-HEAD Doctor attempt exited 1 with empty output and was classified incomplete; full rerun passed.
-FULL_DOCTOR_STATUS=PASS on 460b145b51ae171984cb172286f3c6e8320f41b3; exit 0; artifact SHA-256 5b02bf3ad71f3ed746d0ea24184ca8a7cc808861997c5fb77ff6da8d25f2815d
+ISSUES_FIXED=LET readiness now withholds exact subject pool counts until level and specialization validate; current metrics and recommendations preserve saved board/variant attribution; adaptive helper tests now resolve through the legacy autoloader
+TESTS_EXECUTED=55 prior focused regression commands plus 12 current-implementation tests and current-HEAD Full Doctor; PHP lint, JSON parsing, hashes and git diff checks
+TESTS_PASSED=55 prior focused commands; 12/12 current targeted commands with assertions enabled; current-HEAD Full Doctor release gate PASS
+TESTS_FAILED=0 final assertion failures. Two initial helper-test invocations failed before assertions due missing autoload mappings; repaired code and all 12 current tests passed. Prior incomplete Doctor attempt is recorded separately and was followed by a successful run.
+FULL_DOCTOR_STATUS=PASS on 4a05da3c1da64f74ca170aca583b168ae0b19743; exit 0; JSON artifact /data/data/com.termux/files/usr/tmp/batch721-full-doctor-933d83f.json; 2,353,200 bytes; SHA-256 59b2f0bde8c7dd34715eff6675aebc89deb9f0f8d5ae05fed377ee622f44f7ad; generated 2026-10-27T22:12:07Z
 P0=0
 P1=0
 P2=1
 P3=2
 BROWSER_STATUS=NOT_EXECUTED; Chromium unavailable and Playwright import rejects Android
-STORAGE_BEFORE=About 2.6 GiB at initial recovery inspection; 2,780,061,696 bytes immediately before Full Doctor
-STORAGE_AFTER=2,813,063,168 bytes immediately after Full Doctor; minimum during Doctor 2,406,301,696 bytes
+STORAGE_BEFORE=3,162,260 KiB immediately before current Full Doctor; required available floor 1,837,243,096 bytes
+STORAGE_AFTER=3,155,208 KiB immediately after current Full Doctor; minimum during Doctor 2,973,507,584 bytes
 INTEGRITY_STATUS=PASS; 9,123 canonical questions; all protected hashes match before/after; zero production learner mutations
 B695_PROPOSALS=276 pending and noncanonical
 ACADEMIC_IMPORTS=0; approvals=0
 PUSH_STATUS=NOT_PERFORMED
 DEPLOY_STATUS=NOT_PERFORMED
-CLIPBOARD_STATUS=UNVERIFIED; two attempts returned 0-byte readback despite set/get exit status 0
+CLIPBOARD_STATUS=UNVERIFIED; set/get exited 0, but readback was empty; final post-commit byte count and hashes are in the verification JSON
 ```
 
-Two attempts to set the full report (stdin and argument forms) returned exit 0, but `termux-clipboard-get` also returned exit 0 with 0 bytes each time; neither SHA-256 matched the report. The clipboard status remains `UNVERIFIED`. The verification JSON records the final post-commit readback attempt and exact hashes. Because complete content could not be verified, this report is printed in full in the delivery message.
+This continuation's clipboard attempt used the report SHA-256 `7765bd05cd721f44b1248353864426c3812b9b07475853eb2735628a21d7aba9`; `termux-clipboard-set` and `termux-clipboard-get` both exited 0, but readback was 0 bytes with SHA-256 `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`. Status is `UNVERIFIED`. A final post-commit retry and exact hashes will be recorded in the verification JSON. The report is printed in full in the delivery message.

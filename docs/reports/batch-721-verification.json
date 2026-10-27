@@ -405,24 +405,115 @@
     "canonical_imports": 0
   },
   "execution_protection": {
-    "recovery_window_started_pht": "2026-10-28 01:01",
+    "recovery_window_started_pht": "2026-10-28 05:41:45 (active continuation; original batch active start not recorded)",
     "cumulative_original_batch_start": "NOT_MEASURABLE_FROM_RECOVERED_SESSION",
-    "cumulative_productive_runtime": "NOT_MEASURABLE; prior active-work timer was not maintained; no padding used",
+    "cumulative_productive_runtime": "Original cumulative runtime not measurable; current continuation includes implementation repair, targeted tests, Full Doctor and reporting; no padding used",
     "wake_lock_command": "termux-wake-lock",
     "wake_lock_command_available": true,
     "wake_lock_exit_code": 0,
     "android_wake_lock_state_independently_verified": false,
     "tmux_installed": true,
-    "tmux_session_available": false,
+    "tmux_session_available": true,
+    "tmux_session_name": "boardprep721",
+    "tmux_session_attached": true,
     "existing_codex_session_terminated": false,
     "prior_interruptions": "At least one prior interrupted/recovered state; exact count unknown",
     "dirty_b695_checkout_modified": false,
     "other_worktrees_stashes_hayadoctor_modified": false,
     "browser": "NOT_EXECUTED; Chromium unavailable and Playwright import rejects Android",
-    "recovery_window_started_utc": "2026-10-27T17:01:29Z (approximate; first environment timestamp)",
-    "recovery_window_ended_pht": "2026-10-28 01:57 (approximate; final committed-report readback follows)",
-    "recovery_window_ended_utc": "2026-10-27T17:59:06Z (approximate final checkpoint time)",
-    "recovery_window_wall_elapsed": "Approximately 00:57:37; cumulative original B721 duration remains unmeasurable."
+    "recovery_window_started_utc": "2026-10-27T21:41:45Z (approximate; active tmux session creation)",
+    "recovery_window_ended_pht": "Pending final report and clipboard attempt",
+    "recovery_window_ended_utc": "Pending final report and clipboard attempt",
+    "recovery_window_wall_elapsed": "Pending final report; original cumulative B721 duration remains unmeasurable."
+  },
+  "current_continuation": {
+    "source_commit": "933d83fe9ad6419dc1cb14b2a253c4cfdcbb1b5c",
+    "source_change": "Added the five missing legacy autoloader mappings for adaptive global helper classes so their tests resolve through the application autoloader.",
+    "focused_test_run": {
+      "passed": 12,
+      "failed_assertions": 0,
+      "assertions_enabled": true,
+      "commands": [
+        "tools/Tests/AdaptiveQuestionOrdererTest.php",
+        "tools/Tests/AdaptiveQuestionPartitionerTest.php",
+        "tools/Tests/AdaptiveQuizExtractionTest.php",
+        "tools/Tests/AdaptivePracticeSelectionTest.php",
+        "tools/Tests/AdaptiveQuizProductionContractTest.php",
+        "tools/Tests/AdaptiveLearningEvaluationTest.php",
+        "tools/Tests/MixedBoardSubjectAnalyticsTest.php",
+        "tools/Tests/LearningReadinessMobileContractTest.php",
+        "tools/Tests/StudyRecommendationProductionTest.php",
+        "tools/Tests/StudyRecommendationSubjectRoutingTest.php",
+        "tools/Tests/Batch721TenBoardAdaptiveEligibilityTest.php",
+        "tools/Tests/QuizStartPreparationServiceTest.php"
+      ],
+      "initial_invocation_failures": "Two helper scripts exited before assertions because the legacy autoloader entries were absent; both passed after the code repair."
+    },
+    "full_doctor": {
+      "command": "APP_ENV=production APP_DEBUG=false DB_DRIVER=json APP_STORAGE_PATH=/data/data/com.termux/files/home/boardprep-batch-706/storage php -d memory_limit=1G tools/doctor.php --release --json",
+      "tested_sha": "4a05da3c1da64f74ca170aca583b168ae0b19743",
+      "exit_code": 0,
+      "artifact": "/data/data/com.termux/files/usr/tmp/batch721-full-doctor-933d83f.json",
+      "artifact_bytes": 2353200,
+      "artifact_sha256": "59b2f0bde8c7dd34715eff6675aebc89deb9f0f8d5ae05fed377ee622f44f7ad",
+      "generated_at_utc": "2026-10-27T22:12:07Z",
+      "release_decision": "RELEASE_READY_WITH_NONBLOCKING_DEBT",
+      "release_gate": "PASS",
+      "priority_counts": {
+        "P0": 0,
+        "P1": 0,
+        "P2": 1,
+        "P3": 2
+      },
+      "health_fail_entity_count": 0,
+      "release_domains_passed": 25,
+      "release_domains_review": 1,
+      "source_traceability_review_signals": 8,
+      "storage": {
+        "status": "PASS",
+        "available_before_bytes": 3237502976,
+        "required_available_bytes": 1837243096,
+        "minimum_observed_available_bytes": 2973507584,
+        "cleanup_status": "PASS"
+      },
+      "stderr_note": "Termux linker unused-entry warning only; complete JSON parsed."
+    },
+    "integrity_after_doctor": {
+      "status": "PASS",
+      "canonical_question_count": 9123,
+      "question_sha256": "73cdc775cd7240b57898868d67902d833db1171f947c8dcc89081ddaf46fb4be",
+      "answer_key_sha256": "d4db069ce60c026e214ea68068b8206178782879c61b92271d4b1abe7dc7aad5",
+      "eligibility_sha256": "611f01ca29421c0c890c351c503ab262e87bc551269d78427b9a0889260933a4",
+      "source_registry_sha256": "7c640636dcd3ddd0f865106ba4506a5af5dcd4a02a2074c065f695da5ef2c271",
+      "study_link_sha256": "0e0aebad84afd09e38e477f277bb8086e52eb9b4a2e591c6de41118060a5663d",
+      "attempts_sha256": "e968fd3e8a391065ac2314ab9bcff932fc572cbe6024e16b40569b694bbed84b",
+      "weakness_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "question_statistics_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "flashcard_state_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "proposal_workflow_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "production_learner_mutations": 0,
+      "academic_approvals": 0,
+      "canonical_imports": 0,
+      "pending_b695_proposals": 276
+    },
+    "finalization": {
+      "tmux_session": "boardprep721; attached",
+      "termux_wake_lock_exit_code": 0,
+      "android_wake_lock_state_independently_verified": false,
+      "browser_status": "NOT_EXECUTED",
+      "clipboard_status": "UNVERIFIED_EMPTY_READBACK",
+      "clipboard_precommit_attempt": {
+        "set_exit_code": 0,
+        "get_exit_code": 0,
+        "report_bytes": 22111,
+        "report_sha256": "7765bd05cd721f44b1248353864426c3812b9b07475853eb2735628a21d7aba9",
+        "readback_bytes": 0,
+        "readback_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "push": "NOT_PERFORMED",
+      "deployment": "NOT_PERFORMED",
+      "batch_722_started": false
+    }
   },
   "final_status": "COMPLETE; CLIPBOARD_UNVERIFIED; FULL_TERMINAL_FALLBACK_REQUIRED"
 }
