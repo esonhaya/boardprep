@@ -92,3 +92,16 @@ Cumulative productive time across the interrupted B721 session is not measurable
 - `STORAGE_AVAILABLE`: 3,152,500 KiB after Doctor; minimum observed during Doctor 2,973,507,584 bytes, above the required 1,837,243,096-byte floor.
 - `NEXT_ACTION`: Finalize the report/checkpoint/verification JSON; retry Termux clipboard with the final report content and compare full SHA-256; record final time, commit hashes and readback result. Do not start Batch 722.
 - `RECOVERY_NOTES`: Protected canonical, eligibility, source, study-link, attempts, weakness, academic decision/review, flashcard exclusion and three pre-existing untracked file hashes match their saved values. `boardprep721` remains attached; `termux-wake-lock` returned exit 0, but Android lock state is not independently observable. Browser acceptance remains `NOT_EXECUTED`.
+
+## Final clipboard and delivery checkpoint
+
+- `CHECKPOINT_TIME_UTC`: `2026-10-27T22:17:35Z` (2026-10-28 06:17:35 PHT).
+- `CURRENT_HEAD`: `b776ad8d1fb8826b0629d672baa7a45a8635a5e6`.
+- `CURRENT_BRANCH`: `batch-721-adaptive-learning-readiness`.
+- `COMPLETED_WORK`: Current-head Full Doctor passed with P0=0/P1=0 and storage cleanup PASS. Protected source, learner, academic and untracked storage hashes match. Final report content is committed at `b776ad8`. The final post-commit clipboard attempt completed: set/get each exited 0, but 22,519 report bytes read back as 0 bytes; status is `UNVERIFIED`.
+- `FILES_CHANGED`: Final readback detail and exact SHA values in `docs/reports/batch-721-verification.json`; this checkpoint. The full Markdown report itself was unchanged after the clipboard attempt.
+- `TESTS_PASSED`: 55 prior regression commands; 12/12 current targeted commands with assertions enabled; Full Doctor exit 0, release gate PASS. The two pre-fix helper invocation errors were repaired and both passed on the final targeted run.
+- `TESTS_FAILED`: 0 final assertion failures; no current release-gate P0/P1.
+- `STORAGE_AVAILABLE`: 3,151,048 KiB at final checkpoint; Doctor's minimum observed free storage was 2,973,507,584 bytes.
+- `NEXT_ACTION`: Commit this final verification/checkpoint record, report the resulting HEAD, and deliver the Markdown report as the full terminal fallback. Batch 721 is complete; do not start Batch 722.
+- `RECOVERY_NOTES`: No B695 checkout, other worktree, stash, HayaDoctor gitlink or protected untracked file was modified. No learner mutation, academic approval/import, push, merge or deployment occurred. `boardprep721` remains attached; wake-lock request exit was 0, Android lock state not independently verified. Browser acceptance remains `NOT_EXECUTED`.

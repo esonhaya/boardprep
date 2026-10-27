@@ -422,9 +422,9 @@
     "other_worktrees_stashes_hayadoctor_modified": false,
     "browser": "NOT_EXECUTED; Chromium unavailable and Playwright import rejects Android",
     "recovery_window_started_utc": "2026-10-27T21:41:45Z (approximate; active tmux session creation)",
-    "recovery_window_ended_pht": "Pending final report and clipboard attempt",
-    "recovery_window_ended_utc": "Pending final report and clipboard attempt",
-    "recovery_window_wall_elapsed": "Pending final report; original cumulative B721 duration remains unmeasurable."
+    "recovery_window_ended_pht": "2026-10-28 06:18 (minute resolution)",
+    "recovery_window_ended_utc": "2026-10-27T22:18:00Z (minute resolution)",
+    "recovery_window_wall_elapsed": "Approximately 00:36:15 for this continuation (05:41:45–06:18 PHT); original cumulative B721 duration remains unmeasurable."
   },
   "current_continuation": {
     "source_commit": "933d83fe9ad6419dc1cb14b2a253c4cfdcbb1b5c",
@@ -510,6 +510,20 @@
         "readback_bytes": 0,
         "readback_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
       },
+      "clipboard_final_attempt": {
+        "report_commit": "b776ad8d1fb8826b0629d672baa7a45a8635a5e6",
+        "report_path": "docs/reports/batch-721-overnight-adaptive-learning.md",
+        "set_exit_code": 0,
+        "get_exit_code": 0,
+        "report_bytes": 22519,
+        "report_sha256": "deaee8ffe26fb56375236f9c0b4359ca73c50086d2b44030239d7bc1d4331bad",
+        "readback_bytes": 0,
+        "readback_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "UNVERIFIED",
+        "reason": "Clipboard commands returned exit 0 but readback was empty, so the full-content SHA-256 did not match."
+      },
+      "terminal_fallback": "FULL_REPORT_PRINTED_IN_FINAL_DELIVERY",
+      "final_document_commit": "b776ad8d1fb8826b0629d672baa7a45a8635a5e6",
       "push": "NOT_PERFORMED",
       "deployment": "NOT_PERFORMED",
       "batch_722_started": false
