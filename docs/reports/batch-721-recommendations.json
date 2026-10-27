@@ -20,12 +20,36 @@
     "small_pool_behavior": "preserve the existing selection/fallback when a same-difficulty pool cannot fill its slots"
   },
   "actions": [
-    {"condition": "recorded persistent mistakes", "destination": "/mistake-notebook", "label": "Review recorded mistakes"},
-    {"condition": "unassessed subject with an exact eligible pool", "destination": "existing /quiz route with the selected board, subject and required variant", "label": "Try this subject"},
-    {"condition": "registered LET candidate variant", "destination": "existing /quiz balanced selector with the validated level and specialization", "label": "Start balanced practice"},
-    {"condition": "no eligible practice pool or no exact study link", "destination": "/study-library", "label": "Open published Study Library"},
-    {"condition": "repeated weak topic with exact published relationship", "destination": "existing topic-practice action and exact source-linked study section", "label": "Practice topic / review notes"},
-    {"condition": "no learner history", "destination": "/exams or existing balanced /quiz setup", "label": "Choose a board or start diagnostic practice"}
+    {
+      "condition": "recorded persistent mistakes",
+      "destination": "/mistake-notebook",
+      "label": "Review recorded mistakes"
+    },
+    {
+      "condition": "unassessed subject with an exact eligible pool",
+      "destination": "existing /quiz route with the selected board, subject and required variant",
+      "label": "Try this subject"
+    },
+    {
+      "condition": "registered LET candidate variant",
+      "destination": "existing /quiz balanced selector with the validated level and specialization",
+      "label": "Start balanced practice"
+    },
+    {
+      "condition": "no eligible practice pool or no exact study link",
+      "destination": "/study-library",
+      "label": "Open published Study Library"
+    },
+    {
+      "condition": "repeated weak topic with exact published relationship",
+      "destination": "existing topic-practice action and exact source-linked study section",
+      "label": "Practice topic / review notes"
+    },
+    {
+      "condition": "no learner history",
+      "destination": "/exams or existing balanced /quiz setup",
+      "label": "Choose a board or start diagnostic practice"
+    }
   ],
   "cold_start": "no weakness is assigned; learner is directed to board selection or balanced practice",
   "invalid_destination_protection": [
@@ -38,7 +62,26 @@
     "synthetic_profiles": 12,
     "fixture_mutations": 0,
     "production_eligibility": "separately verified against the canonical filtered pool across all 10 active board configurations",
-    "tests": ["AdaptiveLearningEvaluationTest.php", "MixedBoardSubjectAnalyticsTest.php", "StudyRecommendationProductionTest.php", "StudyRecommendationSubjectRoutingTest.php", "TenBoardLearnerJourneyHttpTest.php"]
+    "tests": [
+      "AdaptiveLearningEvaluationTest.php",
+      "MixedBoardSubjectAnalyticsTest.php",
+      "StudyRecommendationProductionTest.php",
+      "StudyRecommendationSubjectRoutingTest.php",
+      "TenBoardLearnerJourneyHttpTest.php"
+    ]
   },
-  "academic_boundary": "The 276 pending B695 proposals remain noncanonical, unapproved and excluded from learner selection."
+  "academic_boundary": "The 276 pending B695 proposals remain noncanonical, unapproved and excluded from learner selection.",
+  "recovery_final_head_retest": {
+    "tested_sha": "460b145b51ae171984cb172286f3c6e8320f41b3",
+    "tests": [
+      "tools/Tests/StudyRecommendationProductionTest.php",
+      "tools/Tests/StudyRecommendationSubjectRoutingTest.php",
+      "tools/Tests/StudyRecommendationActionTest.php",
+      "tools/Tests/StudyRecommendationActionabilityDoctorTest.php",
+      "tools/Tests/StudyDashboardProductionTest.php",
+      "tools/Tests/TenBoardLearnerJourneyHttpTest.php"
+    ],
+    "status": "PASS",
+    "integrity": "Current destinations resolve to existing practice, Mistake Notebook, or published Study Library actions; zero production learner mutations."
+  }
 }

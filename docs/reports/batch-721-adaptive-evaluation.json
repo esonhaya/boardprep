@@ -274,5 +274,29 @@
     ],
     "tested_sha": "ef58ceaf653c0543518320e5285712a12bb1f0c7",
     "test_command": "php tools/Tests/AdaptiveLearningEvaluationTest.php",
-    "exit_code": 0
+    "exit_code": 0,
+    "recovery_final_head_benchmark": {
+        "tested_sha": "460b145b51ae171984cb172286f3c6e8320f41b3",
+        "candidate_count": 1200,
+        "history_attempt_count": 30,
+        "history_answer_events": 600,
+        "selected_count": 20,
+        "warmups": 1,
+        "measured_runs": 7,
+        "timings_ms": [
+            51.959,
+            50.861,
+            51.297,
+            51.181,
+            51.586,
+            51.287,
+            51.798
+        ],
+        "median_ms": 51.297,
+        "minimum_ms": 50.861,
+        "maximum_ms": 51.959,
+        "php_peak_memory_bytes": 6291456,
+        "storage_reads": 0,
+        "fixture_mutations": 0
+    }
 }

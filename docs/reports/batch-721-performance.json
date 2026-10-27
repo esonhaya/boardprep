@@ -3,12 +3,20 @@
   "implementation_sha": "ef58ceaf653c0543518320e5285712a12bb1f0c7",
   "environment": "Android ARM64 / Termux; sequential PHP CLI fixtures; OS filesystem cache not cleared",
   "adaptive_ranking": {
-    "fixture": {"eligible_candidates": 1200, "completed_attempts": 30, "answer_events": 600, "selected_questions": 20},
+    "fixture": {
+      "eligible_candidates": 1200,
+      "completed_attempts": 30,
+      "answer_events": 600,
+      "selected_questions": 20
+    },
     "warmup_count": 1,
     "measured_runs": 7,
     "pre_topic_queue_median_ms": 70.029,
-    "final_median_ms": 51.680,
-    "final_range_ms": [51.183, 52.253],
+    "final_median_ms": 51.68,
+    "final_range_ms": [
+      51.183,
+      52.253
+    ],
     "measured_ranking_cost_reduction_percent": 26.2,
     "peak_php_memory_bytes": 6291456,
     "question_bank_reads": 0,
@@ -16,24 +24,53 @@
     "limitation": "synthetic selector ranking cost; not a production request or learning-outcome measurement"
   },
   "learner_analytics": {
-    "fixture": {"completed_attempts": 30, "answer_events": 600, "subjects": 3, "topics": 3},
+    "fixture": {
+      "completed_attempts": 30,
+      "answer_events": 600,
+      "subjects": 3,
+      "topics": 3
+    },
     "warmup_count": 1,
     "measured_runs_per_path": 7,
     "results_ms": {
-      "subject_aggregation": {"cold": 39.533, "warm_median": 35.444},
-      "topic_aggregation": {"cold": 30.854, "warm_median": 27.842},
-      "full_study_dashboard": {"cold": 1848.602, "warm_median": 196.309},
-      "readiness_aggregation": {"cold": 1189.782, "warm_median": 85.780}
+      "subject_aggregation": {
+        "cold": 39.533,
+        "warm_median": 35.444
+      },
+      "topic_aggregation": {
+        "cold": 30.854,
+        "warm_median": 27.842
+      },
+      "full_study_dashboard": {
+        "cold": 1848.602,
+        "warm_median": 196.309
+      },
+      "readiness_aggregation": {
+        "cold": 1189.782,
+        "warm_median": 85.78
+      }
     },
     "peak_php_memory_bytes": 180690944,
     "cache_note": "cold clears request-local static indexes; warm measurements reuse those indexes in the same process"
   },
   "recommendation_question_bank_reads": {
     "board_contexts": 10,
-    "b720_style_reproduction": {"reads": 10, "elapsed_ms": 7940.758},
-    "b721_shared_request_local_index": {"reads": 1, "elapsed_ms": 2449.107, "additional_warm_reads": 0},
+    "b720_style_reproduction": {
+      "reads": 10,
+      "elapsed_ms": 7940.758
+    },
+    "b721_shared_request_local_index": {
+      "reads": 1,
+      "elapsed_ms": 2449.107,
+      "additional_warm_reads": 0
+    },
     "instrumented_read_reduction_percent": 90,
-    "integrated_readiness_plus_study_index": {"reads": 1, "cold_ms": 3406.485, "warm_ms": 9.714, "additional_warm_reads": 0},
+    "integrated_readiness_plus_study_index": {
+      "reads": 1,
+      "cold_ms": 3406.485,
+      "warm_ms": 9.714,
+      "additional_warm_reads": 0
+    },
     "peak_php_memory_bytes": 152064000,
     "storage_mutations": 0,
     "comparison_limit": "same-process reproduction of the prior per-board indexing pattern; exact read counts are instrumented, wall-time is cache-sensitive"
@@ -47,13 +84,82 @@
     "result": "PASS"
   },
   "flashcard_revalidation": {
-    "question_bank_reads_per_request": [1, 1, 1],
-    "elapsed_ms": [2509.9, 1839.5, 1883.4],
+    "question_bank_reads_per_request": [
+      1,
+      1,
+      1
+    ],
+    "elapsed_ms": [
+      2509.9,
+      1839.5,
+      1883.4
+    ],
     "median_ms": 1883.4,
     "peak_php_memory_mib": 207.5,
     "interpretation": "B720's one-read-per-request optimization remains intact; no new B721 latency improvement is claimed"
   },
   "measured_optimization": "The request-local shared topic index reduced 10 full canonical-bank reads to 1 across 10 board recommendation contexts. Adaptive topic queues reduced the controlled synthetic ranking median from 70.029 ms to 51.680 ms.",
   "remaining_performance_candidate": "The exact eligible-pool readiness scan is about 1.19 seconds on the first measured process pass and about 85.78 ms warm; optimize only with a comparable measurement and preserved eligibility semantics.",
-  "no_claims": ["no multi-user load test", "no rendered browser timing", "no official blueprint or exam pass prediction", "no learning outcome improvement inferred"]
+  "no_claims": [
+    "no multi-user load test",
+    "no rendered browser timing",
+    "no official blueprint or exam pass prediction",
+    "no learning outcome improvement inferred"
+  ],
+  "recovery_final_head_retest": {
+    "tested_sha": "460b145b51ae171984cb172286f3c6e8320f41b3",
+    "note": "Sequential Android/Termux synthetic retest after the LET readiness variant guard; ranking/index implementations were unchanged by that guard.",
+    "analytics_fixture": {
+      "completed_attempts": 30,
+      "answer_events": 600,
+      "subjects": 3,
+      "topics": 3
+    },
+    "analytics_ms": {
+      "subject_aggregation": {
+        "cold": 55.334,
+        "warm_median": 38.467
+      },
+      "topic_aggregation": {
+        "cold": 35.154,
+        "warm_median": 31.906
+      },
+      "full_study_dashboard": {
+        "cold": 4051.09,
+        "warm_median": 265.174
+      },
+      "readiness_aggregation": {
+        "cold": 2201.34,
+        "warm_median": 107.069
+      }
+    },
+    "recommendation_reads": {
+      "board_contexts": 10,
+      "prior_per_board_index_reads": 10,
+      "prior_per_board_elapsed_ms": 10933.717,
+      "shared_request_local_index_reads": 1,
+      "shared_request_local_elapsed_ms": 2857.294,
+      "read_reduction_percent": 90,
+      "integrated_readiness_and_ten_study_contexts": {
+        "question_bank_reads": 1,
+        "cold_ms": 3848.321,
+        "warm_ms": 9.759,
+        "additional_warm_reads": 0,
+        "eligible_subjects": 4,
+        "configured_subjects": 5
+      },
+      "php_peak_memory_bytes": 152064000,
+      "storage_mutations": 0
+    },
+    "analytics_peak_php_memory_bytes": 180690944,
+    "artifacts": [
+      "/data/data/com.termux/files/usr/tmp/batch721-recovery-20261027/learning-analytics-benchmark.json",
+      "/data/data/com.termux/files/usr/tmp/batch721-recovery-20261027/recommendation-read-profile.json"
+    ],
+    "limits": [
+      "Synthetic sequential workload; not a multi-user or production latency test.",
+      "OS filesystem cache was not cleared.",
+      "No learning outcome or official exam readiness claim is inferred."
+    ]
+  }
 }

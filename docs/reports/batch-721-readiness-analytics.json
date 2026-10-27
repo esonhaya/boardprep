@@ -33,7 +33,11 @@
   },
   "readiness": {
     "indicator": "practice coverage and observed performance; not mastery and not an examination pass probability",
-    "states": ["INSUFFICIENT_PRACTICE_DATA", "VARIANT_REQUIRED", "PRACTICE_DATA_AVAILABLE"],
+    "states": [
+      "INSUFFICIENT_PRACTICE_DATA",
+      "VARIANT_REQUIRED",
+      "PRACTICE_DATA_AVAILABLE"
+    ],
     "pool_availability": "uses current board, candidate variant, canonical eligibility, quarantine and question-selection filters",
     "no_pool_state": "NO_ELIGIBLE_PRACTICE_POOL is separated from an unassessed learner subject",
     "board_limits": {
@@ -54,5 +58,17 @@
     "LearnerDashboardReliabilityTest.php",
     "LearnerJourneyHttpTest.php",
     "TenBoardLearnerJourneyHttpTest.php"
-  ]
+  ],
+  "recovery_final_head_retest": {
+    "status": "PASS",
+    "tested_sha": "460b145b51ae171984cb172286f3c6e8320f41b3",
+    "tests": [
+      "tools/Tests/MixedBoardSubjectAnalyticsTest.php",
+      "tools/Tests/LearnerJourneyHttpTest.php",
+      "tools/Tests/TenBoardLearnerJourneyHttpTest.php",
+      "tools/Tests/LearningReadinessMobileContractTest.php"
+    ],
+    "variant_guard": "PASS: LET without level and LET Secondary without registered specialization return VARIANT_REQUIRED; eligible subject pool counts remain null until the variant is valid.",
+    "integrity": "No production learner or canonical data mutations."
+  }
 }

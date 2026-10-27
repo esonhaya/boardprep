@@ -2,7 +2,12 @@
   "batch": 721,
   "tested_sha": "ef58ceaf653c0543518320e5285712a12bb1f0c7",
   "status": "STATIC_AND_HTTP_CONTRACTS_PASS",
-  "changed_interfaces": ["dashboard preparation snapshot", "progress preparation overview", "subject coverage rows", "readiness explanations and recommendations"],
+  "changed_interfaces": [
+    "dashboard preparation snapshot",
+    "progress preparation overview",
+    "subject coverage rows",
+    "readiness explanations and recommendations"
+  ],
   "changes": [
     "mobile one-column layout for readiness details",
     "wrapping board, variant, coverage and explanation text",
@@ -10,7 +15,12 @@
     "semantic heading, status text, and readable no-data / variant-required states",
     "explicit disclaimer that practice coverage is not mastery or an official pass predictor"
   ],
-  "viewport_contracts_px": [320, 360, 390, 430],
+  "viewport_contracts_px": [
+    320,
+    360,
+    390,
+    430
+  ],
   "verification": [
     "php tools/Tests/LearningReadinessMobileContractTest.php",
     "php tools/Tests/ProgressRecommendationViewTest.php",
@@ -20,5 +30,17 @@
   ],
   "real_browser_status": "NOT_EXECUTED",
   "reason": "No Chromium executable is installed; importing the repository Playwright package on Termux fails with Error: Unsupported platform: android. No browser was installed and no screenshots were claimed.",
-  "accessibility_limit": "Static markup and HTTP contracts were checked; actual visual viewport rendering, screen-reader output, and device accessibility acceptance were not executed."
+  "accessibility_limit": "Static markup and HTTP contracts were checked; actual visual viewport rendering, screen-reader output, and device accessibility acceptance were not executed.",
+  "recovery_final_head_retest": {
+    "tested_sha": "460b145b51ae171984cb172286f3c6e8320f41b3",
+    "final_head_retest": [
+      "tools/Tests/LearningReadinessMobileContractTest.php",
+      "tools/Tests/StudyDashboardViewContractTest.php",
+      "tools/Tests/StudyDashboardWebTest.php",
+      "tools/Tests/ProgressRecommendationViewTest.php",
+      "tools/Tests/TenBoardLearnerJourneyHttpTest.php"
+    ],
+    "final_head_static_and_http_result": "PASS",
+    "real_browser_status": "NOT_EXECUTED"
+  }
 }

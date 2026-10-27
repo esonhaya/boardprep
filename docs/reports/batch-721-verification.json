@@ -105,30 +105,63 @@
   "test_runner_note": "One safety-loop lookup used the wrong filename Batch712MistakeRecoveryTest.php; that name did not exist and no test ran under it. The actual Batch712MistakeRecoveryTest.php was then run and passed. No assertion failure remained.",
   "full_doctor": {
     "command": "APP_ENV=production APP_DEBUG=false DB_DRIVER=json APP_STORAGE_PATH=/data/data/com.termux/files/home/boardprep-batch-706/storage php -d memory_limit=1G tools/doctor.php --release --json",
-    "tested_sha": "ef58ceaf653c0543518320e5285712a12bb1f0c7",
+    "tested_sha": "460b145b51ae171984cb172286f3c6e8320f41b3",
     "exit_code": 0,
-    "artifact": "/data/data/com.termux/files/usr/tmp/batch721-full-doctor-ef58cea.json",
-    "artifact_bytes": 2352541,
-    "artifact_sha256": "ef038899b2aba53bc699766e7ae5088c42bff3d114efa5dfad8ab28ad403f76c",
-    "generated_at_utc": "2026-10-26T21:30:13+00:00",
+    "artifact": "/data/data/com.termux/files/usr/tmp/batch721-full-doctor-460b145-recovery.json",
+    "artifact_bytes": 2353205,
+    "artifact_sha256": "5b02bf3ad71f3ed746d0ea24184ca8a7cc808861997c5fb77ff6da8d25f2815d",
+    "generated_at_utc": "2026-10-27T17:43:53+00:00",
     "release_decision": "RELEASE_READY_WITH_NONBLOCKING_DEBT",
     "release_gate": "PASS",
-    "priority_counts": {"P0": 0, "P1": 0, "P2": 1, "P3": 2},
-    "health": {"status": "REVIEW", "fail_entity_count": 0, "issue_count": 835},
-    "release_domains": {"pass": 25, "review": {"SOURCE_TRACEABILITY": "review signals only; no hard source defect"}},
+    "priority_counts": {
+      "P0": 0,
+      "P1": 0,
+      "P2": 1,
+      "P3": 2
+    },
+    "health": {
+      "status": "REVIEW",
+      "fail_entity_count": 0,
+      "issue_count": 835
+    },
+    "release_domains": {
+      "pass": 25,
+      "review": {
+        "SOURCE_TRACEABILITY": "8 review signals; zero hard source defects"
+      }
+    },
     "nonblocking_action_queue": [
-      {"priority": "P2", "domain": "SOURCE_TRACEABILITY", "timing": "POST_RELEASE"},
-      {"priority": "P3", "domain": "CONTENT", "timing": "POST_RELEASE"},
-      {"priority": "P3", "domain": "FEATURE", "timing": "POST_RELEASE"}
+      {
+        "priority": "P2",
+        "domain": "SOURCE_TRACEABILITY",
+        "timing": "POST_RELEASE"
+      },
+      {
+        "priority": "P3",
+        "domain": "CONTENT",
+        "timing": "POST_RELEASE"
+      },
+      {
+        "priority": "P3",
+        "domain": "FEATURE",
+        "timing": "POST_RELEASE"
+      }
     ],
     "storage": {
       "status": "PASS",
       "required_available_bytes": 1837243096,
-      "available_before_bytes": 3296985088,
-      "minimum_observed_available_bytes": 3037720576,
+      "available_before_bytes": 2779484160,
+      "minimum_observed_available_bytes": 2406301696,
       "cleanup_status": "PASS",
       "preexisting_fixture_directories_left_untouched": true,
       "preexisting_session_directories_left_untouched": true
+    },
+    "stderr_note": "205 bytes containing only the Termux linker unused-DT-entry warning; stdout parsed as complete JSON.",
+    "incomplete_attempt_same_sha": {
+      "exit_code": 1,
+      "artifact_bytes": 0,
+      "status": "INCOMPLETE_NOT_USED_AS_GATE_RESULT",
+      "reason": "The first attempt emitted no JSON and only the Termux linker warning; a full rerun on this exact SHA passed."
     }
   },
   "browser": {
@@ -162,6 +195,199 @@
     "push": "NOT_PERFORMED",
     "merge": "NOT_PERFORMED",
     "deployment": "NOT_PERFORMED",
-    "final_documentation_commit": "not embedded in its own commit; reported after report commit"
-  }
+    "final_documentation_commit": "Pending commit; report commit SHA will be supplied outside the self-referential report.",
+    "clipboard_status": "PENDING_FULL_REPORT_SHA256_READBACK"
+  },
+  "historical_implementation_full_doctor_ef58cea": {
+    "command": "APP_ENV=production APP_DEBUG=false DB_DRIVER=json APP_STORAGE_PATH=/data/data/com.termux/files/home/boardprep-batch-706/storage php -d memory_limit=1G tools/doctor.php --release --json",
+    "tested_sha": "ef58ceaf653c0543518320e5285712a12bb1f0c7",
+    "exit_code": 0,
+    "artifact": "/data/data/com.termux/files/usr/tmp/batch721-full-doctor-ef58cea.json",
+    "artifact_bytes": 2352541,
+    "artifact_sha256": "ef038899b2aba53bc699766e7ae5088c42bff3d114efa5dfad8ab28ad403f76c",
+    "generated_at_utc": "2026-10-26T21:30:13+00:00",
+    "release_decision": "RELEASE_READY_WITH_NONBLOCKING_DEBT",
+    "release_gate": "PASS",
+    "priority_counts": {
+      "P0": 0,
+      "P1": 0,
+      "P2": 1,
+      "P3": 2
+    },
+    "health": {
+      "status": "REVIEW",
+      "fail_entity_count": 0,
+      "issue_count": 835
+    },
+    "release_domains": {
+      "pass": 25,
+      "review": {
+        "SOURCE_TRACEABILITY": "review signals only; no hard source defect"
+      }
+    },
+    "nonblocking_action_queue": [
+      {
+        "priority": "P2",
+        "domain": "SOURCE_TRACEABILITY",
+        "timing": "POST_RELEASE"
+      },
+      {
+        "priority": "P3",
+        "domain": "CONTENT",
+        "timing": "POST_RELEASE"
+      },
+      {
+        "priority": "P3",
+        "domain": "FEATURE",
+        "timing": "POST_RELEASE"
+      }
+    ],
+    "storage": {
+      "status": "PASS",
+      "required_available_bytes": 1837243096,
+      "available_before_bytes": 3296985088,
+      "minimum_observed_available_bytes": 3037720576,
+      "cleanup_status": "PASS",
+      "preexisting_fixture_directories_left_untouched": true,
+      "preexisting_session_directories_left_untouched": true
+    }
+  },
+  "recovery_final_head_verification": {
+    "tested_sha": "460b145b51ae171984cb172286f3c6e8320f41b3",
+    "focused_commands_passed": 55,
+    "focused_commands_failed": 0,
+    "focused_test_groups": [
+      {
+        "group": "readiness_and_all_board_journeys",
+        "exit_code_each": 0,
+        "commands": [
+          "php tools/Tests/MixedBoardSubjectAnalyticsTest.php",
+          "php tools/Tests/LearningReadinessMobileContractTest.php",
+          "php tools/Tests/StudyRecommendationProductionTest.php",
+          "php tools/Tests/StudyRecommendationSubjectRoutingTest.php",
+          "php tools/Tests/LearnerJourneyHttpTest.php",
+          "php tools/Tests/TenBoardLearnerJourneyHttpTest.php"
+        ]
+      },
+      {
+        "group": "adaptive_analytics_and_dashboard",
+        "exit_code_each": 0,
+        "commands": [
+          "php tools/Tests/AdaptiveLearningEvaluationTest.php",
+          "php tools/Tests/QuizStartPreparationServiceTest.php",
+          "php tools/Tests/AdaptivePracticeSelectionTest.php",
+          "php tools/Tests/PerformanceAnalyticsPipelineTest.php",
+          "php tools/Tests/BoardScopedLearningContextTest.php",
+          "php tools/Tests/StudyDashboardAggregateTest.php",
+          "php tools/Tests/StudyDashboardEmptyStateTest.php",
+          "php tools/Tests/StudyDashboardActionabilityTest.php",
+          "php tools/Tests/StudyDashboardApiBoundaryTest.php",
+          "php tools/Tests/StudyDashboardWebTest.php",
+          "php tools/Tests/StudyDashboardViewContractTest.php",
+          "php tools/Tests/ProgressRecommendationViewTest.php",
+          "php tools/Tests/LearnerDashboardReliabilityTest.php",
+          "php tools/Tests/StudyRecommendationActionTest.php",
+          "php tools/Tests/StudyRecommendationActionabilityDoctorTest.php",
+          "php tools/Tests/StudyDashboardProductionTest.php"
+        ]
+      },
+      {
+        "group": "security_academic_learner_continuity_flashcards_and_exam_blueprints",
+        "exit_code_each": 0,
+        "commands": [
+          "php tools/Tests/Batch721TenBoardAdaptiveEligibilityTest.php",
+          "php tools/Tests/MultiExamEligibilityTest.php",
+          "php tools/Tests/CrossBoardCanonicalReuseTest.php",
+          "php tools/Tests/ProductionQuizCsrfTest.php",
+          "php tools/Tests/AnonymousLearnerPrivacyHttpTest.php",
+          "php tools/Tests/SourceStudyLibraryTest.php",
+          "php tools/Tests/DeveloperToolsTest.php",
+          "php tools/Tests/QuestionImportSafetyTest.php",
+          "php tools/Tests/QuizCompletionHttpTest.php",
+          "php tools/Tests/Batch712MistakeRecoveryTest.php",
+          "php tools/Tests/Batch711NotesBasedPracticeTest.php",
+          "php tools/Tests/FlashcardControllerReadPathTest.php",
+          "php tools/Tests/FlashcardFoundationTest.php",
+          "php tools/Tests/FlashcardHttpTest.php",
+          "php tools/Tests/FlashcardIntegrationTest.php",
+          "php tools/Tests/FlashcardSchedulingTest.php",
+          "php tools/Tests/FlashcardScopeMatcherTest.php",
+          "php tools/Tests/FlashcardSelectionOptimizationTest.php",
+          "php tools/Tests/ExamSimulationHttpTest.php",
+          "php tools/Tests/ExamSimulationBlueprintTest.php",
+          "php tools/Tests/ExamBlueprintPreviewContractTest.php",
+          "php tools/Tests/BlueprintAllocationIntegrityTest.php",
+          "php tools/Tests/BlueprintDuplicateExposureTest.php",
+          "php tools/Tests/BlueprintOfficialBoardResolutionTest.php",
+          "php tools/Tests/BlueprintExecutorIntegrationTest.php",
+          "php tools/Tests/BlueprintDistributionIntegrationTest.php",
+          "php tools/Tests/QuestionCoverageBlueprintTest.php",
+          "php tools/Tests/QuizContentSelectionIntegrityTest.php",
+          "php tools/Tests/QuizTestGenerationProductionContractTest.php",
+          "node tools/Tests/QuizSettingsBlueprintClientTest.cjs"
+        ]
+      },
+      {
+        "group": "academic_proposal_and_quarantine_safety",
+        "exit_code_each": 0,
+        "commands": [
+          "php tools/Tests/Batch706CriticalMappingSafetyTest.php",
+          "php tools/Tests/Batch708Q6403QuarantineTest.php",
+          "php tools/Tests/Batch717AcademicGateClosureTest.php"
+        ]
+      }
+    ],
+    "covered_contracts": [
+      "LET readiness hides exact eligible subject counts until both level and specialization are valid",
+      "adaptive selection, cold-start fairness, repeated mistakes, exposure, topic diversity, small pools and cross-board eligibility",
+      "accuracy denominators, recent versus historical metrics, topic/subject isolation, insufficient-data states and unattributed legacy history",
+      "real action destinations and existing published Study Library relationships",
+      "ten-board exam journeys, blueprints, distribution, timers/submission/results/history and duplicate prevention",
+      "authentication, ownership, CSRF, learner privacy, duplicate submissions and academic import/review restrictions",
+      "Notes, Mistake Notebook, Flashcard ownership/scheduling and Q6403/Q1536/Q1537 safeguards"
+    ],
+    "php_syntax_and_report_validation": "PASS: four relevant PHP files linted; all six modified JSON reports parse; test command inventory is 55.",
+    "git_diff_check": "PASS on final report/checkpoint edits before commit.",
+    "storage_mutations_to_production_learner_records": 0,
+    "changed_files_at_finalization": [
+      "docs/reports/batch-721-adaptive-evaluation.json",
+      "docs/reports/batch-721-mobile-ux.json",
+      "docs/reports/batch-721-overnight-adaptive-learning.md",
+      "docs/reports/batch-721-performance.json",
+      "docs/reports/batch-721-readiness-analytics.json",
+      "docs/reports/batch-721-recommendations.json",
+      "docs/reports/batch-721-recovery-checkpoint.md",
+      "docs/reports/batch-721-verification.json"
+    ]
+  },
+  "final_integrity_comparison": {
+    "status": "PASS",
+    "pre_map": "/data/data/com.termux/files/usr/tmp/batch721-recovery-20261028/integrity-before.json",
+    "post_map": "/data/data/com.termux/files/usr/tmp/batch721-recovery-20261028/integrity-after.json",
+    "pre_equals_post": true,
+    "matches_saved_baseline": true,
+    "canonical_question_count": 9123,
+    "production_learner_mutations": 0,
+    "pending_b695_proposals": 276,
+    "academic_approvals": 0,
+    "canonical_imports": 0
+  },
+  "execution_protection": {
+    "recovery_window_started_pht": "2026-10-28 01:01",
+    "cumulative_original_batch_start": "NOT_MEASURABLE_FROM_RECOVERED_SESSION",
+    "cumulative_productive_runtime": "NOT_MEASURABLE; prior active-work timer was not maintained; no padding used",
+    "wake_lock_command": "termux-wake-lock",
+    "wake_lock_command_available": true,
+    "wake_lock_exit_code": 0,
+    "android_wake_lock_state_independently_verified": false,
+    "tmux_installed": true,
+    "tmux_session_available": false,
+    "existing_codex_session_terminated": false,
+    "prior_interruptions": "At least one prior interrupted/recovered state; exact count unknown",
+    "dirty_b695_checkout_modified": false,
+    "other_worktrees_stashes_hayadoctor_modified": false,
+    "browser": "NOT_EXECUTED; Chromium unavailable and Playwright import rejects Android",
+    "recovery_window_started_utc": "2026-10-27T17:01:29Z (approximate; first environment timestamp)"
+  },
+  "final_status": "FINAL_SOURCE_AND_DOCTOR_VERIFICATION_PASS; REPORT_COMMIT_AND_CLIPBOARD_READBACK_PENDING"
 }
