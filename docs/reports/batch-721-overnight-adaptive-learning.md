@@ -133,8 +133,8 @@ See also: `batch-721-adaptive-evaluation.json`, `batch-721-readiness-analytics.j
 ```text
 START_TIME=Not recorded; B721 branch checkout was 2026-10-27 04:05 PHT and first implementation commit was 05:03:03 PHT
 RECOVERY_WINDOW_START=2026-10-28 01:01 PHT
-END_TIME=2026-10-28 01:57 PHT (report completion and final readback attempt)
-ACTUAL_ELAPSED_TIME=Cumulative B721 duration not measurable; resumed verification segment was approximately 56 minutes wall time (01:01–01:57 PHT)
+END_TIME=2026-10-28 01:59 PHT (after final clipboard readback and report finalization)
+ACTUAL_ELAPSED_TIME=Cumulative B721 duration not measurable; resumed verification segment was approximately 58 minutes wall time (01:01–01:59 PHT)
 PRODUCTIVE_RUNTIME_ESTIMATE_IF_MEASURABLE=Not measurable across the interrupted batch; the earlier session had no active-work timer. No runtime padding was used.
 TERMUX_WAKE_LOCK_REQUEST_STATUS=termux-wake-lock available; command exit status 0; Android wake-lock state not independently verified
 TMUX_SESSION_STATUS=tmux installed; no active tmux session; existing Codex session left running
