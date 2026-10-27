@@ -53,3 +53,16 @@ Cumulative productive time across the interrupted B721 session is not measurable
 - `CLIPBOARD_STATUS`: `UNVERIFIED`; two set/get attempts returned exit 0 but empty readback. The full report content SHA-256 did not match.
 
 - `FINAL_CLIPBOARD_READBACK`: after final report commit `ee15f90`, set/get both exited 0; report 20,968 bytes with SHA-256 `2788ea75059ae99caba674a3a8ae635e4814c3af920b3cb893d1daeefc96551c`; readback 0 bytes with empty SHA-256 `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`. Final status `UNVERIFIED`; terminal fallback required.
+
+## Active-session continuation checkpoint
+
+- `CHECKPOINT_TIME_UTC`: `2026-10-27T21:44:36Z` (2026-10-28 05:44:36 PHT).
+- `CURRENT_HEAD`: `3294b8d584f42cb46bfcaf2ec7927b4b108c8018`.
+- `CURRENT_BRANCH`: `batch-721-adaptive-learning-readiness`.
+- `COMPLETED_WORK`: Recovered the already implemented and fully documented Batch 721 without restarting it. Confirmed the actual B720 documentation tip is `f65de54404678d07a2a0fb09665f5ceff1808220`; the implementation baseline is `4ae65f299af48895591af677446076e5a45a552b`. `termux-wake-lock` was available and returned exit `0` in this session. The existing `boardprep721` tmux session is attached and the Codex process is active; it was not recreated or terminated.
+- `FILES_CHANGED`: This checkpoint only; no application source changes. The only pre-existing untracked paths remain `storage/academic-proposal-workflow.json`, `storage/flashcard_state.json`, and `storage/question-statistics.json`.
+- `TESTS_PASSED`: Prior final-source evidence remains valid because application source is unchanged after `460b145`: 55 focused/regression commands and Full Doctor release gate PASS. Current-HEAD spot checks and Doctor rerun are pending.
+- `TESTS_FAILED`: 0 focused assertions in the prior run. The incomplete same-SHA Doctor attempt (exit 1, empty JSON) was followed by a complete PASS and is not counted as the final result.
+- `STORAGE_AVAILABLE`: 3,166,844 KiB at checkpoint time; above the documented Full Doctor floor plus 512 MiB reserve.
+- `NEXT_ACTION`: Run targeted adaptive, analytics, recommendation, readiness/mobile and ten-board regressions, then run the required Full Doctor command on the resulting current HEAD. Update final report with this session's tmux/wake-lock evidence and exact Doctor JSON/exit/hash; retry clipboard and compare full-content SHA-256.
+- `RECOVERY_NOTES`: No second worktree, competing Codex process, B695 checkout change, learner mutation, academic import, push, merge, deployment or B722 work. `termux-wake-lock` exit success confirms the request only; Android state cannot be independently verified here. Browser acceptance remains `NOT_EXECUTED` on Android/Termux.
