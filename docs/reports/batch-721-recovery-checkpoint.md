@@ -66,3 +66,16 @@ Cumulative productive time across the interrupted B721 session is not measurable
 - `STORAGE_AVAILABLE`: 3,166,844 KiB at checkpoint time; above the documented Full Doctor floor plus 512 MiB reserve.
 - `NEXT_ACTION`: Run targeted adaptive, analytics, recommendation, readiness/mobile and ten-board regressions, then run the required Full Doctor command on the resulting current HEAD. Update final report with this session's tmux/wake-lock evidence and exact Doctor JSON/exit/hash; retry clipboard and compare full-content SHA-256.
 - `RECOVERY_NOTES`: No second worktree, competing Codex process, B695 checkout change, learner mutation, academic import, push, merge, deployment or B722 work. `termux-wake-lock` exit success confirms the request only; Android state cannot be independently verified here. Browser acceptance remains `NOT_EXECUTED` on Android/Termux.
+
+## Adaptive autoload repair checkpoint
+
+- `CHECKPOINT_TIME_UTC`: `2026-10-27T21:46:43Z` (2026-10-28 05:46:43 PHT).
+- `CURRENT_HEAD`: `933d83fe9ad6419dc1cb14b2a253c4cfdcbb1b5c`.
+- `CURRENT_BRANCH`: `batch-721-adaptive-learning-readiness`.
+- `COMPLETED_WORK`: Fixed the legacy autoloader map for the five global adaptive helper classes (`AdaptiveTopicNormalizer`, `AdaptiveWeaknessTopicResolver`, `AdaptiveQuestionPartitioner`, `AdaptiveQuestionOrderer`, `AdaptivePriorityBuilder`) so their isolated unit tests and extraction contract resolve through the application autoloader. Implementation is committed as `933d83f`.
+- `FILES_CHANGED`: `app/Core/Autoloader.php` (committed), this checkpoint. Protected untracked storage paths remain untouched.
+- `TESTS_PASSED`: 12/12 targeted tests passed after the autoloader change with assertions enabled: orderer, partitioner, adaptive extraction, adaptive production selection/contract, 12-profile adaptive evaluation, mixed-board analytics/readiness, mobile contracts, production recommendations/routing, ten-board eligibility, and quiz-start placement preservation. PHP syntax and `git diff --check` passed. Ten-board run confirmed 9,123 canonical records, all 10 boards, one bank read, and zero mutations.
+- `TESTS_FAILED`: 0 assertions in the final targeted run. Two initial direct helper-test invocations exited before assertions because the autoloader mappings were missing; after the repair, both tests and the extraction integration contract passed.
+- `STORAGE_AVAILABLE`: 3,162,260 KiB at checkpoint time.
+- `NEXT_ACTION`: Run Full Doctor with the required production/JSON environment and 1 GiB PHP limit; save stdout JSON and stderr, record exit code, artifact byte count and SHA-256, parse release gate and P0–P3. If it is incomplete or fails, diagnose and rerun/repair before finalization.
+- `RECOVERY_NOTES`: The canonical question, eligibility, source and study-link hashes match the protected values. All three named pre-existing untracked files still have SHA-256 `4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945`. Existing attached tmux/Codex session remains active; no process was recreated or terminated. Wake-lock command returned 0; Android lock state remains unverified.
