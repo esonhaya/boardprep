@@ -37,7 +37,7 @@
 
 ## Resumed final checkpoint
 
-- `CHECKPOINT_TIME_UTC`: 2026-10-27 17:57 UTC (2026-10-28 01:57 PHT).
+- `CHECKPOINT_TIME_UTC`: 2026-10-27 17:59 UTC (2026-10-28 01:59 PHT).
 - `CURRENT_HEAD`: `460b145b51ae171984cb172286f3c6e8320f41b3`.
 - `CURRENT_BRANCH`: `batch-721-adaptive-learning-readiness`.
 - `COMPLETED_WORK`: Existing adaptive/readiness implementation recovered; final LET-variant guard verified; 55 focused commands passed; Full Doctor passed on this exact HEAD; protected hashes match before/after.
@@ -52,4 +52,4 @@ Cumulative productive time across the interrupted B721 session is not measurable
 
 - `CLIPBOARD_STATUS`: `UNVERIFIED`; two set/get attempts returned exit 0 but empty readback. The full report content SHA-256 did not match.
 
-- `FINAL_CLIPBOARD_READBACK`: after report commit `409e82faba6b81ca9d0e2b0b245a266479d5517a`, set/get both exited 0; report 20,958 bytes with SHA-256 `ab6638e16142f1f4d21d16b9857471bc872f22e548fb647278c512d54591d1a5`; readback 0 bytes with empty SHA-256 `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`. Final status `UNVERIFIED`; terminal fallback required.
+- `FINAL_CLIPBOARD_READBACK`: after final report commit `ee15f90`, set/get both exited 0; report 20,968 bytes with SHA-256 `2788ea75059ae99caba674a3a8ae635e4814c3af920b3cb893d1daeefc96551c`; readback 0 bytes with empty SHA-256 `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`. Final status `UNVERIFIED`; terminal fallback required.
