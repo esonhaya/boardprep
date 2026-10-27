@@ -137,8 +137,8 @@ See also: `batch-721-adaptive-evaluation.json`, `batch-721-readiness-analytics.j
 START_TIME=2026-10-28 05:41:45 PHT (active continuation; original Batch 721 active start time is not recorded)
 RECOVERY_WINDOW_START=2026-10-28 05:41:45 PHT
 END_TIME=2026-10-28 06:18 PHT (final documentation commit and clipboard readback; minute-resolution time)
-ACTUAL_ELAPSED_TIME=Approximately 37 minutes for this continuation (05:41:45–06:18 PHT); cumulative original B721 duration is not measurable
-PRODUCTIVE_RUNTIME_ESTIMATE_IF_MEASURABLE=Approximately 37 minutes in this continuation, including the autoloader repair, 12 focused tests, Full Doctor and finalization; prior batch time is unmeasurable. No runtime padding was used.
+ACTUAL_ELAPSED_TIME=Approximately 36 minutes for this continuation (05:41:45–06:18 PHT); cumulative original B721 duration is not measurable
+PRODUCTIVE_RUNTIME_ESTIMATE_IF_MEASURABLE=Approximately 36 minutes in this continuation, including the autoloader repair, 12 focused tests, Full Doctor and finalization; prior batch time is unmeasurable. No runtime padding was used.
 TERMUX_WAKE_LOCK_REQUEST_STATUS=termux-wake-lock available; command exit status 0 during this continuation; Android wake-lock state not independently verified
 TMUX_SESSION_STATUS=tmux installed; existing boardprep721 session available and attached with active Codex; session not recreated or terminated
 INTERRUPTIONS=At least one prior recovered/interrupted B721 state; exact count unknown. No interruption during this continuation.
@@ -160,7 +160,7 @@ P2=1
 P3=2
 BROWSER_STATUS=NOT_EXECUTED; Chromium unavailable and Playwright import rejects Android
 STORAGE_BEFORE=3,162,260 KiB immediately before current Full Doctor; required available floor 1,837,243,096 bytes
-STORAGE_AFTER=3,155,208 KiB immediately after current Full Doctor; minimum during Doctor 2,973,507,584 bytes
+STORAGE_AFTER=3,155,208 KiB immediately after current Full Doctor; 3,151,592 KiB before final report commit; minimum during Doctor 2,973,507,584 bytes
 INTEGRITY_STATUS=PASS; 9,123 canonical questions; all protected hashes match before/after; zero production learner mutations
 B695_PROPOSALS=276 pending and noncanonical
 ACADEMIC_IMPORTS=0; approvals=0
