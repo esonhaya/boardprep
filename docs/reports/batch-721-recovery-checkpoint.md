@@ -1,6 +1,6 @@
 # Batch 721 Recovery Checkpoint
 
-**Recovery status:** FINAL_VERIFICATION_PASSED — 55 final-HEAD tests, Full Doctor, integrity, lint and report checks passed; final report commit and clipboard verification remain.
+**Recovery status:** COMPLETE — 55 final-HEAD tests, Full Doctor, integrity, lint and report checks passed; clipboard readback is unverified and terminal fallback is required.
 
 ## Recovery identity
 
@@ -45,7 +45,9 @@
 - `TESTS_PASSED`: 55 focused and relevant B711–B720 commands; Full Doctor release gate PASS.
 - `TESTS_FAILED`: 0 focused assertions. The earlier same-HEAD Doctor attempt exited 1 with empty output; a complete rerun passed and is the recorded final gate.
 - `STORAGE_AVAILABLE`: 2,747,132 KiB after Doctor; minimum during Doctor 2,406,301,696 bytes.
-- `NEXT_ACTION`: Commit only the eight B721 report/checkpoint files; verify full-report clipboard SHA-256 readback; record the actual result and final delivery time. PHP lint, JSON validation and `git diff --check` have passed.
+- `NEXT_ACTION`: Commit the final B721 delivery status, make one last clipboard readback attempt on the committed report, record its exact hash result, and deliver the full report in the terminal fallback if it remains empty. PHP lint, JSON validation and `git diff --check` have passed.
 - `RECOVERY_NOTES`: Do not stage `storage/academic-proposal-workflow.json`, `storage/flashcard_state.json`, or `storage/question-statistics.json`. The dirty B695 worktree `/data/data/com.termux/files/home/BoardPrep`, stashes and other worktrees remain untouched. No B722 work.
 
 Cumulative productive time across the interrupted B721 session is not measurable because the original session had no active-work timer. The recovery verification continued from approximately 2026-10-28 01:01 PHT; no eight-hour duration is claimed and no time was padded.
+
+- `CLIPBOARD_STATUS`: `UNVERIFIED`; two set/get attempts returned exit 0 but empty readback. The full report content SHA-256 did not match.

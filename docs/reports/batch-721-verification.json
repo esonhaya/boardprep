@@ -196,7 +196,27 @@
     "merge": "NOT_PERFORMED",
     "deployment": "NOT_PERFORMED",
     "final_documentation_commit": "Pending commit; report commit SHA will be supplied outside the self-referential report.",
-    "clipboard_status": "PENDING_FULL_REPORT_SHA256_READBACK"
+    "clipboard_status": "UNVERIFIED_EMPTY_READBACK",
+    "clipboard_attempts_before_final_commit": [
+      {
+        "method": "stdin",
+        "set_exit_code": 0,
+        "get_exit_code": 0,
+        "readback_bytes": 0,
+        "report_sha256": "fb49de7559ea5133f3a14cb641a282da3018f600c64f9b05bef3c4688eb9b543",
+        "readback_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "method": "argument",
+        "set_exit_code": 0,
+        "get_exit_code": 0,
+        "readback_bytes": 0,
+        "report_sha256": "fb49de7559ea5133f3a14cb641a282da3018f600c64f9b05bef3c4688eb9b543",
+        "readback_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ],
+    "clipboard_failure_reason": "Both Termux readback calls exited 0 but returned an empty clipboard, so the full report could not be verified.",
+    "full_terminal_fallback": "Print docs/reports/batch-721-overnight-adaptive-learning.md in full."
   },
   "historical_implementation_full_doctor_ef58cea": {
     "command": "APP_ENV=production APP_DEBUG=false DB_DRIVER=json APP_STORAGE_PATH=/data/data/com.termux/files/home/boardprep-batch-706/storage php -d memory_limit=1G tools/doctor.php --release --json",
@@ -387,7 +407,8 @@
     "dirty_b695_checkout_modified": false,
     "other_worktrees_stashes_hayadoctor_modified": false,
     "browser": "NOT_EXECUTED; Chromium unavailable and Playwright import rejects Android",
-    "recovery_window_started_utc": "2026-10-27T17:01:29Z (approximate; first environment timestamp)"
+    "recovery_window_started_utc": "2026-10-27T17:01:29Z (approximate; first environment timestamp)",
+    "recovery_window_ended_pht": "2026-10-28 01:57 (approximate; final committed-report readback follows)"
   },
-  "final_status": "FINAL_SOURCE_AND_DOCTOR_VERIFICATION_PASS; REPORT_COMMIT_AND_CLIPBOARD_READBACK_PENDING"
+  "final_status": "COMPLETE; CLIPBOARD_UNVERIFIED; FULL_TERMINAL_FALLBACK_REQUIRED"
 }
