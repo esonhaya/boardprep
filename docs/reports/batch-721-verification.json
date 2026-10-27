@@ -195,7 +195,7 @@
     "push": "NOT_PERFORMED",
     "merge": "NOT_PERFORMED",
     "deployment": "NOT_PERFORMED",
-    "final_documentation_commit": "Pending commit; report commit SHA will be supplied outside the self-referential report.",
+    "final_documentation_commit": "Supplied in final delivery message; not embedded to avoid self-reference.",
     "clipboard_status": "UNVERIFIED_EMPTY_READBACK",
     "clipboard_attempts_before_final_commit": [
       {
@@ -216,7 +216,19 @@
       }
     ],
     "clipboard_failure_reason": "Both Termux readback calls exited 0 but returned an empty clipboard, so the full report could not be verified.",
-    "full_terminal_fallback": "Print docs/reports/batch-721-overnight-adaptive-learning.md in full."
+    "full_terminal_fallback": "Print docs/reports/batch-721-overnight-adaptive-learning.md in full.",
+    "clipboard_final_attempt": {
+      "after_final_report_commit": "409e82faba6b81ca9d0e2b0b245a266479d5517a",
+      "set_exit_code": 0,
+      "get_exit_code": 0,
+      "report_path": "docs/reports/batch-721-overnight-adaptive-learning.md",
+      "report_bytes": 20958,
+      "report_sha256": "ab6638e16142f1f4d21d16b9857471bc872f22e548fb647278c512d54591d1a5",
+      "readback_bytes": 0,
+      "readback_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "UNVERIFIED",
+      "reason": "Termux clipboard set/get commands both exited 0, but clipboard readback was empty; full content SHA-256 did not match."
+    }
   },
   "historical_implementation_full_doctor_ef58cea": {
     "command": "APP_ENV=production APP_DEBUG=false DB_DRIVER=json APP_STORAGE_PATH=/data/data/com.termux/files/home/boardprep-batch-706/storage php -d memory_limit=1G tools/doctor.php --release --json",
@@ -408,7 +420,9 @@
     "other_worktrees_stashes_hayadoctor_modified": false,
     "browser": "NOT_EXECUTED; Chromium unavailable and Playwright import rejects Android",
     "recovery_window_started_utc": "2026-10-27T17:01:29Z (approximate; first environment timestamp)",
-    "recovery_window_ended_pht": "2026-10-28 01:57 (approximate; final committed-report readback follows)"
+    "recovery_window_ended_pht": "2026-10-28 01:57 (approximate; final committed-report readback follows)",
+    "recovery_window_ended_utc": "2026-10-27T17:57:38Z (approximate final checkpoint time)",
+    "recovery_window_wall_elapsed": "Approximately 00:56:09; cumulative original B721 duration remains unmeasurable."
   },
   "final_status": "COMPLETE; CLIPBOARD_UNVERIFIED; FULL_TERMINAL_FALLBACK_REQUIRED"
 }
