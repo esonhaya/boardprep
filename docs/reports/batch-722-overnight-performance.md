@@ -12,8 +12,8 @@ STORAGE_AFTER=2,915,475,456 bytes (about 2.72 GiB, observed after Doctor during 
 
 EXECUTION
 START_TIME=2026-10-28 20:17:22 +08:00 (verified B722 branch checkout)
-END_TIME=2026-10-28 22:15 +08:00 (engineering/reporting completion; clipboard delivery followed)
-ELAPSED_TIME=Approximately 1 hour 58 minutes from branch checkout to report completion
+END_TIME=2026-10-28 22:17 +08:00 (final reporting and delivery attempt)
+ELAPSED_TIME=Approximately 2 hours from verified branch checkout to final report
 ACTIVE_WORK_TIME_IF_MEASURABLE=NOT_MEASURED
 WAKE_LOCK_REQUEST_STATUS=termux-wake-lock exited 0; this does not independently guarantee Android background execution
 TMUX_STATUS=Installed; no active tmux session
@@ -112,7 +112,7 @@ FINAL_DOCUMENTATION_COMMIT_SHA=PRINTED_IN_FINAL_DELIVERY_MESSAGE; OMITTED_FROM_T
 GIT_STATUS=Only the three pre-existing untracked storage JSON files remain; 12 worktrees and 2 stashes preserved; HayaDoctor gitlink dc4fcda730d9a922f726593746e34ca0c9c0e890 unchanged; historical dirty checkout left untouched (14 entries currently reported)
 PUSH_STATUS=NOT_PUSHED
 DEPLOY_STATUS=NOT_DEPLOYED
-CLIPBOARD_STATUS=VERIFIED
+CLIPBOARD_STATUS=UNVERIFIED; termux-clipboard-set exited 0, but termux-clipboard-get exited 0 and returned 0 bytes (empty SHA-256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855); no retry
 
 OUTCOME
 B722_COMPLETED=YES; implementation, required verification and documentation are complete
