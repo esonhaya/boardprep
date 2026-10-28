@@ -1,0 +1,40 @@
+{
+  "report": "BATCH_722_PERFORMANCE",
+  "tested_implementation_sha": "1f8b663aaa27662b03ff06cfca9cb7545a613ac1",
+  "profile": "batch-722-cold-path-profile.json",
+  "environment": {
+    "platform": "Android/Termux",
+    "storage_driver": "JSON",
+    "canonical_questions": 9123,
+    "history_fixture": "30 completed synthetic attempts, 600 answer events, 3 subjects/topics",
+    "filesystem_cache_cleared": false,
+    "production_learner_mutations": 0
+  },
+  "dashboard": {
+    "cold_ms_before_after": [2527.34, 1691.94],
+    "warm_median_ms_before_after": [219.152, 119.003],
+    "peak_memory_bytes_before_after": [180690944, 174399488]
+  },
+  "readiness": {
+    "cold_ms_before_after": [1562.342, 1152.505],
+    "warm_median_ms_before_after": [88.38, 67.12]
+  },
+  "subject_pool_count": {
+    "board": "CSE",
+    "variant": "PROFESSIONAL",
+    "question_bank_reads_before_after": [1, 1],
+    "blueprint_collection_reads_before_after": [41, 1],
+    "cold_ms_before_after": [370.915, 310.139],
+    "warm_median_ms_before_after": [297.703, 233.064],
+    "counts_unchanged": true,
+    "peak_memory_bytes_before_after": [145764352, 138412032]
+  },
+  "adaptive_ranking": {
+    "pool_sizes": [150, 1200, 5000],
+    "warm_median_ms_before": [14.001562, 95.0525, 415.65677],
+    "warm_median_ms_after": [4.976198, 22.422084, 118.254219],
+    "selected_order_identical": true,
+    "storage_operations": 0
+  },
+  "comparability": "Same scripts, device, fixture and repetitions before/after; first invocation in-process is called cold and OS file cache was not cleared. These are service timings, not rendered-page or concurrent-user latency."
+}

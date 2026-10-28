@@ -1,0 +1,29 @@
+{
+  "report": "BATCH_722_LEARNER_UX",
+  "tested_implementation_sha": "1f8b663aaa27662b03ff06cfca9cb7545a613ac1",
+  "exam_save_feedback": {
+    "status": "IMPLEMENTED",
+    "authority": "Counts answers currently present in the active server session; no client-side success is fabricated.",
+    "accessible_status": "role=status with aria-live=polite",
+    "offline_disclosure": "An internet connection is required to save or change answers.",
+    "identical_lost_response_retry": "Confirms the exact persisted answer and does not advance twice.",
+    "conflicting_stale_retry": "Shows stale-request error and preserves the authoritative prior answer.",
+    "refresh_reconciliation": "PASS"
+  },
+  "exam_journey_regressions": {
+    "start_and_setup": "PASS",
+    "answer_navigation_refresh_resume": "PASS",
+    "expiry_and_partial_submission": "PASS",
+    "duplicate_and_concurrent_finalization": "PASS; exactly one attempt persisted",
+    "authoritative_scoring_and_results": "PASS"
+  },
+  "mobile_contracts": {
+    "viewport_widths_css_contract": [320, 360, 390, 430],
+    "status_text_wrapping": "overflow-wrap:anywhere",
+    "existing_touch_and_focus_contracts": "PASS",
+    "real_rendered_visual_acceptance": "NOT_EXECUTED"
+  },
+  "notes": "UNCHANGED; existing isolated HTTP create/edit/reopen/CSRF/ownership and note-based practice regressions passed.",
+  "flashcards": "UNCHANGED; HTTP/integration/selection/scheduling/isolation and quarantine-exclusion regressions passed; one canonical-bank read per request optimization preserved.",
+  "other_interface_changes": "No broad redesign or unsupported study links were added."
+}

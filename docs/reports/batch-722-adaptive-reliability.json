@@ -1,0 +1,34 @@
+{
+  "report": "BATCH_722_ADAPTIVE_RELIABILITY",
+  "tested_implementation_sha": "1f8b663aaa27662b03ff06cfca9cb7545a613ac1",
+  "adaptive_selector": {
+    "equivalence_test": "PASS",
+    "synthetic_pool_sizes": [150, 1200, 5000],
+    "ordered_selected_ids_preserved": true,
+    "weak_topic_and_exposure_indexes_reused": true,
+    "difficulty_slot_and_diversity_regressions": "PASS",
+    "small_pool_recovery_fallback_preserved": true,
+    "storage_mutations": 0
+  },
+  "analytics_and_readiness": {
+    "prepared_history_reused": true,
+    "empty_history_defaults": "PASS",
+    "completed_attempt_and_answer_event_denominators": "PASS",
+    "score_accuracy_distinction": "PASS",
+    "recent_earlier_windows_and_subject_topic_attribution": "PASS",
+    "ambiguous_legacy_events_remain_unattributed": true,
+    "unsupported_mastery_or_passing_claims_added": false
+  },
+  "board_coverage": ["LET", "CSE", "CLE", "NLE", "PLE", "CE", "CPA", "ME", "REE", "Architecture"],
+  "board_journey_test": "PASS; isolated synthetic learner journeys covered all ten supported boards.",
+  "safeguards": {
+    "LET_CSE_variant_rules": "PASS",
+    "B720_blueprint_identity_corrections": "PRESERVED",
+    "Architecture_caveat_and_CPA_unknown_official_weighting": "PRESERVED",
+    "Q6403_quarantine": "PASS",
+    "Q1536_Q1537_source_only": "PASS",
+    "academic_imports": 0,
+    "pending_B695_proposals": 276
+  },
+  "scope": "Selector performance used synthetic histories and does not claim a learning-outcome improvement."
+}

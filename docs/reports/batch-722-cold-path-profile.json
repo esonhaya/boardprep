@@ -1,0 +1,76 @@
+{
+  "report": "BATCH_722_COLD_PATH_PROFILE",
+  "baseline_head": "ea2b1ca48a50de34cdaf957e8980f71a3713d720",
+  "branch": "batch-722-performance-experience-hardening",
+  "measurement_environment": {
+    "platform": "Android/Termux",
+    "storage_driver": "JSON",
+    "canonical_question_count": 9123,
+    "history_fixture": "Synthetic service-only history: 30 completed attempts and 600 answer events across 3 subjects/topics.",
+    "warm_repetitions": 7,
+    "filesystem_cache_cleared": false,
+    "production_learner_writes": 0
+  },
+  "dashboard_and_readiness": {
+    "dashboard": {
+      "cold_ms_before": 2527.34,
+      "cold_ms_after": 1691.94,
+      "warm_median_ms_before": 219.152,
+      "warm_median_ms_after": 119.003
+    },
+    "readiness": {
+      "cold_ms_before": 1562.342,
+      "cold_ms_after": 1152.505,
+      "warm_median_ms_before": 88.38,
+      "warm_median_ms_after": 67.12
+    },
+    "peak_memory_bytes_before": 180690944,
+    "peak_memory_bytes_after": 174399488,
+    "comparability": "Same benchmark script, device, synthetic fixture and 7-run warm median method before and after. One cold sample per path; operating-system file cache was not cleared. Values are device-specific service timings, not rendered-page latency or concurrency claims."
+  },
+  "subject_pool_counts": {
+    "board": "CSE",
+    "variant": "PROFESSIONAL",
+    "counts": {
+      "verbal-ability": 642,
+      "numerical-ability": 469,
+      "general-information": 509,
+      "clerical-ability": 0,
+      "analytical-logical": 310
+    },
+    "counts_unchanged": true,
+    "question_snapshot_ms_before": 542.913,
+    "question_snapshot_ms_after": 538.76,
+    "eligibility_index_ms_before": 531.311,
+    "eligibility_index_ms_after": 495.16,
+    "count_cold_ms_before": 370.915,
+    "count_cold_ms_after": 310.139,
+    "count_warm_median_ms_before": 297.703,
+    "count_warm_median_ms_after": 233.064,
+    "question_bank_reads_before_after": [1, 1],
+    "blueprint_collection_reads_before_after": [41, 1],
+    "peak_memory_bytes_before": 145764352,
+    "peak_memory_bytes_after": 138412032,
+    "other_collection_reads": "reuse overrides=1, concept-derived eligibility=2, question-reuse-metadata=1, board-concept-coverage=1, study-question-links=1; unchanged in the counted workload."
+  },
+  "adaptive_ranking": {
+    "fixture": "Synthetic candidate pools of 150, 1,200 and 5,000 rows; 40 LET weak-topic rows; 30 difficulty slots; up to 450 exposure rows.",
+    "warm_repetitions": 9,
+    "storage_operations": 0,
+    "pool_size": [150, 1200, 5000],
+    "warm_median_ms_before": [14.001562, 95.0525, 415.65677],
+    "warm_median_ms_after": [4.976198, 22.422084, 118.254219],
+    "ordered_selected_ids_identical_before_after": true,
+    "peak_memory_bytes_before_after": [10485760, 10485760],
+    "comparability": "Same script fixture, PHP process shape and repetition count before and after. No application storage access. Synthetic ranking cost only; no learning-outcome claim."
+  },
+  "flashcards": {
+    "b722_change": "UNCHANGED",
+    "reason": "Existing B720/B721 canonical-bank read optimizations were preserved; no remaining B722 bottleneck was established in this profile."
+  },
+  "caveats": [
+    "Timings vary with device load and filesystem cache state.",
+    "Cold path means the first service invocation in this process, not a guaranteed device cold boot.",
+    "The count-only optimization is covered by direct equivalence fixtures for normalization, deduplication, board mapping, LET/CSE eligibility and invalid content."
+  ]
+}

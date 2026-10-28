@@ -1,0 +1,20 @@
+{
+  "report": "BATCH_722_BROWSER_ACCEPTANCE",
+  "status": "NOT_EXECUTED",
+  "reason": "The local host is Android/Termux and the browser preflight blocks unsupported local Chromium. No supported authorized Linux runner was available in this session.",
+  "browser_workflow_contract_tests": {
+    "status": "PASS",
+    "passed": 6,
+    "failed": 0,
+    "command": "node --test tests/browser/browser-ci-contract.test.cjs tests/browser/server-lifecycle.test.cjs"
+  },
+  "prepared_runner": {
+    "platform": "Ubuntu 24.04",
+    "playwright": "1.63",
+    "remote_workflow_dispatched": false,
+    "push_or_ci_trigger": false
+  },
+  "scenario_contracts": ["dashboard", "ten-board exam setup", "answer/navigation", "refresh/resume/expiry", "submission/results", "progress/readiness/recommendations", "notes", "mistake recovery", "flashcards", "narrow viewport and accessibility contracts"],
+  "screenshots": "NONE",
+  "rendered_visual_or_accessibility_claim": false
+}
