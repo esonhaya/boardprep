@@ -6,11 +6,13 @@ $match = is_array($match ?? null) ? $match : null;
 $formInput = is_array($formInput ?? null) ? $formInput : [];
 $formError = is_scalar($formError ?? null) ? (string) $formError : '';
 $csrfToken = is_scalar($csrfToken ?? null) ? (string) $csrfToken : '';
+$createRequestId = is_scalar($createRequestId ?? null) ? (string) $createRequestId : '';
 $civilServiceLevel = is_scalar($civilServiceLevel ?? null) ? (string) $civilServiceLevel : '';
 $returnTo = is_scalar($returnTo ?? null) ? (string) $returnTo : '';
 $escape = static fn(mixed $value): string => htmlspecialchars(is_scalar($value) ? (string) $value : '', ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
 $isEditing = $selectedNote !== null || trim((string) ($formInput['note_id'] ?? '')) !== '';
 $noteId = $selectedNote['id'] ?? $formInput['note_id'] ?? '';
+$noteRevision = $formInput['note_revision'] ?? $selectedNote['note_revision'] ?? 1;
 $titleValue = $formInput['title'] ?? $selectedNote['title'] ?? '';
 $bodyValue = $formInput['body'] ?? $selectedNote['body'] ?? '';
 $boardValue = $formInput['board_id'] ?? $selectedNote['board_id'] ?? ($boards[0]['id'] ?? '');
@@ -47,7 +49,8 @@ $isCse = is_array($selectedBoard) && in_array(strtolower((string) ($selectedBoar
             <form method="post" action="/my-notes/save" accept-charset="UTF-8">
                 <input type="hidden" name="csrf_token" value="<?= $escape($csrfToken) ?>">
                 <?php if ($returnTo !== ''): ?><input type="hidden" name="return_to" value="<?= $escape($returnTo) ?>"><?php endif; ?>
-                <?php if (is_scalar($noteId) && trim((string) $noteId) !== ''): ?><input type="hidden" name="note_id" value="<?= $escape($noteId) ?>"><?php endif; ?>
+                <?php if (is_scalar($noteId) && trim((string) $noteId) !== ''): ?><input type="hidden" name="note_id" value="<?= $escape($noteId) ?>"><input type="hidden" name="note_revision" value="<?= (int) $noteRevision ?>"><?php endif; ?>
+                <?php if (!$isEditing && preg_match('/\A[a-f0-9]{32}\z/', $createRequestId) === 1): ?><input type="hidden" name="create_request_id" value="<?= $escape($createRequestId) ?>"><?php endif; ?>
                 <label for="my-note-title">Note title</label>
                 <input id="my-note-title" name="title" type="text" maxlength="120" required value="<?= $escape($titleValue) ?>" autocomplete="off">
                 <label for="my-note-board">Examination board</label>

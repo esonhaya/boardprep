@@ -134,7 +134,12 @@ final class StudyLibraryController extends BaseDeveloperController
         $material = $materialId !== '' ? StudyLibraryService::find($materialId) : null;
         $lesson = is_array($material['lesson'] ?? null) ? $material['lesson'] : [];
         $board = self::boardFor((string) ($lesson['board_id'] ?? ''));
-        $subject = self::subjectFor((string) ($lesson['subject_id'] ?? ''));
+        $lessonBoardId = is_array($board) ? (string) ($board['id'] ?? '') : '';
+        $lessonSubjectId = StudyLibraryService::canonicalLessonSubjectId(
+            $lessonBoardId,
+            (string) ($lesson['subject_id'] ?? '')
+        );
+        $subject = self::subjectFor($lessonSubjectId);
         $returnUrl = self::lessonUrl($materialId, $lesson, $sectionId);
 
         if (!is_array($material) || $lesson === [] || $board === null || $subject === null) {
@@ -232,11 +237,17 @@ final class StudyLibraryController extends BaseDeveloperController
         $lesson = is_array($material['lesson'] ?? null) ? $material['lesson'] : [];
         if ($lesson !== []) {
             return strtolower(trim((string) ($lesson['board_id'] ?? ''))) === strtolower($boardId)
-                && strtolower(trim((string) ($lesson['subject_id'] ?? ''))) === strtolower($subjectId);
+                && StudyLibraryService::canonicalLessonSubjectId(
+                    $boardId,
+                    (string) ($lesson['subject_id'] ?? '')
+                ) === strtolower(trim($subjectId));
         }
 
         $taxonomy = is_array($material['taxonomy'] ?? null) ? $material['taxonomy'] : [];
-        if (strtolower(trim((string) ($taxonomy['subject_id'] ?? ''))) !== strtolower($subjectId)) {
+        if (StudyLibraryService::canonicalLessonSubjectId(
+            $boardId,
+            (string) ($taxonomy['subject_id'] ?? '')
+        ) !== strtolower(trim($subjectId))) {
             return false;
         }
         $aliases = [

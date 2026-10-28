@@ -216,6 +216,7 @@ Finish Quiz
 <form method="POST" action="/quiz?action=next">
 
 <input type="hidden" name="action" value="next">
+<input type="hidden" name="from_question_id" value="<?= htmlspecialchars($questionId, ENT_QUOTES, 'UTF-8') ?>">
 <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrfToken, ENT_QUOTES, 'UTF-8') ?>">
 
 <button type="submit">
@@ -285,11 +286,13 @@ required
 <nav class="exam-question-navigation" aria-label="Exam simulation question navigation">
     <form method="POST" action="/quiz">
         <input type="hidden" name="action" value="previous">
+        <input type="hidden" name="from_question_id" value="<?= htmlspecialchars($questionId, ENT_QUOTES, 'UTF-8') ?>">
         <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrfToken, ENT_QUOTES, 'UTF-8') ?>">
         <button type="submit" class="button button-outline" <?= $current <= 0 ? 'disabled' : '' ?>>Previous question</button>
     </form>
     <form method="POST" action="/quiz">
         <input type="hidden" name="action" value="next">
+        <input type="hidden" name="from_question_id" value="<?= htmlspecialchars($questionId, ENT_QUOTES, 'UTF-8') ?>">
         <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrfToken, ENT_QUOTES, 'UTF-8') ?>">
         <button type="submit" class="button button-outline"><?= $current + 1 >= $total ? 'Review answers' : 'Skip to next question' ?></button>
     </form>

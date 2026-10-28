@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\Services\Flashcard;
 
 use App\Repositories\FlashcardStateRepository;
+use App\Services\Accounts\AccountLifecycleLock;
+use App\Services\Learning\LearnerIdentityService;
 use App\Services\Learning\WeaknessService;
 use DateTimeImmutable;
 use InvalidArgumentException;
@@ -23,34 +25,75 @@ final class FlashcardService
         string $cardKey,
         string $rating,
         ?DateTimeImmutable $now = null,
-        ?string $questionId = null
+        ?string $questionId = null,
+        ?string $requestId = null,
+        ?int $expectedReviewCount = null
     ): array {
         $card = $this->resolveCard($cardKey, $questionId);
-        $state = $this->states->find($cardKey)
-            ?? $this->scheduler->newState(
-                $card['card_key'],
-                $card['question_id'],
-                $card['card_type']
-            );
-
-        if (($state['suspended'] ?? false) === true) {
-            throw new InvalidArgumentException('Suspended flashcards cannot be reviewed.');
+        if ($requestId !== null && (preg_match('/\A[a-f0-9]{32}\z/', $requestId) !== 1
+            || $expectedReviewCount === null || $expectedReviewCount < 0)) {
+            throw new InvalidArgumentException('The flashcard review request is stale or invalid.');
         }
+        $normalizedRating = FlashcardRating::normalize($rating);
+        $userId = LearnerIdentityService::current();
 
-        // Scheduling state is mutable, but card identity and source linkage are
-        // always taken from the current canonical derivation.
-        $state['card_key'] = $card['card_key'];
-        $state['question_id'] = $card['question_id'];
-        $state['card_type'] = $card['card_type'];
+        return AccountLifecycleLock::withWritableLearner($userId, function () use (
+            $cardKey,
+            $card,
+            $normalizedRating,
+            $now,
+            $requestId,
+            $expectedReviewCount
+        ): array {
+            $state = $this->states->find($cardKey)
+                ?? $this->scheduler->newState(
+                    $card['card_key'],
+                    $card['question_id'],
+                    $card['card_type']
+                );
 
-        $transition = $this->scheduler->schedule(
-            $state,
-            $rating,
-            $now ?? new DateTimeImmutable('now')
-        );
-        $this->states->save($transition['state']);
+            if ($requestId !== null && ($state['last_review_request_id'] ?? null) === $requestId) {
+                if (($state['last_review_rating'] ?? null) === $normalizedRating
+                    && is_array($state['last_review_result'] ?? null)) {
+                    return $state['last_review_result'];
+                }
+                throw new InvalidArgumentException('This flashcard review request was already used.');
+            }
 
-        return $transition['result'];
+            $reviewCount = max(0, (int) ($state['review_count'] ?? 0));
+            if ($requestId !== null && $reviewCount !== $expectedReviewCount) {
+                throw new InvalidArgumentException('This card changed after it was opened. Reload the card before rating it.');
+            }
+            if (($state['suspended'] ?? false) === true) {
+                throw new InvalidArgumentException('Suspended flashcards cannot be reviewed.');
+            }
+
+            // Scheduling state is mutable, but card identity and source linkage
+            // always come from the current canonical derivation.
+            $state['card_key'] = $card['card_key'];
+            $state['question_id'] = $card['question_id'];
+            $state['card_type'] = $card['card_type'];
+
+            $transition = $this->scheduler->schedule(
+                $state,
+                $normalizedRating,
+                $now ?? new DateTimeImmutable('now')
+            );
+            if ($requestId !== null) {
+                $transition['state']['last_review_request_id'] = $requestId;
+                $transition['state']['last_review_rating'] = $normalizedRating;
+                $transition['state']['last_review_result'] = $transition['result'];
+            }
+            $this->states->save($transition['state']);
+
+            return $transition['result'];
+        });
+    }
+
+    public function reviewCount(string $cardKey): int
+    {
+        $state = $this->states->find($cardKey);
+        return max(0, (int) ($state['review_count'] ?? 0));
     }
 
     /** @return array<string,mixed> */

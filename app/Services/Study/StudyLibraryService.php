@@ -28,13 +28,14 @@ final class StudyLibraryService
     /** @return array<string, array{lesson_count:int,practice_available:bool,resources_available:bool}> */
     public static function lessonAvailabilityBySubject(string $boardId): array
     {
+        $boardId = strtolower(trim($boardId));
         $publishedMaterials = [];
         foreach (App::storage()->all('study-materials') as $material) {
             if (is_array($material) && ($material['status'] ?? 'published') === 'published'
                 && is_scalar($material['id'] ?? null)) {
                 $publishedMaterials[(string) $material['id']] = $material;
                 $taxonomy = is_array($material['taxonomy'] ?? null) ? $material['taxonomy'] : [];
-                $subjectId = strtolower(trim((string) ($taxonomy['subject_id'] ?? '')));
+                $subjectId = self::canonicalLessonSubjectId($boardId, (string) ($taxonomy['subject_id'] ?? ''));
                 if ($subjectId !== '' && self::materialIncludesExam($material, $boardId)) {
                     $availability[$subjectId] ??= ['lesson_count' => 0, 'practice_available' => false, 'resources_available' => false];
                     $availability[$subjectId]['resources_available'] = true;
@@ -49,7 +50,7 @@ final class StudyLibraryService
                 || !isset($publishedMaterials[(string) ($lesson['material_id'] ?? '')])) {
                 continue;
             }
-            $subjectId = strtolower(trim((string) ($lesson['subject_id'] ?? '')));
+            $subjectId = self::canonicalLessonSubjectId($boardId, (string) ($lesson['subject_id'] ?? ''));
             if ($subjectId === '') {
                 continue;
             }
@@ -71,6 +72,26 @@ final class StudyLibraryService
             }
         }
         return false;
+    }
+
+    /**
+     * Resolve a legacy board-local subject slug only when its canonical,
+     * board-prefixed taxonomy ID is registered for that same board.
+     */
+    public static function canonicalLessonSubjectId(string $boardId, string $subjectId): string
+    {
+        $boardId = strtolower(trim($boardId));
+        $subjectId = strtolower(trim($subjectId));
+        if ($boardId === '' || $subjectId === ''
+            || \App\Services\Shared\TaxonomyStorageService::find('subjects', $subjectId) !== null) {
+            return $subjectId;
+        }
+
+        $canonical = $boardId . '-' . $subjectId;
+        return \App\Services\Shared\TaxonomyStorageService::find('subjects', $canonical) !== null
+            && \App\Services\Shared\TaxonomyStorageService::hasBoardSubject($boardId, $canonical)
+            ? $canonical
+            : $subjectId;
     }
 
     /** @return list<string> */
@@ -366,7 +387,10 @@ final class StudyLibraryService
                     if (self::normalizeExam((string) ($lesson['board_id'] ?? '')) !== $contextBoard) {
                         continue;
                     }
-                    $lessonSubject = strtolower(trim((string) ($lesson['subject_id'] ?? '')));
+                    $lessonSubject = self::canonicalLessonSubjectId(
+                        $contextBoard,
+                        (string) ($lesson['subject_id'] ?? '')
+                    );
                     $subjectKey = $questionId . "\0" . $contextBoard;
                     if (!array_key_exists($subjectKey, $resolvedSubjects)) {
                         $resolvedSubjects[$subjectKey] = self::effectiveSubjectForQuestion($questionId, $contextBoard, $snapshotById);

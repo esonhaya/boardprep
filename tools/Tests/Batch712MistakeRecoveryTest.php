@@ -321,8 +321,12 @@ mistakeAssert(!str_contains($noteReview['output'], '<script>privateNoteText()</s
 $noteExcerpt = (string) $noteAttempt['notes_practice']['question_notes'][$noteQuestionId]['excerpt'];
 mistakeAssert($noteExcerpt === '' || str_contains($noteReview['output'], htmlspecialchars($noteExcerpt, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8')), 'Escaped historical note excerpt was not displayed.');
 $editedNoteTitle = $noteTitle . ' edited later';
+if (!preg_match('/name="note_revision"\s+value="(\d+)"/', $noteMatchPage['output'], $noteRevisionMatch)) {
+    throw new RuntimeException('The saved note form did not provide its concurrency revision.');
+}
 $noteEdit = $http->request('POST', '/my-notes/save', [], [
     'csrf_token' => mistakeCsrf($noteMatchPage['output']), 'note_id' => $noteId,
+    'note_revision' => (int) $noteRevisionMatch[1],
     'title' => $editedNoteTitle, 'board_id' => 'let', 'body' => $noteBody . "\n\nPrivate edit after this quiz.",
 ], [], $cookies);
 mistakeHttpOk($noteEdit, 'Edit a private note after its mistake snapshot was recorded', 303);

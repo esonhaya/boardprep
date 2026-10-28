@@ -29,6 +29,9 @@ class QuizSubmissionService
                 self::renderQuestion($question, $current, count($questions), null, $status);
                 return;
             }
+            if (self::saveDelayedExamSubmission($questions, $question, $current)) {
+                return;
+            }
             self::renderStaleQuestion($question, $current, count($questions));
             return;
         }
@@ -36,6 +39,11 @@ class QuizSubmissionService
         $answer = Request::input("answer");
         if (!is_scalar($answer)) {
             self::renderMissingAnswer($question, $current, count($questions));
+            return;
+        }
+        $answer = self::validAnswerFor($question, $answer);
+        if ($answer === null) {
+            self::renderInvalidAnswer($question, $current, count($questions));
             return;
         }
 
@@ -50,7 +58,7 @@ class QuizSubmissionService
             return;
         }
 
-        QuizNavigationService::next();
+        QuizNavigationService::next(true);
     }
 
     private static function redirectIfAlreadyPersisted(): void
@@ -88,6 +96,9 @@ class QuizSubmissionService
     private static function postedQuestionIsStale(array $question): bool
     {
         $postedQuestionId = Request::input("question_id");
+        if (self::isExamMode() && (!is_scalar($postedQuestionId) || trim((string) $postedQuestionId) === '')) {
+            return true;
+        }
 
         return $postedQuestionId !== null
             && (!is_scalar($postedQuestionId)
@@ -113,9 +124,17 @@ class QuizSubmissionService
             return null;
         }
 
+        $targetQuestion = null;
+        foreach ($questions as $candidate) {
+            if (is_array($candidate) && self::questionId($candidate) === $questionId) {
+                $targetQuestion = $candidate;
+                break;
+            }
+        }
+        $answer = $targetQuestion === null ? null : self::validAnswerFor($targetQuestion, $answer);
         $answers = SessionService::get('answers', []);
-        if (!is_array($answers) || !is_scalar($answers[$questionId] ?? null)
-            || trim((string) $answers[$questionId]) !== $answer) {
+        if ($answer === null || !is_array($answers) || !is_scalar($answers[$questionId] ?? null)
+            || strtoupper(trim((string) $answers[$questionId])) !== $answer) {
             return null;
         }
 
@@ -137,6 +156,82 @@ class QuizSubmissionService
     private static function renderMissingAnswer(array $question, int $current, int $total): void
     {
         SessionService::flash("error", "Please select an answer before continuing.");
+        self::renderQuestion($question, $current, $total);
+    }
+
+    /** Save a delayed exam request only to its own unanswered session question. */
+    private static function saveDelayedExamSubmission(array $questions, array $activeQuestion, int $current): bool
+    {
+        if (!self::isExamMode()) {
+            return false;
+        }
+
+        $postedQuestionId = Request::input('question_id');
+        $postedAnswer = Request::input('answer');
+        if (!is_scalar($postedQuestionId) || !is_scalar($postedAnswer)) {
+            return false;
+        }
+        $postedQuestionId = trim((string) $postedQuestionId);
+        if ($postedQuestionId === '') {
+            return false;
+        }
+
+        foreach ($questions as $index => $targetQuestion) {
+            if (!is_array($targetQuestion) || self::questionId($targetQuestion) !== $postedQuestionId) {
+                continue;
+            }
+            $answer = self::validAnswerFor($targetQuestion, $postedAnswer);
+            if ($answer === null) {
+                return false;
+            }
+
+            $answers = SessionService::get('answers', []);
+            if (!is_array($answers)) {
+                return false;
+            }
+            if (array_key_exists($postedQuestionId, $answers)) {
+                $saved = is_scalar($answers[$postedQuestionId])
+                    ? strtoupper(trim((string) $answers[$postedQuestionId]))
+                    : '';
+                $status = $saved === $answer
+                    ? sprintf('Your answer for question %d was saved. Your current question remains %d of %d.', $index + 1, $current + 1, count($questions))
+                    : sprintf('The previously saved answer for question %d was kept. Your current question remains %d of %d.', $index + 1, $current + 1, count($questions));
+                self::renderQuestion($activeQuestion, $current, count($questions), null, $status);
+                return true;
+            }
+
+            if (!self::storeAnswer($targetQuestion, $answer)) {
+                return false;
+            }
+            $status = sprintf(
+                'Your answer for question %d was saved. Your current question remains %d of %d.',
+                $index + 1,
+                $current + 1,
+                count($questions)
+            );
+            self::renderQuestion($activeQuestion, $current, count($questions), null, $status);
+            return true;
+        }
+
+        return false;
+    }
+
+    private static function validAnswerFor(array $question, mixed $answer): ?string
+    {
+        if (!is_scalar($answer) || !is_array($question['choices'] ?? null)) {
+            return null;
+        }
+        $answer = strtoupper(trim((string) $answer));
+        if (preg_match('/^[A-Z]$/', $answer) !== 1) {
+            return null;
+        }
+        $choiceIndex = ord($answer) - ord('A');
+        return $choiceIndex >= 0 && $choiceIndex < count($question['choices']) ? $answer : null;
+    }
+
+    private static function renderInvalidAnswer(array $question, int $current, int $total): void
+    {
+        SessionService::flash('error', 'That answer option is not available for this question. Please choose one of the listed options.');
         self::renderQuestion($question, $current, $total);
     }
 

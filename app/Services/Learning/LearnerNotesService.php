@@ -54,19 +54,78 @@ final class LearnerNotesService
         $userId = LearnerIdentityService::current();
         $record = $this->validatedRecord($input);
         $requestedId = is_scalar($input['note_id'] ?? null) ? trim((string) $input['note_id']) : '';
+        $createRequestId = is_scalar($input['create_request_id'] ?? null)
+            ? trim((string) $input['create_request_id'])
+            : '';
+        if ($requestedId === '' && $createRequestId !== ''
+            && preg_match('/\A[a-f0-9]{32}\z/', $createRequestId) !== 1) {
+            throw new InvalidArgumentException('This new-note form is out of date. Reload My Notes before saving.');
+        }
+        $requestedRevision = is_scalar($input['note_revision'] ?? null)
+            ? filter_var((string) $input['note_revision'], FILTER_VALIDATE_INT, ['options' => ['min_range' => 1]])
+            : false;
 
-        return AccountLifecycleLock::withWritableLearner($userId, function () use ($userId, $record, $requestedId): array {
+        return AccountLifecycleLock::withWritableLearner($userId, function () use ($userId, $record, $requestedId, $requestedRevision, $createRequestId): array {
             if ($requestedId !== '') {
-                $existing = $this->find($requestedId);
-                if (!is_array($existing)) {
-                    throw new InvalidArgumentException('That note is unavailable in this learner session.');
+                if ($requestedRevision === false) {
+                    throw new InvalidArgumentException('This note form is out of date. Reopen the saved note before editing it.');
                 }
-                $updated = array_merge($existing, $record, ['updated_at' => gmdate(DATE_ATOM)]);
-                $saved = App::storage()->update(self::COLLECTION, $requestedId, $updated);
+
+                $saved = null;
+                App::storage()->updateBatch(self::COLLECTION, [$requestedId], function (array $existing) use (
+                    $userId,
+                    $requestedId,
+                    $requestedRevision,
+                    $record,
+                    &$saved
+                ): array {
+                    if (($existing['id'] ?? null) !== $requestedId || ($existing['user_id'] ?? null) !== $userId) {
+                        throw new InvalidArgumentException('That note is unavailable in this learner session.');
+                    }
+
+                    $currentRevision = max(1, (int) ($existing['note_revision'] ?? 1));
+                    if ($currentRevision !== $requestedRevision) {
+                        $sameSavedContent = $currentRevision === $requestedRevision + 1
+                            && ($existing['title'] ?? null) === $record['title']
+                            && ($existing['body'] ?? null) === $record['body']
+                            && ($existing['board_id'] ?? null) === $record['board_id'];
+                        if ($sameSavedContent) {
+                            $saved = $existing;
+                            return $existing;
+                        }
+                        throw new InvalidArgumentException('This note changed after you opened it. Your saved version was kept; reopen the note before editing it.');
+                    }
+
+                    $saved = array_merge($existing, $record, [
+                        'note_revision' => $currentRevision + 1,
+                        'updated_at' => gmdate(DATE_ATOM),
+                    ]);
+                    return $saved;
+                });
+
                 if (!is_array($saved) || ($saved['user_id'] ?? null) !== $userId) {
                     throw new InvalidArgumentException('The note could not be saved. Please reopen it and try again.');
                 }
                 return $saved;
+            }
+
+            if ($createRequestId !== '') {
+                $matches = App::storage()->where(self::COLLECTION, [
+                    'user_id' => $userId,
+                    'create_request_id' => $createRequestId,
+                ]);
+                foreach ($matches as $existing) {
+                    if (!is_array($existing) || ($existing['user_id'] ?? null) !== $userId
+                        || ($existing['create_request_id'] ?? null) !== $createRequestId) {
+                        continue;
+                    }
+                    if (($existing['title'] ?? null) === $record['title']
+                        && ($existing['board_id'] ?? null) === $record['board_id']
+                        && ($existing['body'] ?? null) === $record['body']) {
+                        return $existing;
+                    }
+                    throw new InvalidArgumentException('This new-note request was already used with different content. Your saved note was kept.');
+                }
             }
 
             if (count($this->all()) >= self::MAX_NOTES) {
@@ -76,6 +135,8 @@ final class LearnerNotesService
                 'id' => 'note-' . bin2hex(random_bytes(16)),
                 'user_id' => $userId,
                 ...$record,
+                'note_revision' => 1,
+                'create_request_id' => $createRequestId !== '' ? $createRequestId : null,
                 'created_at' => gmdate(DATE_ATOM),
                 'updated_at' => gmdate(DATE_ATOM),
             ]);

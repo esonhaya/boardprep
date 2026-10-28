@@ -118,6 +118,24 @@ try {
         throw new RuntimeException('Refreshing an active simulation did not recover its question and original deadline.');
     }
 
+    $unboundNavigation = $http->request('POST', '/quiz', [], [
+        'action' => 'next', 'csrf_token' => $csrfToken,
+    ], [], $cookies);
+    $unboundNavigationState = $readSession($cookies['PHPSESSID']);
+    if (!$unboundNavigation['success'] || !str_contains($unboundNavigation['output'], 'Question 1 / 3')
+        || (int) ($unboundNavigationState['currentQuestion'] ?? -1) !== 0) {
+        throw new RuntimeException('An exam navigation request without its rendered question identity moved the session.');
+    }
+
+    $tamperedQuestion = $http->request('POST', '/quiz', [], [
+        'action' => 'submit', 'question_id' => 'not-in-this-session', 'answer' => 'A', 'csrf_token' => $csrfToken,
+    ], [], $cookies);
+    $afterTamperedQuestion = $readSession($cookies['PHPSESSID']);
+    if (!$tamperedQuestion['success'] || (int) ($afterTamperedQuestion['currentQuestion'] ?? -1) !== 0
+        || (array) ($afterTamperedQuestion['answers'] ?? []) !== []) {
+        throw new RuntimeException('A manipulated question identifier changed the active session or persisted an answer.');
+    }
+
     $firstAnswer = $http->request('POST', '/quiz', [], [
         'action' => 'submit', 'question_id' => $match[1], 'answer' => 'A', 'csrf_token' => $csrfToken,
     ], [], $cookies);
@@ -144,8 +162,9 @@ try {
     ], [], $cookies);
     $afterConflictingRetry = $readSession($cookies['PHPSESSID']);
     if (!$conflictingStaleRetry['success']
-        || !str_contains($conflictingStaleRetry['output'], 'This quiz question is no longer active')
-        || str_contains($conflictingStaleRetry['output'], 'already recorded')
+        || !str_contains($conflictingStaleRetry['output'], 'The previously saved answer for question 1 was kept')
+        || str_contains($conflictingStaleRetry['output'], 'Correct Answer')
+        || (int) ($afterConflictingRetry['currentQuestion'] ?? -1) !== 1
         || ($afterConflictingRetry['answers'][$match[1]] ?? null) !== 'A') {
         throw new RuntimeException('A stale conflicting answer request overwrote the authoritative saved answer.');
     }
@@ -156,8 +175,15 @@ try {
         throw new RuntimeException('Refreshing an active exam did not show the authoritative persisted answer count.');
     }
 
-    $skipSecond = $http->request('POST', '/quiz', [], ['action' => 'next', 'csrf_token' => $csrfToken], [], $cookies);
-    $skipLast = $http->request('POST', '/quiz', [], ['action' => 'next', 'csrf_token' => $csrfToken], [], $cookies);
+    $questionTwoId = (string) ($afterRetrySession['questions'][1]['id'] ?? '');
+    $skipSecond = $http->request('POST', '/quiz', [], [
+        'action' => 'next', 'from_question_id' => $questionTwoId, 'csrf_token' => $csrfToken,
+    ], [], $cookies);
+    $afterSkipSecondSession = $readSession($cookies['PHPSESSID']);
+    $questionThreeId = (string) ($afterSkipSecondSession['questions'][2]['id'] ?? '');
+    $skipLast = $http->request('POST', '/quiz', [], [
+        'action' => 'next', 'from_question_id' => $questionThreeId, 'csrf_token' => $csrfToken,
+    ], [], $cookies);
     if (!$skipSecond['success'] || !str_contains($skipSecond['output'], 'Question 3 / 3')
         || $skipLast['status'] !== 303 || $skipLast['location'] !== '/quiz?action=review') {
         throw new RuntimeException('Question navigation did not preserve skips or open review at the final question.');
@@ -169,7 +195,9 @@ try {
         throw new RuntimeException('Pre-submit review did not identify unanswered questions.');
     }
 
-    $jumpBack = $http->request('POST', '/quiz', [], ['action' => 'jump', 'index' => 0, 'csrf_token' => $csrfToken], [], $cookies);
+    $jumpBack = $http->request('POST', '/quiz', [], [
+        'action' => 'jump', 'index' => 0, 'from_question_id' => $questionThreeId, 'csrf_token' => $csrfToken,
+    ], [], $cookies);
     if (!$jumpBack['success'] || !preg_match('/name="answer"\s+value="A"\s+required\s+checked/', $jumpBack['output'])) {
         throw new RuntimeException('Returning to an answered question did not restore its saved selection.');
     }
@@ -200,6 +228,18 @@ try {
         || ($secondFinish['status'] ?? 0) !== 303 || ($secondFinish['location'] ?? null) !== '/quiz?action=result') {
         throw new RuntimeException('Simultaneous final-submit requests did not both recover to the single persisted result.');
     }
+    $finalizedStorage = [
+        'attempts' => (string) file_get_contents($path),
+        'weakness' => (string) file_get_contents($weaknessPath),
+        'question_statistics' => (string) file_get_contents($statisticsPath),
+    ];
+    $lostFinalResponseRetry = $http->request('POST', '/quiz', [], ['action' => 'finish', 'csrf_token' => $csrfToken], [], $cookies);
+    if ($lostFinalResponseRetry['status'] !== 303 || $lostFinalResponseRetry['location'] !== '/quiz?action=result'
+        || $finalizedStorage['attempts'] !== (string) file_get_contents($path)
+        || $finalizedStorage['weakness'] !== (string) file_get_contents($weaknessPath)
+        || $finalizedStorage['question_statistics'] !== (string) file_get_contents($statisticsPath)) {
+        throw new RuntimeException('Retrying a finalized exam after a lost response changed attempts or learner statistics.');
+    }
     $result = $http->request('GET', '/quiz', ['action' => 'result'], [], [], $cookies);
     $repeat = $http->request('GET', '/quiz', ['action' => 'result'], [], [], $cookies);
     $duplicateSubmit = $http->request('POST', '/quiz', [], [
@@ -212,6 +252,70 @@ try {
         || !preg_match('/Score\s*:?[\s]*\d+\s*\/\s*3/', $resultText)
         || substr_count($result['output'], 'No answer') !== 2) {
         throw new RuntimeException('Partial simulation result or duplicate-submission protection failed.');
+    }
+
+    $raceCookies = ['PHPSESSID' => 'batch723-answer-nav-race-' . bin2hex(random_bytes(8))];
+    $raceSettings = $http->request('GET', '/quiz', [], [], [], $raceCookies);
+    if (!$raceSettings['success'] || !preg_match('/name="csrf_token" value="([^"]+)"/', $raceSettings['output'], $raceCsrfMatch)) {
+        throw new RuntimeException('Race fixture did not receive a CSRF token.');
+    }
+    $raceCsrf = $raceCsrfMatch[1];
+    $raceStart = $http->request('POST', '/quiz', [], [
+        'action' => 'start', 'exam' => 'LET', 'subject' => 'English', 'mode' => 'exam',
+        'timer_mode' => 'untimed', 'difficulty' => 'mixed', 'count' => 2, 'csrf_token' => $raceCsrf,
+    ], [], $raceCookies);
+    if (!$raceStart['success'] || !preg_match('/name="question_id"\s+value="([^"]+)"/', $raceStart['output'], $raceQuestionMatch)) {
+        throw new RuntimeException('Race fixture exam did not start with its first question.');
+    }
+    $raceSessionBefore = $readSession($raceCookies['PHPSESSID']);
+    $raceQuestionId = $raceQuestionMatch[1];
+    $raceNextQuestionId = (string) ($raceSessionBefore['questions'][1]['id'] ?? '');
+    $raceResponses = $http->requestsConcurrently([
+        ['method' => 'POST', 'path' => '/quiz', 'post' => [
+            'action' => 'submit', 'question_id' => $raceQuestionId, 'answer' => 'A', 'csrf_token' => $raceCsrf,
+        ], 'cookies' => $raceCookies],
+        ['method' => 'POST', 'path' => '/quiz', 'post' => [
+            'action' => 'next', 'from_question_id' => $raceQuestionId, 'csrf_token' => $raceCsrf,
+        ], 'cookies' => $raceCookies],
+    ]);
+    $raceSessionAfter = $readSession($raceCookies['PHPSESSID']);
+    if (count($raceResponses) !== 2
+        || (int) ($raceSessionAfter['currentQuestion'] ?? -1) !== 1
+        || (string) ($raceSessionAfter['questions'][1]['id'] ?? '') !== $raceNextQuestionId
+        || ($raceSessionAfter['answers'][$raceQuestionId] ?? null) !== 'A') {
+        throw new RuntimeException('Concurrent answer and navigation requests lost the answer or advanced past the next question.');
+    }
+
+    $answerRaceCookies = ['PHPSESSID' => 'batch723-conflicting-answer-race-' . bin2hex(random_bytes(8))];
+    $answerRaceSettings = $http->request('GET', '/quiz', [], [], [], $answerRaceCookies);
+    if (!$answerRaceSettings['success'] || !preg_match('/name="csrf_token" value="([^"]+)"/', $answerRaceSettings['output'], $answerRaceCsrfMatch)) {
+        throw new RuntimeException('Conflicting-answer race fixture did not receive a CSRF token.');
+    }
+    $answerRaceCsrf = $answerRaceCsrfMatch[1];
+    $answerRaceStart = $http->request('POST', '/quiz', [], [
+        'action' => 'start', 'exam' => 'LET', 'subject' => 'English', 'mode' => 'exam',
+        'timer_mode' => 'untimed', 'difficulty' => 'mixed', 'count' => 2, 'csrf_token' => $answerRaceCsrf,
+    ], [], $answerRaceCookies);
+    if (!$answerRaceStart['success'] || !preg_match('/name="question_id"\s+value="([^"]+)"/', $answerRaceStart['output'], $answerRaceQuestionMatch)) {
+        throw new RuntimeException('Conflicting-answer race fixture did not start its exam.');
+    }
+    $answerRaceQuestionId = $answerRaceQuestionMatch[1];
+    $conflictingAnswerResponses = $http->requestsConcurrently([
+        ['method' => 'POST', 'path' => '/quiz', 'post' => [
+            'action' => 'submit', 'question_id' => $answerRaceQuestionId, 'answer' => 'A', 'csrf_token' => $answerRaceCsrf,
+        ], 'cookies' => $answerRaceCookies],
+        ['method' => 'POST', 'path' => '/quiz', 'post' => [
+            'action' => 'submit', 'question_id' => $answerRaceQuestionId, 'answer' => 'B', 'csrf_token' => $answerRaceCsrf,
+        ], 'cookies' => $answerRaceCookies],
+    ]);
+    $answerRaceSession = $readSession($answerRaceCookies['PHPSESSID']);
+    $authoritativeRaceAnswer = $answerRaceSession['answers'][$answerRaceQuestionId] ?? null;
+    if (count($conflictingAnswerResponses) !== 2
+        || !in_array($authoritativeRaceAnswer, ['A', 'B'], true)
+        || (int) ($answerRaceSession['currentQuestion'] ?? -1) !== 1
+        || (string) ($answerRaceSession['questions'][1]['id'] ?? '') === ''
+        || str_contains(implode("\n", array_column($conflictingAnswerResponses, 'output')), 'Correct Answer')) {
+        throw new RuntimeException('Nearly simultaneous conflicting answer saves overwrote the first persisted answer, leaked a key, or advanced more than once.');
     }
 
     $after = json_decode((string) file_get_contents($path), true);
@@ -276,7 +380,17 @@ $expiryCookies = ['PHPSESSID' => 'batch676-expired-exam-' . bin2hex(random_bytes
     $_SESSION['quiz_session'] = $expiredQuiz;
     session_write_close();
 
-    $expiredRefresh = $http->request('GET', '/quiz', [], [], [], $expiryCookies);
+    $expiredQuestionId = (string) ($expiredState['questions'][0]['id'] ?? '');
+    $lateExpiredAnswer = $http->request('POST', '/quiz', [], [
+        'action' => 'submit', 'question_id' => $expiredQuestionId, 'answer' => 'A', 'csrf_token' => $expiryCsrfMatch[1],
+    ], [], $expiryCookies);
+    $expiredAfterLateAnswer = $readSession($expiryCookies['PHPSESSID']);
+    if (!in_array($lateExpiredAnswer['status'], [302, 303], true)
+        || $lateExpiredAnswer['location'] !== '/quiz?action=result'
+        || (array) ($expiredAfterLateAnswer['answers'] ?? []) !== []) {
+        throw new RuntimeException('An answer request processed after the server deadline was not rejected without saving.');
+    }
+    $expiredRefresh = $http->request('GET', '/quiz', ['action' => 'result'], [], [], $expiryCookies);
     $expiredResult = $http->request('GET', '/quiz', ['action' => 'result'], [], [], $expiryCookies);
     $expiredText = preg_replace('/\s+/', ' ', strip_tags($expiredResult['output'])) ?? '';
     $afterExpiry = json_decode((string) file_get_contents($path), true);
@@ -285,14 +399,24 @@ $expiryCookies = ['PHPSESSID' => 'batch676-expired-exam-' . bin2hex(random_bytes
         $allNewAttempts,
         static fn(mixed $attempt): bool => is_array($attempt) && ($attempt['time_expired'] ?? false) === true
     ));
-    if ($expiredRefresh['status'] !== 303 || $expiredRefresh['location'] !== '/quiz?action=result'
+    if ($expiredRefresh['status'] !== 200
         || !$expiredResult['success'] || !str_contains($expiredText, 'Time expired; your saved answers were submitted.')
         || count($allNewAttempts) !== 2 || count($expiredAttempts) !== 1
         || (int) ($expiredAttempts[0]['unanswered'] ?? -1) !== 2) {
-        throw new RuntimeException('Refreshing after the authoritative deadline did not submit once with unanswered items retained.');
+        throw new RuntimeException('Refreshing after the authoritative deadline did not submit once with unanswered items retained: ' . json_encode([
+            'late_status' => $lateExpiredAnswer['status'] ?? null,
+            'late_location' => $lateExpiredAnswer['location'] ?? null,
+            'refresh_status' => $expiredRefresh['status'] ?? null,
+            'refresh_location' => $expiredRefresh['location'] ?? null,
+            'result_success' => $expiredResult['success'] ?? null,
+            'result_text' => substr($expiredText, 0, 350),
+            'new_attempt_count' => count($allNewAttempts),
+            'expired_attempt_count' => count($expiredAttempts),
+            'expired_attempt' => $expiredAttempts[0] ?? null,
+        ]));
     }
 
-    echo "[PASS] Timed/untimed exam simulation setup, resume, navigation, editable answers, review, expiration, partial scoring, history metadata, retry, and concurrent exact-once submission verified.\n";
+    echo "[PASS] Timed/untimed exam simulation setup, resume, answer/navigation races, editable answers, review, late-expiration rejection, partial scoring, history metadata, lost-response retries, and concurrent exact-once submission verified.\n";
 } finally {
     $repository = App::container()->get(AttemptRepository::class);
     $after = json_decode((string) file_get_contents($path), true);

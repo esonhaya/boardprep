@@ -65,7 +65,11 @@ foreach ($newLinks as $link) {
     $lesson = $lessonsByMaterial[$materialId] ?? null;
     $assert(is_array($question) && is_array($material) && is_array($lesson), 'A Batch 696 link has a missing question, material, or lesson.');
     $resolved = \App\Services\Question\QuestionEligibilityService::forExam($question, (string) ($lesson['board_id'] ?? ''), $index);
-    $assert(is_array($resolved) && strtolower((string) ($resolved['subject_id'] ?? '')) === strtolower((string) ($lesson['subject_id'] ?? '')), 'A Batch 696 link does not match the production effective subject eligibility.');
+    $lessonSubject = \App\Services\Study\StudyLibraryService::canonicalLessonSubjectId(
+        (string) ($lesson['board_id'] ?? ''),
+        (string) ($lesson['subject_id'] ?? '')
+    );
+    $assert(is_array($resolved) && strtolower((string) ($resolved['subject_id'] ?? '')) === $lessonSubject, 'A Batch 696 link does not match the production effective subject eligibility.');
     $sectionId = (string) ($link['section_id'] ?? '');
     $section = null;
     foreach ((array) ($lesson['sections'] ?? []) as $candidate) if (is_array($candidate) && (string) ($candidate['id'] ?? '') === $sectionId) { $section = $candidate; break; }

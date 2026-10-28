@@ -38,7 +38,7 @@ class JsonStorage implements StorageInterface
         $directory = dirname($path);
 
         if (!is_dir($directory)
-            && !mkdir($directory, 0777, true)
+            && !@mkdir($directory, 0777, true)
             && !is_dir($directory)) {
             throw new StorageException(
                 "Unable to create storage directory: {$directory}"
@@ -101,13 +101,15 @@ class JsonStorage implements StorageInterface
                 JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR
             );
 
-            if (file_put_contents($temp, $json . "\n", LOCK_EX) === false) {
+            $payload = $json . "\n";
+            $written = $this->writeTemporaryFile($temp, $payload);
+            if ($written !== strlen($payload)) {
                 throw new StorageException(
-                    "Unable to write collection: {$collection}"
+                    "Unable to write complete collection: {$collection}"
                 );
             }
 
-            if (!rename($temp, $path)) {
+            if (!$this->replaceCollectionFile($temp, $path)) {
                 throw new StorageException(
                     "Unable to replace collection: {$collection}"
                 );
@@ -125,10 +127,22 @@ class JsonStorage implements StorageInterface
         }
     }
 
+    /** @internal Protected seams let tests inject short writes and rename failures. */
+    protected function writeTemporaryFile(string $path, string $contents): int|false
+    {
+        return file_put_contents($path, $contents, LOCK_EX);
+    }
+
+    /** @internal */
+    protected function replaceCollectionFile(string $temporary, string $path): bool
+    {
+        return rename($temporary, $path);
+    }
+
     private function withMutationLock(callable $callback): mixed
     {
         if (!is_dir($this->storagePath)
-            && !mkdir($this->storagePath, 0777, true)
+            && !@mkdir($this->storagePath, 0777, true)
             && !is_dir($this->storagePath)) {
             throw new StorageException(
                 "Unable to create storage directory: {$this->storagePath}"

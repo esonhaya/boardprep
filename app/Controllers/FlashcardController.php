@@ -92,6 +92,10 @@ final class FlashcardController
         if ($card !== null) {
             $card = self::applyReviewContext($card, $filters, $questionSnapshot);
         }
+        $reviewToken = $card !== null && $revealed ? bin2hex(random_bytes(16)) : '';
+        $expectedReviewCount = $card !== null && $revealed
+            ? self::service()->reviewCount((string) ($card['card_key'] ?? ''))
+            : 0;
         unset($parsed['question_snapshot'], $questionSnapshot);
 
         View::render('flashcards/review', [
@@ -102,6 +106,8 @@ final class FlashcardController
             'revealed' => $revealed,
             'selection' => $selection,
             'csrfToken' => CsrfTokenService::token(),
+            'reviewToken' => $reviewToken,
+            'expectedReviewCount' => $expectedReviewCount,
             'error' => $error,
         ]);
     }
@@ -126,7 +132,15 @@ final class FlashcardController
 
         $cardKey = Request::input('card_key');
         $rating = Request::input('rating');
-        if (!is_scalar($cardKey) || !is_scalar($rating)) {
+        $reviewToken = Request::input('review_request_id');
+        $expectedReviewCount = Request::input('expected_review_count');
+        $expectedReviewCount = is_scalar($expectedReviewCount)
+            ? filter_var((string) $expectedReviewCount, FILTER_VALIDATE_INT, ['options' => ['min_range' => 0]])
+            : false;
+        if (!is_scalar($cardKey) || !is_scalar($rating)
+            || !is_scalar($reviewToken)
+            || preg_match('/\A[a-f0-9]{32}\z/', (string) $reviewToken) !== 1
+            || $expectedReviewCount === false) {
             \SessionService::flash('error', 'That review submission was invalid.');
             Response::redirect($redirect, 303);
         }
@@ -136,7 +150,14 @@ final class FlashcardController
             if (!self::matches($card, $filters) || !self::allowedInMode($card, $mode)) {
                 throw new \InvalidArgumentException('Card is not in the selected review set.');
             }
-            self::service()->review(trim((string) $cardKey), trim((string) $rating));
+            self::service()->review(
+                trim((string) $cardKey),
+                trim((string) $rating),
+                null,
+                null,
+                (string) $reviewToken,
+                (int) $expectedReviewCount
+            );
             \SessionService::flash('success', 'Review saved.');
         } catch (\Throwable) {
             \SessionService::flash('error', 'That card or rating is invalid. No review was saved.');

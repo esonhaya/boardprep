@@ -33,6 +33,13 @@ function responseCardKey(string $html): string
     return html_entity_decode($match[1]);
 }
 
+function responseHidden(string $html, string $name): string
+{
+    preg_match('/name="' . preg_quote($name, '/') . '" value="([^"]*)"/', $html, $match);
+    httpCheck(isset($match[1]), 'review form did not contain ' . $name);
+    return html_entity_decode($match[1]);
+}
+
 try {
     $simulator = new HttpSimulator(dirname(__DIR__, 2) . '/public/index.php');
     $cookie = ['PHPSESSID' => 'batch676-flashcards-a-' . bin2hex(random_bytes(8))];
@@ -95,6 +102,8 @@ try {
         && str_contains($materialPage['output'], 'study-material-' . $materialId), 'flashcard study reference did not open its linked material');
     $token = responseToken($revealed['output']);
     $cardKey = responseCardKey($revealed['output']);
+    $reviewRequestId = responseHidden($revealed['output'], 'review_request_id');
+    $expectedReviewCount = responseHidden($revealed['output'], 'expected_review_count');
 
     $missingCsrf = $simulator->request('POST', '/flashcards/review', [], [
         'card_key' => $cardKey,
@@ -113,10 +122,29 @@ try {
         'csrf_token' => $token,
         'card_key' => $cardKey,
         'rating' => 'good',
+        'review_request_id' => $reviewRequestId,
+        'expected_review_count' => $expectedReviewCount,
         'include_new' => '1',
         'user_id' => 'attacker-controlled',
     ], [], $cookie);
     httpCheck($validPost['status'] === 303, 'valid review did not use POST/Redirect/GET');
+    $retryPost = $simulator->request('POST', '/flashcards/review', [], [
+        'csrf_token' => $token,
+        'card_key' => $cardKey,
+        'rating' => 'good',
+        'review_request_id' => $reviewRequestId,
+        'expected_review_count' => $expectedReviewCount,
+        'include_new' => '1',
+    ], [], $cookie);
+    httpCheck($retryPost['status'] === 303, 'a lost-response retry did not use POST/Redirect/GET');
+    $pdo = new PDO('sqlite:' . $sqlitePath, null, null, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+    $storedPayloads = $pdo->query("SELECT payload FROM storage_records WHERE collection = 'flashcard_state'")->fetchAll(PDO::FETCH_COLUMN);
+    $storedCard = null;
+    foreach ($storedPayloads as $payload) {
+        $record = json_decode((string) $payload, true, 512, JSON_THROW_ON_ERROR);
+        if (($record['card_key'] ?? null) === $cardKey) $storedCard = $record;
+    }
+    httpCheck(($storedCard['review_count'] ?? 0) === 1, 'a duplicate review retry advanced the persisted schedule twice');
     $afterPost = $simulator->request('GET', '/flashcards/review', [], [], [], $cookie);
     httpCheck($afterPost['status'] === 200 && str_contains($afterPost['output'], 'Review saved.'), 'successful review did not produce a follow-up page');
 
@@ -124,6 +152,8 @@ try {
         'csrf_token' => $token,
         'card_key' => $cardKey,
         'rating' => 'not-a-rating',
+        'review_request_id' => $reviewRequestId,
+        'expected_review_count' => $expectedReviewCount,
     ], [], $cookie);
     httpCheck($invalidRating['status'] === 303, 'invalid rating was not rejected');
 
@@ -131,6 +161,8 @@ try {
         'csrf_token' => $token,
         'card_key' => 'q:unknown:concept:no-such:r1',
         'rating' => 'good',
+        'review_request_id' => $reviewRequestId,
+        'expected_review_count' => $expectedReviewCount,
     ], [], $cookie);
     httpCheck($unknownCard['status'] === 303, 'unknown card was not rejected');
 

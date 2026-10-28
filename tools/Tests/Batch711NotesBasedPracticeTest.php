@@ -76,8 +76,21 @@ $notesService = new \App\Services\Learning\LearnerNotesService();
 $created = $notesService->save(['title' => 'My LET notes', 'board_id' => 'let', 'body' => $noteBody]);
 notesAssert(($created['user_id'] ?? '') === $_SESSION['learner_identity'], 'Created notes do not belong to the active learner.');
 notesAssert($notesService->find((string) $created['id'])['body'] === $noteBody, 'Created note did not reopen with its paragraphs.');
-$edited = $notesService->save(['note_id' => $created['id'], 'title' => 'Edited LET notes', 'board_id' => 'let', 'body' => $noteBody . "\n\nEdited." ]);
-notesAssert(($edited['title'] ?? '') === 'Edited LET notes' && str_ends_with((string) $edited['body'], 'Edited.'), 'Note edit was not saved.');
+$editedInput = ['note_id' => $created['id'], 'note_revision' => $created['note_revision'], 'title' => 'Edited LET notes', 'board_id' => 'let', 'body' => $noteBody . "\n\nEdited."];
+$edited = $notesService->save($editedInput);
+notesAssert(($edited['title'] ?? '') === 'Edited LET notes' && str_ends_with((string) $edited['body'], 'Edited.')
+    && ($edited['note_revision'] ?? 0) === 2, 'Note edit was not saved as the next revision.');
+$lostResponseRetry = $notesService->save($editedInput);
+notesAssert(($lostResponseRetry['id'] ?? null) === $edited['id']
+    && ($lostResponseRetry['note_revision'] ?? 0) === 2
+    && ($lostResponseRetry['body'] ?? null) === $edited['body'], 'Retrying a saved note edit did not confirm the existing write.');
+try {
+    $notesService->save(array_merge($editedInput, ['body' => $noteBody . "\n\nA stale edit."]));
+    throw new RuntimeException('A stale note edit overwrote the newer saved revision.');
+} catch (InvalidArgumentException $exception) {
+    notesAssert(str_contains($exception->getMessage(), 'changed after you opened it'), 'Stale note edit returned an unclear error.');
+}
+notesAssert(($notesService->find((string) $created['id'])['body'] ?? null) === $edited['body'], 'Stale note edit changed the authoritative saved body.');
 $_SESSION = ['learner_identity' => 'learner-' . str_repeat('b', 32)];
 notesAssert($notesService->all() === [] && $notesService->find((string) $created['id']) === null, 'Another learner could read a private note.');
 $_SESSION = ['learner_identity' => 'learner-' . str_repeat('a', 32)];
@@ -115,28 +128,45 @@ $page = $http->request('GET', '/my-notes', [], [], [], $cookies);
 notesRequestOk($page, 'My Notes page');
 notesAssert(str_contains($page['output'], 'Practice Based on My Notes') && str_contains($page['output'], 'name="body"'), 'My Notes form is missing its learner-facing controls.');
 if (!preg_match('/name="csrf_token" value="([a-f0-9]{64})"/', $page['output'], $csrfMatch)) throw new RuntimeException('My Notes page did not provide a CSRF token.');
+if (!preg_match('/name="create_request_id" value="([a-f0-9]{32})"/', $page['output'], $createRequestMatch)) throw new RuntimeException('New note form did not provide a retry-safe request identity.');
 $csrf = $csrfMatch[1];
+$createRequestId = $createRequestMatch[1];
 $csrfRejected = $http->request('POST', '/my-notes/save', [], [
     'title' => 'Should not save', 'board_id' => 'let', 'body' => 'unauthorized note text',
 ], [], $cookies);
 notesRequestOk($csrfRejected, 'Reject note write without CSRF', 303);
 $unsafeNote = '<script>window.notePayloadExecuted=true</script>';
-$save = $http->request('POST', '/my-notes/save', [], [
+$createNotePayload = [
     'csrf_token' => $csrf,
+    'create_request_id' => $createRequestId,
     'title' => 'HTTP notes & <script>',
     'board_id' => 'let',
     'body' => $noteBody . "\n\n" . $unsafeNote,
-], [], $cookies);
+];
+$save = $http->request('POST', '/my-notes/save', [], $createNotePayload, [], $cookies);
 notesRequestOk($save, 'Create note through HTTP', 303);
 parse_str((string) parse_url((string) $save['location'], PHP_URL_QUERY), $savedQuery);
 $savedNoteId = (string) ($savedQuery['note'] ?? '');
 notesAssert(preg_match('/\Anote-[a-f0-9]{32}\z/', $savedNoteId) === 1, 'Saved note redirect did not identify the created note.');
+$savedCreateRetry = $http->request('POST', '/my-notes/save', [], $createNotePayload, [], $cookies);
+notesRequestOk($savedCreateRetry, 'Retry saved note creation after a lost response', 303);
+notesAssert($savedCreateRetry['location'] === $save['location'], 'Retrying a saved note creation created a second note identity.');
+$savedCreateConflict = $http->request('POST', '/my-notes/save', [], array_merge($createNotePayload, [
+    'title' => 'Conflicting replay',
+]), [], $cookies);
+notesRequestOk($savedCreateConflict, 'Reject conflicting reuse of note creation request', 200);
+notesAssert(str_contains($savedCreateConflict['output'], 'already used with different content'), 'Conflicting create retry did not explain that the original note was kept.');
 $detail = $http->request('GET', '/my-notes', ['note' => $savedNoteId], [], [], $cookies);
 notesRequestOk($detail, 'Reopen saved note');
+if (!preg_match('/name="note_revision" value="(\d+)"/', $detail['output'], $revisionMatch)) {
+    throw new RuntimeException('Saved note editor did not carry its concurrency revision.');
+}
+$savedNoteRevision = (int) $revisionMatch[1];
 notesAssert(str_contains($detail['output'], '&lt;script&gt;window.notePayloadExecuted=true&lt;/script&gt;'), 'User-supplied script text was not safely escaped in the note editor.');
 notesAssert(!str_contains($detail['output'], '<script>window.notePayloadExecuted=true</script>'), 'User-supplied note content rendered executable markup.');
 notesAssert(!str_contains($detail['output'], 'Should not save'), 'A note write without a valid CSRF token was persisted.');
 notesAssert(str_contains($detail['output'], 'Questions available:'), 'HTTP note page did not calculate a topic match.');
+notesAssert(substr_count((string) file_get_contents($fixture . '/learner_notes.json'), $createRequestId) === 1, 'Retrying note creation duplicated or rewrote the persisted request identity.');
 $available = 0;
 if (preg_match('/Questions available:\s*<\/strong>\s*(\d+)/', $detail['output'], $availableMatch)) $available = (int) $availableMatch[1];
 notesAssert($available > 0, 'HTTP note matcher found no sufficiently relevant questions for a clear topic.');
@@ -200,7 +230,7 @@ notesRequestOk($noMatchDelete, 'Delete no-match note', 303);
 
 // Editing after a completed quiz does not rewrite its private note snapshot.
 $postQuizEdit = $http->request('POST', '/my-notes/save', [], [
-    'csrf_token' => $csrf, 'note_id' => $savedNoteId, 'title' => 'Edited after quiz',
+    'csrf_token' => $csrf, 'note_id' => $savedNoteId, 'note_revision' => $savedNoteRevision, 'title' => 'Edited after quiz',
     'board_id' => 'let', 'body' => $noteBody . "\n\nEdited after completion.",
 ], [], $cookies);
 notesRequestOk($postQuizEdit, 'Edit note after quiz completion', 303);

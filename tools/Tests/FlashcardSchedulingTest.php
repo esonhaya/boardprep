@@ -260,6 +260,25 @@ try {
         'suspended card review was accepted'
     );
 
+    $beforeRetryState = $states->find($card['card_key']);
+    $beforeRetryCount = (int) ($beforeRetryState['review_count'] ?? 0);
+    $reviewToken = str_repeat('a', 32);
+    $recordedReview = $service->review($card['card_key'], FlashcardRating::GOOD, $now, null, $reviewToken, $beforeRetryCount);
+    $lostResponseRetry = $service->review($card['card_key'], FlashcardRating::GOOD, $now->modify('+1 minute'), null, $reviewToken, $beforeRetryCount);
+    schedulingCheck($recordedReview === $lostResponseRetry
+        && ($states->find($card['card_key'])['review_count'] ?? -1) === $beforeRetryCount + 1,
+        'retrying a persisted flashcard review duplicated the schedule transition');
+    schedulingThrows(
+        fn() => $service->review($card['card_key'], FlashcardRating::EASY, $now, null, $reviewToken, $beforeRetryCount),
+        'a reused flashcard request token accepted a conflicting rating'
+    );
+    schedulingThrows(
+        fn() => $service->review($card['card_key'], FlashcardRating::EASY, $now, null, str_repeat('b', 32), $beforeRetryCount),
+        'a stale flashcard page advanced the schedule'
+    );
+    schedulingCheck(($states->find($card['card_key'])['review_count'] ?? -1) === $beforeRetryCount + 1,
+        'a stale or conflicting flashcard retry changed saved scheduling state');
+
     $_SESSION = [];
     schedulingCheck(
         $states->find($card['card_key']) === null,

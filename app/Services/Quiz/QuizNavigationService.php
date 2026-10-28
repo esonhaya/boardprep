@@ -10,12 +10,15 @@ use App\Services\Quiz\Session\QuizSessionRecoveryService;
 
 class QuizNavigationService
 {
-    public static function next(): void
+    public static function next(bool $fromAnswerSubmission = false): void
     {
         self::redirectIfCompleted();
         $questions = self::sessionQuestions();
         if (!self::isCurrentValid($questions)) {
             QuizSessionRecoveryService::abandonInvalidSession();
+        }
+        if (!$fromAnswerSubmission && self::rejectStaleExamNavigation($questions)) {
+            return;
         }
         if (SessionService::get('mode', 'practice') === 'exam'
             && self::current() >= count($questions) - 1) {
@@ -34,6 +37,9 @@ class QuizNavigationService
         if (!self::isCurrentValid($questions)) {
             QuizSessionRecoveryService::abandonInvalidSession();
         }
+        if (self::rejectStaleExamNavigation($questions)) {
+            return;
+        }
         $current = max(0, self::current() - 1);
         SessionService::set('currentQuestion', $current);
         self::renderNextQuestion($questions, $current);
@@ -46,6 +52,12 @@ class QuizNavigationService
             Response::redirect('/quiz');
         }
         $questions = self::sessionQuestions();
+        if (!self::isCurrentValid($questions)) {
+            QuizSessionRecoveryService::abandonInvalidSession();
+        }
+        if (self::rejectStaleExamNavigation($questions)) {
+            return;
+        }
         $rawIndex = Request::input('index');
         if (!is_scalar($rawIndex) || preg_match('/^\\d{1,4}$/', (string) $rawIndex) !== 1) {
             QuizSessionRecoveryService::abandonInvalidSession();
@@ -129,6 +141,31 @@ class QuizNavigationService
             || SessionService::has('attempt_persisted')) {
             Response::redirect('/quiz?action=result');
         }
+    }
+
+    /**
+     * Ignore an exam navigation form rendered for a question that is no longer
+     * active. This prevents queued taps from skipping past an answer save.
+     */
+    private static function rejectStaleExamNavigation(array $questions): bool
+    {
+        if (SessionService::get('mode', 'practice') !== 'exam') {
+            return false;
+        }
+
+        $current = self::current();
+        $activeQuestion = $questions[$current] ?? null;
+        $activeId = is_array($activeQuestion) && is_scalar($activeQuestion['id'] ?? null)
+            ? trim((string) $activeQuestion['id'])
+            : '';
+        $submittedId = Request::input('from_question_id');
+        if ($activeId !== '' && is_scalar($submittedId) && trim((string) $submittedId) === $activeId) {
+            return false;
+        }
+
+        SessionService::flash('error', 'Your exam moved to another question before that navigation request arrived. Your current question was kept.');
+        self::renderNextQuestion($questions, $current);
+        return true;
     }
 
     private static function sessionQuestions(): array

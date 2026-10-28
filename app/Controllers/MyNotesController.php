@@ -177,10 +177,16 @@ final class MyNotesController
         $boards = array_values(array_filter(TaxonomyStorageService::boards(), static fn(mixed $board): bool => is_array($board)
             && trim((string) ($board['id'] ?? '')) !== ''
             && !in_array(strtolower((string) ($board['status'] ?? 'active')), ['archived', 'inactive'], true)));
+        $submittedCreateId = $state['formInput']['create_request_id'] ?? null;
+        $createRequestId = is_scalar($submittedCreateId)
+            && preg_match('/\A[a-f0-9]{32}\z/', (string) $submittedCreateId) === 1
+                ? (string) $submittedCreateId
+                : bin2hex(random_bytes(16));
         View::render('learning/my-notes', $state + [
             'pageTitle' => 'My Notes | BoardPrep',
             'boards' => $boards,
             'csrfToken' => CsrfTokenService::token(),
+            'createRequestId' => $createRequestId,
             'maxTitleCharacters' => LearnerNotesService::MAX_TITLE_CHARACTERS,
             'maxBodyCharacters' => LearnerNotesService::MAX_BODY_CHARACTERS,
         ]);

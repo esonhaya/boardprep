@@ -132,6 +132,8 @@ try {
     $reviewPost = $simulator->request('POST', '/flashcards/review', [], [
         'csrf_token' => integrationHidden($reveal['output'], 'csrf_token'),
         'card_key' => integrationHidden($reveal['output'], 'card_key'),
+        'review_request_id' => integrationHidden($reveal['output'], 'review_request_id'),
+        'expected_review_count' => integrationHidden($reveal['output'], 'expected_review_count'),
         'rating' => 'good',
         'user_id' => 'foreign-user',
     ], [], $learner);

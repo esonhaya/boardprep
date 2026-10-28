@@ -12,8 +12,19 @@ use RuntimeException;
  */
 final class AccountLifecycleLock
 {
+    private static int $lockDepth = 0;
+
     public static function withLock(callable $operation): mixed
     {
+        if (self::$lockDepth > 0) {
+            self::$lockDepth++;
+            try {
+                return $operation();
+            } finally {
+                self::$lockDepth--;
+            }
+        }
+
         $directory = (new AccountRepository())->directoryPath();
         $path = $directory . DIRECTORY_SEPARATOR . 'lifecycle.lock';
         if (is_link($path)) {
@@ -34,7 +45,12 @@ final class AccountLifecycleLock
             if (!flock($handle, LOCK_EX)) {
                 throw new RuntimeException('Private account lifecycle storage is busy.');
             }
-            return $operation();
+            self::$lockDepth = 1;
+            try {
+                return $operation();
+            } finally {
+                self::$lockDepth = 0;
+            }
         } finally {
             @flock($handle, LOCK_UN);
             fclose($handle);

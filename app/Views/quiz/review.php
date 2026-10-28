@@ -4,6 +4,13 @@ $answers = is_array($answers ?? null) ? $answers : [];
 $quizSession = \SessionService::get('quiz_session', []);
 $quizSession = is_array($quizSession) ? $quizSession : [];
 $csrfToken = \App\Services\Shared\CsrfTokenService::token();
+$currentIndex = \SessionService::get('currentQuestion', 0);
+$currentIndex = is_int($currentIndex) || (is_string($currentIndex) && preg_match('/^\d+$/', $currentIndex) === 1)
+    ? (int) $currentIndex
+    : 0;
+$currentQuestionId = is_array($questions[$currentIndex] ?? null) && is_scalar($questions[$currentIndex]['id'] ?? null)
+    ? trim((string) $questions[$currentIndex]['id'])
+    : '';
 $answeredCount = 0;
 foreach ($questions as $question) {
     $id = is_array($question) && is_scalar($question['id'] ?? null) ? (string) $question['id'] : '';
@@ -64,6 +71,7 @@ $unansweredCount = count($questions) - $answeredCount;
                 <form method="POST" action="/quiz" class="exam-review-jump-form">
                     <input type="hidden" name="action" value="jump">
                     <input type="hidden" name="index" value="<?= $index ?>">
+                    <input type="hidden" name="from_question_id" value="<?= htmlspecialchars($currentQuestionId, ENT_QUOTES, 'UTF-8') ?>">
                     <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrfToken, ENT_QUOTES, 'UTF-8') ?>">
                     <button type="submit" class="button button-outline">Review question <?= $index + 1 ?></button>
                 </form>

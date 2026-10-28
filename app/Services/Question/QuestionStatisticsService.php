@@ -7,6 +7,7 @@ namespace App\Services\Question;
 use App\Core\App;
 use App\Repositories\QuestionRepository;
 use App\Repositories\QuestionStatisticsRepository;
+use App\Services\Accounts\AccountLifecycleLock;
 
 class QuestionStatisticsService
 {
@@ -28,11 +29,14 @@ class QuestionStatisticsService
 
     public static function recordAnswers(array $entries): void
     {
-        App::container()
-            ->get(QuestionStatisticsRepository::class)
-            ->recordAnswers(
-                $entries,
-                App::container()->get(QuestionRepository::class)->all()
-            );
+        $statistics = App::container()->get(QuestionStatisticsRepository::class);
+        $questions = App::container()->get(QuestionRepository::class)->all();
+
+        // The repository reads then replaces the aggregate collection. Hold a
+        // process-wide learner-data lock across that full cycle so two exam
+        // finalizations cannot overwrite each other's increments.
+        AccountLifecycleLock::withLock(static function () use ($statistics, $entries, $questions): void {
+            $statistics->recordAnswers($entries, $questions);
+        });
     }
 }

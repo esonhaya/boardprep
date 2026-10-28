@@ -15,7 +15,11 @@ if (!mkdir($storage, 0700, true)) {
     throw new RuntimeException('Unable to create isolated study library fixture.');
 }
 
-foreach (['study-materials.json', 'study-lessons.json', 'sources.json', 'study-question-links.json', 'exam-intelligence.json'] as $file) {
+foreach ([
+    'study-materials.json', 'study-lessons.json', 'sources.json', 'study-question-links.json',
+    'exam-intelligence.json', 'questions.json', 'question-eligibility.json', 'blueprints.json',
+    'question-reuse-overrides.json',
+] as $file) {
     if (!copy($root . '/storage/' . $file, $storage . '/' . $file)) {
         throw new RuntimeException('Unable to seed study library fixture.');
     }
@@ -265,6 +269,57 @@ try {
         || ($cseLesson['pdf_url'] ?? null) !== '/study-resources/cse-percent-and-ratio-reasoning.pdf') {
         throw new RuntimeException('A published lesson or its generated PDF was not joined to the source material.');
     }
+
+    $reeBoard = 'registered-electrical-engineering';
+    $reeSubject = 'registered-electrical-engineering-electrical-engineering-professional-subjects';
+    $legacyReeLinks = [
+        '1620' => ['ree-professional-circuits-power-and-measurement', 'ree-professional-circuits-power-and-measurement', 'instrumentation-control-and-calibration', $reeSubject],
+        '1605' => ['ree-allied-mechanics-thermal-electronics-and-practice', 'ree-allied-mechanics-thermal-electronics-and-practice', 'mechanics-and-materials', 'registered-electrical-engineering-engineering-sciences-and-allied-subjects'],
+    ];
+    foreach ($legacyReeLinks as $questionId => [$materialId, $lessonId, $sectionId, $subjectId]) {
+        $references = StudyLibraryService::forQuestion((string) $questionId, $reeBoard, $subjectId);
+        $reference = null;
+        foreach ($references as $candidate) {
+            if (($candidate['material_id'] ?? '') === $materialId
+                && ($candidate['lesson_id'] ?? '') === $lessonId
+                && ($candidate['section_id'] ?? '') === $sectionId) {
+                $reference = $candidate;
+                break;
+            }
+        }
+        if (!is_array($reference) || !str_contains((string) ($reference['url'] ?? ''), '#boardprep-lesson-' . $lessonId . '-' . $sectionId)) {
+            throw new RuntimeException('A legacy REE exact study relationship did not resolve to its registered canonical subject: ' . $questionId);
+        }
+
+        $subjectLibrary = $http->request('GET', '/study-library', [
+            'exam' => $reeBoard, 'subject' => $subjectId, 'material' => $materialId,
+        ], [], [], ['PHPSESSID' => $sessionId]);
+        if (!$subjectLibrary['success'] || $subjectLibrary['status'] !== 200
+            || !str_contains($subjectLibrary['output'], htmlspecialchars((string) ($reference['title'] ?? ''), ENT_QUOTES, 'UTF-8'))) {
+            throw new RuntimeException('A legacy REE lesson was missing from its canonical subject-filtered library: ' . json_encode([
+                'material' => $materialId,
+                'status' => $subjectLibrary['status'] ?? null,
+                'normalised_subject' => StudyLibraryService::canonicalLessonSubjectId($reeBoard, 'electrical-engineering-professional-subjects'),
+                'title_present' => str_contains($subjectLibrary['output'], htmlspecialchars((string) ($reference['title'] ?? ''), ENT_QUOTES, 'UTF-8')),
+                'output' => substr(preg_replace('/\s+/', ' ', strip_tags((string) ($subjectLibrary['output'] ?? ''))) ?? '', 0, 350),
+            ]));
+        }
+
+        $practice = $http->request('GET', '/study-library/practice', [
+            'material' => $materialId, 'section' => $sectionId,
+        ], [], [], ['PHPSESSID' => $sessionId . '-' . $questionId]);
+        if (!$practice['success'] || $practice['status'] !== 200
+            || !str_contains($practice['output'], 'Question 1 / 1')
+            || !preg_match('/name="question_id"\s+value="' . preg_quote((string) $questionId, '/') . '"/', $practice['output'])) {
+            throw new RuntimeException('A legacy REE exact-section practice destination failed: ' . $questionId);
+        }
+    }
+    $reeAvailability = StudyLibraryService::lessonAvailabilityBySubject($reeBoard);
+    if (($reeAvailability[$reeSubject]['resources_available'] ?? false) !== true
+        || (int) ($reeAvailability[$reeSubject]['lesson_count'] ?? 0) < 1
+        || ($reeAvailability['registered-electrical-engineering-engineering-sciences-and-allied-subjects']['resources_available'] ?? false) !== true) {
+        throw new RuntimeException('Legacy REE resources were omitted from their registered canonical dashboard subject.');
+    }
     $cseDetail = $http->request('GET', '/study-library', ['material' => 'cse-numerical-foundation'], [], [], ['PHPSESSID' => $sessionId]);
     if (!$cseDetail['success'] || $cseDetail['status'] !== 200
         || !str_contains($cseDetail['output'], 'Percent and Ratio Reasoning')
@@ -342,21 +397,31 @@ try {
 
     echo "[PASS] Production study library renders correctly scoped materials for all ten boards.\n";
     echo "[PASS] Indexed browsing preserves all published source and question-link relationships.\n";
+    echo "[PASS] Legacy REE subject aliases resolve only through registered board subjects across result links, subject-filtered materials, dashboard availability, and section practice.\n";
     echo "[PASS] A direct material link resolves to one published source-backed resource.\n";
     echo "[PASS] Nursing lesson review status is disclosed before instructional content.\n";
     echo "[PASS] Positional source-first study notes render their headings and bodies without blank sections.\n";
     echo "[PASS] Source references render as separate, readable list items.\n";
     echo "[PASS] Privacy disclosure and production Developer/Doctor route boundaries are safe.\n";
 } finally {
-    $sessionPath = rtrim($sessionStorage, DIRECTORY_SEPARATOR) . '/sess_' . $sessionId;
-    @unlink($sessionPath);
-    @rmdir($sessionStorage);
-    foreach (glob($storage . '/*') ?: [] as $file) {
-        if (is_file($file)) {
-            @unlink($file);
+    $realStorage = realpath($storage);
+    $realTemporaryRoot = realpath(sys_get_temp_dir());
+    if (is_string($realStorage) && is_string($realTemporaryRoot)
+        && str_starts_with($realStorage, $realTemporaryRoot . DIRECTORY_SEPARATOR)
+        && str_starts_with(basename($realStorage), 'boardprep-study-library-')) {
+        $iterator = new RecursiveIteratorIterator(
+            new RecursiveDirectoryIterator($realStorage, FilesystemIterator::SKIP_DOTS),
+            RecursiveIteratorIterator::CHILD_FIRST
+        );
+        foreach ($iterator as $entry) {
+            if ($entry->isDir() && !$entry->isLink()) {
+                @rmdir($entry->getPathname());
+            } else {
+                @unlink($entry->getPathname());
+            }
         }
+        @rmdir($realStorage);
     }
-    @rmdir($storage);
     putenv('APP_ENV');
     putenv('APP_DEBUG');
     putenv('APP_TIMEZONE');
