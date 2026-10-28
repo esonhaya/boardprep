@@ -2,7 +2,7 @@
 
 ## Outcome
 
-**Implementation status: PARTIAL_RECOVERABLE.** The tested implementation is committed as `e41c8480061ee1582886503d64d21aa60ffd200f` on `batch-723-exam-resilience-continuity`. Session and learner-write regressions pass. Full Doctor did not run because available storage was 23,456,472 bytes below the required Doctor storage plus 512 MiB reserve. Release status for B723 is therefore not established.
+**Implementation status: PARTIAL_RECOVERABLE.** The tested implementation is committed as `e41c8480061ee1582886503d64d21aa60ffd200f` on `batch-723-exam-resilience-continuity`. Session and learner-write regressions pass. Full Doctor did not run because available storage was 23,796,440 bytes below the required Doctor storage plus 512 MiB reserve. Release status for B723 is therefore not established.
 
 B722 was independently verified at implementation `1f8b663aaa27662b03ff06cfca9cb7545a613ac1`, with final documentation commit `5b088f1db029481108a28c78a3ccbf15248acfe8`. Its stored Full Doctor JSON parses, exit code is 0, release gate is `PASS`, P0=0/P1=0, and it has no failing health entities.
 

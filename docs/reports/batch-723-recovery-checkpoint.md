@@ -9,7 +9,7 @@
 - B722 Full Doctor evidence: `/data/data/com.termux/files/usr/tmp/batch722-full-doctor-1f8b663.json`; valid JSON, exit 0, release `PASS`, P0=0, P1=0, P2=1, P3=2, no failing health entities; artifact SHA-256 `2f9a4bccbd9b04644a31461afbf1ab2df1554ef3a9d324faec76426e6d69122b`.
 - `HEAD_AFTER_IMPLEMENTATION` / latest tested SHA: `e41c8480061ee1582886503d64d21aa60ffd200f`.
 - Implementation commit: `e41c8480061ee1582886503d64d21aa60ffd200f`; reports are not yet committed.
-- Execution began 2026-10-29 01:19:45 +08:00. Latest checkpoint: 2026-10-29 02:44 +08:00.
+- Execution began 2026-10-29 01:19:45 +08:00. Latest checkpoint: 2026-10-29 02:46 +08:00.
 
 ## Completed implementation
 
@@ -35,5 +35,5 @@
 - `storage/academic-proposal-workflow.json`, `storage/flashcard_state.json`, and `storage/question-statistics.json` remain two bytes each with SHA-256 `4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945`.
 - B695 proposals remain 276 pending. No approvals/imports or production learner writes occurred. Q6403 remains excluded; Q1536/Q1537 remain source-only.
 - Twelve registered worktrees, two stashes, HayaDoctor and the dirty historical checkout remain preserved.
-- Latest free storage: 2,350,657,536 bytes; required Doctor storage plus 512 MiB reserve: 2,374,114,008 bytes; shortfall 23,456,472 bytes. Full Doctor was not run for B723; release result and P0/P1 counts are unmeasured.
+- Latest free storage: 2,350,317,568 bytes; required Doctor storage plus 512 MiB reserve: 2,374,114,008 bytes; shortfall 23,796,440 bytes. Full Doctor was not run for B723; release result and P0/P1 counts are unmeasured.
 - Next step: once available storage meets the threshold, run Full Doctor against exact SHA `e41c8480061ee1582886503d64d21aa60ffd200f`, retain/validate complete JSON, and recheck hashes. Then commit these reports and deliver the complete report. If the reserve stays unmet, retain `PARTIAL_RECOVERABLE`; do not claim release verification or start B724.
