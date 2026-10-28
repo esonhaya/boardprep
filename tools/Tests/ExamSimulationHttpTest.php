@@ -91,6 +91,8 @@ try {
         'difficulty' => 'mixed', 'count' => 3, 'csrf_token' => $csrfToken,
     ], [], $cookies);
     if (!$start['success'] || !str_contains($start['output'], 'Question 1 / 3')
+        || !str_contains($start['output'], '0 of 3 answers are currently recorded in this exam session')
+        || !str_contains($start['output'], 'An internet connection is required to save or change answers')
         || !str_contains($start['output'], 'Time remaining')
         || !str_contains($start['output'], 'separate from the official board examination')
         || !preg_match('/name="question_id"\s+value="([^"]+)"/', $start['output'], $match)) {
@@ -120,8 +122,38 @@ try {
         'action' => 'submit', 'question_id' => $match[1], 'answer' => 'A', 'csrf_token' => $csrfToken,
     ], [], $cookies);
     if (!$firstAnswer['success'] || !str_contains($firstAnswer['output'], 'Question 2 / 3')
+        || !str_contains($firstAnswer['output'], '1 of 3 answers are currently recorded in this exam session')
         || preg_match('/<section[^>]*class="[^"]*\bquiz-feedback\b/i', $firstAnswer['output']) === 1) {
         throw new RuntimeException('Exam simulation did not advance without rendering its immediate answer-feedback component.');
+    }
+
+    $lostResponseRetry = $http->request('POST', '/quiz', [], [
+        'action' => 'submit', 'question_id' => $match[1], 'answer' => 'A', 'csrf_token' => $csrfToken,
+    ], [], $cookies);
+    $afterRetrySession = $readSession($cookies['PHPSESSID']);
+    if (!$lostResponseRetry['success']
+        || !str_contains($lostResponseRetry['output'], 'Your answer for question 1 was already recorded')
+        || !str_contains($lostResponseRetry['output'], 'now on question 2 of 3')
+        || (int) ($afterRetrySession['currentQuestion'] ?? -1) !== 1
+        || ($afterRetrySession['answers'][$match[1]] ?? null) !== 'A') {
+        throw new RuntimeException('Retrying an answer after a lost response did not confirm the authoritative saved answer without advancing twice.');
+    }
+
+    $conflictingStaleRetry = $http->request('POST', '/quiz', [], [
+        'action' => 'submit', 'question_id' => $match[1], 'answer' => 'B', 'csrf_token' => $csrfToken,
+    ], [], $cookies);
+    $afterConflictingRetry = $readSession($cookies['PHPSESSID']);
+    if (!$conflictingStaleRetry['success']
+        || !str_contains($conflictingStaleRetry['output'], 'This quiz question is no longer active')
+        || str_contains($conflictingStaleRetry['output'], 'already recorded')
+        || ($afterConflictingRetry['answers'][$match[1]] ?? null) !== 'A') {
+        throw new RuntimeException('A stale conflicting answer request overwrote the authoritative saved answer.');
+    }
+
+    $refreshAfterSave = $http->request('GET', '/quiz', [], [], [], $cookies);
+    if (!$refreshAfterSave['success'] || !str_contains($refreshAfterSave['output'], 'Question 2 / 3')
+        || !str_contains($refreshAfterSave['output'], '1 of 3 answers are currently recorded in this exam session')) {
+        throw new RuntimeException('Refreshing an active exam did not show the authoritative persisted answer count.');
     }
 
     $skipSecond = $http->request('POST', '/quiz', [], ['action' => 'next', 'csrf_token' => $csrfToken], [], $cookies);

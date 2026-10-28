@@ -18,6 +18,17 @@ class QuizSubmissionService
         [$question, $current] = self::activeQuestion($questions);
 
         if (self::postedQuestionIsStale($question)) {
+            $savedQuestionIndex = self::previouslySavedExamSubmission($questions);
+            if ($savedQuestionIndex !== null) {
+                $status = sprintf(
+                    'Your answer for question %d was already recorded. This session is now on question %d of %d.',
+                    $savedQuestionIndex + 1,
+                    $current + 1,
+                    count($questions)
+                );
+                self::renderQuestion($question, $current, count($questions), null, $status);
+                return;
+            }
             self::renderStaleQuestion($question, $current, count($questions));
             return;
         }
@@ -81,6 +92,40 @@ class QuizSubmissionService
         return $postedQuestionId !== null
             && (!is_scalar($postedQuestionId)
                 || (string) $postedQuestionId !== self::questionId($question));
+    }
+
+    /** Confirm a retried request only when its exact answer is already stored. */
+    private static function previouslySavedExamSubmission(array $questions): ?int
+    {
+        if (!self::isExamMode()) {
+            return null;
+        }
+
+        $postedQuestionId = Request::input('question_id');
+        $postedAnswer = Request::input('answer');
+        if (!is_scalar($postedQuestionId) || !is_scalar($postedAnswer)) {
+            return null;
+        }
+
+        $questionId = trim((string) $postedQuestionId);
+        $answer = trim((string) $postedAnswer);
+        if ($questionId === '' || $answer === '') {
+            return null;
+        }
+
+        $answers = SessionService::get('answers', []);
+        if (!is_array($answers) || !is_scalar($answers[$questionId] ?? null)
+            || trim((string) $answers[$questionId]) !== $answer) {
+            return null;
+        }
+
+        foreach ($questions as $index => $question) {
+            if (is_array($question) && self::questionId($question) === $questionId) {
+                return $index;
+            }
+        }
+
+        return null;
     }
 
     private static function renderStaleQuestion(array $question, int $current, int $total): void
@@ -190,7 +235,8 @@ class QuizSubmissionService
         array $question,
         int $current,
         int $total,
-        ?string $mode = null
+        ?string $mode = null,
+        ?string $answerSaveStatus = null
     ): void {
 
         $quizContext = SessionService::get('quiz_session', []);
@@ -228,6 +274,8 @@ class QuizSubmissionService
                     SessionService::get(
                         "feedback"
                     ),
+
+                "answerSaveStatus" => $answerSaveStatus,
 
                 "studyReferences" => $studyReferences,
             ]

@@ -13,6 +13,19 @@ $quizSession = is_array($quizSession) ? $quizSession : [];
 $isExamSimulation = $mode === 'exam';
 $answers = \SessionService::get('answers', []);
 $answers = is_array($answers) ? $answers : [];
+$sessionQuestions = \SessionService::get('questions', []);
+$sessionQuestions = is_array($sessionQuestions) ? $sessionQuestions : [];
+$recordedAnswerCount = 0;
+foreach ($sessionQuestions as $sessionQuestion) {
+    if (!is_array($sessionQuestion) || !is_scalar($sessionQuestion['id'] ?? null)) {
+        continue;
+    }
+    $sessionQuestionId = trim((string) $sessionQuestion['id']);
+    if ($sessionQuestionId !== '' && is_scalar($answers[$sessionQuestionId] ?? null)) {
+        $recordedAnswerCount++;
+    }
+}
+$answerSaveStatus = is_scalar($answerSaveStatus ?? null) ? trim((string) $answerSaveStatus) : '';
 $questionId = is_array($question) && is_scalar($question['id'] ?? null) ? (string) $question['id'] : '';
 $savedAnswer = $questionId !== '' && is_scalar($answers[$questionId] ?? null)
     ? strtoupper(trim((string) $answers[$questionId]))
@@ -75,6 +88,15 @@ if ($civilServiceLevel !== '') {
 <?php include __DIR__ . '/_timer.php'; ?>
 <?php endif; ?>
 <div class="progress-bar" role="progressbar" aria-label="Practice progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="<?= $progressValue ?>"><span aria-hidden="true" style="width:<?= $progressValue ?>%"></span></div>
+<?php if ($isExamSimulation): ?>
+<p class="exam-answer-save-status" role="status" aria-live="polite">
+    <?php if ($answerSaveStatus !== ''): ?>
+        <?= htmlspecialchars($answerSaveStatus, ENT_QUOTES, 'UTF-8') ?>
+    <?php else: ?>
+        <?= $recordedAnswerCount ?> of <?= count($sessionQuestions) ?> answers are currently recorded in this exam session. An internet connection is required to save or change answers.
+    <?php endif; ?>
+</p>
+<?php endif; ?>
 
 
 <?php if(!$question): ?>
