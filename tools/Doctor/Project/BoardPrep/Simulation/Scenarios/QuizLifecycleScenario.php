@@ -65,6 +65,7 @@ final class QuizLifecycleScenario extends SimulationScenario
             || !preg_match('/name="question_id"\s+value="([^"]+)"/', $body, $match)) {
             throw new \RuntimeException('Generated quiz did not expose its active question identifier.');
         }
+        $practiceAnswer = $this->firstRenderedAnswer($body);
 
         /*
          * GET /quiz is the production settings route. Visiting it while a
@@ -94,9 +95,9 @@ final class QuizLifecycleScenario extends SimulationScenario
         /*
          * 3. Submit an answer through the real POST path.
          *
-         * We intentionally use a synthetic answer. The lifecycle
-         * test verifies persistence, scoring and rendering rather
-         * than whether the simulated answer is correct.
+         * Use a valid choice rendered by the live form. The lifecycle
+         * test exercises real answer validation and persistence; whether
+         * this first choice is correct is not material to the scenario.
          */
         $simulation
             ->post(
@@ -104,8 +105,7 @@ final class QuizLifecycleScenario extends SimulationScenario
                 [
                     'action' => 'submit',
                     'question_id' => $match[1],
-                    'answer' =>
-                        'simulation-answer',
+                    'answer' => $practiceAnswer,
                     'csrf_token' => $csrfToken,
                 ]
             )
@@ -224,12 +224,13 @@ final class QuizLifecycleScenario extends SimulationScenario
             || !preg_match('/name="question_id"\s+value="([^"]+)"/', $examBody, $examMatch)) {
             throw new \RuntimeException('Generated exam did not expose its active question identifier.');
         }
+        $examAnswer = $this->firstRenderedAnswer($examBody);
 
         $simulation
             ->post('/quiz?action=submit', [
                 'action' => 'submit',
                 'question_id' => $examMatch[1],
-                'answer' => 'simulation-answer',
+                'answer' => $examAnswer,
                 'csrf_token' => $csrfToken,
             ])
             ->execute()
@@ -601,6 +602,14 @@ final class QuizLifecycleScenario extends SimulationScenario
             throw new \RuntimeException('Quiz form did not provide its CSRF token.');
         }
         return html_entity_decode($match[1], ENT_QUOTES | ENT_HTML5, 'UTF-8');
+    }
+
+    private function firstRenderedAnswer(string $body): string
+    {
+        if (preg_match('/name="answer"\s+value="([A-Z])"/', $body, $match) !== 1) {
+            throw new \RuntimeException('Generated quiz did not expose a valid answer choice.');
+        }
+        return $match[1];
     }
 
     private static function question(

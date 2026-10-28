@@ -63,6 +63,7 @@ $assert(str_contains($releaseSource, 'tools/Tests/FlashcardControllerReadPathTes
 
 $production = ReleaseReadinessService::productionConfiguration(dirname(__DIR__, 2));
 $assert(($production['status'] ?? '') === 'PASS', 'Production configuration contract did not pass.');
+$assert(($production['checks']['STORAGE_WRITE_SAFETY']['status'] ?? '') === 'PASS', 'Production configuration did not recognize tested atomic JSON storage writes.');
 $assert((int) ($production['secret_findings_count'] ?? -1) === 0, 'Production configuration reported a tracked secret.');
 $assert((int) ($production['debug_leakage_count'] ?? -1) === 0, 'Production configuration reported executable debug leakage.');
 

@@ -58,14 +58,23 @@ try {
     } else {
         putenv('DB_DRIVER=' . $previousDriver);
     }
-    foreach (glob($storagePath . '/*') ?: [] as $file) {
-        if (is_file($file) || is_link($file)) @unlink($file);
+    if (is_link($storagePath)) {
+        @unlink($storagePath);
+    } elseif (is_dir($storagePath)) {
+        $iterator = new RecursiveIteratorIterator(
+            new RecursiveDirectoryIterator($storagePath, FilesystemIterator::SKIP_DOTS),
+            RecursiveIteratorIterator::CHILD_FIRST
+        );
+        foreach ($iterator as $entry) {
+            if ($entry->isDir() && !$entry->isLink()) {
+                @rmdir($entry->getPathname());
+            } else {
+                @unlink($entry->getPathname());
+            }
+        }
+        @rmdir($storagePath);
     }
-    $storageLock = $storagePath . DIRECTORY_SEPARATOR . '.storage.lock';
-    if (is_file($storageLock) || is_link($storageLock)) {
-        @unlink($storageLock);
-    }
-    if (is_dir($storagePath) && !@rmdir($storagePath)) {
+    if (file_exists($storagePath) || is_link($storagePath)) {
         throw new RuntimeException('isolated weakness/statistics fixture was not fully removed');
     }
 }

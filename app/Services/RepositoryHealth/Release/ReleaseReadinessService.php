@@ -334,11 +334,24 @@ final class ReleaseReadinessService
             && $has('app/Core/SessionConfiguration.php', "'secure' => " . '$https');
         $record('SESSION_COOKIE_SAFETY', $sessionSafe ? 'PASS' : 'FAIL', $sessionSafe ? 'Strict session IDs and HttpOnly/SameSite/Secure-aware cookies are configured.' : 'Session cookie safety contract is incomplete.');
 
-        $storageSafe = $has('app/Storage/JsonStorage.php', 'LOCK_EX')
-            && $has('app/Storage/JsonStorage.php', 'rename($temp, $path)')
+        $storageSource = $read('app/Storage/JsonStorage.php');
+        $exclusiveStorageWrites = str_contains($storageSource, 'LOCK_EX')
+            && str_contains($storageSource, 'flock($handle, LOCK_EX)');
+        $sameDirectoryTemporaryWrite = preg_match(
+            '/\btempnam\s*\(\s*dirname\s*\(\s*\$path\s*\)/',
+            $storageSource
+        ) === 1
+            && str_contains($storageSource, '$written !== strlen($payload)');
+        $atomicStorageReplacement = preg_match(
+            '/\brename\s*\(\s*\$(?:temp|temporary)\s*,\s*\$path\s*\)/',
+            $storageSource
+        ) === 1;
+        $storageSafe = $exclusiveStorageWrites
+            && $sameDirectoryTemporaryWrite
+            && $atomicStorageReplacement
             && $has('app/Core/Database.php', 'is_readable($path)')
             && $has('app/Core/Database.php', 'is_writable($path)');
-        $record('STORAGE_WRITE_SAFETY', $storageSafe ? 'PASS' : 'FAIL', $storageSafe ? 'File-backed writes are locked/atomic and storage paths are validated.' : 'Storage write safety contract is incomplete.');
+        $record('STORAGE_WRITE_SAFETY', $storageSafe ? 'PASS' : 'FAIL', $storageSafe ? 'File-backed writes use exclusive locks, complete same-directory temporary files, atomic replacement, and validated storage paths.' : 'Storage write safety contract is incomplete.');
 
         $csrfSafe = $has('app/Services/Shared/CsrfTokenService.php', 'hash_equals')
             && $has('app/Controllers/QuestionEditorController.php', 'self::requireCsrf()')
@@ -491,7 +504,7 @@ final class ReleaseReadinessService
             'shared_question_safety' => ['tools/Tests/CrossBoardCanonicalReuseTest.php', 'tools/Tests/Batch669NursingIntegrationTest.php', 'tools/Tests/MultiExamEligibilityTest.php'],
             'study_experience' => ['tools/Tests/StudyLibraryNavigationTest.php', 'tools/Tests/SourceStudyLibraryTest.php', 'tools/Tests/QuestionStudyReferenceTest.php', 'tools/Tests/Batch678StudyReviewNavigationTest.php', 'tools/Tests/FlashcardIntegrationTest.php', 'tools/Tests/FlashcardControllerReadPathTest.php', 'tools/Tests/FlashcardHttpTest.php', 'tools/Tests/Batch672EducationalQualityTest.php', 'tools/Tests/Batch672CountReconciliationTest.php', 'tools/Tests/Batch677SourceFirstImprovementsTest.php', 'tools/Tests/Batch682EducationalQualityTest.php', 'tests/batch677-let-source-quality-test.php'],
             'security_sanity' => ['tools/Tests/ProductionQuizCsrfTest.php', 'tools/Tests/QuestionImportCsrfTest.php', 'tools/Tests/AnonymousLearnerPrivacyHttpTest.php', 'tools/Tests/SessionConfigurationTest.php', 'tools/Tests/SecurityTrustBoundaryTest.php', 'tools/Tests/BackupManifestPathSafetyTest.php'],
-            'repository_determinism' => ['tools/Tests/ReleaseReadinessContractTest.php', 'tools/Tests/QuizAnswerStatisticsWeaknessTest.php', 'tools/Tests/ReleaseFlowStorageIsolationTest.php', 'tools/Tests/QuestionEligibilityMetadataBatchTest.php'],
+            'repository_determinism' => ['tools/Tests/ReleaseReadinessContractTest.php', 'tools/Tests/QuizAnswerStatisticsWeaknessTest.php', 'tools/Tests/ReleaseFlowStorageIsolationTest.php', 'tools/Tests/JsonStorageFaultInjectionTest.php', 'tools/Tests/QuestionEligibilityMetadataBatchTest.php'],
             'production_configuration' => ['tools/Tests/RuntimeConfigurationTest.php', 'tools/Tests/ProductionFoundationTest.php', 'tools/Tests/DeploymentPreflightIsolationTest.php', 'tools/Tests/ProductReadinessTest.php', 'tools/Tests/BrowserWorkflowEvidenceTest.php', 'tools/Tests/HayaDoctorAdapterCompatibilityTest.php', 'tools/Tests/AcceptanceCenterTest.php'],
             'release_packaging' => ['tools/Tests/ReleasePackageTest.php'],
         ];
