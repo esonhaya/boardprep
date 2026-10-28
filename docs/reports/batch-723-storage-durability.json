@@ -1,13 +1,14 @@
 {
   "report": "BATCH_723_STORAGE_DURABILITY",
-  "tested_sha": "e41c8480061ee1582886503d64d21aa60ffd200f",
+  "original_implementation_tested_sha": "e41c8480061ee1582886503d64d21aa60ffd200f",
+  "final_release_tested_sha": "246756b2cee0ed614e095e5a289435f9f713b727",
   "storage": {
     "active_exam": "PHP session file; existing resume/deadline rules retained.",
-    "attempts": "JSON collection in the tested release configuration; finalization retry checks inspect persisted bytes.",
+    "attempts": "JSON collection in tested release configuration; retries inspect persisted attempt bytes.",
     "weakness": "JSON collection; learner-scoped read-modify-write is serialized.",
     "mistake_notebook": "Derived from preserved attempt records; no separate history rewrite was introduced.",
     "notes": "JSON collection; create request IDs and edit revisions prevent duplicate/stale overwrites.",
-    "flashcard_reviews": "JSON collection in the tested release configuration; request ID plus expected review count makes exact retry idempotent.",
+    "flashcard_reviews": "JSON collection in tested release configuration; request ID plus expected review count makes exact retry idempotent.",
     "question_statistics": "JSON aggregate; concurrent read-modify-write operations are serialized."
   },
   "fault_injection": {
@@ -15,14 +16,53 @@
     "short_or_partial_temporary_write": "PASS; incomplete temporary data is rejected and removed.",
     "replacement_failure": "PASS; prior collection remains authoritative.",
     "malformed_existing_json": "PASS; read fails closed with StorageException and leaves bytes unchanged.",
-    "unreadable_storage_permissions": "NOT_INJECTED; Termux/root permissions do not provide a reliable unreadable-file fixture here.",
+    "unreadable_storage_permissions": "NOT_INJECTED; Termux permissions did not provide a reliable unreadable-file fixture.",
     "concurrent_collection_creates": "PASS; 8 processes produced 8 unique records with no loss.",
-    "concurrent_learner_aggregates": "PASS; 8 processes preserved each weakness and question-statistics increment.",
+    "concurrent_learner_aggregates": "PASS; 8 processes preserved weakness and question-statistics increments.",
     "concurrent_note_create_edit": "PASS; 8 exact retries produced one note and one edit revision.",
     "concurrent_flashcard_review": "PASS; 8 exact retries produced one scheduling transition.",
-    "interrupted_process": "NOT_INJECTED; partial write is directly injected at the write boundary.",
-    "power_loss_durability": "NOT_CLAIMED; no fsync/power-cut guarantee was tested."
+    "interrupted_process": "NOT_INJECTED; partial write was directly injected at the write boundary.",
+    "power_loss_durability": "NOT_CLAIMED; no fsync/power-cut guarantee was tested.",
+    "final_revision_revalidation": "JsonStorageFaultInjectionTest and concurrency-related release regressions passed on final release revision; Full Doctor repository determinism passed."
   },
-  "implementation": "JSON writes now require a complete temporary-file write and successful same-directory replacement. The existing mutation lock remains in use; no storage migration or wholesale rewrite was added.",
-  "fixtures": "Synthetic isolated temporary JSON/account fixtures; cleaned by the tests. Production learner records were not mutated."
+  "implementation": "JSON writes require a complete temporary-file write and successful same-directory replacement. Existing mutation locks serialize shared writes; no storage migration or wholesale rewrite was added.",
+  "storage_recovery": {
+    "doctor_required_available_bytes": 1837243096,
+    "additional_reserve_bytes": 536870912,
+    "pre_run_threshold_bytes": 2374114008,
+    "recovery_start_available_bytes": 2395373568,
+    "cleanup_candidates": [
+      {
+        "path": "/data/data/com.termux/files/usr/tmp/boardprep-release-test-storage-3c211a063d4f",
+        "reported_size_kib": 90614,
+        "basis_for_disposal": "Completed BoardPrep-owned isolated release-test fixture; empty learner arrays; no symlink or open process; reproducible through repository helper."
+      },
+      {
+        "path": "/data/data/com.termux/files/usr/tmp/boardprep-release-test-storage-bc8844e5add2",
+        "reported_size_kib": 90614,
+        "basis_for_disposal": "Completed BoardPrep-owned isolated release-test fixture; empty learner arrays; no symlink or open process; reproducible through repository helper."
+      },
+      {
+        "path": "/data/data/com.termux/files/usr/tmp/boardprep-release-test-storage-33023217aa1a",
+        "reported_size_kib": 90618,
+        "basis_for_disposal": "Completed BoardPrep-owned isolated release-test fixture; empty learner arrays; no symlink or open process; reproducible through repository helper."
+      },
+      {
+        "path": "/data/data/com.termux/files/usr/tmp/boardprep-release-test-storage-426ddffea35b",
+        "reported_size_kib": 90618,
+        "basis_for_disposal": "Completed BoardPrep-owned isolated release-test fixture; empty learner arrays; no symlink or open process; reproducible through repository helper."
+      }
+    ],
+    "cleanup_method": "Exact paths removed using ReleaseReadinessService::removeFlowTestStorage; no broad temporary-directory/cache/Git/application-storage cleanup was run.",
+    "first_three_observed_free_byte_delta": 81727488,
+    "last_fixture_observed_free_byte_delta": 92401664,
+    "available_before_final_doctor_bytes": 2711638016,
+    "minimum_free_observed_during_final_doctor_bytes": 2448261120,
+    "final_sample_available_bytes": 2700386304,
+    "older_release_session_directories": "Four older boardprep-release-sessions-* directories were preserved as historical test evidence.",
+    "doctor_fixture_cleanup": "PASS; flow-test session cleanup verified.",
+    "additional_historical_test_fixture": "One 51,325 KiB isolated B704 simulator fixture was inspected (empty learner arrays, no symlink/open handle) and removed after its expected archival assertion failure.",
+    "other_cleanup": "A uniquely owned empty diagnostic temp fixture was removed; no caches, worktrees, stashes, HayaDoctor, application storage, Git objects, uploaded files, other projects, or historical checkout were changed."
+  },
+  "fixtures": "Synthetic isolated JSON/account fixtures. Production learner records were not mutated."
 }

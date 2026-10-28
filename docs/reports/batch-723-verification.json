@@ -1,8 +1,29 @@
 {
   "report": "BATCH_723_VERIFICATION",
-  "tested_sha": "e41c8480061ee1582886503d64d21aa60ffd200f",
+  "baseline": {
+    "b722_implementation_sha": "1f8b663aaa27662b03ff06cfca9cb7545a613ac1",
+    "b722_final_documentation_sha": "5b088f1db029481108a28c78a3ccbf15248acfe8",
+    "b723_previous_documentation_tip": "a58f62ab471909b95fd83b62ca4bbeaa262fee45",
+    "b723_original_implementation_sha": "e41c8480061ee1582886503d64d21aa60ffd200f",
+    "b723_release_repair_sha": "246756b2cee0ed614e095e5a289435f9f713b727",
+    "branch": "batch-723-exam-resilience-continuity",
+    "worktree": "/data/data/com.termux/files/home/boardprep-batch-706"
+  },
   "focused_and_regression_tests": {
-    "passed_on_tested_sha": [
+    "passed_on_final_tested_sha": [
+      "ReleaseReadinessContractTest.php",
+      "QuizAnswerStatisticsWeaknessTest.php",
+      "JsonStorageFaultInjectionTest.php",
+      "DoctorSimulatorStateIsolationTest.php (115 repository storage files and learner sessions unchanged)",
+      "StudyPdfPipelineTest.php",
+      "Batch696ContentIntegrityTest.php",
+      "Batch708Q6403QuarantineTest.php",
+      "Batch706CriticalMappingSafetyTest.php (53 assertions; Q1536/Q1537 source-only)",
+      "Batch717AcademicGateClosureTest.php (276 pending proposals; protected state unchanged)",
+      "changed PHP syntax checks",
+      "git diff --check"
+    ],
+    "passed_on_original_implementation_sha": [
       "JsonStorageFaultInjectionTest",
       "LearnerWriteConcurrencyTest",
       "ExamSimulationHttpTest",
@@ -21,51 +42,108 @@
       "QuizSessionResilienceTest",
       "Batch706CriticalMappingSafetyTest (53 assertions)",
       "Batch717AcademicGateClosureTest",
-      "browser-ci-contract.test.cjs + server-lifecycle.test.cjs (6/6)"
-    ],
-    "additional_regressions_completed_during_implementation_before_final_notes_create_and_exam_concurrency_test_additions": [
+      "browser-ci-contract.test.cjs and server-lifecycle.test.cjs (6/6)",
       "Batch696ContentIntegrityTest",
       "FlashcardIntegrationTest",
       "CrossBoardCanonicalReuseTest",
       "Batch721TenBoardAdaptiveEligibilityTest",
-      "Batch706CriticalMappingSafetyTest",
-      "Batch717AcademicGateClosureTest",
       "QuizExperienceResilienceTest",
       "FlashcardControllerReadPathTest",
       "Batch708Q6403QuarantineTest",
       "MultiExamEligibilityTest",
       "StudyPdfPipelineTest"
     ],
-    "scope_note": "These earlier regressions ran during implementation. Final note-create and conflicting-answer-concurrency changes were then covered by the exact-SHA Notes HTTP, concurrent learner-write, and exam simulation tests listed above.",
-    "syntax_and_diff": "Changed PHP files pass php -l; both changed browser specs pass node --check; git diff --check passes."
+    "scope_note": "Release-repair regressions and Full Doctor were run against 246756b. Existing learner, security and session suites were run against e41c848; the repair changes are limited to the release simulator, release safety detector, and owned test-fixture cleanup.",
+    "failures_repaired": [
+      "Release simulator submitted a placeholder answer that strict application validation correctly rejected; it now selects a rendered answer option.",
+      "Release storage detector missed the safe same-directory temporary-file implementation because it expected an obsolete variable name; it now validates locking, complete writes, replacement and storage-path guards.",
+      "Weakness/statistics test cleanup left its own nested account-lock fixture; cleanup now removes and verifies only that unique fixture."
+    ],
+    "syntax_and_diff": "PASS"
+  },
+  "full_doctor": {
+    "tested_sha": "246756b2cee0ed614e095e5a289435f9f713b727",
+    "application_implementation_sha": "246756b2cee0ed614e095e5a289435f9f713b727",
+    "command": "APP_ENV=production APP_DEBUG=false DB_DRIVER=json APP_STORAGE_PATH=/data/data/com.termux/files/home/boardprep-batch-706/storage php -d memory_limit=1G tools/doctor.php --release --json",
+    "exit_code": 0,
+    "json_valid": true,
+    "release_gate": "PASS",
+    "release_decision": "RELEASE_READY_WITH_NONBLOCKING_DEBT",
+    "priority_counts": {"P0": 0, "P1": 0, "P2": 1, "P3": 2},
+    "health": {"status": "REVIEW", "pass_count": 11, "warn_count": 3, "fail_count": 0, "review_count": 1, "issue_count": 835, "fail_entity_count": 0},
+    "required_available_bytes": 1837243096,
+    "additional_reserve_bytes": 536870912,
+    "required_available_with_reserve_bytes": 2374114008,
+    "available_before_bytes": 2711638016,
+    "minimum_observed_available_bytes": 2448261120,
+    "reserve_margin_at_minimum_bytes": 74147112,
+    "cleanup_status": "PASS",
+    "sessions_cleaned": true,
+    "artifact_path": "/data/data/com.termux/files/usr/tmp/batch-723-full-doctor-246756b.json",
+    "artifact_bytes": 2354065,
+    "artifact_sha256": "81e905d338dbbfcdf9f99afd83340846af3c77fb95e197a62721553f59670afe"
+  },
+  "previous_full_doctor": {
+    "tested_sha": "a58f62ab471909b95fd83b62ca4bbeaa262fee45",
+    "application_implementation_sha": "e41c8480061ee1582886503d64d21aa60ffd200f",
+    "exit_code": 1,
+    "json_valid": true,
+    "release_gate": "FAIL",
+    "priority_counts": {"P0": 3, "P1": 0, "P2": 1, "P3": 2},
+    "artifact_path": "/data/data/com.termux/files/usr/tmp/batch-723-full-doctor-a58f62ab471909b95fd83b62ca4bbeaa262fee45.json",
+    "artifact_bytes": 2358049,
+    "artifact_sha256": "36b3bfc4e460c5bdb36945c31801dd4ae89dd7300db784d4e3de505441bc1956",
+    "disposition": "Preserved as failure evidence; the three release defects were repaired and the final Doctor passed."
   },
   "historical_archive_mismatches": [
-    {"test": "Batch653CseReviewClosureTest", "status": "FAIL_ARCHIVED_EXPECTATION", "reason": "Semantic hash remains pinned to an older question snapshot; no historical evidence was rewritten."},
-    {"test": "Batch704NursingCompletionTest", "status": "FAIL_ARCHIVED_EXPECTATION", "reason": "PDF/source manifest asserts an older snapshot; current integrity checks pass."},
-    {"test": "Batch705NursingPdfArtifactTest.py", "status": "FAIL_ARCHIVED_EXPECTATION", "reason": "Archived regenerated-PDF set predates later generated artifacts; current StudyPdfPipelineTest passes."}
+    {
+      "test": "Batch653CseReviewClosureTest",
+      "status": "FAIL_ARCHIVED_EXPECTATION",
+      "origin_commit": "030436584c6e4921a63d7c4a1469f8fc97f76eb7",
+      "evidence": "Archived artifact SHA d31d767d362a0e506efc5dcfd654833cd000c31d54106be04bf22e85bda605ff matches its origin. Original parent and B653 snapshots have 8947 and 8950 questions and match the pinned semantic hashes; current canonical data has 9123.",
+      "current_integrity_defect": false
+    },
+    {
+      "test": "Batch704NursingCompletionTest",
+      "status": "FAIL_ARCHIVED_EXPECTATION",
+      "origin_commit": "116811e27e8d4fe77121313318ba80c44c191cf5",
+      "evidence": "Archived baseline SHA 4100cdac1c6f447f5bdd477a2144d554f2251718002edfe2dd793b5158db6b86 matches its origin; all 56 original PDF rows match. A later source-metadata refresh changed the CPA artifact, which matches the current manifest; StudyPdfPipelineTest passes.",
+      "current_integrity_defect": false
+    },
+    {
+      "test": "Batch705NursingPdfArtifactTest.py",
+      "status": "FAIL_ARCHIVED_EXPECTATION",
+      "origin_commit": "c90399fda779a1c01ee140aa5bbf30c630844be",
+      "evidence": "Archived baseline SHA 75ff596a9c312c4e363f8316eee6157c5e78761c1a9c64375ed766e038b97bb8 matches its origin. The B705 snapshot changes exactly its expected five PDFs; later refreshes explain seven additional current PDFs. Current pipeline verifies 59 searchable PDFs, 227 ordered headings and 368 source attributions.",
+      "current_integrity_defect": false
+    }
   ],
-  "full_doctor": {
-    "status": "NOT_RUN_STORAGE_BELOW_REQUIRED_RESERVE",
-    "command": "APP_ENV=production APP_DEBUG=false DB_DRIVER=json APP_STORAGE_PATH=/data/data/com.termux/files/home/boardprep-batch-706/storage php -d memory_limit=1G tools/doctor.php --release --json",
-    "exit_code": null,
-    "json_valid": null,
-    "release_gate": "NOT_MEASURED",
-    "P0": null,
-    "P1": null,
-    "P2": null,
-    "P3": null,
-    "health_status": "NOT_MEASURED",
-    "required_storage_bytes": 1837243096,
-    "additional_reserve_bytes": 536870912,
-    "required_available_bytes": 2374114008,
-    "minimum_available_bytes_observed": 2350317568,
-    "shortfall_bytes": 23796440,
-    "artifact_path": null,
-    "artifact_sha256": null,
-    "fixture_cleanup": "NOT_APPLICABLE; Doctor did not run."
+  "browser": {
+    "status": "PREPARED_NOT_EXECUTED",
+    "reason": "Android/Termux did not provide a supported Linux Chromium runner. No screenshot, real browser interaction or visual acceptance is claimed.",
+    "remote_ci_dispatched": false
   },
-  "browser": "PREPARED_NOT_EXECUTED",
-  "production_learner_mutations": 0,
-  "academic_approvals": 0,
-  "academic_imports": 0
+  "protected_integrity": {
+    "canonical_count": 9123,
+    "questions": "73cdc775cd7240b57898868d67902d833db1171f947c8dcc89081ddaf46fb4be",
+    "answer_keys": "d4db069ce60c026e214ea68068b8206178782879c61b92271d4b1abe7dc7aad5",
+    "eligibility": "611f01ca29421c0c890c351c503ab262e87bc551269d78427b9a0889260933a4",
+    "source_registry": "7c640636dcd3ddd0f865106ba4506a5af5dcd4a02a2074c065f695da5ef2c271",
+    "study_links": "0e0aebad84afd09e38e477f277bb8086e52eb9b4a2e591c6de41118060a5663d",
+    "attempts": "e968fd3e8a391065ac2314ab9bcff932fc572cbe6024e16b40569b694bbed84b",
+    "weakness": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "question_statistics": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "academic_decisions": "a2a6a868c613be6d09c3e8607599779eb87a302e90207410d99328a4dbba343d",
+    "source_reviews": "ae9341dc97f54bc96b75a49bd06619c5bdbdf4abd1d5b9885851e1e76c9aa656",
+    "flashcard_exclusions": "236975ba94ef72c223ebe7f78a4725088ca53b7c20395edb52f39e5d5e2f7717",
+    "three_preexisting_untracked_json_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "pending_b695_proposals": 276,
+    "academic_approvals": 0,
+    "academic_imports": 0,
+    "production_learner_mutations": 0,
+    "q6403": "EXCLUDED",
+    "q1536_q1537": "SOURCE_ONLY"
+  },
+  "historical_tests_are_snapshot_specific": true,
+  "release_scope_note": "Technical release gate PASS does not grant academic approval, browser acceptance, public release approval, or authorization to push, merge or deploy."
 }
