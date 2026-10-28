@@ -1,0 +1,27 @@
+{
+  "report": "BATCH_723_STUDY_CONTINUITY",
+  "tested_sha": "e41c8480061ee1582886503d64d21aa60ffd200f",
+  "mistake_notebook": {
+    "status": "PASS",
+    "evidence": "Batch712MistakeRecoveryTest covers original mistake preservation, retry eligibility, skipped/foreign histories, Q6403 quarantine and bounded note snapshots. Repeated finalization does not duplicate the attempt-derived mistake history."
+  },
+  "recovery_practice": {
+    "status": "PASS",
+    "evidence": "Eligible retry and updated attempt status are verified through production quiz routes; cross-board and exact-topic eligibility are preserved."
+  },
+  "study_library": {
+    "status": "PASS",
+    "evidence": "StudyLibraryNavigationTest verifies exact published relationships, source-backed destinations, scoped practice, and registered legacy REE subject aliases across results, filtered library, dashboard availability and section practice."
+  },
+  "my_notes": {
+    "status": "PASS",
+    "evidence": "Create retry returns the same note; conflicting request reuse is rejected; edit revision rejects stale overwrites; 8-process exact create/edit retries persist one note and one edit revision. Ownership, CSRF, escaping, reopen, backup and privacy tests pass."
+  },
+  "flashcards": {
+    "status": "PASS",
+    "evidence": "Review request ID plus expected review count makes lost-response retry idempotent; concurrent retries advance scheduling once. HTTP ownership, CSRF, invalid card, scheduling and quarantine exclusions pass. The one-canonical-bank-read path is preserved."
+  },
+  "result_to_practice": "PASS_SYNTHETIC; results/history connect to explanations, mistakes and eligible retry. Exact study links are used only when registered; absent resources retain the existing honest no-link fallback.",
+  "historical_mistakes": "Preserved; later correct recovery does not rewrite the original attempt.",
+  "academic_state": "No pending proposals imported or approved. Q6403 remains excluded; Q1536/Q1537 remain source-only."
+}

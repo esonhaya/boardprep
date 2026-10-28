@@ -1,0 +1,71 @@
+{
+  "report": "BATCH_723_VERIFICATION",
+  "tested_sha": "e41c8480061ee1582886503d64d21aa60ffd200f",
+  "focused_and_regression_tests": {
+    "passed_on_tested_sha": [
+      "JsonStorageFaultInjectionTest",
+      "LearnerWriteConcurrencyTest",
+      "ExamSimulationHttpTest",
+      "Batch711NotesBasedPracticeTest",
+      "TenBoardLearnerJourneyHttpTest",
+      "MultiAttemptLearningHttpTest",
+      "Batch712MistakeRecoveryTest",
+      "StudyLibraryNavigationTest",
+      "FlashcardHttpTest",
+      "FlashcardSchedulingTest",
+      "LearnerMobileAccessibilityViewTest (18 assertions)",
+      "ProductionQuizCsrfTest",
+      "QuestionImportCsrfTest",
+      "SecurityTrustBoundaryTest",
+      "AnonymousLearnerPrivacyHttpTest",
+      "QuizSessionResilienceTest",
+      "Batch706CriticalMappingSafetyTest (53 assertions)",
+      "Batch717AcademicGateClosureTest",
+      "browser-ci-contract.test.cjs + server-lifecycle.test.cjs (6/6)"
+    ],
+    "additional_regressions_completed_during_implementation_before_final_notes_create_and_exam_concurrency_test_additions": [
+      "Batch696ContentIntegrityTest",
+      "FlashcardIntegrationTest",
+      "CrossBoardCanonicalReuseTest",
+      "Batch721TenBoardAdaptiveEligibilityTest",
+      "Batch706CriticalMappingSafetyTest",
+      "Batch717AcademicGateClosureTest",
+      "QuizExperienceResilienceTest",
+      "FlashcardControllerReadPathTest",
+      "Batch708Q6403QuarantineTest",
+      "MultiExamEligibilityTest",
+      "StudyPdfPipelineTest"
+    ],
+    "scope_note": "These earlier regressions ran during implementation. Final note-create and conflicting-answer-concurrency changes were then covered by the exact-SHA Notes HTTP, concurrent learner-write, and exam simulation tests listed above.",
+    "syntax_and_diff": "Changed PHP files pass php -l; both changed browser specs pass node --check; git diff --check passes."
+  },
+  "historical_archive_mismatches": [
+    {"test": "Batch653CseReviewClosureTest", "status": "FAIL_ARCHIVED_EXPECTATION", "reason": "Semantic hash remains pinned to an older question snapshot; no historical evidence was rewritten."},
+    {"test": "Batch704NursingCompletionTest", "status": "FAIL_ARCHIVED_EXPECTATION", "reason": "PDF/source manifest asserts an older snapshot; current integrity checks pass."},
+    {"test": "Batch705NursingPdfArtifactTest.py", "status": "FAIL_ARCHIVED_EXPECTATION", "reason": "Archived regenerated-PDF set predates later generated artifacts; current StudyPdfPipelineTest passes."}
+  ],
+  "full_doctor": {
+    "status": "NOT_RUN_STORAGE_BELOW_REQUIRED_RESERVE",
+    "command": "APP_ENV=production APP_DEBUG=false DB_DRIVER=json APP_STORAGE_PATH=/data/data/com.termux/files/home/boardprep-batch-706/storage php -d memory_limit=1G tools/doctor.php --release --json",
+    "exit_code": null,
+    "json_valid": null,
+    "release_gate": "NOT_MEASURED",
+    "P0": null,
+    "P1": null,
+    "P2": null,
+    "P3": null,
+    "health_status": "NOT_MEASURED",
+    "required_storage_bytes": 1837243096,
+    "additional_reserve_bytes": 536870912,
+    "required_available_bytes": 2374114008,
+    "minimum_available_bytes_observed": 2350657536,
+    "shortfall_bytes": 23456472,
+    "artifact_path": null,
+    "artifact_sha256": null,
+    "fixture_cleanup": "NOT_APPLICABLE; Doctor did not run."
+  },
+  "browser": "PREPARED_NOT_EXECUTED",
+  "production_learner_mutations": 0,
+  "academic_approvals": 0,
+  "academic_imports": 0
+}

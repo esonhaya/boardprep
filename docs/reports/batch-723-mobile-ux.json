@@ -1,0 +1,18 @@
+{
+  "report": "BATCH_723_MOBILE_UX",
+  "tested_sha": "e41c8480061ee1582886503d64d21aa60ffd200f",
+  "issues_fixed": [
+    "Delayed exam answer and navigation requests are tied to the rendered question identity, preventing queued taps from skipping a question.",
+    "A delayed saved answer reports that it was saved or that the previous saved answer was kept; existing polite status output does not expose correctness during an active exam.",
+    "Review forms now retain idempotency/version fields for flashcard retries; note forms retain create request identity and edit revision."
+  ],
+  "responsive_contracts_css_px": [320, 360, 390, 430],
+  "responsive_status": "Contracts are prepared in the Playwright specs; no real browser viewport was rendered on this host.",
+  "accessibility": {
+    "status": "PASS_STATIC_VIEW_CONTRACTS",
+    "assertions": 18,
+    "coverage": ["semantic labels", "keyboard focus", "status/error announcements", "touch target contract", "long content wrapping", "quiz/review/result transitions"]
+  },
+  "css_changes": "No responsive CSS redesign was needed or made in this batch.",
+  "real_visual_acceptance": "NOT_EXECUTED; CSS inspection and static markup assertions are not visual acceptance."
+}

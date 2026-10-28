@@ -1,0 +1,15 @@
+{
+  "report": "BATCH_723_BROWSER_ACCEPTANCE",
+  "status": "PREPARED_NOT_EXECUTED",
+  "tested_sha": "e41c8480061ee1582886503d64d21aa60ffd200f",
+  "runner": "Android/Termux; supported Ubuntu/Playwright Linux runner not available in this session.",
+  "real_browser": "NOT_EXECUTED; Chromium was not available, not installed, and no remote CI was dispatched.",
+  "contracts": {
+    "playwright_scenarios": "Existing BoardPrep learner and Developer browser scenarios retained.",
+    "viewports_css_px": [320, 360, 390, 430, 412, 768],
+    "browser_workflow_contract_tests": {"passed": 6, "failed": 0},
+    "javascript_syntax": "PASS"
+  },
+  "visual_screenshots": "NONE; no rendered screenshots or visual/accessibility browser acceptance are claimed.",
+  "next_execution": "Run the prepared suite on the supported authorized Linux Playwright runner."
+}

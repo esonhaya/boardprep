@@ -1,0 +1,27 @@
+{
+  "report": "BATCH_723_LEARNER_JOURNEYS",
+  "tested_sha": "e41c8480061ee1582886503d64d21aa60ffd200f",
+  "journeys": {
+    "new_learner": {
+      "status": "PASS_SYNTHETIC_HTTP",
+      "evidence": "TenBoardLearnerJourneyHttpTest exercises session setup, exact-subject eligible practice, answers, scoring, explanation, study link, history, progress, retry and persistence.",
+      "empty_history": "No weakness or mastery labels are fabricated by the tested journey."
+    },
+    "returning_learner": {
+      "status": "PASS_SYNTHETIC_HTTP",
+      "evidence": "MultiAttemptLearningHttpTest verifies distinct completed attempts accumulate learning state once; analytics/adaptive regressions cover earlier and recent exposure."
+    },
+    "interrupted_learner": {
+      "status": "PASS_SYNTHETIC_HTTP",
+      "evidence": "ExamSimulationHttpTest verifies refresh/resume, saved-answer recovery, stale retries, expired-session result, lost-final-response replay and exactly-once finalization."
+    },
+    "mixed_board_history": {
+      "status": "PASS_SYNTHETIC",
+      "evidence": "CrossBoardCanonicalReuseTest and ten-board journey preserve session-time board/subject attribution for shared canonical questions. Ambiguous legacy attribution is not guessed."
+    }
+  },
+  "boards": ["LET", "CSE", "CLE", "NLE", "PLE", "CE", "CPA", "ME", "REE", "Architecture"],
+  "ten_board_coverage": "PASS; each board's synthetic journey covered setup, eligibility, scoring, study navigation, history and progress.",
+  "variant_safeguards": "B720 blueprint identity and B721 LET/CSE variant regressions pass; no official weight or passing threshold was added.",
+  "fixture_policy": "All learner mutations used isolated synthetic storage. Production learner state remained unchanged."
+}

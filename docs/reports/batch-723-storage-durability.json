@@ -1,0 +1,28 @@
+{
+  "report": "BATCH_723_STORAGE_DURABILITY",
+  "tested_sha": "e41c8480061ee1582886503d64d21aa60ffd200f",
+  "storage": {
+    "active_exam": "PHP session file; existing resume/deadline rules retained.",
+    "attempts": "JSON collection in the tested release configuration; finalization retry checks inspect persisted bytes.",
+    "weakness": "JSON collection; learner-scoped read-modify-write is serialized.",
+    "mistake_notebook": "Derived from preserved attempt records; no separate history rewrite was introduced.",
+    "notes": "JSON collection; create request IDs and edit revisions prevent duplicate/stale overwrites.",
+    "flashcard_reviews": "JSON collection in the tested release configuration; request ID plus expected review count makes exact retry idempotent.",
+    "question_statistics": "JSON aggregate; concurrent read-modify-write operations are serialized."
+  },
+  "fault_injection": {
+    "failed_before_write": "PASS; prior valid bytes and record preserved.",
+    "short_or_partial_temporary_write": "PASS; incomplete temporary data is rejected and removed.",
+    "replacement_failure": "PASS; prior collection remains authoritative.",
+    "malformed_existing_json": "PASS; read fails closed with StorageException and leaves bytes unchanged.",
+    "unreadable_storage_permissions": "NOT_INJECTED; Termux/root permissions do not provide a reliable unreadable-file fixture here.",
+    "concurrent_collection_creates": "PASS; 8 processes produced 8 unique records with no loss.",
+    "concurrent_learner_aggregates": "PASS; 8 processes preserved each weakness and question-statistics increment.",
+    "concurrent_note_create_edit": "PASS; 8 exact retries produced one note and one edit revision.",
+    "concurrent_flashcard_review": "PASS; 8 exact retries produced one scheduling transition.",
+    "interrupted_process": "NOT_INJECTED; partial write is directly injected at the write boundary.",
+    "power_loss_durability": "NOT_CLAIMED; no fsync/power-cut guarantee was tested."
+  },
+  "implementation": "JSON writes now require a complete temporary-file write and successful same-directory replacement. The existing mutation lock remains in use; no storage migration or wholesale rewrite was added.",
+  "fixtures": "Synthetic isolated temporary JSON/account fixtures; cleaned by the tests. Production learner records were not mutated."
+}

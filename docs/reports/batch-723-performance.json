@@ -1,0 +1,30 @@
+{
+  "report": "BATCH_723_PERFORMANCE",
+  "tested_sha": "e41c8480061ee1582886503d64d21aa60ffd200f",
+  "comparability": "No B723 before/after cold-path pair was measured; no new speedup is claimed.",
+  "preserved_b722_reference": {
+    "tested_sha": "1f8b663aaa27662b03ff06cfca9cb7545a613ac1",
+    "dashboard_cold_ms_before_after": [2527.34, 1691.94],
+    "readiness_cold_ms_before_after": [1562.342, 1152.505],
+    "CSE_blueprint_collection_reads_before_after": [41, 1],
+    "adaptive_order_identical": true,
+    "note": "Historical B722 measurements, not remeasured in B723."
+  },
+  "b723_flashcard_read_path": {
+    "requests": 3,
+    "elapsed_ms": [2598.3, 1890.6, 1932.9],
+    "median_ms": 1932.9,
+    "canonical_bank_reads_per_request": [1, 1, 1],
+    "peak_php_memory_bytes": 217579520,
+    "baseline_comparable": false,
+    "note": "Isolated read-path sample; workload/device cache state is not matched to a prior B722 baseline."
+  },
+  "other_paths": {
+    "exam_restoration": "NOT_MEASURED",
+    "answer_persistence": "NOT_MEASURED",
+    "finalization": "NOT_MEASURED",
+    "notes": "NOT_MEASURED",
+    "storage_operation_counts": "NOT_MEASURED outside explicit concurrency assertions",
+    "performance_caches_added": 0
+  }
+}

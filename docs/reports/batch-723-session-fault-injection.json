@@ -1,0 +1,25 @@
+{
+  "report": "BATCH_723_SESSION_FAULT_INJECTION",
+  "tested_sha": "e41c8480061ee1582886503d64d21aa60ffd200f",
+  "runtime": "Isolated PHP HTTP simulator and synthetic session fixtures on Android/Termux",
+  "suite": "tools/Tests/ExamSimulationHttpTest.php; tools/Tests/QuizSessionResilienceTest.php",
+  "scenarios": [
+    {"case": "normal_answer_save", "status": "PASS", "authoritative_state_checked": true},
+    {"case": "successful_save_then_lost_response", "status": "PASS_MODELED", "method": "Persisted answer is retried using its original request identity; no network proxy or actual packet drop was used."},
+    {"case": "identical_stale_answer_retry", "status": "PASS", "result": "Confirms persisted answer without a second advance."},
+    {"case": "conflicting_stale_answer_retry", "status": "PASS", "result": "Previously persisted answer is kept; no key is disclosed."},
+    {"case": "two_concurrent_conflicting_answer_saves", "status": "PASS", "result": "Exactly one answer remains authoritative and current question advances once."},
+    {"case": "refresh_after_save", "status": "PASS", "result": "Active session restores its saved answer and authoritative answered count."},
+    {"case": "answer_and_navigation_race", "status": "PASS", "result": "Navigation does not skip beyond the question reached by the save."},
+    {"case": "answer_arrives_after_exam_deadline", "status": "PASS", "result": "Expired-before-processing fixture rejects the answer and retains the saved answers."},
+    {"case": "finalization_success_then_lost_response", "status": "PASS_MODELED", "method": "Persisted attempt/statistics bytes are compared before and after a same-session finish retry."},
+    {"case": "duplicate_finalization", "status": "PASS", "result": "Retry resolves to the original result without changing attempt, weakness or statistics records."},
+    {"case": "concurrent_finalization", "status": "PASS", "result": "Concurrent requests resolve to one persisted attempt."},
+    {"case": "cross_account_session_access", "status": "PASS", "result": "Ownership/session resilience regressions reject foreign learner access."}
+  ],
+  "offline_answers": "UNSUPPORTED; answer persistence and exam operations require connectivity. No local answer queue or answer-key-bearing offline cache was added.",
+  "limitations": [
+    "Lost responses are modeled by replaying the exact persisted request through the isolated simulator; physical network interruption was not induced.",
+    "No device power-loss test was performed."
+  ]
+}
