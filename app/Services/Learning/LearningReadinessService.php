@@ -19,7 +19,12 @@ final class LearningReadinessService
 
     public static function build(array $attempts, array $preferences = []): array
     {
-        $attempts = LearningHistoryService::ordered($attempts);
+        return self::buildFromOrdered(LearningHistoryService::ordered($attempts), $preferences);
+    }
+
+    /** Build readiness from normalized, newest-first history supplied by the dashboard. */
+    public static function buildFromOrdered(array $attempts, array $preferences = []): array
+    {
         $scope = self::scope($attempts, $preferences);
         if ($scope === null) {
             $hasHistory = $attempts !== [];
@@ -50,7 +55,7 @@ final class LearningReadinessService
             $attempts,
             static fn(array $attempt): bool => self::matchesScope($attempt, $scope)
         ));
-        $subjectPerformance = SubjectPerformanceService::summarize($scopeAttempts);
+        $subjectPerformance = SubjectPerformanceService::summarizeFromOrdered($scopeAttempts);
         $performanceBySubject = [];
         foreach ($subjectPerformance as $row) {
             $performanceBySubject[self::subjectKey((string) ($row['subject'] ?? ''))] = $row;
@@ -118,8 +123,8 @@ final class LearningReadinessService
                 static fn(array $row): bool => (int) ($row['eligible_question_count'] ?? 0) > 0
             ));
         $unattributedAnswerEvents = self::unattributedAnswerEvents($scopeAttempts);
-        $performance = LearningProgressService::build($scopeAttempts);
-        $topics = TopicPerformanceService::summarize($scopeAttempts);
+        $performance = LearningProgressService::buildFromOrdered($scopeAttempts, count($scopeAttempts));
+        $topics = TopicPerformanceService::summarizeFromOrdered($scopeAttempts);
         $persistentMistakes = [];
         foreach ($topics as $topic) {
             if ((int) ($topic['repeated_mistakes'] ?? 0) < 1) {

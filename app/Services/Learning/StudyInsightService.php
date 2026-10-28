@@ -13,9 +13,7 @@ final class StudyInsightService
         array $weakestTopics = []
     ): array {
         $attempts = LearningAttemptNormalizer::all($attempts);
-        $insights = [];
-
-        if (empty($attempts)) {
+        if ($attempts === []) {
             return [
                 "headline" => "Start your first quiz",
                 "message" => "Complete a quiz to begin building personalized study insights.",
@@ -26,6 +24,24 @@ final class StudyInsightService
         }
 
         $metrics = LearningProgressService::build($attempts);
+        return self::buildFromMetrics($attempts, $weakestTopics, $metrics);
+    }
+
+    /** Build insight copy from prepared history and the dashboard's existing metrics. */
+    public static function buildFromMetrics(
+        array $orderedAttempts,
+        array $weakestTopics,
+        array $metrics
+    ): array {
+        if ($orderedAttempts === []) {
+            return [
+                "headline" => "Start your first quiz",
+                "message" => "Complete a quiz to begin building personalized study insights.",
+                "actions" => ["Take a practice quiz"],
+            ];
+        }
+
+        $insights = [];
         $average = $metrics['averageScore'];
         $best = $metrics['bestScore'];
 

@@ -13,6 +13,13 @@ final class LearningProgressService
     {
         $attemptTotal = LearningAttemptNormalizer::total($attempts);
         $attempts = LearningHistoryService::ordered($attempts);
+        return self::buildFromOrdered($attempts, $attemptTotal);
+    }
+
+    /** Build from normalized, newest-first history when a caller already has it. */
+    public static function buildFromOrdered(array $attempts, ?int $attemptTotal = null): array
+    {
+        $attemptTotal ??= count($attempts);
         $total = count($attempts);
         $completed = 0;
         $sum = 0;

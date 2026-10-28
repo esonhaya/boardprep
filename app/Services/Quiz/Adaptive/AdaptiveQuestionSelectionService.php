@@ -41,6 +41,7 @@ final class AdaptiveQuestionSelectionService
             return array_values($selected);
         }
 
+        $weaknessPriorities = self::weaknessPriorityIndex($context, $request);
         $poolByDifficulty = [];
         $seenPoolIds = [];
         foreach ($eligiblePool as $question) {
@@ -56,10 +57,14 @@ final class AdaptiveQuestionSelectionService
             if ($difficulty !== '') {
                 $topicKey = self::topicKey($question);
                 $groupKey = $topicKey !== '' ? 'topic:' . $topicKey : 'unclassified';
+                $exposure = self::exposure($question, $context);
                 $poolByDifficulty[$difficulty][$groupKey][] = [
                     'question' => $question,
-                    'base_score' => self::baseScore($question, $request, $context),
-                    'exposure' => self::exposure($question, $context),
+                    'base_score' => self::baseScore(
+                        $exposure,
+                        $weaknessPriorities[$topicKey] ?? 0
+                    ),
+                    'exposure' => $exposure,
                     'topic_key' => $topicKey,
                     'id' => $id,
                 ];
@@ -147,9 +152,8 @@ final class AdaptiveQuestionSelectionService
         return array_values($selected);
     }
 
-    private static function baseScore(array $question, SelectionRequest $request, array $context): int
+    private static function baseScore(array $exposure, int $weaknessPriority): int
     {
-        $exposure = self::exposure($question, $context);
         $countPenalty = min(3, $exposure['count']) * self::RECENT_EXPOSURE_PENALTY_PER_ATTEMPT;
         $recencyPenalty = $exposure['count'] === 0
             ? 0
@@ -157,7 +161,7 @@ final class AdaptiveQuestionSelectionService
                 ? self::MOST_RECENT_EXPOSURE_PENALTY
                 : ($exposure['last_attempt_index'] <= 2 ? intdiv(self::MOST_RECENT_EXPOSURE_PENALTY, 2) : 0));
 
-        return self::weaknessPriority($question, $request, $context) - $countPenalty - $recencyPenalty;
+        return $weaknessPriority - $countPenalty - $recencyPenalty;
     }
 
     /** Negative means the left candidate wins a tied relevance/diversity score. */
@@ -179,28 +183,29 @@ final class AdaptiveQuestionSelectionService
         return strnatcasecmp($left['id'], $right['id']);
     }
 
-    private static function weaknessPriority(array $question, SelectionRequest $request, array $context): int
+    private static function weaknessPriorityIndex(array $context, SelectionRequest $request): array
     {
-        $taxonomy = is_array($question['taxonomy'] ?? null) ? $question['taxonomy'] : [];
-        $topic = strtolower(trim(self::text($taxonomy['topic_id'] ?? $question['topic'] ?? '')));
-        $subject = AdaptiveQuizService::subjectKey($taxonomy['subject_id'] ?? $question['subject'] ?? '');
-        if ($topic === '' || $subject === '') {
-            return 0;
-        }
-
-        $priority = 0;
+        $priorities = [];
+        $requestBoard = AdaptiveQuizService::boardKey($request->exam);
         foreach (is_array($context['weak_topics'] ?? null) ? $context['weak_topics'] : [] as $row) {
             if (!is_array($row)
-                || strtolower(trim(self::text($row['topic'] ?? ''))) !== $topic
-                || AdaptiveQuizService::boardKey($row['board'] ?? '') !== AdaptiveQuizService::boardKey($request->exam)
-                || AdaptiveQuizService::subjectKey($row['subject'] ?? '') !== $subject
+                || AdaptiveQuizService::boardKey($row['board'] ?? '') !== $requestBoard
                 || !self::variantMatches($row, $request)) {
                 continue;
             }
-            $priority = max($priority, max(0, (int) ($row['priority'] ?? 0)));
+            $topic = strtolower(trim(self::text($row['topic'] ?? '')));
+            $subject = AdaptiveQuizService::subjectKey($row['subject'] ?? '');
+            if ($topic === '' || $subject === '') {
+                continue;
+            }
+            $key = $subject . "\0" . $topic;
+            $priorities[$key] = max(
+                (int) ($priorities[$key] ?? 0),
+                max(0, (int) ($row['priority'] ?? 0))
+            );
         }
 
-        return $priority;
+        return $priorities;
     }
 
     private static function topicKey(array $question): string

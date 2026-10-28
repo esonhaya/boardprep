@@ -9,7 +9,12 @@ use App\Services\Learning\Recommendation\StudyRecommendationFactory;
 
 final class StudyRecommendationService
 {
-    public static function build(array $attempts, array $weakestTopics = [], int $limit = 3): array
+    public static function build(
+        array $attempts,
+        array $weakestTopics = [],
+        int $limit = 3,
+        ?int $attemptTotal = null
+    ): array
     {
         $recommendations = [];
         $seen = [];
@@ -36,7 +41,7 @@ final class StudyRecommendationService
             }
         }
 
-        $completedAttemptCount = LearningAttemptNormalizer::total($attempts);
+        $completedAttemptCount = $attemptTotal ?? LearningAttemptNormalizer::total($attempts);
         if ($completedAttemptCount < 3) {
             $recommendations[] = StudyRecommendationFactory::general(
                 'Build more history',

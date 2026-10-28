@@ -847,17 +847,23 @@ final class QuestionEligibilityService
      */
     public static function index(?array $questionSnapshot = null): QuestionEligibilityIndex
     {
+        $blueprints = App::storage()->all('blueprints');
         $overrides = array_values(array_filter(
             App::storage()->all('question-reuse-overrides'),
             static fn(mixed $override): bool => !is_array($override)
                 || ($override['override_type'] ?? '') !== 'INCLUDE'
-                || QuestionReuseEligibilityResolver::validateOverride($override) === []
+                || QuestionReuseEligibilityResolver::validateOverride($override, $blueprints) === []
         ));
+
+        $derivedRelationships = QuestionReuseEligibilityResolver::productionDerivedRelationships(
+            $questionSnapshot,
+            $blueprints
+        );
 
         return new QuestionEligibilityIndex(
             App::storage()->all('question-eligibility'),
-            App::storage()->all('blueprints'),
-            QuestionReuseEligibilityResolver::productionDerivedRelationships($questionSnapshot),
+            $blueprints,
+            $derivedRelationships,
             $overrides
         );
     }

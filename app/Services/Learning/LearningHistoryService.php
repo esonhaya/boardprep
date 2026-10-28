@@ -26,7 +26,12 @@ final class LearningHistoryService
 
     public static function ordered(array $attempts): array
     {
-        $attempts = LearningAttemptNormalizer::all($attempts);
+        return self::orderedNormalized(LearningAttemptNormalizer::all($attempts));
+    }
+
+    /** Sort the result of LearningAttemptNormalizer::all() without repeating normalization. */
+    public static function orderedNormalized(array $attempts): array
+    {
         $indexed = [];
         foreach ($attempts as $index => $attempt) {
             $indexed[] = [$attempt, $index];

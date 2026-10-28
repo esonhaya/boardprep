@@ -61,18 +61,35 @@ final class QuestionPoolFilter
                 $aliasesBySubject[(string) $subjectId] = self::taxonomyMatchAliases('subjects', $subjectName);
             }
         }
+        $subjectIdsByAlias = [];
+        foreach ($aliasesBySubject as $subjectId => $aliases) {
+            foreach ($aliases as $alias => $_present) {
+                $subjectIdsByAlias[$alias][] = $subjectId;
+            }
+        }
         $counts = array_fill_keys(array_keys($aliasesBySubject), 0);
         $seenIds = [];
         $seenTexts = [];
         foreach ($questions as $question) {
             if (!is_array($question)) continue;
-            $prepared = self::prepareQuestion($question, $request, $eligibilityIndex, $civilServiceLevel);
+            // Counting needs the same eligibility decision as selection, but
+            // it does not need the normalized question array returned to a
+            // learner. Validate the original row without copying its choices.
+            $prepared = self::prepareQuestion(
+                $question,
+                $request,
+                $eligibilityIndex,
+                $civilServiceLevel,
+                false
+            );
             if ($prepared === null) continue;
+            if (!is_scalar($prepared['subject'])) continue;
+            $subjectIds = $subjectIdsByAlias[strtolower(trim((string) $prepared['subject']))] ?? [];
+            if ($subjectIds === []) continue;
             $id = trim((string) $prepared['question']['id']);
             $text = self::normalizedText((string) $prepared['question']['question']);
-            foreach ($aliasesBySubject as $subjectId => $aliases) {
-                if (!self::matchesTaxonomyAliases($prepared['subject'], $aliases)
-                    || isset($seenIds[$subjectId][$id])
+            foreach ($subjectIds as $subjectId) {
+                if (isset($seenIds[$subjectId][$id])
                     || isset($seenTexts[$subjectId][$text])) {
                     continue;
                 }
@@ -101,15 +118,20 @@ final class QuestionPoolFilter
         array $question,
         SelectionRequest $request,
         ?\App\Services\Question\QuestionEligibilityIndex $eligibilityIndex,
-        ?string $civilServiceLevel
+        ?string $civilServiceLevel,
+        bool $materializeQuestion = true
     ): ?array {
         if ($request->exam !== null
             && $eligibilityIndex !== null
             && !$eligibilityIndex->mayBeEligibleForExam($question, $request->exam)) {
             return null;
         }
-        $question = self::normalizeRuntimeFields($question);
-        if (!self::hasValidRuntimeContent($question)) return null;
+        if ($materializeQuestion) {
+            $question = self::normalizeRuntimeFields($question);
+            if (!self::hasValidRuntimeContent($question)) return null;
+        } elseif (!self::hasValidRuntimeContentWithoutNormalization($question)) {
+            return null;
+        }
         $taxonomy = is_array($question['taxonomy'] ?? null) ? $question['taxonomy'] : [];
         $examEligibility = $request->exam === null
             ? null
@@ -190,8 +212,54 @@ final class QuestionPoolFilter
         }
         $difficulty=is_scalar($question['difficulty']??null)?strtolower(trim((string)$question['difficulty'])):'';
         if (!in_array($difficulty,['easy','medium','hard'],true)) return false;
-        $choices=$question['choices']??null;
-        if (!is_array($choices)||count($choices)<2||!is_scalar($question['answer']??null)) return false;
+        return self::hasValidChoicesAndAnswer($question['choices'] ?? null, $question['answer'] ?? null);
+    }
+
+    /** Validate count-only questions without constructing the normalized row. */
+    private static function hasValidRuntimeContentWithoutNormalization(array $question): bool
+    {
+        foreach (['id', 'question', 'explanation'] as $field) {
+            if (!is_scalar($question[$field] ?? null) || trim((string) $question[$field]) === '') {
+                return false;
+            }
+        }
+        $difficulty = is_scalar($question['difficulty'] ?? null)
+            ? strtolower(trim((string) $question['difficulty']))
+            : '';
+        if (!in_array($difficulty, ['easy', 'medium', 'hard'], true)) {
+            return false;
+        }
+
+        $choices = $question['choices'] ?? null;
+        $answer = $question['answer'] ?? null;
+        if (!is_array($choices) || !is_scalar($answer)) {
+            $optionChoices = [];
+            $optionAnswer = null;
+            foreach ((array) ($question['options'] ?? []) as $option) {
+                if (!is_array($option) || !is_scalar($option['text'] ?? null)) {
+                    continue;
+                }
+                $text = trim((string) $option['text']);
+                if ($text === '') {
+                    continue;
+                }
+                $optionChoices[] = $text;
+                if (($option['correct'] ?? false) === true && $optionAnswer === null) {
+                    $optionAnswer = $text;
+                }
+            }
+            if ($optionChoices !== [] && $optionAnswer !== null) {
+                $choices = $optionChoices;
+                $answer = $optionAnswer;
+            }
+        }
+
+        return self::hasValidChoicesAndAnswer($choices, $answer);
+    }
+
+    private static function hasValidChoicesAndAnswer(mixed $choices, mixed $answer): bool
+    {
+        if (!is_array($choices) || count($choices) < 2 || !is_scalar($answer)) return false;
         $seen=[];
         foreach ($choices as $choice) {
             if (!is_scalar($choice)||trim((string)$choice)==='') return false;
@@ -199,7 +267,7 @@ final class QuestionPoolFilter
             if (isset($seen[$key])) return false;
             $seen[$key]=true;
         }
-        return self::matchingChoice($choices,(string)$question['answer'])!==null;
+        return self::matchingChoice($choices,(string)$answer)!==null;
     }
 
     private static function matchingChoice(array $choices,string $answer): ?string

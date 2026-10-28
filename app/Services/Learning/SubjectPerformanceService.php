@@ -13,8 +13,14 @@ final class SubjectPerformanceService
 
     public static function summarize(array $attempts): array
     {
+        return self::summarizeFromOrdered(LearningHistoryService::ordered($attempts));
+    }
+
+    /** Summarize normalized, newest-first history without normalizing or sorting it again. */
+    public static function summarizeFromOrdered(array $attempts): array
+    {
         $rows = [];
-        foreach (LearningHistoryService::ordered($attempts) as $attemptIndex => $attempt) {
+        foreach ($attempts as $attemptIndex => $attempt) {
             $baseContext = LearningAttemptContext::fromAttempt($attempt);
             $review = is_array($attempt['review'] ?? null) ? $attempt['review'] : [];
             $groups = [];

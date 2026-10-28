@@ -140,7 +140,10 @@ final class QuestionReuseEligibilityResolver
     }
 
     /** @return array<int, array> */
-    public static function productionDerivedRelationships(?array $questionSnapshot = null): array
+    public static function productionDerivedRelationships(
+        ?array $questionSnapshot = null,
+        ?array $blueprintSnapshot = null
+    ): array
     {
         if (self::$productionRelationshipsCache !== null) {
             return self::$productionRelationshipsCache;
@@ -152,17 +155,26 @@ final class QuestionReuseEligibilityResolver
             ? null
             : self::questionConcepts($questionSnapshot);
         $valid = [];
+        $blueprints = $blueprintSnapshot;
         foreach (App::storage()->all('concept-derived-eligibility') as $record) {
-            if (is_array($record)
-                && ($record['record_type'] ?? '') === 'RELATIONSHIP'
-                && self::validateDerivedRelationship($record, $questionConceptById) === []) {
+            if (!is_array($record) || ($record['record_type'] ?? '') !== 'RELATIONSHIP') {
+                continue;
+            }
+            // Relationship validation checks blueprint placement. Reuse the
+            // caller's canonical snapshot, or read it once for this batch.
+            $blueprints ??= App::storage()->all('blueprints');
+            if (self::validateDerivedRelationship($record, $questionConceptById, $blueprints) === []) {
                 $valid[] = $record;
             }
         }
         return self::$productionRelationshipsCache = $valid;
     }
 
-    public static function validateDerivedRelationship(array $relationship, ?array $questionConceptById = null): array
+    public static function validateDerivedRelationship(
+        array $relationship,
+        ?array $questionConceptById = null,
+        ?array $blueprintSnapshot = null
+    ): array
     {
         $errors = [];
         $questionId = (string)($relationship['question_id'] ?? '');
@@ -195,7 +207,7 @@ final class QuestionReuseEligibilityResolver
         $coverageId = (string)($relationship['coverage_id'] ?? '');
         $coverage = $coverageId === '' ? null : self::coverageById()[$coverageId] ?? null;
         if ($coverage === null || (string)($coverage['board_id'] ?? '') !== $targetBoard || (string)($coverage['concept_id'] ?? '') !== $conceptId) $errors[] = 'DERIVED_INVALID_COVERAGE';
-        if (is_array($coverage) && self::validateCoverage($coverage) === []) {
+        if (is_array($coverage) && self::validateCoverage($coverage, $blueprintSnapshot) === []) {
             foreach (['subject_id', 'domain_id', 'topic_id', 'concept_id'] as $field) {
                 if ((string)($placement[$field] ?? '') !== (string)($coverage[$field] ?? '')) {
                     $errors[] = 'DERIVED_PLACEMENT_MISMATCH';
@@ -211,7 +223,7 @@ final class QuestionReuseEligibilityResolver
                 $errors[] = 'DERIVED_TARGET_DEPTH_OR_POLICY_MISMATCH';
             }
         } else {
-            foreach (self::validatePlacement($targetBoard, $placement) as $error) $errors[] = 'DERIVED_' . $error;
+            foreach (self::validatePlacement($targetBoard, $placement, $blueprintSnapshot) as $error) $errors[] = 'DERIVED_' . $error;
         }
         $sourceSupport = is_array($relationship['source_support'] ?? null) ? $relationship['source_support'] : [];
         if (!(self::studySupportByQuestion()[$questionId] ?? false)
@@ -285,7 +297,7 @@ final class QuestionReuseEligibilityResolver
         return self::$coverageByIdCache = $index;
     }
 
-    public static function validateCoverage(array $coverage): array
+    public static function validateCoverage(array $coverage, ?array $blueprintSnapshot = null): array
     {
         $errors = [];
         $board = self::board((string)($coverage['board_id'] ?? ''));
@@ -308,7 +320,7 @@ final class QuestionReuseEligibilityResolver
             $errors[] = 'INVALID_COVERAGE_CONCEPT';
         }
         $blueprintNode = (string)($coverage['blueprint_node_id'] ?? '');
-        if ($blueprintNode !== '' && !self::blueprintContains($board, $blueprintNode, $subject)) {
+        if ($blueprintNode !== '' && !self::blueprintContains($board, $blueprintNode, $subject, $blueprintSnapshot)) {
             $errors[] = 'INVALID_COVERAGE_PLACEMENT';
         }
         if (!in_array($coverage['max_depth'] ?? null, [1, 2, 3, 4, 5, 'UNKNOWN'], true)) $errors[] = 'INVALID_COVERAGE_DEPTH';
@@ -341,7 +353,7 @@ final class QuestionReuseEligibilityResolver
         return array_values(array_unique($errors));
     }
 
-    public static function validateOverride(array $override): array
+    public static function validateOverride(array $override, ?array $blueprintSnapshot = null): array
     {
         $errors = [];
         $questionId = (string)($override['question_id'] ?? '');
@@ -357,7 +369,11 @@ final class QuestionReuseEligibilityResolver
             $errors[] = 'INVALID_OVERRIDE_TYPE';
         }
         if ($type === 'INCLUDE') {
-            foreach (self::validatePlacement($board, is_array($override['placement'] ?? null) ? $override['placement'] : []) as $error) {
+            foreach (self::validatePlacement(
+                $board,
+                is_array($override['placement'] ?? null) ? $override['placement'] : [],
+                $blueprintSnapshot
+            ) as $error) {
                 $errors[] = 'OVERRIDE_' . $error;
             }
         }
@@ -446,7 +462,11 @@ final class QuestionReuseEligibilityResolver
         return self::validateOverride($override) === [];
     }
 
-    private static function validatePlacement(string $board, array $placement): array
+    private static function validatePlacement(
+        string $board,
+        array $placement,
+        ?array $blueprintSnapshot = null
+    ): array
     {
         $subject = (string)($placement['subject_id'] ?? '');
         $domain = (string)($placement['domain_id'] ?? '');
@@ -462,14 +482,19 @@ final class QuestionReuseEligibilityResolver
         if ($domain !== '' && ($domainRecord === null || (string)($domainRecord['subject_id'] ?? '') !== $subject)) $errors[] = 'INVALID_TARGET_DOMAIN';
         if ($topic !== '' && ($topicRecord === null || $domain === '' || (string)($topicRecord['domain_id'] ?? '') !== $domain)) $errors[] = 'INVALID_TARGET_TOPIC';
         if ($concept !== '' && ($conceptRecord === null || $topic === '' || (string)($conceptRecord['topic_id'] ?? '') !== $topic)) $errors[] = 'INVALID_TARGET_CONCEPT';
-        if (!self::blueprintContains($board, $node, $subject)) $errors[] = 'INVALID_TARGET_PLACEMENT';
+        if (!self::blueprintContains($board, $node, $subject, $blueprintSnapshot)) $errors[] = 'INVALID_TARGET_PLACEMENT';
         return array_values(array_unique($errors));
     }
 
-    private static function blueprintContains(string $board, string $node, string $subject): bool
+    private static function blueprintContains(
+        string $board,
+        string $node,
+        string $subject,
+        ?array $blueprintSnapshot = null
+    ): bool
     {
         if ($node === '') return false;
-        foreach (App::storage()->all('blueprints') as $blueprint) {
+        foreach ($blueprintSnapshot ?? App::storage()->all('blueprints') as $blueprint) {
             if (!is_array($blueprint)
                 || self::board((string)($blueprint['board_id'] ?? $blueprint['board'] ?? '')) !== $board
                 || (($blueprint['status'] ?? 'active') !== 'active')) continue;

@@ -10,7 +10,12 @@ final class TopicPerformanceService
 {
     public static function summarize(array $attempts): array
     {
-        $attempts = LearningHistoryService::ordered(LearningAttemptNormalizer::all($attempts));
+        return self::summarizeFromOrdered(LearningHistoryService::ordered($attempts));
+    }
+
+    /** Summarize normalized, newest-first history without normalizing or sorting it again. */
+    public static function summarizeFromOrdered(array $attempts): array
+    {
         $topics = TopicPerformanceAccumulator::summarize($attempts);
         usort($topics, static function (array $a, array $b): int {
             $average = $b['average'] <=> $a['average'];
@@ -21,8 +26,12 @@ final class TopicPerformanceService
 
     public static function weakest(array $attempts, int $limit = 3): array
     {
-        $attempts = LearningHistoryService::ordered(LearningAttemptNormalizer::all($attempts));
-        $topics = TopicPerformanceAccumulator::summarize($attempts);
+        return self::weakestFromSummary(self::summarizeFromOrdered(LearningHistoryService::ordered($attempts)), $limit);
+    }
+
+    /** Rank an already summarized topic collection using the established policy. */
+    public static function weakestFromSummary(array $topics, int $limit = 3): array
+    {
         usort($topics, static function (array $a, array $b): int {
             $repeatMistakes = (int) ($b['repeated_mistakes'] ?? 0) <=> (int) ($a['repeated_mistakes'] ?? 0);
             if ($repeatMistakes !== 0) {

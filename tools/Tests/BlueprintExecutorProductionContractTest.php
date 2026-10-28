@@ -17,6 +17,7 @@ foreach ($classes as $class) {
 
 $method = new ReflectionMethod("BlueprintExecutor", "execute");
 assert($method->isStatic());
-assert($method->getNumberOfParameters() === 4);
+assert($method->getNumberOfRequiredParameters() === 4);
+assert($method->getNumberOfParameters() === 6);
 
 echo "[PASS] Blueprint executor production contract verified.\n";
