@@ -8,12 +8,12 @@ HEAD_AFTER_FINAL=DOCUMENTATION_COMMIT (exact SHA is printed in final delivery; o
 BRANCH=batch-722-performance-experience-hardening
 WORKTREE=/data/data/com.termux/files/home/boardprep-batch-706
 STORAGE_BEFORE=2,830,168,064 bytes (about 2.63 GiB)
-STORAGE_AFTER=2,915,475,456 bytes (about 2.72 GiB, observed after Doctor during report staging)
+STORAGE_AFTER=About 2.89 GB (2.70 GiB), observed after Doctor and final documentation staging
 
 EXECUTION
 START_TIME=2026-10-28 20:17:22 +08:00 (verified B722 branch checkout)
-END_TIME=2026-10-28 22:17 +08:00 (final reporting and delivery attempt)
-ELAPSED_TIME=Approximately 2 hours from verified branch checkout to final report
+END_TIME=2026-10-28 22:18 +08:00 (final report and delivery attempt)
+ELAPSED_TIME=Approximately 2 hours 1 minute from verified branch checkout to final report
 ACTIVE_WORK_TIME_IF_MEASURABLE=NOT_MEASURED
 WAKE_LOCK_REQUEST_STATUS=termux-wake-lock exited 0; this does not independently guarantee Android background execution
 TMUX_STATUS=Installed; no active tmux session
