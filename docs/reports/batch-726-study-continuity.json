@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "batch": 726,
+  "status": "PARTIAL_CONTINUITY_IMPROVEMENTS",
+  "dashboard": {
+    "new_learner_onboarding": "B725 behavior preserved",
+    "returning_learner_addition": "active same-browser exam continuation card with board, subject, supported variant, current position and server-recorded answer count",
+    "expired_session": "labeled expired; links through existing server-controlled finalization",
+    "cross_learner_data": "no cross-account session exposure"
+  },
+  "mistake_notebook": "missed/skipped result action added; prior mistake history preserved",
+  "notes": "B723 protections and existing Notes behavior unchanged",
+  "flashcards": "B723 protections and one-bank-read behavior unchanged",
+  "progress_and_recommendations": "existing calculations and recommendation policy unchanged",
+  "eligible_pool_and_published_study_rules": "unchanged; existing services remain authoritative",
+  "regressions_during_implementation": [
+    "LearnerJourneyHttpTest.php PASS",
+    "TenBoardLearnerJourneyHttpTest.php PASS for LET, CSE, CLE, NLE, PLE, CE, CPA, ME, REE and Architecture",
+    "Batch712MistakeRecoveryTest.php PASS; Q6403 exclusion retained",
+    "Batch711NotesBasedPracticeTest.php PASS",
+    "FlashcardHttpTest.php PASS",
+    "ProductionQuizCsrfTest.php PASS",
+    "SecurityTrustBoundaryTest.php PASS",
+    "AccountSecurityTest.php PASS"
+  ],
+  "production_learner_mutations": 0
+}

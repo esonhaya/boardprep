@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "batch": 726,
+  "status": "IMPLEMENTED_FOCUSED_TESTS_PASS",
+  "result_filters": {
+    "available": ["all", "incorrect", "unanswered", "correct"],
+    "counts_shown": true,
+    "historical_question_numbers_preserved": true,
+    "attempt_or_statistics_mutation": false,
+    "review_marks_copied_to_finalized_attempt": false
+  },
+  "recovery_action": {
+    "incorrect_or_unanswered_result": "Mistake Notebook destination is shown",
+    "all_correct_result": "no misleading Mistake Notebook action",
+    "recovery_result": "does not add duplicate notebook action",
+    "historical_mistakes_erased": false
+  },
+  "destinations": {
+    "exact_study_links": "existing registered relationship service remains authoritative",
+    "missing_exact_link": "existing general Study Library fallback",
+    "academic_content_created": false
+  },
+  "verification": [
+    "QuizResultViewContractTest.php PASS (10 assertions plus empty/history filter cases)",
+    "QuizResultActionTest.php PASS",
+    "ExamSimulationHttpTest.php PASS; result filters left attempt, weakness and statistics bytes unchanged"
+  ],
+  "historical_B653_B704_B705": "Not rerun in B726; prior batches classify snapshot-pinned mismatches as historical while current integrity checks passed. No archived assertions changed."
+}

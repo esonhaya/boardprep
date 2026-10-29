@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "batch": 726,
+  "status": "BLOCKED_UNSUPPORTED_RUNTIME",
+  "host": "Android/Termux",
+  "real_browser_execution": "NOT_EXECUTED",
+  "reason": "Pinned Playwright/Chromium runtime is not supported by this Android host; no authorized supported Linux runner was available locally.",
+  "contracts": {
+    "command": "npm run test:browser:contract",
+    "passed": 8,
+    "failed": 0,
+    "coverage_added": ["review mark", "refresh persistence", "answer-status navigator", "marked/unanswered counts", "result filter"]
+  },
+  "screenshots": "NONE",
+  "visual_acceptance": "NOT_CLAIMED",
+  "remote_ci": "NOT_DISPATCHED",
+  "next_step": "Run the existing pinned Ubuntu Playwright workflow on an authorized Linux runner; do not install unsupported Android Chromium."
+}

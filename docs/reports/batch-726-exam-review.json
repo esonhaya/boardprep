@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "batch": 726,
+  "implementation_sha": "9680965c8c6fa191489f1210e3d87f87f2d7507f",
+  "status": "IMPLEMENTED_FOCUSED_INTEGRATION_PASS",
+  "review_flags": {
+    "storage": "versioned flags in owning active PHP exam session; no historical-attempt migration",
+    "scope": "active exam mode, matching quiz session id and exact question at index",
+    "security": ["existing CSRF guard", "session ownership", "session expiration", "question id validation"],
+    "idempotency": "identical retries do not increment version; stale conflicting writes are rejected",
+    "answer_independence": true,
+    "deadline_independence": true,
+    "question_order_independence": true,
+    "account_transition_isolation": true
+  },
+  "learner_actions": ["mark", "unmark", "see marked state", "navigate from review list", "refresh and resume"],
+  "pre_submission_review": {
+    "counts": ["total", "server_recorded_answers", "unanswered", "marked_for_review"],
+    "pending_answer_caveat": true,
+    "answer_key_disclosed": false
+  },
+  "verified_scenarios": [
+    "mark answered and unanswered questions",
+    "unmark and repeated identical requests",
+    "stale conflicting request preserves current flag",
+    "invalid question id and invalid CSRF",
+    "foreign browser session denied",
+    "refresh preserves marks and server deadline",
+    "answer save and navigation remain independent of flags",
+    "expired session rejects flag writes",
+    "duplicate and concurrent finalization still create one attempt",
+    "final attempt contains no review flag fields"
+  ],
+  "integration_test": "tools/Tests/ExamSimulationHttpTest.php PASS against implementation_sha",
+  "real_browser": "NOT_EXECUTED; Android/Termux unsupported for pinned desktop browser"
+}

@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "batch": 726,
+  "baseline": {
+    "b725_final_sha": "867195c9d86e9881f00fca6e108ed3741b7b001b",
+    "head_before": "867195c9d86e9881f00fca6e108ed3741b7b001b",
+    "branch": "batch-726-exam-review-study-continuity",
+    "worktree": "/data/data/com.termux/files/home/boardprep-batch-706"
+  },
+  "implementation_sha": "9680965c8c6fa191489f1210e3d87f87f2d7507f",
+  "tested_sha": "9680965c8c6fa191489f1210e3d87f87f2d7507f",
+  "tests": {
+    "post_commit": ["ExamSimulationHttpTest.php PASS"],
+    "focused": [
+      "AccountSecurityTest.php PASS",
+      "QuizResultActionTest.php PASS",
+      "QuizResultViewContractTest.php PASS",
+      "LearnerMobileAccessibilityViewTest.php PASS (24 assertions)",
+      "browser workflow/client contracts PASS (8/8)",
+      "PHP syntax checks PASS",
+      "Node syntax check PASS",
+      "git diff --check PASS"
+    ],
+    "integration_run_during_implementation": [
+      "LearnerJourneyHttpTest.php PASS",
+      "TenBoardLearnerJourneyHttpTest.php PASS (10 boards)",
+      "Batch712MistakeRecoveryTest.php PASS",
+      "Batch711NotesBasedPracticeTest.php PASS",
+      "FlashcardHttpTest.php PASS",
+      "ProductionQuizCsrfTest.php PASS",
+      "SecurityTrustBoundaryTest.php PASS"
+    ],
+    "known_unresolved_test_failures": "None observed in the listed current B726 tests; historical B653/B704/B705 snapshot mismatches were not rerun."
+  },
+  "doctor": {
+    "status": "NOT_RUN_BLOCKED_STORAGE",
+    "exit_code": null,
+    "json_valid": null,
+    "release_gate": "NOT_VERIFIED",
+    "severity_counts": null,
+    "artifact": null,
+    "required_bytes_from_latest_verified_Doctor": 1837243096,
+    "additional_reserve_bytes": 536870912,
+    "threshold_with_reserve_bytes": 2374114008,
+    "free_bytes_before_cleanup": 2154168320,
+    "free_bytes_after_cleanup": 2250366976,
+    "shortfall_after_cleanup_bytes": 123747032,
+    "cleanup": "Removed only the completed B726-owned /data/data/com.termux/files/usr/tmp/batch-726-exam-fixture (93 MiB) and /data/data/com.termux/files/usr/tmp/batch-726-exam-sessions after tests completed. No unrelated data removed."
+  },
+  "protected_state": {
+    "canonical_count": 9123,
+    "attempts_sha256": "e968fd3e8a391065ac2314ab9bcff932fc572cbe6024e16b40569b694bbed84b",
+    "weakness_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "question_statistics_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "flashcard_exclusions_sha256": "236975ba94ef72c223ebe7f78a4725088ca53b7c20395edb52f39e5d5e2f7717",
+    "three_preexisting_untracked_json_sha256_each": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "canonical_questions_answer_keys_eligibility_sources_study_links_academic_decisions_source_reviews": "unchanged from verified B725 integrity baseline; no storage paths were modified",
+    "pending_proposals": 276,
+    "academic_approvals": 0,
+    "academic_imports": 0,
+    "q6403": "EXCLUDED",
+    "q1536_q1537": "SOURCE_ONLY",
+    "production_learner_mutations": 0
+  },
+  "delivery": {
+    "implementation_commit": "9680965c8c6fa191489f1210e3d87f87f2d7507f",
+    "full_doctor_and_final_release_documentation": "PENDING_STORAGE_HEADROOM",
+    "push_merge_deploy": "NOT_PERFORMED"
+  },
+  "outcome": "PARTIAL_RECOVERABLE; do not start B727 until Full Doctor passes."
+}
