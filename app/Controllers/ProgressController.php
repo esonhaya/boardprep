@@ -16,7 +16,7 @@ final class ProgressController
     {
         $attempts = LearningHistoryService::all();
         $preferences = \App\Services\Profile\LearnerPreferenceService::get();
-        $dashboard = StudyDashboardService::build($attempts, $preferences);
+        $dashboard = StudyDashboardService::buildFromOrdered($attempts, $preferences);
 
         View::render(
             "progress/index",
@@ -41,7 +41,7 @@ final class ProgressController
 
     public static function data(): array
     {
-        return StudyDashboardService::build(
+        return StudyDashboardService::buildFromOrdered(
             LearningHistoryService::all(),
             \App\Services\Profile\LearnerPreferenceService::get()
         );

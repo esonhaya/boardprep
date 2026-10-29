@@ -23,7 +23,11 @@ final class LearningReadinessService
     }
 
     /** Build readiness from normalized, newest-first history supplied by the dashboard. */
-    public static function buildFromOrdered(array $attempts, array $preferences = []): array
+    public static function buildFromOrdered(
+        array $attempts,
+        array $preferences = [],
+        ?array $preparedSummaries = null
+    ): array
     {
         $scope = self::scope($attempts, $preferences);
         if ($scope === null) {
@@ -55,7 +59,14 @@ final class LearningReadinessService
             $attempts,
             static fn(array $attempt): bool => self::matchesScope($attempt, $scope)
         ));
-        $subjectPerformance = SubjectPerformanceService::summarizeFromOrdered($scopeAttempts);
+        // Dashboard callers may pass summaries computed from the same ordered
+        // history. Reuse them only when readiness scope contains every attempt;
+        // mixed-board scopes continue through the independently scoped path.
+        $reusePrepared = $preparedSummaries !== null
+            && count($scopeAttempts) === count($attempts);
+        $subjectPerformance = $reusePrepared && is_array($preparedSummaries['subjects'] ?? null)
+            ? $preparedSummaries['subjects']
+            : SubjectPerformanceService::summarizeFromOrdered($scopeAttempts);
         $performanceBySubject = [];
         foreach ($subjectPerformance as $row) {
             $performanceBySubject[self::subjectKey((string) ($row['subject'] ?? ''))] = $row;
@@ -123,8 +134,12 @@ final class LearningReadinessService
                 static fn(array $row): bool => (int) ($row['eligible_question_count'] ?? 0) > 0
             ));
         $unattributedAnswerEvents = self::unattributedAnswerEvents($scopeAttempts);
-        $performance = LearningProgressService::buildFromOrdered($scopeAttempts, count($scopeAttempts));
-        $topics = TopicPerformanceService::summarizeFromOrdered($scopeAttempts);
+        $performance = $reusePrepared && is_array($preparedSummaries['progress'] ?? null)
+            ? $preparedSummaries['progress']
+            : LearningProgressService::buildFromOrdered($scopeAttempts, count($scopeAttempts));
+        $topics = $reusePrepared && is_array($preparedSummaries['topics'] ?? null)
+            ? $preparedSummaries['topics']
+            : TopicPerformanceService::summarizeFromOrdered($scopeAttempts);
         $persistentMistakes = [];
         foreach ($topics as $topic) {
             if ((int) ($topic['repeated_mistakes'] ?? 0) < 1) {

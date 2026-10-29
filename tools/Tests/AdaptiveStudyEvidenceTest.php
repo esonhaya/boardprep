@@ -7,6 +7,7 @@ require_once dirname(__DIR__, 2) . '/app/Core/Autoloader.php';
 
 use App\Services\Learning\StudyRecommendationService;
 use App\Services\Learning\TopicPerformanceService;
+use App\Services\Shared\TaxonomyStorageService;
 use App\Services\Study\StudyLibraryService;
 
 $assert = static function (bool $condition, string $message): void {
@@ -121,6 +122,7 @@ $unlinkedQuestion = $question;
 $unlinkedQuestion['id'] = 'test-unlinked-question';
 $unlinkedQuestion['topic'] = 'unlinked-concept';
 $unlinkedQuestion['taxonomy']['topic_id'] = 'unlinked-concept';
+$assert(TaxonomyStorageService::find('taxonomy/topics', 'unlinked-concept') === null, 'The no-link fixture must remain outside the registered canonical taxonomy.');
 $unlinked = TopicPerformanceService::summarize([
     $attempt('unlinked', '2026-10-14T10:00:00Z', false, $unlinkedQuestion),
 ])[0] ?? [];
@@ -168,6 +170,7 @@ $secondLegacyLabelAttempt['id'] = 'legacy-topic-label-repeat';
 $secondLegacyLabelAttempt['completed_at'] = '2026-10-14T09:00:00Z';
 $canonicalAttempts = [$legacyLabelAttempt, $secondLegacyLabelAttempt];
 $canonicalTopic = TopicPerformanceService::summarize($canonicalAttempts)[0] ?? [];
+$assert(TaxonomyStorageService::find('taxonomy/topics', 'critical-reading') !== null, 'The exact-link fixture must use a registered canonical topic.');
 $assert(($canonicalTopic['topic'] ?? '') === 'critical-reading', 'Canonical taxonomy must override a stale legacy question topic in learner history.');
 $canonicalRecommendation = StudyRecommendationService::build($canonicalAttempts, [$canonicalTopic], 1)[0] ?? [];
 $assert(($canonicalRecommendation['topic'] ?? '') === 'critical-reading', 'Adaptive practice must target the canonical topic rather than a stale display label.');

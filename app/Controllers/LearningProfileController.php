@@ -74,7 +74,7 @@ final class LearningProfileController
             );
 
         $dashboard =
-            StudyDashboardService::build($attempts);
+            StudyDashboardService::buildFromOrdered($attempts);
 
         View::render(
             "profile/index",

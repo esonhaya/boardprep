@@ -160,6 +160,13 @@ try {
                 || !str_contains($empty['output'], 'href="/study-library"')) {
                 throw new RuntimeException('fresh learner dashboard did not expose a published-study entry point.');
             }
+            $emptyHubActions = preg_match_all('/class="card dashboard-smart-study-action"/', $empty['output']);
+            if (!str_contains($empty['output'], 'Smart Study Hub')
+                || !str_contains($empty['output'], 'data-learner-state="NO_HISTORY"')
+                || !str_contains($empty['output'], 'data-action-type="exam_setup"')
+                || $emptyHubActions < 1 || $emptyHubActions > 3) {
+                throw new RuntimeException('new learner Smart Study Hub lacks bounded board-selection actions.');
+            }
             if (!preg_match('/Answer accuracy\s*—/', $emptyText)
                 || !preg_match('/Recent answer accuracy\s*—/', $emptyText)
                 || !str_contains($emptyText, 'No recent answered questions yet')
@@ -209,6 +216,11 @@ try {
         || !str_contains($returningDashboard['output'], 'href="/study-library"')
         || !str_contains($returningDashboard['output'], 'href="/flashcards"')) {
         throw new RuntimeException('returning dashboard did not offer owned latest-result and study destinations');
+    }
+    $returningHubActions = preg_match_all('/class="card dashboard-smart-study-action"/', $returningDashboard['output']);
+    if (!str_contains($returningDashboard['output'], 'data-learner-state="RETURNING_LEARNER"')
+        || $returningHubActions < 1 || $returningHubActions > 3) {
+        throw new RuntimeException('returning learner Smart Study Hub is missing or exceeds its action limit.');
     }
     $firstReviewHasMistake = false;
     foreach (is_array($firstNewAttempts[0]['review'] ?? null) ? $firstNewAttempts[0]['review'] : [] as $item) {

@@ -25,20 +25,4 @@ $continuityContext = implode(' · ', array_filter([$continuityBoard, $continuity
             <?= $continuityId !== '' ? 'Review latest result' : 'Open quiz history' ?>
         </a>
     </article>
-    <nav class="dashboard-continuity-actions" aria-label="Continue studying">
-        <?php if (($studyContinuity['has_mistake_or_skipped_review'] ?? false) === true): ?>
-            <a class="card dashboard-continuity-action" href="/mistake-notebook">
-                <strong>Review your Mistake Notebook</strong>
-                <span>Revisit recorded incorrect answers and skipped questions.</span>
-            </a>
-        <?php endif; ?>
-        <a class="card dashboard-continuity-action" href="/study-library">
-            <strong>Browse published study materials</strong>
-            <span>Open available lessons and references.</span>
-        </a>
-        <a class="card dashboard-continuity-action" href="/flashcards">
-            <strong>Continue flashcard review</strong>
-            <span>Review cards available for your selected study filters.</span>
-        </a>
-    </nav>
 </section>

@@ -168,6 +168,15 @@ final class StudyRecommendationFactory
 
     private static function studyLink(string $topic, string $board, array $repeatedQuestionIds = []): ?array
     {
+        // Every current canonical question topic is registered in taxonomy.
+        // Legacy/synthetic history can contain arbitrary labels; there cannot
+        // be an exact canonical question-to-study relationship for those
+        // labels, so avoid building the full question-topic index just to
+        // return the same honest no-link fallback.
+        if (TaxonomyStorageService::find('taxonomy/topics', $topic) === null) {
+            return null;
+        }
+
         $contextKey = strtolower(trim($board));
         if (!array_key_exists($contextKey, self::$studyLinksByContext)) {
             $materials = StudyLibraryService::all($board !== '' ? $board : null);

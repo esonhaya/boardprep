@@ -10,6 +10,7 @@ $result = file_get_contents($root . '/app/Views/quiz/result.php');
 $review = file_get_contents($root . '/app/Views/quiz/review.php');
 $dashboard = file_get_contents($root . '/app/Views/dashboard/index.php');
 $dashboardContinuity = file_get_contents($root . '/app/Views/dashboard/continuity.php');
+$dashboardStudyHub = file_get_contents($root . '/app/Views/dashboard/smart-study-hub.php');
 $activeExamService = file_get_contents($root . '/app/Services/Quiz/ActiveExamDashboardService.php');
 $studyLibrary = file_get_contents($root . '/app/Views/study/library.php');
 $home = file_get_contents($root . '/app/Views/home/index.php');
@@ -56,12 +57,14 @@ $checks = [
         && str_contains($activeExamService, 'ACTIVE_SESSION')
         && str_contains($activeExamService, 'EXPIRED_SESSION')
         && str_contains($dashboard, 'Resume exam simulation'),
-    'returning dashboard exposes named result and study continuations with mobile-safe controls' => str_contains($dashboardContinuity, 'aria-label="Continue studying"')
-        && str_contains($dashboardContinuity, 'latest_result_url')
-        && str_contains($dashboardContinuity, '/mistake-notebook')
-        && str_contains($dashboardContinuity, '/study-library')
-        && str_contains($dashboardContinuity, '/flashcards')
+    'returning dashboard exposes named result and study continuations with mobile-safe controls' => str_contains($dashboardContinuity, 'latest_result_url')
+        && str_contains($dashboard, 'smart-study-hub.php')
+        && str_contains($dashboardStudyHub, 'aria-label="Next study actions"')
+        && str_contains($dashboardStudyHub, 'array_slice($smartStudyActions, 0, 3)')
+        && str_contains($dashboardStudyHub, 'data-availability=')
+        && str_contains($dashboardStudyHub, 'dashboard-smart-study-action')
         && str_contains($css, '.dashboard-continuity-result>a:focus-visible')
+        && str_contains($css, '.dashboard-smart-study-action:focus-visible')
         && str_contains($css, '@media(max-width:480px){.dashboard-continuity-result'),
     'exam final submission exposes truthful processing status without changing server submission' => str_contains($review, 'data-exam-submit-form')
         && str_contains($review, 'id="exam-submit-status" class="exam-submit-status" role="status" aria-live="polite"')
@@ -103,6 +106,9 @@ $checks = [
         && str_contains($settings, 'class="form-help mode-disclosure"'),
     'mobile navigation and controls meet touch sizing contract' => str_contains($css, 'grid-template-columns:repeat(2,minmax(0,1fr))')
         && substr_count($css, 'min-height:44px') >= 4,
+    'Smart Study actions use fluid one-column cards through the 320–430px phone range' => str_contains($css, '.dashboard-smart-study-actions{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))')
+        && str_contains($css, '@media(max-width:480px){.dashboard-smart-study')
+        && str_contains($css, '.dashboard-smart-study-action{min-height:0;padding:14px}'),
     'long learner content can wrap safely' => str_contains($css, 'overflow-wrap:anywhere'),
     'keyboard focus remains visible' => str_contains($css, ':focus-visible'),
 ];

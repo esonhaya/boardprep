@@ -18,7 +18,7 @@ final class StudyDashboardController
         \App\Core\View::render(
             "study/index",
             [
-                "dashboard" => StudyDashboardService::build($attempts, $preferences, false),
+                "dashboard" => StudyDashboardService::buildFromOrdered($attempts, $preferences, false),
                 "history" => PreviewCollection::items($attempts),
                 "historyHasMore" => PreviewCollection::hasMore($attempts),
                 "weaknesses" => WeaknessService::all(),
@@ -29,7 +29,7 @@ final class StudyDashboardController
 
     public static function data(): array
     {
-        return StudyDashboardService::build(
+        return StudyDashboardService::buildFromOrdered(
             LearningHistoryService::all(),
             \App\Services\Profile\LearnerPreferenceService::get(),
             false
