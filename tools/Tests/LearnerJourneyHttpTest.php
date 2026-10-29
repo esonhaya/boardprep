@@ -33,6 +33,21 @@ $beforeIds = array_values(array_filter(array_map(
     static fn(mixed $row): ?string => is_array($row) && is_scalar($row['id'] ?? null) ? (string) $row['id'] : null,
     $before
 )));
+$foreignAttemptId = 'attempt-dashboard-foreign-sentinel';
+$before[] = [
+    'id' => $foreignAttemptId,
+    'user_id' => 'learner-' . str_repeat('f', 32),
+    'score' => 9,
+    'total' => 10,
+    'percentage' => 90,
+    'completed' => true,
+    'topic' => 'foreign-dashboard-sentinel',
+    'review' => [],
+];
+$beforeIds[] = $foreignAttemptId;
+if (file_put_contents($attemptsPath, json_encode($before, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR) . "\n", LOCK_EX) === false) {
+    throw new RuntimeException('could not prepare isolated cross-account dashboard sentinel');
+}
 $beforeWeaknesses = WeaknessStorageService::all();
 $http = new HttpSimulator($root . '/public/index.php');
 $cookies = ['PHPSESSID' => 'batch670-learner-journey-' . bin2hex(random_bytes(5))];
@@ -130,6 +145,10 @@ try {
         }
         if ($path === '/dashboard') {
             $emptyText = preg_replace('/\s+/', ' ', strip_tags($empty['output'])) ?? '';
+            if (str_contains($empty['output'], $foreignAttemptId)
+                || str_contains($empty['output'], 'foreign-dashboard-sentinel')) {
+                throw new RuntimeException('dashboard exposed a different learner\'s latest result');
+            }
             if (!preg_match('/Completed quizzes\s*:?[\s]*([0-9]+)/i', $emptyText, $emptyCount)) {
                 throw new RuntimeException('fresh learner dashboard has no completed-quiz metric');
             }
@@ -176,6 +195,32 @@ try {
     $returningDashboardText = preg_replace('/\s+/', ' ', strip_tags($returningDashboard['output'])) ?? '';
     if (!$returningDashboard['success'] || !str_contains($returningDashboardText, 'Welcome back')) {
         throw new RuntimeException('dashboard did not switch to returning-learner guidance after a completed quiz');
+    }
+    $firstHistory = json_decode((string) file_get_contents($attemptsPath), true);
+    $firstNewAttempts = array_values(array_filter(is_array($firstHistory) ? $firstHistory : [], static fn(mixed $row): bool =>
+        is_array($row) && is_scalar($row['id'] ?? null) && !in_array((string) $row['id'], $beforeIds, true)
+    ));
+    if (count($firstNewAttempts) !== 1) {
+        throw new RuntimeException('first learner result was not persisted exactly once before dashboard continuity check');
+    }
+    $firstAttemptId = (string) $firstNewAttempts[0]['id'];
+    if (!str_contains($returningDashboard['output'], 'Your latest completed quiz')
+        || !str_contains($returningDashboard['output'], 'href="/history/result?id=' . htmlspecialchars($firstAttemptId, ENT_QUOTES, 'UTF-8') . '"')
+        || !str_contains($returningDashboard['output'], 'href="/study-library"')
+        || !str_contains($returningDashboard['output'], 'href="/flashcards"')) {
+        throw new RuntimeException('returning dashboard did not offer owned latest-result and study destinations');
+    }
+    $firstReviewHasMistake = false;
+    foreach (is_array($firstNewAttempts[0]['review'] ?? null) ? $firstNewAttempts[0]['review'] : [] as $item) {
+        if (is_array($item) && is_array($item['question'] ?? null)
+            && (($item['answered'] ?? false) === false
+                || (($item['answered'] ?? false) === true && ($item['correct'] ?? null) === false))) {
+            $firstReviewHasMistake = true;
+            break;
+        }
+    }
+    if ($firstReviewHasMistake && !str_contains($returningDashboard['output'], 'href="/mistake-notebook"')) {
+        throw new RuntimeException('dashboard omitted Mistake Notebook despite saved incorrect or skipped answers');
     }
 
     $outputs = [];

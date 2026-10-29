@@ -9,6 +9,7 @@ $quiz = file_get_contents($root . '/app/Views/quiz/index.php');
 $result = file_get_contents($root . '/app/Views/quiz/result.php');
 $review = file_get_contents($root . '/app/Views/quiz/review.php');
 $dashboard = file_get_contents($root . '/app/Views/dashboard/index.php');
+$dashboardContinuity = file_get_contents($root . '/app/Views/dashboard/continuity.php');
 $activeExamService = file_get_contents($root . '/app/Services/Quiz/ActiveExamDashboardService.php');
 $studyLibrary = file_get_contents($root . '/app/Views/study/library.php');
 $home = file_get_contents($root . '/app/Views/home/index.php');
@@ -55,6 +56,13 @@ $checks = [
         && str_contains($activeExamService, 'ACTIVE_SESSION')
         && str_contains($activeExamService, 'EXPIRED_SESSION')
         && str_contains($dashboard, 'Resume exam simulation'),
+    'returning dashboard exposes named result and study continuations with mobile-safe controls' => str_contains($dashboardContinuity, 'aria-label="Continue studying"')
+        && str_contains($dashboardContinuity, 'latest_result_url')
+        && str_contains($dashboardContinuity, '/mistake-notebook')
+        && str_contains($dashboardContinuity, '/study-library')
+        && str_contains($dashboardContinuity, '/flashcards')
+        && str_contains($css, '.dashboard-continuity-result>a:focus-visible')
+        && str_contains($css, '@media(max-width:480px){.dashboard-continuity-result'),
     'exam final submission exposes truthful processing status without changing server submission' => str_contains($review, 'data-exam-submit-form')
         && str_contains($review, 'id="exam-submit-status" class="exam-submit-status" role="status" aria-live="polite"')
         && str_contains($review, '/assets/js/exam-submit.js'),

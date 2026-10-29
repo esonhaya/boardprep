@@ -6,6 +6,7 @@ require_once dirname(__DIR__, 2) . "/app/Core/Autoloader.php";
 \App\Core\Autoloader::register();
 
 use App\Services\Learning\LearningHistoryService;
+use App\Services\Learning\DashboardStudyContinuityService;
 use App\Services\Learning\LearningProgressService;
 use App\Services\Learning\LearningTimelineService;
 use App\Services\Learning\StudyDashboardService;
@@ -61,5 +62,51 @@ if (($timeline[0]['percentage'] ?? 0) !== 90 || ($timeline[0]['completed'] ?? fa
     throw new RuntimeException('latest attempt ordering or completion normalization failed');
 }
 
+$emptyContinuity = DashboardStudyContinuityService::build([]);
+if (($emptyContinuity['state'] ?? '') !== 'NO_HISTORY'
+    || ($emptyContinuity['has_mistake_or_skipped_review'] ?? true) !== false) {
+    throw new RuntimeException('new learner was given unsupported continuation or mistake state');
+}
+$continuity = DashboardStudyContinuityService::build([
+    [
+        'id' => 'attempt-latest-owned',
+        'board' => 'let',
+        'subject' => 'English',
+        'score' => 1,
+        'total' => 2,
+        'percentage' => 50,
+        'review' => [
+            ['question' => ['id' => 'q-latest'], 'answered' => true, 'correct' => true],
+        ],
+    ],
+    [
+        'id' => 'attempt-older-owned',
+        'review' => [
+            ['question' => ['id' => 'q-old'], 'answered' => true, 'correct' => false],
+        ],
+    ],
+]);
+if (($continuity['state'] ?? '') !== 'RETURNING_LEARNER'
+    || ($continuity['latest_result_url'] ?? '') !== '/history/result?id=attempt-latest-owned'
+    || ($continuity['latest_review_available'] ?? false) !== true
+    || ($continuity['has_mistake_or_skipped_review'] ?? false) !== true) {
+    throw new RuntimeException('returning learner continuation did not preserve latest result and historical mistakes');
+}
+$legacyContinuity = DashboardStudyContinuityService::build([[
+    'score' => 1, 'total' => 1, 'percentage' => 100, 'review' => [],
+]]);
+if (($legacyContinuity['latest_result_url'] ?? '') !== '/history'
+    || ($legacyContinuity['latest_review_available'] ?? true) !== false) {
+    throw new RuntimeException('legacy result without an ID or review was presented as directly reviewable');
+}
+$unknownOutcome = DashboardStudyContinuityService::build([[
+    'id' => 'attempt-unknown-outcome',
+    'review' => [['question' => ['id' => 'q-unknown'], 'correct' => false]],
+]]);
+if (($unknownOutcome['has_mistake_or_skipped_review'] ?? true) !== false) {
+    throw new RuntimeException('missing answered state was incorrectly classified as a skipped question');
+}
+
 echo "[PASS] learner dashboard normalizes one consistent attempt population.\n";
 echo "[PASS] learner dashboard preserves subject/topic context and timestamp fallback.\n";
+echo "[PASS] dashboard continuity distinguishes new learners, latest results, legacy reviews, and historical mistakes.\n";
