@@ -52,8 +52,22 @@ $questions = [
     ['id' => 'g2', 'question' => 'Hard grammar?', 'choices' => ['A', 'B'], 'answer' => 'A', 'explanation' => 'Hard grammar explanation.', 'subject' => 'English', 'domain' => 'Grammar', 'topic' => 'Grammar', 'difficulty' => 'hard', 'status' => 'approved'],
     ['id' => 'r1', 'question' => 'Easy reading?', 'choices' => ['A', 'B'], 'answer' => 'A', 'explanation' => 'Easy reading explanation.', 'subject' => 'English', 'domain' => 'Grammar', 'topic' => 'Reading', 'difficulty' => 'easy', 'status' => 'approved'],
 ];
-$spec = \App\Services\Quiz\Start\QuizStartSpecificationFactory::create($topicQuery);
-$result = \BlueprintExecutor::execute($questions, $board, $subjects, $spec);
+// Keep the selection fixture within its exact-topic, exact-difficulty pool.
+// The separate action assertion above still verifies that a recommendation
+// preserves the requested count of seven; an undersized synthetic pool here
+// would intentionally exercise broader shortage recovery instead.
+$selectionQuery = $topicQuery;
+$selectionQuery['count'] = '1';
+$spec = \App\Services\Quiz\Start\QuizStartSpecificationFactory::create($selectionQuery);
+$fixtureEligibility = new \App\Services\Question\QuestionEligibilityIndex([
+    [
+        'id' => 'test-let-english-grammar',
+        'question_ids' => ['g1', 'g2', 'r1'],
+        'exam_ids' => ['let'],
+        'subject_ids' => ['let' => 'english'],
+    ],
+]);
+$result = \BlueprintExecutor::execute($questions, $board, $subjects, $spec, $fixtureEligibility);
 if (count($result->questions) !== 1 || ($result->questions[0]['topic'] ?? '') !== 'Grammar'
     || ($result->questions[0]['difficulty'] ?? '') !== 'hard') {
     throw new RuntimeException('recommended topic/difficulty did not reach question generation: ' . json_encode($result->questions));

@@ -42,6 +42,13 @@
         }
     };
 
+    const refreshWhenVisible = () => {
+        if (!document.hidden) update();
+    };
+
     update();
-    window.setInterval(update, 250);
+    window.setInterval(update, 1000);
+    document.addEventListener('visibilitychange', refreshWhenVisible);
+    window.addEventListener('pageshow', update);
+    window.addEventListener('focus', update);
 })();

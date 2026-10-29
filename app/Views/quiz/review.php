@@ -82,11 +82,13 @@ $unansweredCount = count($questions) - $answeredCount;
     <section class="exam-final-submit card" aria-labelledby="exam-submit-heading">
         <h2 id="exam-submit-heading">Ready to submit?</h2>
         <p>Your result will include every question. Unanswered questions count as unanswered and do not earn a point.</p>
-        <form method="POST" action="/quiz">
+        <form method="POST" action="/quiz" data-exam-submit-form>
             <input type="hidden" name="action" value="finish">
             <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrfToken, ENT_QUOTES, 'UTF-8') ?>">
             <button type="submit">Submit exam simulation</button>
         </form>
+        <p id="exam-submit-status" class="exam-submit-status" role="status" aria-live="polite" aria-atomic="true" hidden></p>
     </section>
 </section>
 <script src="/assets/js/quiz-focus.js" defer></script>
+<script src="/assets/js/exam-submit.js" defer></script>

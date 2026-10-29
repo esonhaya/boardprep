@@ -87,7 +87,7 @@ if ($civilServiceLevel !== '') {
 <p class="exam-simulation-disclosure">BoardPrep’s exam simulator is for independent study and is separate from the official board examination.</p>
 <?php include __DIR__ . '/_timer.php'; ?>
 <?php endif; ?>
-<div class="progress-bar" role="progressbar" aria-label="Practice progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="<?= $progressValue ?>"><span aria-hidden="true" style="width:<?= $progressValue ?>%"></span></div>
+<div class="progress-bar" role="progressbar" aria-label="<?= $isExamSimulation ? 'Exam simulation progress' : 'Practice progress' ?>" aria-valuemin="0" aria-valuemax="100" aria-valuenow="<?= $progressValue ?>" aria-valuetext="Question <?= $current + 1 ?> of <?= $total ?>"><span aria-hidden="true" style="width:<?= $progressValue ?>%"></span></div>
 <?php if ($isExamSimulation): ?>
 <p class="exam-answer-save-status" role="status" aria-live="polite">
     <?php if ($answerSaveStatus !== ''): ?>

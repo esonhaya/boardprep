@@ -695,7 +695,23 @@ test.describe('BoardPrep learner browser acceptance', () => {
     await expect(page.locator('.quiz-meta')).toContainText('Question 1 / 5');
     await expect(page.locator('.quiz-question')).toBeFocused();
     await expect(page.locator('.exam-countdown')).toBeVisible();
+    await expect(page.getByRole('progressbar', { name: 'Exam simulation progress' }))
+      .toHaveAttribute('aria-valuetext', 'Question 1 of 5');
     const initialRemaining = Number(await page.locator('.exam-countdown').getAttribute('data-remaining-seconds'));
+
+    if (testInfo.project.name === 'mobile') {
+      const originalViewport = page.viewportSize();
+      const checked = [];
+      for (const viewport of responsiveViewports.filter(({ width }) => [320, 360, 390, 430].includes(width))) {
+        await page.setViewportSize(viewport);
+        await assertResponsiveSurface(page, `active exam question at ${viewport.width}px`);
+        await expect(page.locator('.exam-answer-save-status')).toBeVisible();
+        await expect(page.getByRole('button', { name: 'Save answer and continue' })).toBeVisible();
+        checked.push(`${viewport.width}x${viewport.height}`);
+      }
+      if (originalViewport) await page.setViewportSize(originalViewport);
+      recordBrowserEvidence('responsive-states', { activeExam: checked }, testInfo);
+    }
 
     await page.reload();
     await expect(page.locator('.quiz-meta')).toContainText('Question 1 / 5');
@@ -733,6 +749,27 @@ test.describe('BoardPrep learner browser acceptance', () => {
     await page.locator('input[name="answer"]').nth(1).check();
     await page.getByRole('button', { name: 'Save answer and continue' }).click();
     await page.getByRole('link', { name: 'Review all answers' }).click();
+    await page.evaluate(() => {
+      document.querySelector('[data-exam-submit-form]')?.addEventListener('submit', (event) => event.preventDefault(), { once: true });
+    });
+    const submitExamButton = page.getByRole('button', { name: 'Submit exam simulation' });
+    await submitExamButton.click();
+    await expect(page.locator('#exam-submit-status')).toContainText('Wait for the server to confirm your result.');
+    await expect(submitExamButton).toBeDisabled();
+    await page.evaluate(() => {
+      const form = document.querySelector('[data-exam-submit-form]');
+      const button = form?.querySelector('button[type="submit"]');
+      const status = document.getElementById('exam-submit-status');
+      if (form) {
+        form.dataset.submitting = 'false';
+        form.removeAttribute('aria-busy');
+      }
+      if (button) button.disabled = false;
+      if (status) {
+        status.hidden = true;
+        status.textContent = '';
+      }
+    });
     await page.getByRole('button', { name: 'Submit exam simulation' }).click();
     await expect(page.locator('h1')).toHaveText('Exam Simulation Result');
     await expect(page.locator('.quiz-result-page h1')).toBeFocused();

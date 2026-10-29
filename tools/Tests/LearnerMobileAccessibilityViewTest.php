@@ -36,6 +36,11 @@ $checks = [
         && str_contains($quiz, '<legend>Choose one answer</legend>')
         && str_contains($quiz, 'class="quiz-choice" for="answer-'),
     'quiz feedback is announced' => str_contains($quiz, 'role="status" aria-live="polite"'),
+    'exam progress has mode-specific accessible naming and question position' => str_contains($quiz, 'aria-label="<?= $isExamSimulation ?')
+        && str_contains($quiz, 'aria-valuetext="Question <?= $current + 1 ?> of <?= $total ?>"'),
+    'exam final submission exposes truthful processing status without changing server submission' => str_contains($review, 'data-exam-submit-form')
+        && str_contains($review, 'id="exam-submit-status" class="exam-submit-status" role="status" aria-live="polite"')
+        && str_contains($review, '/assets/js/exam-submit.js'),
     'quiz, review, and result transitions move keyboard focus to the update' => str_contains($quiz, '/assets/js/quiz-focus.js')
         && str_contains($review, '/assets/js/quiz-focus.js')
         && str_contains($result, '/assets/js/quiz-focus.js')
