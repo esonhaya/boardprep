@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "batch": 725,
+  "mistake_notebook": {"implementation": "UNCHANGED", "regression": "Batch712MistakeRecoveryTest.php PASS"},
+  "study_library": {"implementation": "UNCHANGED", "regression": "StudyLibraryNavigationTest.php PASS; exact published relationships remain authoritative."},
+  "notes": {"implementation": "UNCHANGED", "regression": "Batch711NotesBasedPracticeTest.php PASS; B723 ownership and revision protections preserved."},
+  "flashcards": {"implementation": "UNCHANGED", "regressions": ["FlashcardHttpTest.php PASS", "FlashcardSchedulingTest.php PASS", "FlashcardIntegrationTest.php PASS"]},
+  "progress_and_recommendations": {"implementation": "UNCHANGED", "regressions": ["LearnerDashboardReliabilityTest.php PASS", "ProgressRecommendationViewTest.php PASS", "Batch721TenBoardAdaptiveEligibilityTest.php PASS"]},
+  "end_to_end": "Synthetic new learner, returning learner and ten-board HTTP journeys passed.",
+  "production_learner_mutations": 0
+}

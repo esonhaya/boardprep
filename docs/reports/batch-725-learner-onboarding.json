@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "batch": 725,
+  "status": "IMPLEMENTED_AND_TESTED",
+  "first_time_learner": {
+    "dashboard_actions": [
+      {"label": "Start practice", "destination": "/exams"},
+      {"label": "Explore published study materials", "destination": "/study-library"}
+    ],
+    "progress_disclosure": "Progress tracking begins after completed practice; no weakness or mastery is fabricated.",
+    "verification": "LearnerJourneyHttpTest.php PASS"
+  },
+  "returning_learner": {
+    "behavior": "Existing history, flashcard, observed weak-topic and progress actions remain in place.",
+    "verification": "LearnerDashboardReliabilityTest.php and learner journey regressions PASS"
+  },
+  "board_selection": {
+    "LET": "Inline candidate level; registered specialization selection is filtered by level; Secondary requires a specialization.",
+    "CSE": "Inline Professional/Subprofessional selection; server validation remains authoritative.",
+    "session_context_only": true,
+    "profile_mutated": false
+  },
+  "invalid_variant_feedback": "Learner-readable validation retains scalar candidate selections for correction.",
+  "ten_board_coverage": ["LET", "CSE", "CLE", "NLE", "PLE", "CE", "CPA", "ME", "REE", "Architecture"],
+  "ten_board_regression": "TenBoardLearnerJourneyHttpTest.php PASS"
+}

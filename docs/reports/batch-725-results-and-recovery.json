@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "batch": 725,
+  "result_metrics": {
+    "score_percentage": "Correct answers divided by all questions; unanswered questions remain in the score denominator.",
+    "question_answer_accuracy": "Correct answers divided by answered questions; shown as an em dash when none were answered.",
+    "outcome_counts": ["Correct", "Incorrect", "Unanswered"],
+    "answer_key_or_explanation_changed": false
+  },
+  "mistake_notebook": "UNCHANGED; Batch 712 recovery and learner-history regressions PASS.",
+  "recovery_practice": "UNCHANGED; existing eligibility and quarantine rules retained.",
+  "persisted_attempts": "Synthetic HTTP result and duplicate-completion regressions PASS; production attempts unchanged.",
+  "verification": ["QuizResultViewContractTest.php PASS", "ExamSimulationHttpTest.php PASS", "QuizCompletionHttpTest.php PASS", "LearnerJourneyHttpTest.php PASS"]
+}

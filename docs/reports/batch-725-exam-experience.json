@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "batch": 725,
+  "setup": {
+    "variant_controls": "LET and CSE candidate choices are available inline in exam setup.",
+    "variant_eligibility": "Existing server-side LET/CSE rules retained; no eligibility bypass.",
+    "invalid_configuration": "Validation errors preserve scalar variant choices and explain the correction.",
+    "mode_labels": "Practice feedback and exam simulation review behavior are disclosed; neither is presented as an official board exam.",
+    "legacy_review_mode": "Normalized to counted practice because it had no distinct review behavior."
+  },
+  "active_exam": {
+    "answer_persistence_and_retry": "UNCHANGED from B723/B724; focused regressions PASS.",
+    "navigation_and_resume": "UNCHANGED from B723/B724; regression coverage PASS.",
+    "deadline_authority": "Server authoritative; unchanged.",
+    "exactly_once_finalization": "Preserved and covered by existing regressions."
+  },
+  "coverage": ["QuizSetupCandidateVariantHttpTest.php", "QuizStartModeNormalizationTest.php", "ExamSimulationHttpTest.php", "QuizCompletionHttpTest.php", "QuizSessionResilienceTest.php", "TenBoardLearnerJourneyHttpTest.php"],
+  "result": "PASS"
+}

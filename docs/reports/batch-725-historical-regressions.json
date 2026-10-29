@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "batch": 725,
+  "cases": [
+    {"test": "Batch653CseReviewClosureTest", "status": "ARCHIVED_SNAPSHOT_MISMATCH_DOCUMENTED", "rerun_in_b725": false, "current_integrity": "PASS"},
+    {"test": "Batch704NursingCompletionTest", "status": "ARCHIVED_SNAPSHOT_MISMATCH_DOCUMENTED", "rerun_in_b725": false, "current_integrity": "PASS"},
+    {"test": "Batch705NursingPdfArtifactTest.py", "status": "ARCHIVED_SNAPSHOT_MISMATCH_DOCUMENTED", "rerun_in_b725": false, "current_integrity": "PASS"}
+  ],
+  "basis": "B724 historical regression report and B723 origin-snapshot verification.",
+  "archived_expectations_rewritten": false,
+  "current_integrity_evidence": "Final Full Doctor CONTENT_INTEGRITY, TAXONOMY_INTEGRITY and STUDY_TRACEABILITY domains PASS; current PDF pipeline evidence remains from prior verified batch.",
+  "unresolved_current_integrity_defect": false
+}

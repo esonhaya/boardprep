@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "batch": 725,
+  "new_benchmarks": "NOT_MEASURED",
+  "performance_optimizations": "NONE; no B725 bottleneck was established that justified a code change.",
+  "question_bank_reads": "NOT_MEASURED in B725; existing B722 one-read optimization preserved by unchanged services and regression suite.",
+  "memory": "No B725 application benchmark; Doctor used the configured 1G PHP limit and completed.",
+  "historical_context_only": {
+    "B722_dashboard_cold_ms": "2527.340 to 1691.940",
+    "B722_readiness_cold_ms": "1562.342 to 1152.505",
+    "B722_CSE_blueprint_collection_reads": "41 to 1",
+    "B724_exam_countdown_interval_ms": "250 to 1000"
+  },
+  "historical_values_are_current_measurements": false
+}

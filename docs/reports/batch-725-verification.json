@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "batch": 725,
+  "baseline": {
+    "b724_final_sha": "5ed48f7ce040a06025ba904b624c73b4cda15610",
+    "branch": "batch-725-overnight-product-completion",
+    "worktree": "/data/data/com.termux/files/home/boardprep-batch-706"
+  },
+  "implementation_commits": ["090f26018dbb60d5e62d9b431717cecaead2c623", "b16d8a559cfc931b9f362caedc39387201365de4"],
+  "application_source_sha": "090f26018dbb60d5e62d9b431717cecaead2c623",
+  "tested_sha": "b16d8a559cfc931b9f362caedc39387201365de4",
+  "focused_tests": {
+    "status": "PASS",
+    "named": [
+      "QuizStartModeNormalizationTest.php", "QuizSetupCandidateVariantHttpTest.php", "QuizResultViewContractTest.php",
+      "ExamSimulationHttpTest.php", "QuizCompletionHttpTest.php", "LearnerJourneyHttpTest.php",
+      "TenBoardLearnerJourneyHttpTest.php", "Batch721TenBoardAdaptiveEligibilityTest.php",
+      "LearnerDashboardReliabilityTest.php", "ProgressRecommendationViewTest.php",
+      "Batch712MistakeRecoveryTest.php", "StudyLibraryNavigationTest.php", "Batch711NotesBasedPracticeTest.php",
+      "FlashcardHttpTest.php", "FlashcardSchedulingTest.php", "FlashcardIntegrationTest.php",
+      "ProductionQuizCsrfTest.php", "AnonymousLearnerPrivacyHttpTest.php", "SecurityTrustBoundaryTest.php",
+      "QuestionImportCsrfTest.php", "QuestionImportSafetyTest.php", "Batch717AcademicGateClosureTest.php",
+      "Batch708Q6403QuarantineTest.php", "Batch706CriticalMappingSafetyTest.php",
+      "LearnerMobileAccessibilityViewTest.php (20 assertions)", "QuizSettingsBlueprintClientTest.cjs"
+    ],
+    "browser_contracts": "8/8 PASS; browser fixture PASS",
+    "syntax_and_diff": "PHP lint, Node syntax checks and git diff --check PASS"
+  },
+  "initial_doctor_attempt": {
+    "tested_sha": "090f26018dbb60d5e62d9b431717cecaead2c623",
+    "exit_code": 1,
+    "json_valid": true,
+    "release_gate": "FAIL",
+    "counts": {"P0": 2, "P1": 0, "P2": 1, "P3": 2},
+    "failure": "LearnerMobileAccessibilityViewTest.php hard-coded eight controls and rejected the three new labeled variant selectors.",
+    "repair": "Changed the contract to compare all labeled quiz controls with all quiz control IDs; all 20 assertions passed.",
+    "artifact": "/data/data/com.termux/files/usr/tmp/batch-725-full-doctor-090f26018dbb60d5.json",
+    "artifact_sha256": "8db466e48061f207eda9ad6fa00c57737a45efd948adac40ee6da6a0c07de063"
+  },
+  "final_doctor": {
+    "command": "APP_ENV=production APP_DEBUG=false DB_DRIVER=json APP_STORAGE_PATH=/data/data/com.termux/files/home/boardprep-batch-706/storage php -d memory_limit=1G tools/doctor.php --release --json",
+    "tested_sha": "b16d8a559cfc931b9f362caedc39387201365de4",
+    "exit_code": 0,
+    "json_valid": true,
+    "release_gate": "PASS",
+    "decision": "RELEASE_READY_WITH_NONBLOCKING_DEBT",
+    "counts": {"P0": 0, "P1": 0, "P2": 1, "P3": 2},
+    "health": {"status": "REVIEW", "pass": 11, "warn": 3, "fail": 0, "review": 1, "issues": 835},
+    "storage_required_bytes": 1837243096,
+    "additional_reserve_bytes": 536870912,
+    "threshold_with_reserve_bytes": 2374114008,
+    "minimum_observed_available_bytes": 2426810368,
+    "cleanup_status": "PASS",
+    "sessions_cleaned": true,
+    "artifact": "/data/data/com.termux/files/usr/tmp/batch-725-full-doctor-b16d8a559cfc931b.json",
+    "artifact_bytes": 2354066,
+    "artifact_sha256": "b2d53efd41379e70cc0cf9f057d66a780a45a0fdd56d055faebd4d749e269fc3"
+  },
+  "protected_integrity": {
+    "canonical_count": 9123,
+    "questions_sha256": "73cdc775cd7240b57898868d67902d833db1171f947c8dcc89081ddaf46fb4be",
+    "answer_keys_sha256": "d4db069ce60c026e214ea68068b8206178782879c61b92271d4b1abe7dc7aad5",
+    "eligibility_sha256": "611f01ca29421c0c890c351c503ab262e87bc551269d78427b9a0889260933a4",
+    "source_registry_sha256": "7c640636dcd3ddd0f865106ba4506a5af5dcd4a02a2074c065f695da5ef2c271",
+    "study_links_sha256": "0e0aebad84afd09e38e477f277bb8086e52eb9b4a2e591c6de41118060a5663d",
+    "attempts_sha256": "e968fd3e8a391065ac2314ab9bcff932fc572cbe6024e16b40569b694bbed84b",
+    "weakness_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "question_statistics_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "academic_decisions_sha256": "a2a6a868c613be6d09c3e8607599779eb87a302e90207410d99328a4dbba343d",
+    "source_reviews_sha256": "ae9341dc97f54bc96b75a49bd06619c5bdbdf4abd1d5b9885851e1e76c9aa656",
+    "flashcard_exclusions_sha256": "236975ba94ef72c223ebe7f78a4725088ca53b7c20395edb52f39e5d5e2f7717",
+    "protected_untracked_files_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "pending_b695_proposals": 276,
+    "academic_approvals": 0,
+    "academic_imports": 0,
+    "production_learner_mutations": 0,
+    "q6403": "EXCLUDED",
+    "q1536_q1537": "SOURCE_ONLY"
+  },
+  "browser_status": "PREPARED_NOT_EXECUTED",
+  "public_release_approval": "NOT_GRANTED_BY_LOCAL_TECHNICAL_TESTS",
+  "push_merge_deploy_remote_ci": "NOT_PERFORMED"
+}

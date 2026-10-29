@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "batch": 725,
+  "status": "PREPARED_NOT_EXECUTED",
+  "runner": "Android/Termux; no supported desktop Linux Chromium runner available locally.",
+  "playwright": "Existing pinned Ubuntu/Playwright infrastructure reused; unsupported Android Chromium installation was not attempted.",
+  "browser_contract_suite": {"command": "npm run test:browser:contract", "result": "PASS", "contracts": "8/8"},
+  "fixture_contract": {"command": "npm run test:browser:fixture", "result": "PASS"},
+  "preflight": {"command": "npm run test:browser:preflight", "exit_code": 2, "reason": "Termux Android/arm64 cannot run the pinned desktop Playwright browser and no Chromium executable is available."},
+  "updated_journeys": ["First-use dashboard study entry", "Inline LET/CSE variant selection", "Exam submission and result metrics", "Mobile result viewport contracts"],
+  "browser_scenarios_executed": 0,
+  "screenshots_or_traces": "NONE",
+  "remote_ci_dispatched": false
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "batch": 725,
+  "authentication_and_csrf": "PASS: ProductionQuizCsrfTest.php and QuestionImportCsrfTest.php.",
+  "learner_isolation": "PASS: AnonymousLearnerPrivacyHttpTest.php, SecurityTrustBoundaryTest.php and Full Doctor security/learner domains.",
+  "session_and_attempt_safety": "PASS: Existing B723/B724 lifecycle, ownership, retry and finalization protections retained.",
+  "notes_and_flashcard_ownership": "PASS: Existing isolated learner regressions retained.",
+  "developer_access_and_import_gates": "PASS: QuestionImportSafetyTest.php and Batch717AcademicGateClosureTest.php; 276 proposals remain pending.",
+  "quarantine_safeguards": "PASS: Q6403 excluded; Q1536/Q1537 source-only restrictions verified.",
+  "storage_changes": "No production storage implementation changes in B725.",
+  "production_learner_mutations": 0,
+  "academic_imports": 0,
+  "push_merge_deploy_or_remote_ci": "NOT PERFORMED"
+}

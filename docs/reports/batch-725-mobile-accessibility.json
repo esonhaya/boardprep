@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "batch": 725,
+  "implemented": [
+    "Accessible fieldsets and labeled candidate variant controls.",
+    "Full-width mobile variant selectors with 48px minimum height below 600px.",
+    "Responsive result metrics and explicit question outcome counts."
+  ],
+  "automated_view_contract": "LearnerMobileAccessibilityViewTest.php PASS, 20 assertions.",
+  "javascript_contract": "QuizSettingsBlueprintClientTest.cjs PASS.",
+  "viewport_contracts": [320, 360, 390, 430],
+  "viewport_execution": "Contracts are included in browser specs; rendered viewport execution NOT_EXECUTED.",
+  "real_screen_reader_or_visual_acceptance": "NOT_EXECUTED",
+  "browser_status": "PREPARED_NOT_EXECUTED"
+}
