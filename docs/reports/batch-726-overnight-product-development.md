@@ -29,7 +29,7 @@ The batch remains **PARTIAL_RECOVERABLE** because Full Doctor was not run. Curre
 
 ## Release limits and protected state
 
-Full Doctor was **NOT RUN**. B725's current Doctor report records a required storage floor of 1,837,243,096 bytes plus a 536,870,912-byte reserve (2,374,114,008 bytes total). B726 measured 2,154,168,320 bytes before cleanup. After removing its own 93 MiB isolated test copy and session fixture, the latest available-space measurement is 2,250,366,976 bytes, leaving a 123,747,032-byte shortfall. No safe B726-owned disposable data remained; unrelated temporary fixtures and evidence were not deleted.
+Full Doctor was **NOT RUN**. B725's current Doctor report records a required storage floor of 1,837,243,096 bytes plus a 536,870,912-byte reserve (2,374,114,008 bytes total). B726 measured 2,154,168,320 bytes before cleanup. After removing its own 93 MiB isolated test copy and session fixture, the latest final reading was 2,250,072,064 bytes, leaving a 124,041,944-byte shortfall. Available space fluctuated slightly between readings. No safe B726-owned disposable data remained; unrelated temporary fixtures and evidence were not deleted.
 
 The browser runner remains unavailable on Android/Termux. The pinned Playwright browser contracts pass, but real Chromium acceptance is NOT EXECUTED. Static contracts cover 320, 360, 390 and 430 CSS-pixel layouts; no rendered visual acceptance is claimed.
 
@@ -60,7 +60,7 @@ WORKTREE=/data/data/com.termux/files/home/boardprep-batch-706
 
 EXECUTION
 START_TIME=NOT_MEASURED
-END_TIME=RECORDED IN EXTERNAL FINAL DELIVERY REPORT
+END_TIME=2026-10-29 16:57:48 UTC (final integrity/storage reading)
 ELAPSED_TIME=NOT_MEASURED
 ACTIVE_WORK_TIME_IF_MEASURABLE=NOT_MEASURED
 WAKE_LOCK_STATUS=REQUESTED; command exited 0
@@ -159,7 +159,7 @@ P2=NOT_MEASURED
 P3=NOT_MEASURED
 HEALTH_STATUS=NOT_MEASURED
 STORAGE_REQUIRED=2,374,114,008 bytes including separately recorded 512 MiB reserve
-MINIMUM_FREE=2,250,366,976 bytes after B726 fixture cleanup; 123,747,032-byte shortfall
+MINIMUM_FREE=2,250,072,064 bytes after B726 fixture cleanup; 124,041,944-byte shortfall
 ARTIFACT_SHA256=NONE
 
 INTEGRITY
