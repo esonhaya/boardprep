@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "batch": 724,
+  "status": "STATIC_CONTRACTS_PASS_BROWSER_NOT_EXECUTED",
+  "tested_application_sha": "371aee2ffc53a989253252d7a91b8c58c014e1af",
+  "issues_found": [
+    "Exam progress did not identify exam mode or announce the current question position through the progress control.",
+    "Pending exam submission and a back-forward-cache restore had no clear accessible status or retry affordance.",
+    "The displayed exam countdown refreshed four times per second despite whole-second display precision."
+  ],
+  "issues_fixed": [
+    "Mode-specific progress-bar naming and Question X of Y value text.",
+    "Polite submission status announcement, duplicate client-submit guard, and safe retry guidance on persisted pageshow.",
+    "One-second countdown rendering with immediate catch-up on focus, visible-tab return and pageshow."
+  ],
+  "accessibility_static_contracts": {
+    "view_test": "PASS; 20 assertions",
+    "semantic_status": "PASS; progress and submission use accessible text/status semantics",
+    "focus_keyboard_touch_contracts": "Existing learner view contracts PASS",
+    "real_screen_reader_or_rendered_accessibility": "NOT_EXECUTED"
+  },
+  "viewport_contracts": {
+    "widths_px": [320, 360, 390, 430],
+    "browser_test_assertions_added": true,
+    "real_rendered_viewports_checked": false,
+    "status": "PREPARED_NOT_EXECUTED"
+  },
+  "limitations": [
+    "Android/Termux does not support the repository's pinned desktop Playwright browser driver and has no browser executable.",
+    "CSS and view contracts are not represented as visual acceptance."
+  ]
+}

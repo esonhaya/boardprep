@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "batch": 724,
+  "tested_application_sha": "371aee2ffc53a989253252d7a91b8c58c014e1af",
+  "status": "PASS",
+  "preserved_b723_guarantees": [
+    "Exactly-once finalization remains server-authoritative.",
+    "Identical retries and lost-response recovery retain existing semantics.",
+    "Conflicting stale answers cannot overwrite newer persisted state.",
+    "Notes and Flashcard idempotency/version safeguards were unchanged."
+  ],
+  "regressions": {
+    "authentication_csrf_privacy_ownership": ["ProductionQuizCsrfTest.php", "SecurityTrustBoundaryTest.php", "AnonymousLearnerPrivacyHttpTest.php"],
+    "question_import_and_academic_gate": ["QuestionImportCsrfTest.php", "QuestionImportSafetyTest.php", "Batch717AcademicGateClosureTest.php"],
+    "concurrent_learner_writes": ["LearnerWriteConcurrencyTest.php"],
+    "notes_mistakes_study_library": ["Batch711NotesBasedPracticeTest.php", "Batch712MistakeRecoveryTest.php", "StudyLibraryNavigationTest.php"],
+    "flashcard_isolation_idempotency_scheduling": ["FlashcardHttpTest.php", "FlashcardSchedulingTest.php"],
+    "exam_lifecycle_and_board_scoping": ["ExamSimulationHttpTest.php", "QuizSessionResilienceTest.php", "QuizCompletionHttpTest.php", "TenBoardLearnerJourneyHttpTest.php", "Batch721TenBoardAdaptiveEligibilityTest.php"],
+    "quarantine_and_mapping": ["Batch706CriticalMappingSafetyTest.php", "Batch708Q6403QuarantineTest.php"]
+  },
+  "faults_or_security_defects_found": [],
+  "production_learner_mutations": 0,
+  "persistent_mixed_learner_cache_added": false,
+  "academic_imports": 0,
+  "developer_authorization_and_import_gates": "PASS; Full Doctor release domains PASS"
+}

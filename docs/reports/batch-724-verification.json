@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "batch": 724,
+  "tested_application_sha": "371aee2ffc53a989253252d7a91b8c58c014e1af",
+  "focused_tests": {
+    "status": "PASS",
+    "passed": [
+      "LearnerMobileAccessibilityViewTest.php (20 assertions)",
+      "ExamTimerClientTest.cjs and ExamSubmissionFeedbackClientTest.cjs (2/2)",
+      "ExamSimulationHttpTest.php",
+      "QuizSessionResilienceTest.php",
+      "QuizCompletionHttpTest.php",
+      "QuizResultViewContractTest.php",
+      "TenBoardLearnerJourneyHttpTest.php (LET, CSE, CLE, NLE, PLE, CE, CPA, ME, REE, Architecture)",
+      "Batch721TenBoardAdaptiveEligibilityTest.php",
+      "ProductionQuizCsrfTest.php",
+      "SecurityTrustBoundaryTest.php",
+      "AnonymousLearnerPrivacyHttpTest.php",
+      "QuestionImportCsrfTest.php and QuestionImportSafetyTest.php",
+      "Batch717AcademicGateClosureTest.php",
+      "LearnerWriteConcurrencyTest.php",
+      "Batch711NotesBasedPracticeTest.php",
+      "Batch712MistakeRecoveryTest.php",
+      "StudyLibraryNavigationTest.php",
+      "FlashcardHttpTest.php and FlashcardSchedulingTest.php",
+      "LearnerDashboardReliabilityTest.php",
+      "RecommendedQuizActionReliabilityTest.php (PASS after correcting undersized synthetic selection fixture)",
+      "AdaptiveQuizProductionContractTest.php",
+      "Batch706CriticalMappingSafetyTest.php",
+      "Batch708Q6403QuarantineTest.php",
+      "npm run test:browser:contract (8/8)",
+      "npm run test:browser:fixture"
+    ],
+    "failures_repaired": [
+      {
+        "test": "RecommendedQuizActionReliabilityTest.php",
+        "cause": "An exact one-result expectation used a seven-question request with only three synthetic rows, invoking existing broader-scope shortage recovery.",
+        "repair": "Kept the seven-count action URL assertion; selection now uses a one-question synthetic exact-topic/difficulty pool with explicit fixture eligibility.",
+        "production_code_changed": false,
+        "retest": "PASS"
+      }
+    ],
+    "unresolved_focused_failures": 0
+  },
+  "syntax_and_diff": {
+    "php_lint": "PASS for modified PHP views and tests",
+    "javascript_syntax": "PASS for timer, submit feedback, browser spec and client tests",
+    "git_diff_check": "PASS"
+  },
+  "full_doctor": {
+    "command": "APP_ENV=production APP_DEBUG=false DB_DRIVER=json APP_STORAGE_PATH=/data/data/com.termux/files/home/boardprep-batch-706/storage php -d memory_limit=1G tools/doctor.php --release --json",
+    "tested_sha": "371aee2ffc53a989253252d7a91b8c58c014e1af",
+    "exit_code": 0,
+    "json_valid": true,
+    "release_gate": "PASS",
+    "P0": 0,
+    "P1": 0,
+    "P2": 1,
+    "P3": 2,
+    "health_status": "REVIEW",
+    "doctor_required_available_bytes": 1837243096,
+    "additional_reserve_bytes": 536870912,
+    "pre_run_threshold_bytes": 2374114008,
+    "minimum_external_free_bytes": 2520174592,
+    "minimum_doctor_observed_available_bytes": 2520363008,
+    "cleanup_status": "PASS",
+    "fixture_sessions_cleaned": true,
+    "artifact": "/data/data/com.termux/files/usr/tmp/batch-724-full-doctor-371aee2.json",
+    "artifact_bytes": 2354067,
+    "artifact_sha256": "6cc9aa10a901c55053084d86773ecddd09d64905658a8ae5a361728dfc7c441d"
+  },
+  "browser": {
+    "status": "PREPARED_NOT_EXECUTED",
+    "reason": "The Android/Termux runtime is unsupported by the pinned desktop Playwright driver and has no Chromium executable.",
+    "local_browser_contracts": "PASS",
+    "remote_ci_dispatched": false
+  },
+  "technical_scope_note": "A local technical PASS is not public-release authorization, browser acceptance or academic approval."
+}

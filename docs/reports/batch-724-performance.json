@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "batch": 724,
+  "tested_application_sha": "371aee2ffc53a989253252d7a91b8c58c014e1af",
+  "workload": "Client-side active exam countdown rendering; same whole-second UI and server-owned deadline.",
+  "measurements": {
+    "timer_interval_before_ms": 250,
+    "timer_interval_after_ms": 1000,
+    "scheduled_ui_updates_before_per_second": 4,
+    "scheduled_ui_updates_after_per_second": 1,
+    "scheduled_update_reduction_percent": 75,
+    "measurement_basis": "Source interval and deterministic ExamTimerClientTest.cjs; not a CPU or battery benchmark."
+  },
+  "continuity": {
+    "catch_up_on_visibility_return": "PASS client test",
+    "catch_up_on_focus_and_pageshow": "PASS client test",
+    "server_deadline_authority": "UNCHANGED",
+    "exactly_once_expiry_submission": "PASS client and server regression"
+  },
+  "other_paths": {
+    "dashboard_readiness_cold_warm": "NOT_MEASURED; unchanged from B722/B723",
+    "exam_restore_answer_write_finalization_latency": "NOT_MEASURED",
+    "question_bank_reads": "UNCHANGED; no canonical-bank reader modified",
+    "php_memory": "NOT_MEASURED for B724 code; Doctor storage fixture accounting passed",
+    "storage_operations": "UNCHANGED by implementation"
+  },
+  "caveat": "The 75% figure describes scheduled timer UI callbacks only. It is not a measured end-to-end latency, CPU, battery or production performance claim."
+}

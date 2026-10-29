@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "batch": 724,
+  "review_source": "docs/reports/batch-723-verification.json and docs/reports/batch-723-overnight-exam-resilience.md",
+  "current_snapshot_tests_rerun_in_b724": false,
+  "cases": [
+    {
+      "test": "Batch653CseReviewClosureTest",
+      "status": "FAIL_ARCHIVED_EXPECTATION_AGAINST_CURRENT_SNAPSHOT",
+      "classification": "The immutable archived artifact and B653 origin snapshots were verified in B723; the current 9,123-question bank is a later snapshot.",
+      "current_integrity_defect": false,
+      "b724_current_question_hash": "73cdc775cd7240b57898868d67902d833db1171f947c8dcc89081ddaf46fb4be"
+    },
+    {
+      "test": "Batch704NursingCompletionTest",
+      "status": "FAIL_ARCHIVED_EXPECTATION_AGAINST_CURRENT_SNAPSHOT",
+      "classification": "The archived B704 baseline was byte-identical to its origin. A later source-metadata refresh changed one PDF; the current file matches its current manifest.",
+      "current_integrity_defect": false,
+      "current_pipeline_evidence": "StudyPdfPipelineTest.php passed in the B723 verification."
+    },
+    {
+      "test": "Batch705NursingPdfArtifactTest.py",
+      "status": "FAIL_ARCHIVED_EXPECTATION_AGAINST_CURRENT_SNAPSHOT",
+      "classification": "The archived B705 baseline was byte-identical to its origin. Later source-metadata refreshes explain additional current PDF changes; the current pipeline checks current PDFs, headings and source attributions.",
+      "current_integrity_defect": false,
+      "current_pipeline_evidence": "StudyPdfPipelineTest.php passed in the B723 verification."
+    }
+  ],
+  "historical_expectations_rewritten": false,
+  "current_b724_integrity_regressions": [
+    {"test": "Batch706CriticalMappingSafetyTest.php", "status": "PASS"},
+    {"test": "Batch708Q6403QuarantineTest.php", "status": "PASS"},
+    {"test": "Full Doctor current content, eligibility, source/study and release domains", "status": "PASS"}
+  ],
+  "note": "These historical snapshot mismatches remain visible and are not counted as B724 changes or current-release passes."
+}

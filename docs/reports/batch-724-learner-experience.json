@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "batch": 724,
+  "tested_application_sha": "371aee2ffc53a989253252d7a91b8c58c014e1af",
+  "changes": [
+    {
+      "area": "active_exam_progress",
+      "previous_behavior": "The progress bar used the generic Practice progress name and exposed only a percentage.",
+      "root_cause": "Assistive technology did not receive the exam mode or current question position from that progress control.",
+      "implementation": "Use an exam-specific accessible name and announce Question X of Y as value text; practice retains its own name.",
+      "files_changed": ["app/Views/quiz/index.php"],
+      "test_coverage": ["LearnerMobileAccessibilityViewTest.php", "ExamSimulationHttpTest.php", "tests/browser/acceptance/boardprep.spec.cjs"],
+      "verification_result": "PASS_STATIC_AND_HTTP; browser assertions prepared but not executed"
+    },
+    {
+      "area": "final_submission_feedback",
+      "previous_behavior": "The review page relied on the browser's native form navigation and gave no in-page pending or restored-page guidance.",
+      "root_cause": "A lost response or Android back-forward-cache restore could leave a learner without clear retry guidance; repeated button taps could submit duplicate requests.",
+      "implementation": "Announce pending submission without claiming success, block repeat client submits, and unlock a safe retry with truthful guidance when the page is restored from the back-forward cache. Server finalization remains authoritative and idempotent.",
+      "files_changed": ["app/Views/quiz/review.php", "public/assets/js/exam-submit.js", "public/assets/css/style.css"],
+      "test_coverage": ["ExamSubmissionFeedbackClientTest.cjs", "ExamSimulationHttpTest.php", "QuizSessionResilienceTest.php", "tests/browser/acceptance/boardprep.spec.cjs"],
+      "verification_result": "PASS_CLIENT_AND_HTTP_CONTRACTS; real browser not executed"
+    },
+    {
+      "area": "exam_countdown_rendering",
+      "previous_behavior": "The displayed countdown recalculated and rendered every 250 ms.",
+      "root_cause": "The interface refreshed four times per second although the displayed timer has whole-second precision.",
+      "implementation": "Render once per second and immediately catch up on visibility return, focus and pageshow. The server deadline and expiry submission remain authoritative.",
+      "files_changed": ["public/assets/js/exam-timer.js"],
+      "test_coverage": ["ExamTimerClientTest.cjs", "ExamSimulationHttpTest.php"],
+      "verification_result": "PASS_CLIENT_AND_SERVER_REGRESSION"
+    }
+  ],
+  "unchanged_areas": {
+    "dashboard_progress_readiness_recommendations": "UNCHANGED; dashboard, analytics, adaptive, recommendation and ten-board journey regressions passed.",
+    "mistake_notebook_notes_flashcards": "UNCHANGED; recovery, ownership, concurrency, idempotency, HTTP and scheduling regressions passed.",
+    "scoring_deadlines_and_answer_keys": "UNCHANGED; server-authoritative scoring, deadlines, answer keys and exactly-once finalization preserved."
+  },
+  "recommendation_test_repair": {
+    "failure": "The previous synthetic assertion requested seven exam questions from a three-row pool and expected exactly one result. Existing shortage recovery correctly widened scope to fill the request.",
+    "repair": "Retained the seven-item action URL assertion; the separate exact topic/difficulty selection fixture now requests one question and supplies an explicit isolated LET eligibility index.",
+    "production_policy_changed": false,
+    "retest": "PASS"
+  }
+}

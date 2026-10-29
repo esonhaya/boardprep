@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "batch": 724,
+  "browser_status": "PREPARED_NOT_EXECUTED",
+  "runner": {
+    "platform": "android/arm64 under Termux",
+    "supported_desktop_runner_available": false,
+    "pinned_playwright_version": "1.63.0",
+    "playwright_driver_status": "BLOCKED: unsupported platform android",
+    "chromium_executable": "NOT_AVAILABLE",
+    "remote_ci_dispatched": false
+  },
+  "preflight": {
+    "exit_code": 2,
+    "status": "BLOCKED",
+    "node_runtime": "PASS",
+    "loopback_connectivity": "PASS",
+    "browser_launch": "BLOCKED",
+    "loopback_server_shutdown": "PASS",
+    "artifact": "/data/data/com.termux/files/usr/tmp/batch-724-browser-preflight.json"
+  },
+  "browser_test_changes": {
+    "file": "tests/browser/acceptance/boardprep.spec.cjs",
+    "new_assertions": [
+      "Active exam progressbar announces exam simulation and question position.",
+      "Active exam responsive surface is specified at 320, 360, 390 and 430 px.",
+      "Final submission shows truthful pending feedback and disables a duplicate submit while awaiting the response."
+    ],
+    "execution": "NOT_EXECUTED"
+  },
+  "local_contracts": {
+    "npm_run_test_browser_contract": {"status": "PASS", "passed": 8, "failed": 0},
+    "npm_run_test_browser_fixture": {"status": "PASS"}
+  },
+  "screenshots": "NONE",
+  "traces": "NONE",
+  "visual_or_real_browser_acceptance": false
+}
