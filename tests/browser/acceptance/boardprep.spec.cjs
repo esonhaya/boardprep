@@ -155,14 +155,11 @@ async function startQuiz(page, {
 }
 
 async function configureAvailableBoardQuiz(page, exam) {
-  if (exam === 'CSE') {
-    await page.goto('/profile');
-    await page.locator('#profile-cse-level').selectOption('PROFESSIONAL');
-    await page.getByRole('button', { name: 'Save exam preferences' }).click();
-    await expect(page.locator('[role="status"]')).toContainText('preferences were saved');
-    await page.goto(`/quiz?exam=${encodeURIComponent(exam)}`);
-  }
   await expect(page.locator('#quiz-exam')).toHaveValue(exam);
+  if (exam === 'CSE') {
+    await expect(page.locator('#quiz-cse-variant-fields')).toBeVisible();
+    await page.locator('#quiz-cse-level').selectOption('PROFESSIONAL');
+  }
 
   const subjectOption = page.locator(`#quiz-subject option[data-exam="${exam}"]`).first();
   await expect(subjectOption).toHaveCount(1);
@@ -417,12 +414,13 @@ test.describe('BoardPrep learner browser acceptance', () => {
     const dashboardHeading = page.locator('main h1');
     await expect(dashboardHeading).toHaveCount(1);
     await expect(dashboardHeading).toHaveText('Welcome to BoardPrep');
-    const emptyAccuracy = page.locator('.stat-card').filter({ hasText: 'Average accuracy' });
+    const emptyAccuracy = page.locator('.stat-card').filter({ hasText: 'Answer accuracy' });
     const emptyBestScore = page.locator('.stat-card').filter({ hasText: 'Best score' });
     await expect(emptyAccuracy).toContainText('—');
     await expect(emptyAccuracy).toContainText('No completed quizzes yet');
     await expect(emptyBestScore).toContainText('—');
     await expect(emptyBestScore).toContainText('No completed quizzes yet');
+    await expect(page.getByRole('link', { name: 'Explore published study materials' })).toHaveAttribute('href', '/study-library');
     for (const href of ['/exams', '/history', '/flashcards', '/progress', '/quiz']) {
       await expect(page.locator(`a[href="${href}"]:visible`).first()).toBeVisible();
     }
@@ -459,6 +457,30 @@ test.describe('BoardPrep learner browser acceptance', () => {
       await expect(page).toHaveURL(/\/exams/);
     }
     recordBrowserEvidence('keyboard', { keyboardNavigation: 'PASS', visibleFocus: 'PASS' }, testInfo);
+  });
+
+  test('first-time learners can choose LET and CSE variants in exam setup', async ({ page }, testInfo) => {
+    await page.goto('/quiz?exam=LET');
+    await expect(page.locator('#quiz-let-variant-fields')).toBeVisible();
+    await expect(page.locator('#quiz-let-level')).toBeVisible();
+    await page.locator('#quiz-let-level').selectOption('SECONDARY');
+    await expect(page.locator('#quiz-let-specialization')).toHaveAttribute('required', '');
+    const secondaryOptions = await page.locator('#quiz-let-specialization option:not([value=""])').evaluateAll((options) => options
+      .filter((option) => !option.disabled && !option.hidden)
+      .map((option) => ({ value: option.value, level: option.dataset.level })));
+    expect(secondaryOptions.length).toBeGreaterThan(0);
+    expect(secondaryOptions.every((option) => option.level === 'SECONDARY')).toBeTruthy();
+
+    await page.goto('/quiz?exam=CSE');
+    await expect(page.locator('#quiz-cse-variant-fields')).toBeVisible();
+    await expect(page.locator('#quiz-cse-level')).toHaveAttribute('required', '');
+    await page.locator('#quiz-cse-level').selectOption('PROFESSIONAL');
+    await page.locator('#quiz-subject').selectOption('*');
+    await page.locator('#quiz-count').selectOption('5');
+    await page.getByRole('button', { name: 'Start practice' }).click();
+    await expect(page.locator('.quiz-question')).toBeVisible();
+    await expect(page.locator('.quiz-context')).toContainText('Professional');
+    await assertPageHealthy(page, testInfo, 'first-time-cse-variant-setup');
   });
 
   test('all populated board details render without browser failures', async ({ page }, testInfo) => {
@@ -530,8 +552,12 @@ test.describe('BoardPrep learner browser acceptance', () => {
     await completeQuiz(page, true);
     await expect(page.locator('.result-score .eyebrow')).toHaveText('Score');
     await expect(page.locator('.result-score h2')).toHaveText(/\d+\s*\/\s*\d+/);
-    await expect(page.locator('.result-percentage .eyebrow')).toHaveText('Accuracy');
+    await expect(page.locator('.result-percentage .eyebrow')).toHaveText('Score percentage');
     await expect(page.locator('.result-percentage h3')).toHaveText(/\d+%/);
+    await expect(page.locator('.result-answer-accuracy .eyebrow')).toHaveText('Question answer accuracy');
+    await expect(page.locator('.result-outcome-breakdown')).toContainText('Correct');
+    await expect(page.locator('.result-outcome-breakdown')).toContainText('Incorrect');
+    await expect(page.locator('.result-outcome-breakdown')).toContainText('Unanswered');
     if (testInfo.project.name === 'mobile') {
       const originalViewport = page.viewportSize();
       for (const viewport of responsiveViewports) {
@@ -774,6 +800,8 @@ test.describe('BoardPrep learner browser acceptance', () => {
     await expect(page.locator('h1')).toHaveText('Exam Simulation Result');
     await expect(page.locator('.quiz-result-page h1')).toBeFocused();
     await expect(page.locator('.result-score h2')).toHaveText(/\d+\s*\/\s*5/);
+    await expect(page.locator('.result-percentage .eyebrow')).toHaveText('Score percentage');
+    await expect(page.locator('.result-outcome-breakdown')).toContainText('Unanswered');
     await expect(page.locator('.result-answer-review')).toContainText('No answer');
     await page.reload();
     await expect(page.locator('h1')).toHaveText('Exam Simulation Result');

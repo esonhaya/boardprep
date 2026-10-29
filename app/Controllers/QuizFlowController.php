@@ -136,9 +136,24 @@ final class QuizFlowController
             // Keep a safely-renderable form while retaining the learner's
             // invalid timer value in the input for correction.
             $fallback = $query;
+            $variantInput = [];
+            foreach (['let_level', 'let_specialization', 'civil_service_level'] as $variantField) {
+                if (is_scalar($query[$variantField] ?? null)) {
+                    $variantInput[$variantField] = substr(trim((string) $query[$variantField]), 0, 160);
+                }
+            }
             $fallback['time_limit_minutes'] = '60';
             unset($fallback['let_level'], $fallback['let_specialization'], $fallback['civil_service_level']);
             $settings = QuizStartInputNormalizer::normalize($fallback);
+            if (array_key_exists('let_level', $variantInput)) {
+                $settings['let_level'] = strtoupper($variantInput['let_level']);
+            }
+            if (array_key_exists('let_specialization', $variantInput)) {
+                $settings['let_specialization'] = $variantInput['let_specialization'];
+            }
+            if (array_key_exists('civil_service_level', $variantInput)) {
+                $settings['civil_service_level'] = strtoupper($variantInput['civil_service_level']);
+            }
             if (strtolower((string) ($query['mode'] ?? '')) === 'exam' && $rawTimerMode === 'timed') {
                 $settings['timer_mode'] = 'timed';
                 $settings['time_limit_minutes_input'] = $rawTimerMinutes;

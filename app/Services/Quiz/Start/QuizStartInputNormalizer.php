@@ -15,8 +15,14 @@ final class QuizStartInputNormalizer
         if (!in_array($difficulty, ['easy', 'medium', 'hard', 'mixed'], true)) {
             $difficulty = 'mixed';
         }
-        $mode = self::text($input['mode'] ?? 'practice');
-        if (!in_array($mode, ['practice', 'exam', 'review'], true)) {
+        $mode = strtolower(self::text($input['mode'] ?? 'practice'));
+        // Older links could request "review", but that mode had no distinct
+        // navigation or analytics behavior. Keep those links useful by
+        // routing them through the supported feedback-enabled practice flow.
+        if ($mode === 'review') {
+            $mode = 'practice';
+        }
+        if (!in_array($mode, ['practice', 'exam'], true)) {
             $mode = 'practice';
         }
         $timerMode = strtolower(self::text($input['timer_mode'] ?? 'untimed'));

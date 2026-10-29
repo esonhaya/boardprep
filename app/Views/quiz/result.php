@@ -20,6 +20,14 @@ $historicalTimeLimit = is_numeric($historicalContext['time_limit_minutes'] ?? nu
     ? max(0, (int) $historicalContext['time_limit_minutes'])
     : 0;
 $reviewUnavailable = ($reviewUnavailable ?? false) === true;
+$scoreTotal = max(0, (int) ($summary['total'] ?? 0));
+$scoreCorrect = min($scoreTotal, max(0, (int) ($summary['score'] ?? $summary['correct'] ?? 0)));
+$scoreUnanswered = min($scoreTotal, max(0, (int) ($summary['unanswered'] ?? 0)));
+$scoreAnswered = max(0, $scoreTotal - $scoreUnanswered);
+$scoreIncorrect = max(0, $scoreAnswered - $scoreCorrect);
+$scorePercentage = is_numeric($summary['percentage'] ?? null) ? (float) $summary['percentage'] : 0.0;
+$answerAccuracy = $scoreAnswered > 0 ? ($scoreCorrect / $scoreAnswered) * 100 : null;
+$formatPercentage = static fn(float $value): string => rtrim(rtrim(number_format($value, 2, '.', ''), '0'), '.') . '%';
 $notesPracticeReview = is_array($notesPracticeReview ?? null) ? $notesPracticeReview : null;
 $mistakeRecovery = is_array($mistakeRecovery ?? null) ? $mistakeRecovery : null;
 $taxonomyLabel = static fn(string $collection, mixed $id): string => \App\Services\Shared\TaxonomyStorageService::label($collection, $id);
@@ -32,13 +40,25 @@ $taxonomyLabel = static fn(string $collection, mixed $id): string => \App\Servic
 <section class="result-summary" aria-label="Quiz score summary">
     <div class="result-score">
         <p class="eyebrow">Score</p>
-        <h2><?= $summary["score"] ?? 0 ?> / <?= $summary["total"] ?? 0 ?></h2>
+        <h2><?= $scoreCorrect ?> / <?= $scoreTotal ?></h2>
     </div>
     <div class="result-percentage">
-        <p class="eyebrow">Accuracy</p>
-        <h3><?= $summary["percentage"] ?? 0 ?>%</h3>
+        <p class="eyebrow">Score percentage</p>
+        <h3><?= htmlspecialchars($formatPercentage($scorePercentage), ENT_QUOTES, 'UTF-8') ?></h3>
+        <p class="muted-note">Correct answers out of all questions, including unanswered questions.</p>
+    </div>
+    <div class="result-answer-accuracy">
+        <p class="eyebrow">Question answer accuracy</p>
+        <h3><?= $answerAccuracy === null ? '—' : htmlspecialchars($formatPercentage($answerAccuracy), ENT_QUOTES, 'UTF-8') ?></h3>
+        <p class="muted-note"><?= $scoreAnswered > 0 ? $scoreAnswered . ' answered question' . ($scoreAnswered === 1 ? '' : 's') . '; unanswered items are excluded.' : 'No answers were submitted.' ?></p>
     </div>
 </section>
+
+<dl class="result-outcome-breakdown" aria-label="Question outcomes">
+    <div><dt>Correct</dt><dd><?= $scoreCorrect ?></dd></div>
+    <div><dt>Incorrect</dt><dd><?= $scoreIncorrect ?></dd></div>
+    <div><dt>Unanswered</dt><dd><?= $scoreUnanswered ?></dd></div>
+</dl>
 
 <?php if ($notesPracticeReview !== null): ?>
 <section class="notes-practice-result card" aria-labelledby="notes-practice-result-title">

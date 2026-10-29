@@ -250,6 +250,9 @@ try {
         || $duplicateSubmit['status'] !== 302
         || !str_contains($resultText, 'Exam Simulation Result')
         || !preg_match('/Score\s*:?[\s]*\d+\s*\/\s*3/', $resultText)
+        || !str_contains($resultText, 'Score percentage')
+        || !str_contains($resultText, 'Question answer accuracy')
+        || !preg_match('/Unanswered\s*2/', $resultText)
         || substr_count($result['output'], 'No answer') !== 2) {
         throw new RuntimeException('Partial simulation result or duplicate-submission protection failed.');
     }

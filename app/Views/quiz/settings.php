@@ -6,7 +6,7 @@
 </p>
 <?php endif; ?>
 
-<div class="practice-setup-page"><section class="page-header"><div><p class="eyebrow">Practice setup</p><h1>Choose practice or an exam simulation</h1><p>Set the examination context first, then tailor the session to your review goal. Your candidate level and specialization are saved in your <a href="/profile">learner profile</a>.</p></div></section>
+<div class="practice-setup-page"><section class="page-header"><div><p class="eyebrow">Practice setup</p><h1>Choose practice or an exam simulation</h1><p>Set the examination context first, then tailor the session to your review goal. Candidate variants can be chosen here for this session, or saved in your <a href="/profile">learner profile</a>.</p></div></section>
 
 <?php $settings = is_array($settings ?? null) ? $settings : []; $preferences = is_array($preferences ?? null) ? $preferences : []; ?>
 <?php $activeSession = is_array($activeSession ?? null) ? $activeSession : null; ?>
@@ -51,9 +51,43 @@ value="<?= htmlspecialchars((string) (($settings['topics'][0] ?? '')), ENT_QUOTE
 <?php if ($boardContext !== null): ?><div class="quiz-context-summary"><p class="eyebrow">Your selected exam</p><p><strong><?= htmlspecialchars((string) ($boardContext['name'] ?? $boardContext['code'] ?? 'Exam'), ENT_QUOTES, 'UTF-8') ?></strong><?php if ($subjectContext && ($settings['subject'] ?? '*') !== '*'): ?> · <?= htmlspecialchars(\App\Services\Shared\TaxonomyStorageService::label('subjects', $settings['subject']), ENT_QUOTES, 'UTF-8') ?><?php endif; ?></p><a href="/exams?exam=<?= rawurlencode((string) ($boardContext['code'] ?? '')) ?>">Change board or subject</a></div><?php endif; ?>
 <div class="form-field" <?= $boardContext !== null ? 'hidden' : '' ?>><label for="quiz-exam">Examination</label><select id="quiz-exam" name="exam" <?= $boardContext !== null ? 'disabled' : '' ?>><?php foreach (($boards ?? []) as $board): ?><option value="<?= htmlspecialchars((string) ($board['code'] ?? '')) ?>" <?= strtoupper((string) ($settings['board'] ?? 'LET')) === strtoupper((string) ($board['code'] ?? '')) ? 'selected' : '' ?>><?= htmlspecialchars((string) ($board['name'] ?? '')) ?></option><?php endforeach; ?></select><?php if ($boardContext !== null): ?><input type="hidden" name="exam" value="<?= htmlspecialchars((string) ($boardContext['code'] ?? ''), ENT_QUOTES, 'UTF-8') ?>"><?php endif; ?></div>
 
-<input type="hidden" name="let_level" value="<?= htmlspecialchars((string) ($preferences['let_level'] ?? ''), ENT_QUOTES, 'UTF-8') ?>">
-<input type="hidden" name="let_specialization" value="<?= htmlspecialchars((string) ($preferences['let_specialization'] ?? ''), ENT_QUOTES, 'UTF-8') ?>">
-<input type="hidden" name="civil_service_level" value="<?= htmlspecialchars((string) ($preferences['civil_service_level'] ?? ''), ENT_QUOTES, 'UTF-8') ?>">
+<?php
+$selectedBoardKey = strtolower(trim((string) ($settings['board'] ?? '')));
+$selectedLetLevel = strtoupper(trim((string) ($settings['let_level'] ?? '')));
+$selectedLetSpecialization = trim((string) ($settings['let_specialization'] ?? ''));
+$selectedCivilServiceLevel = strtoupper(trim((string) ($settings['civil_service_level'] ?? '')));
+$letSpecializations = is_array($letSpecializations ?? null) ? $letSpecializations : [];
+?>
+<div class="candidate-variant-fields" aria-label="Candidate examination variant">
+    <fieldset id="quiz-let-variant-fields" class="form-field candidate-variant-group" data-candidate-variant="let" aria-describedby="quiz-let-variant-help" <?= $selectedBoardKey === 'let' ? '' : 'hidden' ?>>
+        <legend>LET candidate variant</legend>
+        <p id="quiz-let-variant-help" class="form-help">Choose your candidate level to scope eligible LET questions. A Secondary candidate must also choose a registered specialization. These choices apply to this session and do not change your saved profile.</p>
+        <label for="quiz-let-level">Candidate level</label>
+        <select id="quiz-let-level" name="let_level" aria-describedby="quiz-let-variant-help">
+            <option value="" <?= $selectedLetLevel === '' ? 'selected' : '' ?>>No level selected</option>
+            <option value="ELEMENTARY" <?= $selectedLetLevel === 'ELEMENTARY' ? 'selected' : '' ?>>Elementary</option>
+            <option value="SECONDARY" <?= $selectedLetLevel === 'SECONDARY' ? 'selected' : '' ?>>Secondary</option>
+        </select>
+        <label for="quiz-let-specialization">Specialization</label>
+        <select id="quiz-let-specialization" name="let_specialization" aria-describedby="quiz-let-variant-help">
+            <option value="" <?= $selectedLetSpecialization === '' ? 'selected' : '' ?>>No specialization</option>
+            <?php foreach ($letSpecializations as $specialization): if (!is_array($specialization)) continue; $specializationId = (string) ($specialization['id'] ?? ''); if ($specializationId === '') continue; $specializationLevel = strtoupper((string) ($specialization['level'] ?? '')); ?>
+                <option value="<?= htmlspecialchars($specializationId, ENT_QUOTES, 'UTF-8') ?>" data-level="<?= htmlspecialchars($specializationLevel, ENT_QUOTES, 'UTF-8') ?>" <?= $selectedLetSpecialization === $specializationId ? 'selected' : '' ?>><?= htmlspecialchars((string) ($specialization['official_name'] ?? $specializationId), ENT_QUOTES, 'UTF-8') ?> (<?= htmlspecialchars(ucfirst(strtolower($specializationLevel)), ENT_QUOTES, 'UTF-8') ?>)</option>
+            <?php endforeach; ?>
+        </select>
+    </fieldset>
+    <fieldset id="quiz-cse-variant-fields" class="form-field candidate-variant-group" data-candidate-variant="cse civil-service" aria-describedby="quiz-cse-variant-help" <?= in_array($selectedBoardKey, ['cse', 'civil-service'], true) ? '' : 'hidden' ?>>
+        <legend>Civil Service candidate variant</legend>
+        <p id="quiz-cse-variant-help" class="form-help">Choose Professional or Subprofessional. The selected level controls eligible subjects and questions. This choice applies to this session and does not change your saved profile.</p>
+        <label for="quiz-cse-level">Candidate level</label>
+        <select id="quiz-cse-level" name="civil_service_level" aria-describedby="quiz-cse-variant-help">
+            <option value="" <?= $selectedCivilServiceLevel === '' ? 'selected' : '' ?>>Choose a level</option>
+            <option value="PROFESSIONAL" <?= $selectedCivilServiceLevel === 'PROFESSIONAL' ? 'selected' : '' ?>>Professional</option>
+            <option value="SUBPROFESSIONAL" <?= $selectedCivilServiceLevel === 'SUBPROFESSIONAL' ? 'selected' : '' ?>>Subprofessional</option>
+        </select>
+    </fieldset>
+</div>
+<noscript><p class="form-help">Without JavaScript, both variant sections are shown. Fill in only the section for the selected board; the server validates the choice.</p><style>.candidate-variant-group[hidden]{display:block!important}</style></noscript>
 
 <div class="form-field" <?= $subjectContext ? 'hidden' : '' ?>><label for="quiz-subject">Subject</label>
 
@@ -124,11 +158,7 @@ Practice Mode
 Exam simulation
 </option>
 
-<option value="review" <?= ($settings['mode'] ?? '') === 'review' ? 'selected' : '' ?>>
-Review Mode
-</option>
-
-</select><small class="form-help mode-disclosure">Exam simulation withholds answer feedback until submission. It is a BoardPrep study tool, separate from the official board examination.</small></div>
+</select><small id="quiz-mode-description" class="form-help" role="status" aria-live="polite"><?= ($settings['mode'] ?? 'practice') === 'exam' ? 'Exam simulation withholds answer feedback until submission and lets you review answers first. It is a BoardPrep study tool, separate from the official board examination.' : 'Practice shows answer feedback after each response. Focused practice uses the selected subject; adaptive selection is available for practice.' ?></small><small class="form-help mode-disclosure">No BoardPrep simulation represents an official board examination or passing threshold.</small></div>
 
 <p class="exam-blueprint-focused-note form-help" data-exam-blueprint-focused-note role="status" hidden>A focused subject simulation uses only that subject's eligible questions; it does not represent the full-board subject distribution.</p>
 <?php $examBlueprintPreviews = is_array($examBlueprintPreviews ?? null) ? $examBlueprintPreviews : []; $selectedPreviewKey = strtolower((string) ($settings['board'] ?? 'let')); ?>

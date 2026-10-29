@@ -11,6 +11,12 @@
     const timeLimit = document.getElementById('quiz-time-limit');
     const timeLimitField = document.getElementById('quiz-time-limit-field');
     const startButton = document.getElementById('start-session-button');
+    const adaptiveOption = document.getElementById('quiz-adaptive');
+    const modeDescription = document.getElementById('quiz-mode-description');
+    const variantGroups = Array.from(document.querySelectorAll('[data-candidate-variant]'));
+    const letLevel = document.getElementById('quiz-let-level');
+    const letSpecialization = document.getElementById('quiz-let-specialization');
+    const civilServiceLevel = document.getElementById('quiz-cse-level');
 
     const isCivilService = () => ['cse', 'civil-service'].includes(String(exam.value).trim().toLowerCase());
     const allocate = (total, weightedEntries) => {
@@ -69,6 +75,7 @@
         const cse = isCivilService();
         const selectedExam = String(exam.value).trim().toLowerCase();
         const examSimulation = mode?.value === 'exam';
+        const practiceMode = !examSimulation;
         if (timerFields) timerFields.hidden = !examSimulation;
         if (timerMode) timerMode.disabled = !examSimulation;
         if (timeLimit) {
@@ -78,6 +85,38 @@
             if (timeLimitField) timeLimitField.hidden = !timed;
         }
         if (startButton) startButton.textContent = examSimulation ? 'Start exam simulation' : 'Start practice';
+        if (adaptiveOption) adaptiveOption.disabled = !practiceMode;
+        if (modeDescription) {
+            modeDescription.textContent = examSimulation
+                ? 'Exam simulation withholds answer feedback until submission and lets you review answers first. It is a BoardPrep study tool, separate from the official board examination.'
+                : 'Practice shows answer feedback after each response. Focused practice uses the selected subject; adaptive selection is available for practice.';
+        }
+
+        for (const group of variantGroups) {
+            const supportedBoards = String(group.dataset.candidateVariant || '').toLowerCase().split(/\s+/).filter(Boolean);
+            const active = supportedBoards.includes(selectedExam);
+            group.hidden = !active;
+            for (const control of group.querySelectorAll('select, input')) {
+                control.disabled = !active;
+            }
+        }
+
+        const letVariantActive = selectedExam === 'let';
+        if (letSpecialization) {
+            const level = String(letLevel?.value || '').toUpperCase();
+            for (const option of letSpecialization.options) {
+                const optionLevel = String(option.dataset.level || '').toUpperCase();
+                const incompatible = option.value !== '' && level !== '' && optionLevel !== level;
+                option.hidden = incompatible;
+                option.disabled = incompatible;
+            }
+            if (letSpecialization.selectedOptions?.[0]?.disabled) {
+                letSpecialization.value = '';
+            }
+            letSpecialization.required = letVariantActive && level === 'SECONDARY';
+            if (letLevel) letLevel.required = letVariantActive && letSpecialization.value !== '';
+        }
+        if (civilServiceLevel) civilServiceLevel.required = cse;
 
         for (const option of subject.options) {
             const examAllowed = option.dataset.exam === 'all'
@@ -104,6 +143,8 @@
     exam.addEventListener('change', update);
     subject.addEventListener('change', update);
     mode?.addEventListener('change', update);
+    letLevel?.addEventListener('change', update);
+    letSpecialization?.addEventListener('change', update);
     timerMode?.addEventListener('change', update);
     questionCount?.addEventListener('change', updateBlueprintCounts);
     update();

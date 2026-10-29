@@ -123,7 +123,10 @@ try {
     $result = $simulator->request('GET', '/quiz', ['action' => 'result'], [], [], $cookies);
     if (!$finish['success'] || $finish['status'] !== 303
         || !$result['success'] || !str_contains($result['output'], 'Exam Simulation Result')
-        || !str_contains($result['output'], 'Answer Review')) {
+        || !str_contains($result['output'], 'Answer Review')
+        || !str_contains($result['output'], 'Score percentage')
+        || !str_contains($result['output'], 'Question answer accuracy')
+        || !str_contains($result['output'], 'Question outcomes')) {
         throw new RuntimeException('completed result did not render through HTTP');
     }
 

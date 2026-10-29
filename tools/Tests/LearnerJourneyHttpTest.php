@@ -137,6 +137,10 @@ try {
                 || !str_contains($emptyText, 'after your first quiz')) {
                 throw new RuntimeException('fresh learner dashboard did not explain how to begin and unlock progress insights');
             }
+            if (!str_contains($empty['output'], 'Explore published study materials')
+                || !str_contains($empty['output'], 'href="/study-library"')) {
+                throw new RuntimeException('fresh learner dashboard did not expose a published-study entry point.');
+            }
             if (!preg_match('/Answer accuracy\s*—/', $emptyText)
                 || !preg_match('/Recent answer accuracy\s*—/', $emptyText)
                 || !str_contains($emptyText, 'No recent answered questions yet')
