@@ -52,7 +52,8 @@ final class AccountSessionService
         $quizKeys = [
             'questions', 'answers', 'feedback', 'mode', 'currentQuestion',
             'quiz_session', 'attempt_persisted', 'quiz_completed', 'quiz_result',
-            'exam_answer_revision', 'exam_reviewed_revision', 'flashcard_missed_scope',
+            'exam_answer_revision', 'exam_reviewed_revision', 'exam_review_flags',
+            'exam_review_flag_versions', 'exam_review_flag_session_id', 'flashcard_missed_scope',
         ];
         $anonymousQuiz = [];
         foreach ($quizKeys as $key) {
@@ -204,7 +205,8 @@ final class AccountSessionService
         $quizKeys = [
             'questions', 'answers', 'feedback', 'mode', 'currentQuestion',
             'quiz_session', 'attempt_persisted', 'quiz_completed', 'quiz_result',
-            'exam_answer_revision', 'exam_reviewed_revision', 'flashcard_missed_scope',
+            'exam_answer_revision', 'exam_reviewed_revision', 'exam_review_flags',
+            'exam_review_flag_versions', 'exam_review_flag_session_id', 'flashcard_missed_scope',
         ];
         foreach ($quizKeys as $key) {
             unset($_SESSION[$key]);

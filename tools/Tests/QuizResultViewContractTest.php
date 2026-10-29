@@ -49,6 +49,8 @@ $checks = [
     "study action shown" => strpos($html, "/study") !== false,
     "progress action shown" => strpos($html, "/progress") !== false,
     "review section shown" => strpos($html, "Answer Review") !== false,
+    "answer outcome filters shown" => strpos($html, "Filter answer review") !== false
+        && strpos($html, "Unanswered (0)") !== false,
 ];
 
 foreach ($checks as $label => $passed) {
@@ -72,3 +74,29 @@ if (!str_contains($emptyAnswerHtml, '<h3>—</h3>') || !str_contains($emptyAnswe
     throw new RuntimeException('an all-unanswered attempt displayed a fabricated answer-accuracy rate.');
 }
 echo "[PASS] all-unanswered result shows no answer-accuracy percentage and preserves the unanswered count.\n";
+
+$historical = true;
+$historicalContext = ['mode' => 'exam'];
+$reviewUnavailable = false;
+$reviewFilter = 'incorrect';
+$reviewFilterBaseUrl = '/history/result?id=synthetic-attempt';
+$review = [
+    ['question' => ['id' => 'filter-correct', 'question' => 'FILTER_CORRECT_MARKER', 'answer' => 'A', 'explanation' => 'Saved explanation.'], 'answered' => true, 'correct' => true, 'userAnswer' => 'A'],
+    ['question' => ['id' => 'filter-incorrect', 'question' => 'FILTER_INCORRECT_MARKER', 'answer' => 'B', 'explanation' => 'Saved explanation.'], 'answered' => true, 'correct' => false, 'userAnswer' => 'A'],
+    ['question' => ['id' => 'filter-unanswered', 'question' => 'FILTER_UNANSWERED_MARKER', 'answer' => 'C', 'explanation' => 'Saved explanation.'], 'answered' => false, 'correct' => false, 'userAnswer' => ''],
+];
+$studyReferencesByQuestion = [];
+$notesPracticeReview = null;
+$mistakeRecovery = null;
+$actions = [];
+ob_start();
+include dirname(__DIR__, 2) . "/app/Views/quiz/result.php";
+$incorrectOnlyHtml = (string) ob_get_clean();
+if (!str_contains($incorrectOnlyHtml, 'FILTER_INCORRECT_MARKER')
+    || str_contains($incorrectOnlyHtml, 'FILTER_CORRECT_MARKER')
+    || str_contains($incorrectOnlyHtml, 'FILTER_UNANSWERED_MARKER')
+    || !str_contains($incorrectOnlyHtml, 'Showing 1 of 3 questions')
+    || !str_contains($incorrectOnlyHtml, '/history/result?id=synthetic-attempt&amp;review_filter=incorrect')) {
+    throw new RuntimeException('The incorrect-answer filter did not preserve historical destinations and the unfiltered denominator.');
+}
+echo "[PASS] historical answer filters show only matching stored outcomes and preserve the attempt destination.\n";

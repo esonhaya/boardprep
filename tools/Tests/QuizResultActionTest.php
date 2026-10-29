@@ -44,3 +44,21 @@ foreach ($checks as $label => $passed) {
 
 echo "[PASS] Quiz result action contract verified. Assertions: "
     . count($checks) . "\n";
+
+$reviewActions = QuizResultActionService::build($session, ["score" => 4, "total" => 10, "percentage" => 40], [
+    ["answered" => true, "correct" => false],
+    ["answered" => false, "correct" => false],
+]);
+$mistakeActions = array_values(array_filter($reviewActions, static fn(array $action): bool => ($action['url'] ?? '') === '/mistake-notebook'));
+if (count($mistakeActions) !== 1
+    || ($mistakeActions[0]['label'] ?? '') !== 'Review mistakes and skipped questions'
+    || !str_contains((string) ($mistakeActions[0]['reason'] ?? ''), 'eligible recovery action')) {
+    throw new RuntimeException('A result with missed items did not offer a direct, evidence-based Mistake Notebook action.');
+}
+$correctOnlyActions = QuizResultActionService::build($session, ["score" => 2, "total" => 2, "percentage" => 100], [
+    ["answered" => true, "correct" => true],
+]);
+if (count(array_filter($correctOnlyActions, static fn(array $action): bool => ($action['url'] ?? '') === '/mistake-notebook')) !== 0) {
+    throw new RuntimeException('An all-correct result offered a misleading mistakes destination.');
+}
+echo "[PASS] Missed or skipped results link directly to the Mistake Notebook; all-correct results do not.\n";

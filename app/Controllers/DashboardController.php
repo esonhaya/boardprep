@@ -8,6 +8,7 @@ use App\Core\View;
 use App\Services\Learning\LearningHistoryService;
 use App\Services\Learning\StudyDashboardService;
 use App\Services\Learning\WeaknessService;
+use App\Services\Quiz\ActiveExamDashboardService;
 use App\Support\Presentation\PreviewCollection;
 
 final class DashboardController
@@ -24,6 +25,7 @@ final class DashboardController
                 "history" => PreviewCollection::items($attempts),
                 "historyHasMore" => PreviewCollection::hasMore($attempts),
                 "weaknesses" => WeaknessService::all(),
+                "activeExam" => ActiveExamDashboardService::current(),
             ]
         );
     }

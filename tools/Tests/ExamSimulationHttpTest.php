@@ -99,12 +99,21 @@ try {
         throw new RuntimeException('Timed exam simulation did not start with its timer and official-exam disclosure.');
     }
 
+    $activeDashboard = $http->request('GET', '/dashboard', [], [], [], $cookies);
+    if (!$activeDashboard['success'] || !str_contains($activeDashboard['output'], 'data-active-exam-state="ACTIVE_SESSION"')
+        || !str_contains($activeDashboard['output'], 'Resume exam simulation')
+        || !str_contains($activeDashboard['output'], '0 answers recorded by the server')) {
+        throw new RuntimeException('The learner dashboard did not offer a truthful resume action for this active exam session.');
+    }
+
     $startedSession = $readSession($cookies['PHPSESSID']);
     $startedQuiz = $startedSession['quiz_session'] ?? [];
     $deadline = is_array($startedQuiz) ? (int) ($startedQuiz['deadline_epoch'] ?? 0) : 0;
     $startedAt = is_array($startedQuiz) ? strtotime((string) ($startedQuiz['started_at'] ?? '')) : false;
     $deadlineOffset = $startedAt === false ? 0 : $deadline - $startedAt;
     if (($startedQuiz['timer_mode'] ?? '') !== 'timed'
+        || ($startedSession['exam_review_flag_session_id'] ?? '') !== ($startedQuiz['id'] ?? null)
+        || (array) ($startedSession['exam_review_flags'] ?? []) !== []
         || (int) ($startedQuiz['time_limit_minutes'] ?? 0) !== 5
         || (int) ($startedQuiz['time_limit_seconds'] ?? 0) !== 300
         || $startedAt === false || $deadlineOffset < 299 || $deadlineOffset > 300) {
@@ -136,6 +145,84 @@ try {
         throw new RuntimeException('A manipulated question identifier changed the active session or persisted an answer.');
     }
 
+    $markFirst = $http->request('POST', '/quiz', [], [
+        'action' => 'review-flag', 'index' => 0, 'question_id' => $match[1],
+        'marked' => '1', 'version' => '0', 'return_to' => 'current', 'csrf_token' => $csrfToken,
+    ], [], $cookies);
+    $markedFirstState = $readSession($cookies['PHPSESSID']);
+    $markedFirstPage = $http->request('GET', '/quiz', [], [], [], $cookies);
+    if ($markFirst['status'] !== 303 || $markFirst['location'] !== '/quiz'
+        || ($markedFirstState['exam_review_flags'][0] ?? false) !== true
+        || (int) ($markedFirstState['exam_review_flag_versions'][0] ?? -1) !== 1
+        || ($markedFirstState['answers'] ?? []) !== []
+        || (int) ($markedFirstState['currentQuestion'] ?? -1) !== 0
+        || !$markedFirstPage['success'] || !str_contains($markedFirstPage['output'], 'aria-pressed="true"')
+        || !str_contains($markedFirstPage['output'], 'Remove review mark')) {
+        throw new RuntimeException('Marking an unanswered question did not persist an accessible review state independently of answers and navigation.');
+    }
+
+    $invalidCsrfFlag = $http->request('POST', '/quiz', [], [
+        'action' => 'review-flag', 'index' => 0, 'question_id' => $match[1],
+        'marked' => '0', 'version' => '1', 'return_to' => 'current', 'csrf_token' => 'invalid-token',
+    ], [], $cookies);
+    $afterInvalidCsrfFlag = $readSession($cookies['PHPSESSID']);
+    $foreignCookies = ['PHPSESSID' => 'batch726-foreign-flag-' . bin2hex(random_bytes(8))];
+    $foreignFlagRequest = $http->request('POST', '/quiz', [], [
+        'action' => 'review-flag', 'index' => 0, 'question_id' => $match[1],
+        'marked' => '1', 'version' => '0', 'return_to' => 'current', 'csrf_token' => $csrfToken,
+    ], [], $foreignCookies);
+    $foreignFlagState = $readSession($foreignCookies['PHPSESSID']);
+    $foreignDashboard = $http->request('GET', '/dashboard', [], [], [], $foreignCookies);
+    if (!in_array($invalidCsrfFlag['status'], [302, 303], true)
+        || ($afterInvalidCsrfFlag['exam_review_flags'][0] ?? false) !== true
+        || !in_array($foreignFlagRequest['status'], [302, 303], true)
+        || isset($foreignFlagState['questions'], $foreignFlagState['quiz_session'], $foreignFlagState['exam_review_flags'])
+        || str_contains($foreignDashboard['output'], 'data-active-exam-state')) {
+        throw new RuntimeException('CSRF or cross-session access changed an exam review mark outside its owning browser session.');
+    }
+
+    $duplicateMark = $http->request('POST', '/quiz', [], [
+        'action' => 'review-flag', 'index' => 0, 'question_id' => $match[1],
+        'marked' => '1', 'version' => '0', 'return_to' => 'current', 'csrf_token' => $csrfToken,
+    ], [], $cookies);
+    $afterDuplicateMark = $readSession($cookies['PHPSESSID']);
+    $unmarkFirst = $http->request('POST', '/quiz', [], [
+        'action' => 'review-flag', 'index' => 0, 'question_id' => $match[1],
+        'marked' => '0', 'version' => '1', 'return_to' => 'current', 'csrf_token' => $csrfToken,
+    ], [], $cookies);
+    $afterUnmark = $readSession($cookies['PHPSESSID']);
+    $staleMark = $http->request('POST', '/quiz', [], [
+        'action' => 'review-flag', 'index' => 0, 'question_id' => $match[1],
+        'marked' => '1', 'version' => '0', 'return_to' => 'current', 'csrf_token' => $csrfToken,
+    ], [], $cookies);
+    $afterStaleMark = $readSession($cookies['PHPSESSID']);
+    $freshMark = $http->request('POST', '/quiz', [], [
+        'action' => 'review-flag', 'index' => 0, 'question_id' => $match[1],
+        'marked' => '1', 'version' => '2', 'return_to' => 'current', 'csrf_token' => $csrfToken,
+    ], [], $cookies);
+    $afterFreshMark = $readSession($cookies['PHPSESSID']);
+    if ($duplicateMark['status'] !== 303
+        || (int) ($afterDuplicateMark['exam_review_flag_versions'][0] ?? -1) !== 1
+        || $unmarkFirst['status'] !== 303 || ($afterUnmark['exam_review_flags'][0] ?? false) !== false
+        || (int) ($afterUnmark['exam_review_flag_versions'][0] ?? -1) !== 2
+        || $staleMark['status'] !== 303 || ($afterStaleMark['exam_review_flags'][0] ?? false) !== false
+        || (int) ($afterStaleMark['exam_review_flag_versions'][0] ?? -1) !== 2
+        || $freshMark['status'] !== 303 || ($afterFreshMark['exam_review_flags'][0] ?? false) !== true
+        || (int) ($afterFreshMark['exam_review_flag_versions'][0] ?? -1) !== 3) {
+        throw new RuntimeException('Review mark retries, unmarking, or stale conflicting requests changed the wrong persisted flag state.');
+    }
+
+    $invalidReviewMark = $http->request('POST', '/quiz', [], [
+        'action' => 'review-flag', 'index' => 0, 'question_id' => 'not-in-this-session',
+        'marked' => '0', 'version' => '3', 'return_to' => 'current', 'csrf_token' => $csrfToken,
+    ], [], $cookies);
+    $afterInvalidReviewMark = $readSession($cookies['PHPSESSID']);
+    if ($invalidReviewMark['status'] !== 303
+        || ($afterInvalidReviewMark['exam_review_flags'][0] ?? false) !== true
+        || (int) ($afterInvalidReviewMark['exam_review_flag_versions'][0] ?? -1) !== 3) {
+        throw new RuntimeException('An invalid review question identifier changed the active exam review state.');
+    }
+
     $firstAnswer = $http->request('POST', '/quiz', [], [
         'action' => 'submit', 'question_id' => $match[1], 'answer' => 'A', 'csrf_token' => $csrfToken,
     ], [], $cookies);
@@ -143,6 +230,20 @@ try {
         || !str_contains($firstAnswer['output'], '1 of 3 answers are currently recorded in this exam session')
         || preg_match('/<section[^>]*class="[^"]*\bquiz-feedback\b/i', $firstAnswer['output']) === 1) {
         throw new RuntimeException('Exam simulation did not advance without rendering its immediate answer-feedback component.');
+    }
+
+    $questionTwoId = (string) (($readSession($cookies['PHPSESSID'])['questions'][1]['id'] ?? ''));
+    $markUnansweredSecond = $http->request('POST', '/quiz', [], [
+        'action' => 'review-flag', 'index' => 1, 'question_id' => $questionTwoId,
+        'marked' => '1', 'version' => '0', 'return_to' => 'current', 'csrf_token' => $csrfToken,
+    ], [], $cookies);
+    $afterMarkUnansweredSecond = $readSession($cookies['PHPSESSID']);
+    if ($markUnansweredSecond['status'] !== 303
+        || ($afterMarkUnansweredSecond['exam_review_flags'][0] ?? false) !== true
+        || ($afterMarkUnansweredSecond['exam_review_flags'][1] ?? false) !== true
+        || ($afterMarkUnansweredSecond['answers'][$questionTwoId] ?? null) !== null
+        || (int) ($afterMarkUnansweredSecond['currentQuestion'] ?? -1) !== 1) {
+        throw new RuntimeException('Review state for an unanswered question was not independent of saved answers and question navigation.');
     }
 
     $lostResponseRetry = $http->request('POST', '/quiz', [], [
@@ -190,9 +291,25 @@ try {
     }
 
     $review = $http->request('GET', '/quiz', ['action' => 'review'], [], [], $cookies);
-    if (!$review['success'] || !str_contains($review['output'], '1 of 3 answered')
-        || !str_contains($review['output'], '2 will be marked unanswered')) {
+    if (!$review['success'] || !str_contains($review['output'], '3 questions · 1 answer recorded · 2 unanswered · 2 marked for review.')
+        || !str_contains($review['output'], '2 will be marked unanswered')
+        || substr_count($review['output'], 'class="exam-review-mark-state"') !== 2
+        || !str_contains($review['output'], 'pending answer is not included')
+        || str_contains($review['output'], 'Correct Answer:')) {
         throw new RuntimeException('Pre-submit review did not identify unanswered questions.');
+    }
+
+    $unmarkFromReview = $http->request('POST', '/quiz', [], [
+        'action' => 'review-flag', 'index' => 1, 'question_id' => $questionTwoId,
+        'marked' => '0', 'version' => '1', 'return_to' => 'review', 'csrf_token' => $csrfToken,
+    ], [], $cookies);
+    $afterReviewUnmark = $readSession($cookies['PHPSESSID']);
+    $reviewAfterUnmark = $http->request('GET', '/quiz', ['action' => 'review'], [], [], $cookies);
+    if ($unmarkFromReview['status'] !== 303 || $unmarkFromReview['location'] !== '/quiz?action=review'
+        || ($afterReviewUnmark['exam_review_flags'][1] ?? false) !== false
+        || ($afterReviewUnmark['exam_review_flags'][0] ?? false) !== true
+        || !str_contains($reviewAfterUnmark['output'], '1 marked for review')) {
+        throw new RuntimeException('The pre-submit navigator could not safely remove one review mark while preserving another.');
     }
 
     $jumpBack = $http->request('POST', '/quiz', [], [
@@ -253,8 +370,38 @@ try {
         || !str_contains($resultText, 'Score percentage')
         || !str_contains($resultText, 'Question answer accuracy')
         || !preg_match('/Unanswered\s*2/', $resultText)
+        || !str_contains($result['output'], 'href="/mistake-notebook"')
         || substr_count($result['output'], 'No answer') !== 2) {
         throw new RuntimeException('Partial simulation result or duplicate-submission protection failed.');
+    }
+
+    $persistedAttemptsForFilter = json_decode((string) file_get_contents($path), true);
+    $completedAttemptForFilter = array_values(array_filter(
+        is_array($persistedAttemptsForFilter) ? $persistedAttemptsForFilter : [],
+        static fn(mixed $attempt): bool => is_array($attempt) && is_scalar($attempt['id'] ?? null)
+            && !in_array((string) $attempt['id'], $beforeIds, true)
+            && ($attempt['time_expired'] ?? false) !== true
+    ))[0] ?? [];
+    $expectedIncorrect = count(array_filter((array) ($completedAttemptForFilter['review'] ?? []),
+        static fn(mixed $item): bool => is_array($item) && ($item['answered'] ?? false) === true && ($item['correct'] ?? false) !== true));
+    $storageBeforeResultFilter = [
+        'attempts' => (string) file_get_contents($path),
+        'weakness' => (string) file_get_contents($weaknessPath),
+        'question_statistics' => (string) file_get_contents($statisticsPath),
+    ];
+    $incorrectOnlyResult = $http->request('GET', '/quiz', ['action' => 'result', 'review_filter' => 'incorrect'], [], [], $cookies);
+    $unansweredOnlyResult = $http->request('GET', '/quiz', ['action' => 'result', 'review_filter' => 'unanswered'], [], [], $cookies);
+    if (!$incorrectOnlyResult['success'] || !$unansweredOnlyResult['success']
+        || substr_count($incorrectOnlyResult['output'], '<article class="question-review') !== $expectedIncorrect
+        || substr_count($unansweredOnlyResult['output'], '<article class="question-review') !== 2
+        || !str_contains($incorrectOnlyResult['output'], 'aria-current="page"')
+        || !str_contains($result['output'], 'review_filter=incorrect')
+        || array_key_exists('exam_review_flags', $completedAttemptForFilter)
+        || array_key_exists('exam_review_flag_versions', $completedAttemptForFilter)
+        || $storageBeforeResultFilter['attempts'] !== (string) file_get_contents($path)
+        || $storageBeforeResultFilter['weakness'] !== (string) file_get_contents($weaknessPath)
+        || $storageBeforeResultFilter['question_statistics'] !== (string) file_get_contents($statisticsPath)) {
+        throw new RuntimeException('Completed-result filters did not reflect persisted answer outcomes or changed learner history.');
     }
 
     $raceCookies = ['PHPSESSID' => 'batch723-answer-nav-race-' . bin2hex(random_bytes(8))];
@@ -280,13 +427,25 @@ try {
         ['method' => 'POST', 'path' => '/quiz', 'post' => [
             'action' => 'next', 'from_question_id' => $raceQuestionId, 'csrf_token' => $raceCsrf,
         ], 'cookies' => $raceCookies],
+        ['method' => 'POST', 'path' => '/quiz', 'post' => [
+            'action' => 'review-flag', 'index' => 0, 'question_id' => $raceQuestionId,
+            'marked' => '1', 'version' => '0', 'return_to' => 'current', 'csrf_token' => $raceCsrf,
+        ], 'cookies' => $raceCookies],
     ]);
     $raceSessionAfter = $readSession($raceCookies['PHPSESSID']);
-    if (count($raceResponses) !== 2
+    if (count($raceResponses) !== 3
         || (int) ($raceSessionAfter['currentQuestion'] ?? -1) !== 1
         || (string) ($raceSessionAfter['questions'][1]['id'] ?? '') !== $raceNextQuestionId
-        || ($raceSessionAfter['answers'][$raceQuestionId] ?? null) !== 'A') {
-        throw new RuntimeException('Concurrent answer and navigation requests lost the answer or advanced past the next question.');
+        || ($raceSessionAfter['answers'][$raceQuestionId] ?? null) !== 'A'
+        || ($raceSessionAfter['exam_review_flags'][0] ?? false) !== true
+        || (int) ($raceSessionAfter['exam_review_flag_versions'][0] ?? -1) !== 1) {
+        throw new RuntimeException('Concurrent answer, review mark and navigation requests lost state or advanced past the next question: ' . json_encode([
+            'response_count' => count($raceResponses),
+            'current' => $raceSessionAfter['currentQuestion'] ?? null,
+            'answer' => $raceSessionAfter['answers'][$raceQuestionId] ?? null,
+            'flags' => $raceSessionAfter['exam_review_flags'] ?? null,
+            'versions' => $raceSessionAfter['exam_review_flag_versions'] ?? null,
+        ]));
     }
 
     $answerRaceCookies = ['PHPSESSID' => 'batch723-conflicting-answer-race-' . bin2hex(random_bytes(8))];
@@ -383,7 +542,26 @@ $expiryCookies = ['PHPSESSID' => 'batch676-expired-exam-' . bin2hex(random_bytes
     $_SESSION['quiz_session'] = $expiredQuiz;
     session_write_close();
 
+    $expiredDashboard = $http->request('GET', '/dashboard', [], [], [], $expiryCookies);
+    if (!$expiredDashboard['success'] || !str_contains($expiredDashboard['output'], 'data-active-exam-state="EXPIRED_SESSION"')
+        || !str_contains($expiredDashboard['output'], 'The server deadline has passed')
+        || !str_contains($expiredDashboard['output'], 'View submitted result')
+        || str_contains($expiredDashboard['output'], 'Resume exam simulation')) {
+        throw new RuntimeException('An expired exam was presented as resumable instead of directing the learner to server finalization.');
+    }
+
     $expiredQuestionId = (string) ($expiredState['questions'][0]['id'] ?? '');
+    $expiredReviewFlag = $http->request('POST', '/quiz', [], [
+        'action' => 'review-flag', 'index' => 0, 'question_id' => $expiredQuestionId,
+        'marked' => '1', 'version' => '0', 'return_to' => 'current', 'csrf_token' => $expiryCsrfMatch[1],
+    ], [], $expiryCookies);
+    $afterExpiredReviewFlag = $readSession($expiryCookies['PHPSESSID']);
+    if (!in_array($expiredReviewFlag['status'], [302, 303], true)
+        || $expiredReviewFlag['location'] !== '/quiz?action=result'
+        || (array) ($afterExpiredReviewFlag['exam_review_flags'] ?? []) !== []
+        || (array) ($afterExpiredReviewFlag['answers'] ?? []) !== []) {
+        throw new RuntimeException('An expired exam accepted a review mark instead of preserving its deadline and saved answers.');
+    }
     $lateExpiredAnswer = $http->request('POST', '/quiz', [], [
         'action' => 'submit', 'question_id' => $expiredQuestionId, 'answer' => 'A', 'csrf_token' => $expiryCsrfMatch[1],
     ], [], $expiryCookies);
@@ -419,7 +597,7 @@ $expiryCookies = ['PHPSESSID' => 'batch676-expired-exam-' . bin2hex(random_bytes
         ]));
     }
 
-    echo "[PASS] Timed/untimed exam simulation setup, resume, answer/navigation races, editable answers, review, late-expiration rejection, partial scoring, history metadata, lost-response retries, and concurrent exact-once submission verified.\n";
+    echo "[PASS] Timed/untimed exam simulation setup, resume, durable review flags, stale flag rejection, answer/navigation races, editable answers, review summary, late-expiration rejection, partial scoring, history metadata, lost-response retries, and concurrent exact-once submission verified.\n";
 } finally {
     $repository = App::container()->get(AttemptRepository::class);
     $after = json_decode((string) file_get_contents($path), true);

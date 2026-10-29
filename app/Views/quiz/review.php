@@ -12,11 +12,18 @@ $currentQuestionId = is_array($questions[$currentIndex] ?? null) && is_scalar($q
     ? trim((string) $questions[$currentIndex]['id'])
     : '';
 $answeredCount = 0;
+$markedCount = 0;
+$reviewStates = \App\Services\Quiz\ExamReviewFlagService::states($questions);
 foreach ($questions as $question) {
     $id = is_array($question) && is_scalar($question['id'] ?? null) ? (string) $question['id'] : '';
     if ($id !== '' && array_key_exists($id, $answers) && is_scalar($answers[$id])) {
         $answeredCount++;
     }
+}
+$questionCount = count($questions);
+$answerLabel = $answeredCount === 1 ? 'answer' : 'answers';
+for ($index = 0; $index < $questionCount; $index++) {
+    if ($reviewStates[$index]['marked']) $markedCount++;
 }
 $unansweredCount = count($questions) - $answeredCount;
 ?>
@@ -34,12 +41,13 @@ $unansweredCount = count($questions) - $answeredCount;
     </header>
 
     <div class="exam-review-summary" role="status" aria-live="polite">
-        <strong><?= $answeredCount ?> of <?= count($questions) ?> answered.</strong>
+        <strong><?= count($questions) ?> questions · <?= $answeredCount ?> <?= $answerLabel ?> recorded · <?= $unansweredCount ?> unanswered · <?= $markedCount ?> marked for review.</strong>
         <?php if ($unansweredCount > 0): ?>
             <span><?= $unansweredCount ?> will be marked unanswered if you submit now.</span>
         <?php else: ?>
             <span>All questions have an answer. You can still change any response.</span>
         <?php endif; ?>
+        <span>Only answers already stored by the server are counted here. A pending answer is not included.</span>
     </div>
 
     <ol class="exam-review-list" aria-label="Exam simulation questions">
@@ -47,6 +55,7 @@ $unansweredCount = count($questions) - $answeredCount;
             <?php
             $id = is_scalar($question['id'] ?? null) ? (string) $question['id'] : '';
             $answered = $id !== '' && array_key_exists($id, $answers) && is_scalar($answers[$id]);
+            $flagState = $reviewStates[$index] ?? ['marked' => false, 'version' => 0];
             $answer = $answered ? trim((string) $answers[$id]) : '';
             $answerLabel = $answer;
             if (preg_match('/^[A-Z]$/i', $answer) === 1) {
@@ -57,24 +66,39 @@ $unansweredCount = count($questions) - $answeredCount;
                 }
             }
             ?>
-            <li class="exam-review-item <?= $answered ? 'is-answered' : 'is-unanswered' ?>">
+            <li class="exam-review-item <?= $answered ? 'is-answered' : 'is-unanswered' ?><?= $flagState['marked'] ? ' is-marked' : '' ?>">
                 <div class="exam-review-item-copy">
                     <h2>Question <?= $index + 1 ?></h2>
                     <p><?= htmlspecialchars((string) ($question['question'] ?? ''), ENT_QUOTES, 'UTF-8') ?></p>
                     <p class="exam-answer-status">
                         <strong><?= $answered ? 'Answered' : 'Unanswered' ?></strong>
+                        <?php if ($flagState['marked']): ?><span class="exam-review-mark-state">Marked for review</span><?php endif; ?>
                         <?php if ($answered): ?>
                             <span><?= htmlspecialchars($answerLabel, ENT_QUOTES, 'UTF-8') ?></span>
                         <?php endif; ?>
                     </p>
                 </div>
-                <form method="POST" action="/quiz" class="exam-review-jump-form">
-                    <input type="hidden" name="action" value="jump">
-                    <input type="hidden" name="index" value="<?= $index ?>">
-                    <input type="hidden" name="from_question_id" value="<?= htmlspecialchars($currentQuestionId, ENT_QUOTES, 'UTF-8') ?>">
-                    <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrfToken, ENT_QUOTES, 'UTF-8') ?>">
-                    <button type="submit" class="button button-outline">Review question <?= $index + 1 ?></button>
-                </form>
+                <div class="exam-review-item-actions">
+                    <form method="POST" action="/quiz" class="exam-review-jump-form">
+                        <input type="hidden" name="action" value="jump">
+                        <input type="hidden" name="index" value="<?= $index ?>">
+                        <input type="hidden" name="from_question_id" value="<?= htmlspecialchars($currentQuestionId, ENT_QUOTES, 'UTF-8') ?>">
+                        <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrfToken, ENT_QUOTES, 'UTF-8') ?>">
+                        <button type="submit" class="button button-outline">Open question <?= $index + 1 ?></button>
+                    </form>
+                    <form method="POST" action="/quiz" class="exam-review-flag-form">
+                        <input type="hidden" name="action" value="review-flag">
+                        <input type="hidden" name="index" value="<?= $index ?>">
+                        <input type="hidden" name="question_id" value="<?= htmlspecialchars($id, ENT_QUOTES, 'UTF-8') ?>">
+                        <input type="hidden" name="marked" value="<?= $flagState['marked'] ? '0' : '1' ?>">
+                        <input type="hidden" name="version" value="<?= (int) $flagState['version'] ?>">
+                        <input type="hidden" name="return_to" value="review">
+                        <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrfToken, ENT_QUOTES, 'UTF-8') ?>">
+                        <button type="submit" class="button button-outline" aria-pressed="<?= $flagState['marked'] ? 'true' : 'false' ?>">
+                            <?= $flagState['marked'] ? 'Remove mark' : 'Mark for review' ?>
+                        </button>
+                    </form>
+                </div>
             </li>
         <?php endforeach; ?>
     </ol>

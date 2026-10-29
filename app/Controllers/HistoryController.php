@@ -49,6 +49,10 @@ final class HistoryController
             ? NotesPracticeResultService::create($noteContext, $result['review'])
             : null;
         $actions = $result['actions'];
+        $reviewFilter = Request::queryString('review_filter', 'all');
+        if (!in_array($reviewFilter, ['all', 'incorrect', 'unanswered', 'correct'], true)) {
+            $reviewFilter = 'all';
+        }
         if ($notesPracticeReview !== null && ($notesPracticeReview['saved_note_available'] ?? false) !== true) {
             $actions = array_values(array_filter($actions, static fn(mixed $action): bool => !is_array($action)
                 || !str_starts_with((string) ($action['url'] ?? ''), '/my-notes?note=')));
@@ -58,6 +62,8 @@ final class HistoryController
             'pageTitle' => 'Historical Quiz Result',
             'summary' => $result['summary'],
             'review' => $result['review'],
+            'reviewFilter' => $reviewFilter,
+            'reviewFilterBaseUrl' => '/history/result?id=' . rawurlencode($attemptId),
             'studyReferencesByQuestion' => StudyLibraryService::forQuestions(array_map(
                 static fn(mixed $item): mixed => is_array($item) && is_array($item['question'] ?? null)
                     ? ($item['question']['id'] ?? null)

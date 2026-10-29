@@ -10,6 +10,7 @@ use App\Core\Response;
 use App\Core\View;
 use App\Services\Quiz\QuizResultActionService;
 use App\Services\Quiz\ExamTimerService;
+use App\Services\Quiz\ExamReviewFlagService;
 use App\Services\Quiz\Start\QuizStartSessionWriter;
 use App\Services\Quiz\Start\QuizStartInputNormalizer;
 use App\Services\Board\BoardViewService;
@@ -44,7 +45,7 @@ final class QuizFlowController
         }
 
         $allowed = $method === 'POST'
-            ? ['start', 'submit', 'next', 'previous', 'jump', 'finish', 'timer-check']
+            ? ['start', 'submit', 'next', 'previous', 'jump', 'finish', 'timer-check', 'review-flag']
             : ['', 'start', 'result', 'review'];
 
         if (!in_array($action, $allowed, true)) {
@@ -82,6 +83,10 @@ final class QuizFlowController
 
             case 'timer-check':
                 \QuizNavigationService::renderCurrent();
+                return;
+
+            case 'review-flag':
+                self::reviewFlag();
                 return;
 
             case 'review':
@@ -315,6 +320,10 @@ final class QuizFlowController
 
         $summary = $result['summary'] ?? [];
         $review = $result['review'] ?? [];
+        $reviewFilter = Request::queryString('review_filter', 'all');
+        if (!in_array($reviewFilter, ['all', 'incorrect', 'unanswered', 'correct'], true)) {
+            $reviewFilter = 'all';
+        }
         $session = \SessionService::get('quiz_session', []);
         $review = QuestionIdMigrationService::canonicalizeReview(
             is_array($review) ? $review : [],
@@ -346,6 +355,8 @@ final class QuizFlowController
             [
                 'summary' => $summary,
                 'review' => $review,
+                'reviewFilter' => $reviewFilter,
+                'reviewFilterBaseUrl' => '/quiz?action=result',
                 'quizSession' => is_array($session) ? $session : [],
                 'studyReferencesByQuestion' => $studyReferencesByQuestion,
                 'notesPracticeReview' => $notesPracticeReview,
@@ -386,5 +397,45 @@ final class QuizFlowController
             'answers' => $answers,
             'current' => \QuizNavigationService::current(),
         ]);
+    }
+
+    private static function reviewFlag(): void
+    {
+        $rawIndex = Request::input('index');
+        $rawQuestionId = Request::input('question_id');
+        $rawMarked = Request::input('marked');
+        $rawVersion = Request::input('version');
+        $returnTo = Request::input('return_to', 'current');
+        $valid = is_scalar($rawIndex) && preg_match('/\A\d{1,4}\z/', (string) $rawIndex) === 1
+            && is_scalar($rawQuestionId) && trim((string) $rawQuestionId) !== ''
+            && is_scalar($rawMarked) && in_array((string) $rawMarked, ['0', '1'], true)
+            && is_scalar($rawVersion) && preg_match('/\A\d{1,10}\z/', (string) $rawVersion) === 1;
+
+        if (!$valid) {
+            \SessionService::flash('error', 'That review mark could not be changed. Your saved exam answers were kept.');
+        } else {
+            $result = ExamReviewFlagService::set(
+                (int) $rawIndex,
+                trim((string) $rawQuestionId),
+                (string) $rawMarked === '1',
+                (int) $rawVersion
+            );
+            $questionNumber = (int) $rawIndex + 1;
+            if ($result['status'] === 'updated') {
+                \SessionService::flash('success', $result['marked']
+                    ? "Question {$questionNumber} marked for review."
+                    : "Question {$questionNumber} removed from review.");
+            } elseif ($result['status'] === 'unchanged') {
+                \SessionService::flash('success', $result['marked']
+                    ? "Question {$questionNumber} is marked for review."
+                    : "Question {$questionNumber} is not marked for review.");
+            } elseif ($result['status'] === 'stale') {
+                \SessionService::flash('error', 'This review mark changed in another request. The current saved state was kept; refresh the review list before changing it again.');
+            } else {
+                \SessionService::flash('error', 'This exam question is no longer available for review. Your saved answers were kept.');
+            }
+        }
+
+        Response::redirect($returnTo === 'review' ? '/quiz?action=review' : '/quiz', 303);
     }
 }

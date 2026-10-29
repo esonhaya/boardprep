@@ -20,6 +20,30 @@ $historicalTimeLimit = is_numeric($historicalContext['time_limit_minutes'] ?? nu
     ? max(0, (int) $historicalContext['time_limit_minutes'])
     : 0;
 $reviewUnavailable = ($reviewUnavailable ?? false) === true;
+$reviewFilter = is_string($reviewFilter ?? null) && in_array($reviewFilter, ['all', 'incorrect', 'unanswered', 'correct'], true)
+    ? $reviewFilter
+    : 'all';
+$reviewFilterBaseUrl = is_string($reviewFilterBaseUrl ?? null)
+    ? $reviewFilterBaseUrl
+    : ($historical ? '/history' : '/quiz?action=result');
+$allReviewCount = is_array($review) ? count($review) : 0;
+$reviewFilterCounts = ['all' => $allReviewCount, 'incorrect' => 0, 'unanswered' => 0, 'correct' => 0];
+$visibleReview = [];
+foreach (is_array($review) ? $review : [] as $reviewIndex => $item) {
+    if (!is_array($item)) continue;
+    $answered = ($item['answered'] ?? false) === true;
+    $correct = ($item['correct'] ?? false) === true;
+    if (!$answered) $reviewFilterCounts['unanswered']++;
+    elseif ($correct) $reviewFilterCounts['correct']++;
+    else $reviewFilterCounts['incorrect']++;
+
+    $include = $reviewFilter === 'all'
+        || ($reviewFilter === 'incorrect' && $answered && !$correct)
+        || ($reviewFilter === 'unanswered' && !$answered)
+        || ($reviewFilter === 'correct' && $answered && $correct);
+    if ($include) $visibleReview[$reviewIndex] = $item;
+}
+$review = $visibleReview;
 $scoreTotal = max(0, (int) ($summary['total'] ?? 0));
 $scoreCorrect = min($scoreTotal, max(0, (int) ($summary['score'] ?? $summary['correct'] ?? 0)));
 $scoreUnanswered = min($scoreTotal, max(0, (int) ($summary['unanswered'] ?? 0)));
@@ -115,6 +139,13 @@ $taxonomyLabel = static fn(string $collection, mixed $id): string => \App\Servic
 <?php else: ?>
 <section class="result-answer-review" aria-labelledby="answer-review-heading">
 <h2 id="answer-review-heading">Answer Review</h2>
+<?php $filterNames = ['all' => 'All questions', 'incorrect' => 'Incorrect', 'unanswered' => 'Unanswered', 'correct' => 'Correct']; $filterSeparator = str_contains($reviewFilterBaseUrl, '?') ? '&' : '?'; ?>
+<nav class="answer-review-filters" aria-label="Filter answer review">
+    <?php foreach ($filterNames as $filterKey => $filterName): ?>
+        <a class="button button-outline" href="<?= htmlspecialchars($reviewFilterBaseUrl . $filterSeparator . 'review_filter=' . rawurlencode($filterKey), ENT_QUOTES, 'UTF-8') ?>"<?= $reviewFilter === $filterKey ? ' aria-current="page"' : '' ?>><?= htmlspecialchars($filterName, ENT_QUOTES, 'UTF-8') ?> (<?= (int) $reviewFilterCounts[$filterKey] ?>)</a>
+    <?php endforeach; ?>
+</nav>
+<p class="muted-note" role="status">Showing <?= count($review) ?> of <?= $allReviewCount ?> questions. Review marks are not carried into the saved result.</p>
 
 <?php foreach ($review as $index => $item): ?>
 <article class="question-review <?= !empty($item["correct"]) ? "is-correct" : "is-incorrect" ?>">
@@ -206,6 +237,7 @@ $taxonomyLabel = static fn(string $collection, mixed $id): string => \App\Servic
 
 <hr>
 <?php endforeach; ?>
+<?php if ($review === []): ?><p class="empty-state">No questions match this answer filter.</p><?php endif; ?>
 </section>
 <?php endif; ?>
 </div>

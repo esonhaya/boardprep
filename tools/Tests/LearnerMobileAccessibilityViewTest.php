@@ -8,6 +8,8 @@ $settings = file_get_contents($root . '/app/Views/quiz/settings.php');
 $quiz = file_get_contents($root . '/app/Views/quiz/index.php');
 $result = file_get_contents($root . '/app/Views/quiz/result.php');
 $review = file_get_contents($root . '/app/Views/quiz/review.php');
+$dashboard = file_get_contents($root . '/app/Views/dashboard/index.php');
+$activeExamService = file_get_contents($root . '/app/Services/Quiz/ActiveExamDashboardService.php');
 $studyLibrary = file_get_contents($root . '/app/Views/study/library.php');
 $home = file_get_contents($root . '/app/Views/home/index.php');
 $history = file_get_contents($root . '/app/Views/history/index.php');
@@ -39,6 +41,20 @@ $checks = [
     'quiz feedback is announced' => str_contains($quiz, 'role="status" aria-live="polite"'),
     'exam progress has mode-specific accessible naming and question position' => str_contains($quiz, 'aria-label="<?= $isExamSimulation ?')
         && str_contains($quiz, 'aria-valuetext="Question <?= $current + 1 ?> of <?= $total ?>"'),
+    'review mark control exposes its pressed state and text label' => str_contains($quiz, 'aria-pressed="<?= $reviewFlagState[\'marked\'] ? \'true\' : \'false\' ?>"')
+        && str_contains($quiz, 'Mark question for review')
+        && str_contains($review, 'Marked for review'),
+    'pre-submit review distinguishes saved answers, unanswered items, and review marks' => str_contains($review, '$answerLabel')
+        && str_contains($review, 'unanswered')
+        && str_contains($review, 'marked for review')
+        && str_contains($review, 'Only answers already stored by the server are counted'),
+    'result filters preserve accessible current-page state' => str_contains($result, 'aria-label="Filter answer review"')
+        && str_contains($result, 'aria-current="page"'),
+    'dashboard exposes active and expired exam continuation states' => str_contains($dashboard, 'data-active-exam-state')
+        && str_contains($dashboard, 'EXPIRED_SESSION')
+        && str_contains($activeExamService, 'ACTIVE_SESSION')
+        && str_contains($activeExamService, 'EXPIRED_SESSION')
+        && str_contains($dashboard, 'Resume exam simulation'),
     'exam final submission exposes truthful processing status without changing server submission' => str_contains($review, 'data-exam-submit-form')
         && str_contains($review, 'id="exam-submit-status" class="exam-submit-status" role="status" aria-live="polite"')
         && str_contains($review, '/assets/js/exam-submit.js'),

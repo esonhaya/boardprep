@@ -723,6 +723,8 @@ test.describe('BoardPrep learner browser acceptance', () => {
     await expect(page.locator('.exam-countdown')).toBeVisible();
     await expect(page.getByRole('progressbar', { name: 'Exam simulation progress' }))
       .toHaveAttribute('aria-valuetext', 'Question 1 of 5');
+    await page.getByRole('button', { name: 'Mark question for review' }).click();
+    await expect(page.getByRole('button', { name: 'Remove review mark' })).toHaveAttribute('aria-pressed', 'true');
     const initialRemaining = Number(await page.locator('.exam-countdown').getAttribute('data-remaining-seconds'));
 
     if (testInfo.project.name === 'mobile') {
@@ -741,6 +743,7 @@ test.describe('BoardPrep learner browser acceptance', () => {
 
     await page.reload();
     await expect(page.locator('.quiz-meta')).toContainText('Question 1 / 5');
+    await expect(page.getByRole('button', { name: 'Remove review mark' })).toHaveAttribute('aria-pressed', 'true');
     await expect(page.locator('.quiz-question')).toBeFocused();
     const resumedRemaining = Number(await page.locator('.exam-countdown').getAttribute('data-remaining-seconds'));
     expect(resumedRemaining).toBeLessThanOrEqual(initialRemaining);
@@ -750,10 +753,12 @@ test.describe('BoardPrep learner browser acceptance', () => {
     await expect(page.locator('.quiz-meta')).toContainText('Question 2 / 5');
     await page.getByRole('button', { name: 'Skip to next question' }).click();
     await expect(page.locator('.quiz-meta')).toContainText('Question 3 / 5');
-    await page.getByRole('link', { name: 'Review all answers' }).click();
+    await page.getByRole('link', { name: 'Review question status' }).click();
     await expect(page.locator('#exam-review-heading')).toBeFocused();
-    await expect(page.locator('.exam-review-summary')).toContainText('1 of 5 answered');
+    await expect(page.locator('.exam-review-summary')).toContainText('1 answer recorded');
     await expect(page.locator('.exam-review-summary')).toContainText('4 will be marked unanswered');
+    await expect(page.locator('.exam-review-summary')).toContainText('1 marked for review');
+    await expect(page.locator('.exam-review-item').first()).toContainText('Marked for review');
     if (testInfo.project.name === 'mobile') {
       const originalViewport = page.viewportSize();
       for (const viewport of responsiveViewports) {
@@ -771,10 +776,13 @@ test.describe('BoardPrep learner browser acceptance', () => {
     }
     await assertPageHealthy(page, testInfo, 'exam-simulation-review', { screenshot: true });
 
-    await page.getByRole('button', { name: 'Review question 1' }).click();
+    await page.locator('.exam-review-item').nth(1).getByRole('button', { name: 'Mark for review' }).click();
+    await expect(page.locator('.exam-review-summary')).toContainText('2 marked for review');
+    await expect(page.locator('.exam-review-item').nth(1)).toContainText('Marked for review');
+    await page.locator('.exam-review-item').first().getByRole('button', { name: 'Open question 1' }).click();
     await page.locator('input[name="answer"]').nth(1).check();
     await page.getByRole('button', { name: 'Save answer and continue' }).click();
-    await page.getByRole('link', { name: 'Review all answers' }).click();
+    await page.getByRole('link', { name: 'Review question status' }).click();
     await page.evaluate(() => {
       document.querySelector('[data-exam-submit-form]')?.addEventListener('submit', (event) => event.preventDefault(), { once: true });
     });
@@ -803,6 +811,9 @@ test.describe('BoardPrep learner browser acceptance', () => {
     await expect(page.locator('.result-percentage .eyebrow')).toHaveText('Score percentage');
     await expect(page.locator('.result-outcome-breakdown')).toContainText('Unanswered');
     await expect(page.locator('.result-answer-review')).toContainText('No answer');
+    await page.getByRole('link', { name: /Unanswered \(4\)/ }).click();
+    await expect(page.locator('.result-answer-review')).toContainText('Showing 4 of 5 questions');
+    await expect(page.locator('.result-answer-review .question-review')).toHaveCount(4);
     await page.reload();
     await expect(page.locator('h1')).toHaveText('Exam Simulation Result');
     await assertPageHealthy(page, testInfo, 'exam-simulation-result');

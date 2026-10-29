@@ -46,6 +46,19 @@ final class QuizResultActionService
             ['label' => 'View Progress', 'reason' => 'See how this result changed your learning history.', 'url' => '/progress'],
         ];
 
+        if (!is_array($session['mistake_recovery'] ?? null)) {
+            foreach ($review as $item) {
+                if (!is_array($item)) continue;
+                if (($item['answered'] ?? false) === true && ($item['correct'] ?? false) === true) continue;
+                array_splice($actions, 1, 0, [[
+                    'label' => 'Review mistakes and skipped questions',
+                    'reason' => 'Open the saved question history and choose an eligible recovery action. Earlier attempts remain in your history.',
+                    'url' => '/mistake-notebook',
+                ]]);
+                break;
+            }
+        }
+
         if (is_array($session['mistake_recovery'] ?? null)) {
             $actions[] = [
                 'label' => 'Return to Mistake Notebook',

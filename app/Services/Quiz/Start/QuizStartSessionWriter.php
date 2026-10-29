@@ -21,6 +21,9 @@ final class QuizStartSessionWriter
             'flashcard_missed_scope',
             'exam_answer_revision',
             'exam_reviewed_revision',
+            'exam_review_flags',
+            'exam_review_flag_versions',
+            'exam_review_flag_session_id',
         ] as $key) {
             \SessionService::remove($key);
         }
@@ -36,22 +39,23 @@ final class QuizStartSessionWriter
     ): void
     {
         self::clear();
-        \SessionService::set(
-            'quiz_session',
-            QuizStartSessionPayloadFactory::create(
-                $specification,
-                $questions,
-                $coverage,
-                $issues,
-                $studyContext,
-                $selectionExplanation
-            )
+        $session = QuizStartSessionPayloadFactory::create(
+            $specification,
+            $questions,
+            $coverage,
+            $issues,
+            $studyContext,
+            $selectionExplanation
         );
+        \SessionService::set('quiz_session', $session);
         \SessionService::set('questions', $questions);
         \SessionService::set('answers', []);
         \SessionService::set('feedback', null);
         \SessionService::set('mode', $specification->mode);
         \SessionService::set('exam_answer_revision', 0);
+        \SessionService::set('exam_review_flags', []);
+        \SessionService::set('exam_review_flag_versions', []);
+        \SessionService::set('exam_review_flag_session_id', (string) ($session['id'] ?? ''));
         \SessionService::remove('attempt_persisted');
         \SessionService::remove('quiz_completed');
         \SessionService::remove('quiz_result');

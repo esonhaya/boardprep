@@ -57,6 +57,9 @@ try {
     $_SESSION['learner_preferences'] = ['preferred_board' => 'LET'];
     $_SESSION['questions'] = [['id' => 'anonymous-active-question']];
     $_SESSION['quiz_session'] = ['id' => 'anonymous-active-session'];
+    $_SESSION['exam_review_flags'] = [0 => true];
+    $_SESSION['exam_review_flag_versions'] = [0 => 1];
+    $_SESSION['exam_review_flag_session_id'] = 'anonymous-active-session';
     $anonymousRecord = [
         'id' => 'account-test-anonymous-attempt',
         'user_id' => $anonymousId,
@@ -125,6 +128,11 @@ try {
     accountAssert(($_SESSION['anonymous_learner_identity'] ?? null) === $anonymousId, 'The pre-login anonymous identity was not kept separate.');
     accountAssert(!isset($_SESSION['questions'], $_SESSION['quiz_session']), 'An anonymous active quiz remained active inside the account session.');
     accountAssert(is_array($_SESSION['anonymous_pending_quiz'] ?? null), 'Anonymous in-progress quiz context was discarded instead of isolated.');
+    accountAssert(!isset($_SESSION['exam_review_flags'])
+        && ($_SESSION['anonymous_pending_quiz']['exam_review_flags'][0] ?? false) === true
+        && ($_SESSION['anonymous_pending_quiz']['exam_review_flag_versions'][0] ?? null) === 1
+        && ($_SESSION['anonymous_pending_quiz']['exam_review_flag_session_id'] ?? '') === 'anonymous-active-session',
+        'Anonymous exam review flags were not isolated with their owning pending quiz.');
 
     try {
         AnonymousLearnerDataService::current();
@@ -216,9 +224,15 @@ try {
 
     $_SESSION['quiz_session'] = ['id' => 'account-active-session'];
     $_SESSION['questions'] = [['id' => 'account-active-question']];
+    $_SESSION['exam_review_flags'] = [0 => true];
+    $_SESSION['exam_review_flag_versions'] = [0 => 1];
+    $_SESSION['exam_review_flag_session_id'] = 'account-active-session';
     accountAssert($service->changePassword('Batch692 A changed secure passphrase', 'Batch692 A second changed passphrase'), 'Second password transition failed.');
     accountAssert(($_SESSION['quiz_session']['id'] ?? '') === 'account-active-session'
-        && isset($_SESSION['questions'][0]['id']),
+        && isset($_SESSION['questions'][0]['id'])
+        && ($_SESSION['exam_review_flags'][0] ?? false) === true
+        && ($_SESSION['exam_review_flag_versions'][0] ?? null) === 1
+        && ($_SESSION['exam_review_flag_session_id'] ?? '') === 'account-active-session',
         'A security transition changed authenticated in-progress quiz ownership or state.');
 
     $_SERVER['REMOTE_ADDR'] = '198.51.100.55';

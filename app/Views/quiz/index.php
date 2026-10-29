@@ -15,6 +15,9 @@ $answers = \SessionService::get('answers', []);
 $answers = is_array($answers) ? $answers : [];
 $sessionQuestions = \SessionService::get('questions', []);
 $sessionQuestions = is_array($sessionQuestions) ? $sessionQuestions : [];
+$reviewFlagState = $isExamSimulation && $current >= 0
+    ? \App\Services\Quiz\ExamReviewFlagService::state((int) $current, $sessionQuestions)
+    : ['marked' => false, 'version' => 0];
 $recordedAnswerCount = 0;
 foreach ($sessionQuestions as $sessionQuestion) {
     if (!is_array($sessionQuestion) || !is_scalar($sessionQuestion['id'] ?? null)) {
@@ -96,6 +99,18 @@ if ($civilServiceLevel !== '') {
         <?= $recordedAnswerCount ?> of <?= count($sessionQuestions) ?> answers are currently recorded in this exam session. An internet connection is required to save or change answers.
     <?php endif; ?>
 </p>
+<form class="exam-review-flag-form exam-current-review-flag" method="POST" action="/quiz" aria-label="Question review mark">
+    <input type="hidden" name="action" value="review-flag">
+    <input type="hidden" name="index" value="<?= (int) $current ?>">
+    <input type="hidden" name="question_id" value="<?= htmlspecialchars($questionId, ENT_QUOTES, 'UTF-8') ?>">
+    <input type="hidden" name="marked" value="<?= $reviewFlagState['marked'] ? '0' : '1' ?>">
+    <input type="hidden" name="version" value="<?= (int) $reviewFlagState['version'] ?>">
+    <input type="hidden" name="return_to" value="current">
+    <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrfToken, ENT_QUOTES, 'UTF-8') ?>">
+    <button class="button button-outline" type="submit" aria-pressed="<?= $reviewFlagState['marked'] ? 'true' : 'false' ?>">
+        <?= $reviewFlagState['marked'] ? 'Remove review mark' : 'Mark question for review' ?>
+    </button>
+</form>
 <?php endif; ?>
 
 
@@ -296,7 +311,7 @@ required
         <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrfToken, ENT_QUOTES, 'UTF-8') ?>">
         <button type="submit" class="button button-outline"><?= $current + 1 >= $total ? 'Review answers' : 'Skip to next question' ?></button>
     </form>
-    <a class="button button-outline" href="/quiz?action=review">Review all answers</a>
+    <a class="button button-outline" href="/quiz?action=review">Review question status</a>
 </nav>
 <?php endif; ?>
 
