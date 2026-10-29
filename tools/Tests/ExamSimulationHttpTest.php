@@ -161,22 +161,37 @@ try {
         throw new RuntimeException('Marking an unanswered question did not persist an accessible review state independently of answers and navigation.');
     }
 
-    $invalidCsrfFlag = $http->request('POST', '/quiz', [], [
-        'action' => 'review-flag', 'index' => 0, 'question_id' => $match[1],
-        'marked' => '0', 'version' => '1', 'return_to' => 'current', 'csrf_token' => 'invalid-token',
-    ], [], $cookies);
-    $afterInvalidCsrfFlag = $readSession($cookies['PHPSESSID']);
-    $foreignCookies = ['PHPSESSID' => 'batch726-foreign-flag-' . bin2hex(random_bytes(8))];
-    $foreignFlagRequest = $http->request('POST', '/quiz', [], [
-        'action' => 'review-flag', 'index' => 0, 'question_id' => $match[1],
-        'marked' => '1', 'version' => '0', 'return_to' => 'current', 'csrf_token' => $csrfToken,
-    ], [], $foreignCookies);
-    $foreignFlagState = $readSession($foreignCookies['PHPSESSID']);
+    // The release runner executes this script in APP_ENV=testing. Explicitly
+    // exercise the production CSRF boundary for these two HTTP requests so an
+    // invalid token cannot silently unmark an otherwise valid learner flag.
+    $previousAppEnvironment = getenv('APP_ENV');
+    putenv('APP_ENV=production');
+    try {
+        $invalidCsrfFlag = $http->request('POST', '/quiz', [], [
+            'action' => 'review-flag', 'index' => 0, 'question_id' => $match[1],
+            'marked' => '0', 'version' => '1', 'return_to' => 'current', 'csrf_token' => 'invalid-token',
+        ], [], $cookies);
+        $afterInvalidCsrfFlag = $readSession($cookies['PHPSESSID']);
+        $foreignCookies = ['PHPSESSID' => 'batch726-foreign-flag-' . bin2hex(random_bytes(8))];
+        $foreignFlagRequest = $http->request('POST', '/quiz', [], [
+            'action' => 'review-flag', 'index' => 0, 'question_id' => $match[1],
+            'marked' => '1', 'version' => '0', 'return_to' => 'current', 'csrf_token' => $csrfToken,
+        ], [], $foreignCookies);
+        $foreignFlagState = $readSession($foreignCookies['PHPSESSID']);
+    } finally {
+        if ($previousAppEnvironment === false) {
+            putenv('APP_ENV');
+        } else {
+            putenv('APP_ENV=' . $previousAppEnvironment);
+        }
+    }
     $foreignDashboard = $http->request('GET', '/dashboard', [], [], [], $foreignCookies);
     if (!in_array($invalidCsrfFlag['status'], [302, 303], true)
         || ($afterInvalidCsrfFlag['exam_review_flags'][0] ?? false) !== true
         || !in_array($foreignFlagRequest['status'], [302, 303], true)
-        || isset($foreignFlagState['questions'], $foreignFlagState['quiz_session'], $foreignFlagState['exam_review_flags'])
+        || array_key_exists('questions', $foreignFlagState)
+        || array_key_exists('quiz_session', $foreignFlagState)
+        || array_key_exists('exam_review_flags', $foreignFlagState)
         || str_contains($foreignDashboard['output'], 'data-active-exam-state')) {
         throw new RuntimeException('CSRF or cross-session access changed an exam review mark outside its owning browser session.');
     }

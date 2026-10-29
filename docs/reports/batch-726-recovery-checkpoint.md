@@ -1,37 +1,37 @@
-# Batch 726 Recovery Checkpoint
+# Batch 726 Overnight Recovery Checkpoint
 
-CURRENT_HEAD=9680965c8c6fa191489f1210e3d87f87f2d7507f
-CURRENT_BRANCH=batch-726-exam-review-study-continuity
+CHECKPOINT_BASE=da989c9bc69cff2145c36ec0707e6e05c78e1e5b
+BRANCH=batch-726-exam-review-study-continuity
 WORKTREE=/data/data/com.termux/files/home/boardprep-batch-706
+B726_APPLICATION_IMPLEMENTATION=9680965c8c6fa191489f1210e3d87f87f2d7507f
 
-## Completed
+## Storage recovery
 
-- Added versioned, learner-session-scoped exam review marks and accessible controls.
-- Added a pre-submit status summary and direct question navigation.
-- Added answer-outcome result filters and Mistake Notebook action for missed/skipped results.
-- Added same-session active/expired exam continuation to the dashboard.
-- Committed verified implementation as `9680965c8c6fa191489f1210e3d87f87f2d7507f`.
-- Latest exact-commit exam HTTP integration passed; account, result-action, result-view, accessibility, browser-contract, syntax and diff checks passed.
-- Ten-board, learner-journey, mistake, Notes, Flashcard, CSRF and security regressions passed during the implementation run.
+Eight stale, B726-compatible simulator fixtures were removed from `/data/data/com.termux/files/usr/tmp` after confirming that their simulator PIDs were inactive, roots were not symlinks, and all five mutable learner collections were empty. The directories were reproducible copies created by `SimulationStorageFixture`; their `doctor-manual-run.txt` files matched the retained repository copy. Together they reclaimed 420,457,472 bytes. Five newer simulator fixtures, all four pre-existing release-session fixtures, standalone Doctor artifacts, worktrees and stashes were preserved. The protected three untracked JSON files remain byte-identical.
 
-## Protected state
+Removed paths and measured allocated bytes:
 
-- Canonical count: 9,123; protected data paths were not changed.
-- Attempts and weakness hashes match baseline; all three pre-existing untracked JSON files remain byte-identical and unstaged.
-- 276 proposals remain pending/noncanonical. No academic imports, approvals or production learner mutations.
-- Historical B695 checkout, worktrees, stashes and HayaDoctor preserved.
+- `boardprep-simulator-20816-da7717efcdb411ef` — 52,552,704
+- `boardprep-simulator-20818-dfebabc70a3ee0c5` — 52,552,704
+- `boardprep-simulator-26904-b70a2e3deb823349` — 52,559,872
+- `boardprep-simulator-27563-531d5c822aabb4b5` — 52,556,800
+- `boardprep-simulator-27652-f10fa8c7e6a97ddd` — 52,560,896
+- `boardprep-simulator-939-c454d928dc376454` — 52,556,800
+- `boardprep-simulator-20028-654f78e5b56dbadb` — 52,560,896
+- `boardprep-simulator-13825-4ca8798a9689ba31` — 52,556,800
 
-## Remaining release gate
+## Full Doctor finding and repair
 
-Full Doctor was not run. Latest measured free space after removing the completed B726-owned 93 MiB exam fixture and its sessions was 2,251,603,968 bytes. The latest verified Doctor requirement plus reserve is 2,374,114,008 bytes, leaving a 122,510,040-byte shortfall. No unrelated temporary or historical files were deleted.
+The first recovery Full Doctor artifact is preserved at `/data/data/com.termux/files/usr/tmp/batch-726-full-doctor-recovery-20261030-043252.json` (exit 1; SHA-256 `3de535f67b03231f262523ab4be19e6379a8970abf7780ff33b8f1de8437f976`). It reported P0=1, P1=0, P2=1, P3=2. The sole P0 was the simulator-recovery group because `ExamSimulationHttpTest.php` ran under `APP_ENV=testing`, so its invalid-CSRF request was accepted and cleared a flag. Production CSRF behavior itself was not defective; the dedicated production test and the release test's intended assertion require production mode.
 
-Real Chromium remains unavailable on Android/Termux. Browser contracts pass 8/8; real browser acceptance is not executed.
+The test now scopes `APP_ENV=production` to the invalid-token and foreign-session requests, restores the caller's environment in `finally`, and checks for each forbidden foreign-session key independently. The exact test passed in the release runner's isolated storage fixture (exit 0; session cleanup passed). This was a test-environment correction, not an application-source change.
 
-## Exact continuation
+Free storage was 2,659,934,208 bytes before the first Doctor. Doctor's measured minimum was 2,394,030,080 bytes, above its reserve-inclusive 2,374,114,008-byte threshold. Doctor cleaned its owned release fixture; no production learner files changed.
 
-1. Keep the current B726 branch and implementation commit.
-2. Wait for or safely reclaim at least 2,374,114,008 bytes of free storage without deleting unrelated user data.
-3. Run the exact required production-mode Full Doctor command and save its complete JSON artifact.
-4. If it passes with valid JSON, release PASS, P0=0 and P1=0, update verification/report artifacts and commit final documentation separately.
-5. If it fails, preserve evidence, repair the demonstrated defect and rerun impacted tests and Full Doctor.
-6. Do not start B727 until the mandatory gate passes.
+## Completed and remaining
+
+- B726 review flags, status navigator, submission summary, result filters and dashboard same-session continuation remain committed and unchanged.
+- Prior B726 learner, security, mobile accessibility and browser-contract tests remain as reported in the main report.
+- Real browser remains `PREPARED_NOT_EXECUTED` on Android/Termux.
+- Full Doctor must be rerun after the test correction. Then complete the remaining returning-learner continuity and performance review, run affected tests, and rerun Full Doctor if application code changes.
+- Do not start B727 until final Full Doctor is valid PASS with P0=0/P1=0 and integrity checks match.
