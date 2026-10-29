@@ -32,5 +32,13 @@
     "final attempt contains no review flag fields"
   ],
   "integration_test": "tools/Tests/ExamSimulationHttpTest.php PASS against implementation_sha",
+  "current_release_regression": {
+    "tested_application_sha": "698d09c5dfcb18186c381c3061bca560a150986d",
+    "exam_simulation_http": "PASS within Full Doctor's 72 passing release-flow tests",
+    "attempt_safety_domain": "PASS",
+    "result_review_domain": "PASS",
+    "integrity_and_eligibility_domains": "PASS",
+    "protected_state_after_doctor": "UNCHANGED"
+  },
   "real_browser": "NOT_EXECUTED; Android/Termux unsupported for pinned desktop browser"
 }

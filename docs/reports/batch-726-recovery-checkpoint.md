@@ -46,3 +46,52 @@ That run correctly left the pre-existing `/data/data/com.termux/files/usr/tmp/bo
 - Finish the partial returning-learner dashboard continuity and capture comparable B726-path performance measurements. Test changes in isolation, then rerun Full Doctor because application code will have changed.
 - Historical B653/B704/B705 snapshot mismatches remain as previously classified; do not rewrite archived evidence.
 - Do not start B727 until final Full Doctor and protected hash checks pass on the final application revision.
+
+## Continuity and performance milestone
+
+CHECKPOINT_HEAD_BEFORE_IMPLEMENTATION_COMMIT=7c8595ab8d53ba2725a593eb008f43d7a66d6c51
+BRANCH=batch-726-exam-review-study-continuity
+
+Added a compact returning-learner continuation panel derived from the dashboard's already-loaded, identity-scoped attempt list. It puts the latest owned result first, links to the Mistake Notebook only when saved incorrect/skipped question evidence exists, and provides the existing published Study Library and Flashcard destinations. Active-session continuation remains above this panel. Legacy results without question snapshots are identified as lacking detailed review; no history, recommendation, question-bank or learner data is written.
+
+Changed implementation/test files:
+
+- `app/Services/Learning/DashboardStudyContinuityService.php`
+- `app/Controllers/DashboardController.php`
+- `app/Views/dashboard/index.php`
+- `app/Views/dashboard/continuity.php`
+- `public/assets/css/style.css`
+- `tools/Tests/LearnerDashboardReliabilityTest.php`
+- `tools/Tests/LearnerJourneyHttpTest.php`
+- `tools/Tests/LearnerMobileAccessibilityViewTest.php`
+- `tools/Benchmarks/batch726-dashboard.php`
+- `docs/reports/batch-726-performance.json`
+
+Verification at this checkpoint: dashboard reliability PASS; synthetic learner HTTP journey PASS, including exact latest-result link and cross-account sentinel exclusion; mobile/accessibility contract PASS (25 assertions); historical result ownership/read-only test PASS; browser workflow contracts PASS (8/8). PHP syntax and `git diff --check` were clean before final report updates. Real Chromium remains unavailable on Android/Termux.
+
+Comparable synthetic dashboard measurements (100 completed attempts in isolated storage): pre-panel empty cold 179.408 ms, returning cold 1,229.294 ms, warm median 1,160.916 ms; current empty cold 132.770 ms, returning cold 1,123.559 ms, warm median 1,155.752 ms (warm range 1,126.273–1,171.388 ms). No speedup is attributed to the panel; one-shot cold measures and the small warm delta do not isolate application effects. Child PHP peak memory and canonical-bank read count were not instrumented.
+
+Protected raw file and derived answer-key hashes matched the B725 baseline; the three pre-existing untracked JSON hashes remained the expected empty-array hash. Free space at this implementation checkpoint was 2,913,566,720 bytes (Termux `df -kP`, available 5,690,560 512-byte blocks). The next action then was to commit and run Full Doctor; that work is completed in the final release-gate recovery section below.
+
+## Final release-gate recovery
+
+APPLICATION_TESTED_SHA=698d09c5dfcb18186c381c3061bca560a150986d
+FULL_DOCTOR_EXIT_CODE=0
+FULL_DOCTOR_JSON=VALID
+FULL_DOCTOR_RELEASE_GATE=PASS
+FULL_DOCTOR_SEVERITY=P0:0 P1:0 P2:1 P3:2
+FULL_DOCTOR_HEALTH=REVIEW; 11 pass, 3 warn, 1 review, 0 fail
+FULL_DOCTOR_RELEASE_FLOW_TESTS=72 PASS, 0 FAIL
+FULL_DOCTOR_ARTIFACT=/data/data/com.termux/files/usr/tmp/batch-726-full-doctor-recovery-20261030-continuity-698d09c.json
+FULL_DOCTOR_ARTIFACT_SHA256=26d72219827c1cfe0f9f0a14e79601ccb4086f76536560430bc3373749abc2be
+FULL_DOCTOR_REQUIRED_AVAILABLE_BYTES=1837243096
+RESERVE_INCLUSIVE_THRESHOLD_BYTES=2374114008
+MINIMUM_AVAILABLE_DURING_RELEASE_FLOW_BYTES=2651308032
+MINIMUM_ABOVE_THRESHOLD_BYTES=277194024
+FIXTURE_CLEANUP=PASS; 92,412,632-byte isolated fixture removed; four pre-existing release-session fixture directories preserved.
+
+Doctor release domains passed for content/taxonomy, study and flashcard traceability, scoring, eligibility, learner flows, attempts, results, progress, history, session recovery, admin, developer, security, production configuration and packaging. `SOURCE_TRACEABILITY=REVIEW` remains a nonblocking P2 review signal; the two P3 items remain nonblocking planning debt.
+
+The post-Doctor protected-data check again matched all B725 hashes: 9,123 canonical questions, derived answer-key digest, eligibility, source registry, study links, attempts, weakness, question statistics, academic decisions, source reviews, flashcard exclusions, and each of the three protected untracked JSON files. `DoctorSimulatorStateIsolationTest` also verified 115 repository storage files and learner sessions were byte-for-byte unchanged. Pending B695 proposals remain 276; approvals/imports/production learner mutations remain zero. Q6403 remains excluded; Q1536/Q1537 remain source-only.
+
+Current free storage after fixture cleanup and Doctor was 2,907,979,776 bytes. The branch is safe to finalize with a documentation-only commit. The dashboard continuity implementation is already committed as `698d09c5dfcb18186c381c3061bca560a150986d`; do not alter application code without rerunning affected tests and Full Doctor. Real Chromium remains `PREPARED_NOT_EXECUTED` on Android/Termux. Do not start B727 as part of this recovery.

@@ -1,0 +1,41 @@
+{
+  "batch": 726,
+  "benchmark": "tools/Benchmarks/batch726-dashboard.php",
+  "runtime": "Android/Termux PHP HTTP simulator",
+  "workload": {
+    "synthetic_returning_learner_attempts": 100,
+    "mode": "practice",
+    "review_payload": "empty",
+    "storage": "isolated temporary simulation fixture",
+    "canonical_bank_mutations": 0
+  },
+  "before_continuity_panel": {
+    "empty_dashboard_cold_ms": 179.408,
+    "returning_dashboard_cold_ms": 1229.294,
+    "returning_dashboard_warm_median_ms": 1160.916,
+    "measurement_note": "Recovery-run benchmark captured before the dashboard continuity change; the exact timestamp was not retained."
+  },
+  "after_continuity_panel": {
+    "empty_dashboard_cold_ms": 132.77,
+    "returning_dashboard_cold_ms": 1123.559,
+    "returning_dashboard_warm_samples_ms": [
+      1126.273,
+      1137.03,
+      1140.59,
+      1155.752,
+      1156.256,
+      1160.568,
+      1171.388
+    ],
+    "returning_dashboard_warm_median_ms": 1155.752,
+    "returning_dashboard_warm_min_ms": 1126.273,
+    "returning_dashboard_warm_max_ms": 1171.388
+  },
+  "interpretation": {
+    "workload_comparable": true,
+    "performance_improvement_claimed": false,
+    "reason": "Single cold samples and a small warm-median difference do not separate application effects from run-to-run variation. The added continuation model scans already-loaded learner history and adds no repository read.",
+    "peak_memory": "NOT_MEASURED; the HTTP simulator reports child request latency but not child PHP RSS.",
+    "canonical_bank_read_count": "NOT_INSTRUMENTED"
+  }
+}

@@ -1,10 +1,18 @@
 {
   "schema_version": 1,
   "batch": 726,
-  "status": "BLOCKED_UNSUPPORTED_RUNTIME",
+  "status": "PREPARED_NOT_EXECUTED",
   "host": "Android/Termux",
   "real_browser_execution": "NOT_EXECUTED",
-  "reason": "Pinned Playwright/Chromium runtime is not supported by this Android host; no authorized supported Linux runner was available locally.",
+  "reason": "The bounded Termux preflight found Android/arm64, no system browser candidate, and no locally installed pinned Playwright 1.63.0 package. No authorized supported Linux runner was available.",
+  "preflight": {
+    "node": "v26.4.0",
+    "platform": "Android/Termux arm64",
+    "pinned_playwright": "1.63.0",
+    "system_browser_candidates": [],
+    "loopback": "PASS",
+    "browser_launch": "BLOCKED_UNSUPPORTED_RUNTIME"
+  },
   "contracts": {
     "command": "npm run test:browser:contract",
     "passed": 8,

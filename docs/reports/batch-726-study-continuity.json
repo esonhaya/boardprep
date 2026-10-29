@@ -1,27 +1,29 @@
 {
   "schema_version": 1,
   "batch": 726,
-  "status": "PARTIAL_CONTINUITY_IMPROVEMENTS",
-  "dashboard": {
-    "new_learner_onboarding": "B725 behavior preserved",
-    "returning_learner_addition": "active same-browser exam continuation card with board, subject, supported variant, current position and server-recorded answer count",
-    "expired_session": "labeled expired; links through existing server-controlled finalization",
-    "cross_learner_data": "no cross-account session exposure"
+  "status": "CONTINUITY_IMPLEMENTED_AND_VERIFIED",
+  "returning_dashboard": {
+    "latest_result": "Direct owner-scoped result link, derived from the already-loaded latest learner attempt.",
+    "recorded_mistakes": "Mistake Notebook action appears only when saved incorrect or skipped question evidence exists in that learner's attempts.",
+    "published_study": "Direct link to the existing published Study Library.",
+    "flashcards": "Direct link to the existing learner-owned Flashcard review entry.",
+    "active_exam_priority": "Existing same-browser session continuation remains above the completed-result panel.",
+    "new_learner": "Existing B725 start-practice and study entry points remain unchanged.",
+    "legacy_attempts": "Missing question snapshots are disclosed as unavailable; no review state is inferred."
   },
-  "mistake_notebook": "missed/skipped result action added; prior mistake history preserved",
-  "notes": "B723 protections and existing Notes behavior unchanged",
-  "flashcards": "B723 protections and one-bank-read behavior unchanged",
-  "progress_and_recommendations": "existing calculations and recommendation policy unchanged",
-  "eligible_pool_and_published_study_rules": "unchanged; existing services remain authoritative",
-  "regressions_during_implementation": [
-    "LearnerJourneyHttpTest.php PASS",
-    "TenBoardLearnerJourneyHttpTest.php PASS for LET, CSE, CLE, NLE, PLE, CE, CPA, ME, REE and Architecture",
-    "Batch712MistakeRecoveryTest.php PASS; Q6403 exclusion retained",
-    "Batch711NotesBasedPracticeTest.php PASS",
-    "FlashcardHttpTest.php PASS",
-    "ProductionQuizCsrfTest.php PASS",
-    "SecurityTrustBoundaryTest.php PASS",
-    "AccountSecurityTest.php PASS"
-  ],
-  "production_learner_mutations": 0
+  "data_handling": {
+    "history_read": "Reuses the identity-scoped attempt list already loaded by DashboardController.",
+    "additional_storage_reads": 0,
+    "writes_or_migrations": 0,
+    "recommendation_policy": "Existing StudyDashboardService output remains authoritative.",
+    "cross_account_exposure": "A synthetic foreign-account sentinel was absent from dashboard output.",
+    "production_learner_mutations": 0
+  },
+  "verification": {
+    "LearnerDashboardReliabilityTest.php": "PASS: empty state, latest result, older recorded mistake, legacy review, and unknown outcome handling.",
+    "LearnerJourneyHttpTest.php": "PASS: completed quiz, direct result and study destinations, foreign-account exclusion, refreshed learner history.",
+    "HistoryResultHttpTest.php": "PASS: result ownership and saved review remain unchanged.",
+    "LearnerMobileAccessibilityViewTest.php": "PASS: 25 static view/accessibility assertions, including continuity controls.",
+    "Full_Doctor": "PASS at application SHA 698d09c5dfcb18186c381c3061bca560a150986d; learner core, results, history, progress, study and flashcard domains passed."
+  }
 }
