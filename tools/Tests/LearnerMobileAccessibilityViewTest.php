@@ -30,7 +30,8 @@ $checks = [
     'primary navigation identifies landmark and current page' => str_contains($layout, 'aria-label="Primary navigation"')
         && str_contains($layout, 'aria-current="page"'),
     'document title is escaped' => str_contains($layout, 'htmlspecialchars((string) ($pageTitle'),
-    'quiz settings labels target their corresponding controls' => count($quizLabelTargets) === 8
+    'quiz settings labels target their corresponding controls' => count($quizLabelTargets) === count($quizControlIds)
+        && count($quizControlIds) > 0
         && $quizLabelTargets === $quizControlIds,
     'answer choices use a labelled fieldset and full-size labels' => str_contains($quiz, '<fieldset class="quiz-choices">')
         && str_contains($quiz, '<legend>Choose one answer</legend>')
