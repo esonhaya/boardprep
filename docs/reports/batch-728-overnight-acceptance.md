@@ -1,7 +1,7 @@
 # === BOARDPREP BATCH 728 ===
 
-**Outcome: PARTIAL_RECOVERABLE**
-**Final local status:** implementation and focused verification passed; mandatory Full Doctor release gate remains incomplete because the available storage could not safely preserve Doctor's reserve. Real-browser acceptance is a separate open gate. Academic approval and public release remain deferred.
+**Outcome: TECHNICALLY_COMPLETE**
+**Final local status:** implementation, focused verification, and the mandatory Full Doctor release gate passed. Real-browser acceptance remains a separate open gate. Academic approval and public release remain deferred.
 
 ## BASELINE
 
@@ -11,7 +11,7 @@
 - Tested implementation SHA: `525b00858b72ab50b184a45038d3a808586e3ab9`
 - Branch/worktree: `batch-728-browser-acceptance-study-handoff` at `/data/data/com.termux/files/home/boardprep-batch-706`
 - B727 Doctor baseline was PASS, P0=0, P1=0, P2=1 source-traceability review group (8 signals), P3=2 planning issues, and 78 critical release flows passed. Its evidence remains the baseline only; it is not a B728 Doctor result.
-- The session-wide start time and total elapsed time were not recorded. The Full Doctor attempt ran 26m18s before it was stopped. No time was added for padding.
+- The original session-wide start time was not recorded. The successful Full Doctor recovery run started at `2026-10-30T21:14:37Z`, generated its complete report at `2026-10-30T21:42:57Z`, and ran for 28m20s. No time was added for padding.
 - At preflight, about 1.196 GB RAM was available. Codex Node processes were present; no application Node test, PHP test/Doctor, Playwright, or Chromium process was active. Twelve registered worktrees and two stashes were preserved. The historical dirty `/data/data/com.termux/files/home/BoardPrep` and HayaDoctor were untouched.
 
 ## EXECUTION
@@ -20,7 +20,7 @@
 - Tested code commits: `0dbd46d5d2d1e971a0a5b8e446468bb7295bbd66` and `525b00858b72ab50b184a45038d3a808586e3ab9`. The latter is the implementation SHA used for the focused tests and Doctor attempt.
 - A documented recovery checkpoint is in `docs/reports/batch-728-recovery-checkpoint.md`. The final evidence bundle is `docs/reports/batch-728-test-evidence.json`.
 - At the outset, free space was modest relative to the historical Doctor threshold. After exact path, owner, mode, contents, process-reference, and creator-code inspection, eleven stale BoardPrep test fixtures were removed from Termux's temporary directory. Ten were static-storage fixtures made by `StaticStorageFixture.php` for the Batch 610 eligibility and cross-board tests; one was the isolated editor copy created by `QuestionEditorEligibilityTest.php`, whose `finally` cleanup had not run. No app storage, history, caches, dependencies, git objects, unknown temporary trees, or user files were deleted. The two older Batch 684 trees were retained because they include recovery/session snapshots and their ownership/purpose was not established enough to remove safely.
-- Free space varied during the run. The latest measured sample, at `2026-10-30T16:07:08Z`, was 2,416,304,128 bytes—about 40 MiB above the historical 2,374,118,008-byte threshold and 614,637,568 bytes below the conservative full-run requirement derived from the actual interrupted Doctor drawdown. The stopped Doctor fixture and its session fixture were cleaned after process termination; failed artifacts were retained.
+- Before the successful recovery run, Doctor measured 3,402,850,304 bytes available. Its minimum was 3,132,829,696 bytes, leaving 1,387,999,232 bytes above the 1.5 GiB safety floor plus 128 MiB runtime reserve. The flow runner measured a 270,020,608-byte peak drawdown; the reserve-inclusive requirement derived from that run was 2,014,851,072 bytes. Current free space was 3,389,382,656 bytes at `2026-10-30T21:45:01Z`. Doctor reports isolated fixture cleanup and session cleanup as PASS.
 
 ## BROWSER
 
@@ -47,7 +47,7 @@
 - Human review remains open: 958 exact links have unknown/unreviewed status and 91 lack approval evidence. These are not resolved by the new diagnostic. The report now distinguishes structural scope from actionable currentness/review work and includes read-only signal details without changing the source gate or evidence hash.
 - Separate source constraints for Q1536/Q1537 remain source-only; Q6403 remains excluded. No citation was invented, no answer or mapping was changed, and no reviewer was granted or approved.
 - Production-mode preflight passed all 22 checks with zero warnings or failures. Read-only smoke passed preflight, application boot, content load, learner service load, and progress/history service load in 1,913.72 ms. This did not start a production HTTP server or deploy anything.
-- Current local technical regression evidence includes production quiz CSRF, notes and flashcard ownership/persistence, exam/history ownership, stale/expired session, JSON fixture, and B717 anonymous/foreign/CSRF academic-gate denial checks. Full Doctor remains the missing mandatory aggregate gate.
+- Current local technical regression evidence includes production quiz CSRF, notes and flashcard ownership/persistence, exam/history ownership, stale/expired session, JSON fixture, and B717 anonymous/foreign/CSRF academic-gate denial checks. The successful Full Doctor aggregate passed all critical flow, security, integrity, configuration, and release-storage domains.
 
 ## PERFORMANCE
 
@@ -67,11 +67,11 @@
 
 ## DOCTOR
 
-- Exact release command was run at tested SHA `525b00858b72ab50b184a45038d3a808586e3ab9`: `APP_ENV=production APP_DEBUG=false DB_DRIVER=json APP_STORAGE_PATH=/data/data/com.termux/files/home/boardprep-batch-706/storage php -d memory_limit=1G tools/doctor.php --release --json`.
-- Started `2026-10-30T15:27:42Z`; stopped `2026-10-30T15:54:00Z` after the sampler recorded minimum free space of 1,690,505,216 bytes, below the 1,744,830,464-byte safety floor plus runtime reserve. Exit was 143 after the deliberate stop.
-- The unique artifact `docs/reports/batch-728-full-doctor-final.json` is 0 bytes, SHA-256 `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`; it is invalid JSON. The stderr artifact contains only the Termux linker warning. Neither is a PASS artifact.
-- Current source preflight requirement was 1,837,243,096 bytes. The actual interrupted run's drawdown was 1,286,111,232 bytes. Retaining the 1.5 GiB floor and 128 MiB runtime reserve against that drawdown requires 3,030,941,696 bytes before retry; a 256 MiB additional margin means waiting for at least 3,299,377,152 free bytes. The latest free-space sample was 2,416,304,128 bytes at `2026-10-30T16:07:08Z`, 614,637,568 bytes below the conservative requirement. No second Full Doctor run was started.
-- Therefore B728 has no valid Full Doctor JSON, no current Doctor P0/P1/P2/P3 result, and no `RELEASE_GATE=PASS` assertion. B727 baseline was P0=0/P1=0; it does not substitute for this B728 gate.
+- The exact production release command was run at HEAD `880c06231f601ee82937ff21319984be130c18e7`: `APP_ENV=production APP_DEBUG=false DB_DRIVER=json APP_STORAGE_PATH=/data/data/com.termux/files/home/boardprep-batch-706/storage php -d memory_limit=1G tools/doctor.php --release --json`. This is the final B728 application code: the commits after implementation SHA `525b00858b72ab50b184a45038d3a808586e3ab9` changed only documentation.
+- Exit code was 0. The complete JSON artifact `docs/reports/batch-728-full-doctor-recovery-20261030T211437Z.json` is 2,367,143 bytes, valid JSON, SHA-256 `df032739f03de4136e39bac69335d4e68f522d049da82d297c3d044dee25381d`. Its release decision is `RELEASE_READY_WITH_NONBLOCKING_DEBT`, `RELEASE_GATE=PASS`, P0=0, P1=0, P2=1, P3=2. Twenty-five release domains passed; `SOURCE_TRACEABILITY` remains `REVIEW`. Security, content, taxonomy, eligibility, and flashcard integrity domains all passed with no P0/P1 action.
+- Doctor health is `REVIEW` with 11 passing checks, 3 warning groups, 1 review group, 835 findings (801 warning entities, 34 review entities), and zero failing entities. These are the existing source-review and planning signals; they do not block the technical gate.
+- Flow-storage evidence records a 1,610,612,736-byte safety floor, a 134,217,728-byte runtime reserve, 92,412,632 fixture bytes, 3,132,829,696 minimum free bytes, `cleanup_status=PASS`, and `sessions_cleaned=true`. The 205-byte stderr artifact contains only the Termux linker warning. The prior zero-byte failed artifacts remain preserved as historical failures.
+- The Doctor result is complete and verifies the B728 application code at the current tested SHA. The local B728 technical release gate is PASS. The separate real-browser, academic-approval, and public-release gates remain open/deferred.
 
 ## INTEGRITY
 
@@ -84,12 +84,12 @@
 
 - Implementation commits: `0dbd46d5d2d1e971a0a5b8e446468bb7295bbd66`, `525b00858b72ab50b184a45038d3a808586e3ab9`.
 - Documentation commit SHA is printed in the delivery message after commit; it is omitted here to avoid embedding a commit's own hash in itself.
-- At implementation checkpoint, tracked files were clean. Final untracked storage/Doctor artifacts are preserved and excluded from the documentation commit. No push, merge, remote CI, deployment, reviewer grant, academic approval, or production release occurred.
+- At the successful Doctor checkpoint, tracked application files were unchanged from implementation SHA `525b008`; the passing unique JSON and its stderr are retained as release evidence. Historical zero-byte Doctor artifacts and the three protected untracked storage files remain untouched. No push, merge, remote CI, deployment, reviewer grant, academic approval, or production release occurred.
 - `CLIPBOARD_STATUS=UNVERIFIED`: stdin and argument-mode `termux-clipboard-set` returned exit 0, but `termux-clipboard-get` returned 0 bytes. Both complete-byte comparisons failed. The full report is printed as the terminal fallback.
 
 ## OUTCOME
 
-- `PARTIAL_RECOVERABLE`: meaningful implementation, focused integration/security tests, operational preflight/smoke, and integrity checks passed; the mandatory Full Doctor gate was stopped to preserve its reserve.
-- Local technical release gate: **INCOMPLETE / NOT PASS** until Full Doctor returns complete valid JSON with exit 0, RELEASE_GATE=PASS, P0=0, P1=0, and no unresolved security/integrity failures.
+- `TECHNICALLY_COMPLETE`: meaningful implementation, focused integration/security tests, operational preflight/smoke, integrity checks, and Full Doctor passed. Current protected data hashes match and the Doctor fixture/session cleanup passed.
+- Local technical release gate: **PASS** with complete valid JSON, exit 0, `RELEASE_GATE=PASS`, P0=0, P1=0, and zero failing security/integrity domains.
 - Real-browser acceptance: **OPEN / NOT EXECUTED** pending an authorized Linux runner. Academic approval: **DEFERRED**. Public release: **NOT APPROVED**.
-- B729 was not started and remains blocked by the incomplete mandatory B728 technical gate.
+- B729 entry gate: **ELIGIBLE** after this verified B728 technical PASS. The B729 branch and implementation had not yet started when this report was prepared.

@@ -1,167 +1,304 @@
 {
-  "schema": "boardprep.batch-728-test-evidence.v1",
-  "batch": 728,
-  "outcome": "PARTIAL_RECOVERABLE",
-  "baseline": {
-    "b727_tested_sha": "702e399a3b059edac530d63e2ca7f1a3a7253074",
-    "b727_final_sha": "2ddb5d5c0c692e94478c1e20ae638469fe7bf07f",
-    "head_at_recovery_start": "0dbd46d5d2d1e971a0a5b8e446468bb7295bbd66",
-    "implementation_tested_sha": "525b00858b72ab50b184a45038d3a808586e3ab9",
-    "branch": "batch-728-browser-acceptance-study-handoff",
-    "worktree": "/data/data/com.termux/files/home/boardprep-batch-706"
-  },
-  "browser": {
-    "real_browser": "NOT_EXECUTED",
-    "linux_runner": "REQUIRES_AUTHORIZATION",
-    "local_reason": "Termux/Android ARM64 has no supported desktop Chromium executable; no authorized Linux runner was available.",
-    "contract_suite": {
-      "command": "npm run test:browser:contract",
-      "status": "PASS",
-      "passed": 8,
-      "failed": 0,
-      "rendered": false
+    "schema": "boardprep.batch-728-test-evidence.v1",
+    "batch": 728,
+    "outcome": "TECHNICALLY_COMPLETE",
+    "baseline": {
+        "b727_tested_sha": "702e399a3b059edac530d63e2ca7f1a3a7253074",
+        "b727_final_sha": "2ddb5d5c0c692e94478c1e20ae638469fe7bf07f",
+        "head_at_recovery_start": "0dbd46d5d2d1e971a0a5b8e446468bb7295bbd66",
+        "implementation_tested_sha": "525b00858b72ab50b184a45038d3a808586e3ab9",
+        "branch": "batch-728-browser-acceptance-study-handoff",
+        "worktree": "/data/data/com.termux/files/home/boardprep-batch-706",
+        "head_after_full_doctor": "880c06231f601ee82937ff21319984be130c18e7",
+        "tested_application_sha": "880c06231f601ee82937ff21319984be130c18e7",
+        "application_code_unchanged_after_implementation": true
     },
-    "workflow": ".github/workflows/browser-acceptance.yml",
-    "workflow_runner": "ubuntu-24.04",
-    "workflow_node": "22.23.3",
-    "real_run_command": "npm run test:browser",
-    "screenshots": "NONE",
-    "traces": "NONE",
-    "remote_ci_triggered": false
-  },
-  "features": {
-    "completed_history": "PASS: owned result links and bounded 20-attempt pages verified with 500 mixed attempts.",
-    "review_marks": "PASS: version 1 marked-question snapshot persists in the finalized attempt; only valid attempt question IDs are accepted.",
-    "legacy_review_marks": "PASS: unavailable is disclosed; historical marks are not reconstructed.",
-    "result_handoff": "PASS: stored explanations, eligible mistake recovery, Mistake Notebook, exact published lesson sections, registered sources, Notes context, missed Flashcards, and Smart Study destinations are covered by route/service contracts.",
-    "mobile_accessibility": "PASS_STATIC_ONLY: pagination semantics, status text, 44px targets, wrapping, unanswered states, and existing responsive contracts; no rendered viewport was executed."
-  },
-  "tests": [
-    {"command": "npm run test:browser:contract", "status": "PASS", "detail": "8/8 Node and client contracts; non-rendered."},
-    {"command": "php tools/Tests/QuizResultAttemptFactoryTest.php", "status": "PASS"},
-    {"command": "php tools/Tests/QuizResultViewContractTest.php", "status": "PASS"},
-    {"command": "php tools/Tests/HistoryResultHttpTest.php", "status": "PASS", "detail": "Persisted owner checks, marked filter, legacy attempts, and 500-attempt pagination."},
-    {"command": "php tools/Tests/QuizCompletionHttpTest.php", "status": "PASS", "detail": "Replay remains exactly once."},
-    {"command": "php tools/Tests/ExamSimulationHttpTest.php", "status": "PASS", "detail": "Resume, flags, timer expiry, stale requests, answer/flag/finalize races, and exactly-once persistence."},
-    {"command": "php tools/Tests/Batch711NotesBasedPracticeTest.php", "status": "PASS"},
-    {"command": "php tools/Tests/Batch712MistakeRecoveryTest.php", "status": "PASS", "detail": "Eligible shortage, retries, note deletion, and Q6403 exclusion."},
-    {"command": "php tools/Tests/StudyLibraryNavigationTest.php", "status": "PASS", "detail": "All ten boards and valid study/source routes."},
-    {"command": "php tools/Tests/SmartStudyHubServiceTest.php", "status": "PASS"},
-    {"command": "php tools/Tests/StudyDashboardPreparedHistoryEquivalenceTest.php", "status": "PASS", "detail": "0/1/25/100/500 attempts and mixed boards."},
-    {"command": "php tools/Tests/LearnerMobileAccessibilityViewTest.php", "status": "PASS_STATIC_ONLY", "detail": "26 assertions; source/view contracts, not rendered output."},
-    {"command": "php tools/Tests/TenBoardLearnerJourneyHttpTest.php", "status": "PASS"},
-    {"command": "php tools/Tests/LearnerJourneyHttpTest.php", "status": "PASS", "detail": "New learner HTTP flow, resume, and exactly-once submission."},
-    {"command": "php tools/Tests/FlashcardHttpTest.php", "status": "PASS", "detail": "CSRF, ownership, persistence, and PRG."},
-    {"command": "php tools/Tests/ProductionQuizCsrfTest.php", "status": "PASS"},
-    {"command": "php tools/Tests/ReleaseReadinessContractTest.php", "status": "PASS", "detail": "Source review diagnostics are actionable and read-only; human review stays open."},
-    {"command": "php -d memory_limit=1G tools/Tests/Batch717AcademicGateClosureTest.php", "status": "PASS", "detail": "276 pending proposals, zero approvals/imports, anonymous/foreign/CSRF denial, protected hashes; isolated fixture removed on shutdown."},
-    {"command": "PHP lint for all 14 changed PHP files", "status": "PASS"},
-    {"command": "JavaScript syntax check", "status": "NOT_APPLICABLE", "detail": "No JavaScript files changed in this implementation."},
-    {"command": "git diff --check 2ddb5d5c0c692e94478c1e20ae638469fe7bf07f..525b00858b72ab50b184a45038d3a808586e3ab9", "status": "PASS"}
-  ],
-  "operations": {
-    "production_preflight": {"status": "PASS", "checks": 22, "failures": 0, "warnings": 0},
-    "production_smoke": {"status": "PASS", "checks": 5, "runtime_ms": 1913.72, "writes": false},
-    "production_http_server": "NOT_STARTED",
-    "deploy_or_remote_action": "NOT_PERFORMED"
-  },
-  "performance": {
-    "history_http": {
-      "fixture_attempts": 500,
-      "warm_samples_each": 7,
-      "baseline_sha": "2ddb5d5c0c692e94478c1e20ae638469fe7bf07f",
-      "current_sha": "525b00858b72ab50b184a45038d3a808586e3ab9",
-      "median_ms_before": 798.054,
-      "median_ms_after": 304.774,
-      "median_change_percent": -61.8,
-      "html_bytes_before": 233063,
-      "html_bytes_after": 15750,
-      "rendered_attempt_rows_before": 500,
-      "rendered_attempt_rows_after": 20,
-      "scope": "Isolated synthetic HTTP simulator; not production network latency."
+    "browser": {
+        "real_browser": "NOT_EXECUTED",
+        "linux_runner": "REQUIRES_AUTHORIZATION",
+        "local_reason": "Termux/Android ARM64 has no supported desktop Chromium executable; no authorized Linux runner was available.",
+        "contract_suite": {
+            "command": "npm run test:browser:contract",
+            "status": "PASS",
+            "passed": 8,
+            "failed": 0,
+            "rendered": false
+        },
+        "workflow": ".github/workflows/browser-acceptance.yml",
+        "workflow_runner": "ubuntu-24.04",
+        "workflow_node": "22.23.3",
+        "real_run_command": "npm run test:browser",
+        "screenshots": "NONE",
+        "traces": "NONE",
+        "remote_ci_triggered": false
     },
-    "b727_dashboard_baseline_preserved": {
-      "100_attempts_warm_median_ms": {"before": 1163.781, "after": 259.055},
-      "500_attempts_warm_median_ms": {"before": 1823.449, "after": 592.22}
+    "features": {
+        "completed_history": "PASS: owned result links and bounded 20-attempt pages verified with 500 mixed attempts.",
+        "review_marks": "PASS: version 1 marked-question snapshot persists in the finalized attempt; only valid attempt question IDs are accepted.",
+        "legacy_review_marks": "PASS: unavailable is disclosed; historical marks are not reconstructed.",
+        "result_handoff": "PASS: stored explanations, eligible mistake recovery, Mistake Notebook, exact published lesson sections, registered sources, Notes context, missed Flashcards, and Smart Study destinations are covered by route/service contracts.",
+        "mobile_accessibility": "PASS_STATIC_ONLY: pagination semantics, status text, 44px targets, wrapping, unanswered states, and existing responsive contracts; no rendered viewport was executed."
     },
-    "memory_or_bank_reads": "NOT_MEASURED"
-  },
-  "source_traceability": {
-    "b727_p2_signal_count": 8,
-    "classification": {
-      "structural_scope_not_actionable": 7,
-      "scope_and_currentness_review": 1,
-      "missing_exact_locator_detected": 0,
-      "ambiguous_citation_detected": 0,
-      "genuinely_incorrect_mapping_confirmed": 0
-    },
-    "exact_section_links_with_locator": 1049,
-    "material_level_links": 8976,
-    "exact_link_status_unreviewed_or_unknown": 958,
-    "exact_link_approval_evidence_missing": 91,
-    "review_state": "OPEN; no citations, mappings, or academic decisions were changed."
-  },
-  "doctor": {
-    "status": "INTERRUPTED_FOR_STORAGE_RESERVE",
-    "command": "APP_ENV=production APP_DEBUG=false DB_DRIVER=json APP_STORAGE_PATH=/data/data/com.termux/files/home/boardprep-batch-706/storage php -d memory_limit=1G tools/doctor.php --release --json",
-    "tested_sha": "525b00858b72ab50b184a45038d3a808586e3ab9",
-    "start_utc": "2026-10-30T15:27:42Z",
-    "stop_utc": "2026-10-30T15:54:00Z",
-    "elapsed_before_stop": "00:26:18",
-    "exit_code": 143,
-    "json_valid": false,
-    "release_gate": "NOT_VERIFIED",
-    "artifact": "docs/reports/batch-728-full-doctor-final.json",
-    "artifact_bytes": 0,
-    "artifact_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "minimum_free_bytes_observed": 1690505216,
-    "available_bytes_at_start": 2976616448,
-    "minimum_free_plus_runtime_reserve_bytes": 1744830464,
-    "observed_drawdown_bytes": 1286111232,
-    "conservative_pre_run_requirement_bytes": 3030941696,
-    "last_measured_available_bytes": 2416304128,
-    "last_measured_available_utc": "2026-10-30T16:07:08Z",
-    "historical_threshold_bytes": 2374114008,
-    "additional_headroom_recommended_bytes": 3299377152,
-    "P0_P1_P2_P3": "Current Full Doctor counts unavailable; B727 baseline was P0=0, P1=0, P2=1 source traceability (8 signals), P3=2 planning items.",
-    "reason": "The observed high-water drawdown plus the 1.5 GiB safety floor and 128 MiB runtime reserve exceeds the last measured free space. A second run was not started."
-  },
-  "integrity": {
-    "canonical_count": 9123,
-    "sha256": {
-      "questions": "73cdc775cd7240b57898868d67902d833db1171f947c8dcc89081ddaf46fb4be",
-      "derived_answer_keys": "d4db069ce60c026e214ea68068b8206178782879c61b92271d4b1abe7dc7aad5",
-      "eligibility": "611f01ca29421c0c890c351c503ab262e87bc551269d78427b9a0889260933a4",
-      "source_registry": "7c640636dcd3ddd0f865106ba4506a5af5dcd4a02a2074c065f695da5ef2c271",
-      "study_links": "0e0aebad84afd09e38e477f277bb8086e52eb9b4a2e591c6de41118060a5663d",
-      "attempts": "e968fd3e8a391065ac2314ab9bcff932fc572cbe6024e16b40569b694bbed84b",
-      "weakness": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
-      "question_statistics": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-      "academic_decisions": "a2a6a868c613be6d09c3e8607599779eb87a302e90207410d99328a4dbba343d",
-      "source_reviews": "ae9341dc97f54bc96b75a49bd06619c5bdbdf4abd1d5b9885851e1e76c9aa656",
-      "flashcard_exclusions": "236975ba94ef72c223ebe7f78a4725088ca53b7c20395edb52f39e5d5e2f7717"
-    },
-    "protected_untracked_files": {
-      "storage/academic-proposal-workflow.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-      "storage/flashcard_state.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-      "storage/question-statistics.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
-    },
-    "b695_proposals_pending": 276,
-    "academic_approvals": 0,
-    "academic_imports": 0,
-    "production_learner_mutations": 0,
-    "Q6403": "EXCLUDED",
-    "Q1536_Q1537": "SOURCE_ONLY",
-    "canonical_or_answer_changes": false
-  },
-  "delivery": {
-    "implementation_commits": [
-      "0dbd46d5d2d1e971a0a5b8e446468bb7295bbd66",
-      "525b00858b72ab50b184a45038d3a808586e3ab9"
+    "tests": [
+        {
+            "command": "npm run test:browser:contract",
+            "status": "PASS",
+            "detail": "8/8 Node and client contracts; non-rendered."
+        },
+        {
+            "command": "php tools/Tests/QuizResultAttemptFactoryTest.php",
+            "status": "PASS"
+        },
+        {
+            "command": "php tools/Tests/QuizResultViewContractTest.php",
+            "status": "PASS"
+        },
+        {
+            "command": "php tools/Tests/HistoryResultHttpTest.php",
+            "status": "PASS",
+            "detail": "Persisted owner checks, marked filter, legacy attempts, and 500-attempt pagination."
+        },
+        {
+            "command": "php tools/Tests/QuizCompletionHttpTest.php",
+            "status": "PASS",
+            "detail": "Replay remains exactly once."
+        },
+        {
+            "command": "php tools/Tests/ExamSimulationHttpTest.php",
+            "status": "PASS",
+            "detail": "Resume, flags, timer expiry, stale requests, answer/flag/finalize races, and exactly-once persistence."
+        },
+        {
+            "command": "php tools/Tests/Batch711NotesBasedPracticeTest.php",
+            "status": "PASS"
+        },
+        {
+            "command": "php tools/Tests/Batch712MistakeRecoveryTest.php",
+            "status": "PASS",
+            "detail": "Eligible shortage, retries, note deletion, and Q6403 exclusion."
+        },
+        {
+            "command": "php tools/Tests/StudyLibraryNavigationTest.php",
+            "status": "PASS",
+            "detail": "All ten boards and valid study/source routes."
+        },
+        {
+            "command": "php tools/Tests/SmartStudyHubServiceTest.php",
+            "status": "PASS"
+        },
+        {
+            "command": "php tools/Tests/StudyDashboardPreparedHistoryEquivalenceTest.php",
+            "status": "PASS",
+            "detail": "0/1/25/100/500 attempts and mixed boards."
+        },
+        {
+            "command": "php tools/Tests/LearnerMobileAccessibilityViewTest.php",
+            "status": "PASS_STATIC_ONLY",
+            "detail": "26 assertions; source/view contracts, not rendered output."
+        },
+        {
+            "command": "php tools/Tests/TenBoardLearnerJourneyHttpTest.php",
+            "status": "PASS"
+        },
+        {
+            "command": "php tools/Tests/LearnerJourneyHttpTest.php",
+            "status": "PASS",
+            "detail": "New learner HTTP flow, resume, and exactly-once submission."
+        },
+        {
+            "command": "php tools/Tests/FlashcardHttpTest.php",
+            "status": "PASS",
+            "detail": "CSRF, ownership, persistence, and PRG."
+        },
+        {
+            "command": "php tools/Tests/ProductionQuizCsrfTest.php",
+            "status": "PASS"
+        },
+        {
+            "command": "php tools/Tests/ReleaseReadinessContractTest.php",
+            "status": "PASS",
+            "detail": "Source review diagnostics are actionable and read-only; human review stays open."
+        },
+        {
+            "command": "php -d memory_limit=1G tools/Tests/Batch717AcademicGateClosureTest.php",
+            "status": "PASS",
+            "detail": "276 pending proposals, zero approvals/imports, anonymous/foreign/CSRF denial, protected hashes; isolated fixture removed on shutdown."
+        },
+        {
+            "command": "PHP lint for all 14 changed PHP files",
+            "status": "PASS"
+        },
+        {
+            "command": "JavaScript syntax check",
+            "status": "NOT_APPLICABLE",
+            "detail": "No JavaScript files changed in this implementation."
+        },
+        {
+            "command": "git diff --check 2ddb5d5c0c692e94478c1e20ae638469fe7bf07f..525b00858b72ab50b184a45038d3a808586e3ab9",
+            "status": "PASS"
+        }
     ],
-    "push_merge_deploy": "NOT_PERFORMED",
-    "b729_started": false,
-    "clipboard_status": "UNVERIFIED",
-    "clipboard_readback": "Both stdin and argument-mode set returned exit 0; get returned exit 0 with 0 bytes. Full-byte comparisons failed."
-  }
+    "operations": {
+        "production_preflight": {
+            "status": "PASS",
+            "checks": 22,
+            "failures": 0,
+            "warnings": 0
+        },
+        "production_smoke": {
+            "status": "PASS",
+            "checks": 5,
+            "runtime_ms": 1913.72,
+            "writes": false
+        },
+        "production_http_server": "NOT_STARTED",
+        "deploy_or_remote_action": "NOT_PERFORMED"
+    },
+    "performance": {
+        "history_http": {
+            "fixture_attempts": 500,
+            "warm_samples_each": 7,
+            "baseline_sha": "2ddb5d5c0c692e94478c1e20ae638469fe7bf07f",
+            "current_sha": "525b00858b72ab50b184a45038d3a808586e3ab9",
+            "median_ms_before": 798.054,
+            "median_ms_after": 304.774,
+            "median_change_percent": -61.8,
+            "html_bytes_before": 233063,
+            "html_bytes_after": 15750,
+            "rendered_attempt_rows_before": 500,
+            "rendered_attempt_rows_after": 20,
+            "scope": "Isolated synthetic HTTP simulator; not production network latency."
+        },
+        "b727_dashboard_baseline_preserved": {
+            "100_attempts_warm_median_ms": {
+                "before": 1163.781,
+                "after": 259.055
+            },
+            "500_attempts_warm_median_ms": {
+                "before": 1823.449,
+                "after": 592.22
+            }
+        },
+        "memory_or_bank_reads": "NOT_MEASURED"
+    },
+    "source_traceability": {
+        "b727_p2_signal_count": 8,
+        "classification": {
+            "structural_scope_not_actionable": 7,
+            "scope_and_currentness_review": 1,
+            "missing_exact_locator_detected": 0,
+            "ambiguous_citation_detected": 0,
+            "genuinely_incorrect_mapping_confirmed": 0
+        },
+        "exact_section_links_with_locator": 1049,
+        "material_level_links": 8976,
+        "exact_link_status_unreviewed_or_unknown": 958,
+        "exact_link_approval_evidence_missing": 91,
+        "review_state": "OPEN; no citations, mappings, or academic decisions were changed."
+    },
+    "doctor": {
+        "status": "PASS",
+        "command": "APP_ENV=production APP_DEBUG=false DB_DRIVER=json APP_STORAGE_PATH=/data/data/com.termux/files/home/boardprep-batch-706/storage php -d memory_limit=1G tools/doctor.php --release --json",
+        "tested_sha": "880c06231f601ee82937ff21319984be130c18e7",
+        "application_implementation_sha": "525b00858b72ab50b184a45038d3a808586e3ab9",
+        "application_code_unchanged_after_implementation": true,
+        "start_utc": "2026-10-30T21:14:37Z",
+        "end_utc": "2026-10-30T21:42:57Z",
+        "elapsed": "00:28:20",
+        "exit_code": 0,
+        "json_valid": true,
+        "release_gate": "PASS",
+        "release_decision": "RELEASE_READY_WITH_NONBLOCKING_DEBT",
+        "priority_counts": {
+            "P0": 0,
+            "P1": 0,
+            "P2": 1,
+            "P3": 2
+        },
+        "security_failures": 0,
+        "integrity_failures": 0,
+        "release_domains": {
+            "PASS": 25,
+            "REVIEW": 1,
+            "REVIEW_DOMAIN": "SOURCE_TRACEABILITY"
+        },
+        "health": {
+            "status": "REVIEW",
+            "pass_groups": 11,
+            "warning_groups": 3,
+            "review_groups": 1,
+            "fail_groups": 0,
+            "issue_count": 835,
+            "warning_entities": 801,
+            "review_entities": 34,
+            "failing_entities": 0
+        },
+        "flow_storage": {
+            "available_before_bytes": 3402850304,
+            "safety_floor_bytes": 1610612736,
+            "runtime_reserve_bytes": 134217728,
+            "fixture_bytes": 92412632,
+            "preflight_required_bytes": 1837243096,
+            "minimum_free_bytes_observed": 3132829696,
+            "observed_drawdown_bytes": 270020608,
+            "required_bytes_from_observed_drawdown": 2014851072,
+            "largest_additional_test_storage_bytes_observed": 167624704,
+            "cleanup_status": "PASS",
+            "sessions_cleaned": true
+        },
+        "post_run_free_bytes": 3389382656,
+        "post_run_free_utc": "2026-10-30T21:45:01Z",
+        "artifact": "docs/reports/batch-728-full-doctor-recovery-20261030T211437Z.json",
+        "artifact_bytes": 2367143,
+        "artifact_sha256": "df032739f03de4136e39bac69335d4e68f522d049da82d297c3d044dee25381d",
+        "stderr_artifact": "docs/reports/batch-728-full-doctor-recovery-20261030T211437Z.stderr.txt",
+        "stderr_bytes": 205,
+        "stderr_sha256": "fd110d0c030c8f4069a7a7cdea6de4d3a1aaf701ddb1aecad5988afa5d5f4e1a",
+        "stderr_summary": "Termux linker warning only.",
+        "previous_failed_attempt": {
+            "artifact": "docs/reports/batch-728-full-doctor-final.json",
+            "bytes": 0,
+            "json_valid": false,
+            "preserved": true
+        }
+    },
+    "integrity": {
+        "canonical_count": 9123,
+        "sha256": {
+            "questions": "73cdc775cd7240b57898868d67902d833db1171f947c8dcc89081ddaf46fb4be",
+            "derived_answer_keys": "d4db069ce60c026e214ea68068b8206178782879c61b92271d4b1abe7dc7aad5",
+            "eligibility": "611f01ca29421c0c890c351c503ab262e87bc551269d78427b9a0889260933a4",
+            "source_registry": "7c640636dcd3ddd0f865106ba4506a5af5dcd4a02a2074c065f695da5ef2c271",
+            "study_links": "0e0aebad84afd09e38e477f277bb8086e52eb9b4a2e591c6de41118060a5663d",
+            "attempts": "e968fd3e8a391065ac2314ab9bcff932fc572cbe6024e16b40569b694bbed84b",
+            "weakness": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+            "question_statistics": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "academic_decisions": "a2a6a868c613be6d09c3e8607599779eb87a302e90207410d99328a4dbba343d",
+            "source_reviews": "ae9341dc97f54bc96b75a49bd06619c5bdbdf4abd1d5b9885851e1e76c9aa656",
+            "flashcard_exclusions": "236975ba94ef72c223ebe7f78a4725088ca53b7c20395edb52f39e5d5e2f7717"
+        },
+        "protected_untracked_files": {
+            "storage/academic-proposal-workflow.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "storage/flashcard_state.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "storage/question-statistics.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "b695_proposals_pending": 276,
+        "academic_approvals": 0,
+        "academic_imports": 0,
+        "production_learner_mutations": 0,
+        "Q6403": "EXCLUDED",
+        "Q1536_Q1537": "SOURCE_ONLY",
+        "canonical_or_answer_changes": false
+    },
+    "delivery": {
+        "implementation_commits": [
+            "0dbd46d5d2d1e971a0a5b8e446468bb7295bbd66",
+            "525b00858b72ab50b184a45038d3a808586e3ab9"
+        ],
+        "push_merge_deploy": "NOT_PERFORMED",
+        "b729_started": false,
+        "clipboard_status": "UNVERIFIED",
+        "clipboard_readback": "Both stdin and argument-mode set returned exit 0; get returned exit 0 with 0 bytes. Full-byte comparisons failed.",
+        "b729_entry_gate": "ELIGIBLE_AFTER_B728_TECHNICAL_PASS"
+    }
 }

@@ -24,3 +24,16 @@ Recorded on 2026-10-31 (Asia/Manila). The session-wide start time was not record
 3. Rerun the exact production-mode `tools/doctor.php --release --json` command at implementation SHA `525b00858b72ab50b184a45038d3a808586e3ab9`, writing to a new unique JSON artifact and sampling free space. Require valid complete JSON, exit 0, RELEASE_GATE=PASS, P0=0, P1=0, and no unresolved security/integrity failure.
 4. Obtain authorization for the configured Ubuntu 24.04 / Node 22.23.3 browser workflow, then run `npm run test:browser` there and preserve the workflow artifacts. Do not dispatch it from this session.
 5. Keep academic review and public-release approval separate. Do not start B729 until mandatory local technical gates are complete.
+
+## Recovery completion — B728 technical gate passed
+
+Recorded `2026-10-30T21:45:01Z` (UTC). The successful Doctor run supersedes recovery actions 1–3 above; the browser and human-review actions remain separate gates.
+
+- Branch/worktree remain `batch-728-browser-acceptance-study-handoff` at `/data/data/com.termux/files/home/boardprep-batch-706`.
+- Full Doctor ran at tested HEAD `880c06231f601ee82937ff21319984be130c18e7`. Application files are identical to implementation SHA `525b00858b72ab50b184a45038d3a808586e3ab9`; intervening commits changed documentation only.
+- Run: `2026-10-30T21:14:37Z`–`2026-10-30T21:42:57Z`, 28m20s; exit 0; complete JSON; `RELEASE_GATE=PASS`; P0=0, P1=0, P2=1, P3=2. Health is REVIEW with 0 failing entities. Twenty-five release domains passed; source traceability remains REVIEW. Security and integrity domains passed.
+- Artifact: `docs/reports/batch-728-full-doctor-recovery-20261030T211437Z.json`, 2,367,143 bytes, SHA-256 `df032739f03de4136e39bac69335d4e68f522d049da82d297c3d044dee25381d`.
+- Doctor observed 3,402,850,304 bytes before the run and a minimum 3,132,829,696 bytes. It recorded 92,412,632 fixture bytes, 167,624,704 largest additional per-test storage, and 270,020,608 total observed drawdown. The drawdown-based requirement including the 1.5 GiB floor and 128 MiB runtime reserve was 2,014,851,072 bytes. Final measured free space was 3,389,382,656 bytes.
+- Flow fixture cleanup and per-test session cleanup both passed. No release or simulator fixture/session directories remained after completion. The 3 protected untracked storage files retain their expected hashes; all canonical and protected data hashes match. B695 remains 276 pending, with no approvals or imports.
+- The earlier zero-byte Doctor artifacts remain preserved as failed attempts; the complete passing artifact is stored separately. Wake lock was reacquired for the run and remains active for the current recovery session.
+- B728 local technical gate is PASS. `REAL_BROWSER=NOT_EXECUTED`; browser acceptance remains open. Academic approval and public release remain deferred. B729 becomes eligible only after this B728 report/evidence checkpoint is committed and the clean gate is rechecked.
