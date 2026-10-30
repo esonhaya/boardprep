@@ -1,0 +1,37 @@
+{
+  "batch": 727,
+  "status": "PREPARED_NOT_EXECUTED",
+  "platform": "Android/Termux ARM64",
+  "supported_local_browser_runner": false,
+  "discovery": {
+    "node_runtime": "v26.4.0",
+    "pinned_playwright_dependency": "Installed",
+    "desktop_chromium_executable": "Not available",
+    "browser_installation_attempted": false,
+    "remote_ci_dispatched": false
+  },
+  "contract_suite": {
+    "command": "npm run test:browser:contract",
+    "status": "PASS",
+    "passed": 8,
+    "failed": 0,
+    "coverage": [
+      "Ubuntu workflow/runtime pins and suite provenance",
+      "No retry-based browser certification",
+      "Termux explicitly blocks unsupported desktop browser acceptance",
+      "Isolated storage fixture and server lifecycle",
+      "Exam submit feedback and timer client contracts"
+    ]
+  },
+  "existing_linux_runner": {
+    "workflow": ".github/workflows/browser-acceptance.yml",
+    "runner": "ubuntu-24.04",
+    "node": "22.23.3",
+    "execution_command": "npm run test:browser",
+    "required_authorization": "An authorized Linux CI execution; none was dispatched in this batch"
+  },
+  "real_browser_scenarios_executed": [],
+  "screenshots": "NOT_CAPTURED",
+  "traces": "NOT_CAPTURED",
+  "visual_accessibility_acceptance": "NOT_EXECUTED"
+}

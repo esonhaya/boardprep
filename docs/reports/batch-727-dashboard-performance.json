@@ -1,0 +1,203 @@
+{
+    "benchmark": "batch727-dashboard-http",
+    "runtime": "Linux/cli via isolated HTTP simulator on Android/Termux ARM64",
+    "comparability": "Same committed benchmark script, same generated attempt shape/counts, same simulator process pattern and device; baseline run preceded B727 application edits; final run includes all B727 changes. First request after fixture replacement; OS page cache not cleared.",
+    "fixture": {
+        "attempt_counts": [
+            0,
+            1,
+            25,
+            100,
+            500
+        ],
+        "attempt_shape": "completed synthetic practice attempts; empty review payload",
+        "learner": "ephemeral simulator identity",
+        "repository_learner_writes": 0
+    },
+    "warm_samples_per_workload": 7,
+    "measurements_ms": [
+        {
+            "attempts": 0,
+            "cold_before_ms": 161.335,
+            "cold_after_ms": 158.577,
+            "cold_change_percent": -1.7,
+            "warm_before_median_ms": 177.71,
+            "warm_after_median_ms": 158.697,
+            "warm_change_percent": -10.7,
+            "warm_before_range_ms": [
+                140.877,
+                196
+            ],
+            "warm_after_range_ms": [
+                142.85,
+                192.349
+            ],
+            "warm_before_samples_ms": [
+                140.877,
+                172.273,
+                175.975,
+                177.71,
+                183.95,
+                184.946,
+                196
+            ],
+            "warm_after_samples_ms": [
+                142.85,
+                147.352,
+                154.755,
+                158.697,
+                159.983,
+                187.621,
+                192.349
+            ]
+        },
+        {
+            "attempts": 1,
+            "cold_before_ms": 1099.517,
+            "cold_after_ms": 171.271,
+            "cold_change_percent": -84.4,
+            "warm_before_median_ms": 1033.102,
+            "warm_after_median_ms": 168.292,
+            "warm_change_percent": -83.7,
+            "warm_before_range_ms": [
+                1013.385,
+                1038.508
+            ],
+            "warm_after_range_ms": [
+                163.943,
+                202.987
+            ],
+            "warm_before_samples_ms": [
+                1013.385,
+                1028.687,
+                1031.702,
+                1033.102,
+                1034.136,
+                1038.408,
+                1038.508
+            ],
+            "warm_after_samples_ms": [
+                163.943,
+                166.332,
+                166.341,
+                168.292,
+                169.083,
+                171.846,
+                202.987
+            ]
+        },
+        {
+            "attempts": 25,
+            "cold_before_ms": 1067.82,
+            "cold_after_ms": 178.186,
+            "cold_change_percent": -83.3,
+            "warm_before_median_ms": 1070.86,
+            "warm_after_median_ms": 203.4,
+            "warm_change_percent": -81,
+            "warm_before_range_ms": [
+                1031.553,
+                1083.655
+            ],
+            "warm_after_range_ms": [
+                181.432,
+                225.452
+            ],
+            "warm_before_samples_ms": [
+                1031.553,
+                1054.848,
+                1068.825,
+                1070.86,
+                1074.235,
+                1082.741,
+                1083.655
+            ],
+            "warm_after_samples_ms": [
+                181.432,
+                184.465,
+                184.97,
+                203.4,
+                215.124,
+                216.227,
+                225.452
+            ]
+        },
+        {
+            "attempts": 100,
+            "cold_before_ms": 1163.554,
+            "cold_after_ms": 241.001,
+            "cold_change_percent": -79.3,
+            "warm_before_median_ms": 1163.781,
+            "warm_after_median_ms": 259.055,
+            "warm_change_percent": -77.7,
+            "warm_before_range_ms": [
+                1124.345,
+                1170.493
+            ],
+            "warm_after_range_ms": [
+                229.829,
+                296.14
+            ],
+            "warm_before_samples_ms": [
+                1124.345,
+                1134.211,
+                1151.346,
+                1163.781,
+                1170.157,
+                1170.477,
+                1170.493
+            ],
+            "warm_after_samples_ms": [
+                229.829,
+                232.622,
+                233.072,
+                259.055,
+                277.272,
+                282.206,
+                296.14
+            ]
+        },
+        {
+            "attempts": 500,
+            "cold_before_ms": 1812.918,
+            "cold_after_ms": 590.618,
+            "cold_change_percent": -67.4,
+            "warm_before_median_ms": 1823.449,
+            "warm_after_median_ms": 592.22,
+            "warm_change_percent": -67.5,
+            "warm_before_range_ms": [
+                1784.912,
+                1839.045
+            ],
+            "warm_after_range_ms": [
+                585.696,
+                672.133
+            ],
+            "warm_before_samples_ms": [
+                1784.912,
+                1801.942,
+                1805.08,
+                1823.449,
+                1824.542,
+                1829.273,
+                1839.045
+            ],
+            "warm_after_samples_ms": [
+                585.696,
+                588.353,
+                588.654,
+                592.22,
+                593.029,
+                611.396,
+                672.133
+            ]
+        }
+    ],
+    "resource_measurements": {
+        "peak_child_php_memory": "NOT_MEASURED",
+        "storage_read_count": "NOT_INSTRUMENTED",
+        "canonical_bank_read_count": "NOT_INSTRUMENTED"
+    },
+    "output_equivalence": "PASS: raw vs prepared dashboard summary equivalence for 0, 1, 25, 100, 500; same-board readiness reuses summaries and mixed-board readiness retains scoped recomputation.",
+    "root_cause_and_change": "Unregistered legacy/synthetic topic recommendations previously built the full canonical question-to-topic index before returning no exact study link. Current canonical questions have only taxonomy-registered topic IDs (9123 checked). The request-local taxonomy lookup now returns the honest no-link fallback before the bank index is built for unregistered topics. Registered topic exact links remain covered by AdaptiveStudyEvidenceTest.",
+    "interpretation": "Comparisons are synthetic local HTTP processing times, not production network latency. Percent changes are final versus pre-change medians; no claim is made for memory or aggregate bank-read counts."
+}

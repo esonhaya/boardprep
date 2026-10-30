@@ -1,0 +1,43 @@
+{
+  "batch": 727,
+  "status": "PASS",
+  "learner_states": {
+    "new_learner": "NO_HISTORY",
+    "returning_learner": "RETURNING_LEARNER",
+    "readiness_state": "Forwarded from existing readiness service; no parallel scoring model"
+  },
+  "actions": {
+    "maximum": 3,
+    "priority": [
+      "Saved mistake review when completed history contains incorrect or skipped answers",
+      "Existing readiness recommendation with its board and variant context",
+      "Published Study Library and Flashcards browse fallbacks"
+    ],
+    "active_exam_and_recent_result": "Remain in existing dedicated same-session resume and latest-result cards; no duplicate or cross-device resume claim",
+    "empty_history": "Board setup and published learning actions; progress disclosure says tracking starts after completed practice",
+    "unavailable_practice": "Uses existing readiness destination/fallback; no fabricated eligible pool"
+  },
+  "destination_safety": {
+    "practice": "Accepts only local /quiz practice start actions with a non-empty subject/topic and bounded count; preserves query board/variant values",
+    "allowed_local_destinations": ["/exams", "/mistake-notebook", "/study-library", "/flashcards"],
+    "rejected": ["external URLs", "protocol-relative URLs", "malformed quiz actions", "duplicate destinations"],
+    "history_or_question_bank_reads_added": 0,
+    "learner_identity": "Dashboard uses current request identity and existing learner-scoped services"
+  },
+  "implementation": [
+    "SmartStudyHubService selects and validates up to three deterministic actions from existing readiness and continuity evidence.",
+    "Dashboard computes the study summary and continuity once and passes those results to the hub.",
+    "Mobile action cards use fluid layout, wrap long content, and retain visible focus and touch-sized controls."
+  ],
+  "verification": {
+    "tools/Tests/SmartStudyHubServiceTest.php": "PASS",
+    "tools/Tests/LearnerJourneyHttpTest.php": "PASS in isolated release fixture",
+    "tools/Tests/StudyDashboardPreparedHistoryEquivalenceTest.php": "PASS for 0, 1, 25, 100, 500 attempts; mixed-board readiness remains independently scoped",
+    "tools/Tests/LearnerMobileAccessibilityViewTest.php": "PASS, 26 assertions",
+    "full_doctor_learner_core_flows": "PASS, includes new service and equivalence tests"
+  },
+  "limitations": [
+    "Active examination continuation is same-browser-session only, as represented by the existing service.",
+    "No actual Chromium rendering was available on Android/Termux; responsive evidence is static contract coverage."
+  ]
+}
