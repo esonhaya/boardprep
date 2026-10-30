@@ -98,11 +98,12 @@ try {
     ]);
     $historyStart = new DateTimeImmutable('2027-01-01T10:00:00+00:00');
     for ($index = 1; $index <= 497; $index++) {
+        $isLetAttempt = $index % 2 === 1;
         $repository->create([
             'id' => 'attempt-history-page-' . $index,
             'user_id' => $learner,
-            'board' => 'LET',
-            'subject' => 'English',
+            'board' => $isLetAttempt ? 'LET' : 'CSE',
+            'subject' => $isLetAttempt ? 'English' : 'verbal-ability',
             'mode' => 'practice',
             'score' => 1,
             'total' => 2,
@@ -160,8 +161,8 @@ try {
     historyCheck(str_contains($firstHistoryPage, 'Showing 1–20 of 500 completed quizzes')
         && str_contains($firstHistoryPage, 'Page 1 of 25')
         && str_contains($firstHistoryPage, 'href="/history?page=2"'), '500-attempt history pagination did not show its range, page count, or next destination');
-    historyCheck(str_contains($firstHistoryPage, 'href="/history/result?id=attempt-history-page-497"')
-        && !str_contains($firstHistoryPage, 'href="/history/result?id=attempt-history-page-1"'), 'first history page did not prioritize the newest completed attempts');
+    historyCheck(str_contains($firstHistoryPage, 'href="/history/result?id=attempt-history-page-497&amp;return_to=%2Fhistory%3Fpage%3D1"')
+        && !str_contains($firstHistoryPage, 'id=attempt-history-page-1&amp;return_to='), 'first history page did not prioritize the newest completed attempts');
 
     $_GET = ['page' => '25'];
     ob_start();
@@ -171,9 +172,9 @@ try {
     historyCheck(str_contains($lastHistoryPage, 'Showing 481–500 of 500 completed quizzes')
         && str_contains($lastHistoryPage, 'Page 25 of 25')
         && str_contains($lastHistoryPage, 'href="/history?page=24"'), 'last history page did not show its range or previous destination');
-    historyCheck(str_contains($lastHistoryPage, 'href="/history/result?id=attempt-history-page-1"')
-        && str_contains($lastHistoryPage, 'href="/history/result?id=attempt-history-owned"')
-        && !str_contains($lastHistoryPage, 'href="/history/result?id=attempt-history-page-497"'), 'last history page did not preserve the oldest and original owned attempts');
+    historyCheck(str_contains($lastHistoryPage, 'id=attempt-history-page-1&amp;return_to=%2Fhistory%3Fpage%3D25')
+        && str_contains($lastHistoryPage, 'id=attempt-history-owned&amp;return_to=%2Fhistory%3Fpage%3D25')
+        && !str_contains($lastHistoryPage, 'id=attempt-history-page-497&amp;return_to='), 'last history page did not preserve the oldest and original owned attempts');
 
     $_GET = ['page' => '999'];
     ob_start();
@@ -182,8 +183,92 @@ try {
     historyCheck(str_contains($clampedHistoryPage, 'Page 25 of 25')
         && str_contains($clampedHistoryPage, 'Showing 481–500 of 500 completed quizzes'), 'out-of-range history page did not clamp to the last available page');
 
+    $_GET = ['page' => '2', 'board' => 'LET', 'subject' => 'English'];
+    ob_start();
+    $router->dispatch('GET', '/history');
+    $letHistoryPage = (string) ob_get_clean();
+    historyCheck(substr_count($letHistoryPage, '<article class="quiz-history-item">') === 20
+        && str_contains($letHistoryPage, 'Showing 21–40 of 250 completed quizzes')
+        && str_contains($letHistoryPage, 'href="/history?page=1&amp;board=let&amp;subject=english"')
+        && str_contains($letHistoryPage, 'value="let" selected')
+        && str_contains($letHistoryPage, 'value="english" selected')
+        && str_contains($letHistoryPage, '<strong>250</strong>'), 'registered LET/English filters did not preserve the filtered count, summary, selection, or pagination context');
+
+    $_GET = ['board' => 'civil-service', 'subject' => 'verbal-ability'];
+    ob_start();
+    $router->dispatch('GET', '/history');
+    $cseHistory = (string) ob_get_clean();
+    historyCheck(str_contains($cseHistory, 'Showing 248 completed quizzes for these filters')
+        && substr_count($cseHistory, '<article class="quiz-history-item">') === 20, 'CSE/Verbal Ability history filter did not use the recorded registered taxonomy');
+
+    $_GET = ['board' => \App\Services\Learning\CompletedAttemptHistoryFilter::UNREGISTERED];
+    ob_start();
+    $router->dispatch('GET', '/history');
+    $unregisteredBoardHistory = (string) ob_get_clean();
+    historyCheck(str_contains($unregisteredBoardHistory, 'Showing 2 completed quizzes for these filters')
+        && str_contains($unregisteredBoardHistory, 'Unrecorded or unregistered board (2)'), 'unrecorded board history was not kept visible as an explicit legacy bucket');
+
+    $_GET = ['subject' => \App\Services\Learning\CompletedAttemptHistoryFilter::UNREGISTERED];
+    ob_start();
+    $router->dispatch('GET', '/history');
+    $unregisteredSubjectHistory = (string) ob_get_clean();
+    historyCheck(str_contains($unregisteredSubjectHistory, 'Showing 1 completed quiz for these filters')
+        && str_contains($unregisteredSubjectHistory, 'Unrecorded or unregistered subject (1)'), 'unrecorded subject history was not accurately disclosed');
+
+    $_GET = ['board' => 'not-a-registered-board', 'subject' => 'not-a-registered-subject'];
+    ob_start();
+    $router->dispatch('GET', '/history');
+    $invalidFilterHistory = (string) ob_get_clean();
+    historyCheck(str_contains($invalidFilterHistory, 'An unrecognized board or subject filter was ignored.')
+        && str_contains($invalidFilterHistory, 'Showing 1–20 of 500 completed quizzes'), 'invalid filter input did not safely return to the complete owned history');
+
+    $_GET = ['page' => '13', 'board' => 'let', 'subject' => 'english'];
+    ob_start();
+    $router->dispatch('GET', '/history');
+    $lastLetHistoryPage = (string) ob_get_clean();
+    historyCheck(str_contains($lastLetHistoryPage, 'Showing 241–250 of 250 completed quizzes · Page 13 of 13')
+        && str_contains($lastLetHistoryPage, 'id=attempt-history-page-1&amp;return_to=%2Fhistory%3Fpage%3D13%26board%3Dlet%26subject%3Denglish'), 'filtered older attempts did not retain their exact page and filter return context');
+
+    $_GET = ['id' => 'attempt-history-page-1', 'return_to' => '/history?page=999&board=LET&subject=English'];
+    ob_start();
+    $router->dispatch('GET', '/history/result');
+    $historyReturnHtml = (string) ob_get_clean();
+    historyCheck(str_contains($historyReturnHtml, 'href="/history?page=13&amp;board=let&amp;subject=english"'), 'saved result did not clamp and restore its valid owned history return destination');
+
+    $_GET = ['id' => 'attempt-history-page-1', 'return_to' => '//evil.example/history'];
+    ob_start();
+    $router->dispatch('GET', '/history/result');
+    $unsafeReturnHtml = (string) ob_get_clean();
+    historyCheck(str_contains($unsafeReturnHtml, 'href="/history"') && !str_contains($unsafeReturnHtml, 'evil.example'), 'historical result accepted an external return destination');
+
+    $ownedHistoryAttempts = $repository->byUser($learner);
+    $foreignAttempts = array_values(array_filter(
+        $repository->all(),
+        static fn(array $attempt): bool => (string) ($attempt['user_id'] ?? '') !== $learner
+    ));
+    historyCheck(count($ownedHistoryAttempts) === 500 && count($foreignAttempts) === 1, 'history count fixtures lost their owner boundary');
+    foreach ([0, 1, 20, 100, 500] as $targetCount) {
+        $repository->replaceAll(array_merge($foreignAttempts, array_slice($ownedHistoryAttempts, 0, $targetCount)));
+        historyCheck(count($repository->byUser($learner)) === $targetCount, 'persisted synthetic history count was not ' . $targetCount);
+        $_GET = [];
+        ob_start();
+        $router->dispatch('GET', '/history');
+        $countHistory = (string) ob_get_clean();
+        historyCheck(substr_count($countHistory, '<article class="quiz-history-item">') === min(20, $targetCount), 'history row bound was incorrect for ' . $targetCount . ' attempts');
+        if ($targetCount === 0) {
+            historyCheck(str_contains($countHistory, 'No completed quizzes yet')
+                && !str_contains($countHistory, 'attempt-history-foreign'), 'empty owned history exposed a foreign attempt or missed its empty state');
+        } elseif ($targetCount <= 20) {
+            $label = $targetCount === 1 ? 'Showing 1 completed quiz.' : 'Showing 20 completed quizzes.';
+            historyCheck(str_contains($countHistory, $label), 'single-page history status was incorrect for ' . $targetCount . ' attempts');
+        } else {
+            historyCheck(str_contains($countHistory, 'Showing 1–20 of ' . $targetCount . ' completed quizzes'), 'history pagination total was incorrect for ' . $targetCount . ' attempts');
+        }
+    }
+
     echo "[PASS] Owned history result renders through the production router with score, review, study, flashcard, and return actions.\n";
-    echo "[PASS] Persisted history with 500 owned attempts renders 20 per page, keeps exact ranges and totals, clamps an out-of-range page, and preserves full-history summary calculations.\n";
+    echo "[PASS] Persisted owned histories with 0, 1, 20, 100, and 500 attempts render bounded rows, accurate summaries, and safe empty states.\n";
+    echo "[PASS] Registered mixed-board/subject filters, legacy unregistered buckets, invalid filters, bounded pagination, and safe result-to-history return paths hold.\n";
     echo "[PASS] Foreign, unknown, request-owner override, and GET mutation boundaries hold.\n";
 } finally {
     putenv('APP_ENV');

@@ -6,6 +6,8 @@ $quizSession = is_array($quizSession ?? null) ? $quizSession : [];
 $studyReferencesByQuestion = is_array($studyReferencesByQuestion ?? null) ? $studyReferencesByQuestion : [];
 $actions = $actions ?? [];
 $historical = ($historical ?? false) === true;
+$historyReturnUrl = is_string($historyReturnUrl ?? null) ? $historyReturnUrl : '/history';
+$backToHistoryUrl = $historical ? $historyReturnUrl : '/history';
 $isExamSimulation = !$historical && ($quizSession['mode'] ?? '') === 'exam';
 $completedAt = is_string($completedAt ?? null) ? $completedAt : null;
 $historicalContext = is_array($historicalContext ?? null) ? $historicalContext : [];
@@ -152,7 +154,7 @@ $taxonomyLabel = static fn(string $collection, mixed $id): string => \App\Servic
 <?php endif; ?>
 
 <?php if ($reviewUnavailable): ?>
-<div class="empty-state"><h2>Detailed review is unavailable</h2><p>This attempt's score is preserved, but its question-by-question details were not saved.</p><p><a class="button button-outline" href="/history">Back to History</a></p></div>
+<div class="empty-state"><h2>Detailed review is unavailable</h2><p>This attempt's score is preserved, but its question-by-question details were not saved.</p><p><a class="button button-outline" href="<?= htmlspecialchars($backToHistoryUrl, ENT_QUOTES, 'UTF-8') ?>">Back to History</a></p></div>
 <?php else: ?>
 <section class="result-answer-review" aria-labelledby="answer-review-heading">
 <h2 id="answer-review-heading">Answer Review</h2>

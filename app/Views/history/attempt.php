@@ -18,6 +18,11 @@ $percentage = (int) ($attempt["percentage"] ?? 0);
 $attemptId = is_scalar($attempt["id"] ?? null)
     ? trim((string) $attempt["id"])
     : "";
+$historyReturnUrl = is_string($historyReturnUrl ?? null) ? $historyReturnUrl : '/history';
+$resultLinkParameters = $attemptId !== '' ? ['id' => $attemptId, 'return_to' => $historyReturnUrl] : [];
+$resultUrl = $resultLinkParameters !== []
+    ? '/history/result?' . http_build_query($resultLinkParameters, '', '&', PHP_QUERY_RFC3986)
+    : '';
 ?>
 <article class="quiz-history-item">
     <h3><?= htmlspecialchars($topic) ?></h3>
@@ -32,7 +37,7 @@ $attemptId = is_scalar($attempt["id"] ?? null)
         <p><?= htmlspecialchars(\App\Support\Presentation\UiFormatter::formatDateTime($date)) ?></p>
     <?php endif; ?>
     <?php if ($attemptId !== ""): ?>
-        <p><a class="button button-outline" href="/history/result?id=<?= rawurlencode($attemptId) ?>">View result</a></p>
+        <p><a class="button button-outline" href="<?= htmlspecialchars($resultUrl, ENT_QUOTES, 'UTF-8') ?>">View result</a></p>
     <?php else: ?>
         <p class="muted-note">Detailed review is unavailable for this legacy attempt.</p>
     <?php endif; ?>
