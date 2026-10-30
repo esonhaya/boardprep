@@ -85,7 +85,7 @@
 - Implementation commits: `0dbd46d5d2d1e971a0a5b8e446468bb7295bbd66`, `525b00858b72ab50b184a45038d3a808586e3ab9`.
 - Documentation commit SHA is printed in the delivery message after commit; it is omitted here to avoid embedding a commit's own hash in itself.
 - At implementation checkpoint, tracked files were clean. Final untracked storage/Doctor artifacts are preserved and excluded from the documentation commit. No push, merge, remote CI, deployment, reviewer grant, academic approval, or production release occurred.
-- `CLIPBOARD_STATUS` will be stated only after the final report file has been transferred and its complete readback compared byte-for-byte.
+- `CLIPBOARD_STATUS=UNVERIFIED`: stdin and argument-mode `termux-clipboard-set` returned exit 0, but `termux-clipboard-get` returned 0 bytes. Both complete-byte comparisons failed. The full report is printed as the terminal fallback.
 
 ## OUTCOME
 
