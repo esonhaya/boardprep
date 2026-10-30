@@ -1,0 +1,155 @@
+{
+  "batch": 729,
+  "branch": "batch-729-learner-acceptance-production-hardening",
+  "worktree": "/data/data/com.termux/files/home/boardprep-batch-706",
+  "execution": {
+    "start_utc": "2026-10-30T21:46:15Z",
+    "end_utc": "2026-10-30T22:59:54Z",
+    "elapsed": "1h13m39s",
+    "wake_lock": "Acquired; termux-wake-unlock invoked after Doctor, exit 0"
+  },
+  "predecessor": {
+    "batch": 728,
+    "final_sha": "f509107a0748a2b9a7119f74007f2b92aa6c1ba2",
+    "tested_application_sha": "525b00858b72ab50b184a45038d3a808586e3ab9",
+    "release_gate": "PASS",
+    "doctor_exit_code": 0,
+    "p0": 0,
+    "p1": 0,
+    "artifact": "docs/reports/batch-728-full-doctor-recovery-20261030T211437Z.json",
+    "artifact_sha256": "df032739f03de4136e39bac69335d4e68f522d049da82d297c3d044dee25381d"
+  },
+  "implementation": {
+    "head_before": "f509107a0748a2b9a7119f74007f2b92aa6c1ba2",
+    "tested_sha": "2b83e812e8238094df81f17258be739e98109d41",
+    "commits": [
+      "3bd53e624a85e8faf0e07b328a67914c63216371",
+      "2b83e812e8238094df81f17258be739e98109d41"
+    ],
+    "features": [
+      "Registered board and subject filters for completed history",
+      "Safe filter-preserving result return routes and bounded pagination",
+      "Navigable skipped-question explanations, eligible retry and related practice",
+      "Variant-scoped mistake review and bounded skipped-review pagination",
+      "Static mobile and accessibility contracts"
+    ]
+  },
+  "browser": {
+    "real_browser": "NOT_EXECUTED",
+    "linux_runner": "REQUIRES_AUTHORIZATION",
+    "real_tests_executed": 0,
+    "screenshots": [],
+    "traces": [],
+    "workflow": ".github/workflows/browser-acceptance.yml",
+    "command": "npm run test:browser",
+    "contract_tests": "PASS 8/8; non-rendered"
+  },
+  "tests": [
+    {"name": "HistoryResultHttpTest.php", "status": "PASS", "coverage": "Persisted 0/1/20/100/500 attempts, mixed boards and subjects, filters, ownership, bounded paging and safe return links"},
+    {"name": "MistakeNotebookSkippedPaginationTest.php", "status": "PASS", "coverage": "Persisted 0/1/20/100/500 attempts, 20-row continuation, clamping and foreign-owner denial"},
+    {"name": "Batch712MistakeRecoveryTest.php", "status": "PASS", "coverage": "Saved explanation, retry/related eligibility, LET context, ownership, expiry, exact-once behavior and Q6403"},
+    {"name": "TenBoardLearnerJourneyHttpTest.php", "status": "PASS", "coverage": "LET/CSE/CLE/NLE/PLE/CE/CPA/ME/REE/ARCH"},
+    {"name": "LearnerJourneyHttpTest.php", "status": "PASS"},
+    {"name": "ExamSimulationHttpTest.php", "status": "PASS"},
+    {"name": "QuizCompletionHttpTest.php", "status": "PASS"},
+    {"name": "SmartStudyHubServiceTest.php", "status": "PASS"},
+    {"name": "StudyDashboardPreparedHistoryEquivalenceTest.php", "status": "PASS", "coverage": "0/1/25/100/500 histories"},
+    {"name": "Batch711NotesBasedPracticeTest.php", "status": "PASS"},
+    {"name": "ProductionQuizCsrfTest.php", "status": "PASS"},
+    {"name": "Batch717AcademicGateClosureTest.php", "status": "PASS", "coverage": "276 pending; no approvals/imports; unauthorized denial"},
+    {"name": "StudyLibraryNavigationTest.php", "status": "PASS"},
+    {"name": "FlashcardHttpTest.php", "status": "PASS"},
+    {"name": "LearnerMobileAccessibilityViewTest.php", "status": "PASS", "coverage": "28 static/source assertions; not rendered"},
+    {"name": "production preflight", "status": "PASS", "count": 22},
+    {"name": "production smoke", "status": "PASS", "count": 5},
+    {"name": "PHP syntax", "status": "PASS", "scope": "All modified PHP files"},
+    {"name": "git diff --check", "status": "PASS"}
+  ],
+  "performance": {
+    "history_500_attempts": {
+      "samples": 7,
+      "before_median_ms": 142.664,
+      "after_median_ms": 151.384,
+      "change_percent": 6.1,
+      "before_html_bytes": 15749,
+      "after_html_bytes": 17616,
+      "rows": 20,
+      "measurement": "Isolated synthetic HTTP simulator timing"
+    },
+    "skipped_review_500_attempts": {
+      "samples_ms": [203.451, 203.269, 204.066, 205.505, 205.585, 207.650, 206.607],
+      "median_ms": 205.505,
+      "min_ms": 203.269,
+      "max_ms": 207.650,
+      "links": 20,
+      "html_bytes": 13900,
+      "before_comparison": "NOT_COLLECTED"
+    },
+    "memory_and_bank_reads": "NOT_INSTRUMENTED"
+  },
+  "doctor": {
+    "tested_application_sha": "2b83e812e8238094df81f17258be739e98109d41",
+    "command": "APP_ENV=production APP_DEBUG=false DB_DRIVER=json APP_STORAGE_PATH=/data/data/com.termux/files/home/boardprep-batch-706/storage php -d memory_limit=1G tools/doctor.php --release --json",
+    "artifact": "docs/reports/batch-729-full-doctor-20261030T222450Z.json",
+    "artifact_bytes": 2367368,
+    "artifact_sha256": "6ab2cb0e886076e0cd45f976139c08bb90a03520c46d8d05c1ef60378fc2086f",
+    "exit_code": 0,
+    "json_valid": true,
+    "release_gate": "PASS",
+    "decision": "RELEASE_READY_WITH_NONBLOCKING_DEBT",
+    "p0": 0,
+    "p1": 0,
+    "p2": 1,
+    "p3": 2,
+    "health": "REVIEW",
+    "failing_entities": 0,
+    "release_domains": {"PASS": 25, "REVIEW": 1, "FAIL": 0},
+    "security_failure_domains": 0,
+    "integrity_failure_domains": 0,
+    "storage": {
+      "available_before_bytes": 3333312512,
+      "required_available_bytes": 1837243096,
+      "minimum_observed_available_bytes": 3070017536,
+      "runtime_reserve_bytes": 134217728,
+      "fixture_bytes": 92412632,
+      "cleanup": "PASS",
+      "sessions_cleaned": true
+    }
+  },
+  "integrity": {
+    "canonical_count": 9123,
+    "expected_hashes_match": true,
+    "protected_hashes": {
+      "questions": "73cdc775cd7240b57898868d67902d833db1171f947c8dcc89081ddaf46fb4be",
+      "answer_keys_derived_from_question_records": "d4db069ce60c026e214ea68068b8206178782879c61b92271d4b1abe7dc7aad5",
+      "eligibility": "611f01ca29421c0c890c351c503ab262e87bc551269d78427b9a0889260933a4",
+      "source_registry": "7c640636dcd3ddd0f865106ba4506a5af5dcd4a02a2074c065f695da5ef2c271",
+      "study_links": "0e0aebad84afd09e38e477f277bb8086e52eb9b4a2e591c6de41118060a5663d",
+      "attempts": "e968fd3e8a391065ac2314ab9bcff932fc572cbe6024e16b40569b694bbed84b",
+      "weakness": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "question_statistics": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "academic_decisions": "a2a6a868c613be6d09c3e8607599779eb87a302e90207410d99328a4dbba343d",
+      "source_reviews": "ae9341dc97f54bc96b75a49bd06619c5bdbdf4abd1d5b9885851e1e76c9aa656",
+      "flashcard_exclusions": "236975ba94ef72c223ebe7f78a4725088ca53b7c20395edb52f39e5d5e2f7717"
+    },
+    "pending_academic_proposals": 276,
+    "learner_state_changed": false,
+    "academic_state_changed": false,
+    "q6403": "QUARANTINED",
+    "q1536_q1537": "SOURCE_ONLY",
+    "protected_untracked": {
+      "storage/academic-proposal-workflow.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "storage/flashcard_state.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "storage/question-statistics.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    }
+  },
+  "delivery": {
+    "push": "NOT_PERFORMED",
+    "deploy": "NOT_PERFORMED",
+    "remote_ci": "NOT_DISPATCHED",
+    "academic_approval": "DEFERRED",
+    "public_release": "NOT_APPROVED",
+    "b730_started": false,
+    "clipboard_status": "PENDING_BYTE_COMPARISON"
+  }
+}
