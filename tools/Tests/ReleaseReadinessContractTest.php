@@ -105,6 +105,80 @@ $contentAction = array_values(array_filter(
 $assert(array_key_exists('release_blocking', $contentAction) && ($contentAction['release_blocking'] ?? true) === false, 'Action queue omitted release-blocking classification.');
 $assert(($contentAction['recommended_timing'] ?? '') === 'POST_RELEASE', 'Action queue omitted post-release timing.');
 
+$traceabilityReport = RepositoryHealthEngine::analyzeCollections([]);
+$traceabilityReport->summary = [
+    'source_readiness_by_board' => [
+        'let' => [
+            'source_study_defects' => ['source' => 0, 'study' => 0, 'traceability' => 0, 'currentness' => 0],
+            'source_study_reviews' => [
+                'source_scope_fit_unknown' => 0,
+                'source_authority_unknown' => 0,
+                'study_coverage_unknown' => 0,
+                'traceability_unknown' => 0,
+                'currentness_unknown' => 0,
+                'structural_not_actionable' => 1,
+            ],
+            'records' => [[
+                'leaf_id' => 'shared-scope-fixture',
+                'official_area_id' => 'general-education',
+                'scope_status' => 'STRUCTURAL_NOT_ACTIONABLE',
+                'scope_crosswalk_status' => 'UNRESOLVED_PARENT_SCOPE',
+                'readiness' => 'REVIEW',
+                'review_reason' => 'A parent-scope crosswalk remains to be interpreted.',
+                'evidence_hash' => 'fixture-structural-evidence',
+            ]],
+        ],
+        'psychometrician' => [
+            'source_study_defects' => ['source' => 0, 'study' => 0, 'traceability' => 0, 'currentness' => 0],
+            'source_study_reviews' => [
+                'source_scope_fit_unknown' => 0,
+                'source_authority_unknown' => 0,
+                'study_coverage_unknown' => 0,
+                'traceability_unknown' => 0,
+                'currentness_unknown' => 1,
+                'structural_not_actionable' => 0,
+            ],
+            'records' => [[
+                'leaf_id' => 'currentness-fixture',
+                'official_area_id' => 'abnormal-psychology',
+                'source_currentness' => 'UNKNOWN',
+                'readiness' => 'DEFER',
+                'defer_reason' => 'Currentness needs source evidence.',
+                'evidence_hash' => 'fixture-currentness-evidence',
+            ]],
+        ],
+    ],
+    'study_relationships' => [
+        'canonical_questions_with_source_only_references' => 0,
+        'source_only_link_rows' => 0,
+        'material_level_link_rows' => 8,
+        'exact_section_link_rows' => 3,
+        'broken_or_unresolved_section_link_rows' => 0,
+        'exact_links_pending_or_approval_evidence_missing' => 1,
+        'exact_links_unreviewed_or_status_unknown' => 2,
+        'exact_links_approved_with_explicit_evidence' => 0,
+        'explicitly_rejected_mapping_rows' => 0,
+    ],
+];
+$traceabilitySummaryBefore = json_encode($traceabilityReport->summary, JSON_THROW_ON_ERROR);
+$traceabilityRelease = ReleaseReadinessService::audit($traceabilityReport);
+$traceabilityEvidence = (array) ($traceabilityRelease['release_domains']['SOURCE_TRACEABILITY']['evidence'] ?? []);
+$assert(($traceabilityRelease['release_domains']['SOURCE_TRACEABILITY']['status'] ?? '') === 'REVIEW', 'Source review evidence did not remain open after adding report detail.');
+$assert(($traceabilityEvidence['review_signals'] ?? -1) === 2
+    && ($traceabilityEvidence['review_signal_breakdown']['structural_not_actionable'] ?? -1) === 1
+    && ($traceabilityEvidence['review_signal_breakdown']['currentness_unknown'] ?? -1) === 1,
+    'Source traceability report did not classify the structural and currentness signals separately.');
+$assert(($traceabilityEvidence['actionable_review_item_count'] ?? -1) === 1
+    && ($traceabilityEvidence['unmapped_review_signal_count'] ?? -1) === 0
+    && ($traceabilityEvidence['review_signal_items'][0]['evidence_hash'] ?? '') === 'fixture-structural-evidence',
+    'Reviewer-facing source diagnostics omitted an actionable count or provenance.');
+$assert(($traceabilityEvidence['study_mapping_inventory']['exact_section_link_rows'] ?? -1) === 3
+    && ($traceabilityEvidence['study_mapping_inventory']['exact_links_pending_or_approval_evidence_missing'] ?? -1) === 1
+    && ($traceabilityEvidence['study_mapping_inventory']['explicitly_rejected_mapping_rows'] ?? -1) === 0,
+    'Source traceability evidence omitted persisted study-link review states.');
+$assert(json_encode($traceabilityReport->summary, JSON_THROW_ON_ERROR) === $traceabilitySummaryBefore,
+    'Read-only source traceability diagnostics mutated repository health evidence.');
+
 $storedCurrentness = RepositoryHealthEngine::analyzeCollections([
     'questions' => [
         ['id' => 'stored-pass', 'board_id' => 'civil-service', 'version_sensitive' => true, 'version_review_status' => 'PASS'],

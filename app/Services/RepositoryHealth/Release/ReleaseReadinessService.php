@@ -71,7 +71,16 @@ final class ReleaseReadinessService
         );
         $domains['SOURCE_TRACEABILITY'] = self::domain(
             ($hardSource + $sourceIssueDefects) > 0 ? 'FAIL' : ($reviewSignals > 0 ? 'REVIEW' : 'PASS'),
-            ['hard_source_defects' => $hardSource, 'source_readiness_failures' => $sourceIssueDefects, 'review_signals' => $reviewSignals],
+            [
+                'hard_source_defects' => $hardSource,
+                'source_readiness_failures' => $sourceIssueDefects,
+                'review_signals' => $reviewSignals,
+                ...self::sourceTraceabilityReviewEvidence(
+                    $readinessByBoard,
+                    (array) ($summary['study_relationships'] ?? []),
+                    $reviewSignals
+                ),
+            ],
             'Hard source defects block release; semantic fit and scope uncertainty remain review signals.'
         );
         $domains['STUDY_TRACEABILITY'] = self::domain(
@@ -488,6 +497,107 @@ final class ReleaseReadinessService
     private static function issueCount(array $issues, callable $predicate): int
     {
         return count(array_filter($issues, $predicate));
+    }
+
+    /**
+     * Keep the release-level source review signal actionable without changing
+     * source readiness, academic decisions, or the conservative gate status.
+     * Structural scope records remain visible but are separated from fields
+     * that still need evidence-backed human review.
+     *
+     * @param array<string, mixed> $readinessByBoard
+     * @param array<string, mixed> $relationships
+     * @return array<string, mixed>
+     */
+    private static function sourceTraceabilityReviewEvidence(
+        array $readinessByBoard,
+        array $relationships,
+        int $reviewSignals
+    ): array {
+        $signalFields = [
+            'source_scope_fit_unknown' => 'source_scope_fit',
+            'source_authority_unknown' => 'source_authority',
+            'study_coverage_unknown' => 'study_coverage',
+            'traceability_unknown' => 'study_source_traceability',
+            'currentness_unknown' => 'source_currentness',
+        ];
+        $breakdown = array_fill_keys(array_keys($signalFields), 0);
+        $breakdown['structural_not_actionable'] = 0;
+        $items = [];
+
+        foreach ($readinessByBoard as $boardId => $readiness) {
+            if (!is_array($readiness)) continue;
+            foreach ((array) ($readiness['records'] ?? []) as $record) {
+                if (!is_array($record)) continue;
+                $leafId = trim((string) ($record['leaf_id'] ?? ''));
+                if (($record['scope_status'] ?? '') === 'STRUCTURAL_NOT_ACTIONABLE') {
+                    if (($record['scope_crosswalk_status'] ?? '') === 'VERIFIED_PARENT_SCOPE') continue;
+                    $breakdown['structural_not_actionable']++;
+                    $items[] = [
+                        'classification' => 'STRUCTURAL_SCOPE_NOT_ACTIONABLE',
+                        'board_id' => strtolower(trim((string) $boardId)),
+                        'leaf_id' => $leafId,
+                        'official_area_id' => (string) ($record['official_area_id'] ?? ''),
+                        'readiness' => (string) ($record['readiness'] ?? ''),
+                        'scope_crosswalk_status' => (string) ($record['scope_crosswalk_status'] ?? ''),
+                        'reason' => (string) ($record['review_reason'] ?? $record['defer_reason'] ?? ''),
+                        'evidence_hash' => (string) ($record['evidence_hash'] ?? ''),
+                    ];
+                    continue;
+                }
+
+                foreach ($signalFields as $signal => $field) {
+                    if (($record[$field] ?? '') !== 'UNKNOWN') continue;
+                    $breakdown[$signal]++;
+                    $items[] = [
+                        'classification' => 'REVIEW_PENDING',
+                        'signal' => $signal,
+                        'board_id' => strtolower(trim((string) $boardId)),
+                        'leaf_id' => $leafId,
+                        'official_area_id' => (string) ($record['official_area_id'] ?? ''),
+                        'readiness' => (string) ($record['readiness'] ?? ''),
+                        'reason' => (string) ($record['review_reason'] ?? $record['defer_reason'] ?? ''),
+                        'evidence_hash' => (string) ($record['evidence_hash'] ?? ''),
+                    ];
+                }
+            }
+        }
+
+        usort($items, static fn(array $a, array $b): int =>
+            strcmp((string) ($a['board_id'] ?? ''), (string) ($b['board_id'] ?? ''))
+            ?: strcmp((string) ($a['leaf_id'] ?? ''), (string) ($b['leaf_id'] ?? ''))
+            ?: strcmp((string) ($a['signal'] ?? $a['classification'] ?? ''), (string) ($b['signal'] ?? $b['classification'] ?? ''))
+        );
+
+        $mappingKeys = [
+            'canonical_questions_with_source_only_references',
+            'source_only_link_rows',
+            'material_level_link_rows',
+            'exact_section_link_rows',
+            'broken_or_unresolved_section_link_rows',
+            'exact_links_pending_or_approval_evidence_missing',
+            'exact_links_unreviewed_or_status_unknown',
+            'exact_links_approved_with_explicit_evidence',
+            'explicitly_rejected_mapping_rows',
+        ];
+        $mappingInventory = [];
+        foreach ($mappingKeys as $key) {
+            $value = $relationships[$key] ?? null;
+            $mappingInventory[$key] = is_numeric($value) ? max(0, (int) $value) : null;
+        }
+
+        $detailedSignalCount = array_sum($breakdown);
+        return [
+            'review_signal_breakdown' => $breakdown,
+            'review_signal_items' => $items,
+            'actionable_review_item_count' => count(array_filter(
+                $items,
+                static fn(array $item): bool => ($item['classification'] ?? '') === 'REVIEW_PENDING'
+            )),
+            'structural_not_actionable_item_count' => $breakdown['structural_not_actionable'],
+            'unmapped_review_signal_count' => max(0, $reviewSignals - $detailedSignalCount),
+            'study_mapping_inventory' => $mappingInventory,
+        ];
     }
 
     /** @return array<string, mixed> */

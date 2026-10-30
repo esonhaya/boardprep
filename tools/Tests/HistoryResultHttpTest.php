@@ -96,7 +96,8 @@ try {
         'completed' => true,
         'review' => $review,
     ]);
-    for ($index = 1; $index <= 22; $index++) {
+    $historyStart = new DateTimeImmutable('2027-01-01T10:00:00+00:00');
+    for ($index = 1; $index <= 497; $index++) {
         $repository->create([
             'id' => 'attempt-history-page-' . $index,
             'user_id' => $learner,
@@ -107,7 +108,7 @@ try {
             'total' => 2,
             'percentage' => 50,
             'completed' => true,
-            'completed_at' => sprintf('2026-09-%02dT10:00:00+00:00', $index),
+            'completed_at' => $historyStart->modify('+' . $index . ' days')->format(DATE_ATOM),
         ]);
     }
 
@@ -156,18 +157,33 @@ try {
     $router->dispatch('GET', '/history');
     $firstHistoryPage = (string) ob_get_clean();
     historyCheck(substr_count($firstHistoryPage, '<article class="quiz-history-item">') === 20, 'quiz history did not bound the first rendered page to 20 attempts');
-    historyCheck(str_contains($firstHistoryPage, 'Showing 1–20 of 25 completed quizzes') && str_contains($firstHistoryPage, 'href="/history?page=2"'), 'quiz history pagination did not show its range or next destination');
-    historyCheck(str_contains($firstHistoryPage, 'href="/history/result?id=attempt-history-page-22"') && !str_contains($firstHistoryPage, 'href="/history/result?id=attempt-history-page-1"'), 'quiz history page one did not prioritize the newest attempts');
+    historyCheck(str_contains($firstHistoryPage, 'Showing 1–20 of 500 completed quizzes')
+        && str_contains($firstHistoryPage, 'Page 1 of 25')
+        && str_contains($firstHistoryPage, 'href="/history?page=2"'), '500-attempt history pagination did not show its range, page count, or next destination');
+    historyCheck(str_contains($firstHistoryPage, 'href="/history/result?id=attempt-history-page-497"')
+        && !str_contains($firstHistoryPage, 'href="/history/result?id=attempt-history-page-1"'), 'first history page did not prioritize the newest completed attempts');
 
-    $_GET = ['page' => '2'];
+    $_GET = ['page' => '25'];
     ob_start();
     $router->dispatch('GET', '/history');
-    $secondHistoryPage = (string) ob_get_clean();
-    historyCheck(substr_count($secondHistoryPage, '<article class="quiz-history-item">') === 5, 'quiz history second page did not contain the remaining attempts');
-    historyCheck(str_contains($secondHistoryPage, 'href="/history/result?id=attempt-history-page-1"') && str_contains($secondHistoryPage, 'href="/history?page=1"'), 'quiz history second page did not include the oldest attempts or previous destination');
+    $lastHistoryPage = (string) ob_get_clean();
+    historyCheck(substr_count($lastHistoryPage, '<article class="quiz-history-item">') === 20, '500-attempt history last page did not stay bounded to 20 rendered attempts');
+    historyCheck(str_contains($lastHistoryPage, 'Showing 481–500 of 500 completed quizzes')
+        && str_contains($lastHistoryPage, 'Page 25 of 25')
+        && str_contains($lastHistoryPage, 'href="/history?page=24"'), 'last history page did not show its range or previous destination');
+    historyCheck(str_contains($lastHistoryPage, 'href="/history/result?id=attempt-history-page-1"')
+        && str_contains($lastHistoryPage, 'href="/history/result?id=attempt-history-owned"')
+        && !str_contains($lastHistoryPage, 'href="/history/result?id=attempt-history-page-497"'), 'last history page did not preserve the oldest and original owned attempts');
+
+    $_GET = ['page' => '999'];
+    ob_start();
+    $router->dispatch('GET', '/history');
+    $clampedHistoryPage = (string) ob_get_clean();
+    historyCheck(str_contains($clampedHistoryPage, 'Page 25 of 25')
+        && str_contains($clampedHistoryPage, 'Showing 481–500 of 500 completed quizzes'), 'out-of-range history page did not clamp to the last available page');
 
     echo "[PASS] Owned history result renders through the production router with score, review, study, flashcard, and return actions.\n";
-    echo "[PASS] Quiz history renders 20 owned attempts per page and preserves full-history summary calculations.\n";
+    echo "[PASS] Persisted history with 500 owned attempts renders 20 per page, keeps exact ranges and totals, clamps an out-of-range page, and preserves full-history summary calculations.\n";
     echo "[PASS] Foreign, unknown, request-owner override, and GET mutation boundaries hold.\n";
 } finally {
     putenv('APP_ENV');
