@@ -112,17 +112,36 @@ final class QuizStartSessionPayloadFactory
             if (count($sourceIds) >= 200) break;
         }
         $focusId = is_scalar($context['focus_question_id'] ?? null) ? trim((string) $context['focus_question_id']) : '';
+        if ($focusId !== '' && !in_array($focusId, $sourceIds, true)) {
+            $providedSourceIds = is_array($context['source_question_ids'] ?? null) ? $context['source_question_ids'] : [];
+            $focusWasProvided = false;
+            foreach ($providedSourceIds as $rawId) {
+                if (is_scalar($rawId) && trim((string) $rawId) === $focusId) {
+                    $focusWasProvided = true;
+                    break;
+                }
+            }
+            if ($focusWasProvided) {
+                $sourceIds = array_slice(array_merge([$focusId], $sourceIds), 0, 200);
+            }
+        }
         if ($focusId !== '' && !in_array($focusId, $sourceIds, true)) $focusId = '';
         $subject = is_scalar($context['subject'] ?? null) ? trim((string) $context['subject']) : '';
         $topicId = \App\Services\Learning\MistakeNotebookService::taxonomyId('topics', $context['topic_id'] ?? '');
         $level = strtoupper(is_scalar($context['civil_service_level'] ?? null) ? trim((string) $context['civil_service_level']) : '');
         if (!in_array($level, ['', 'PROFESSIONAL', 'SUBPROFESSIONAL'], true)) $level = '';
+        $letVariant = is_array($specification->letVariant ?? null) ? $specification->letVariant : [];
+        $letLevel = (string) ($letVariant['level'] ?? '');
+        $letSpecialization = (string) ($letVariant['specialization_id'] ?? '');
         return [
             'mode' => (string) $context['mode'],
             'board' => $board,
             'subject' => $subject,
             'topic_id' => $topicId,
             'civil_service_level' => $level,
+            'let_level' => $letLevel,
+            'let_specialization_id' => $letSpecialization,
+            'let_variant_key' => $letLevel !== '' ? \App\Services\Learning\MistakeNotebookService::letVariantKey($letLevel, $letSpecialization) : 'UNSCOPED',
             'focus_question_id' => $focusId,
             'source_question_ids' => $sourceIds,
             'selected_question_ids' => array_keys($selectedIds),

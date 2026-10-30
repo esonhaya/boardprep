@@ -13,8 +13,22 @@ use App\Services\Shared\TaxonomyStorageService;
 final class MistakePracticePoolService
 {
     /** @return array{questions:list<array>,eligibility_index:\App\Services\Question\QuestionEligibilityIndex,source_question_ids:list<string>} */
-    public function retry(array $attempts, string $board, string $subject = '', ?string $civilServiceLevel = null, string $focusQuestionId = '', string $topicId = '', ?array $summaries = null): array
+    public function retry(
+        array $attempts,
+        string $board,
+        string $subject = '',
+        ?string $civilServiceLevel = null,
+        string $focusQuestionId = '',
+        string $topicId = '',
+        ?array $summaries = null,
+        ?string $variantKey = null,
+        ?array $letVariant = null
+    ): array
     {
+        $eligibility = QuestionEligibilityService::index();
+        if (!self::variantRequestValid($board, $variantKey, $letVariant)) {
+            return ['questions' => [], 'eligibility_index' => $eligibility, 'source_question_ids' => []];
+        }
         $mistakes = $summaries ?? MistakeNotebookService::summaries($attempts);
         $targetIds = [];
         foreach ($mistakes as $mistake) {
@@ -24,9 +38,20 @@ final class MistakePracticePoolService
                 || ($focusQuestionId !== '' && (string) $mistake['question_id'] !== $focusQuestionId)) {
                 continue;
             }
-            $targetIds[(string) $mistake['question_id']] = true;
+            foreach (is_array($mistake['events'] ?? null) ? $mistake['events'] : [] as $event) {
+                if (!is_array($event) || ($event['answered'] ?? false) !== true || ($event['correct'] ?? true) !== false
+                    || !self::eventMatchesVariant($event, $board, $civilServiceLevel, $variantKey)) continue;
+                $targetIds[(string) $mistake['question_id']] = true;
+            }
         }
-        $eligibility = QuestionEligibilityService::index();
+        foreach (MistakeNotebookService::skipped($attempts, $mistakes) as $item) {
+            if ((string) ($item['board'] ?? '') !== $board
+                || ($subject !== '' && (string) ($item['subject'] ?? '') !== $subject)
+                || ($topicId !== '' && (string) ($item['topic_id'] ?? '') !== $topicId)
+                || ($focusQuestionId !== '' && (string) ($item['question_id'] ?? '') !== $focusQuestionId)
+                || !self::eventMatchesVariant($item, $board, $civilServiceLevel, $variantKey)) continue;
+            $targetIds[(string) $item['question_id']] = true;
+        }
         if ($targetIds === []) {
             return ['questions' => [], 'eligibility_index' => $eligibility, 'source_question_ids' => []];
         }
@@ -39,6 +64,7 @@ final class MistakePracticePoolService
             difficultyDistribution: [],
             questionCount: max(1, count($targetIds)),
             exam: $board,
+            letVariant: $letVariant,
             civilServiceLevel: $civilServiceLevel
         );
         $eligible = \QuestionPoolFilter::filter(array_values($canonical), $request, $eligibility);
@@ -54,8 +80,23 @@ final class MistakePracticePoolService
      * each candidate through the normal board/subject eligibility filter.
      * @return array{questions:list<array>,eligibility_index:\App\Services\Question\QuestionEligibilityIndex,source_question_ids:list<string>,topics:list<string>}
      */
-    public function related(array $attempts, string $board, string $subject = '', ?string $civilServiceLevel = null, string $focusQuestionId = '', string $topicId = '', int $limit = 20, ?array $summaries = null): array
+    public function related(
+        array $attempts,
+        string $board,
+        string $subject = '',
+        ?string $civilServiceLevel = null,
+        string $focusQuestionId = '',
+        string $topicId = '',
+        int $limit = 20,
+        ?array $summaries = null,
+        ?string $variantKey = null,
+        ?array $letVariant = null
+    ): array
     {
+        $eligibility = QuestionEligibilityService::index();
+        if (!self::variantRequestValid($board, $variantKey, $letVariant)) {
+            return ['questions' => [], 'eligibility_index' => $eligibility, 'source_question_ids' => [], 'topics' => []];
+        }
         $mistakes = $summaries ?? MistakeNotebookService::summaries($attempts);
         $sourceQuestions = [];
         $allMissedIds = [];
@@ -63,13 +104,29 @@ final class MistakePracticePoolService
             if ((string) $mistake['board'] === $board
                 && ($subject === '' || (string) $mistake['subject'] === $subject)
                 && ($topicId === '' || (string) $mistake['topic_id'] === $topicId)) {
-                $allMissedIds[(string) $mistake['question_id']] = true;
-                if ($focusQuestionId === '' || (string) $mistake['question_id'] === $focusQuestionId) {
-                    $sourceQuestions[(string) $mistake['question_id']] = $mistake['question_snapshot'];
+                foreach (is_array($mistake['events'] ?? null) ? $mistake['events'] : [] as $event) {
+                    if (!is_array($event) || ($event['answered'] ?? false) !== true || ($event['correct'] ?? true) !== false) continue;
+                    $questionId = (string) $mistake['question_id'];
+                    $allMissedIds[$questionId] = true;
+                    if (!self::eventMatchesVariant($event, $board, $civilServiceLevel, $variantKey)) continue;
+                    if (($focusQuestionId === '' || $questionId === $focusQuestionId) && is_array($event['question'] ?? null)) {
+                        $sourceQuestions[$questionId] = $event['question'];
+                    }
                 }
             }
         }
-        $eligibility = QuestionEligibilityService::index();
+        foreach (MistakeNotebookService::skipped($attempts, $mistakes) as $item) {
+            if ((string) ($item['board'] ?? '') !== $board
+                || ($subject !== '' && (string) ($item['subject'] ?? '') !== $subject)
+                || ($topicId !== '' && (string) ($item['topic_id'] ?? '') !== $topicId)) continue;
+            $questionId = (string) ($item['question_id'] ?? '');
+            if ($questionId === '') continue;
+            $allMissedIds[$questionId] = true;
+            if (!self::eventMatchesVariant($item, $board, $civilServiceLevel, $variantKey)) continue;
+            if (($focusQuestionId === '' || $questionId === $focusQuestionId) && is_array($item['question_snapshot'] ?? null)) {
+                $sourceQuestions[$questionId] = $item['question_snapshot'];
+            }
+        }
         if ($sourceQuestions === []) {
             return ['questions' => [], 'eligibility_index' => $eligibility, 'source_question_ids' => [], 'topics' => []];
         }
@@ -119,6 +176,7 @@ final class MistakePracticePoolService
             difficultyDistribution: [],
             questionCount: max(1, count($relatedCandidates)),
             exam: $board,
+            letVariant: $letVariant,
             civilServiceLevel: $civilServiceLevel
         );
         $relatedById = [];
@@ -143,9 +201,39 @@ final class MistakePracticePoolService
         ];
     }
 
-    public function remainingEligibleCount(array $attempts, string $board, string $subject = '', ?string $civilServiceLevel = null, string $topicId = ''): int
+    public function remainingEligibleCount(
+        array $attempts,
+        string $board,
+        string $subject = '',
+        ?string $civilServiceLevel = null,
+        string $topicId = '',
+        ?string $variantKey = null,
+        ?array $letVariant = null
+    ): int
     {
-        return count($this->retry($attempts, $board, $subject, $civilServiceLevel, '', $topicId)['questions']);
+        return count($this->retry($attempts, $board, $subject, $civilServiceLevel, '', $topicId, null, $variantKey, $letVariant)['questions']);
+    }
+
+    private static function eventMatchesVariant(array $event, string $board, ?string $civilServiceLevel, ?string $variantKey): bool
+    {
+        if (strtolower($board) === 'let' && $variantKey !== null
+            && (string) ($event['let_variant_key'] ?? 'UNSCOPED') !== $variantKey) return false;
+        if (in_array(strtolower($board), ['cse', 'civil-service'], true) && $civilServiceLevel !== null) {
+            $recordedLevel = strtoupper(self::scalar($event['civil_service_level'] ?? ''));
+            if ($recordedLevel !== '' && $recordedLevel !== strtoupper($civilServiceLevel)) return false;
+        }
+        return true;
+    }
+
+    private static function variantRequestValid(string $board, ?string $variantKey, ?array $letVariant): bool
+    {
+        if (strtolower($board) !== 'let' || $variantKey === null) return true;
+        if ($variantKey === 'UNSCOPED') return $letVariant === null;
+        if (!is_array($letVariant)) return false;
+        return MistakeNotebookService::letVariantKey(
+            self::scalar($letVariant['level'] ?? ''),
+            self::scalar($letVariant['specialization_id'] ?? '')
+        ) === $variantKey;
     }
 
     /** @return array<string,int> */

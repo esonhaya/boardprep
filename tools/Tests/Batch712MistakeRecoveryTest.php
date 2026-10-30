@@ -78,7 +78,14 @@ function correctChoice(array $question): string
 
 function completeSingleQuestion(\Tools\Doctor\Project\BoardPrep\Simulation\HttpSimulator $http, array $cookies, string $questionId, string $csrf, bool $correct): array
 {
-    $question = \App\Core\App::container()->get(\App\Repositories\QuestionRepository::class)->find($questionId);
+    $question = null;
+    foreach (is_array($GLOBALS['eligibleRows'] ?? null) ? $GLOBALS['eligibleRows'] : [] as $candidate) {
+        if (is_array($candidate) && (string) ($candidate['id'] ?? '') === $questionId) {
+            $question = $candidate;
+            break;
+        }
+    }
+    if (!is_array($question)) $question = \App\Core\App::container()->get(\App\Repositories\QuestionRepository::class)->find($questionId);
     if (!is_array($question)) throw new RuntimeException('Selected test question is not canonical.');
     $answer = $correct ? correctChoice($question) : wrongChoice($question);
     $submit = $http->request('POST', '/quiz', [], [
@@ -229,7 +236,7 @@ $retryResult = completeSingleQuestion($http, $cookies, $ordinaryQuestionId, mist
 $performanceMs['recovery_result_summary'] = round($retryResult['duration'] * 1000, 2);
 mistakeAssert(str_contains($retryResult['output'], 'Mistake retry complete')
     && str_contains($retryResult['output'], 'Correct:</strong> 1')
-    && str_contains($retryResult['output'], 'Eligible recorded mistakes still available to retry'),
+    && str_contains($retryResult['output'], 'Incorrect or skipped questions still eligible to retry'),
     'Retry results did not show the ordinary scorer result and recovery summary.');
 $afterRetry = $http->request('GET', '/mistake-notebook', ['board' => 'let', 'subject' => $target['subject']], [], [], $cookies);
 mistakeHttpOk($afterRetry, 'Reopen notebook after correct retry');
@@ -245,6 +252,144 @@ mistakeAssert($relatedIds !== [] && !in_array($ordinaryQuestionId, $relatedIds, 
 foreach ($relatedPool['questions'] as $relatedQuestion) {
     mistakeAssert((string) ($relatedQuestion['taxonomy']['topic_id'] ?? '') === $target['topic'], 'Related practice used generic overlap instead of the exact taxonomy topic.');
 }
+$letVariantSample = null;
+$letSpecializations = \App\Services\Quiz\LET\LETVariantRegistry::specializations();
+foreach ($eligibleRows as $candidate) {
+    if (!is_array($candidate)) continue;
+    $candidateEligibility = $eligibility->forExam($candidate, 'let');
+    if (!is_array($candidateEligibility)) continue;
+    $placements = \App\Services\Quiz\LET\LETVariantRegistry::questionPlacements($candidate, $candidateEligibility);
+    $specializationIds = [];
+    foreach ($placements as $placement) {
+        if (strtoupper((string) ($placement['component'] ?? '')) === \App\Services\Quiz\LET\LETVariantRegistry::SPECIALIZATION
+            && is_scalar($placement['specialization_id'] ?? null)) {
+            $specializationIds[(string) $placement['specialization_id']] = true;
+        }
+    }
+    if (count($specializationIds) !== 1) continue;
+    $sourceSpecializationId = (string) array_key_first($specializationIds);
+    $sourceSpecialization = \App\Services\Quiz\LET\LETVariantRegistry::find($sourceSpecializationId);
+    if (!is_array($sourceSpecialization)) continue;
+    $sourceLevel = strtoupper((string) ($sourceSpecialization['level'] ?? ''));
+    foreach ($letSpecializations as $otherSpecialization) {
+        $otherId = is_scalar($otherSpecialization['id'] ?? null) ? (string) $otherSpecialization['id'] : '';
+        if ($otherId === '' || $otherId === $sourceSpecializationId || strtoupper((string) ($otherSpecialization['level'] ?? '')) !== $sourceLevel) continue;
+        $otherConfiguration = ['level' => $sourceLevel, 'specialization_id' => $otherId];
+        if (\App\Services\Quiz\LET\LETVariantRegistry::placementForConfiguration(
+            $candidate,
+            $otherConfiguration,
+            null,
+            $candidateEligibility
+        ) !== null) continue;
+        $letVariantSample = [
+            'question' => $candidate,
+            'eligibility' => $candidateEligibility,
+            'source' => ['level' => $sourceLevel, 'specialization_id' => $sourceSpecializationId],
+            'other' => $otherConfiguration,
+        ];
+        break 2;
+    }
+}
+mistakeAssert(is_array($letVariantSample), 'No exclusive registered LET specialization question was available for a variant recovery regression.');
+$variantQuestion = $letVariantSample['question'];
+$variantQuestionId = (string) ($variantQuestion['id'] ?? '');
+$variantSubject = (string) ($letVariantSample['eligibility']['subject_id'] ?? '');
+$variantTopic = (string) ($variantQuestion['taxonomy']['topic_id'] ?? '');
+$sourceVariant = $letVariantSample['source'];
+$otherVariant = $letVariantSample['other'];
+$variantAttemptRepository = \App\Core\App::container()->get(\App\Repositories\AttemptRepository::class);
+$variantAttempt = $variantAttemptRepository->create([
+    'id' => 'attempt-' . bin2hex(random_bytes(8)), 'user_id' => $learnerId,
+    'board' => 'let', 'subject' => $variantSubject,
+    'let_level' => $sourceVariant['level'], 'let_specialization_id' => $sourceVariant['specialization_id'],
+    'score' => 0, 'total' => 1, 'percentage' => 0, 'completed' => true,
+    'completed_at' => gmdate(DATE_ATOM),
+    'review' => [[
+        'question' => $variantQuestion, 'answered' => true, 'correct' => false,
+        'userAnswer' => wrongChoice($variantQuestion), 'correctAnswer' => $variantQuestion['answer'] ?? '',
+    ]],
+]);
+$sourceVariantKey = \App\Services\Learning\MistakeNotebookService::letVariantKey($sourceVariant['level'], $sourceVariant['specialization_id']);
+$otherVariantKey = \App\Services\Learning\MistakeNotebookService::letVariantKey($otherVariant['level'], $otherVariant['specialization_id']);
+$savedVariantAttempt = $variantAttemptRepository->find((string) $variantAttempt['id']);
+$savedVariantDetail = \App\Services\Learning\MistakeNotebookService::detail(
+    is_array($savedVariantAttempt) ? [$savedVariantAttempt] : [],
+    (string) $variantAttempt['id'],
+    $variantQuestionId
+);
+mistakeAssert(is_array($savedVariantDetail)
+    && ($savedVariantDetail['variant']['let_variant_key'] ?? '') === $sourceVariantKey,
+    'Persisted LET variant evidence was not preserved for mistake review.');
+$crossVariantTimeline = [
+    [
+        'id' => 'attempt-' . bin2hex(random_bytes(8)), 'board' => 'let', 'subject' => $variantSubject,
+        'let_level' => $sourceVariant['level'], 'let_specialization_id' => $sourceVariant['specialization_id'],
+        'score' => 0, 'total' => 1, 'percentage' => 0, 'completed' => true,
+        'completed_at' => gmdate(DATE_ATOM, time() - 120),
+        'review' => [['question' => $variantQuestion, 'answered' => true, 'correct' => false, 'userAnswer' => 'Saved wrong answer']],
+    ],
+    [
+        'id' => 'attempt-' . bin2hex(random_bytes(8)), 'board' => 'let', 'subject' => $variantSubject,
+        'let_level' => $otherVariant['level'], 'let_specialization_id' => $otherVariant['specialization_id'],
+        'score' => 1, 'total' => 1, 'percentage' => 100, 'completed' => true,
+        'completed_at' => gmdate(DATE_ATOM),
+        'review' => [['question' => $variantQuestion, 'answered' => true, 'correct' => true, 'userAnswer' => (string) ($variantQuestion['answer'] ?? '')]],
+    ],
+];
+$crossVariantDetail = \App\Services\Learning\MistakeNotebookService::detail(
+    $crossVariantTimeline,
+    (string) $crossVariantTimeline[0]['id'],
+    $variantQuestionId
+);
+mistakeAssert(is_array($crossVariantDetail)
+    && ($crossVariantDetail['mistake_summary']['latest_status'] ?? '') === 'NOT_YET_RETRIED'
+    && count((array) ($crossVariantDetail['events'] ?? [])) === 2
+    && ($crossVariantDetail['events'][1]['variant_label'] ?? '') !== '',
+    'Review status or timeline context leaked across LET specializations.');
+$sourceVariantRetry = $practicePool->retry(
+    [$variantAttempt], 'let', $variantSubject, null, $variantQuestionId, $variantTopic,
+    null, $sourceVariantKey, $sourceVariant
+);
+mistakeAssert(in_array($variantQuestionId, array_map(static fn(array $question): string => (string) ($question['id'] ?? ''), $sourceVariantRetry['questions']), true),
+    'Saved LET variant did not retain its eligible missed specialization question.');
+$foreignVariantRetry = $practicePool->retry(
+    [$variantAttempt], 'let', $variantSubject, null, $variantQuestionId, $variantTopic,
+    null, $otherVariantKey, $otherVariant
+);
+mistakeAssert($foreignVariantRetry['questions'] === [], 'A saved LET specialization mistake leaked into another specialization recovery pool.');
+$variantNotebook = $http->request('GET', '/mistake-notebook', [
+    'board' => 'let', 'subject' => $variantSubject, 'topic' => $variantTopic,
+], [], [], $cookies);
+mistakeHttpOk($variantNotebook, 'Open owned LET specialization mistake history');
+mistakeAssert(str_contains($variantNotebook['output'], htmlspecialchars((string) $sourceVariant['specialization_id'], ENT_QUOTES, 'UTF-8'))
+    && str_contains($variantNotebook['output'], 'name="let_variant_key"'),
+    'LET history did not expose the saved practice variant as a recovery option.');
+$variantRetryStart = $http->request('POST', '/mistake-notebook/practice', [], [
+    'csrf_token' => mistakeCsrf($variantNotebook['output']), 'board' => 'let', 'subject' => $variantSubject,
+    'topic' => $variantTopic, 'focus_question_id' => $variantQuestionId,
+    'let_variant_key' => $sourceVariantKey, 'practice_type' => 'retry', 'count' => 5,
+], [], $cookies);
+mistakeHttpOk($variantRetryStart, 'Start recovery in the saved LET specialization');
+if (!preg_match('/name="question_id"\s+value="([^"]+)"/', $variantRetryStart['output'], $variantRetryQuestionMatch)) {
+    throw new RuntimeException('Saved LET specialization did not enter the ordinary quiz flow.');
+}
+mistakeAssert($variantRetryQuestionMatch[1] === $variantQuestionId, 'LET specialization retry changed the exact missed source question.');
+$variantRetryResult = completeSingleQuestion($http, $cookies, $variantQuestionId, mistakeCsrf($variantRetryStart['output']), true);
+mistakeHttpOk($variantRetryResult, 'Complete a variant-scoped LET recovery attempt');
+$attemptRowsAfterVariantRetry = json_decode((string) file_get_contents($fixture . '/attempts.json'), true, 512, JSON_THROW_ON_ERROR);
+$savedVariantRecovery = null;
+foreach (array_reverse($attemptRowsAfterVariantRetry) as $savedAttempt) {
+    if (is_array($savedAttempt)
+        && in_array($variantQuestionId, (array) ($savedAttempt['mistake_recovery']['source_question_ids'] ?? []), true)) {
+        $savedVariantRecovery = $savedAttempt;
+        break;
+    }
+}
+mistakeAssert(is_array($savedVariantRecovery)
+    && strtoupper((string) ($savedVariantRecovery['let_level'] ?? '')) === $sourceVariant['level']
+    && (string) ($savedVariantRecovery['let_specialization_id'] ?? '') === $sourceVariant['specialization_id']
+    && (string) ($savedVariantRecovery['mistake_recovery']['let_variant_key'] ?? '') === $sourceVariantKey,
+    'Completed LET recovery did not persist the exact variant context with its new attempt.');
 $unclassifiedQuestion = $canonicalOrdinary;
 $unclassifiedTaxonomy = is_array($unclassifiedQuestion['taxonomy'] ?? null) ? $unclassifiedQuestion['taxonomy'] : [];
 unset($unclassifiedTaxonomy['topic_id'], $unclassifiedTaxonomy['concept_id'], $unclassifiedTaxonomy['concept_ids']);
@@ -474,6 +619,110 @@ $cseHold = $http->request('POST', '/mistake-notebook/practice', [], [
 mistakeHttpOk($cseHold, 'Keep Q6403 out of CSE retry', 303);
 mistakeAssert(($cseHold['location'] ?? '') === '/mistake-notebook', 'A quarantined-only retry unexpectedly started a session.');
 
+$seenQuestionIds = [];
+foreach ($attemptRepo->byUser($learnerId) as $savedAttempt) {
+    foreach (is_array($savedAttempt['review'] ?? null) ? $savedAttempt['review'] : [] as $savedItem) {
+        $savedQuestion = is_array($savedItem['question'] ?? null) ? $savedItem['question'] : [];
+        if (is_scalar($savedQuestion['id'] ?? null)) $seenQuestionIds[(string) $savedQuestion['id']] = true;
+    }
+}
+$skipSelection = new SelectionRequest(
+    subject: $target['subject'], domain: null, difficultyDistribution: [], questionCount: 20,
+    topic: $target['topic'], exam: 'let'
+);
+$skipCandidate = null;
+foreach (QuestionPoolFilter::filter($eligibleRows, $skipSelection, $eligibility) as $candidate) {
+    $id = (string) ($candidate['id'] ?? '');
+    if ($id !== '' && !isset($seenQuestionIds[$id])) {
+        $skipCandidate = $candidate;
+        break;
+    }
+}
+mistakeAssert(is_array($skipCandidate), 'Could not find an unseen eligible LET question for persisted skipped-question recovery.');
+$skipQuestionId = (string) $skipCandidate['id'];
+$skipAttempt = $attemptRepo->create([
+    'id' => 'attempt-' . bin2hex(random_bytes(8)),
+    'user_id' => $learnerId,
+    'board' => 'let',
+    'subject' => $target['subject'],
+    'mode' => 'exam',
+    'score' => 0,
+    'total' => 1,
+    'percentage' => 0,
+    'completed' => true,
+    'completed_at' => gmdate(DATE_ATOM),
+    'review' => [[
+        'question' => $skipCandidate,
+        'choices' => $skipCandidate['choices'] ?? [],
+        'userAnswer' => '',
+        'correctAnswer' => $skipCandidate['answer'] ?? '',
+        'correct' => false,
+        'answered' => false,
+        'explanation' => $skipCandidate['explanation'] ?? '',
+    ]],
+]);
+$skipNotebook = $http->request('GET', '/mistake-notebook', [
+    'board' => 'let', 'subject' => $target['subject'], 'topic' => $target['topic'],
+], [], [], $cookies);
+mistakeHttpOk($skipNotebook, 'Show persisted skipped question in Mistake Notebook');
+mistakeAssert(str_contains($skipNotebook['output'], 'Skipped questions')
+    && str_contains($skipNotebook['output'], 'question_id=' . $skipQuestionId), 'Persisted unanswered question did not have an owned notebook review link.');
+$skipReview = $http->request('GET', '/mistake-notebook/review', [
+    'attempt_id' => $skipAttempt['id'], 'question_id' => $skipQuestionId,
+], [], [], $cookies);
+mistakeHttpOk($skipReview, 'Open the saved explanation for a skipped question');
+mistakeAssert(str_contains($skipReview['output'], 'No answer · skipped')
+    && str_contains($skipReview['output'], 'Practice this skipped question or its topic'),
+    'Skipped question review did not expose its saved outcome and eligible recovery action.');
+$skipRelated = $http->request('POST', '/mistake-notebook/practice', [], [
+    'csrf_token' => mistakeCsrf($skipReview['output']), 'board' => 'let', 'subject' => $target['subject'],
+    'topic' => $target['topic'], 'focus_question_id' => $skipQuestionId, 'let_variant_key' => 'UNSCOPED',
+    'practice_type' => 'related', 'count' => 5,
+], [], $cookies);
+mistakeHttpOk($skipRelated, 'Start related practice from a skipped question');
+if (!preg_match('/name="question_id"\s+value="([^"]+)"/', $skipRelated['output'], $skipRelatedQuestionMatch)) {
+    throw new RuntimeException('Skipped-question related practice did not start through the ordinary quiz path.');
+}
+mistakeAssert($skipRelatedQuestionMatch[1] !== $skipQuestionId, 'Related practice repeated the skipped source instead of selecting another eligible question.');
+$skipRelatedQuestion = null;
+foreach ($eligibleRows as $candidate) {
+    if (is_array($candidate) && (string) ($candidate['id'] ?? '') === $skipRelatedQuestionMatch[1]) {
+        $skipRelatedQuestion = $candidate;
+        break;
+    }
+}
+mistakeAssert(is_array($skipRelatedQuestion)
+    && (string) ($skipRelatedQuestion['taxonomy']['topic_id'] ?? '') === $target['topic'],
+    'Skipped-question related practice left its exact recorded topic.');
+$skipRetry = $http->request('POST', '/mistake-notebook/practice', [], [
+    'csrf_token' => mistakeCsrf($skipReview['output']), 'board' => 'let', 'subject' => $target['subject'],
+    'topic' => $target['topic'], 'focus_question_id' => $skipQuestionId, 'let_variant_key' => 'UNSCOPED',
+    'practice_type' => 'retry', 'count' => 5,
+], [], $cookies);
+mistakeHttpOk($skipRetry, 'Start retry practice from the skipped question review');
+if (!preg_match('/name="question_id"\s+value="([^"]+)"/', $skipRetry['output'], $skipRetryQuestionMatch)) {
+    throw new RuntimeException('Skipped-question recovery did not start through the ordinary quiz path.');
+}
+mistakeAssert($skipRetryQuestionMatch[1] === $skipQuestionId, 'Skipped-question recovery did not retain its exact eligible source question.');
+$skipRetryResult = completeSingleQuestion($http, $cookies, $skipQuestionId, mistakeCsrf($skipRetry['output']), true);
+mistakeAssert(str_contains($skipRetryResult['output'], 'Mistake retry complete'), 'Skipped-question practice did not return through normal quiz scoring.');
+$attemptRowsAfterSkipRetry = json_decode((string) file_get_contents($fixture . '/attempts.json'), true, 512, JSON_THROW_ON_ERROR);
+$preservedSkippedAttempt = null;
+$savedRecoveryAttempt = null;
+foreach ($attemptRowsAfterSkipRetry as $savedAttempt) {
+    if (!is_array($savedAttempt)) continue;
+    if (($savedAttempt['id'] ?? '') === $skipAttempt['id']) $preservedSkippedAttempt = $savedAttempt;
+    if (in_array($skipQuestionId, (array) ($savedAttempt['mistake_recovery']['source_question_ids'] ?? []), true)) $savedRecoveryAttempt = $savedAttempt;
+}
+mistakeAssert(is_array($preservedSkippedAttempt)
+    && hash('sha256', json_encode($preservedSkippedAttempt, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR))
+        === hash('sha256', json_encode($skipAttempt, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR)),
+    'Retry practice modified the original persisted skipped attempt.');
+mistakeAssert(is_array($savedRecoveryAttempt)
+    && ($savedRecoveryAttempt['mistake_recovery']['mode'] ?? '') === 'retry_missed'
+    && in_array($skipQuestionId, (array) ($savedRecoveryAttempt['mistake_recovery']['source_question_ids'] ?? []), true),
+    'The finalized retry did not persist its skipped-question source context.');
+
 $canonicalHashAfter = hash_file('sha256', $questionPath);
 mistakeAssert($canonicalHashBefore === $canonicalHashAfter, 'Canonical questions or answer keys changed during mistake recovery.');
 $preservedAttempts = json_decode((string) file_get_contents($fixture . '/attempts.json'), true, 512, JSON_THROW_ON_ERROR);
@@ -487,6 +736,8 @@ echo "[PASS] Batch 712 ordinary quiz → mistake notebook → explanation → el
 echo "[PASS] Same-topic practice used distinct exact-topic eligible questions through the production quiz route.\n";
 echo "[PASS] Notes-based attempt context survived note deletion without restoring private note storage.\n";
 echo "[PASS] Skipped/foreign history and Q6403 CSE quarantine remain separately handled.\n";
+echo "[PASS] Persisted skipped questions open their saved explanation, start exact-topic practice/retry, and preserve the original attempt.\n";
+echo "[PASS] LET recovery retains the saved official specialization and excludes an incompatible specialization pool.\n";
 echo 'ORDINARY_QUESTION_ID=' . $ordinaryQuestionId . PHP_EOL;
 echo 'RELATED_QUESTION_ID=' . $relatedQuestionId . PHP_EOL;
 echo 'NOTES_QUESTION_ID=' . $noteQuestionId . PHP_EOL;

@@ -32,6 +32,7 @@ final class MistakeNotebookService
                 }
                 $itemBoard = $board !== '' ? $board : self::boardId($question['taxonomy']['board_id'] ?? $question['board'] ?? '');
                 $itemSubject = $subject !== '' ? $subject : self::taxonomyId('subjects', $question['taxonomy']['subject_id'] ?? $question['subject'] ?? '');
+                $variant = self::variantContext($attempt, $question, $itemBoard);
                 $key = self::contextKey($itemBoard, $itemSubject, $questionId);
                 $groups[$key] ??= [
                     'question_id' => $questionId,
@@ -53,6 +54,7 @@ final class MistakeNotebookService
                     'question' => $question,
                     'notes_practice' => is_array($attempt['notes_practice'] ?? null) ? $attempt['notes_practice'] : null,
                     'recovery_practice' => is_array($attempt['mistake_recovery'] ?? null) ? $attempt['mistake_recovery'] : null,
+                    ...$variant,
                 ];
                 // History is newest first. Keep the first snapshot for current display.
                 if (count($groups[$key]['events']) === 1) {
@@ -113,6 +115,7 @@ final class MistakeNotebookService
                 'latest_mistake_attempt_id' => (string) ($latestMistake['attempt_id'] ?? ''),
                 'last_mistake_at' => $latestMistake['date'],
                 'latest_outcome' => $latest['correct'] ? 'CORRECT' : 'INCORRECT',
+                'latest_mistake_variant_label' => (string) ($latestMistake['variant_label'] ?? ''),
                 'question_snapshot' => $question,
                 'events' => $events,
             ];
@@ -132,11 +135,15 @@ final class MistakeNotebookService
     {
         $mistakeKeys = [];
         foreach ($mistakes ?? self::summaries($attempts) as $mistake) {
-            $mistakeKeys[self::contextKey(
-                (string) $mistake['board'],
-                (string) $mistake['subject'],
-                (string) $mistake['question_id']
-            )] = true;
+            foreach (is_array($mistake['events'] ?? null) ? $mistake['events'] : [] as $event) {
+                if (!is_array($event) || ($event['answered'] ?? false) !== true || ($event['correct'] ?? true) !== false) continue;
+                $mistakeKeys[self::contextKey(
+                    (string) $mistake['board'],
+                    (string) $mistake['subject'],
+                    (string) $mistake['question_id'],
+                    self::recoveryVariantKey($event, (string) $mistake['board'])
+                )] = true;
+            }
         }
         $groups = [];
         foreach (LearningHistoryService::ordered($attempts) as $attempt) {
@@ -151,7 +158,8 @@ final class MistakeNotebookService
                 if ($id === '') continue;
                 $itemBoard = $board !== '' ? $board : self::boardId($question['taxonomy']['board_id'] ?? '');
                 $itemSubject = $subject !== '' ? $subject : self::taxonomyId('subjects', $question['taxonomy']['subject_id'] ?? '');
-                $key = self::contextKey($itemBoard, $itemSubject, $id);
+                $variant = self::variantContext($attempt, $question, $itemBoard);
+                $key = self::contextKey($itemBoard, $itemSubject, $id, self::recoveryVariantKey($variant, $itemBoard));
                 if (isset($mistakeKeys[$key])) continue;
                 $groups[$key] ??= [
                     'question_id' => $id,
@@ -159,9 +167,11 @@ final class MistakeNotebookService
                     'subject' => $itemSubject,
                     'topic_id' => self::scalar($question['taxonomy']['topic_id'] ?? $question['topic'] ?? ''),
                     'question_text' => is_scalar($question['question'] ?? null) ? (string) $question['question'] : '',
+                    'question_snapshot' => $question,
                     'attempt_id' => $attemptId,
                     'date' => LearningHistoryService::dateOf($attempt),
                     'count' => 0,
+                    ...$variant,
                 ];
                 $groups[$key]['count']++;
             }
@@ -196,6 +206,7 @@ final class MistakeNotebookService
         $anchorTaxonomy = is_array($anchorQuestion['taxonomy'] ?? null) ? $anchorQuestion['taxonomy'] : [];
         $board = self::boardId($anchor['board'] ?? $anchorTaxonomy['board_id'] ?? '');
         $subject = self::taxonomyId('subjects', $anchor['subject'] ?? $anchorTaxonomy['subject_id'] ?? '');
+        $variant = self::variantContext($anchor, $anchorQuestion, $board);
         $allItems = self::summaries($attempts);
         $summary = null;
         foreach ($allItems as $item) {
@@ -206,15 +217,146 @@ final class MistakeNotebookService
                 break;
             }
         }
+        $timelineEvents = is_array($summary['events'] ?? null) ? $summary['events'] : [];
+        $contextSummary = $summary;
+        if ($contextSummary !== null) {
+            $variantKey = self::recoveryVariantKey($variant, $board);
+            $contextEvents = array_values(array_filter(
+                $timelineEvents,
+                static fn(array $event): bool => self::recoveryVariantKey($event, $board) === $variantKey
+            ));
+            $contextAnswers = array_values(array_filter($contextEvents, static fn(array $event): bool => ($event['answered'] ?? false) === true));
+            $contextMistakes = array_values(array_filter(
+                $contextAnswers,
+                static fn(array $event): bool => ($event['correct'] ?? true) === false
+            ));
+            if ($contextMistakes === []) {
+                $contextSummary = null;
+            } else {
+                $latestContextAnswer = $contextAnswers[0] ?? $contextEvents[0];
+                $contextSummary['wrong_count'] = count($contextMistakes);
+                $contextSummary['attempt_count'] = count($contextAnswers);
+                $contextSummary['skipped_count'] = count(array_filter($contextEvents, static fn(array $event): bool => ($event['answered'] ?? false) !== true));
+                $contextSummary['latest_status'] = ($latestContextAnswer['correct'] ?? false) === true
+                    ? 'CORRECT_ON_MOST_RECENT_RETRY'
+                    : (count($contextAnswers) > 1 ? 'STILL_NEEDS_PRACTICE' : 'NOT_YET_RETRIED');
+                $contextSummary['latest_mistake_variant_label'] = (string) ($contextMistakes[0]['variant_label'] ?? '');
+            }
+        }
         return [
             'attempt' => $anchor,
             'item' => $anchorItem,
             'board' => $board,
             'subject' => $subject,
-            'mistake_summary' => $summary,
-            'events' => is_array($summary['events'] ?? null) ? $summary['events'] : [],
-            'is_mistake' => ($anchorItem['answered'] ?? false) === true,
+            'mistake_summary' => $contextSummary,
+            'events' => $timelineEvents,
+            'variant' => $variant,
+            'is_mistake' => ($anchorItem['answered'] ?? false) === true && ($anchorItem['correct'] ?? false) === false,
+            'is_recoverable' => true,
         ];
+    }
+
+    /** Return only explicitly saved variant evidence; absent legacy metadata stays unscoped. */
+    public static function variantContext(array $attempt, array $question, string $board): array
+    {
+        $attemptContext = is_array($question['attempt_context'] ?? null) ? $question['attempt_context'] : [];
+        $learningContext = is_array($attempt['learning_context'] ?? null) ? $attempt['learning_context'] : [];
+        $letVariant = is_array($attempt['let_variant'] ?? null) ? $attempt['let_variant'] : [];
+        $levelValue = $attempt['let_level'] ?? $letVariant['level'] ?? $learningContext['let_level'] ?? $attemptContext['let_level'] ?? '';
+        $specializationValue = $attempt['let_specialization_id']
+            ?? $attempt['let_specialization']
+            ?? $letVariant['specialization_id']
+            ?? $learningContext['let_specialization_id']
+            ?? $learningContext['let_specialization']
+            ?? $attemptContext['let_specialization']
+            ?? $attemptContext['let_specialization_id']
+            ?? '';
+        $level = strtoupper(self::scalar($levelValue));
+        $specialization = self::scalar($specializationValue);
+        $civilServiceLevel = strtoupper(self::scalar(
+            $attempt['civil_service_level'] ?? $learningContext['civil_service_level'] ?? $attemptContext['civil_service_level'] ?? ''
+        ));
+
+        if (strtolower($board) !== 'let') {
+            $civilServiceVariantLabel = match ($civilServiceLevel) {
+                'PROFESSIONAL' => 'Professional',
+                'SUBPROFESSIONAL' => 'Subprofessional',
+                default => in_array(strtolower($board), ['cse', 'civil-service'], true) ? 'Civil Service level not recorded' : '',
+            };
+            return [
+                'let_level' => '',
+                'let_specialization' => '',
+                'let_variant_key' => '',
+                'let_variant_label' => '',
+                'variant_label' => $civilServiceVariantLabel,
+                'civil_service_level' => $civilServiceLevel,
+            ];
+        }
+
+        if ($level === '' && $specialization === '') {
+            return [
+                'let_level' => '',
+                'let_specialization' => '',
+                'let_variant_key' => 'UNSCOPED',
+                'let_variant_label' => 'LET variant not recorded',
+                'variant_label' => 'LET variant not recorded',
+                'civil_service_level' => '',
+            ];
+        }
+
+        $validated = \App\Services\Quiz\LET\LETVariantRegistry::validateConfiguration([
+            'level' => $level,
+            'specialization_id' => $specialization,
+        ]);
+        $configuration = is_array($validated['configuration'] ?? null) ? $validated['configuration'] : [];
+        if (($validated['valid'] ?? false) !== true) {
+            return [
+                'let_level' => $level,
+                'let_specialization' => $specialization,
+                'let_variant_key' => 'UNAVAILABLE',
+                'let_variant_label' => 'Saved LET variant unavailable',
+                'variant_label' => 'Saved LET variant unavailable',
+                'civil_service_level' => '',
+            ];
+        }
+
+        $level = (string) ($configuration['level'] ?? $level);
+        $specialization = (string) ($configuration['specialization_id'] ?? '');
+        $specializationRecord = $specialization !== ''
+            ? \App\Services\Quiz\LET\LETVariantRegistry::find($specialization)
+            : null;
+        $label = ucfirst(strtolower($level));
+        if ($specializationRecord !== null) {
+            $label .= ' · ' . self::scalar($specializationRecord['official_name'] ?? $specializationRecord['name'] ?? $specialization);
+        } elseif ($level === \App\Services\Quiz\LET\LETVariantRegistry::ELEMENTARY) {
+            $label .= ' · General and Professional Education';
+        }
+
+        return [
+            'let_level' => $level,
+            'let_specialization' => $specialization,
+            'let_variant_key' => self::letVariantKey($level, $specialization),
+            'let_variant_label' => $label,
+            'variant_label' => $label,
+            'civil_service_level' => '',
+        ];
+    }
+
+    public static function letVariantKey(string $level, string $specialization = ''): string
+    {
+        return strtoupper(trim($level)) . '|' . trim($specialization);
+    }
+
+    public static function recoveryVariantKey(array $context, string $board): string
+    {
+        if (strtolower($board) === 'let') {
+            return is_scalar($context['let_variant_key'] ?? null) ? (string) $context['let_variant_key'] : 'UNSCOPED';
+        }
+        if (in_array(strtolower($board), ['cse', 'civil-service'], true)) {
+            $level = strtoupper(self::scalar($context['civil_service_level'] ?? ''));
+            return $level !== '' ? 'CSE|' . $level : 'CSE|UNRECORDED';
+        }
+        return '';
     }
 
     /** @return list<array<string,mixed>> */
@@ -267,9 +409,9 @@ final class MistakeNotebookService
         return $raw;
     }
 
-    private static function contextKey(string $board, string $subject, string $questionId): string
+    private static function contextKey(string $board, string $subject, string $questionId, string $variantKey = ''): string
     {
-        return strtolower($board) . "\0" . strtolower($subject) . "\0" . $questionId;
+        return strtolower($board) . "\0" . strtolower($subject) . "\0" . $questionId . "\0" . $variantKey;
     }
 
     private static function scalar(mixed $value): string

@@ -24,6 +24,7 @@ final class MistakeNotebookController
     {
         $attempts = self::attempts();
         $all = MistakeNotebookService::summaries($attempts);
+        $allSkipped = MistakeNotebookService::skipped($attempts, $all);
         $board = self::validFilter(MistakeNotebookService::boardId(Request::queryString('board')), $all, 'board');
         $subject = self::validFilter(MistakeNotebookService::taxonomyId('subjects', Request::queryString('subject')), $all, 'subject', $board);
         $topic = self::validFilter(MistakeNotebookService::taxonomyId('topics', Request::queryString('topic')), $all, 'topic', $board, $subject);
@@ -60,11 +61,18 @@ final class MistakeNotebookController
         $topicSummary = array_values($topicCounts);
         usort($topicSummary, static fn(array $a, array $b): int => ($b['incorrect_attempts'] <=> $a['incorrect_attempts'])
             ?: ($b['questions'] <=> $a['questions']) ?: strcmp($a['name'], $b['name']));
-        $skipped = array_values(array_filter(MistakeNotebookService::skipped($attempts, $all), static function (array $item) use ($board, $subject, $topic): bool {
+        $allSkipped = array_values(array_filter($allSkipped, static function (array $item) use ($board, $subject, $topic): bool {
             return ($board === '' || (string) ($item['board'] ?? '') === $board)
                 && ($subject === '' || (string) ($item['subject'] ?? '') === $subject)
                 && ($topic === '' || (string) ($item['topic_id'] ?? '') === $topic);
         }));
+        $skippedTotal = count($allSkipped);
+        $skippedPageSize = 20;
+        $skippedPages = max(1, (int) ceil($skippedTotal / $skippedPageSize));
+        $rawSkippedPage = Request::queryString('skipped_page', '1');
+        $requestedSkippedPage = preg_match('/\A[1-9]\d{0,5}\z/', $rawSkippedPage) === 1 ? (int) $rawSkippedPage : 1;
+        $skippedPage = min($requestedSkippedPage, $skippedPages);
+        $skipped = array_slice($allSkipped, ($skippedPage - 1) * $skippedPageSize, $skippedPageSize);
         $pageSize = 25;
         $page = max(1, min(10000, (int) Request::queryString('page', '1')));
         $pages = max(1, (int) ceil(count($items) / $pageSize));
@@ -85,8 +93,13 @@ final class MistakeNotebookController
             'topics' => self::topicOptions($all, $board, $subject),
             'page' => $page,
             'pages' => $pages,
+            'skippedTotal' => $skippedTotal,
+            'skippedPage' => $skippedPage,
+            'skippedPages' => $skippedPages,
+            'skippedPageSize' => $skippedPageSize,
             'csrfToken' => CsrfTokenService::token(),
             'civilServiceLevels' => self::civilServiceLevels($attempts, $board),
+            'letVariantOptions' => self::letVariantOptions($all, $allSkipped, $board, $subject, $topic),
         ]);
     }
 
@@ -114,6 +127,8 @@ final class MistakeNotebookController
             'question_id' => $questionId,
         ]);
         $references = StudyLibraryService::forQuestion($questionId, $detail['board'], $detail['subject']);
+        $allMistakes = MistakeNotebookService::summaries($attempts);
+        $allSkipped = MistakeNotebookService::skipped($attempts, $allMistakes);
         View::render('learning/mistake-review', [
             'pageTitle' => 'Review a Mistake | BoardPrep',
             'detail' => $detail,
@@ -125,6 +140,15 @@ final class MistakeNotebookController
             'references' => $references,
             'csrfToken' => CsrfTokenService::token(),
             'civilServiceLevels' => self::civilServiceLevels($attempts, (string) $detail['board']),
+            'letVariantOptions' => self::letVariantOptions(
+                $allMistakes,
+                $allSkipped,
+                (string) $detail['board'],
+                (string) $detail['subject'],
+                (string) ($question['taxonomy']['topic_id'] ?? $question['topic'] ?? ''),
+                $questionId
+            ),
+            'selectedLetVariantKey' => (string) ($detail['variant']['let_variant_key'] ?? ''),
         ]);
     }
 
@@ -146,14 +170,49 @@ final class MistakeNotebookController
         $focusQuestionId = is_scalar(Request::input('focus_question_id')) ? trim((string) Request::input('focus_question_id')) : '';
         $level = strtoupper(is_scalar(Request::input('civil_service_level')) ? trim((string) Request::input('civil_service_level')) : '');
 
+        $letVariantKey = null;
+        $letVariant = null;
+        $skipped = MistakeNotebookService::skipped($attempts, $mistakes);
+        if (strtolower($board) === 'let') {
+            $options = self::letVariantOptions($mistakes, $skipped, $board, $subject, $topic, $focusQuestionId);
+            $requestedVariantKey = is_scalar(Request::input('let_variant_key'))
+                ? trim((string) Request::input('let_variant_key'))
+                : '';
+            if ($requestedVariantKey === '' && count($options) === 1) {
+                $requestedVariantKey = (string) $options[0]['key'];
+            }
+            foreach ($options as $option) {
+                if ((string) ($option['key'] ?? '') !== $requestedVariantKey) continue;
+                $letVariantKey = (string) $option['key'];
+                $letVariant = is_array($option['configuration'] ?? null) ? $option['configuration'] : null;
+                break;
+            }
+            if ($letVariantKey === null) {
+                self::redirectWithError('Choose a recorded LET practice context before starting recovery. Older attempts without a saved variant remain labeled unscoped.');
+                return;
+            }
+        }
+
         $scopeHasMistakes = false;
         $focusValid = $focusQuestionId === '';
         foreach ($mistakes as $mistake) {
             if ((string) $mistake['board'] !== $board
                 || ($subject !== '' && (string) $mistake['subject'] !== $subject)
                 || ($topic !== '' && (string) $mistake['topic_id'] !== $topic)) continue;
+            foreach (is_array($mistake['events'] ?? null) ? $mistake['events'] : [] as $event) {
+                if (!is_array($event) || ($event['answered'] ?? false) !== true || ($event['correct'] ?? true) !== false
+                    || !self::eventMatchesPracticeVariant($event, $board, $level, $letVariantKey)) continue;
+                $scopeHasMistakes = true;
+                if ($focusQuestionId !== '' && (string) $mistake['question_id'] === $focusQuestionId) $focusValid = true;
+            }
+        }
+        foreach ($skipped as $item) {
+            if ((string) ($item['board'] ?? '') !== $board
+                || ($subject !== '' && (string) ($item['subject'] ?? '') !== $subject)
+                || ($topic !== '' && (string) ($item['topic_id'] ?? '') !== $topic)
+                || !self::eventMatchesPracticeVariant($item, $board, $level, $letVariantKey)) continue;
             $scopeHasMistakes = true;
-            if ($focusQuestionId !== '' && (string) $mistake['question_id'] === $focusQuestionId) $focusValid = true;
+            if ($focusQuestionId !== '' && (string) ($item['question_id'] ?? '') === $focusQuestionId) $focusValid = true;
         }
         if ($board === '' || !$scopeHasMistakes || !$focusValid || !in_array($mode, ['retry', 'related'], true)) {
             self::redirectWithError('Choose a board and focus that contains your own recorded mistakes.');
@@ -167,12 +226,12 @@ final class MistakeNotebookController
 
         $poolService = new MistakePracticePoolService();
         $pool = $mode === 'retry'
-            ? $poolService->retry($attempts, $board, $subject, $isCse ? $level : null, $focusQuestionId, $topic, $mistakes)
-            : $poolService->related($attempts, $board, $subject, $isCse ? $level : null, $focusQuestionId, $topic, 20, $mistakes);
+            ? $poolService->retry($attempts, $board, $subject, $isCse ? $level : null, $focusQuestionId, $topic, $mistakes, $letVariantKey, $letVariant)
+            : $poolService->related($attempts, $board, $subject, $isCse ? $level : null, $focusQuestionId, $topic, 20, $mistakes, $letVariantKey, $letVariant);
         $questions = $pool['questions'];
         if ($questions === []) {
             self::redirectWithError($mode === 'retry'
-                ? 'There are no currently eligible questions to retry in this board and subject. The original history remains available for review.'
+                ? 'There are no currently eligible incorrect or skipped questions to retry in this board and subject. The original history remains available for review.'
                 : 'No other eligible questions share a recorded topic or concept with these mistakes. No unrelated questions were added.');
             return;
         }
@@ -192,6 +251,10 @@ final class MistakeNotebookController
             'count' => $count,
         ];
         if ($isCse) $input['civil_service_level'] = $level;
+        if ($letVariant !== null) {
+            $input['let_level'] = (string) ($letVariant['level'] ?? '');
+            $input['let_specialization'] = (string) ($letVariant['specialization_id'] ?? '');
+        }
         $focus = $focusQuestionId !== '' ? $focusQuestionId : '';
         \QuizStartService::startFromQuestionPool($input, $questions, [
             'return_url' => '/mistake-notebook',
@@ -202,6 +265,9 @@ final class MistakeNotebookController
                 'subject' => $subject,
                 'topic_id' => $topic,
                 'civil_service_level' => $isCse ? $level : '',
+                'let_variant_key' => $letVariantKey ?? '',
+                'let_level' => $letVariant['level'] ?? '',
+                'let_specialization' => $letVariant['specialization_id'] ?? '',
                 'focus_question_id' => $focus,
                 'source_question_ids' => $sourceIds,
             ],
@@ -270,6 +336,61 @@ final class MistakeNotebookController
             if (in_array($level, ['PROFESSIONAL', 'SUBPROFESSIONAL'], true)) $levels[$level] = true;
         }
         return array_keys($levels);
+    }
+
+    private static function letVariantOptions(
+        array $mistakes,
+        array $skipped,
+        string $board,
+        string $subject = '',
+        string $topic = '',
+        string $focusQuestionId = ''
+    ): array {
+        if (strtolower($board) !== 'let') return [];
+        $options = [];
+        foreach ($mistakes as $mistake) {
+            if ((string) ($mistake['board'] ?? '') !== $board
+                || ($subject !== '' && (string) ($mistake['subject'] ?? '') !== $subject)
+                || ($topic !== '' && (string) ($mistake['topic_id'] ?? '') !== $topic)
+                || ($focusQuestionId !== '' && (string) ($mistake['question_id'] ?? '') !== $focusQuestionId)) continue;
+            foreach (is_array($mistake['events'] ?? null) ? $mistake['events'] : [] as $event) {
+                if (!is_array($event) || ($event['answered'] ?? false) !== true || ($event['correct'] ?? true) !== false) continue;
+                self::addLetVariantOption($options, $event);
+            }
+        }
+        foreach ($skipped as $item) {
+            if ((string) ($item['board'] ?? '') !== $board
+                || ($subject !== '' && (string) ($item['subject'] ?? '') !== $subject)
+                || ($topic !== '' && (string) ($item['topic_id'] ?? '') !== $topic)
+                || ($focusQuestionId !== '' && (string) ($item['question_id'] ?? '') !== $focusQuestionId)) continue;
+            self::addLetVariantOption($options, $item);
+        }
+        uasort($options, static fn(array $left, array $right): int => strcasecmp((string) $left['label'], (string) $right['label']));
+        return array_values($options);
+    }
+
+    private static function addLetVariantOption(array &$options, array $event): void
+    {
+        $key = is_scalar($event['let_variant_key'] ?? null) ? (string) $event['let_variant_key'] : 'UNAVAILABLE';
+        if ($key === 'UNAVAILABLE' || isset($options[$key])) return;
+        $level = is_scalar($event['let_level'] ?? null) ? (string) $event['let_level'] : '';
+        $specialization = is_scalar($event['let_specialization'] ?? null) ? (string) $event['let_specialization'] : '';
+        $options[$key] = [
+            'key' => $key,
+            'label' => is_scalar($event['let_variant_label'] ?? null) ? (string) $event['let_variant_label'] : 'LET variant not recorded',
+            'configuration' => $key === 'UNSCOPED' ? null : ['level' => $level, 'specialization_id' => $specialization],
+        ];
+    }
+
+    private static function eventMatchesPracticeVariant(array $event, string $board, string $civilServiceLevel, ?string $letVariantKey): bool
+    {
+        if (strtolower($board) === 'let' && $letVariantKey !== null
+            && (string) ($event['let_variant_key'] ?? 'UNSCOPED') !== $letVariantKey) return false;
+        if (in_array(strtolower($board), ['cse', 'civil-service'], true) && $civilServiceLevel !== '') {
+            $recordedLevel = strtoupper(is_scalar($event['civil_service_level'] ?? null) ? (string) $event['civil_service_level'] : '');
+            if ($recordedLevel !== '' && $recordedLevel !== $civilServiceLevel) return false;
+        }
+        return true;
     }
 
     private static function redirectWithError(string $message): void

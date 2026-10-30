@@ -45,6 +45,14 @@ final class MistakeRecoveryResultService
         $subject = MistakeNotebookService::taxonomyId('subjects', $context['subject'] ?? '');
         $topicId = MistakeNotebookService::taxonomyId('topics', $context['topic_id'] ?? '');
         $level = is_scalar($context['civil_service_level'] ?? null) ? (string) $context['civil_service_level'] : null;
+        $letLevel = strtoupper(is_scalar($context['let_level'] ?? null) ? trim((string) $context['let_level']) : '');
+        $letSpecialization = is_scalar($context['let_specialization_id'] ?? null)
+            ? trim((string) $context['let_specialization_id'])
+            : '';
+        $letVariant = $letLevel !== '' ? ['level' => $letLevel, 'specialization_id' => $letSpecialization] : null;
+        $variantKey = is_scalar($context['let_variant_key'] ?? null)
+            ? (string) $context['let_variant_key']
+            : null;
         $mode = ($context['mode'] ?? '') === 'related_topics' ? 'RELATED_QUESTIONS' : 'RETRY_MISSED_QUESTIONS';
 
         return [
@@ -52,6 +60,9 @@ final class MistakeRecoveryResultService
             'board' => $board,
             'subject' => $subject,
             'topic_id' => $topicId,
+            'let_level' => $letLevel,
+            'let_specialization_id' => $letSpecialization,
+            'let_variant_key' => $variantKey,
             'source_question_ids' => is_array($context['source_question_ids'] ?? null)
                 ? array_values(array_filter($context['source_question_ids'], 'is_string'))
                 : [],
@@ -64,7 +75,7 @@ final class MistakeRecoveryResultService
             'unanswered' => $unanswered,
             'questions' => $questions,
             'remaining_eligible_mistakes' => $board !== ''
-                ? (new MistakePracticePoolService())->remainingEligibleCount($attempts, $board, $subject, $level, $topicId)
+                ? (new MistakePracticePoolService())->remainingEligibleCount($attempts, $board, $subject, $level, $topicId, $variantKey, $letVariant)
                 : 0,
         ];
     }

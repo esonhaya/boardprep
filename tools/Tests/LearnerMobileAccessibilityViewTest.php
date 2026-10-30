@@ -15,11 +15,14 @@ $activeExamService = file_get_contents($root . '/app/Services/Quiz/ActiveExamDas
 $studyLibrary = file_get_contents($root . '/app/Views/study/library.php');
 $home = file_get_contents($root . '/app/Views/home/index.php');
 $history = file_get_contents($root . '/app/Views/history/index.php');
+$mistakeNotebook = file_get_contents($root . '/app/Views/learning/mistake-notebook.php');
+$mistakeReview = file_get_contents($root . '/app/Views/learning/mistake-review.php');
 $progress = file_get_contents($root . '/app/Views/progress/index.php');
 $flashcardReview = file_get_contents($root . '/app/Views/flashcards/review.php');
 $privacy = file_get_contents($root . '/app/Views/data-handling/index.php');
 $focus = file_get_contents($root . '/public/assets/js/quiz-focus.js');
 $css = file_get_contents($root . '/public/assets/css/style.css');
+$richCss = file_get_contents($root . '/public/assets/css/rich-product.css');
 
 preg_match_all('/<label\b[^>]*\bfor="(quiz-[^"]+)"/is', $settings, $quizLabelMatches);
 preg_match_all('/<(?:input|select|textarea)\b[^>]*\bid="(quiz-[^"]+)"/is', $settings, $quizControlMatches);
@@ -91,6 +94,16 @@ $checks = [
         && str_contains($history, 'No completed quizzes yet')
         && str_contains($progress, 'href="/flashcards">Review flashcards</a>')
         && str_contains($progress, 'href="/history">View all history</a>'),
+    'skipped reviews have labeled bounded navigation and saved-context status' => str_contains($mistakeNotebook, 'aria-label="Skipped question pages"')
+        && str_contains($mistakeNotebook, 'aria-live="polite"')
+        && str_contains($mistakeNotebook, 'rel="next"')
+        && str_contains($mistakeNotebook, 'rel="prev"')
+        && str_contains($mistakeReview, 'variant_label'),
+    'history and recovery controls stack and wrap at mobile widths with visible focus' => str_contains($css, '@media(max-width:600px){.history-filter-form{grid-template-columns:minmax(0,1fr)}')
+        && str_contains($richCss, '.mistake-pagination { display: flex; flex-wrap: wrap;')
+        && str_contains($richCss, '@media (max-width:760px)')
+        && str_contains($richCss, '.mistake-practice-form .button { width: 100%; min-height: 48px; }')
+        && str_contains($richCss, '.mistake-notebook-page a:focus-visible'),
     'flashcard navigation and ratings expose keyboard-operable named controls' => str_contains($flashcardReview, 'aria-label="Flashcard navigation"')
         && str_contains($flashcardReview, 'aria-labelledby="flashcard-answer-heading"')
         && substr_count($flashcardReview, 'class="flashcard-rating flashcard-rating-') === 1

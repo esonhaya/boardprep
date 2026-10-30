@@ -128,7 +128,7 @@ $taxonomyLabel = static fn(string $collection, mixed $id): string => \App\Servic
     <p>Your result below uses BoardPrep’s normal quiz scoring. A correct retry is recorded as a new attempt; the original mistake remains in your history.</p>
     <p><strong>Questions retried:</strong> <?= count((array) ($mistakeRecovery['questions'] ?? [])) ?> · <strong>Correct:</strong> <?= (int) ($mistakeRecovery['correct'] ?? 0) ?> · <strong>Incorrect:</strong> <?= (int) ($mistakeRecovery['incorrect'] ?? 0) ?> · <strong>Unanswered:</strong> <?= (int) ($mistakeRecovery['unanswered'] ?? 0) ?></p>
     <?php foreach (['Topics practiced' => $mistakeRecovery['topics_practiced'] ?? [], 'Topics to revisit' => $mistakeRecovery['topics_to_revisit'] ?? []] as $label => $topics): ?><?php if (is_array($topics) && $topics !== []): ?><p><strong><?= htmlspecialchars($label, ENT_QUOTES, 'UTF-8') ?>:</strong> <?= htmlspecialchars(implode(', ', array_map('strval', $topics)), ENT_QUOTES, 'UTF-8') ?></p><?php endif; ?><?php endforeach; ?>
-    <p><strong>Eligible recorded mistakes still available to retry:</strong> <?= (int) ($mistakeRecovery['remaining_eligible_mistakes'] ?? 0) ?></p>
+    <p><strong>Incorrect or skipped questions still eligible to retry:</strong> <?= (int) ($mistakeRecovery['remaining_eligible_mistakes'] ?? 0) ?></p>
     <p class="muted-note">These labels describe recorded attempts. They do not declare a topic mastered.</p>
     <p><a class="button button-outline" href="/mistake-notebook">Open Mistake Notebook</a></p>
 </section>
