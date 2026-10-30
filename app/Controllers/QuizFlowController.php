@@ -320,15 +320,23 @@ final class QuizFlowController
 
         $summary = $result['summary'] ?? [];
         $review = $result['review'] ?? [];
-        $reviewFilter = Request::queryString('review_filter', 'all');
-        if (!in_array($reviewFilter, ['all', 'incorrect', 'unanswered', 'correct'], true)) {
-            $reviewFilter = 'all';
-        }
         $session = \SessionService::get('quiz_session', []);
         $review = QuestionIdMigrationService::canonicalizeReview(
             is_array($review) ? $review : [],
             is_array($session) ? $session : []
         );
+        $markedQuestionIds = \App\Services\Quiz\HistoricalQuizResultService::markedQuestionIds(
+            ['review_flag_snapshot' => $summary['review_flag_snapshot'] ?? null],
+            $review
+        );
+        $reviewFilter = Request::queryString('review_filter', 'all');
+        $validFilters = ['all', 'incorrect', 'unanswered', 'correct'];
+        if ($markedQuestionIds !== null) {
+            $validFilters[] = 'marked';
+        }
+        if (!in_array($reviewFilter, $validFilters, true)) {
+            $reviewFilter = 'all';
+        }
         $studyReferencesByQuestion = StudyLibraryService::forQuestions(array_map(
             static fn(mixed $item): mixed => is_array($item) && is_array($item['question'] ?? null)
                 ? ($item['question']['id'] ?? null)
@@ -356,6 +364,8 @@ final class QuizFlowController
                 'summary' => $summary,
                 'review' => $review,
                 'reviewFilter' => $reviewFilter,
+                'markedQuestionIds' => $markedQuestionIds ?? [],
+                'markedReviewAvailable' => $markedQuestionIds !== null,
                 'reviewFilterBaseUrl' => '/quiz?action=result',
                 'quizSession' => is_array($session) ? $session : [],
                 'studyReferencesByQuestion' => $studyReferencesByQuestion,

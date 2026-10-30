@@ -90,6 +90,47 @@ final class HistoricalQuizResultService
         return array_values(array_unique($ids));
     }
 
+    /**
+     * Return marks only for attempts that contain a valid versioned snapshot.
+     * Null means the attempt predates saved review marks or its metadata is invalid.
+     *
+     * @return array<int,string>|null
+     */
+    public static function markedQuestionIds(array $attempt, array $review): ?array
+    {
+        $snapshot = $attempt['review_flag_snapshot'] ?? null;
+        if (!is_array($snapshot) || ($snapshot['version'] ?? null) !== 1
+            || !is_array($snapshot['marked_question_ids'] ?? null)
+            || !array_is_list($snapshot['marked_question_ids'])) {
+            return null;
+        }
+
+        $reviewIds = [];
+        foreach ($review as $item) {
+            $id = is_array($item) && is_array($item['question'] ?? null)
+                && is_scalar($item['question']['id'] ?? null)
+                ? trim((string) $item['question']['id'])
+                : '';
+            if ($id !== '') {
+                $reviewIds[$id] = true;
+            }
+        }
+
+        $marked = [];
+        foreach ($snapshot['marked_question_ids'] as $rawId) {
+            if (!is_scalar($rawId) || trim((string) $rawId) === '') {
+                return null;
+            }
+            $id = trim((string) $rawId);
+            if (!isset($reviewIds[$id]) || isset($marked[$id])) {
+                return null;
+            }
+            $marked[$id] = true;
+        }
+
+        return array_keys($marked);
+    }
+
     private static function summary(array $attempt): ?array
     {
         foreach (['score', 'total', 'percentage'] as $field) {

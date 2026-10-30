@@ -20,7 +20,17 @@ $historicalTimeLimit = is_numeric($historicalContext['time_limit_minutes'] ?? nu
     ? max(0, (int) $historicalContext['time_limit_minutes'])
     : 0;
 $reviewUnavailable = ($reviewUnavailable ?? false) === true;
-$reviewFilter = is_string($reviewFilter ?? null) && in_array($reviewFilter, ['all', 'incorrect', 'unanswered', 'correct'], true)
+$markedReviewAvailable = ($markedReviewAvailable ?? false) === true;
+$markedQuestionIds = is_array($markedQuestionIds ?? null) ? $markedQuestionIds : [];
+$markedQuestionSet = [];
+foreach ($markedQuestionIds as $markedQuestionId) {
+    if (is_scalar($markedQuestionId) && trim((string) $markedQuestionId) !== '') {
+        $markedQuestionSet[trim((string) $markedQuestionId)] = true;
+    }
+}
+$validReviewFilters = ['all', 'incorrect', 'unanswered', 'correct'];
+if ($markedReviewAvailable) $validReviewFilters[] = 'marked';
+$reviewFilter = is_string($reviewFilter ?? null) && in_array($reviewFilter, $validReviewFilters, true)
     ? $reviewFilter
     : 'all';
 $reviewFilterBaseUrl = is_string($reviewFilterBaseUrl ?? null)
@@ -28,9 +38,15 @@ $reviewFilterBaseUrl = is_string($reviewFilterBaseUrl ?? null)
     : ($historical ? '/history' : '/quiz?action=result');
 $allReviewCount = is_array($review) ? count($review) : 0;
 $reviewFilterCounts = ['all' => $allReviewCount, 'incorrect' => 0, 'unanswered' => 0, 'correct' => 0];
+if ($markedReviewAvailable) $reviewFilterCounts['marked'] = 0;
 $visibleReview = [];
 foreach (is_array($review) ? $review : [] as $reviewIndex => $item) {
     if (!is_array($item)) continue;
+    $questionId = is_array($item['question'] ?? null) && is_scalar($item['question']['id'] ?? null)
+        ? trim((string) $item['question']['id'])
+        : '';
+    $isMarked = $markedReviewAvailable && $questionId !== '' && isset($markedQuestionSet[$questionId]);
+    if ($isMarked) $reviewFilterCounts['marked']++;
     $answered = ($item['answered'] ?? false) === true;
     $correct = ($item['correct'] ?? false) === true;
     if (!$answered) $reviewFilterCounts['unanswered']++;
@@ -40,7 +56,8 @@ foreach (is_array($review) ? $review : [] as $reviewIndex => $item) {
     $include = $reviewFilter === 'all'
         || ($reviewFilter === 'incorrect' && $answered && !$correct)
         || ($reviewFilter === 'unanswered' && !$answered)
-        || ($reviewFilter === 'correct' && $answered && $correct);
+        || ($reviewFilter === 'correct' && $answered && $correct)
+        || ($reviewFilter === 'marked' && $isMarked);
     if ($include) $visibleReview[$reviewIndex] = $item;
 }
 $review = $visibleReview;
@@ -139,22 +156,33 @@ $taxonomyLabel = static fn(string $collection, mixed $id): string => \App\Servic
 <?php else: ?>
 <section class="result-answer-review" aria-labelledby="answer-review-heading">
 <h2 id="answer-review-heading">Answer Review</h2>
-<?php $filterNames = ['all' => 'All questions', 'incorrect' => 'Incorrect', 'unanswered' => 'Unanswered', 'correct' => 'Correct']; $filterSeparator = str_contains($reviewFilterBaseUrl, '?') ? '&' : '?'; ?>
+<?php $filterNames = ['all' => 'All questions', 'incorrect' => 'Incorrect', 'unanswered' => 'Unanswered', 'correct' => 'Correct']; if ($markedReviewAvailable) $filterNames['marked'] = 'Marked for review'; $filterSeparator = str_contains($reviewFilterBaseUrl, '?') ? '&' : '?'; ?>
 <nav class="answer-review-filters" aria-label="Filter answer review">
     <?php foreach ($filterNames as $filterKey => $filterName): ?>
-        <a class="button button-outline" href="<?= htmlspecialchars($reviewFilterBaseUrl . $filterSeparator . 'review_filter=' . rawurlencode($filterKey), ENT_QUOTES, 'UTF-8') ?>"<?= $reviewFilter === $filterKey ? ' aria-current="page"' : '' ?>><?= htmlspecialchars($filterName, ENT_QUOTES, 'UTF-8') ?> (<?= (int) $reviewFilterCounts[$filterKey] ?>)</a>
+        <a class="button button-outline" href="<?= htmlspecialchars($reviewFilterBaseUrl . $filterSeparator . 'review_filter=' . rawurlencode($filterKey), ENT_QUOTES, 'UTF-8') ?>"<?= $reviewFilter === $filterKey ? ' aria-current="page"' : '' ?>><?= htmlspecialchars($filterName, ENT_QUOTES, 'UTF-8') ?> (<?= (int) ($reviewFilterCounts[$filterKey] ?? 0) ?>)</a>
     <?php endforeach; ?>
 </nav>
-<p class="muted-note" role="status">Showing <?= count($review) ?> of <?= $allReviewCount ?> questions. Review marks are not carried into the saved result.</p>
+<?php if ($markedReviewAvailable): ?>
+<p class="muted-note" role="status">Showing <?= count($review) ?> of <?= $allReviewCount ?> questions. Review marks were saved with this attempt.</p>
+<?php elseif ($historical && $historicalMode === 'exam'): ?>
+<p class="muted-note" role="status">Showing <?= count($review) ?> of <?= $allReviewCount ?> questions. Review marks are unavailable for this attempt. No marks were reconstructed.</p>
+<?php elseif ($isExamSimulation): ?>
+<p class="muted-note" role="status">Review marks could not be confirmed in the saved result.</p>
+<?php else: ?>
+<p class="muted-note" role="status">Showing <?= count($review) ?> of <?= $allReviewCount ?> questions.</p>
+<?php endif; ?>
 
 <?php foreach ($review as $index => $item): ?>
-<article class="question-review <?= !empty($item["correct"]) ? "is-correct" : "is-incorrect" ?>">
+<?php $questionId = is_array($item['question'] ?? null) && is_scalar($item['question']['id'] ?? null) ? trim((string) $item['question']['id']) : ''; ?>
+<?php $answerWasSubmitted = ($item['answered'] ?? false) === true; $answerWasCorrect = ($item['correct'] ?? false) === true; $outcomeClass = !$answerWasSubmitted ? 'is-unanswered' : ($answerWasCorrect ? 'is-correct' : 'is-incorrect'); ?>
+<article class="question-review <?= $outcomeClass ?>">
     <h3>
         <?= ($index + 1) ?>.
         <?= htmlspecialchars(
             $item["question"]["question"] ?? ""
         ) ?>
     </h3>
+    <?php if ($markedReviewAvailable && isset($markedQuestionSet[$questionId ?? ''])): ?><p class="question-review-marked" role="status">Marked for review during this examination</p><?php endif; ?>
     <?php if (!empty($item["question"]["content_blocks"])): ?>
         <?= \App\Services\Question\StructuredContentService::render($item["question"]) ?>
     <?php endif; ?>
@@ -170,7 +198,13 @@ $taxonomyLabel = static fn(string $collection, mixed $id): string => \App\Servic
             ) ?></strong>
         </div>
 
-        <?php if (!empty($item["correct"])): ?>
+        <?php if (!$answerWasSubmitted): ?>
+            <p class="answer-status answer-status-unanswered"><strong>Unanswered</strong></p>
+            <div class="answer-review-correct">
+                <p class="answer-label">Correct answer</p>
+                <strong class="answer-value"><?= htmlspecialchars((string) ($item['question']['answer'] ?? ''), ENT_QUOTES, 'UTF-8') ?></strong>
+            </div>
+        <?php elseif ($answerWasCorrect): ?>
             <p class="answer-status answer-status-correct"><strong>Correct answer</strong></p>
         <?php else: ?>
             <p class="answer-status answer-status-incorrect"><strong>Incorrect answer</strong></p>

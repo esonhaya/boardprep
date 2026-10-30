@@ -33,7 +33,8 @@ $attempt = QuizResultAttemptFactory::create(
                 "correct" => true,
             ],
         ],
-    ]
+    ],
+    ['version' => 1, 'marked_question_ids' => ['2']]
 );
 
 assert(str_starts_with($attempt["id"], "attempt-"));
@@ -46,5 +47,22 @@ assert((float) $attempt["percentage"] === 80.0);
 assert($attempt["completed"] === true);
 assert(count($attempt["review"]) === 1);
 assert($attempt["review"][0]["question"]["id"] === "q1");
+assert($attempt['review_flag_snapshot'] === ['version' => 1, 'marked_question_ids' => ['2']]);
+
+$foreignMark = QuizResultAttemptFactory::create(
+    $session,
+    [["id" => 1], ["id" => 2]],
+    ["score" => 0, "total" => 2, "percentage" => 0, "results" => []],
+    ['version' => 1, 'marked_question_ids' => ['not-in-this-attempt']]
+);
+assert(!array_key_exists('review_flag_snapshot', $foreignMark));
+
+$invalidVersion = QuizResultAttemptFactory::create(
+    $session,
+    [["id" => 1], ["id" => 2]],
+    ["score" => 0, "total" => 2, "percentage" => 0, "results" => []],
+    ['version' => 2, 'marked_question_ids' => ['2']]
+);
+assert(!array_key_exists('review_flag_snapshot', $invalidVersion));
 
 echo "[PASS] QuizResultAttemptFactory assertions verified.\n";

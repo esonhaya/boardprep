@@ -9,6 +9,45 @@ use App\Services\Quiz\Session\QuizSessionQuestion;
 /** Server-session review marks for an active exam simulation. */
 final class ExamReviewFlagService
 {
+    /**
+     * Capture only marks that belong to the exact exam being finalized.
+     * The returned additive snapshot is safe to store with that attempt.
+     *
+     * @return array{version:int,marked_question_ids:array<int,string>}|null
+     */
+    public static function snapshotForAttempt(array $session, array $questions): ?array
+    {
+        if (($session['mode'] ?? '') !== 'exam') {
+            return null;
+        }
+
+        $sessionId = is_scalar($session['id'] ?? null) ? trim((string) $session['id']) : '';
+        $currentSession = \SessionService::get('quiz_session', []);
+        $currentSessionId = is_array($currentSession) && is_scalar($currentSession['id'] ?? null)
+            ? trim((string) $currentSession['id'])
+            : '';
+        if ($sessionId === '' || $currentSessionId === ''
+            || !hash_equals($currentSessionId, $sessionId)
+            || !self::scopeMatchesCurrentSession()) {
+            return null;
+        }
+
+        $questions = array_values($questions);
+        $flags = self::readFlags($questions);
+        $markedQuestionIds = [];
+        foreach ($questions as $index => $question) {
+            if (!isset($flags[$index]) || !is_array($question) || !is_scalar($question['id'] ?? null)) {
+                continue;
+            }
+            $questionId = trim((string) $question['id']);
+            if ($questionId !== '') {
+                $markedQuestionIds[] = $questionId;
+            }
+        }
+
+        return ['version' => 1, 'marked_question_ids' => array_values(array_unique($markedQuestionIds))];
+    }
+
     /** @return array{marked: bool, version: int} */
     public static function state(int $index, array $questions): array
     {

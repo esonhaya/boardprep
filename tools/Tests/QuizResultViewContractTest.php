@@ -85,6 +85,7 @@ $review = [
     ['question' => ['id' => 'filter-incorrect', 'question' => 'FILTER_INCORRECT_MARKER', 'answer' => 'B', 'explanation' => 'Saved explanation.'], 'answered' => true, 'correct' => false, 'userAnswer' => 'A'],
     ['question' => ['id' => 'filter-unanswered', 'question' => 'FILTER_UNANSWERED_MARKER', 'answer' => 'C', 'explanation' => 'Saved explanation.'], 'answered' => false, 'correct' => false, 'userAnswer' => ''],
 ];
+$reviewForFilters = $review;
 $studyReferencesByQuestion = [];
 $notesPracticeReview = null;
 $mistakeRecovery = null;
@@ -100,3 +101,32 @@ if (!str_contains($incorrectOnlyHtml, 'FILTER_INCORRECT_MARKER')
     throw new RuntimeException('The incorrect-answer filter did not preserve historical destinations and the unfiltered denominator.');
 }
 echo "[PASS] historical answer filters show only matching stored outcomes and preserve the attempt destination.\n";
+
+$markedQuestionIds = ['filter-unanswered'];
+$markedReviewAvailable = true;
+$reviewFilter = 'marked';
+$review = $reviewForFilters;
+ob_start();
+include dirname(__DIR__, 2) . "/app/Views/quiz/result.php";
+$markedOnlyHtml = (string) ob_get_clean();
+if (!str_contains($markedOnlyHtml, 'Marked for review (1)')
+    || !str_contains($markedOnlyHtml, 'FILTER_UNANSWERED_MARKER')
+    || str_contains($markedOnlyHtml, 'FILTER_INCORRECT_MARKER')
+    || !str_contains($markedOnlyHtml, 'Marked for review during this examination')
+    || !str_contains($markedOnlyHtml, '<strong>Unanswered</strong>')
+    || str_contains($markedOnlyHtml, '<strong>Incorrect answer</strong>')) {
+    throw new RuntimeException('The result view did not apply the persisted marked-question filter.');
+}
+echo "[PASS] marked-answer review filter displays only the saved marked question.\n";
+
+$markedReviewAvailable = false;
+$markedQuestionIds = [];
+$review = $reviewForFilters;
+ob_start();
+include dirname(__DIR__, 2) . "/app/Views/quiz/result.php";
+$legacyMarkedHtml = (string) ob_get_clean();
+if (!str_contains($legacyMarkedHtml, 'Review marks are unavailable for this attempt. No marks were reconstructed.')
+    || str_contains($legacyMarkedHtml, 'Marked for review (')) {
+    throw new RuntimeException('A legacy attempt without a mark snapshot was presented as if it had persisted marks.');
+}
+echo "[PASS] legacy result without a mark snapshot reports marks unavailable without inventing a filter.\n";

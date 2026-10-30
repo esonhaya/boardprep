@@ -411,12 +411,24 @@ try {
         || substr_count($unansweredOnlyResult['output'], '<article class="question-review') !== 2
         || !str_contains($incorrectOnlyResult['output'], 'aria-current="page"')
         || !str_contains($result['output'], 'review_filter=incorrect')
+        || ($completedAttemptForFilter['review_flag_snapshot'] ?? null) !== [
+            'version' => 1,
+            'marked_question_ids' => [$match[1]],
+        ]
         || array_key_exists('exam_review_flags', $completedAttemptForFilter)
         || array_key_exists('exam_review_flag_versions', $completedAttemptForFilter)
+        || !str_contains($result['output'], 'Marked for review (1)')
         || $storageBeforeResultFilter['attempts'] !== (string) file_get_contents($path)
         || $storageBeforeResultFilter['weakness'] !== (string) file_get_contents($weaknessPath)
         || $storageBeforeResultFilter['question_statistics'] !== (string) file_get_contents($statisticsPath)) {
-        throw new RuntimeException('Completed-result filters did not reflect persisted answer outcomes or changed learner history.');
+        throw new RuntimeException('Completed-result data did not preserve versioned review marks and persisted answer outcomes.');
+    }
+    $markedOnlyResult = $http->request('GET', '/quiz', ['action' => 'result', 'review_filter' => 'marked'], [], [], $cookies);
+    if (!$markedOnlyResult['success']
+        || substr_count($markedOnlyResult['output'], '<article class="question-review') !== 1
+        || !str_contains($markedOnlyResult['output'], 'Marked for review during this examination')
+        || !str_contains($markedOnlyResult['output'], 'aria-current="page"')) {
+        throw new RuntimeException('The completed result did not filter from its persisted review-mark snapshot.');
     }
 
     $raceCookies = ['PHPSESSID' => 'batch723-answer-nav-race-' . bin2hex(random_bytes(8))];
@@ -519,6 +531,14 @@ try {
         || !str_contains($historicalText, 'separate from the official board examination')) {
         throw new RuntimeException('History and historical result did not identify the timed attempt as a study simulation.');
     }
+    $historicalMarkedResult = $http->request('GET', '/history/result', [
+        'id' => $attemptId, 'review_filter' => 'marked',
+    ], [], [], $cookies);
+    if (!$historicalMarkedResult['success']
+        || substr_count($historicalMarkedResult['output'], '<article class="question-review') !== 1
+        || !str_contains($historicalMarkedResult['output'], 'Marked for review during this examination')) {
+        throw new RuntimeException('Reopening a completed attempt did not retain its saved review marks.');
+    }
 
     $retry = $http->request('POST', '/quiz', [], [
         'action' => 'start', 'subject' => 'English', 'mode' => 'practice', 'count' => 1,
@@ -612,7 +632,68 @@ $expiryCookies = ['PHPSESSID' => 'batch676-expired-exam-' . bin2hex(random_bytes
         ]));
     }
 
-    echo "[PASS] Timed/untimed exam simulation setup, resume, durable review flags, stale flag rejection, answer/navigation races, editable answers, review summary, late-expiration rejection, partial scoring, history metadata, lost-response retries, and concurrent exact-once submission verified.\n";
+    $finalizeMarkCookies = ['PHPSESSID' => 'batch728-finalize-mark-race-' . bin2hex(random_bytes(8))];
+    $finalizeMarkSettings = $http->request('GET', '/quiz', [], [], [], $finalizeMarkCookies);
+    if (!$finalizeMarkSettings['success'] || !preg_match('/name="csrf_token" value="([^"]+)"/', $finalizeMarkSettings['output'], $finalizeMarkCsrfMatch)) {
+        throw new RuntimeException('Concurrent finalization and marking fixture did not receive a CSRF token.');
+    }
+    $finalizeMarkCsrf = $finalizeMarkCsrfMatch[1];
+    $finalizeMarkStart = $http->request('POST', '/quiz', [], [
+        'action' => 'start', 'exam' => 'LET', 'subject' => 'English', 'mode' => 'exam',
+        'timer_mode' => 'untimed', 'difficulty' => 'mixed', 'count' => 2, 'csrf_token' => $finalizeMarkCsrf,
+    ], [], $finalizeMarkCookies);
+    $finalizeMarkBefore = $readSession($finalizeMarkCookies['PHPSESSID']);
+    $finalizeMarkQuestionId = (string) ($finalizeMarkBefore['questions'][0]['id'] ?? '');
+    $finalizeMarkSessionId = (string) ($finalizeMarkBefore['quiz_session']['id'] ?? '');
+    if (!$finalizeMarkStart['success'] || $finalizeMarkQuestionId === '' || $finalizeMarkSessionId === '') {
+        throw new RuntimeException('Concurrent finalization and marking fixture did not create a valid owned exam.');
+    }
+    $finalizeMarkReviewRedirect = $http->request('POST', '/quiz', [], [
+        'action' => 'finish', 'csrf_token' => $finalizeMarkCsrf,
+    ], [], $finalizeMarkCookies);
+    $finalizeMarkReviewPage = $http->request('GET', '/quiz', ['action' => 'review'], [], [], $finalizeMarkCookies);
+    if ($finalizeMarkReviewRedirect['location'] !== '/quiz?action=review'
+        || !$finalizeMarkReviewPage['success']
+        || !str_contains($finalizeMarkReviewPage['output'], 'questions · 0 answers recorded')) {
+        throw new RuntimeException('Concurrent finalization and marking fixture did not complete the required pre-submit review step.');
+    }
+    $finalizeMarkResponses = $http->requestsConcurrently([
+        ['method' => 'POST', 'path' => '/quiz', 'post' => [
+            'action' => 'finish', 'csrf_token' => $finalizeMarkCsrf,
+        ], 'cookies' => $finalizeMarkCookies],
+        ['method' => 'POST', 'path' => '/quiz', 'post' => [
+            'action' => 'review-flag', 'index' => 0, 'question_id' => $finalizeMarkQuestionId,
+            'marked' => '1', 'version' => '0', 'return_to' => 'current', 'csrf_token' => $finalizeMarkCsrf,
+        ], 'cookies' => $finalizeMarkCookies],
+    ]);
+    $finalizeMarkAfter = $readSession($finalizeMarkCookies['PHPSESSID']);
+    $attemptsAfterFinalizeMarkRace = json_decode((string) file_get_contents($path), true);
+    $finalizeMarkAttempts = array_values(array_filter(
+        is_array($attemptsAfterFinalizeMarkRace) ? $attemptsAfterFinalizeMarkRace : [],
+        static fn(mixed $attempt): bool => is_array($attempt)
+            && (string) ($attempt['session_id'] ?? '') === $finalizeMarkSessionId
+    ));
+    $expectedFinalizeMarks = [];
+    foreach ((array) ($finalizeMarkAfter['exam_review_flags'] ?? []) as $index => $isMarked) {
+        if ($isMarked !== true || !is_numeric($index)) continue;
+        $questionId = $finalizeMarkAfter['questions'][(int) $index]['id'] ?? null;
+        if (is_scalar($questionId)) $expectedFinalizeMarks[] = (string) $questionId;
+    }
+    $finalizeSnapshot = $finalizeMarkAttempts[0]['review_flag_snapshot'] ?? null;
+    if (count($finalizeMarkResponses) !== 2 || count($finalizeMarkAttempts) !== 1
+        || !is_array($finalizeSnapshot) || ($finalizeSnapshot['version'] ?? null) !== 1
+        || ($finalizeSnapshot['marked_question_ids'] ?? null) !== $expectedFinalizeMarks) {
+        throw new RuntimeException('A concurrent flag/finalization race duplicated the attempt or saved marks different from the serialized session: ' . json_encode([
+            'response_count' => count($finalizeMarkResponses),
+            'response_statuses' => array_column($finalizeMarkResponses, 'status'),
+            'attempt_count' => count($finalizeMarkAttempts),
+            'snapshot' => $finalizeSnapshot,
+            'expected_marks' => $expectedFinalizeMarks,
+            'attempt_persisted' => $finalizeMarkAfter['attempt_persisted'] ?? null,
+        ]));
+    }
+
+    echo "[PASS] Timed/untimed exam setup, resume, versioned finalized review marks, stale flag rejection, answer/navigation/finalization races, editable answers, review summary, late-expiration rejection, partial scoring, history metadata, lost-response retries, and exact-once submission verified.\n";
 } finally {
     $repository = App::container()->get(AttemptRepository::class);
     $after = json_decode((string) file_get_contents($path), true);

@@ -66,6 +66,7 @@ try {
         'completed' => true,
         'completed_at' => '2026-09-06T10:00:00+00:00',
         'review' => $review,
+        'review_flag_snapshot' => ['version' => 1, 'marked_question_ids' => ['history-q1']],
     ]);
     $repository->create([
         'id' => 'attempt-history-foreign',
@@ -83,15 +84,44 @@ try {
         'percentage' => 0,
         'completed' => true,
     ]);
+    $repository->create([
+        'id' => 'attempt-history-legacy-exam',
+        'user_id' => $learner,
+        'board' => 'LET',
+        'subject' => 'English',
+        'mode' => 'exam',
+        'score' => 1,
+        'total' => 2,
+        'percentage' => 50,
+        'completed' => true,
+        'review' => $review,
+    ]);
+    for ($index = 1; $index <= 22; $index++) {
+        $repository->create([
+            'id' => 'attempt-history-page-' . $index,
+            'user_id' => $learner,
+            'board' => 'LET',
+            'subject' => 'English',
+            'mode' => 'practice',
+            'score' => 1,
+            'total' => 2,
+            'percentage' => 50,
+            'completed' => true,
+            'completed_at' => sprintf('2026-09-%02dT10:00:00+00:00', $index),
+        ]);
+    }
 
     $result = \App\Services\Quiz\HistoricalQuizResultService::findForLearner($owned['id']);
     historyCheck(is_array($result), 'owned historical result was not found');
     historyCheck($result['summary']['score'] === 1 && $result['summary']['total'] === 2, 'historical score was not preserved');
     historyCheck($result['review'][0]['userAnswer'] === 'B', 'historical selected answer was not preserved');
+    historyCheck(\App\Services\Quiz\HistoricalQuizResultService::markedQuestionIds($result['attempt'], $result['review']) === ['history-q1'], 'saved result review marks were not read from the owned attempt');
     historyCheck(\App\Services\Quiz\HistoricalQuizResultService::missedQuestionIds($result['review']) === ['history-q1'], 'historical missed question derivation was incorrect');
     historyCheck(\App\Services\Quiz\HistoricalQuizResultService::findForLearner('attempt-history-foreign') === null, 'foreign attempt was accessible');
     historyCheck(\App\Services\Quiz\HistoricalQuizResultService::findForLearner('attempt-history-unknown') === null, 'unknown attempt was not safely unavailable');
     historyCheck(\App\Services\Quiz\HistoricalQuizResultService::findForLearner('attempt-history-partial')['reviewUnavailable'] === true, 'partial attempt did not render as score-only');
+    $legacy = \App\Services\Quiz\HistoricalQuizResultService::findForLearner('attempt-history-legacy-exam');
+    historyCheck(is_array($legacy) && \App\Services\Quiz\HistoricalQuizResultService::markedQuestionIds($legacy['attempt'], $legacy['review']) === null, 'legacy exam without a snapshot was assigned invented review marks');
 
     $before = json_encode($repository->find($owned['id']), JSON_THROW_ON_ERROR);
     \App\Services\Quiz\HistoricalQuizResultService::findForLearner($owned['id']);
@@ -100,7 +130,7 @@ try {
 
     $router = new \App\Core\Router();
     require $root . '/routes/web.php';
-    $_GET = ['id' => $owned['id'], 'user_id' => 'attacker-controlled'];
+    $_GET = ['id' => $owned['id'], 'user_id' => 'attacker-controlled', 'review_filter' => 'marked'];
     $_SERVER['REQUEST_METHOD'] = 'GET';
     ob_start();
     $router->dispatch('GET', '/history/result');
@@ -110,10 +140,34 @@ try {
     historyCheck(str_contains($html, '1') && str_contains($html, '50'), 'historical score was not rendered');
     historyCheck(str_contains($html, 'Which answer is correct?'), 'historical question review was not rendered');
     historyCheck(str_contains($html, '/history') && str_contains($html, '/progress') && str_contains($html, '/dashboard'), 'historical return actions are incomplete');
+    historyCheck(str_contains($html, 'Marked for review (1)') && str_contains($html, 'Which answer is correct?'), 'saved marked result filter was not rendered for its owner');
     historyCheck(str_contains($html, '/flashcards/missed?attempt_id=attempt-history-owned'), 'historical missed-flashcard action is missing');
     historyCheck(str_contains(file_get_contents($root . '/app/Views/history/attempt.php'), 'View result'), 'history row reopen action is missing');
 
+    $_GET = ['id' => 'attempt-history-legacy-exam', 'review_filter' => 'marked'];
+    ob_start();
+    $router->dispatch('GET', '/history/result');
+    $legacyHtml = (string) ob_get_clean();
+    historyCheck(str_contains($legacyHtml, 'Review marks are unavailable for this attempt. No marks were reconstructed.'), 'legacy exam did not disclose unavailable review marks');
+    historyCheck(!str_contains($legacyHtml, 'Marked for review ('), 'legacy result exposed a fabricated marked-question filter');
+
+    $_GET = [];
+    ob_start();
+    $router->dispatch('GET', '/history');
+    $firstHistoryPage = (string) ob_get_clean();
+    historyCheck(substr_count($firstHistoryPage, '<article class="quiz-history-item">') === 20, 'quiz history did not bound the first rendered page to 20 attempts');
+    historyCheck(str_contains($firstHistoryPage, 'Showing 1–20 of 25 completed quizzes') && str_contains($firstHistoryPage, 'href="/history?page=2"'), 'quiz history pagination did not show its range or next destination');
+    historyCheck(str_contains($firstHistoryPage, 'href="/history/result?id=attempt-history-page-22"') && !str_contains($firstHistoryPage, 'href="/history/result?id=attempt-history-page-1"'), 'quiz history page one did not prioritize the newest attempts');
+
+    $_GET = ['page' => '2'];
+    ob_start();
+    $router->dispatch('GET', '/history');
+    $secondHistoryPage = (string) ob_get_clean();
+    historyCheck(substr_count($secondHistoryPage, '<article class="quiz-history-item">') === 5, 'quiz history second page did not contain the remaining attempts');
+    historyCheck(str_contains($secondHistoryPage, 'href="/history/result?id=attempt-history-page-1"') && str_contains($secondHistoryPage, 'href="/history?page=1"'), 'quiz history second page did not include the oldest attempts or previous destination');
+
     echo "[PASS] Owned history result renders through the production router with score, review, study, flashcard, and return actions.\n";
+    echo "[PASS] Quiz history renders 20 owned attempts per page and preserves full-history summary calculations.\n";
     echo "[PASS] Foreign, unknown, request-owner override, and GET mutation boundaries hold.\n";
 } finally {
     putenv('APP_ENV');

@@ -16,13 +16,25 @@ use App\Services\Study\StudyLibraryService;
 
 final class HistoryController
 {
+    private const HISTORY_PAGE_SIZE = 20;
+
     public static function index(): void
     {
         $attempts = LearningHistoryService::all();
+        $total = count($attempts);
+        $pages = max(1, (int) ceil($total / self::HISTORY_PAGE_SIZE));
+        $rawPage = Request::queryString('page', '1');
+        $requestedPage = preg_match('/\A[1-9]\d{0,5}\z/', $rawPage) === 1 ? (int) $rawPage : 1;
+        $page = min($requestedPage, $pages);
+        $pageAttempts = array_slice($attempts, ($page - 1) * self::HISTORY_PAGE_SIZE, self::HISTORY_PAGE_SIZE);
         View::render("history/index", [
             "pageTitle" => "Quiz History",
-            "history" => $attempts,
+            "history" => $pageAttempts,
             "summary" => LearningProgressService::build($attempts),
+            "historyPage" => $page,
+            "historyPages" => $pages,
+            "historyTotal" => $total,
+            "historyPageSize" => self::HISTORY_PAGE_SIZE,
         ]);
     }
 
@@ -49,8 +61,16 @@ final class HistoryController
             ? NotesPracticeResultService::create($noteContext, $result['review'])
             : null;
         $actions = $result['actions'];
+        $markedQuestionIds = HistoricalQuizResultService::markedQuestionIds(
+            $result['attempt'],
+            $result['review']
+        );
         $reviewFilter = Request::queryString('review_filter', 'all');
-        if (!in_array($reviewFilter, ['all', 'incorrect', 'unanswered', 'correct'], true)) {
+        $validFilters = ['all', 'incorrect', 'unanswered', 'correct'];
+        if ($markedQuestionIds !== null) {
+            $validFilters[] = 'marked';
+        }
+        if (!in_array($reviewFilter, $validFilters, true)) {
             $reviewFilter = 'all';
         }
         if ($notesPracticeReview !== null && ($notesPracticeReview['saved_note_available'] ?? false) !== true) {
@@ -63,6 +83,8 @@ final class HistoryController
             'summary' => $result['summary'],
             'review' => $result['review'],
             'reviewFilter' => $reviewFilter,
+            'markedQuestionIds' => $markedQuestionIds ?? [],
+            'markedReviewAvailable' => $markedQuestionIds !== null,
             'reviewFilterBaseUrl' => '/history/result?id=' . rawurlencode($attemptId),
             'studyReferencesByQuestion' => StudyLibraryService::forQuestions(array_map(
                 static fn(mixed $item): mixed => is_array($item) && is_array($item['question'] ?? null)

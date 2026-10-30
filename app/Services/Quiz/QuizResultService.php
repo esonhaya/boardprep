@@ -28,10 +28,15 @@ final class QuizResultService
                 SessionService::has("attempt_persisted")
             )
         ) {
+            $reviewFlagSnapshot = \App\Services\Quiz\ExamReviewFlagService::snapshotForAttempt(
+                $session,
+                $questions
+            );
             $attempt = QuizResultAttemptFactory::create(
                 $session,
                 $questions,
-                $summary
+                $summary,
+                $reviewFlagSnapshot
             );
 
             QuizResultPersistenceService::persist(
@@ -40,6 +45,10 @@ final class QuizResultService
                 $questions,
                 $answers
             );
+
+            if ($reviewFlagSnapshot !== null) {
+                $summary['review_flag_snapshot'] = $reviewFlagSnapshot;
+            }
         }
 
         SessionService::set("quiz_result", $summary);

@@ -18,7 +18,8 @@ final class QuizResultAttemptFactory
     public static function create(
         array $session,
         array $questions,
-        array $summary
+        array $summary,
+        ?array $reviewFlagSnapshot = null
     ): array {
         $questionSet = AttemptQuestionSet::fromQuestions($questions);
 
@@ -48,6 +49,42 @@ final class QuizResultAttemptFactory
             $attempt['mistake_recovery'] = $session['mistake_recovery'];
         }
 
+        $snapshot = self::validatedReviewFlagSnapshot($reviewFlagSnapshot, $questionSet['question_ids']);
+        if ($snapshot !== null) {
+            $attempt['review_flag_snapshot'] = $snapshot;
+        }
+
         return $attempt;
+    }
+
+    /** @param array<int,string> $attemptQuestionIds */
+    private static function validatedReviewFlagSnapshot(?array $snapshot, array $attemptQuestionIds): ?array
+    {
+        if ($snapshot === null || ($snapshot['version'] ?? null) !== 1
+            || !is_array($snapshot['marked_question_ids'] ?? null)
+            || !array_is_list($snapshot['marked_question_ids'])) {
+            return null;
+        }
+
+        $allowed = array_fill_keys($attemptQuestionIds, true);
+        $marked = [];
+        foreach ($snapshot['marked_question_ids'] as $questionId) {
+            if (!is_scalar($questionId) || trim((string) $questionId) === '') {
+                return null;
+            }
+            $questionId = trim((string) $questionId);
+            if (!isset($allowed[$questionId]) || isset($marked[$questionId])) {
+                return null;
+            }
+            $marked[$questionId] = true;
+        }
+
+        return [
+            'version' => 1,
+            'marked_question_ids' => array_values(array_filter(
+                $attemptQuestionIds,
+                static fn(string $questionId): bool => isset($marked[$questionId])
+            )),
+        ];
     }
 }
