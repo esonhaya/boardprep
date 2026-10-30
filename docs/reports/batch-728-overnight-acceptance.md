@@ -62,7 +62,7 @@
 - PASS: `Batch711NotesBasedPracticeTest.php`, `Batch712MistakeRecoveryTest.php`, `StudyLibraryNavigationTest.php`, `SmartStudyHubServiceTest.php`, `StudyDashboardPreparedHistoryEquivalenceTest.php`, `TenBoardLearnerJourneyHttpTest.php`, `LearnerJourneyHttpTest.php`, `FlashcardHttpTest.php`, and `ProductionQuizCsrfTest.php`.
 - PASS: `LearnerMobileAccessibilityViewTest.php` (26 source/view assertions; static only) and `ReleaseReadinessContractTest.php` (source-review diagnostics remain read-only and human review remains open).
 - PASS after implementation commit: `php -d memory_limit=1G tools/Tests/Batch717AcademicGateClosureTest.php` verified all 276 proposals remain pending, no approvals/imports, denial paths, and unchanged protected canonical files. Its isolated fixture was removed on shutdown.
-- PASS: PHP syntax for all 14 changed PHP files, changed-JavaScript `node --check`, and `git diff --check`.
+- PASS: PHP syntax for all 14 changed PHP files and `git diff --check`. JavaScript syntax was not applicable because no JavaScript files changed.
 - PASS: production preflight and smoke above. Test records and benchmarks are in `docs/reports/batch-728-test-evidence.json`.
 
 ## DOCTOR

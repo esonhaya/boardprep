@@ -56,7 +56,7 @@
     {"command": "php tools/Tests/ReleaseReadinessContractTest.php", "status": "PASS", "detail": "Source review diagnostics are actionable and read-only; human review stays open."},
     {"command": "php -d memory_limit=1G tools/Tests/Batch717AcademicGateClosureTest.php", "status": "PASS", "detail": "276 pending proposals, zero approvals/imports, anonymous/foreign/CSRF denial, protected hashes; isolated fixture removed on shutdown."},
     {"command": "PHP lint for all 14 changed PHP files", "status": "PASS"},
-    {"command": "node --check for changed JavaScript", "status": "PASS"},
+    {"command": "JavaScript syntax check", "status": "NOT_APPLICABLE", "detail": "No JavaScript files changed in this implementation."},
     {"command": "git diff --check 2ddb5d5c0c692e94478c1e20ae638469fe7bf07f..525b00858b72ab50b184a45038d3a808586e3ab9", "status": "PASS"}
   ],
   "operations": {
