@@ -90,7 +90,7 @@
 - Final documentation commit SHA is printed in terminal delivery and is deliberately not embedded in this committed report.
 - `GIT_STATUS`: implementation and evidence are committed; expected remaining untracked files are the four preserved B728 diagnostics and the three protected storage files.
 - Push: `NOT_PERFORMED`; deploy: `NOT_PERFORMED`; remote CI: `NOT_DISPATCHED`.
-- `CLIPBOARD_STATUS=VERIFIED` only if the final saved report and `termux-clipboard-get` readback compare byte-for-byte; otherwise the status is changed to `UNVERIFIED` and the complete report is printed as terminal fallback.
+- `CLIPBOARD_STATUS=UNVERIFIED`. `termux-clipboard-set` and `termux-clipboard-get` returned exit 0, but repeated readbacks were 0 bytes, so the report could not be compared byte-for-byte. The full report is printed as terminal fallback.
 
 ## OUTCOME
 

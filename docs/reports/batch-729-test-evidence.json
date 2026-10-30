@@ -150,6 +150,7 @@
     "academic_approval": "DEFERRED",
     "public_release": "NOT_APPROVED",
     "b730_started": false,
-    "clipboard_status": "PENDING_BYTE_COMPARISON"
+    "clipboard_status": "UNVERIFIED",
+    "clipboard_reason": "Termux clipboard set/get returned exit 0 but repeated get readbacks were empty (0 bytes); full report printed as terminal fallback"
   }
 }
