@@ -15,6 +15,16 @@ test('Linux browser workflow pins runtime and executes fixture, preflight, suite
   const lock = JSON.parse(fs.readFileSync(path.join(root, 'package-lock.json'), 'utf8'));
   assert.match(workflow, /runs-on:\s*ubuntu-24\.04/);
   assert.match(workflow, /node-version:\s*22\.23\.3/);
+  for (const [action, sha, release] of [
+    ['actions/checkout', 'de0fac2e4500dabe0009e67214ff5f5447ce83dd', 'v6.0.2'],
+    ['shivammathur/setup-php', 'eb7c497e18156a6bbabfef1d3a82760b9eda3962', '2.40.0'],
+    ['actions/setup-node', '949feb2413d6458794dcd2491c4babbbce0c15c1', 'v7.1.0'],
+    ['actions/upload-artifact', '043fb46d1a93c77aae656e7c1c64a875d1fc6a0a', 'v7.0.1'],
+  ]) {
+    assert.ok(workflow.includes(`uses: ${action}@${sha} # ${release}`), `${action} must stay pinned to the reviewed immutable release SHA`);
+  }
+  assert.doesNotMatch(workflow, /uses:\s*(?:actions\/(?:checkout|setup-node|upload-artifact)|shivammathur\/setup-php)@v?\d+(?:\s|$)/m,
+    'browser CI actions must not use mutable version tags');
   assert.match(workflow, /npm ci/);
   assert.match(workflow, /npm run test:browser:fixture/);
   for (const regression of [
@@ -33,6 +43,28 @@ test('Linux browser workflow pins runtime and executes fixture, preflight, suite
   assert.match(workflow, /permissions:\s*\n\s*contents:\s*read/);
   assert.ok(Number(workflow.match(/timeout-minutes:\s*(\d+)/)?.[1]) > 0);
   assert.equal(lock.packages?.['node_modules/@playwright/test']?.version, '1.63.0');
+  const readme = fs.readFileSync(path.join(root, 'README.md'), 'utf8');
+  assert.match(readme, /Termux\/Android runtime reports `BROWSER_ACCEPTANCE=BROWSER_BLOCKED`/,
+    'local browser instructions must match the runner status');
+});
+
+test('browser evidence contracts cover isolated data, desktop/mobile access paths, and retained diagnostics', () => {
+  const workflow = fs.readFileSync(path.join(root, '.github/workflows/browser-acceptance.yml'), 'utf8');
+  const config = fs.readFileSync(path.join(root, 'tests/browser/playwright.config.cjs'), 'utf8');
+  const learnerSpec = fs.readFileSync(path.join(root, 'tests/browser/acceptance/boardprep.spec.cjs'), 'utf8');
+  const accountSpec = fs.readFileSync(path.join(root, 'tests/browser/accounts/account-auth.spec.cjs'), 'utf8');
+  const server = fs.readFileSync(path.join(root, 'tests/browser/server.cjs'), 'utf8');
+
+  assert.match(config, /name:\s*'mobile'[\s\S]*?viewport:\s*\{\s*width:\s*390,\s*height:\s*844/);
+  assert.match(config, /name:\s*'desktop'[\s\S]*?viewport:\s*\{\s*width:\s*1366,\s*height:\s*768/);
+  assert.match(config, /trace:\s*'retain-on-failure'/);
+  assert.match(config, /screenshot:\s*'only-on-failure'/);
+  assert.match(learnerSpec, /page\.keyboard\.press\('Tab'\)/);
+  assert.match(accountSpec, /anonymous-access-and-account-authorization/);
+  assert.match(accountSpec, /login-and-session-rotation/);
+  assert.match(server, /\['-C', repositoryRoot, 'archive', '--format=tar'/);
+  assert.match(workflow, /Upload browser visual and diagnostic artifacts[\s\S]*?if:\s*always\(\)[\s\S]*?actions\/upload-artifact/);
+  assert.match(workflow, /retention-days:\s*14/);
 });
 
 test('browser certification has no retries and a flaky result is a failure', () => {

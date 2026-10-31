@@ -124,7 +124,7 @@ On a workstation or CI runner with Chromium available, install the browser
 once with `npm run test:browser:install`. Optional visual baselines can be
 created or refreshed with `npm run test:browser:update-snapshots`; baseline
 comparisons are enabled for that command with a conservative pixel threshold.
-The local Termux/Android runtime reports `BROWSER_ACCEPTANCE=DEPENDENCY_MISSING`
+The local Termux/Android runtime reports `BROWSER_ACCEPTANCE=BROWSER_BLOCKED`
 without changing application data; CI installs Chromium and treats browser
 failures as blocking.
 

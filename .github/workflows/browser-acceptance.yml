@@ -35,7 +35,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
       - name: Set isolated browser evidence directory
         run: |
@@ -44,14 +44,14 @@ jobs:
           printf 'BOARDPREP_BROWSER_EVIDENCE_DIR=%s\n' "$evidence_dir" >> "$GITHUB_ENV"
 
       - name: Set up PHP
-        uses: shivammathur/setup-php@v2
+        uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # 2.40.0
         with:
           php-version: '8.3'
           extensions: json, session, pdo_sqlite, sodium
           coverage: none
 
       - name: Set up Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: 22.23.3
           cache: npm
@@ -101,7 +101,7 @@ jobs:
 
       - name: Upload browser visual and diagnostic artifacts
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: boardprep-chromium-visual-qa
           path: ${{ env.BOARDPREP_BROWSER_EVIDENCE_DIR }}/
