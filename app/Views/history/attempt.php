@@ -29,8 +29,7 @@ $resultUrl = $resultLinkParameters !== []
     <?php if ($board !== '' || $subject !== ''): ?><p class="muted-note"><?= htmlspecialchars(implode(' · ', array_filter([$board, $subject]))) ?></p><?php endif; ?>
     <p>
         <span class="badge badge-info"><?= htmlspecialchars($modeLabel, ENT_QUOTES, 'UTF-8') ?></span>
-        <strong><?= \App\Support\Presentation\UiFormatter::formatPercentage($percentage) ?></strong> —
-        <?php if ($total > 0): ?><?= $score ?>/<?= $total ?> · <?php endif; ?><?= $percentage ?>%
+        <?php if ($total > 0): ?><strong><?= \App\Support\Presentation\UiFormatter::formatScore($score, $total) ?></strong> · <?= \App\Support\Presentation\UiFormatter::formatPercentage($percentage) ?><?php else: ?><strong><?= \App\Support\Presentation\UiFormatter::formatPercentage($percentage) ?></strong><?php endif; ?>
     </p>
     <?php if ($mode === 'exam'): ?><p class="muted-note"><?= $timerMode === 'timed' ? 'Timed simulation' . ($timeLimitMinutes > 0 ? ' · ' . $timeLimitMinutes . ' min' : '') : 'Untimed simulation' ?></p><?php endif; ?>
     <?php if ($date !== null): ?>

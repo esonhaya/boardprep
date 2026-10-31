@@ -158,6 +158,8 @@ try {
     $router->dispatch('GET', '/history');
     $firstHistoryPage = (string) ob_get_clean();
     historyCheck(substr_count($firstHistoryPage, '<article class="quiz-history-item">') === 20, 'quiz history did not bound the first rendered page to 20 attempts');
+    historyCheck(str_contains($firstHistoryPage, '<strong>1/2</strong> · 50%')
+        && !str_contains($firstHistoryPage, '<strong>50%</strong> — 50%'), 'history row did not present score and percentage without repeating the same percentage');
     historyCheck(str_contains($firstHistoryPage, 'Showing 1–20 of 500 completed quizzes')
         && str_contains($firstHistoryPage, 'Page 1 of 25')
         && str_contains($firstHistoryPage, 'href="/history?page=2"'), '500-attempt history pagination did not show its range, page count, or next destination');

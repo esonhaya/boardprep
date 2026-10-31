@@ -110,7 +110,7 @@ test.describe('Developer Question Repository browser acceptance', () => {
     await page.locator('#question-search').fill(String(question.id));
     await applyFilters(page);
     await expect(page.locator('.inventory-item')).toHaveCount(1);
-    await expect(page.locator('.inventory-item').first().locator('p strong')).toHaveText(`#${question.id}`);
+    await expect(page.locator('.inventory-item').first().locator('p').first().locator('strong')).toHaveText(`#${question.id}`);
   });
 
   test('REPO-03 text search finds the canonical stem', async ({ page }) => {
@@ -166,7 +166,7 @@ test.describe('Developer Question Repository browser acceptance', () => {
     await page.locator('#question-board').selectOption(String(question.taxonomy.board_id));
     await applyFilters(page);
     await expect(page.locator('.inventory-item')).toHaveCount(1);
-    await expect(page.locator('.inventory-item').first().locator('p strong')).toHaveText(`#${question.id}`);
+    await expect(page.locator('.inventory-item').first().locator('p').first().locator('strong')).toHaveText(`#${question.id}`);
   });
 
   test('REPO-08 reset clears search and filter selections', async ({ page }) => {
@@ -326,7 +326,7 @@ test.describe('Developer Question Repository browser acceptance', () => {
     await inspectFirstResult(page);
     await page.goBack();
     await expect(page).toHaveURL(new RegExp(`/question-editor\\?.*search=${question.id}`));
-    await expect(page.locator('.inventory-item').first().locator('p strong')).toHaveText(`#${question.id}`);
+    await expect(page.locator('.inventory-item').first().locator('p').first().locator('strong')).toHaveText(`#${question.id}`);
     await page.goForward();
     await expect(page.getByRole('heading', { name: `Question #${question.id}` })).toBeVisible();
   });

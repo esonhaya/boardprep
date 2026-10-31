@@ -350,7 +350,7 @@ test.describe('BoardPrep learner browser acceptance', () => {
     const lesson = lessons.find((item) => item.board_id === 'let' && item.pdf_file);
     expect(lesson).toBeTruthy();
     await page.goto('/exams?exam=LET');
-    await page.getByRole('link', { name: 'Study materials' }).click();
+    await page.getByRole('link', { name: 'Study materials', exact: true }).click();
     await expect(page).toHaveURL(/\/study-library\?exam=let/i);
     await expect(page.locator('h1')).toHaveText('Study resources');
     const material = page.locator(`#study-material-${lesson.material_id}`);
@@ -1068,8 +1068,8 @@ test.describe('BoardPrep learner browser acceptance', () => {
     for (const [boardIndex, [code]] of fullJourneyBoards.entries()) {
       await page.goto(`/exams?exam=${encodeURIComponent(code)}`);
       const boardName = await page.locator('.exam-detail h1').innerText();
-      await expect(page.getByRole('link', { name: 'Study materials' })).toBeVisible();
-      await page.getByRole('link', { name: 'Study materials' }).click();
+      await expect(page.getByRole('link', { name: 'Study materials', exact: true })).toBeVisible();
+      await page.getByRole('link', { name: 'Study materials', exact: true }).click();
       await expect(page.locator('h1')).toHaveText('Study resources');
       await page.goBack();
 
