@@ -11,6 +11,9 @@ $review = file_get_contents($root . '/app/Views/quiz/review.php');
 $dashboard = file_get_contents($root . '/app/Views/dashboard/index.php');
 $dashboardContinuity = file_get_contents($root . '/app/Views/dashboard/continuity.php');
 $dashboardStudyHub = file_get_contents($root . '/app/Views/dashboard/smart-study-hub.php');
+$calendar = file_get_contents($root . '/app/Views/study/calendar.php');
+$readiness = file_get_contents($root . '/app/Views/developer/readiness.php');
+$calendarService = file_get_contents($root . '/app/Services/Learning/StudyCalendarService.php');
 $activeExamService = file_get_contents($root . '/app/Services/Quiz/ActiveExamDashboardService.php');
 $studyLibrary = file_get_contents($root . '/app/Views/study/library.php');
 $home = file_get_contents($root . '/app/Views/home/index.php');
@@ -122,6 +125,23 @@ $checks = [
     'Smart Study actions use fluid one-column cards through the 320–430px phone range' => str_contains($css, '.dashboard-smart-study-actions{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))')
         && str_contains($css, '@media(max-width:480px){.dashboard-smart-study')
         && str_contains($css, '.dashboard-smart-study-action{min-height:0;padding:14px}'),
+    'calendar configuration and task controls have semantic labels, status announcements, and bounded accessible touch targets' => str_contains($calendar, '<fieldset>')
+        && str_contains($calendar, '<legend>Available study weekdays</legend>')
+        && str_contains($calendar, 'for="calendar-exam-date"')
+        && str_contains($calendar, 'for="calendar-start-date"')
+        && str_contains($calendar, 'for="date-')
+        && str_contains($calendar, 'role="status" aria-live="polite"')
+        && str_contains($calendar, 'role="alert"')
+        && str_contains($css, '.study-calendar-session form button,.study-calendar-session a.button{min-height:44px}')
+        && str_contains($css, '@media(max-width:600px){.dashboard-calendar-summary'),
+    'calendar data stays owner-scoped with safe route allowlists and current progress is summarized on the dashboard' => str_contains($calendarService, '($record[\'user_id\'] ?? null) !== $this->learnerId')
+        && str_contains($calendarService, 'function dashboardSummary')
+        && str_contains($calendarService, 'quiz|flashcards/review|mistake-notebook/review')
+        && str_contains($dashboard, 'dashboard-calendar-heading'),
+    'readiness dashboard labels browser and public release independently' => str_contains($readiness, 'Browser acceptance')
+        && str_contains($readiness, 'Public release')
+        && str_contains($readiness, 'NOT AUTHORIZED')
+        && str_contains($readiness, 'Browser PASS requires'),
     'long learner content can wrap safely' => str_contains($css, 'overflow-wrap:anywhere'),
     'keyboard focus remains visible' => str_contains($css, ':focus-visible'),
 ];

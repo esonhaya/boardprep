@@ -40,7 +40,8 @@
 
     <?php $currentPath = parse_url($_SERVER["REQUEST_URI"] ?? "/", PHP_URL_PATH) ?: "/"; ?>
     <?php
-    $isStudyPath = in_array($currentPath, ["/study", "/study-library", "/my-notes"], true);
+    $isStudyPath = in_array($currentPath, ["/study", "/study-library", "/my-notes"], true)
+        || str_starts_with($currentPath, "/study-calendar");
     $isProgressPath = in_array($currentPath, ["/progress", "/dashboard"], true);
     $isMistakePath = str_starts_with($currentPath, "/mistake-notebook");
     ?>

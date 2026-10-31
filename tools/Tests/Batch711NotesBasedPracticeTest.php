@@ -124,6 +124,80 @@ if (is_array($q6403)) {
 require_once dirname(__DIR__) . '/Doctor/Project/BoardPrep/Simulation/HttpSimulator.php';
 $http = new \Tools\Doctor\Project\BoardPrep\Simulation\HttpSimulator($root . '/public/index.php');
 $cookies = ['PHPSESSID' => 'batch711-notes-' . bin2hex(random_bytes(6))];
+$calendarPage = $http->request('GET', '/study-calendar', [], [], [], $cookies);
+notesRequestOk($calendarPage, 'Study calendar page');
+notesAssert(str_contains($calendarPage['output'], '<h1>Study Calendar</h1>'), 'Study calendar route did not render.');
+if (!preg_match('/name="csrf_token" value="([a-f0-9]{64})"/', $calendarPage['output'], $calendarCsrfMatch)) {
+    throw new RuntimeException('Study calendar form did not provide a CSRF token.');
+}
+$calendarBoards = \App\Services\Board\BoardViewService::all();
+$calendarBoard = null;
+foreach ($calendarBoards as $candidateBoard) {
+    if (is_array($candidateBoard) && (array) ($candidateBoard['practice_subjects'] ?? []) !== []) {
+        $calendarBoard = $candidateBoard;
+        break;
+    }
+}
+notesAssert(is_array($calendarBoard), 'Study calendar fixture has no board with available practice subjects.');
+$calendarToday = (new DateTimeImmutable('today'))->format('Y-m-d');
+$calendarSubjectPriorities = [];
+foreach ((array) ($calendarBoard['practice_subjects'] ?? []) as $calendarSubject) {
+    if (is_array($calendarSubject) && is_string($calendarSubject['id'] ?? null) && $calendarSubject['id'] !== '') {
+        $calendarSubjectPriorities[$calendarSubject['id']] = 'normal';
+    }
+}
+$calendarConfig = [
+    'csrf_token' => $calendarCsrfMatch[1], 'expected_revision' => '0', 'request_id' => bin2hex(random_bytes(16)),
+    'board_id' => (string) $calendarBoard['id'],
+    'exam_date' => (new DateTimeImmutable($calendarToday))->modify('+14 days')->format('Y-m-d'),
+    'start_date' => $calendarToday, 'weekdays' => ['1', '2', '3', '4', '5', '6', '7'],
+    'daily_minutes' => '45', 'review_intensity' => 'balanced', 'rest_dates' => '',
+    'subject_priorities' => [(string) $calendarBoard['id'] => $calendarSubjectPriorities],
+];
+$calendarWithoutCsrf = $http->request('POST', '/study-calendar', [], array_merge($calendarConfig, ['csrf_token' => '']), [], $cookies);
+notesRequestOk($calendarWithoutCsrf, 'Reject study calendar write without CSRF', 303);
+notesAssert(\App\Core\App::storage()->all('learner-study-plans') === [], 'A study plan was persisted without a valid CSRF token.');
+$calendarSaved = $http->request('POST', '/study-calendar', [], $calendarConfig, [], $cookies);
+notesRequestOk($calendarSaved, 'Generate study calendar through HTTP', 303);
+$calendarPage = $http->request('GET', '/study-calendar', [], [], [], $cookies);
+notesRequestOk($calendarPage, 'Reopen generated study calendar');
+notesAssert(str_contains($calendarPage['output'], 'Your sessions') && str_contains($calendarPage['output'], 'Mark complete')
+    && str_contains($calendarPage['output'], 'Move session to an available weekday'), 'Generated calendar omitted learner editing and progress controls.');
+if (!preg_match('#<form method="post" action="/study-calendar/task" class="inline-form">(.*?)</form>#s', $calendarPage['output'], $calendarTaskForm)) {
+    throw new RuntimeException('Calendar did not render a completion task form.');
+}
+$calendarTaskPost = static function (string $html, string $name): string {
+    if (!preg_match('/name="' . preg_quote($name, '/') . '" value="([^"]*)"/', $html, $match)) {
+        throw new RuntimeException('Calendar task form did not include ' . $name . '.');
+    }
+    return html_entity_decode($match[1], ENT_QUOTES | ENT_HTML5, 'UTF-8');
+};
+$calendarTaskInput = [
+    'csrf_token' => $calendarCsrfMatch[1],
+    'task_id' => $calendarTaskPost($calendarTaskForm[1], 'task_id'),
+    'expected_revision' => $calendarTaskPost($calendarTaskForm[1], 'expected_revision'),
+    'request_id' => $calendarTaskPost($calendarTaskForm[1], 'request_id'),
+    'operation' => $calendarTaskPost($calendarTaskForm[1], 'operation'),
+];
+notesAssert($calendarTaskInput['operation'] === 'complete', 'The first calendar mutation was not the completion control.');
+$calendarCompleted = $http->request('POST', '/study-calendar/task', [], $calendarTaskInput, [], $cookies);
+notesRequestOk($calendarCompleted, 'Complete first calendar session', 303);
+$calendarCompletedRetry = $http->request('POST', '/study-calendar/task', [], $calendarTaskInput, [], $cookies);
+notesRequestOk($calendarCompletedRetry, 'Retry completed calendar mutation', 303);
+$calendarRecordsAfter = \App\Core\App::storage()->all('learner-study-plans');
+notesAssert(count($calendarRecordsAfter) === 1 && (int) ($calendarRecordsAfter[0]['revision'] ?? 0) === 2
+    && count(array_filter((array) ($calendarRecordsAfter[0]['sessions'] ?? []), static fn(array $session): bool => ($session['status'] ?? '') === 'completed')) === 1,
+    'Calendar HTTP completion retry duplicated progress or revision changes.');
+$dashboardCalendar = $http->request('GET', '/dashboard', [], [], [], $cookies);
+notesRequestOk($dashboardCalendar, 'Learner dashboard calendar summary');
+notesAssert(str_contains($dashboardCalendar['output'], 'dashboard-calendar-heading')
+    && str_contains($dashboardCalendar['output'], 'sessions marked complete'), 'Learner dashboard did not reflect persisted calendar progress.');
+foreach (\App\Core\App::storage()->all('learner-study-plans') as $calendarFixtureRecord) {
+    if (is_array($calendarFixtureRecord) && is_scalar($calendarFixtureRecord['id'] ?? null)) {
+        \App\Core\App::storage()->delete('learner-study-plans', (string) $calendarFixtureRecord['id']);
+    }
+}
+notesAssert(\App\Core\App::storage()->all('learner-study-plans') === [], 'HTTP calendar fixture cleanup did not preserve isolation for later lifecycle checks.');
 $page = $http->request('GET', '/my-notes', [], [], [], $cookies);
 notesRequestOk($page, 'My Notes page');
 notesAssert(str_contains($page['output'], 'Practice Based on My Notes') && str_contains($page['output'], 'name="body"'), 'My Notes form is missing its learner-facing controls.');
@@ -264,37 +338,53 @@ $privacyNote = (new \App\Services\Learning\LearnerNotesService())->save([
     'description' => 'Private learner concern fixture.',
     'status' => 'SUBMITTED',
 ]);
+$calendarRecordId = 'study-plan-' . substr(hash('sha256', $_SESSION['learner_identity']), 0, 32);
+\App\Core\App::storage()->create('learner-study-plans', [
+    'id' => $calendarRecordId,
+    'user_id' => $_SESSION['learner_identity'],
+    'schema_version' => 1,
+    'revision' => 1,
+    'configuration' => ['board_id' => 'let'],
+    'sessions' => [],
+]);
 $anonymousData = \App\Services\Privacy\AnonymousLearnerDataService::current();
 $anonymousExport = $anonymousData->export();
 notesAssert(count($anonymousExport['records']['learner_notes'] ?? []) === 1
     && ($anonymousExport['records']['learner_notes'][0]['body'] ?? '') === 'Private body for the current learner only.'
     && count($anonymousExport['records']['question_issue_reports'] ?? []) === 1
-    && ($anonymousExport['records']['question_issue_reports'][0]['question_id'] ?? '') === $questionId,
-    'Anonymous learner export omitted the owner’s private note or question report.');
+    && ($anonymousExport['records']['question_issue_reports'][0]['question_id'] ?? '') === $questionId
+    && count($anonymousExport['records']['study_calendar'] ?? []) === 1,
+    'Anonymous learner export omitted the owner’s private note, question report, or study calendar.');
 $backupPath = $fixture . '/batch711-notes-backup';
 $backupReport = \App\Services\Operations\BackupService::create($root, $backupPath);
 notesAssert(($backupReport['status'] ?? '') === 'PASS'
     && is_file($backupPath . '/json/learner_notes.json')
-    && is_file($backupPath . '/json/learner-question-reports.json'), 'The existing mutable-data backup omitted saved learner notes or question reports.');
+    && is_file($backupPath . '/json/learner-question-reports.json')
+    && is_file($backupPath . '/json/learner-study-plans.json'), 'The existing mutable-data backup omitted saved learner state.');
 $restorePath = $fixture . '/batch711-notes-restore';
 $restoreReport = \App\Services\Operations\BackupService::restore($root, $backupPath, $restorePath);
 $restoredNotes = json_decode((string) file_get_contents($restorePath . '/learner_notes.json'), true, 512, JSON_THROW_ON_ERROR);
 $restoredReports = json_decode((string) file_get_contents($restorePath . '/learner-question-reports.json'), true, 512, JSON_THROW_ON_ERROR);
+$restoredCalendar = json_decode((string) file_get_contents($restorePath . '/learner-study-plans.json'), true, 512, JSON_THROW_ON_ERROR);
 notesAssert(($restoreReport['status'] ?? '') === 'PASS'
     && count($restoredNotes) === 1
     && ($restoredNotes[0]['body'] ?? '') === 'Private body for the current learner only.'
     && count($restoredReports) === 1
-    && ($restoredReports[0]['question_id'] ?? '') === $questionId,
-    'The existing mutable-data restore did not preserve learner notes and question reports.');
+    && ($restoredReports[0]['question_id'] ?? '') === $questionId
+    && count($restoredCalendar) === 1
+    && ($restoredCalendar[0]['configuration']['board_id'] ?? '') === 'let',
+    'The existing mutable-data restore did not preserve learner notes, question reports, and study calendar.');
 $cleared = $anonymousData->clear();
 notesAssert(($cleared['learner_notes'] ?? 0) === 1
     && ($cleared['question_issue_reports'] ?? 0) === 1
+    && ($cleared['study_calendar'] ?? 0) === 1
     && $anonymousData->summary()['learner_notes'] === 0
-    && $anonymousData->summary()['question_issue_reports'] === 0,
-    'Anonymous learner clear did not remove only the current learner note and question report.');
+    && $anonymousData->summary()['question_issue_reports'] === 0
+    && $anonymousData->summary()['study_calendar'] === 0,
+    'Anonymous learner clear did not remove only the current learner note, question report, and calendar.');
 
-// Account restore accepts legacy archives, the prior notes-bearing archive,
-// and the current archive shape that also carries learner issue reports.
+// Account restore accepts legacy archives and each prior optional learner
+// collection shape, including the new encrypted study calendar collection.
 $accountId = 'account-' . str_repeat('d', 32);
 $accountLearnerId = 'account-learner-' . str_repeat('d', 32);
 $account = [
@@ -314,6 +404,10 @@ $accountCollections = [
         'question_id' => 'synthetic-account-question', 'type' => 'SOURCE_CONCERN',
         'description' => 'Account-owned concern.', 'status' => 'SUBMITTED',
     ]],
+    'study_calendar' => [[
+        'id' => 'study-plan-' . str_repeat('a', 32), 'user_id' => $accountLearnerId,
+        'schema_version' => 1, 'revision' => 3, 'configuration' => ['board_id' => 'let'], 'sessions' => [],
+    ]],
 ];
 $makeRestorePayload = static function (array $collections) use ($account): array {
     $names = array_keys($collections);
@@ -331,7 +425,10 @@ $makeRestorePayload = static function (array $collections) use ($account): array
     ];
 };
 \App\Services\Accounts\AccountRestoreService::validatePayload($makeRestorePayload($accountCollections));
-$previousCurrentCollections = $accountCollections;
+$previousQuestionReportCollections = $accountCollections;
+unset($previousQuestionReportCollections['study_calendar']);
+\App\Services\Accounts\AccountRestoreService::validatePayload($makeRestorePayload($previousQuestionReportCollections));
+$previousCurrentCollections = $previousQuestionReportCollections;
 unset($previousCurrentCollections['question_issue_reports']);
 \App\Services\Accounts\AccountRestoreService::validatePayload($makeRestorePayload($previousCurrentCollections));
 $legacyCollections = $previousCurrentCollections;

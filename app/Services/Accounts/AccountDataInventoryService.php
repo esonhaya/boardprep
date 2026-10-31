@@ -76,6 +76,19 @@ final class AccountDataInventoryService
             'backup' => 'Included in the authenticated encrypted account archive.',
             'retention' => 'Removed after confirmed application deletion; external copies are outside this operation.',
         ],
+        'learner-study-plans' => [
+            'export_name' => 'study_calendar',
+            'ownership_field' => 'user_id',
+            'schema_version' => 1,
+            'json_location' => 'APP_STORAGE_PATH/learner-study-plans.json',
+            'sqlite_location' => 'storage_records collection=learner-study-plans',
+            'read_path' => 'StudyCalendarService::current',
+            'write_path' => 'StudyCalendarService::saveConfiguration and updateTask',
+            'export' => 'Includes the learner’s calendar configuration and progress without session identifiers.',
+            'deletion' => 'Delete only records whose user_id exactly matches the verified account learner_id.',
+            'backup' => 'Included only inside the authenticated encrypted account archive.',
+            'retention' => 'Removed after confirmed application deletion; external copies are outside this operation.',
+        ],
     ];
 
     /** @return array<string,mixed> */

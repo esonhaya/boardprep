@@ -114,6 +114,7 @@ final class SimulationStorageFixture
             'flashcard_state.json',
             'learner-question-reports.json',
             'learner_notes.json',
+            'learner-study-plans.json',
             'flashcard-state.json',
             'repository-health.json',
             'doctor-report.json',
@@ -166,6 +167,7 @@ final class SimulationStorageFixture
             'flashcard_state.json' => "[]\n",
             'learner-question-reports.json' => "[]\n",
             'learner_notes.json' => "[]\n",
+            'learner-study-plans.json' => "[]\n",
         ] as $file => $contents) {
             if (file_put_contents($destination . '/' . $file, $contents, LOCK_EX) === false) {
                 throw new \RuntimeException('Unable to initialize isolated learner-state fixtures.');

@@ -119,6 +119,14 @@ try {
         'created_at' => gmdate(DATE_ATOM),
         'status_changed_at' => gmdate(DATE_ATOM),
     ]);
+    App::storage()->create('learner-study-plans', [
+        'id' => 'study-plan-' . substr(hash('sha256', $learnerId), 0, 32),
+        'user_id' => $learnerId,
+        'schema_version' => 1,
+        'revision' => 1,
+        'configuration' => ['board_id' => 'let'],
+        'sessions' => [],
+    ]);
 
     $backupPath = $private . '/account-one.bpk';
     $backupPathTwo = $private . '/account-two.bpk';
@@ -140,7 +148,8 @@ try {
     accountBackupAssert(($created['record_counts']['quiz_attempts'] ?? null) === 1
         && ($created['record_counts']['weakness_summaries'] ?? null) === 1
         && ($created['record_counts']['flashcard_reviews'] ?? null) === 1
-        && ($created['record_counts']['question_issue_reports'] ?? null) === 1,
+        && ($created['record_counts']['question_issue_reports'] ?? null) === 1
+        && ($created['record_counts']['study_calendar'] ?? null) === 1,
         'Encrypted backup inventory omitted owned records.');
     $verified = $backup->verify($backupPath, $passphrase);
     accountBackupAssert(($verified['record_counts']['credential_profile'] ?? null) === 1, 'Encrypted backup manifest did not verify.');
@@ -176,7 +185,7 @@ try {
 
     $decodedPayload = AccountBackupCrypto::decrypt($archive, $passphrase);
     accountBackupAssert(($decodedPayload['manifest']['included_collections'] ?? null) === [
-        'quiz_attempts', 'weakness_summaries', 'flashcard_reviews', 'learner_notes', 'question_issue_reports', 'credential_profile',
+        'quiz_attempts', 'weakness_summaries', 'flashcard_reviews', 'learner_notes', 'question_issue_reports', 'study_calendar', 'credential_profile',
     ], 'Encrypted backup manifest did not match the supported restore inventory.');
     $badManifest = $decodedPayload;
     $badManifest['manifest']['record_counts']['quiz_attempts'] = 99;

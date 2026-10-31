@@ -25,6 +25,7 @@ final class BackupService
         'flashcard_state.json',
         'learner-question-reports.json',
         'learner_notes.json',
+        'learner-study-plans.json',
         'blueprints.json',
     ];
 

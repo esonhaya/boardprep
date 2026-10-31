@@ -17,6 +17,7 @@ final class AccountRestoreService
         'flashcard_reviews' => 'flashcard_state',
         'learner_notes' => 'learner_notes',
         'question_issue_reports' => 'learner-question-reports',
+        'study_calendar' => 'learner-study-plans',
     ];
 
     /** @param null|callable(string):void $afterFile Test-only interruption point. */
@@ -160,11 +161,13 @@ final class AccountRestoreService
         $manifest = $payload['manifest'];
         $legacyNames = ['quiz_attempts', 'weakness_summaries', 'flashcard_reviews'];
         $previousCurrentNames = [...$legacyNames, 'learner_notes'];
-        $currentNames = [...$previousCurrentNames, 'question_issue_reports'];
+        $previousLatestNames = [...$previousCurrentNames, 'question_issue_reports'];
+        $currentNames = [...$previousLatestNames, 'study_calendar'];
         $collectionNames = is_array($payload['collections'] ?? null) ? array_keys($payload['collections']) : [];
         $payloadNames = $collectionNames === $legacyNames ? $legacyNames
             : ($collectionNames === $previousCurrentNames ? $previousCurrentNames
-                : ($collectionNames === $currentNames ? $currentNames : []));
+                : ($collectionNames === $previousLatestNames ? $previousLatestNames
+                    : ($collectionNames === $currentNames ? $currentNames : [])));
         $expectedNames = [...$payloadNames, 'credential_profile'];
         if (($manifest['format'] ?? null) !== 'boardprep-account-backup-payload-v1'
             || !is_string($manifest['created_at'] ?? null)

@@ -9,6 +9,7 @@ use App\Services\Learning\DashboardStudyContinuityService;
 use App\Services\Learning\LearningHistoryService;
 use App\Services\Learning\SmartStudyHubService;
 use App\Services\Learning\StudyDashboardService;
+use App\Services\Learning\StudyCalendarService;
 use App\Services\Learning\WeaknessService;
 use App\Services\Quiz\ActiveExamDashboardService;
 use App\Support\Presentation\PreviewCollection;
@@ -21,6 +22,11 @@ final class DashboardController
         $preferences = \App\Services\Profile\LearnerPreferenceService::get();
         $dashboard = StudyDashboardService::buildFromOrdered($attempts, $preferences);
         $studyContinuity = DashboardStudyContinuityService::build($attempts);
+        try {
+            $calendarSummary = (new StudyCalendarService())->dashboardSummary((new \DateTimeImmutable('today'))->format('Y-m-d'));
+        } catch (\Throwable) {
+            $calendarSummary = ['state' => 'UNAVAILABLE'];
+        }
         View::render(
             "dashboard/index",
             [
@@ -35,6 +41,7 @@ final class DashboardController
                 "historyHasMore" => PreviewCollection::hasMore($attempts),
                 "weaknesses" => WeaknessService::all(),
                 "activeExam" => ActiveExamDashboardService::current(),
+                "calendarSummary" => $calendarSummary,
             ]
         );
     }

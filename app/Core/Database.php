@@ -85,6 +85,7 @@ class Database
                 'flashcard_state' => $this->sqliteStorage,
                 'question-statistics' => $this->sqliteStorage,
                 'learner-question-reports' => $this->sqliteStorage,
+                'learner-study-plans' => $this->sqliteStorage,
             ]);
         } else {
             $this->storage = $this->jsonStorage($config['path'] ?? null);

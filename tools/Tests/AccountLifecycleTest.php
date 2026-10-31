@@ -173,6 +173,15 @@ $seed($learnerA, 'a', 7);
 $seed($learnerB, 'b', 4);
 $seed($learnerD, 'd1', 2);
 $seed($learnerD, 'd2', 8);
+$calendarOwnerId = 'study-plan-' . substr(hash('sha256', $learnerD), 0, 32);
+App::storage()->create('learner-study-plans', [
+    'id' => $calendarOwnerId,
+    'user_id' => $learnerD,
+    'schema_version' => 1,
+    'revision' => 1,
+    'configuration' => ['board_id' => 'let'],
+    'sessions' => [],
+]);
 $seed($learnerE, 'e', 6);
 $seed($learnerRace, 'race', 5);
 App::storage()->create('attempts', [
@@ -187,7 +196,7 @@ $questionPath = dirname(__DIR__, 2) . '/storage/questions.json';
 $questionsBefore = hash_file('sha256', $questionPath);
 $stableOwnedHash = static function (string $learnerId): string {
     $collections = [];
-    foreach (['attempts', 'weakness', 'flashcard_state', 'learner_notes', 'learner-question-reports'] as $name) {
+    foreach (['attempts', 'weakness', 'flashcard_state', 'learner_notes', 'learner-question-reports', 'learner-study-plans'] as $name) {
         $collections[$name] = App::storage()->where($name, ['user_id' => $learnerId]);
     }
     return hash('sha256', serialize($collections));
@@ -208,7 +217,8 @@ try {
         && $inventory['collections']['weakness_summaries']['count'] === 2
         && $inventory['collections']['flashcard_reviews']['count'] === 2
         && $inventory['collections']['learner_notes']['count'] === 2
-        && $inventory['collections']['question_issue_reports']['count'] === 2,
+        && $inventory['collections']['question_issue_reports']['count'] === 2
+        && $inventory['collections']['study_calendar']['count'] === 1,
         'Account data inventory did not accurately report owned collections.');
     lifecycleAssert(($inventory['derived']['current_storage_non_account_owned_counts']['anonymous_learner_records']['quiz_attempts'] ?? null) === 1,
         'Account inventory did not keep anonymous learner records separate from account-owned data.');
@@ -217,6 +227,8 @@ try {
         && ($export['manifest']['record_counts']['quiz_attempts'] ?? null) === 2
         && ($export['manifest']['record_counts']['learner_notes'] ?? null) === 2
         && ($export['manifest']['record_counts']['question_issue_reports'] ?? null) === 2
+        && ($export['manifest']['record_counts']['study_calendar'] ?? null) === 1
+        && count($export['records']['study_calendar'] ?? []) === 1
         && count($export['records']['learner_notes'] ?? []) === 2
         && count($export['records']['question_issue_reports'] ?? []) === 2
         && !isset($export['records']['question_issue_reports'][0]['user_id'])
@@ -263,7 +275,8 @@ try {
     lifecycleAssert(App::storage()->where('attempts', ['user_id' => $learnerD]) === []
         && App::storage()->where('weakness', ['user_id' => $learnerD]) === []
         && App::storage()->where('flashcard_state', ['user_id' => $learnerD]) === []
-        && App::storage()->where('learner-question-reports', ['user_id' => $learnerD]) === [],
+        && App::storage()->where('learner-question-reports', ['user_id' => $learnerD]) === []
+        && App::storage()->where('learner-study-plans', ['user_id' => $learnerD]) === [],
         'Deletion completed while owned records remained.');
     lifecycleAssert((new AccountDeletionService())->process($rawD['account_id'])['already_completed'], 'Duplicate deletion retry was not idempotent.');
     lifecycleAssert($stableOwnedHash($learnerA) === $hashA && $stableOwnedHash($learnerB) === $hashB

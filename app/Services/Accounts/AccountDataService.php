@@ -46,7 +46,7 @@ final class AccountDataService
                 'updated_at' => (string) ($account['updated_at'] ?? ''),
                 'preferences' => is_array($account['preferences'] ?? null) ? $account['preferences'] : [],
             ],
-            'scope' => 'Saved quiz attempts, derived weakness summaries, flashcard review state, private learner notes, question issue reports, and account preferences owned by this account.',
+            'scope' => 'Saved quiz attempts, derived weakness summaries, flashcard review state, private learner notes, question issue reports, an editable study calendar, and account preferences owned by this account.',
             'records' => $records,
         ];
     }

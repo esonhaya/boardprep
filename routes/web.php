@@ -15,6 +15,7 @@ use App\Controllers\FlashcardController;
 use App\Controllers\DeveloperToolsController;
 use App\Controllers\DoctorDashboardController;
 use App\Controllers\DoctorRunController;
+use App\Controllers\DeveloperReadinessController;
 use App\Controllers\HomeController;
 use App\Controllers\HistoryController;
 use App\Controllers\LearningProfileController;
@@ -32,6 +33,7 @@ use App\Controllers\QuizFlowController;
 use App\Controllers\QuestionIssueReportsController;
 use App\Controllers\SubjectController;
 use App\Controllers\StudyDashboardController;
+use App\Controllers\StudyCalendarController;
 use App\Controllers\StudyLibraryController;
 use App\Controllers\TaxonomyController;
 use App\Core\App;
@@ -91,6 +93,9 @@ $router->get(
     "/study",
     [StudyDashboardController::class, "index"]
 );
+$router->get('/study-calendar', [StudyCalendarController::class, 'index']);
+$router->post('/study-calendar', [StudyCalendarController::class, 'save']);
+$router->post('/study-calendar/task', [StudyCalendarController::class, 'updateTask']);
 $router->get("/study-library", [StudyLibraryController::class, "index"]);
 $router->get("/study-library/practice", [StudyLibraryController::class, "practice"]);
 $router->get('/my-notes', [MyNotesController::class, 'index']);
@@ -157,6 +162,7 @@ $router->get(
     "/developer/doctor",
     [DoctorDashboardController::class, "index"]
 );
+$router->get('/developer/readiness', [DeveloperReadinessController::class, 'index']);
 
 $router->post(
     "/developer/doctor/run",

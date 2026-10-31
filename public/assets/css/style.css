@@ -148,6 +148,19 @@ button:disabled{cursor:not-allowed;opacity:.65}
 .dashboard-smart-study-actions{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px;min-width:0}
 .dashboard-smart-study-action{display:grid;align-content:start;justify-items:start;gap:9px;min-width:0;min-height:176px;padding:16px;text-decoration:none;overflow-wrap:anywhere}
 .dashboard-smart-study-action>strong,.dashboard-smart-study-action>span{max-width:100%;overflow-wrap:anywhere}
+.dashboard-calendar-summary{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;margin:0 0 18px;min-width:0}
+.dashboard-calendar-summary>div{flex:1 1 260px;min-width:0}
+.dashboard-calendar-summary h2,.dashboard-calendar-summary p{margin:4px 0;overflow-wrap:anywhere}
+.dashboard-calendar-summary nav{display:flex;flex-wrap:wrap;gap:8px}
+.study-calendar-list{display:grid;gap:14px;margin:16px 0;padding:0;list-style:none}
+.study-calendar-session,.study-calendar-session .study-plan-item{min-width:0}
+.study-calendar-session .page-header{gap:12px;margin:0 0 12px}
+.study-calendar-session .page-header h3,.study-calendar-session p{overflow-wrap:anywhere}
+.study-calendar-edit-form{align-items:end;margin:10px 0}
+.study-calendar-edit-form>div{min-width:0}
+.study-calendar-session summary{display:flex;align-items:center;min-height:44px;cursor:pointer}
+.study-calendar-session form button,.study-calendar-session a.button{min-height:44px}
+@media(max-width:600px){.dashboard-calendar-summary{align-items:stretch;flex-direction:column;padding:16px}.dashboard-calendar-summary nav{display:grid;grid-template-columns:1fr}.dashboard-calendar-summary nav .button{justify-content:center}.study-calendar-session .page-header{align-items:flex-start;flex-direction:column}.study-calendar-session form.inline-form{display:flex!important;width:100%}.study-calendar-session form.inline-form button{width:100%}.study-calendar-edit-form{grid-template-columns:1fr}.study-calendar-session a.button{width:100%;justify-content:center}}
 .dashboard-smart-study-step{color:var(--primary);font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em}
 .dashboard-smart-study-action>span:not(.dashboard-smart-study-step){color:var(--muted);font-size:.9rem}
 .dashboard-smart-study-action>.dashboard-smart-study-link{align-self:end;min-height:44px;color:var(--primary);font-weight:700}

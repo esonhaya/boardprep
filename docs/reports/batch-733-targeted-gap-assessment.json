@@ -1,0 +1,35 @@
+{
+  "batch": 733,
+  "baseline_sha": "50dd1aeee0bd8b8fa2808e5599be86bc5d4b89f5",
+  "branch": "batch-733-adaptive-planner-readiness-dashboard",
+  "assessed_at_utc": "2026-10-31T22:57:19Z",
+  "source_implementation_started_before_assessment": false,
+  "capabilities": [
+    {"name":"learner_study_recommendations","status":"PARTIAL","evidence":["app/Controllers/StudyDashboardController.php","app/Services/Learning/StudyDashboardService.php","app/Services/Learning/StudyPlanService.php","tools/Tests/StudyDashboardActionabilityTest.php"],"decision":"Add a distinct date-based editable calendar; preserve recommendation behavior."},
+    {"name":"board_subject_metadata","status":"COMPLETE","evidence":["app/Services/Board/BoardViewService.php","app/Services/Profile/LearnerPreferenceService.php"],"decision":"Validate all calendar choices against the current board catalog."},
+    {"name":"performance_and_weak_area_evidence","status":"COMPLETE","evidence":["app/Services/Learning/LearningHistoryService.php","app/Services/Learning/StudyDashboardService.php","app/Services/Learning/LearningReadinessService.php"],"decision":"Use existing owned attempt analytics, preserve insufficient-data distinctions."},
+    {"name":"mistake_recovery","status":"COMPLETE","evidence":["app/Controllers/MistakeNotebookController.php","app/Services/Learning/WeaknessService.php"],"decision":"Link to existing recovery routes when evidence exists."},
+    {"name":"spaced_repetition","status":"COMPLETE","evidence":["app/Services/Flashcard/FlashcardService.php","app/Services/Flashcard/FlashcardScheduler.php","app/Repositories/FlashcardStateRepository.php","tools/Tests/FlashcardSchedulingTest.php"],"decision":"Reuse existing bounded due-selection; no duplicate scheduler."},
+    {"name":"adaptive_study_calendar","status":"COMPLETE","evidence":["app/Services/Learning/StudyCalendarPlanner.php","app/Services/Learning/StudyCalendarService.php","app/Controllers/StudyCalendarController.php","app/Views/study/calendar.php","app/Views/dashboard/index.php","tools/Tests/StudyCalendarAcceptanceTest.php","tools/Tests/Batch711NotesBasedPracticeTest.php"],"decision":"Implemented bounded, deterministic, editable plans with owner-scoped JSON/SQLite persistence and lifecycle coverage."},
+    {"name":"planner_persistence_privacy","status":"COMPLETE","evidence":["app/Core/Database.php","app/Services/Accounts/AccountDataInventoryService.php","app/Services/Accounts/AccountRestoreService.php","app/Services/Operations/BackupService.php","app/Services/Privacy/AnonymousLearnerDataService.php","tools/Tests/AccountLifecycleTest.php","tools/Tests/AnonymousLearnerPrivacyHttpTest.php"],"decision":"Study-calendar records are included in account/anonymous export, deletion, restore compatibility, and mutable storage backup paths."},
+    {"name":"unified_developer_readiness","status":"COMPLETE","evidence":["app/Services/Developer/FullDoctorEvidenceService.php","app/Services/Developer/ReadinessDashboardService.php","app/Controllers/DeveloperReadinessController.php","app/Views/developer/readiness.php","tools/Tests/DeveloperReadinessEvidenceTest.php","tools/Tests/StudyCalendarReadinessHttpTest.php"],"decision":"Implemented read-only provenance-aware overview with separate technical, browser, academic, and public-release states."},
+    {"name":"academic_backlog_visibility","status":"PARTIAL","evidence":["app/Services/Question/AcademicReviewProposalService.php","app/Services/Study/SourceRegistryService.php","app/Services/Question/QuestionIssueReportService.php"],"decision":"Show grounded counts only; learner reports remain separate from human decisions."},
+    {"name":"developer_access_boundary","status":"UNVERIFIED","evidence":["routes/web.php","README.md","app/Services/Question/AcademicReviewerAuthorizationService.php"],"decision":"Use established non-production route gate, read-only output, and no reviewer privilege changes."},
+    {"name":"encrypted_account_backup_runtime","status":"UNVERIFIED","evidence":["app/Services/Accounts/AccountBackupCrypto.php","app/Services/Accounts/AccountBackupService.php","app/Services/Accounts/AccountRestoreService.php","tools/Tests/AccountBackupTest.php"],"decision":"Current Termux PHP has no ext-sodium; execute round-trip only if an installed compatible runtime is found."},
+    {"name":"real_browser_acceptance","status":"UNVERIFIED","evidence":["docs/reports/batch-732-feature-gap-audit.md","tests/browser"],"decision":"Run local browser contracts only; report NOT_EXECUTED without a supported local browser."}
+  ],
+  "runtime": {"php":"8.5.1 Termux Android/arm64","pdo_sqlite":true,"sodium":false,"alternate_local_php_found":false,"real_browser":"NOT_EXECUTED"},
+  "implementation_results": {
+    "confirmed_defects_fixed": ["Doctor sidecar key parser now accepts ARTIFACT_SHA256", "unsafe artifact path input no longer reaches a typed helper with null", "stale Doctor browser/security PASS is labeled stale", "list-shaped Doctor test evidence reports correct totals"],
+    "confirmed_defects_remaining": [],
+    "existing_features_improved": ["Study recommendations connect to an editable calendar", "learner dashboard shows the next or overdue session", "developer readiness evidence now includes provenance/freshness and separate gates"],
+    "new_features": ["learner-specific adaptive study calendar", "read-only unified developer readiness dashboard"],
+    "proposed_features_deferred": [],
+    "unverified": ["real browser/rendered accessibility acceptance", "encrypted backup cryptographic round-trip without ext-sodium", "identity-based developer role (existing non-production environment gate retained)"],
+    "academic_human_review_required": ["pending proposal disposition", "source-traceability review signals"],
+    "tests_passed": ["StudyCalendarAcceptanceTest.php", "DeveloperReadinessEvidenceTest.php", "StudyCalendarReadinessHttpTest.php testing+production", "Batch711NotesBasedPracticeTest.php", "AccountLifecycleTest.php json+sqlite", "AnonymousLearnerPrivacyHttpTest.php", "SecurityTrustBoundaryTest.php", "ProductionQuizCsrfTest.php", "AccountSecurityTest.php", "SessionConfigurationTest.php", "SimulationFixturePrivacyIsolationTest.php", "LearnerMobileAccessibilityViewTest.php", "npm run test:browser:contract", "npm run test:browser:fixture"],
+    "encrypted_backup_result": "NOT_EXECUTED_ENVIRONMENT_BLOCKED; fail-closed dependency test passed",
+    "real_browser_result": "NOT_EXECUTED"
+  },
+  "protected_data_policy":"No canonical academic or real learner records will be modified."
+}

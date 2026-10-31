@@ -44,7 +44,7 @@ The gate rules are:
 
 ## Runtime inventory
 
-`routes/web.php` has 31 production web route registrations:
+`routes/web.php` has 34 production web route registrations:
 
 | Method | Route | Handler |
 |---|---|---|
@@ -64,6 +64,9 @@ The gate rules are:
 | GET, POST | `/question-report` | `LearnerQuestionReportController::create` / `submit` |
 | GET | `/question-reports` | `LearnerQuestionReportController::index` |
 | GET | `/study` | `StudyDashboardController::index` |
+| GET | `/study-calendar` | `StudyCalendarController::index` |
+| POST | `/study-calendar` | `StudyCalendarController::save` |
+| POST | `/study-calendar/task` | `StudyCalendarController::updateTask` |
 | GET | `/study-library` | `StudyLibraryController::index` |
 | GET | `/study-library/practice` | `StudyLibraryController::practice` |
 | GET | `/my-notes` | `MyNotesController::index` |
@@ -77,12 +80,12 @@ The gate rules are:
 | GET | `/flashcards/missed` | `FlashcardController::missed` |
 | GET, POST | `/flashcards/review` | `FlashcardController::review` / `submitReview` |
 
-The following 76 web registrations are inside the non-production environment
+The following 77 web registrations are inside the non-production environment
 block. They are not authenticated production administration; they must remain
 unavailable when `APP_ENV=production`:
 
 - GET: `/developer`, `/developer/content-intelligence`,
-  `/developer/study-library`, `/developer/doctor`, `/boards`, `/board/create`,
+  `/developer/study-library`, `/developer/doctor`, `/developer/readiness`, `/boards`, `/board/create`,
   `/board/view`, `/subjects`, `/subject/create`, `/subject/edit`,
   `/subject/view`, `/question-editor`, `/question-editor/create`,
   `/question-editor/edit`, `/question-export`, `/question-import`,
@@ -151,6 +154,7 @@ repositories, JSON storage files, templates, assets, and tests. Main areas are:
 | Home, entry links, board listing and board detail | `IMPLEMENTED_AND_VERIFIED` | `TenBoardLearnerJourneyHttpTest.php` and `PublicBoardDiscoveryTest.php` exercise production HTTP board entry for all ten boards. Browser and human presentation remain unverified. |
 | Practice, question selection, answer feedback, submit, score, explanation, retry and recovery | `IMPLEMENTED_AND_VERIFIED` | `TenBoardLearnerJourneyHttpTest.php` exercises each board with a source-linked eligible question; `LearnerJourneyHttpTest.php`, `QuizStartFailureHttpTest.php`, and `QuizSessionResilienceTest.php` add generic lifecycle/recovery coverage. |
 | History, historical result, progress, dashboard and recommendations | `IMPLEMENTED_AND_VERIFIED` | `TenBoardLearnerJourneyHttpTest.php`, `HistoryResultHttpTest.php`, `MultiAttemptLearningHttpTest.php`, and learner journey tests; records are scoped to the authenticated account identity or separate anonymous session identity. |
+| Adaptive learner study calendar | `IMPLEMENTED_AND_VERIFIED` in deterministic service, HTTP, JSON/SQLite, and account-lifecycle tests | `/study-calendar` builds a bounded editable plan from current board subjects, learner-selected availability, due review queues, and evidence-backed performance. Completion, skip, defer, reschedule, idempotency, ownership, regeneration, and privacy export/restore/deletion have regression coverage. Real rendered browser behavior remains unverified; schedules are study suggestions, not official board requirements or pass predictions. |
 | Adaptive practice and weakness analysis | `IMPLEMENTED_AND_VERIFIED` | Focused learning/recommendation tests plus the multi-page HTTP journey; behavior remains bounded by actual completed attempts. |
 | Exam simulation | `IMPLEMENTED_AND_VERIFIED` | `ExamSimulationHttpTest.php` verifies timed and untimed sessions, server deadline recovery and expiry, navigation, editable answers, required review, unanswered scoring, retry, and exact-once persistence. The simulator is clearly separate from the official examination. |
 | Learner question concern reports | `IMPLEMENTED_AND_VERIFIED` in isolated HTTP/storage tests | Learners can report an answer, wording, freshness, source, duplicate, or other concern from result review; inputs are bounded and CSRF-protected, duplicate submissions are idempotent within 24 hours, reports are learner-scoped, and only an explicitly qualified reviewer can change review state. Reports do not alter academic records. Rendered browser acceptance remains unverified. |
@@ -158,6 +162,7 @@ repositories, JSON storage files, templates, assets, and tests. Main areas are:
 | Flashcards | `IMPLEMENTED_AND_VERIFIED` | `FlashcardHttpTest.php` and integration/scheduling tests cover reveal, rating, CSRF, persisted state, and learner isolation. |
 | Source-first study support | `IMPLEMENTED_AND_VERIFIED` | Board-specific study libraries, question feedback links, and published material/source navigation are exercised by `TenBoardLearnerJourneyHttpTest.php`, `StudyLibraryNavigationTest.php`, and source/reference tests. This verifies linkage/rendering, not every resource's educational quality. |
 | Resume/reload, stale requests and retry | `IMPLEMENTED_AND_VERIFIED` in HTTP/simulation tests | Anonymous session continuity remains cookie-based. The nonproduction account preview supports cross-session learner identity but is not enabled in production. |
+| Unified operational readiness dashboard | `IMPLEMENTED_AND_VERIFIED` for bounded evidence parsing and route contracts | `/developer/readiness` is read-only and uses validated, commit-bound Doctor evidence to show technical health, browser status, academic backlog, and public authorization independently. Missing, stale, malformed, failed, or mismatched evidence cannot display as a current technical PASS. The page is absent in production; the non-production environment gate is not an identity-based developer role. |
 | Learner registration, sign-in, and persistent profile | `IMPLEMENTED_UNVERIFIED` for nonproduction preview; public routes disabled | PHP-native password hashing, one-time hashed recovery codes, saved preferences, rate limits, session rotation/expiry, and account-scoped learner data have focused coverage. Independent security review, encrypted account backup/restore, owner recovery/deletion policy, and live-host evidence remain before public enablement. Anonymous histories are not linked. |
 | Empty/error states | `IMPLEMENTED_AND_VERIFIED` structurally and in focused paths | Existing empty-state, invalid-action, shortage, and start-failure tests cover key paths; no claim that every copy has human acceptance. |
 | Mobile, visual layout, keyboard and assistive technology | `IMPLEMENTED_UNVERIFIED` | Batch 699 could not execute Chromium on Android/Termux (`BROWSER_BLOCKED`); no current-candidate rendered-browser evidence is recorded. The runner is configured for five mobile/tablet viewports, keyboard checks, privacy controls, and ten-board journeys. Human device acceptance, screen-reader behavior, and WCAG conformance remain unverified. |
