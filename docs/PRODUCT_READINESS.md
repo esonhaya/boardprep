@@ -44,7 +44,7 @@ The gate rules are:
 
 ## Runtime inventory
 
-`routes/web.php` has 20 production web route registrations:
+`routes/web.php` has 31 production web route registrations:
 
 | Method | Route | Handler |
 |---|---|---|
@@ -57,9 +57,19 @@ The gate rules are:
 | GET | `/dashboard` | `DashboardController::index` |
 | GET | `/history` | `HistoryController::index` |
 | GET | `/history/result` | `HistoryController::result` |
+| GET | `/mistake-notebook` | `MistakeNotebookController::index` |
+| GET | `/mistake-notebook/review` | `MistakeNotebookController::review` |
+| POST | `/mistake-notebook/practice` | `MistakeNotebookController::practice` |
 | GET, POST | `/quiz` | `QuizFlowController::handle` |
+| GET, POST | `/question-report` | `LearnerQuestionReportController::create` / `submit` |
+| GET | `/question-reports` | `LearnerQuestionReportController::index` |
 | GET | `/study` | `StudyDashboardController::index` |
 | GET | `/study-library` | `StudyLibraryController::index` |
+| GET | `/study-library/practice` | `StudyLibraryController::practice` |
+| GET | `/my-notes` | `MyNotesController::index` |
+| POST | `/my-notes/save` | `MyNotesController::save` |
+| POST | `/my-notes/delete` | `MyNotesController::delete` |
+| POST | `/my-notes/practice` | `MyNotesController::practice` |
 | GET | `/profile` | `LearningProfileController::index` |
 | POST | `/profile/preferences` | `LearningProfileController::savePreferences` |
 | GET | `/progress` | `ProgressController::index` |
@@ -67,7 +77,7 @@ The gate rules are:
 | GET | `/flashcards/missed` | `FlashcardController::missed` |
 | GET, POST | `/flashcards/review` | `FlashcardController::review` / `submitReview` |
 
-The following 63 web registrations are inside the non-production environment
+The following 76 web registrations are inside the non-production environment
 block. They are not authenticated production administration; they must remain
 unavailable when `APP_ENV=production`:
 
@@ -87,13 +97,22 @@ unavailable when `APP_ENV=production`:
   `/question-import/import`, `/taxonomy/rebuild`, `/blueprints/save`.
 - GET: `/developer/acceptance`, `/developer/acceptance/data`,
   `/developer/acceptance/build`, `/developer/acceptance/export`,
-  `/developer/question-origin`.
-- POST: `/developer/acceptance/update`.
+  `/developer/question-reports`, `/developer/question-origin`,
+  `/developer/academic-review`, `/developer/academic-review/proposal`.
+- POST: `/developer/acceptance/update`, `/developer/question-reports/update`,
+  `/developer/academic-review/assign`, `/developer/academic-review/start`,
+  `/developer/academic-review/decision`,
+  `/developer/academic-review/source-review`,
+  `/developer/academic-review/taxonomy`,
+  `/developer/academic-review/taxonomy-proposal`,
+  `/developer/academic-review/study-link`,
+  `/developer/academic-review/revision`, `/developer/academic-review/import`.
 - Account preview routes: `/account`, `/account/register`, `/account/login`,
   `/account/logout`, `/account/profile`, `/account/security`,
   `/account/password`, `/account/recovery-codes`, `/account/recover`,
-  `/account/export`, and `/account/deletion-request` (GET/POST pairs where
-  applicable). These 14 registrations are nested under both the
+  `/account/export`, and `/account/deletion-request` (the registered GET/POST
+  methods are enumerated in `tools/product-readiness.php`). These 14
+  registrations are nested under both the
   nonproduction environment boundary and `BOARDPREP_ACCOUNTS_ENABLED=true`.
 
 Separate public PHP entry points are `public/health.php` (limited status and
@@ -134,6 +153,7 @@ repositories, JSON storage files, templates, assets, and tests. Main areas are:
 | History, historical result, progress, dashboard and recommendations | `IMPLEMENTED_AND_VERIFIED` | `TenBoardLearnerJourneyHttpTest.php`, `HistoryResultHttpTest.php`, `MultiAttemptLearningHttpTest.php`, and learner journey tests; records are scoped to the authenticated account identity or separate anonymous session identity. |
 | Adaptive practice and weakness analysis | `IMPLEMENTED_AND_VERIFIED` | Focused learning/recommendation tests plus the multi-page HTTP journey; behavior remains bounded by actual completed attempts. |
 | Exam simulation | `IMPLEMENTED_AND_VERIFIED` | `ExamSimulationHttpTest.php` verifies timed and untimed sessions, server deadline recovery and expiry, navigation, editable answers, required review, unanswered scoring, retry, and exact-once persistence. The simulator is clearly separate from the official examination. |
+| Learner question concern reports | `IMPLEMENTED_AND_VERIFIED` in isolated HTTP/storage tests | Learners can report an answer, wording, freshness, source, duplicate, or other concern from result review; inputs are bounded and CSRF-protected, duplicate submissions are idempotent within 24 hours, reports are learner-scoped, and only an explicitly qualified reviewer can change review state. Reports do not alter academic records. Rendered browser acceptance remains unverified. |
 | Official exam format and duration for every board | `INTENTIONALLY_DEFERRED` | No official duration or exact format claim is made. Current authoritative source evidence for every board is required before representing those details. |
 | Flashcards | `IMPLEMENTED_AND_VERIFIED` | `FlashcardHttpTest.php` and integration/scheduling tests cover reveal, rating, CSRF, persisted state, and learner isolation. |
 | Source-first study support | `IMPLEMENTED_AND_VERIFIED` | Board-specific study libraries, question feedback links, and published material/source navigation are exercised by `TenBoardLearnerJourneyHttpTest.php`, `StudyLibraryNavigationTest.php`, and source/reference tests. This verifies linkage/rendering, not every resource's educational quality. |
@@ -205,14 +225,18 @@ This is intentionally deferred, not an admin feature that is claimed complete.
 
 Production learners can practice anonymously. `LearnerIdentityService`
 generates a random anonymous ID stored in the PHP session. Attempts, weakness
-storage, and flashcard state are scoped by that ID; user-supplied owner IDs do
-not override it. A separately gated nonproduction account preview adds
+storage, flashcard state, private notes, and question reports are scoped by that
+ID; user-supplied owner IDs do not override it. Reports are stored apart from
+canonical questions and academic decisions. Their reviewer queue is available
+only in nonproduction and requires an active board-and-subject-qualified
+reviewer grant. A separately gated nonproduction account preview adds
 server-issued persistent learner identities. Sign-in never imports or merges
 anonymous records, and no linking route exists. Attempts/answer review and
 derived state are persisted in private JSON by default or mutable-state SQLite
 when configured. The privacy
 page shows counts and offers JSON export plus confirmed, CSRF-protected deletion
-for this session's attempts, weakness summaries, and flashcard review state; it
+for this session's attempts, weakness summaries, flashcard review state, notes,
+and question reports; it
 also clears and rotates that browser session. It cannot erase PHP/host access or
 error logs, off-host backups, or copies outside these collections. Clearing
 cookies can still make anonymous retained records inaccessible. The account

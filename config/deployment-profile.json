@@ -51,7 +51,8 @@
     ],
     "json_optional_mutable_stores": [
         "blueprints.json",
-        "learner_notes.json"
+        "learner_notes.json",
+        "learner-question-reports.json"
     ],
     "account_preview": {
         "private_storage": "storage/private/learner-accounts",
@@ -74,6 +75,7 @@
         "storage/weakness.json",
         "storage/question-statistics.json",
         "storage/flashcard_state.json",
+        "storage/learner-question-reports.json",
         "storage/learner_notes.json",
         "storage/runtime",
         "storage/private/learner-accounts",

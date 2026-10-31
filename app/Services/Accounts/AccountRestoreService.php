@@ -16,6 +16,7 @@ final class AccountRestoreService
         'weakness_summaries' => 'weakness',
         'flashcard_reviews' => 'flashcard_state',
         'learner_notes' => 'learner_notes',
+        'question_issue_reports' => 'learner-question-reports',
     ];
 
     /** @param null|callable(string):void $afterFile Test-only interruption point. */
@@ -107,7 +108,16 @@ final class AccountRestoreService
                 if (!array_key_exists($exportName, $payload['collections'])) {
                     continue;
                 }
-                self::writeJson($stage . DIRECTORY_SEPARATOR . $storageName . '.json', $payload['collections'][$exportName], $createdFiles);
+                $records = $payload['collections'][$exportName];
+                if ($exportName === 'question_issue_reports') {
+                    foreach ($records as &$record) {
+                        // A restored copy has not passed through this destination's reviewer workflow.
+                        $record['status'] = 'SUBMITTED';
+                        $record['status_changed_at'] = gmdate(DATE_ATOM);
+                    }
+                    unset($record);
+                }
+                self::writeJson($stage . DIRECTORY_SEPARATOR . $storageName . '.json', $records, $createdFiles);
                 $this->interruptAfter($exportName);
             }
             self::writeJson($stage . DIRECTORY_SEPARATOR . 'restore-report.json', [
@@ -149,9 +159,12 @@ final class AccountRestoreService
 
         $manifest = $payload['manifest'];
         $legacyNames = ['quiz_attempts', 'weakness_summaries', 'flashcard_reviews'];
-        $currentNames = [...$legacyNames, 'learner_notes'];
+        $previousCurrentNames = [...$legacyNames, 'learner_notes'];
+        $currentNames = [...$previousCurrentNames, 'question_issue_reports'];
         $collectionNames = is_array($payload['collections'] ?? null) ? array_keys($payload['collections']) : [];
-        $payloadNames = $collectionNames === $legacyNames ? $legacyNames : ($collectionNames === $currentNames ? $currentNames : []);
+        $payloadNames = $collectionNames === $legacyNames ? $legacyNames
+            : ($collectionNames === $previousCurrentNames ? $previousCurrentNames
+                : ($collectionNames === $currentNames ? $currentNames : []));
         $expectedNames = [...$payloadNames, 'credential_profile'];
         if (($manifest['format'] ?? null) !== 'boardprep-account-backup-payload-v1'
             || !is_string($manifest['created_at'] ?? null)

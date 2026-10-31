@@ -254,28 +254,47 @@ $_SESSION = ['learner_identity' => 'learner-' . str_repeat('c', 32)];
 $privacyNote = (new \App\Services\Learning\LearnerNotesService())->save([
     'title' => 'Privacy export note', 'board_id' => 'let', 'body' => 'Private body for the current learner only.',
 ]);
+\App\Core\App::storage()->create('learner-question-reports', [
+    'id' => 'qir-' . str_repeat('c', 32),
+    'user_id' => $_SESSION['learner_identity'],
+    'question_id' => $questionId,
+    'board_id' => 'let',
+    'subject_id' => (string) ($taxonomy['subject_id'] ?? ''),
+    'type' => 'SOURCE_CONCERN',
+    'description' => 'Private learner concern fixture.',
+    'status' => 'SUBMITTED',
+]);
 $anonymousData = \App\Services\Privacy\AnonymousLearnerDataService::current();
 $anonymousExport = $anonymousData->export();
 notesAssert(count($anonymousExport['records']['learner_notes'] ?? []) === 1
-    && ($anonymousExport['records']['learner_notes'][0]['body'] ?? '') === 'Private body for the current learner only.',
-    'Anonymous learner export omitted the owner’s private notes.');
+    && ($anonymousExport['records']['learner_notes'][0]['body'] ?? '') === 'Private body for the current learner only.'
+    && count($anonymousExport['records']['question_issue_reports'] ?? []) === 1
+    && ($anonymousExport['records']['question_issue_reports'][0]['question_id'] ?? '') === $questionId,
+    'Anonymous learner export omitted the owner’s private note or question report.');
 $backupPath = $fixture . '/batch711-notes-backup';
 $backupReport = \App\Services\Operations\BackupService::create($root, $backupPath);
 notesAssert(($backupReport['status'] ?? '') === 'PASS'
-    && is_file($backupPath . '/json/learner_notes.json'), 'The existing mutable-data backup omitted saved learner notes.');
+    && is_file($backupPath . '/json/learner_notes.json')
+    && is_file($backupPath . '/json/learner-question-reports.json'), 'The existing mutable-data backup omitted saved learner notes or question reports.');
 $restorePath = $fixture . '/batch711-notes-restore';
 $restoreReport = \App\Services\Operations\BackupService::restore($root, $backupPath, $restorePath);
 $restoredNotes = json_decode((string) file_get_contents($restorePath . '/learner_notes.json'), true, 512, JSON_THROW_ON_ERROR);
+$restoredReports = json_decode((string) file_get_contents($restorePath . '/learner-question-reports.json'), true, 512, JSON_THROW_ON_ERROR);
 notesAssert(($restoreReport['status'] ?? '') === 'PASS'
     && count($restoredNotes) === 1
-    && ($restoredNotes[0]['body'] ?? '') === 'Private body for the current learner only.',
-    'The existing mutable-data restore did not preserve learner notes.');
+    && ($restoredNotes[0]['body'] ?? '') === 'Private body for the current learner only.'
+    && count($restoredReports) === 1
+    && ($restoredReports[0]['question_id'] ?? '') === $questionId,
+    'The existing mutable-data restore did not preserve learner notes and question reports.');
 $cleared = $anonymousData->clear();
-notesAssert(($cleared['learner_notes'] ?? 0) === 1 && $anonymousData->summary()['learner_notes'] === 0,
-    'Anonymous learner clear did not remove only the current learner note.');
+notesAssert(($cleared['learner_notes'] ?? 0) === 1
+    && ($cleared['question_issue_reports'] ?? 0) === 1
+    && $anonymousData->summary()['learner_notes'] === 0
+    && $anonymousData->summary()['question_issue_reports'] === 0,
+    'Anonymous learner clear did not remove only the current learner note and question report.');
 
-// Account restore accepts both the prior three-collection archive and the new
-// archive shape that carries learner-owned notes.
+// Account restore accepts legacy archives, the prior notes-bearing archive,
+// and the current archive shape that also carries learner issue reports.
 $accountId = 'account-' . str_repeat('d', 32);
 $accountLearnerId = 'account-learner-' . str_repeat('d', 32);
 $account = [
@@ -289,6 +308,11 @@ $accountCollections = [
     'learner_notes' => [[
         'id' => 'note-' . str_repeat('e', 32), 'user_id' => $accountLearnerId,
         'title' => 'Private account note', 'body' => 'Account-owned note body.', 'board_id' => 'let',
+    ]],
+    'question_issue_reports' => [[
+        'id' => 'qir-' . str_repeat('f', 32), 'user_id' => $accountLearnerId,
+        'question_id' => 'synthetic-account-question', 'type' => 'SOURCE_CONCERN',
+        'description' => 'Account-owned concern.', 'status' => 'SUBMITTED',
     ]],
 ];
 $makeRestorePayload = static function (array $collections) use ($account): array {
@@ -307,7 +331,10 @@ $makeRestorePayload = static function (array $collections) use ($account): array
     ];
 };
 \App\Services\Accounts\AccountRestoreService::validatePayload($makeRestorePayload($accountCollections));
-$legacyCollections = $accountCollections;
+$previousCurrentCollections = $accountCollections;
+unset($previousCurrentCollections['question_issue_reports']);
+\App\Services\Accounts\AccountRestoreService::validatePayload($makeRestorePayload($previousCurrentCollections));
+$legacyCollections = $previousCurrentCollections;
 unset($legacyCollections['learner_notes']);
 \App\Services\Accounts\AccountRestoreService::validatePayload($makeRestorePayload($legacyCollections));
 

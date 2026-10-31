@@ -7,6 +7,7 @@ const mutableLearnerFiles = [
   'attempts.json',
   'weakness.json',
   'flashcard_state.json',
+  'learner-question-reports.json',
   'learner_notes.json',
   'question-statistics.json',
 ];

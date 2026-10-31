@@ -84,6 +84,7 @@ class Database
                 'weakness' => $this->sqliteStorage,
                 'flashcard_state' => $this->sqliteStorage,
                 'question-statistics' => $this->sqliteStorage,
+                'learner-question-reports' => $this->sqliteStorage,
             ]);
         } else {
             $this->storage = $this->jsonStorage($config['path'] ?? null);

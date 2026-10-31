@@ -24,6 +24,7 @@ $protectedState = static function () use ($root): array {
         'storage/attempts.json',
         'storage/weakness.json',
         'storage/question-statistics.json',
+        'storage/learner-question-reports.json',
         'storage/learner_notes.json',
     ];
     foreach (glob($root . '/storage/doctor/simulation-sessions/*') ?: [] as $sessionPath) {

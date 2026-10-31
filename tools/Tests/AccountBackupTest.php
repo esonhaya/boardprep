@@ -106,6 +106,19 @@ try {
         'review_count' => 3,
         'state' => 'review',
     ]);
+    App::storage()->create('learner-question-reports', [
+        'id' => 'qir-' . str_repeat('c', 32),
+        'user_id' => $learnerId,
+        'question_id' => 'synthetic-backup-question',
+        'question_version_sha256' => hash('sha256', 'synthetic-backup-question'),
+        'board_id' => 'LET',
+        'subject_id' => 'English',
+        'type' => 'SOURCE_CONCERN',
+        'description' => 'Synthetic concern for isolated backup regression.',
+        'status' => 'RESOLVED',
+        'created_at' => gmdate(DATE_ATOM),
+        'status_changed_at' => gmdate(DATE_ATOM),
+    ]);
 
     $backupPath = $private . '/account-one.bpk';
     $backupPathTwo = $private . '/account-two.bpk';
@@ -126,7 +139,8 @@ try {
     }
     accountBackupAssert(($created['record_counts']['quiz_attempts'] ?? null) === 1
         && ($created['record_counts']['weakness_summaries'] ?? null) === 1
-        && ($created['record_counts']['flashcard_reviews'] ?? null) === 1,
+        && ($created['record_counts']['flashcard_reviews'] ?? null) === 1
+        && ($created['record_counts']['question_issue_reports'] ?? null) === 1,
         'Encrypted backup inventory omitted owned records.');
     $verified = $backup->verify($backupPath, $passphrase);
     accountBackupAssert(($verified['record_counts']['credential_profile'] ?? null) === 1, 'Encrypted backup manifest did not verify.');
@@ -162,7 +176,7 @@ try {
 
     $decodedPayload = AccountBackupCrypto::decrypt($archive, $passphrase);
     accountBackupAssert(($decodedPayload['manifest']['included_collections'] ?? null) === [
-        'quiz_attempts', 'weakness_summaries', 'flashcard_reviews', 'credential_profile',
+        'quiz_attempts', 'weakness_summaries', 'flashcard_reviews', 'learner_notes', 'question_issue_reports', 'credential_profile',
     ], 'Encrypted backup manifest did not match the supported restore inventory.');
     $badManifest = $decodedPayload;
     $badManifest['manifest']['record_counts']['quiz_attempts'] = 99;
@@ -211,7 +225,7 @@ try {
     }
 
     $sourceHashes = [];
-    foreach (['private/learner-accounts/accounts.json', 'attempts.json', 'weakness.json', 'flashcard_state.json'] as $relative) {
+    foreach (['private/learner-accounts/accounts.json', 'attempts.json', 'weakness.json', 'flashcard_state.json', 'learner-question-reports.json'] as $relative) {
         $sourceHashes[$relative] = hash_file('sha256', $storage . '/' . $relative);
     }
     $interrupted = new AccountRestoreService(static function (string $file): void {
@@ -235,6 +249,11 @@ try {
     accountBackupAssert(isset($restoredAccounts['accounts']['batch693-backup'])
         && $restoredAccounts['accounts']['batch693-backup']['learner_id'] === $learnerId,
         'Restored credentials and learner identity do not match.');
+    $restoredReports = json_decode((string) file_get_contents($destination . '/learner-question-reports.json'), true, 32, JSON_THROW_ON_ERROR);
+    accountBackupAssert(count($restoredReports) === 1
+        && ($restoredReports[0]['question_id'] ?? null) === 'synthetic-backup-question'
+        && ($restoredReports[0]['status'] ?? null) === 'SUBMITTED',
+        'Isolated account restore did not preserve the learner report while resetting its local review status.');
     accountBackupThrows(static fn() => $restore->restore($backupPath, $destination, $passphrase, false, true), 'RESTORE_DESTINATION_CONFLICT');
     foreach ($sourceHashes as $relative => $hash) {
         accountBackupAssert(hash_file('sha256', $storage . '/' . $relative) === $hash, 'Restore changed source application data.');

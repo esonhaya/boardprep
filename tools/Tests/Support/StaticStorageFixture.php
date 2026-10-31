@@ -19,7 +19,7 @@ final class StaticStorageFixture
             'academic-review-decisions', 'academic-source-reviews', 'anonymous-identities',
             'attempts', 'flashcard-state', 'flashcard_state', 'history', 'learner-progress',
             'learner-state', 'privacy', 'privacy-records', 'progress', 'question-history',
-            'question-statistics', 'sessions', 'weakness', 'learner_notes',
+            'question-statistics', 'sessions', 'weakness', 'learner_notes', 'learner-question-reports',
         ], true);
         $iterator = new RecursiveIteratorIterator(
             new RecursiveDirectoryIterator($sourceRoot, FilesystemIterator::SKIP_DOTS),

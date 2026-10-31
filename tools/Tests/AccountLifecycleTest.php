@@ -155,6 +155,19 @@ $seed = static function (string $learnerId, string $suffix, int $value) use ($dr
         'created_at' => gmdate(DATE_ATOM),
         'updated_at' => gmdate(DATE_ATOM),
     ]);
+    App::storage()->create('learner-question-reports', [
+        'id' => 'qir-' . bin2hex(random_bytes(16)),
+        'user_id' => $learnerId,
+        'question_id' => 'synthetic-question-' . $suffix,
+        'question_version_sha256' => hash('sha256', 'synthetic-question-' . $suffix),
+        'board_id' => 'LET',
+        'subject_id' => 'English',
+        'type' => 'UNCLEAR_WORDING',
+        'description' => 'Synthetic report owned by ' . $learnerId,
+        'status' => 'SUBMITTED',
+        'created_at' => gmdate(DATE_ATOM),
+        'status_changed_at' => gmdate(DATE_ATOM),
+    ]);
 };
 $seed($learnerA, 'a', 7);
 $seed($learnerB, 'b', 4);
@@ -174,7 +187,7 @@ $questionPath = dirname(__DIR__, 2) . '/storage/questions.json';
 $questionsBefore = hash_file('sha256', $questionPath);
 $stableOwnedHash = static function (string $learnerId): string {
     $collections = [];
-    foreach (['attempts', 'weakness', 'flashcard_state', 'learner_notes'] as $name) {
+    foreach (['attempts', 'weakness', 'flashcard_state', 'learner_notes', 'learner-question-reports'] as $name) {
         $collections[$name] = App::storage()->where($name, ['user_id' => $learnerId]);
     }
     return hash('sha256', serialize($collections));
@@ -194,7 +207,8 @@ try {
     lifecycleAssert($inventory['collections']['quiz_attempts']['count'] === 2
         && $inventory['collections']['weakness_summaries']['count'] === 2
         && $inventory['collections']['flashcard_reviews']['count'] === 2
-        && $inventory['collections']['learner_notes']['count'] === 2,
+        && $inventory['collections']['learner_notes']['count'] === 2
+        && $inventory['collections']['question_issue_reports']['count'] === 2,
         'Account data inventory did not accurately report owned collections.');
     lifecycleAssert(($inventory['derived']['current_storage_non_account_owned_counts']['anonymous_learner_records']['quiz_attempts'] ?? null) === 1,
         'Account inventory did not keep anonymous learner records separate from account-owned data.');
@@ -202,7 +216,10 @@ try {
     lifecycleAssert(($export['manifest']['record_counts']['account_profile'] ?? null) === 1
         && ($export['manifest']['record_counts']['quiz_attempts'] ?? null) === 2
         && ($export['manifest']['record_counts']['learner_notes'] ?? null) === 2
+        && ($export['manifest']['record_counts']['question_issue_reports'] ?? null) === 2
         && count($export['records']['learner_notes'] ?? []) === 2
+        && count($export['records']['question_issue_reports'] ?? []) === 2
+        && !isset($export['records']['question_issue_reports'][0]['user_id'])
         && !isset($export['account']['password_hash'], $export['account']['recovery_code_hashes'])
         && !str_contains(json_encode($export, JSON_THROW_ON_ERROR), 'synthetic-quiz-session-d1'),
         'Account export manifest or secret/session exclusions were incorrect.');
@@ -245,7 +262,8 @@ try {
     lifecycleAssert($repo->findByUsername('batch693-d') === null, 'Deleted account credentials remained discoverable by username.');
     lifecycleAssert(App::storage()->where('attempts', ['user_id' => $learnerD]) === []
         && App::storage()->where('weakness', ['user_id' => $learnerD]) === []
-        && App::storage()->where('flashcard_state', ['user_id' => $learnerD]) === [],
+        && App::storage()->where('flashcard_state', ['user_id' => $learnerD]) === []
+        && App::storage()->where('learner-question-reports', ['user_id' => $learnerD]) === [],
         'Deletion completed while owned records remained.');
     lifecycleAssert((new AccountDeletionService())->process($rawD['account_id'])['already_completed'], 'Duplicate deletion retry was not idempotent.');
     lifecycleAssert($stableOwnedHash($learnerA) === $hashA && $stableOwnedHash($learnerB) === $hashB
@@ -255,14 +273,20 @@ try {
     lifecycleAssert($accounts->signIn('batch693-a', $passwordA), 'Account A could not sign in after Account D deletion.');
     $exportA = (new AccountDataService())->exportCurrent();
     $attemptIdsA = array_column($exportA['records']['quiz_attempts'], 'id');
+    $reportIdsA = array_column($exportA['records']['question_issue_reports'], 'question_id');
     lifecycleAssert(in_array('batch693-attempt-a', $attemptIdsA, true)
-        && !in_array('batch693-attempt-b', $attemptIdsA, true), 'Account A export included Account B records.');
+        && !in_array('batch693-attempt-b', $attemptIdsA, true)
+        && in_array('synthetic-question-a', $reportIdsA, true)
+        && !in_array('synthetic-question-b', $reportIdsA, true), 'Account A export included Account B records.');
     lifecycleAssert($accounts->signIn('batch693-b', $passwordB), 'Account B could not sign in for reciprocal export isolation.');
     $exportB = (new AccountDataService())->exportCurrent();
     $attemptIdsB = array_column($exportB['records']['quiz_attempts'], 'id');
+    $reportIdsB = array_column($exportB['records']['question_issue_reports'], 'question_id');
     lifecycleAssert(in_array('batch693-attempt-b', $attemptIdsB, true)
-        && !in_array('batch693-attempt-a', $attemptIdsB, true), 'Account B export included Account A records.');
-    foreach (['attempts', 'weakness', 'flashcard_state'] as $collectionName) {
+        && !in_array('batch693-attempt-a', $attemptIdsB, true)
+        && in_array('synthetic-question-b', $reportIdsB, true)
+        && !in_array('synthetic-question-a', $reportIdsB, true), 'Account B export included Account A records.');
+    foreach (['attempts', 'weakness', 'flashcard_state', 'learner-question-reports'] as $collectionName) {
         foreach (App::storage()->all($collectionName) as $record) {
             if (is_array($record) && preg_match('/\\Aaccount-learner-[a-f0-9]{32}\\z/', (string) ($record['user_id'] ?? '')) === 1) {
                 lifecycleAssert($repo->findByLearnerId((string) $record['user_id']) !== null, 'A learner record referenced an unknown account identity.');

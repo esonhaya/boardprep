@@ -69,6 +69,7 @@ $assert(BrowserEvidenceService::applicationAffectingPaths([
     'docs/batches/batch-678.md',
     'storage/attempts.json',
     'storage/question-statistics.json',
+    'storage/learner-question-reports.json',
     'storage/recovery/previous-report.json',
     'public/assets/me/gear-train.svg',
     '.commandcode/batch.log',

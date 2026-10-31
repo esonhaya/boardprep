@@ -26,6 +26,9 @@ $protectedPaths = [
     'storage/academic-review-decisions.json',
     'storage/academic-source-reviews.json',
 ];
+if (is_file($root . '/storage/learner-question-reports.json')) {
+    $protectedPaths[] = 'storage/learner-question-reports.json';
+}
 $before = [];
 foreach ($protectedPaths as $path) {
     $before[$path] = hash_file('sha256', $root . '/' . $path);

@@ -65,6 +65,26 @@ foreach ([
         'record_type' => $recordType,
     ]);
 }
+$storage->create('learner-question-reports', [
+    'id' => 'qir-' . str_repeat('a', 32),
+    'user_id' => $learnerIds[0],
+    'question_id' => 'synthetic-private-question-a',
+    'board_id' => 'LET',
+    'subject_id' => 'English',
+    'type' => 'UNCLEAR_WORDING',
+    'description' => 'Synthetic private concern A',
+    'status' => 'SUBMITTED',
+]);
+$storage->create('learner-question-reports', [
+    'id' => 'qir-' . str_repeat('b', 32),
+    'user_id' => $learnerIds[1],
+    'question_id' => 'synthetic-private-question-b',
+    'board_id' => 'LET',
+    'subject_id' => 'English',
+    'type' => 'UNCLEAR_WORDING',
+    'description' => 'Synthetic private concern B',
+    'status' => 'SUBMITTED',
+]);
 $storage->create('question-statistics', ['id' => 'aggregate-question', 'timesUsed' => 5]);
 
 $seedSession = static function (string $sessionId, string $learnerId) use ($sessionDirectory): void {
@@ -104,6 +124,8 @@ try {
     if (!$export['success'] || $export['status'] !== 200
         || !is_array($exportData)
         || count((array) ($exportData['records']['quiz_attempts'] ?? [])) !== 1
+        || count((array) ($exportData['records']['question_issue_reports'] ?? [])) !== 1
+        || ($exportData['records']['question_issue_reports'][0]['question_id'] ?? '') !== 'synthetic-private-question-a'
         || str_contains($exportText, $learnerIds[0])
         || str_contains($exportText, $learnerIds[1])
         || str_contains($exportText, 'private-learner-')) {
@@ -132,7 +154,7 @@ try {
         || is_file($sessionDirectory . '/sess-' . $sessionIds[0])) {
         throw new RuntimeException('Confirmed privacy deletion did not clear and rotate the browser session.');
     }
-    foreach (['attempts', 'weakness', 'flashcard_state'] as $collection) {
+    foreach (['attempts', 'weakness', 'flashcard_state', 'learner-question-reports'] as $collection) {
         $remaining = $storage->all($collection);
         if (count($remaining) !== 1 || ($remaining[0]['user_id'] ?? '') !== $learnerIds[1]) {
             throw new RuntimeException('Privacy deletion removed another learner or left owned data in ' . $collection . '.');
@@ -176,9 +198,12 @@ try {
             $driverStorage = $database->storage();
         }
         foreach ([['one', $learnerIds[0]], ['two', $learnerIds[1]]] as [$suffix, $owner]) {
-            foreach (['attempts', 'weakness', 'flashcard_state'] as $collection) {
+            foreach (['attempts', 'weakness', 'flashcard_state', 'learner-question-reports'] as $collection) {
+                $recordId = $collection === 'learner-question-reports'
+                    ? 'qir-' . ($suffix === 'one' ? str_repeat('1', 32) : str_repeat('2', 32))
+                    : $collection . '-' . $suffix;
                 $driverStorage->create($collection, [
-                    'id' => $collection . '-' . $suffix,
+                    'id' => $recordId,
                     'user_id' => $owner,
                 ]);
             }
@@ -186,7 +211,7 @@ try {
         $service = new AnonymousLearnerDataService($driverStorage, $database, $learnerIds[0]);
         $service->clear();
         $service->clear();
-        foreach (['attempts', 'weakness', 'flashcard_state'] as $collection) {
+        foreach (['attempts', 'weakness', 'flashcard_state', 'learner-question-reports'] as $collection) {
             $remaining = $driverStorage->all($collection);
             if (count($remaining) !== 1 || ($remaining[0]['user_id'] ?? '') !== $learnerIds[1]) {
                 throw new RuntimeException($driver . ' deletion parity failed for ' . $collection . '.');

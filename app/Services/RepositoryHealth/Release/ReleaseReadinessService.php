@@ -860,7 +860,7 @@ final class ReleaseReadinessService
 
         $bytes = 0;
         $files = 0;
-        $mutableCollections = ['attempts.json', 'weakness.json', 'question-statistics.json', 'flashcard_state.json', 'learner_notes.json'];
+        $mutableCollections = ['attempts.json', 'weakness.json', 'question-statistics.json', 'flashcard_state.json', 'learner-question-reports.json', 'learner_notes.json'];
         $iterator = new \RecursiveIteratorIterator(
             new \RecursiveDirectoryIterator($sourcePath, \FilesystemIterator::SKIP_DOTS),
             \RecursiveIteratorIterator::SELF_FIRST
@@ -882,9 +882,9 @@ final class ReleaseReadinessService
             $bytes += $size;
             $files++;
         }
-        // Five mutable learner collections are seeded as empty JSON arrays.
-        $bytes += 15;
-        $files += 5;
+        // Six mutable learner collections are seeded as empty JSON arrays.
+        $bytes += 18;
+        $files += 6;
         return ['fixture_bytes' => $bytes, 'fixture_files' => $files];
     }
 
@@ -952,7 +952,7 @@ final class ReleaseReadinessService
             self::removeFlowTestStorage($storagePath);
             throw new \RuntimeException('Release flow tests require the repository storage fixture.');
         }
-        $mutableCollections = ['attempts.json', 'weakness.json', 'question-statistics.json', 'flashcard_state.json', 'learner_notes.json'];
+        $mutableCollections = ['attempts.json', 'weakness.json', 'question-statistics.json', 'flashcard_state.json', 'learner-question-reports.json', 'learner_notes.json'];
         try {
             $iterator = new \RecursiveIteratorIterator(
                 new \RecursiveDirectoryIterator($sourceRoot, \FilesystemIterator::SKIP_DOTS),

@@ -53,6 +53,7 @@ test('browser evidence contracts cover isolated data, desktop/mobile access path
   const config = fs.readFileSync(path.join(root, 'tests/browser/playwright.config.cjs'), 'utf8');
   const learnerSpec = fs.readFileSync(path.join(root, 'tests/browser/acceptance/boardprep.spec.cjs'), 'utf8');
   const accountSpec = fs.readFileSync(path.join(root, 'tests/browser/accounts/account-auth.spec.cjs'), 'utf8');
+  const reportSpec = fs.readFileSync(path.join(root, 'tests/browser/acceptance/question-reports.spec.cjs'), 'utf8');
   const server = fs.readFileSync(path.join(root, 'tests/browser/server.cjs'), 'utf8');
 
   assert.match(config, /name:\s*'mobile'[\s\S]*?viewport:\s*\{\s*width:\s*390,\s*height:\s*844/);
@@ -62,6 +63,11 @@ test('browser evidence contracts cover isolated data, desktop/mobile access path
   assert.match(learnerSpec, /page\.keyboard\.press\('Tab'\)/);
   assert.match(accountSpec, /anonymous-access-and-account-authorization/);
   assert.match(accountSpec, /login-and-session-rotation/);
+  assert.match(reportSpec, /learner can report a result question and reports stay private to the session/);
+  assert.match(reportSpec, /tabToKeyboardFocus/);
+  assert.match(reportSpec, /UNCLEAR_WORDING/);
+  assert.match(reportSpec, /browser\.newContext\(\)/);
+  assert.match(reportSpec, /learner-question-report-record script/);
   assert.match(server, /\['-C', repositoryRoot, 'archive', '--format=tar'/);
   assert.match(workflow, /Upload browser visual and diagnostic artifacts[\s\S]*?if:\s*always\(\)[\s\S]*?actions\/upload-artifact/);
   assert.match(workflow, /retention-days:\s*14/);

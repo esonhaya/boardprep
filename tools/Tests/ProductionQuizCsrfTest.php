@@ -24,6 +24,47 @@ $cookies = ['PHPSESSID' => $sessionId];
 $http = new HttpSimulator($root . '/public/index.php');
 
 try {
+    $canonicalQuestions = json_decode((string) file_get_contents($storage . '/questions.json'), true, 512, JSON_THROW_ON_ERROR);
+    $reportQuestion = null;
+    foreach (is_array($canonicalQuestions) ? $canonicalQuestions : [] as $candidate) {
+        if (is_array($candidate) && is_scalar($candidate['id'] ?? null)
+            && is_array($candidate['taxonomy'] ?? null)
+            && trim((string) ($candidate['taxonomy']['board_id'] ?? '')) !== ''
+            && trim((string) ($candidate['taxonomy']['subject_id'] ?? '')) !== '') {
+            $reportQuestion = $candidate;
+            break;
+        }
+    }
+    if (!is_array($reportQuestion)) {
+        throw new RuntimeException('production question-report route fixture has no reportable canonical question');
+    }
+    $reportId = (string) $reportQuestion['id'];
+    $reportPage = $http->request('GET', '/question-report', ['question_id' => $reportId], [], [], $cookies);
+    if (!$reportPage['success'] || $reportPage['status'] !== 200
+        || !preg_match('/name="csrf_token" value="([^\"]+)"/', $reportPage['output'], $reportCsrf)) {
+        throw new RuntimeException('production learner question-report route was not available or did not include CSRF');
+    }
+    $missingReportCsrf = $http->request('POST', '/question-report', [], [
+        'question_id' => $reportId, 'type' => 'SOURCE_CONCERN', 'description' => 'Production-safe fixture report',
+    ], [], $cookies);
+    if ($missingReportCsrf['status'] !== 303) {
+        throw new RuntimeException('production question-report mutation accepted a request without CSRF');
+    }
+    $validReport = $http->request('POST', '/question-report', [], [
+        'csrf_token' => html_entity_decode($reportCsrf[1], ENT_QUOTES | ENT_HTML5, 'UTF-8'),
+        'question_id' => $reportId, 'type' => 'SOURCE_CONCERN', 'description' => 'Production-safe fixture report',
+    ], [], $cookies);
+    $reportPath = $storage . '/learner-question-reports.json';
+    $reportRecords = is_file($reportPath)
+        ? json_decode((string) file_get_contents($reportPath), true, 512, JSON_THROW_ON_ERROR)
+        : [];
+    if (!$validReport['success'] || $validReport['status'] !== 303
+        || !is_array($reportRecords) || count($reportRecords) !== 1
+        || ($reportRecords[0]['question_id'] ?? null) !== $reportId
+        || !str_contains($reportRecords[0]['user_id'] ?? '', 'learner-')) {
+        throw new RuntimeException('production question-report route failed its isolated authenticated-session persistence check');
+    }
+
     $settings = $http->request('GET', '/quiz', [], [], [], $cookies);
     if (!$settings['success'] || !preg_match('/name="csrf_token" value="([^"]+)"/', $settings['output'], $match)) {
         throw new RuntimeException('production quiz settings did not render a CSRF token');
@@ -90,7 +131,7 @@ try {
         throw new RuntimeException('invalid timed duration did not return to a usable form with its error and value');
     }
 
-    foreach (['/developer', '/developer/doctor', '/developer/question-origin?id=1', '/question-editor', '/question-quality?queue=needs-review'] as $protectedPath) {
+    foreach (['/developer', '/developer/doctor', '/developer/question-origin?id=1', '/developer/question-reports', '/question-editor', '/question-quality?queue=needs-review'] as $protectedPath) {
         $protected = $http->request('GET', $protectedPath, [], [], [], $cookies);
         if ($protected['status'] !== 404) {
             throw new RuntimeException('production exposed a developer/admin route: ' . $protectedPath);
@@ -102,7 +143,7 @@ try {
         throw new RuntimeException('production exposed the Doctor API.');
     }
 
-    echo "[PASS] production quiz and preference mutations require CSRF; developer/admin routes remain unavailable.\n";
+    echo "[PASS] production learner issue reporting persists with CSRF and session ownership; quiz/preferences mutations require CSRF and reviewer/admin routes remain unavailable.\n";
 } finally {
     $sessionDirectory = trim((string) (getenv('APP_SESSION_PATH') ?: ''));
     if ($sessionDirectory === '') {

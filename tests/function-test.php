@@ -894,6 +894,152 @@ test(
     }
 );
 
+test(
+    "Learner question issue reports stay private and separate from academic records",
+    function (): string {
+        $directory = sys_get_temp_dir() . '/boardprep-b732-question-reports-' . bin2hex(random_bytes(8));
+        if (!mkdir($directory, 0700, true)) {
+            throw new \RuntimeException('Could not create an isolated report storage fixture.');
+        }
+        try {
+            $storage = new \App\Storage\JsonStorage($directory);
+            for ($index = 1; $index <= 7; $index++) {
+                $storage->create('questions', [
+                    'id' => 'b732-question-' . $index,
+                    'question' => 'Fixture question ' . $index,
+                    'answer' => 'A',
+                    'taxonomy' => ['board_id' => 'let', 'subject_id' => 'english'],
+                ]);
+            }
+            $service = new \App\Services\Question\QuestionIssueReportService($storage);
+            $learner = 'learner-' . bin2hex(random_bytes(16));
+            $first = $service->submit($learner, 'b732-question-1', 'UNCLEAR_WORDING', '<script>alert(1)</script>');
+            assertFalse($first['duplicate'], 'The first issue report was treated as a duplicate.');
+            assertSame('SUBMITTED', $first['report']['status'], 'A learner report did not start as SUBMITTED.');
+            assertFalse(array_key_exists('user_id', $first['report']), 'The learner-facing record exposed its owner identifier.');
+            assertSame('<script>alert(1)</script>', $first['report']['description'], 'Plain-text learner detail was altered.');
+            $retry = $service->submit($learner, 'b732-question-1', 'UNCLEAR_WORDING', 'retry');
+            assertTrue($retry['duplicate'], 'A recent duplicate report was accepted twice.');
+            assertSame([], $service->forLearner('learner-' . bin2hex(random_bytes(16))), 'A second learner could read another learner report.');
+
+            $accountId = 'account-' . bin2hex(random_bytes(16));
+            $reviewer = new \App\Services\Question\AcademicReviewerAuthorizationService($storage, [[
+                'account_id' => $accountId,
+                'authorization_status' => 'ACTIVE',
+                'qualification_type' => 'QUALIFIED_REVIEWER',
+                'qualification_reference' => 'b732-test-reference',
+                'authorized_by' => 'owner-provisioned-test-grant',
+                'authorized_at' => gmdate(DATE_ATOM),
+                'expires_at' => gmdate(DATE_ATOM, time() + 3600),
+                'scopes' => [['board_id' => 'let', 'subject_id' => 'english', 'capabilities' => ['REVIEW']]],
+            ]]);
+            $wrongScopePage = $service->reviewerPage([[
+                'board_id' => 'nursing', 'subject_id' => 'nursing-foundations', 'capabilities' => ['REVIEW'],
+            ]]);
+            assertSame(0, $wrongScopePage['total'], 'A reviewer queue exposed a report outside its scope.');
+            assertTrue($service->transition($first['report']['id'], 'UNDER_REVIEW', $accountId, $reviewer), 'Scoped reviewer could not accept a report.');
+            assertTrue($service->transition($first['report']['id'], 'RESOLVED', $accountId, $reviewer), 'Scoped reviewer could not resolve an accepted report.');
+            assertSame('RESOLVED', $service->forLearner($learner)[0]['status'], 'A real reviewer status transition was not visible to its learner.');
+            assertFalse(array_key_exists('status_changed_by', $service->forLearner($learner)[0]), 'Private reviewer identity was exposed to a learner.');
+
+            $limited = false;
+            for ($index = 2; $index <= 6; $index++) {
+                $type = array_keys(\App\Services\Question\QuestionIssueReportService::types())[$index - 1];
+                try {
+                    $service->submit($learner, 'b732-question-' . $index, $type, 'bounded fixture');
+                } catch (\RuntimeException $exception) {
+                    if (str_contains($exception->getMessage(), 'daily question-report limit')) {
+                        $limited = true;
+                        break;
+                    }
+                    throw $exception;
+                }
+            }
+            assertTrue($limited, 'The per-learner daily report bound was not enforced.');
+            $storedQuestion = $storage->find('questions', 'b732-question-1');
+            assertSame('A', $storedQuestion['answer'], 'Submitting a report changed a canonical answer.');
+            return 'Report isolation, retry deduplication, scoped reviewer status transitions, daily rate cap, and canonical answer preservation';
+        } finally {
+            $files = glob($directory . '/*') ?: [];
+            foreach ($files as $file) if (is_file($file)) @unlink($file);
+            @unlink($directory . '/.storage.lock');
+            @rmdir($directory);
+        }
+    }
+);
+
+test(
+    "Homepage does not perform a second question repository materialization",
+    function (): string {
+        $controller = (string) file_get_contents(__DIR__ . '/../app/Controllers/HomeController.php');
+        $view = (string) file_get_contents(__DIR__ . '/../app/Views/home/index.php');
+        assertFalse(str_contains($controller, 'QuestionRepository'), 'Homepage still depends on the enriched full-bank repository.');
+        assertFalse(str_contains($controller, 'questionCount'), 'Homepage still computes the unused question count.');
+        assertFalse(str_contains($view, '$questionCount'), 'Homepage unexpectedly depends on the removed value.');
+        return 'The homepage retains board availability while avoiding its redundant enriched-bank read';
+    }
+);
+
+test(
+    "Learner question reports use the SQLite storage route without JSON fallback",
+    function (): string {
+        if (!extension_loaded('pdo_sqlite')) {
+            throw new \RuntimeException('PDO SQLite is required for the repository SQLite storage contract.');
+        }
+        $directory = sys_get_temp_dir() . '/boardprep-b732-question-reports-sqlite-' . bin2hex(random_bytes(8));
+        if (!mkdir($directory, 0700, true)) {
+            throw new \RuntimeException('Could not create an isolated SQLite report fixture.');
+        }
+        $database = null;
+        $connection = null;
+        try {
+            $database = new \App\Core\Database([
+                'driver' => 'sqlite',
+                'path' => $directory . '/json-storage',
+                'sqlite_path' => $directory . '/boardprep.sqlite',
+                'migration_path' => dirname(__DIR__) . '/database/migrations',
+            ]);
+            $storage = $database->storage();
+            $storage->create('questions', [
+                'id' => 'b732-sqlite-question',
+                'question' => 'SQLite fixture question',
+                'taxonomy' => ['board_id' => 'let', 'subject_id' => 'english'],
+            ]);
+            $learner = 'learner-' . bin2hex(random_bytes(16));
+            $service = new \App\Services\Question\QuestionIssueReportService($storage);
+            $saved = $service->submit($learner, 'b732-sqlite-question', 'SOURCE_CONCERN', 'Check source scope.');
+            assertFalse($saved['duplicate'], 'SQLite report was unexpectedly considered a duplicate.');
+            assertNotNull($storage->find(\App\Services\Question\QuestionIssueReportService::COLLECTION, $saved['report']['id']), 'SQLite router could not read the submitted report.');
+            assertFalse(is_file($directory . '/json-storage/learner-question-reports.json'), 'SQLite report collection was written into the JSON fallback path.');
+            $connection = new \PDO('sqlite:' . $directory . '/boardprep.sqlite');
+            $statement = $connection->prepare('SELECT COUNT(*) FROM storage_records WHERE collection = ?');
+            $statement->execute([\App\Services\Question\QuestionIssueReportService::COLLECTION]);
+            assertSame(1, (int) $statement->fetchColumn(), 'SQLite storage did not persist exactly one report record.');
+            return 'The new report collection participates in the existing SQLite storage_records migration and routing';
+        } finally {
+            $connection = null;
+            $service = null;
+            $storage = null;
+            $database = null;
+            foreach (scandir($directory) ?: [] as $entry) {
+                if ($entry === '.' || $entry === '..') continue;
+                $path = $directory . DIRECTORY_SEPARATOR . $entry;
+                if (is_file($path) || is_link($path)) @unlink($path);
+            }
+            $jsonDirectory = $directory . '/json-storage';
+            if (is_dir($jsonDirectory)) {
+                foreach (scandir($jsonDirectory) ?: [] as $entry) {
+                    if ($entry === '.' || $entry === '..') continue;
+                    $path = $jsonDirectory . DIRECTORY_SEPARATOR . $entry;
+                    if (is_file($path) || is_link($path)) @unlink($path);
+                }
+                @rmdir($jsonDirectory);
+            }
+            @rmdir($directory);
+        }
+    }
+);
+
 /*
 |--------------------------------------------------------------------------
 | Cleanup

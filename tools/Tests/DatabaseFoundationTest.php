@@ -27,6 +27,9 @@ $legacy->replace('weakness', [
 $legacy->replace('flashcard_state', [
     ['id' => 'learner-card', 'user_id' => 'learner-1', 'rating' => 'good'],
 ]);
+$legacy->replace('learner-question-reports', [
+    ['id' => 'qir-' . str_repeat('1', 32), 'user_id' => 'learner-1', 'question_id' => 'fixture-question', 'status' => 'SUBMITTED'],
+]);
 
 try {
     $pdo = new PDO('sqlite:' . $path, null, null, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
@@ -65,28 +68,39 @@ try {
     $import = (new LegacyCollectionImporter())->import($legacy, $storage, 'attempts');
     $weaknessImport = (new LegacyCollectionImporter())->import($legacy, $storage, 'weakness');
     $flashcardImport = (new LegacyCollectionImporter())->import($legacy, $storage, 'flashcard_state');
+    $reportImport = (new LegacyCollectionImporter())->import($legacy, $storage, 'learner-question-reports');
     if ($import['imported'] !== 2 || $import['invalid'] !== 0 || $weaknessImport['imported'] !== 1
-        || $flashcardImport['imported'] !== 1) {
+        || $flashcardImport['imported'] !== 1 || $reportImport['imported'] !== 1) {
         throw new RuntimeException('legacy import did not preserve valid records');
     }
     $rerun = (new LegacyCollectionImporter())->import($legacy, $storage, 'attempts');
     $weaknessRerun = (new LegacyCollectionImporter())->import($legacy, $storage, 'weakness');
     $flashcardRerun = (new LegacyCollectionImporter())->import($legacy, $storage, 'flashcard_state');
+    $reportRerun = (new LegacyCollectionImporter())->import($legacy, $storage, 'learner-question-reports');
     if ($rerun['imported'] !== 0 || $rerun['existing'] !== 2 || $weaknessRerun['imported'] !== 0
         || $weaknessRerun['existing'] !== 1 || $flashcardRerun['imported'] !== 0
-        || $flashcardRerun['existing'] !== 1) {
+        || $flashcardRerun['existing'] !== 1 || $reportRerun['imported'] !== 0
+        || $reportRerun['existing'] !== 1) {
         throw new RuntimeException('legacy import was not idempotent');
     }
     $router = new StorageRouter(new JsonStorage($root . '/content'), [
         'attempts' => $storage,
         'weakness' => $storage,
         'flashcard_state' => $storage,
+        'learner-question-reports' => $storage,
         'question-statistics' => $storage,
     ]);
     $router->create('content', ['id' => 'json-1', 'value' => 'canonical']);
     if (!$router->exists('content', 'json-1') || !$router->exists('attempts', 'a1')
         || !$router->exists('weakness', 'Hydraulics') || !$router->exists('flashcard_state', 'learner-card')) {
         throw new RuntimeException('scoped production storage routing failed');
+    }
+    if (!$router->exists('learner-question-reports', 'qir-' . str_repeat('1', 32))) {
+        throw new RuntimeException('scoped question-report SQLite routing failed');
+    }
+    $migrationCommand = (string) file_get_contents(dirname(__DIR__) . '/db-migrate.php');
+    if (!str_contains($migrationCommand, "'learner-question-reports'")) {
+        throw new RuntimeException('db-migrate.php omits the learner question-report legacy import.');
     }
     unset($storage, $pdo);
     $reconnected = new PDO('sqlite:' . $path, null, null, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);

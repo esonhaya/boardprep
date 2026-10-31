@@ -129,6 +129,7 @@ final class BrowserEvidenceService
             'storage/history.json',
             'storage/flashcard-state.json',
             'storage/flashcard_state.json',
+            'storage/learner-question-reports.json',
             'storage/learner_notes.json',
         ], true) || preg_match('/\Astorage\/doctor-[^\/]+\.json\z/', $path) === 1;
     }

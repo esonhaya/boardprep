@@ -58,14 +58,22 @@ php tools/db-migrate.php
 ```
 
 The migration command is idempotent and imports existing JSON-backed attempts,
-weakness, flashcard state, and question-statistics records when present.
+weakness, flashcard state, learner question reports, and question-statistics
+records when present.
 
-The mutable `attempts`, `weakness`, `flashcard_state`, and `question-statistics`
+The mutable `attempts`, `weakness`, `flashcard_state`, `learner-question-reports`, and `question-statistics`
 collections are routed to SQLite in this foundation; canonical questions, study material, taxonomy, and other curated collections
 remain source-controlled/file-backed until a dedicated migration contract is
 approved. Keep the database outside `public/` and include it in deployment
 backups. A verified SQLite backup should use a quiescent application state (or
 SQLite's backup API); restore with the application stopped and rerun migrations.
+
+After a quiz, learners can submit a bounded question concern from answer review
+and view reports belonging to the current browser or account identity. The
+intake records only a question-version fingerprint, concern category, optional
+plain-text note, scope, and review status; it cannot edit questions, answers,
+eligibility, academic decisions, or scores. Reviewer triage remains a
+nonproduction workflow requiring an active qualified board/subject grant.
 
 For a production-style local smoke test, use a temporary storage directory and
 the repository's built-in-server router:

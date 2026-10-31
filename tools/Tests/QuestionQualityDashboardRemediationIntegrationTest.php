@@ -20,6 +20,9 @@ $protected = [
     'storage/attempts.json' => hash_file('sha256', $root . '/storage/attempts.json'),
     'storage/question-statistics.json' => hash_file('sha256', $root . '/storage/question-statistics.json'),
 ];
+if (is_file($root . '/storage/learner-question-reports.json')) {
+    $protected['storage/learner-question-reports.json'] = hash_file('sha256', $root . '/storage/learner-question-reports.json');
+}
 
 $sources = json_decode((string) file_get_contents($root . '/storage/sources.json'), true, 512, JSON_THROW_ON_ERROR);
 $snapshots = json_decode((string) file_get_contents($root . '/storage/source-url-health.json'), true, 512, JSON_THROW_ON_ERROR);

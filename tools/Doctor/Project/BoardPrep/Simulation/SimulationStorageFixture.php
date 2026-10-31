@@ -112,6 +112,7 @@ final class SimulationStorageFixture
             'weakness.json',
             'question-statistics.json',
             'flashcard_state.json',
+            'learner-question-reports.json',
             'learner_notes.json',
             'flashcard-state.json',
             'repository-health.json',
@@ -163,6 +164,7 @@ final class SimulationStorageFixture
             'weakness.json' => "[]\n",
             'question-statistics.json' => "[]\n",
             'flashcard_state.json' => "[]\n",
+            'learner-question-reports.json' => "[]\n",
             'learner_notes.json' => "[]\n",
         ] as $file => $contents) {
             if (file_put_contents($destination . '/' . $file, $contents, LOCK_EX) === false) {

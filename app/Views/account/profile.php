@@ -9,7 +9,7 @@
         <dt>Account created</dt><dd><?= htmlspecialchars((string) ($account['created_at'] ?? ''), ENT_QUOTES, 'UTF-8') ?></dd>
         <dt>Current session</dt><dd><?= htmlspecialchars((string) ($sessionDetails['started_at'] ?? ''), ENT_QUOTES, 'UTF-8') ?> · idle expiry after <?= (int) ($sessionDetails['idle_expiry_minutes'] ?? 30) ?> minutes · maximum <?= (int) ($sessionDetails['absolute_expiry_hours'] ?? 12) ?> hours</dd>
     </dl>
-    <p>Quiz history, results, progress, flashcard reviews, and preferences use this account's private learner identity. Anonymous records from before sign-in were not linked or merged.</p>
+    <p>Quiz history, results, progress, flashcard reviews, question reports, and preferences use this account's private learner identity. Anonymous records from before sign-in were not linked or merged.</p>
     <nav class="account-actions" aria-label="Account actions">
         <a class="button" href="/profile">Edit learner preferences</a>
         <a class="button button-outline" href="/account/security">Password and recovery</a>
@@ -25,7 +25,7 @@
     </form>
     <details class="account-delete-panel">
         <summary>Request account deletion</summary>
-        <p>Confirming permanently removes this account's application records: quiz history may be lost, preferences and flashcard progress are erased, and recovery codes become unusable. Provider logs, historical backups, and external copies are outside this application operation and may persist independently until their verified retention expiry. Their retention details and the owner-approved privacy terms are still pending. This account preview and deletion route are unavailable in production.</p>
+        <p>Confirming permanently removes this account's application records: quiz history may be lost, question reports, preferences and flashcard progress are erased, and recovery codes become unusable. Provider logs, historical backups, and external copies are outside this application operation and may persist independently until their verified retention expiry. Their retention details and the owner-approved privacy terms are still pending. This account preview and deletion route are unavailable in production.</p>
         <form method="post" action="/account/deletion-request">
             <input type="hidden" name="csrf_token" value="<?= htmlspecialchars((string) ($csrfToken ?? ''), ENT_QUOTES, 'UTF-8') ?>">
             <div class="form-field"><label for="deletion-current-password">Confirm password</label><input id="deletion-current-password" name="current_password" type="password" autocomplete="current-password" required></div>

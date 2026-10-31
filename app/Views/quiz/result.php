@@ -225,6 +225,7 @@ $taxonomyLabel = static fn(string $collection, mixed $id): string => \App\Servic
                 $item["question"]["explanation"] ?? ""
             ) ?></p>
         </div>
+        <?php if ($questionId !== ''): ?><p class="question-report-action"><a class="button button-outline" href="/question-report?question_id=<?= rawurlencode($questionId) ?>">Report this question</a></p><?php endif; ?>
         <?php if (is_array($noteLink)): ?>
             <div class="notes-answer-connection">
                 <h4>From your note · <?= htmlspecialchars((string) ($noteLink['topic'] ?? ''), ENT_QUOTES, 'UTF-8') ?></h4>

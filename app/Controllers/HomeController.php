@@ -5,9 +5,7 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use App\Core\View;
-use App\Core\App;
 use App\Core\Request;
-use App\Repositories\QuestionRepository;
 use App\Services\Board\BoardViewService;
 use App\Services\Study\StudyLibraryService;
 
@@ -20,7 +18,6 @@ class HomeController extends BaseController
             [
                 "pageTitle" => "BoardPrep | Focused board-exam preparation",
                 "boards" => BoardViewService::all(),
-                "questionCount" => count(App::container()->get(QuestionRepository::class)->all()),
             ]
         );
     }

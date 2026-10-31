@@ -18,6 +18,7 @@ use App\Controllers\DoctorRunController;
 use App\Controllers\HomeController;
 use App\Controllers\HistoryController;
 use App\Controllers\LearningProfileController;
+use App\Controllers\LearnerQuestionReportController;
 use App\Controllers\MyNotesController;
 use App\Controllers\MistakeNotebookController;
 use App\Controllers\MetadataRepairController;
@@ -28,6 +29,7 @@ use App\Controllers\QuestionImportController;
 use App\Controllers\QuestionInspectorController;
 use App\Controllers\QuestionQualityController;
 use App\Controllers\QuizFlowController;
+use App\Controllers\QuestionIssueReportsController;
 use App\Controllers\SubjectController;
 use App\Controllers\StudyDashboardController;
 use App\Controllers\StudyLibraryController;
@@ -111,6 +113,9 @@ $router->get('/flashcards', [FlashcardController::class, 'index']);
 $router->get('/flashcards/missed', [FlashcardController::class, 'missed']);
 $router->get('/flashcards/review', [FlashcardController::class, 'review']);
 $router->post('/flashcards/review', [FlashcardController::class, 'submitReview']);
+$router->get('/question-report', [LearnerQuestionReportController::class, 'create']);
+$router->post('/question-report', [LearnerQuestionReportController::class, 'submit']);
+$router->get('/question-reports', [LearnerQuestionReportController::class, 'index']);
 
 if (App::config('environment') !== 'production') {
 
@@ -309,6 +314,8 @@ $router->get(
 );
 
 $router->get('/developer/academic-review', [AcademicReviewController::class, 'index']);
+$router->get('/developer/question-reports', [QuestionIssueReportsController::class, 'index']);
+$router->post('/developer/question-reports/update', [QuestionIssueReportsController::class, 'update']);
 $router->get('/developer/academic-review/proposal', [AcademicReviewController::class, 'proposal']);
 $router->post('/developer/academic-review/assign', [AcademicReviewController::class, 'assign']);
 $router->post('/developer/academic-review/start', [AcademicReviewController::class, 'start']);

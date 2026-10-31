@@ -63,6 +63,19 @@ final class AccountDataInventoryService
             'backup' => 'Included in the authenticated encrypted account archive.',
             'retention' => 'Removed after confirmed application deletion; external copies are outside this operation.',
         ],
+        'learner-question-reports' => [
+            'export_name' => 'question_issue_reports',
+            'ownership_field' => 'user_id',
+            'schema_version' => 1,
+            'json_location' => 'APP_STORAGE_PATH/learner-question-reports.json',
+            'sqlite_location' => 'storage_records collection=learner-question-reports',
+            'read_path' => 'QuestionIssueReportService::forLearner',
+            'write_path' => 'QuestionIssueReportService::submit and transition',
+            'export' => 'Includes the learner-submitted category and optional note without internal learner ID.',
+            'deletion' => 'Delete only reports whose user_id exactly matches the verified account learner_id.',
+            'backup' => 'Included in the authenticated encrypted account archive.',
+            'retention' => 'Removed after confirmed application deletion; external copies are outside this operation.',
+        ],
     ];
 
     /** @return array<string,mixed> */

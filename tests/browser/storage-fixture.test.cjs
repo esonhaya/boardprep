@@ -16,6 +16,7 @@ try {
   fs.writeFileSync(path.join(source, 'attempts.json'), '[{"user_id":"synthetic-owner-marker"}]\n');
   fs.writeFileSync(path.join(source, 'weakness.json'), '[{"user_id":"synthetic-owner-marker"}]\n');
   fs.writeFileSync(path.join(source, 'flashcard_state.json'), '[{"user_id":"synthetic-owner-marker"}]\n');
+  fs.writeFileSync(path.join(source, 'learner-question-reports.json'), '[{"user_id":"synthetic-owner-marker"}]\n');
   fs.writeFileSync(path.join(source, 'question-statistics.json'), '[{"synthetic-owner-marker":1}]\n');
   fs.writeFileSync(path.join(source, 'private', 'learner-accounts', 'accounts.json'), '{"synthetic_owner_marker":true}\n');
 
@@ -26,7 +27,7 @@ try {
     assert.equal(fs.statSync(path.join(fixture, file)).mode & 0o077, 0, `${file} is accessible to group/other`);
   }
   assert.equal(fs.existsSync(path.join(fixture, 'private')), false, 'private runtime storage was copied into the browser fixture');
-  process.stdout.write('[PASS] Browser fixtures retain canonical question content and replace tracked learner collections with empty private temporary state.\n');
+  process.stdout.write('[PASS] Browser fixtures retain canonical question content and replace attempts, reports, and other learner collections with empty private temporary state.\n');
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
 }

@@ -138,7 +138,7 @@ try {
         $assert(!str_starts_with($relative, '.env') || $relative === '.env.example', 'local environment file entered package');
         $assert(!str_starts_with($relative, 'tools/Tests/'), 'test tooling entered production package');
         $assert(!str_contains($relative, 'doctor-report') && !str_contains($relative, 'doctor-manual'), 'diagnostic report entered package');
-        $assert(!in_array($relative, ['storage/attempts.json', 'storage/weakness.json', 'storage/question-statistics.json', 'storage/flashcard_state.json', 'storage/learner_notes.json', 'boardprep.zip'], true), "local runtime artifact entered package: {$relative}");
+        $assert(!in_array($relative, ['storage/attempts.json', 'storage/weakness.json', 'storage/question-statistics.json', 'storage/flashcard_state.json', 'storage/learner-question-reports.json', 'storage/learner_notes.json', 'boardprep.zip'], true), "local runtime artifact entered package: {$relative}");
     }
 
     $manifest = json_decode((string) $packageArchive->getFromName($packageRoot . 'RELEASE_MANIFEST.json'), true, 512, JSON_THROW_ON_ERROR);

@@ -17,6 +17,7 @@ final class AnonymousLearnerDataService
         'weakness' => 'weakness_summaries',
         'flashcard_state' => 'flashcard_reviews',
         'learner_notes' => 'learner_notes',
+        'learner-question-reports' => 'question_issue_reports',
     ];
 
     public function __construct(
@@ -73,7 +74,7 @@ final class AnonymousLearnerDataService
         return [
             'format' => 'boardprep-anonymous-learner-data-v1',
             'exported_at' => gmdate(DATE_ATOM),
-            'scope' => 'Saved quiz attempts, derived weakness summaries, flashcard review state, and private learner notes for the current browser session.',
+            'scope' => 'Saved quiz attempts, derived weakness summaries, flashcard review state, private learner notes, and question issue reports for the current browser session.',
             'records' => $records,
         ];
     }

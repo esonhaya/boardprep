@@ -21,7 +21,7 @@
 
 <section class="card" aria-labelledby="stored-data-heading">
     <h2 id="stored-data-heading">Stored learning data</h2>
-    <p>Completed quiz attempts can include your selected answers, scores, question review, and study context. BoardPrep also stores derived weakness/progress information and flashcard review state. This release uses private JSON storage by default; an operator may configure SQLite for supported mutable learner state.</p>
+    <p>Completed quiz attempts can include your selected answers, scores, question review, and study context. BoardPrep also stores derived weakness/progress information, flashcard review state, private notes, and any question concerns you submit. A question report is visible only to your learner identity and authorized reviewers; it does not alter academic records. This release uses private JSON storage by default; an operator may configure SQLite for supported mutable learner state.</p>
     <p>Current records associated with this browser session:</p>
     <ul>
         <?php foreach (($learnerDataSummary ?? []) as $recordType => $count): ?>
