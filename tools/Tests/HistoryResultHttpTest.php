@@ -43,7 +43,7 @@ try {
                 'question' => 'Second question',
                 'choices' => ['A', 'B'],
                 'answer' => 'B',
-                'explanation' => 'The second choice is supported.',
+                'explanation' => '',
             ],
             'userAnswer' => 'B',
             'correctAnswer' => 'B',
@@ -147,6 +147,13 @@ try {
     historyCheck(str_contains($html, '/question-report?attempt_id=attempt-history-owned&amp;question_id=history-q1'),
         'historical result question report did not bind both the owned attempt and reviewed question');
     historyCheck(str_contains(file_get_contents($root . '/app/Views/history/attempt.php'), 'View result'), 'history row reopen action is missing');
+
+    $_GET = ['id' => $owned['id'], 'review_filter' => 'all'];
+    ob_start();
+    $router->dispatch('GET', '/history/result');
+    $allReviewHtml = (string) ob_get_clean();
+    historyCheck(str_contains($allReviewHtml, 'No explanation is currently available for this question.'),
+        'missing canonical explanation was rendered as an unexplained blank result block');
 
     $_GET = ['id' => 'attempt-history-legacy-exam', 'review_filter' => 'marked'];
     ob_start();

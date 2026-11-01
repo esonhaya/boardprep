@@ -152,7 +152,7 @@ final class StudyCalendarPlanner
         ];
     }
 
-    /** @return array{sessions:list<array<string,mixed>>,window_end_date:string,performance_status:string,explanations:list<string>} */
+    /** @return array{sessions:list<array<string,mixed>>,window_end_date:string,performance_status:string,unscheduled_due_subjects:list<string>,explanations:list<string>} */
     public static function generate(array $configuration, array $evidence, string $today): array
     {
         $startDate = (string) ($configuration['start_date'] ?? $today);
@@ -180,6 +180,22 @@ final class StudyCalendarPlanner
             ? $evidence['focus_topics']
             : [];
         $dueCount = max(0, min(100000, (int) ($evidence['due_flashcard_count'] ?? 0)));
+        $dueSubjectCountsAvailable = is_array($evidence['due_flashcard_subject_counts'] ?? null);
+        $dueSubjectCounts = [];
+        if ($dueSubjectCountsAvailable) {
+            foreach ($evidence['due_flashcard_subject_counts'] as $subjectId => $count) {
+                $subjectId = strtolower(trim((string) $subjectId));
+                if ($subjectId === '' || !isset($availableSubjects[$subjectId]) || !is_numeric($count)) continue;
+                $count = max(0, min(100000, (int) $count));
+                if ($count > 0) $dueSubjectCounts[$subjectId] = $count;
+            }
+            uksort($dueSubjectCounts, static fn(string $left, string $right): int =>
+                ($dueSubjectCounts[$right] <=> $dueSubjectCounts[$left]) ?: strcmp($left, $right)
+            );
+            $dueCount = array_sum($dueSubjectCounts);
+        }
+        $dueSubjectQueue = array_keys($dueSubjectCounts);
+        $dueSubjectQueueIndex = 0;
         $mistakeSubjectCounts = [];
         foreach (is_array($evidence['mistake_subject_counts'] ?? null) ? $evidence['mistake_subject_counts'] : [] as $subjectId => $count) {
             $subjectId = strtolower(trim((string) $subjectId));
@@ -213,19 +229,17 @@ final class StudyCalendarPlanner
                 && !isset($restDates[$dateString])
                 && ($weeklyCounts[$weekKey] ?? 0) < $weeklyCapacity) {
                 $subjectId = $subjectPool[$sessionNumber % count($subjectPool)];
-                $subject = $availableSubjects[$subjectId];
-                $topic = self::focusForSubject($focusTopics, $subject, $configuration);
                 $kind = 'PRACTICE';
-                if ($dueCount > 0 && $sessionNumber % $reviewCadence === 0) {
+                if (isset($dueSubjectQueue[$dueSubjectQueueIndex])) {
                     $kind = 'FLASHCARDS';
+                    $subjectId = $dueSubjectQueue[$dueSubjectQueueIndex++];
                 } elseif ($mistakeSubjectIds !== [] && $sessionNumber % max(3, $reviewCadence + 1) === 1) {
                     $kind = 'MISTAKES';
-                }
-                if ($kind === 'MISTAKES') {
                     $subjectId = $mistakeSubjectIds[intdiv($sessionNumber, max(3, $reviewCadence + 1)) % count($mistakeSubjectIds)];
-                    $subject = $availableSubjects[$subjectId];
-                    $topic = self::focusForSubject($focusTopics, $subject, $configuration);
                 }
+                $subject = $availableSubjects[$subjectId];
+                $topic = self::focusForSubject($focusTopics, $subject, $configuration);
+                $priority = (string) ($priorities[$subjectId] ?? 'normal');
                 $action = match ($kind) {
                     'FLASHCARDS' => '/flashcards/review?' . http_build_query([
                         'board' => $configuration['board_code'],
@@ -242,13 +256,19 @@ final class StudyCalendarPlanner
                     ], static fn(mixed $value): bool => is_string($value) && $value !== '')),
                 };
                 $reason = match ($kind) {
-                    'FLASHCARDS' => 'A due flashcard review was recorded for this board when the plan was generated.',
-                    'MISTAKES' => 'Your saved mistake or skipped-question recovery data supports a review session.',
+                    'FLASHCARDS' => 'There ' . ($dueSubjectCounts[$subjectId] === 1 ? 'is ' : 'are ')
+                        . $dueSubjectCounts[$subjectId] . ' due flashcard' . ($dueSubjectCounts[$subjectId] === 1 ? '' : 's')
+                        . ' in this board and subject queue.',
+                    'MISTAKES' => $mistakeSubjectCounts[$subjectId] . ' saved wrong or skipped question'
+                        . ($mistakeSubjectCounts[$subjectId] === 1 ? '' : 's')
+                        . ' in this board and subject support a recovery session.',
                     default => $topic !== null
-                        ? 'This topic is a focus area in your recorded performance history.'
+                        ? 'Your recorded average for this topic is ' . (int) ($topic['average'] ?? 0) . '% across '
+                            . (int) ($topic['attempts'] ?? 0) . ' attempts in this subject.'
                         : ($performanceStatus === 'INSUFFICIENT_DATA'
                             ? 'Practice builds a baseline; at least three completed quizzes are needed for trend-based focus.'
-                            : 'Subject practice follows your selected priority and current board catalog.'),
+                            : 'This subject is scheduled from your selected ' . $priority
+                                . ' priority and subject rotation; the recommendation does not represent a measured weakness.'),
                 };
                 $sessions[] = [
                     'task_id' => 'task-' . substr(hash('sha256', $dateString . "\0" . $subjectId . "\0" . $kind . "\0" . (string) ($topic['topic'] ?? '')), 0, 24),
@@ -277,10 +297,12 @@ final class StudyCalendarPlanner
         if ($sessions === []) {
             throw new InvalidArgumentException('Your dates include no available study days. Add a weekday or remove a rest day.');
         }
+        $unscheduledDueSubjects = array_slice($dueSubjectQueue, $dueSubjectQueueIndex);
         return [
             'sessions' => $sessions,
             'window_end_date' => $windowEnd,
             'performance_status' => $performanceStatus,
+            'unscheduled_due_subjects' => $unscheduledDueSubjects,
             'explanations' => [
                 $performanceStatus === 'INSUFFICIENT_DATA'
                     ? 'Performance focus is unavailable until three completed quizzes are recorded.'
@@ -288,8 +310,17 @@ final class StudyCalendarPlanner
                 'The schedule leaves an available study day open in weeks with three or more selected weekdays so missed work can be rescheduled without stacking sessions.',
                 ($evidence['due_flashcard_status'] ?? 'AVAILABLE') !== 'AVAILABLE'
                     ? 'The due-card queue could not be checked when this plan was generated; no flashcard count or review requirement is assumed.'
-                    : ($dueCount > 0 ? 'Flashcard sessions are scheduled from the learner’s existing due queue.' : 'No due flashcards were found for this board at generation time.'),
+                    : (!$dueSubjectCountsAvailable
+                        ? 'Due cards were not attributed to individual subjects, so no subject-specific flashcard task was added.'
+                        : ($dueCount > 0
+                            ? 'Subject-specific flashcard sessions use the recorded due queue; '
+                                . count($dueSubjectQueue) . ' due subject queue(s) fit in this planning window.'
+                                . ($unscheduledDueSubjects !== [] ? ' Some due subject queues did not fit and remain available in Flashcards.' : '')
+                            : 'No due flashcards were found for this board at generation time.')),
                 $mistakeCount > 0 ? 'Mistake sessions link to existing learner recovery records.' : 'No saved mistake evidence was found at generation time.',
+                $examDate !== null
+                    ? 'Generated sessions end on or before the target examination date ' . $examDate . '.'
+                    : 'The plan uses a short default horizon until you enter a target examination date.',
             ],
         ];
     }
@@ -304,6 +335,44 @@ final class StudyCalendarPlanner
         if ($date > $limit) return false;
         if (!in_array((int) (new DateTimeImmutable($date))->format('N'), array_map('intval', (array) ($configuration['weekdays'] ?? [])), true)) return false;
         return !in_array($date, (array) ($configuration['rest_dates'] ?? []), true);
+    }
+
+    /** Return the first unoccupied valid recovery date, including today for a missed session. */
+    public static function suggestedRescheduleDate(
+        string $after,
+        array $configuration,
+        array $sessions,
+        string $exceptTaskId,
+        string $today
+    ): string {
+        try {
+            self::requireDate($today, 'Current date');
+            self::requireDate($after, 'Study date');
+        } catch (InvalidArgumentException) {
+            return '';
+        }
+        $start = $after < $today
+            ? new DateTimeImmutable($today)
+            : (new DateTimeImmutable($after))->modify('+1 day');
+        $limit = is_string($configuration['exam_date'] ?? null) && $configuration['exam_date'] !== ''
+            ? $configuration['exam_date']
+            : (new DateTimeImmutable($today))->modify('+90 days')->format('Y-m-d');
+        $date = $start;
+        while ($date->format('Y-m-d') <= $limit) {
+            $candidate = $date->format('Y-m-d');
+            $occupied = false;
+            foreach ($sessions as $session) {
+                if (!is_array($session) || ($session['task_id'] ?? '') === $exceptTaskId
+                    || in_array(($session['status'] ?? ''), ['completed', 'skipped'], true)) continue;
+                if (($session['scheduled_date'] ?? null) === $candidate) {
+                    $occupied = true;
+                    break;
+                }
+            }
+            if (!$occupied && self::validScheduledDate($candidate, $configuration, $today)) return $candidate;
+            $date = $date->modify('+1 day');
+        }
+        return '';
     }
 
     private static function focusForSubject(array $topics, array $subject, array $configuration): ?array

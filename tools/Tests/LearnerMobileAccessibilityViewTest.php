@@ -92,6 +92,8 @@ $checks = [
     'results group answer, correctness, explanation, and study links' => str_contains($result, 'aria-labelledby="answer-review-heading"')
         && str_contains($result, 'class="answer-review-explanation"')
         && str_contains($result, 'class="quiz-study-support"'),
+    'missing question explanations have an explicit fallback in practice feedback and saved results' => str_contains($quiz, 'No explanation is currently available for this question.')
+        && str_contains($result, 'No explanation is currently available for this question.'),
     'home entry and learner history/progress actions have named destinations' => str_contains($home, 'href="/exams">Start studying</a>')
         && str_contains($history, 'href="/quiz">Start practice</a>')
         && str_contains($history, 'No completed quizzes yet')

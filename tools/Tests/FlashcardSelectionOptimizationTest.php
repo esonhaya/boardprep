@@ -55,8 +55,19 @@ $selection = $service->dueSelection([], 10, $now);
 optimizationCheck(
     ($allSelection['total_count'] ?? -1) === count($all)
         && ($allSelection['due_count'] ?? -1) + ($allSelection['new_count'] ?? -1) === count($all)
+        && array_sum((array) ($allSelection['due_count_by_subject'] ?? [])) === ($allSelection['due_count'] ?? -1)
         && array_column($selection['cards'], 'card_key') === array_column(array_slice($allSelection['cards'], 0, 10), 'card_key'),
-    'unfiltered due selection contract changed'
+    'unfiltered due selection or subject-count aggregation contract changed'
+);
+
+$boardDueSelection = $service->dueSelection(['board' => 'let', 'include_new' => false], 1, $now);
+$boardDueCounts = (array) ($boardDueSelection['due_count_by_subject'] ?? []);
+$sortedBoardDueCounts = $boardDueCounts;
+ksort($sortedBoardDueCounts, SORT_STRING);
+optimizationCheck(
+    array_sum($boardDueCounts) === ($boardDueSelection['due_count'] ?? -1)
+        && $boardDueCounts === $sortedBoardDueCounts,
+    'board-filtered due counts were not grouped consistently by subject'
 );
 
 $questionIds = array_column(array_slice($allSelection['cards'], 0, 10), 'question_id');

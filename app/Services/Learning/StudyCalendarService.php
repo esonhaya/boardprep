@@ -111,7 +111,8 @@ final class StudyCalendarService
             $merge = self::mergeGeneratedSessions(
                 is_array($existing['sessions'] ?? null) ? $existing['sessions'] : [],
                 $built['sessions'],
-                $today
+                $today,
+                (int) ($configuration['daily_minutes'] ?? 0)
             );
             $now = gmdate(DATE_ATOM);
             $record = [
@@ -278,19 +279,26 @@ final class StudyCalendarService
     /** @param list<array<string,mixed>> $previous @param list<array<string,mixed>> $generated
      * @return array{sessions:list<array<string,mixed>>,retained_user_edits:int}
      */
-    private static function mergeGeneratedSessions(array $previous, array $generated, string $today): array
+    private static function mergeGeneratedSessions(array $previous, array $generated, string $today, int $dailyMinutes): array
     {
         $history = [];
+        $overdue = [];
         $edited = [];
         foreach ($previous as $session) {
             if (!is_array($session) || preg_match('/\Atask-[a-f0-9]{24}\z/', (string) ($session['task_id'] ?? '')) !== 1) continue;
             $status = (string) ($session['status'] ?? 'planned');
             if (in_array($status, ['completed', 'skipped'], true)) {
                 $history[] = $session;
+            } elseif (in_array($status, ['planned', 'deferred'], true)
+                && is_string($session['scheduled_date'] ?? null)
+                && $session['scheduled_date'] < $today) {
+                $session['duration_minutes'] = $dailyMinutes;
+                $overdue[] = $session;
             } elseif (($session['user_modified'] ?? false) === true
                 && in_array($status, ['planned', 'deferred'], true)
                 && is_string($session['scheduled_date'] ?? null)
                 && $session['scheduled_date'] >= $today) {
+                $session['duration_minutes'] = $dailyMinutes;
                 $edited[] = $session;
             }
         }
@@ -299,22 +307,24 @@ final class StudyCalendarService
             (string) ($a['completed_at'] ?? $a['scheduled_date'] ?? '')
         ));
         $history = array_slice($history, 0, StudyCalendarPlanner::MAX_COMPLETED_HISTORY);
+        usort($overdue, static fn(array $left, array $right): int => self::sessionOrder($left, $right));
         usort($edited, static fn(array $left, array $right): int => self::sessionOrder($left, $right));
 
         $occupiedDates = [];
-        foreach ([...$history, ...$edited] as $session) {
+        foreach ([...$history, ...$overdue, ...$edited] as $session) {
             if (is_string($session['scheduled_date'] ?? null) && $session['scheduled_date'] >= $today) {
                 $occupiedDates[$session['scheduled_date']] = true;
             }
         }
         $future = [];
+        $remainingCapacity = max(0, self::MAX_ACTIVE_TASKS - count($overdue) - count($edited));
         foreach ($generated as $session) {
+            if (count($future) >= $remainingCapacity) break;
             if (!is_array($session) || isset($occupiedDates[$session['scheduled_date'] ?? ''])) continue;
             $occupiedDates[$session['scheduled_date']] = true;
             $future[] = $session;
-            if (count($future) >= self::MAX_ACTIVE_TASKS - count($edited)) break;
         }
-        $sessions = [...$history, ...$edited, ...$future];
+        $sessions = [...$history, ...$overdue, ...$edited, ...$future];
         usort($sessions, static fn(array $left, array $right): int => self::sessionOrder($left, $right));
         return ['sessions' => $sessions, 'retained_user_edits' => count($edited)];
     }

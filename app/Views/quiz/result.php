@@ -177,6 +177,7 @@ $taxonomyLabel = static fn(string $collection, mixed $id): string => \App\Servic
 
 <?php foreach ($review as $index => $item): ?>
 <?php $questionId = is_array($item['question'] ?? null) && is_scalar($item['question']['id'] ?? null) ? trim((string) $item['question']['id']) : ''; ?>
+<?php $questionExplanation = is_array($item['question'] ?? null) && is_scalar($item['question']['explanation'] ?? null) ? trim((string) $item['question']['explanation']) : ''; ?>
 <?php $answerWasSubmitted = ($item['answered'] ?? false) === true; $answerWasCorrect = ($item['correct'] ?? false) === true; $outcomeClass = !$answerWasSubmitted ? 'is-unanswered' : ($answerWasCorrect ? 'is-correct' : 'is-incorrect'); ?>
 <article class="question-review <?= $outcomeClass ?>">
     <h3>
@@ -222,9 +223,9 @@ $taxonomyLabel = static fn(string $collection, mixed $id): string => \App\Servic
 
         <div class="answer-review-explanation">
             <p class="answer-label">Explanation</p>
-            <p><?= htmlspecialchars(
-                $item["question"]["explanation"] ?? ""
-            ) ?></p>
+            <p><?= $questionExplanation !== ''
+                ? htmlspecialchars($questionExplanation, ENT_QUOTES, 'UTF-8')
+                : 'No explanation is currently available for this question.' ?></p>
         </div>
         <?php if ($questionId !== '' && $reportAttemptId !== ''): ?><p class="question-report-action"><a class="button button-outline" href="/question-report?attempt_id=<?= rawurlencode($reportAttemptId) ?>&amp;question_id=<?= rawurlencode($questionId) ?>">Report this question</a></p><?php endif; ?>
         <?php if (is_array($noteLink)): ?>

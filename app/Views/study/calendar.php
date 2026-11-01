@@ -17,26 +17,14 @@ $today = (string) ($today ?? date('Y-m-d'));
 $examDateLimit = (string) ($configuration['exam_date'] ?? '');
 $latestRescheduleDate = $examDateLimit !== '' ? $examDateLimit : (new DateTimeImmutable($today))->modify('+90 days')->format('Y-m-d');
 $weekdayNames = [1 => 'Monday', 2 => 'Tuesday', 3 => 'Wednesday', 4 => 'Thursday', 5 => 'Friday', 6 => 'Saturday', 7 => 'Sunday'];
-$nextAvailable = static function (string $after, array $config, array $allSessions, string $exceptTaskId): string {
-    $date = new DateTimeImmutable($after);
-    for ($i = 0; $i < 14; $i++) {
-        $date = $date->modify('+1 day');
-        $candidate = $date->format('Y-m-d');
-        $occupied = false;
-        foreach ($allSessions as $other) {
-            if (is_array($other) && ($other['task_id'] ?? '') !== $exceptTaskId
-                && !in_array(($other['status'] ?? ''), ['completed', 'skipped'], true)
-                && ($other['scheduled_date'] ?? null) === $candidate) $occupied = true;
-        }
-        if (!$occupied
-            && in_array((int) $date->format('N'), array_map('intval', (array) ($config['weekdays'] ?? [])), true)
-            && !in_array($date->format('Y-m-d'), (array) ($config['rest_dates'] ?? []), true)
-            && (!is_string($config['exam_date'] ?? null) || $config['exam_date'] === '' || $date->format('Y-m-d') <= $config['exam_date'])) {
-            return $candidate;
-        }
-    }
-    return $after;
-};
+$nextAvailable = static fn(string $after, array $config, array $allSessions, string $exceptTaskId): string =>
+    \App\Services\Learning\StudyCalendarPlanner::suggestedRescheduleDate(
+        $after,
+        $config,
+        $allSessions,
+        $exceptTaskId,
+        $today
+    );
 ?>
 
 <header class="page-header">
@@ -160,16 +148,17 @@ $nextAvailable = static function (string $after, array $config, array $allSessio
         <?php else: ?>
             <ol class="study-calendar-list">
                 <?php foreach ($sessions as $session): ?>
-                    <?php if (!is_array($session)) continue; $status = (string) ($session['status'] ?? 'planned'); $taskId = (string) ($session['task_id'] ?? ''); $action = (string) ($session['action'] ?? '/study'); if (!preg_match('#^/(?:quiz|flashcards/review|mistake-notebook)(?:\?|$)#', $action)) $action = '/study'; ?>
-                    <li class="study-calendar-session">
+                    <?php if (!is_array($session)) continue; $status = (string) ($session['status'] ?? 'planned'); $taskId = (string) ($session['task_id'] ?? ''); $isOverdue = in_array($status, ['planned', 'deferred'], true) && (string) ($session['scheduled_date'] ?? '') < $today; $action = (string) ($session['action'] ?? '/study'); if (!preg_match('#^/(?:quiz|flashcards/review|mistake-notebook)(?:\?|$)#', $action)) $action = '/study'; ?>
+                    <li class="study-calendar-session" id="session-<?= $e($taskId) ?>">
                         <article class="study-plan-item">
                             <div class="page-header">
                                 <div>
-                                    <p class="eyebrow"><?= $e(strtoupper(str_replace('_', ' ', $status))) ?> · <?= $e($session['kind'] ?? 'PRACTICE') ?></p>
+                                    <p class="eyebrow"><?= $isOverdue ? 'OVERDUE · RECOVERY' : $e(strtoupper(str_replace('_', ' ', $status))) ?> · <?= $e($session['kind'] ?? 'PRACTICE') ?></p>
                                     <h3><?= $e($session['scheduled_date'] ?? '') ?> — <?= $e($session['subject_name'] ?? $session['subject_id'] ?? '') ?><?= is_string($session['board_name'] ?? null) && $session['board_name'] !== '' ? ' · ' . $e($session['board_name']) : '' ?></h3>
                                 </div>
                                 <span class="badge"><?= (int) ($session['duration_minutes'] ?? 0) ?> min</span>
                             </div>
+                            <?php if ($isOverdue): ?><p class="alert alert-warning" role="status">This session was missed. You can complete it, skip it, or move it to an available date on or before your target examination.</p><?php endif; ?>
                             <?php if (is_string($session['topic'] ?? null) && $session['topic'] !== ''): ?><p>Focus topic: <strong><?= $e($session['topic']) ?></strong><?php if (is_numeric($session['topic_average'] ?? null)): ?> · recorded average <?= (int) $session['topic_average'] ?>% over <?= (int) ($session['evidence_attempts'] ?? 0) ?> attempt(s)<?php endif; ?></p><?php endif; ?>
                             <p><?= $e($session['reason'] ?? '') ?></p>
                             <p><a class="button button-outline" href="<?= $e($action) ?>">Open this study activity</a></p>

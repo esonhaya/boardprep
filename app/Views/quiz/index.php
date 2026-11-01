@@ -30,6 +30,9 @@ foreach ($sessionQuestions as $sessionQuestion) {
 }
 $answerSaveStatus = is_scalar($answerSaveStatus ?? null) ? trim((string) $answerSaveStatus) : '';
 $questionId = is_array($question) && is_scalar($question['id'] ?? null) ? (string) $question['id'] : '';
+$questionExplanation = is_array($question) && is_scalar($question['explanation'] ?? null)
+    ? trim((string) $question['explanation'])
+    : '';
 $savedAnswer = $questionId !== '' && is_scalar($answers[$questionId] ?? null)
     ? strtoupper(trim((string) $answers[$questionId]))
     : '';
@@ -169,7 +172,9 @@ Explanation:
 </p>
 
 <p>
-<?= htmlspecialchars($question["explanation"] ?? "") ?>
+<?= $questionExplanation !== ''
+    ? htmlspecialchars($questionExplanation, ENT_QUOTES, 'UTF-8')
+    : 'No explanation is currently available for this question.' ?>
 </p>
 
 <?php if ($studyReferences !== []): ?>

@@ -52,6 +52,7 @@ $evidence = [
     'attempt_count' => 0,
     'focus_topics' => [['topic' => 'Unsupported synthetic weakness', 'board' => 'LET', 'subject' => 'english', 'attempts' => 20, 'average' => 10]],
     'due_flashcard_count' => 5,
+    'due_flashcard_subject_counts' => ['english' => 5],
     'due_flashcard_status' => 'AVAILABLE',
     'mistake_subject_counts' => ['english' => 3],
 ];
@@ -63,15 +64,17 @@ try {
     calendarAssert($generated['performance_status'] === 'INSUFFICIENT_DATA', 'A plan without quiz history claimed performance evidence.');
     calendarAssert(count($generated['sessions']) > 0 && count($generated['sessions']) <= StudyCalendarPlanner::MAX_FUTURE_SESSIONS, 'Initial schedule was empty or exceeded its bound.');
     calendarAssert(count($sessionDates) === count(array_unique($sessionDates)), 'Generation created duplicate sessions on a day.');
+    calendarAssert(count(array_filter($generated['sessions'], static fn(array $s): bool => (int) $s['duration_minutes'] > (int) $validated['daily_minutes'])) === 0, 'A session exceeded the learner’s daily study-minute limit.');
     calendarAssert(!in_array('2026-11-04', $sessionDates, true), 'A configured rest day received a session.');
     calendarAssert((new DateTimeImmutable(max($sessionDates))) <= new DateTimeImmutable('2026-11-25'), 'A generated session exceeded the configured examination date.');
     $flashcardSessions = array_values(array_filter($generated['sessions'], static fn(array $s): bool => $s['kind'] === 'FLASHCARDS'));
-    calendarAssert($flashcardSessions !== [], 'Recorded due flashcards were not integrated into the schedule.');
+    calendarAssert(count($flashcardSessions) === 1 && $flashcardSessions[0]['subject_id'] === 'english', 'Due-card evidence did not create one subject-scoped review for the subject with recorded due cards.');
     foreach ($flashcardSessions as $session) {
         parse_str((string) parse_url((string) ($session['action'] ?? ''), PHP_URL_QUERY), $actionQuery);
         calendarAssert(($actionQuery['board'] ?? null) === 'LET'
             && ($actionQuery['subject'] ?? null) === ($session['subject_id'] ?? null),
             'A flashcard task did not preserve its board and assigned subject filters.');
+        calendarAssert(str_contains((string) $session['reason'], '5 due flashcards'), 'Flashcard recommendation did not explain the recorded subject queue.');
     }
     $mistakeSessions = array_values(array_filter($generated['sessions'], static fn(array $s): bool => $s['kind'] === 'MISTAKES'));
     calendarAssert($mistakeSessions !== [], 'Recorded mistake evidence was not integrated into the schedule.');
@@ -91,6 +94,34 @@ try {
     calendarAssert($withoutExamDate['exam_date'] === null
         && $defaultHorizon['window_end_date'] === (new DateTimeImmutable($today))->modify('+13 days')->format('Y-m-d'),
         'Missing exam date did not produce a bounded default planning horizon.');
+
+    $narrowWindowInput = array_merge($input, [
+        'start_date' => $today,
+        'exam_date' => $today,
+        'weekdays' => [7],
+        'rest_dates' => [],
+    ]);
+    $narrowWindow = StudyCalendarPlanner::validateConfiguration($narrowWindowInput, $boards, $today);
+    $narrowPlan = StudyCalendarPlanner::generate($narrowWindow, [
+        'due_flashcard_subject_counts' => ['english' => 5, 'mathematics' => 3],
+        'due_flashcard_status' => 'AVAILABLE',
+    ], $today);
+    calendarAssert(count($narrowPlan['sessions']) === 1
+        && $narrowPlan['sessions'][0]['subject_id'] === 'english'
+        && $narrowPlan['unscheduled_due_subjects'] === ['mathematics'],
+        'A narrow exam-date window exceeded available time or failed to disclose an unplaced due subject queue.');
+    calendarAssert(str_contains(implode(' ', $narrowPlan['explanations']), 'did not fit'), 'Insufficient calendar capacity was not explained.');
+    calendarAssert(!StudyCalendarPlanner::validScheduledDate('2026-11-26', $validated, $today), 'A recovery date after the examination was accepted.');
+
+    $overdueSuggestionPlan = [
+        ['task_id' => 'task-' . str_repeat('a', 24), 'scheduled_date' => '2026-10-26', 'status' => 'planned'],
+        ['task_id' => 'task-' . str_repeat('b', 24), 'scheduled_date' => '2026-11-02', 'status' => 'planned'],
+        ['task_id' => 'task-' . str_repeat('c', 24), 'scheduled_date' => '2026-11-03', 'status' => 'deferred'],
+    ];
+    $recoverySuggestion = StudyCalendarPlanner::suggestedRescheduleDate(
+        '2026-10-26', $validated, $overdueSuggestionPlan, 'task-' . str_repeat('a', 24), $today
+    );
+    calendarAssert($recoverySuggestion === '2026-11-05', 'Overdue recovery suggestion did not clamp to today and avoid occupied/rest dates.');
 
     calendarRejects(static fn() => StudyCalendarPlanner::validateConfiguration(array_merge($input, ['exam_date' => '2026-10-01']), $boards, $today), 'Past exam date was accepted.');
     calendarRejects(static fn() => StudyCalendarPlanner::validateConfiguration(array_merge($input, ['start_date' => '2026-10-31']), $boards, $today), 'Past study start date was accepted.');
@@ -191,6 +222,56 @@ try {
             && str_starts_with((string) ($nextSummary['action'] ?? ''), '/mistake-notebook?'),
             $driver . ' dashboard discarded the valid scoped mistake-notebook action.');
 
+        $recoveryLearner = 'learner-' . str_repeat($driver === 'json' ? '7' : '8', 32);
+        $recoveryService = new StudyCalendarService($storage, $recoveryLearner);
+        $initialRecoveryInput = array_merge($input, [
+            'start_date' => '2026-10-26', 'exam_date' => '2026-11-25', 'rest_dates' => [],
+            'expected_revision' => 0, 'request_id' => str_repeat($driver === 'json' ? 'a' : 'b', 32),
+        ]);
+        $initialRecovery = $recoveryService->saveConfiguration($initialRecoveryInput, $boards, $evidence, '2026-10-26');
+        $missedTask = array_values(array_filter($initialRecovery['plan']['sessions'], static fn(array $row): bool => $row['scheduled_date'] === '2026-10-26'))[0] ?? null;
+        calendarAssert(is_array($missedTask), $driver . ' recovery fixture had no task on its initial study day.');
+        $recoveryRegenerationInput = array_merge($initialRecoveryInput, [
+            'start_date' => '2026-10-27', 'daily_minutes' => 30, 'expected_revision' => 1,
+            'request_id' => str_repeat($driver === 'json' ? 'c' : 'd', 32),
+        ]);
+        $recoveredPlan = $recoveryService->saveConfiguration($recoveryRegenerationInput, $boards, $evidence, '2026-10-27');
+        $retainedMissed = array_values(array_filter($recoveredPlan['plan']['sessions'], static fn(array $row): bool => $row['task_id'] === $missedTask['task_id']))[0] ?? null;
+        $activeRecovered = array_values(array_filter($recoveredPlan['plan']['sessions'], static fn(array $row): bool => in_array($row['status'] ?? 'planned', ['planned', 'deferred'], true)));
+        calendarAssert(is_array($retainedMissed) && $retainedMissed['scheduled_date'] === '2026-10-26'
+            && ($retainedMissed['status'] ?? '') === 'planned'
+            && (int) ($retainedMissed['duration_minutes'] ?? 0) === 30, $driver . ' regeneration discarded a missed session or retained a duration above the new daily limit.');
+        calendarAssert(count($activeRecovered) <= StudyCalendarService::MAX_ACTIVE_TASKS, $driver . ' overdue preservation exceeded the active-task bound.');
+        calendarAssert(count(array_unique(array_column($activeRecovered, 'scheduled_date'))) === count($activeRecovered), $driver . ' regeneration introduced an active date collision.');
+        foreach ($activeRecovered as $activeSession) {
+            calendarAssert($activeSession['scheduled_date'] <= '2026-11-25'
+                && (int) ($activeSession['duration_minutes'] ?? 0) <= 30, $driver . ' recovery regeneration exceeded the exam boundary or the new daily limit.');
+        }
+        $recoveryDate = StudyCalendarPlanner::suggestedRescheduleDate(
+            '2026-10-26', $recoveredPlan['plan']['configuration'], $activeRecovered, $missedTask['task_id'], '2026-10-27'
+        );
+        calendarAssert($recoveryDate !== '' && $recoveryDate >= '2026-10-27'
+            && StudyCalendarPlanner::validScheduledDate($recoveryDate, $recoveredPlan['plan']['configuration'], '2026-10-27'),
+            $driver . ' recovery suggestion was not a bounded available date.');
+        $occupiedRecoverySession = array_values(array_filter($activeRecovered, static fn(array $row): bool =>
+            ($row['task_id'] ?? null) !== $missedTask['task_id']
+            && (string) ($row['scheduled_date'] ?? '') >= '2026-10-27'
+        ))[0] ?? null;
+        calendarAssert(is_array($occupiedRecoverySession), $driver . ' recovery fixture did not retain any available future work.');
+        $collisionDate = (string) ($occupiedRecoverySession['scheduled_date'] ?? '');
+        calendarRejects(static fn() => $recoveryService->updateTask([
+            'task_id' => $missedTask['task_id'], 'operation' => 'defer', 'scheduled_date' => $collisionDate,
+            'expected_revision' => 2, 'request_id' => str_repeat($driver === 'json' ? 'e' : 'f', 32),
+        ], '2026-10-27'), $driver . ' allowed missed-session recovery to collide with an occupied date.');
+        $recoveredTaskPlan = $recoveryService->updateTask([
+            'task_id' => $missedTask['task_id'], 'operation' => 'defer', 'scheduled_date' => $recoveryDate,
+            'expected_revision' => 2, 'request_id' => str_repeat($driver === 'json' ? '1' : '2', 32),
+        ], '2026-10-27');
+        $movedMissed = array_values(array_filter($recoveredTaskPlan['sessions'], static fn(array $row): bool => $row['task_id'] === $missedTask['task_id']))[0] ?? null;
+        calendarAssert(is_array($movedMissed) && $movedMissed['status'] === 'deferred'
+            && $movedMissed['scheduled_date'] === $recoveryDate
+            && (int) ($movedMissed['duration_minutes'] ?? 0) === 30, $driver . ' missed task could not be recovered to an available day within the current duration limit.');
+
         $task = $first['plan']['sessions'][0];
         $deferDate = '2026-11-13';
         calendarAssert(StudyCalendarPlanner::validScheduledDate($deferDate, $first['plan']['configuration'], $today), 'Fixture defer date was not valid.');
@@ -233,15 +314,20 @@ try {
             'request_id' => str_repeat('4', 32),
             'exam_date' => '2026-11-30',
             'weekdays' => [1, 3, 5],
+            'daily_minutes' => 30,
         ]);
         $regenerated = $service->saveConfiguration($changedInput, $boards, $evidence, $today);
         $statuses = array_column($regenerated['plan']['sessions'], 'status', 'task_id');
-        calendarAssert(($statuses[$task['task_id']] ?? '') === 'deferred', $driver . ' regeneration discarded a learner-edited session.');
+        $retainedEditedTask = array_values(array_filter($regenerated['plan']['sessions'], static fn(array $row): bool => $row['task_id'] === $task['task_id']))[0] ?? null;
+        calendarAssert(($statuses[$task['task_id']] ?? '') === 'deferred'
+            && is_array($retainedEditedTask) && (int) ($retainedEditedTask['duration_minutes'] ?? 0) === 30,
+            $driver . ' regeneration discarded a learner-edited session or retained a duration above the new daily limit.');
         calendarAssert(($statuses[$secondTask['task_id']] ?? '') === 'completed', $driver . ' regeneration discarded completed progress.');
         calendarAssert(($statuses[$thirdTask['task_id']] ?? '') === 'skipped', $driver . ' regeneration discarded skipped progress.');
         calendarAssert((int) $regenerated['plan']['revision'] === 5 && $regenerated['retained_user_edits'] >= 1, $driver . ' calendar regeneration did not report preserved edits.');
         foreach ($regenerated['plan']['sessions'] as $session) {
             if (in_array($session['status'], ['completed', 'skipped'], true)) continue;
+            calendarAssert((int) ($session['duration_minutes'] ?? 0) <= 30, $driver . ' active task exceeded the new daily study-minute limit.');
             calendarAssert($session['scheduled_date'] <= '2026-11-30', $driver . ' regeneration exceeded a changed exam date.');
             calendarAssert((int) (new DateTimeImmutable($session['scheduled_date']))->format('N') !== 3 || $session['scheduled_date'] !== '2026-11-04', 'Rest day survived a regenerated plan.');
             if (($session['user_modified'] ?? false) !== true) {
@@ -279,7 +365,7 @@ try {
         ],
         'collections' => $accountCollections,
     ]);
-    echo "[PASS] Deterministic generation, changed exam dates/days, rest days, supported performance evidence, due cards, mistake recovery, JSON/SQLite persistence, idempotency, ownership, edits, progress preservation, bounds, and account restore compatibility.\n";
+    echo "[PASS] Deterministic generation, missed-session recovery, subject-scoped due cards, workload limits, exam/rest-day bounds, transparent evidence reasons, collision/idempotency controls, ownership, JSON/SQLite persistence, progress preservation, and account restore compatibility.\n";
 } finally {
     $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($fixtureRoot, FilesystemIterator::SKIP_DOTS), RecursiveIteratorIterator::CHILD_FIRST);
     foreach ($iterator as $entry) {

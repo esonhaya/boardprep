@@ -77,6 +77,7 @@ final class StudyCalendarController
             $mistakeSubjectCounts = StudyCalendarEvidenceService::mistakeSubjectCounts($attempts, $configuration);
             $mistakeCount = array_sum($mistakeSubjectCounts);
             $dueCount = 0;
+            $dueSubjectCounts = [];
             $dueStatus = 'AVAILABLE';
             try {
                 $flashcards = App::container()->get(FlashcardService::class);
@@ -85,6 +86,9 @@ final class StudyCalendarController
                     'include_new' => false,
                 ], 1);
                 $dueCount = max(0, (int) ($selection['due_count'] ?? 0));
+                $dueSubjectCounts = is_array($selection['due_count_by_subject'] ?? null)
+                    ? $selection['due_count_by_subject']
+                    : [];
             } catch (Throwable) {
                 $dueStatus = 'UNAVAILABLE';
             }
@@ -92,6 +96,7 @@ final class StudyCalendarController
                 'attempt_count' => $boardAttemptCount,
                 'focus_topics' => is_array($dashboard['focusTopics'] ?? null) ? $dashboard['focusTopics'] : [],
                 'due_flashcard_count' => $dueCount,
+                'due_flashcard_subject_counts' => $dueSubjectCounts,
                 'due_flashcard_status' => $dueStatus,
                 'mistake_count' => $mistakeCount,
                 'mistake_subject_counts' => $mistakeSubjectCounts,

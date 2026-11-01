@@ -111,7 +111,7 @@ final class FlashcardService
         return $this->dueSelection($filters, $limit, $now)['cards'];
     }
 
-    /** @return array{cards:list<array<string,mixed>>,due_count:int,new_count:int,total_count:int} */
+    /** @return array{cards:list<array<string,mixed>>,due_count:int,due_count_by_subject:array<string,int>,new_count:int,total_count:int} */
     public function dueSelection(
         array $filters = [],
         int $limit = 20,
@@ -167,7 +167,7 @@ final class FlashcardService
         );
     }
 
-    /** @return array{cards:list<array<string,mixed>>,due_count:int,new_count:int,total_count:int} */
+    /** @return array{cards:list<array<string,mixed>>,due_count:int,due_count_by_subject:array<string,int>,new_count:int,total_count:int} */
     public function selectionForQuestionIds(array $questionIds, int $limit = 20, ?DateTimeImmutable $now = null): array
     {
         return $this->selectFromCards(
@@ -304,6 +304,7 @@ final class FlashcardService
 
         $candidates = [];
         $dueCount = 0;
+        $dueCountBySubject = [];
         $newCount = 0;
         foreach ($cards as $card) {
             if (!is_array($card)) {
@@ -328,6 +329,12 @@ final class FlashcardService
                 if ($this->isDue($state, $now)) {
                     $group = $dueTimestamp < $now->getTimestamp() ? 0 : 1;
                     $dueCount++;
+                    $subject = is_scalar($card['subject'] ?? null)
+                        ? strtolower(trim((string) $card['subject']))
+                        : '';
+                    if ($subject !== '') {
+                        $dueCountBySubject[$subject] = ($dueCountBySubject[$subject] ?? 0) + 1;
+                    }
                 } elseif ($includeFuture) {
                     $group = 3;
                 }
@@ -349,6 +356,7 @@ final class FlashcardService
         usort($candidates, static fn(array $left, array $right): int =>
             ($left[0] <=> $right[0]) ?: ($left[1] <=> $right[1]) ?: strcmp($left[2], $right[2])
         );
+        ksort($dueCountBySubject, SORT_STRING);
 
         return [
             'cards' => array_values(array_map(
@@ -356,15 +364,16 @@ final class FlashcardService
                 array_slice($candidates, 0, min($limit, 100))
             )),
             'due_count' => $dueCount,
+            'due_count_by_subject' => $dueCountBySubject,
             'new_count' => $newCount,
             'total_count' => count($candidates),
         ];
     }
 
-    /** @return array{cards:list<array<string,mixed>>,due_count:int,new_count:int,total_count:int} */
+    /** @return array{cards:list<array<string,mixed>>,due_count:int,due_count_by_subject:array<string,int>,new_count:int,total_count:int} */
     private function emptySelection(): array
     {
-        return ['cards' => [], 'due_count' => 0, 'new_count' => 0, 'total_count' => 0];
+        return ['cards' => [], 'due_count' => 0, 'due_count_by_subject' => [], 'new_count' => 0, 'total_count' => 0];
     }
 
     private function isNewState(array $state): bool
