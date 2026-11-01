@@ -903,22 +903,34 @@ test(
         }
         try {
             $storage = new \App\Storage\JsonStorage($directory);
+            $review = [];
             for ($index = 1; $index <= 7; $index++) {
-                $storage->create('questions', [
+                $question = [
                     'id' => 'b732-question-' . $index,
                     'question' => 'Fixture question ' . $index,
                     'answer' => 'A',
                     'taxonomy' => ['board_id' => 'let', 'subject_id' => 'english'],
-                ]);
+                ];
+                $storage->create('questions', $question);
+                $review[] = ['question' => $question, 'answered' => false, 'correct' => false];
             }
             $service = new \App\Services\Question\QuestionIssueReportService($storage);
             $learner = 'learner-' . bin2hex(random_bytes(16));
-            $first = $service->submit($learner, 'b732-question-1', 'UNCLEAR_WORDING', '<script>alert(1)</script>');
+            $attemptId = 'b732-runtime-attempt';
+            $storage->create('attempts', [
+                'id' => $attemptId,
+                'user_id' => $learner,
+                'completed' => true,
+                'board' => 'let',
+                'subject' => 'english',
+                'review' => $review,
+            ]);
+            $first = $service->submit($learner, $attemptId, 'b732-question-1', 'UNCLEAR_WORDING', '<script>alert(1)</script>');
             assertFalse($first['duplicate'], 'The first issue report was treated as a duplicate.');
             assertSame('SUBMITTED', $first['report']['status'], 'A learner report did not start as SUBMITTED.');
             assertFalse(array_key_exists('user_id', $first['report']), 'The learner-facing record exposed its owner identifier.');
             assertSame('<script>alert(1)</script>', $first['report']['description'], 'Plain-text learner detail was altered.');
-            $retry = $service->submit($learner, 'b732-question-1', 'UNCLEAR_WORDING', 'retry');
+            $retry = $service->submit($learner, $attemptId, 'b732-question-1', 'UNCLEAR_WORDING', 'retry');
             assertTrue($retry['duplicate'], 'A recent duplicate report was accepted twice.');
             assertSame([], $service->forLearner('learner-' . bin2hex(random_bytes(16))), 'A second learner could read another learner report.');
 
@@ -946,7 +958,7 @@ test(
             for ($index = 2; $index <= 6; $index++) {
                 $type = array_keys(\App\Services\Question\QuestionIssueReportService::types())[$index - 1];
                 try {
-                    $service->submit($learner, 'b732-question-' . $index, $type, 'bounded fixture');
+                    $service->submit($learner, $attemptId, 'b732-question-' . $index, $type, 'bounded fixture');
                 } catch (\RuntimeException $exception) {
                     if (str_contains($exception->getMessage(), 'daily question-report limit')) {
                         $limited = true;
@@ -1006,8 +1018,25 @@ test(
                 'taxonomy' => ['board_id' => 'let', 'subject_id' => 'english'],
             ]);
             $learner = 'learner-' . bin2hex(random_bytes(16));
+            $attemptId = 'b732-sqlite-attempt';
+            $storage->create('attempts', [
+                'id' => $attemptId,
+                'user_id' => $learner,
+                'completed' => true,
+                'board' => 'let',
+                'subject' => 'english',
+                'review' => [[
+                    'question' => [
+                        'id' => 'b732-sqlite-question',
+                        'question' => 'SQLite fixture question',
+                        'taxonomy' => ['board_id' => 'let', 'subject_id' => 'english'],
+                    ],
+                    'answered' => false,
+                    'correct' => false,
+                ]],
+            ]);
             $service = new \App\Services\Question\QuestionIssueReportService($storage);
-            $saved = $service->submit($learner, 'b732-sqlite-question', 'SOURCE_CONCERN', 'Check source scope.');
+            $saved = $service->submit($learner, $attemptId, 'b732-sqlite-question', 'SOURCE_CONCERN', 'Check source scope.');
             assertFalse($saved['duplicate'], 'SQLite report was unexpectedly considered a duplicate.');
             assertNotNull($storage->find(\App\Services\Question\QuestionIssueReportService::COLLECTION, $saved['report']['id']), 'SQLite router could not read the submitted report.');
             assertFalse(is_file($directory . '/json-storage/learner-question-reports.json'), 'SQLite report collection was written into the JSON fallback path.');
