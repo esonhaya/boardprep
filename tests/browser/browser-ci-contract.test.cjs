@@ -48,6 +48,27 @@ test('Linux browser workflow pins runtime and executes fixture, preflight, suite
     'local browser instructions must match the runner status');
 });
 
+test('all automated workflows pin external actions and acceptance covers calendar plus both backup stores', () => {
+  for (const workflowName of ['browser-acceptance.yml', 'release-gates.yml', 'site-explorer.yml']) {
+    const workflow = fs.readFileSync(path.join(root, '.github/workflows', workflowName), 'utf8');
+    const actionReferences = [...workflow.matchAll(/^\s*-?\s*uses:\s*([^\s#]+)/gm)];
+    assert.ok(actionReferences.length > 0, `${workflowName} must declare its external actions`);
+    for (const [, reference] of actionReferences) {
+      assert.match(reference, /@[0-9a-f]{40}$/, `${workflowName} contains a mutable or non-SHA action reference: ${reference}`);
+    }
+  }
+
+  const calendarSpec = fs.readFileSync(path.join(root, 'tests/browser/acceptance/study-calendar.spec.cjs'), 'utf8');
+  assert.match(calendarSpec, /\/study-calendar/);
+  assert.match(calendarSpec, /Generate study calendar/);
+  assert.match(calendarSpec, /Mark complete/);
+  assert.match(calendarSpec, /documentElement\.scrollWidth/);
+
+  const releaseWorkflow = fs.readFileSync(path.join(root, '.github/workflows/release-gates.yml'), 'utf8');
+  assert.match(releaseWorkflow, /account-encrypted-backup-restore-sqlite[\s\S]*?backup_test_driver: sqlite/);
+  assert.match(releaseWorkflow, /BOARDPREP_BACKUP_TEST_DRIVER:\s*\$\{\{\s*matrix\.backup_test_driver/);
+});
+
 test('browser evidence contracts cover isolated data, desktop/mobile access paths, and retained diagnostics', () => {
   const workflow = fs.readFileSync(path.join(root, '.github/workflows/browser-acceptance.yml'), 'utf8');
   const config = fs.readFileSync(path.join(root, 'tests/browser/playwright.config.cjs'), 'utf8');

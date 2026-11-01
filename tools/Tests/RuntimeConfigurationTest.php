@@ -79,4 +79,26 @@ if ($status === 0 || !str_contains($output, 'APP_DEBUG')) {
     exit("[FAIL] malformed debug configuration was accepted.\n");
 }
 
-echo "[PASS] runtime configuration and clean-process bootstrap verified.\n";
+[$status, $output] = runBootstrap($php, $script, [
+    'APP_ENV' => 'prod',
+    'APP_DEBUG' => 'false',
+    'APP_TIMEZONE' => 'UTC',
+    'DB_DRIVER' => 'json',
+    'APP_STORAGE_PATH' => $storage,
+]);
+if ($status === 0 || !str_contains($output, 'APP_ENV')) {
+    exit("[FAIL] malformed environment configuration was accepted.\n");
+}
+
+[$status, $output] = runBootstrap($php, $script, [
+    'APP_ENV' => 'production',
+    'APP_DEBUG' => 'false',
+    'APP_TIMEZONE' => 'UTC',
+    'DB_DRIVER' => 'not-a-supported-driver',
+    'APP_STORAGE_PATH' => $storage,
+]);
+if ($status === 0 || !str_contains($output, 'DB_DRIVER')) {
+    exit("[FAIL] unsupported database configuration was accepted.\n");
+}
+
+echo "[PASS] production debug rejection, malformed environment/debug values, unsupported database drivers, timezone validation, and JSON/SQLite clean-process bootstrap verified.\n";

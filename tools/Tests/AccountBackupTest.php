@@ -47,6 +47,11 @@ function accountBackupWritePayloadFixture(string $path, array $payload, string $
 
 $fixture = sys_get_temp_dir() . '/boardprep-account-backup-' . bin2hex(random_bytes(8));
 $storage = $fixture . '/storage';
+$driver = strtolower(trim((string) (getenv('BOARDPREP_BACKUP_TEST_DRIVER') ?: 'json')));
+if (!in_array($driver, ['json', 'sqlite'], true)) {
+    throw new RuntimeException('BOARDPREP_BACKUP_TEST_DRIVER must be json or sqlite.');
+}
+$sqlitePath = $storage . '/runtime/account-backup-test.sqlite';
 $private = $fixture . '/private';
 $sessions = $fixture . '/sessions';
 $restoreParent = $private . '/restore';
@@ -58,7 +63,8 @@ foreach ([
     'APP_ENV' => 'testing',
     'APP_DEBUG' => 'false',
     'BOARDPREP_ACCOUNTS_ENABLED' => 'true',
-    'DB_DRIVER' => 'json',
+    'DB_DRIVER' => $driver,
+    'DB_SQLITE_PATH' => $sqlitePath,
     'APP_STORAGE_PATH' => $storage,
     'APP_SESSION_PATH' => $sessions,
 ] as $key => $value) {
@@ -74,7 +80,7 @@ try {
             static fn() => AccountBackupCrypto::encrypt('synthetic', $passphrase),
             'DEPENDENCY_MISSING'
         );
-        echo "[PASS] ext-sodium is unavailable in this PHP runtime and account backup fails closed with DEPENDENCY_MISSING.\n";
+        echo "[PASS] ext-sodium is unavailable in this PHP runtime and account backup fails closed with DEPENDENCY_MISSING (storage driver={$driver}).\n";
         return;
     }
 
@@ -306,7 +312,7 @@ try {
         'RESTORE_DELETED_ACCOUNT'
     );
 
-    echo "[PASS] Authenticated encrypted backup uses per-archive salt/nonce, strict permissions, manifest counts, header/tag tamper rejection, and fail-closed schema checks.\n";
+    echo "[PASS] Authenticated encrypted backup uses per-archive salt/nonce, strict permissions, manifest counts, header/tag tamper rejection, and fail-closed schema checks (storage driver={$driver}).\n";
     echo "[PASS] Wrong passphrase, truncation, unsupported version, malformed manifest, missing collection, ownership mismatch, unsafe paths/symlinks, and restore collisions are rejected.\n";
     echo "[PASS] Dry-run is read-only; interrupted staged restore rolls back cleanly and atomic isolated restore preserves its source.\n";
     echo "[PASS] Backup serialization blocks a concurrent deletion request until the archive commits, then a completed deletion tombstone rejects credential restoration.\n";

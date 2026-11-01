@@ -140,6 +140,21 @@ try {
         $assert(!str_contains($relative, 'doctor-report') && !str_contains($relative, 'doctor-manual'), 'diagnostic report entered package');
         $assert(!in_array($relative, ['storage/attempts.json', 'storage/weakness.json', 'storage/question-statistics.json', 'storage/flashcard_state.json', 'storage/learner-question-reports.json', 'storage/learner_notes.json', 'boardprep.zip'], true), "local runtime artifact entered package: {$relative}");
     }
+    foreach ([
+        'storage/academic-proposal-workflow.json',
+        'storage/academic-review-decisions.json',
+        'storage/academic-source-reviews.json',
+        'storage/source-review-adjudications-batch675.json',
+        'storage/doctor-report.json',
+    ] as $privateStoragePath) {
+        $assert(!isset($entriesOne[$packageRoot . $privateStoragePath]), "private proposal, review, or diagnostic data entered package: {$privateStoragePath}");
+    }
+    foreach (['.github/', 'tests/', 'docs/reports/', 'docs/batches/', 'storage/private/', 'storage/runtime/'] as $privatePrefix) {
+        foreach (array_keys($entriesOne) as $name) {
+            $relative = substr($name, strlen($packageRoot));
+            $assert(!str_starts_with($relative, $privatePrefix), "private or development material entered package: {$relative}");
+        }
+    }
 
     $manifest = json_decode((string) $packageArchive->getFromName($packageRoot . 'RELEASE_MANIFEST.json'), true, 512, JSON_THROW_ON_ERROR);
     $head = trim((string) shell_exec('git -C ' . escapeshellarg($root) . ' rev-parse HEAD'));

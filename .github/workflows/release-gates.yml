@@ -34,7 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           # BrowserEvidenceService proves historical ancestry for registered runs.
           # A shallow checkout makes a valid documentation-only descendant look unrelated.
@@ -42,7 +42,7 @@ jobs:
           submodules: recursive
 
       - name: Set up PHP
-        uses: shivammathur/setup-php@v2
+        uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # 2.40.0
         with:
           php-version: '8.3'
           extensions: json, session, pdo_sqlite, mbstring, curl
@@ -66,7 +66,7 @@ jobs:
 
       - name: Upload Doctor evidence
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: boardprep-doctor-release-${{ github.sha }}
           path: ${{ runner.temp }}/boardprep-release-gate-evidence/${{ github.run_id }}/${{ github.run_attempt }}/doctor-release/
@@ -105,15 +105,19 @@ jobs:
             test_path: tools/Tests/AccountDeletionCliTest.php
           - test_id: account-encrypted-backup-restore
             test_path: tools/Tests/AccountBackupTest.php
+            backup_test_driver: json
+          - test_id: account-encrypted-backup-restore-sqlite
+            test_path: tools/Tests/AccountBackupTest.php
+            backup_test_driver: sqlite
           - test_id: account-backup-cli-secret-handling
             test_path: tools/Tests/AccountBackupCliTest.php
           - test_id: simulator-fixture-privacy
             test_path: tools/Tests/SimulationFixturePrivacyIsolationTest.php
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
       - name: Set up PHP
-        uses: shivammathur/setup-php@v2
+        uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # 2.40.0
         with:
           php-version: '8.3'
           extensions: json, session, pdo_sqlite, mbstring, sodium
@@ -123,6 +127,7 @@ jobs:
         env:
           TEST_ID: ${{ matrix.test_id }}
           TEST_PATH: ${{ matrix.test_path }}
+          BOARDPREP_BACKUP_TEST_DRIVER: ${{ matrix.backup_test_driver || 'json' }}
         run: |
           evidence_dir="$RUNNER_TEMP/boardprep-release-gate-evidence/$GITHUB_RUN_ID/$GITHUB_RUN_ATTEMPT/security-privacy/$TEST_ID"
           mkdir -p "$evidence_dir"
@@ -144,7 +149,7 @@ jobs:
 
       - name: Upload security and privacy evidence
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: boardprep-security-privacy-${{ matrix.test_id }}-${{ github.sha }}
           path: ${{ runner.temp }}/boardprep-release-gate-evidence/${{ github.run_id }}/${{ github.run_attempt }}/security-privacy/${{ matrix.test_id }}/
@@ -156,10 +161,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
       - name: Set up PHP
-        uses: shivammathur/setup-php@v2
+        uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # 2.40.0
         with:
           php-version: '8.3'
           extensions: json, session, pdo_sqlite, mbstring
@@ -178,7 +183,7 @@ jobs:
 
       - name: Upload ten-board HTTP evidence
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: boardprep-ten-board-http-${{ github.sha }}
           path: ${{ runner.temp }}/boardprep-release-gate-evidence/${{ github.run_id }}/${{ github.run_attempt }}/ten-board-http/
@@ -190,10 +195,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
       - name: Set up PHP
-        uses: shivammathur/setup-php@v2
+        uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # 2.40.0
         with:
           php-version: '8.3'
           extensions: json, session, pdo_sqlite, mbstring
@@ -218,7 +223,7 @@ jobs:
 
       - name: Upload production evidence
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: boardprep-production-preflight-${{ github.sha }}
           path: ${{ runner.temp }}/boardprep-release-gate-evidence/${{ github.run_id }}/${{ github.run_attempt }}/production-preflight/
@@ -230,14 +235,14 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           # BrowserEvidenceService must prove commit ancestry; depth-1 cannot distinguish
           # a documentation-only descendant from missing history.
           fetch-depth: 0
 
       - name: Set up PHP
-        uses: shivammathur/setup-php@v2
+        uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # 2.40.0
         with:
           php-version: '8.3'
           extensions: json, session, pdo_sqlite, mbstring
@@ -260,7 +265,7 @@ jobs:
 
       - name: Upload product readiness evidence
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: boardprep-product-readiness-${{ github.sha }}
           path: ${{ runner.temp }}/boardprep-release-gate-evidence/${{ github.run_id }}/${{ github.run_attempt }}/product-readiness/
