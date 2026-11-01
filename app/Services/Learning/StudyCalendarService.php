@@ -58,7 +58,7 @@ final class StudyCalendarService
             if ($date === '') continue;
             $active[] = $session;
         }
-        usort($active, self::sessionOrder(...));
+        usort($active, static fn(array $left, array $right): int => self::sessionOrder($left, $right));
         $next = $active[0] ?? null;
         if (!is_array($next)) {
             return ['state' => 'NO_UPCOMING_SESSIONS', 'completed' => $completed, 'total' => count($sessions)];
@@ -259,7 +259,7 @@ final class StudyCalendarService
                 }
                 if (!$found) throw new InvalidArgumentException('That study session is no longer in this calendar.');
 
-                usort($sessions, self::sessionOrder(...));
+                usort($sessions, static fn(array $left, array $right): int => self::sessionOrder($left, $right));
                 $updated = array_merge($record, [
                     'sessions' => $sessions,
                     'revision' => $expectedRevision + 1,
@@ -299,7 +299,7 @@ final class StudyCalendarService
             (string) ($a['completed_at'] ?? $a['scheduled_date'] ?? '')
         ));
         $history = array_slice($history, 0, StudyCalendarPlanner::MAX_COMPLETED_HISTORY);
-        usort($edited, self::sessionOrder(...));
+        usort($edited, static fn(array $left, array $right): int => self::sessionOrder($left, $right));
 
         $occupiedDates = [];
         foreach ([...$history, ...$edited] as $session) {
@@ -315,7 +315,7 @@ final class StudyCalendarService
             if (count($future) >= self::MAX_ACTIVE_TASKS - count($edited)) break;
         }
         $sessions = [...$history, ...$edited, ...$future];
-        usort($sessions, self::sessionOrder(...));
+        usort($sessions, static fn(array $left, array $right): int => self::sessionOrder($left, $right));
         return ['sessions' => $sessions, 'retained_user_edits' => count($edited)];
     }
 
