@@ -51,7 +51,7 @@ final class AccountSessionService
 
         $quizKeys = [
             'questions', 'answers', 'feedback', 'mode', 'currentQuestion',
-            'quiz_session', 'attempt_persisted', 'quiz_completed', 'quiz_result',
+            'quiz_session', 'attempt_persisted', 'quiz_attempt_id', 'quiz_completed', 'quiz_result',
             'exam_answer_revision', 'exam_reviewed_revision', 'exam_review_flags',
             'exam_review_flag_versions', 'exam_review_flag_session_id', 'flashcard_missed_scope',
         ];
@@ -204,7 +204,7 @@ final class AccountSessionService
 
         $quizKeys = [
             'questions', 'answers', 'feedback', 'mode', 'currentQuestion',
-            'quiz_session', 'attempt_persisted', 'quiz_completed', 'quiz_result',
+            'quiz_session', 'attempt_persisted', 'quiz_attempt_id', 'quiz_completed', 'quiz_result',
             'exam_answer_revision', 'exam_reviewed_revision', 'exam_review_flags',
             'exam_review_flag_versions', 'exam_review_flag_session_id', 'flashcard_missed_scope',
         ];

@@ -70,10 +70,28 @@ SQLite's backup API); restore with the application stopped and rerun migrations.
 
 After a quiz, learners can submit a bounded question concern from answer review
 and view reports belonging to the current browser or account identity. The
-intake records only a question-version fingerprint, concern category, optional
-plain-text note, scope, and review status; it cannot edit questions, answers,
-eligibility, academic decisions, or scores. Reviewer triage remains a
+form and submission are bound to a completed result owned by the current learner
+and to a question in that result's saved review snapshot. This supports reporting
+an archived question without relying on a mutable current question record. The
+intake records the attempt reference, question-version fingerprint, concern
+category, optional plain-text note, scope, and review status; it cannot edit
+questions, answers, eligibility, academic decisions, or scores. Report writes
+share the account lifecycle lock, reviewer status transitions retain a bounded
+timestamped trail without reviewer identity details, and isolated backup restore
+resets the copy to Submitted for destination review. Reviewer triage remains a
 nonproduction workflow requiring an active qualified board/subject grant.
+
+The nonproduction developer readiness view reads bounded, hash-checked Full
+Doctor evidence without running diagnostics during a page load. It reports
+evidence as unverified when application source is modified in the worktree,
+even if the saved Doctor tested the same current commit. Stored reports and
+learner storage are excluded from that source-change check.
+
+The study calendar opens existing learner workflows. Practice tasks retain their
+board and subject, flashcard tasks retain both filters, and mistake tasks open
+the notebook scoped to a subject with recorded wrong or skipped-question
+evidence. Opening an activity never marks a calendar task complete; learners
+record completion explicitly on the calendar.
 
 For a production-style local smoke test, use a temporary storage directory and
 the repository's built-in-server router:

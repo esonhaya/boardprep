@@ -144,6 +144,9 @@ final class HistoryController
             'historyReturnUrl' => $historyReturnUrl,
             'completedAt' => $result['completedAt'],
             'historicalContext' => $result['attempt'],
+            'reportAttemptId' => is_scalar($result['attempt']['id'] ?? null)
+                ? (string) $result['attempt']['id']
+                : '',
             'reviewUnavailable' => $result['reviewUnavailable'],
             'notesPracticeReview' => $notesPracticeReview,
             'mistakeRecovery' => $recoveryContext !== null

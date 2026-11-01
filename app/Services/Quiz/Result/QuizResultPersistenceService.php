@@ -31,9 +31,14 @@ final class QuizResultPersistenceService
             $questions
         );
 
-        App::container()
+        $savedAttempt = App::container()
             ->get(AttemptService::class)
             ->save($attempt);
+
+        $attemptId = is_scalar($savedAttempt['id'] ?? null) ? trim((string) $savedAttempt['id']) : '';
+        if ($attemptId !== '') {
+            SessionService::set('quiz_attempt_id', $attemptId);
+        }
 
         SessionService::set("attempt_persisted", true);
         SessionService::set("quiz_completed", true);

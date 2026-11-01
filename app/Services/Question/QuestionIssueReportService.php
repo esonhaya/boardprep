@@ -6,6 +6,8 @@ namespace App\Services\Question;
 
 use App\Contracts\StorageInterface;
 use App\Core\App;
+use App\Repositories\AttemptRepository;
+use App\Services\Accounts\AccountLifecycleLock;
 use InvalidArgumentException;
 use RuntimeException;
 
@@ -28,9 +30,13 @@ final class QuestionIssueReportService
 
     private const STATUSES = ['SUBMITTED', 'UNDER_REVIEW', 'RESOLVED', 'REJECTED'];
 
-    public function __construct(private ?StorageInterface $storage = null)
+    private StorageInterface $storage;
+    private AttemptRepository $attempts;
+
+    public function __construct(?StorageInterface $storage = null, ?AttemptRepository $attempts = null)
     {
-        $this->storage ??= App::storage();
+        $this->storage = $storage ?? App::storage();
+        $this->attempts = $attempts ?? new AttemptRepository($this->storage);
     }
 
     /** @return array<string,string> */
@@ -39,43 +45,59 @@ final class QuestionIssueReportService
         return self::TYPES;
     }
 
-    /** @return array<string,mixed>|null A small canonical question context; never includes the answer key. */
-    public function questionContext(string $questionId): ?array
+    /** @return array{id:string,question:string,archived:bool}|null Context is derived from an owned completed result snapshot. */
+    public function questionContextForAttempt(string $learnerId, string $attemptId, string $questionId): ?array
     {
-        $questionId = self::questionId($questionId);
-        $question = $this->storage->find('questions', $questionId);
-        if (!is_array($question) || (string) ($question['id'] ?? '') !== $questionId) {
-            return null;
-        }
+        $resolved = $this->ownedAttemptQuestion($learnerId, $attemptId, $questionId);
+        if ($resolved === null) return null;
+        $question = $resolved['question'];
+        $canonical = $this->storage->find('questions', $questionId);
+        $archived = !is_array($canonical)
+            || self::questionVersion($canonical) !== self::questionVersion($question);
         return [
             'id' => $questionId,
             'question' => is_scalar($question['question'] ?? null) ? (string) $question['question'] : '',
+            'archived' => $archived,
         ];
     }
 
     /** @return array{report:array<string,mixed>,duplicate:bool} */
-    public function submit(string $learnerId, string $questionId, string $type, string $description = ''): array
+    public function submit(string $learnerId, string $attemptId, string $questionId, string $type, string $description = ''): array
     {
         if (preg_match('/\A(?:learner|account-learner)-[a-f0-9]{32}\z/', $learnerId) !== 1) {
             throw new InvalidArgumentException('Your learner session could not be verified. Refresh the page and try again.');
         }
-        $questionId = self::questionId($questionId);
         $type = strtoupper(trim($type));
         if (!isset(self::TYPES[$type])) {
             throw new InvalidArgumentException('Choose one of the available concern types.');
         }
-        $question = $this->storage->find('questions', $questionId);
-        if (!is_array($question) || (string) ($question['id'] ?? '') !== $questionId) {
-            throw new InvalidArgumentException('That question is no longer available to report.');
-        }
-        $taxonomy = is_array($question['taxonomy'] ?? null) ? $question['taxonomy'] : [];
-        $boardId = self::scalarText($taxonomy['board_id'] ?? $question['board'] ?? '');
-        $subjectId = self::scalarText($taxonomy['subject_id'] ?? $question['subject'] ?? '');
-        if ($boardId === '' || $subjectId === '') {
-            throw new InvalidArgumentException('This question has no reportable board and subject context.');
-        }
-
+        $questionId = self::questionId($questionId);
         $description = self::description($description);
+        $attemptId = self::attemptId($attemptId);
+
+        // Serialize duplicate/rate-limit checks for anonymous learners too; the
+        // nested writable-learner guard additionally fences account deletion.
+        return AccountLifecycleLock::withLock(function () use (
+            $learnerId, $attemptId, $questionId, $type, $description
+        ) {
+            return AccountLifecycleLock::withWritableLearner($learnerId, function () use (
+                $learnerId, $attemptId, $questionId, $type, $description
+            ): array {
+                $resolved = $this->ownedAttemptQuestion($learnerId, $attemptId, $questionId);
+                if ($resolved === null) {
+                    throw new InvalidArgumentException('That question is unavailable in a completed quiz result owned by this learner.');
+                }
+                $question = $resolved['question'];
+                $boardId = $resolved['board_id'];
+                $subjectId = $resolved['subject_id'];
+                return $this->persistReport($learnerId, $attemptId, $questionId, $type, $description, $question, $boardId, $subjectId);
+            });
+        });
+    }
+
+    /** @return array{report:array<string,mixed>,duplicate:bool} */
+    private function persistReport(string $learnerId, string $attemptId, string $questionId, string $type, string $description, array $question, string $boardId, string $subjectId): array
+    {
         $records = $this->storage->all(self::COLLECTION);
         if (count($records) >= self::MAX_REPORTS) {
             throw new RuntimeException('Question reports are temporarily at capacity. Your quiz result and answer are unchanged.');
@@ -111,6 +133,7 @@ final class QuestionIssueReportService
         $record = [
             'id' => $id,
             'user_id' => $learnerId,
+            'attempt_id' => $attemptId,
             'question_id' => $questionId,
             'question_version_sha256' => hash('sha256', $versionPayload),
             'board_id' => $boardId,
@@ -120,6 +143,7 @@ final class QuestionIssueReportService
             'status' => 'SUBMITTED',
             'created_at' => $timestamp,
             'status_changed_at' => $timestamp,
+            'status_history' => [['status' => 'SUBMITTED', 'at' => $timestamp]],
         ];
         $this->storage->create(self::COLLECTION, $record);
 
@@ -199,27 +223,108 @@ final class QuestionIssueReportService
         if (preg_match('/\Aqir-[a-f0-9]{32}\z/', $id) !== 1 || !in_array($status, ['UNDER_REVIEW', 'RESOLVED', 'REJECTED'], true)) {
             throw new InvalidArgumentException('The report update was invalid.');
         }
-        $record = $this->storage->find(self::COLLECTION, $id);
-        if (!is_array($record)) {
-            return false;
-        }
-        $board = (string) ($record['board_id'] ?? '');
-        $subject = (string) ($record['subject_id'] ?? '');
-        if (!$access->allows($accountId, $board, $subject, 'REVIEW')) {
-            return false;
-        }
-        $current = strtoupper((string) ($record['status'] ?? ''));
         $allowed = [
             'SUBMITTED' => ['UNDER_REVIEW', 'REJECTED'],
             'UNDER_REVIEW' => ['RESOLVED', 'REJECTED'],
         ];
-        if (!in_array($status, $allowed[$current] ?? [], true)) {
-            throw new InvalidArgumentException('That report cannot move from its current status to the requested status.');
+        $found = false;
+        $authorized = false;
+        $changed = false;
+        $this->storage->updateBatch(self::COLLECTION, [$id], static function (array $record) use (
+            $status, $accountId, $access, $allowed, &$found, &$authorized, &$changed
+        ): array {
+            $found = true;
+            if (!$access->allows(
+                $accountId,
+                (string) ($record['board_id'] ?? ''),
+                (string) ($record['subject_id'] ?? ''),
+                'REVIEW'
+            )) {
+                return $record;
+            }
+            $authorized = true;
+            $current = strtoupper((string) ($record['status'] ?? ''));
+            if ($current === $status) {
+                $changed = true;
+                return $record;
+            }
+            if (!in_array($status, $allowed[$current] ?? [], true)) {
+                throw new InvalidArgumentException('That report cannot move from its current status to the requested status.');
+            }
+            $timestamp = gmdate(DATE_ATOM);
+            $history = self::validStatusHistory($record['status_history'] ?? null);
+            $history[] = ['from' => $current, 'to' => $status, 'at' => $timestamp];
+            $record['status'] = $status;
+            $record['status_changed_at'] = $timestamp;
+            $record['status_history'] = array_slice($history, -10);
+            $changed = true;
+            return $record;
+        });
+        if (!$found || !$authorized) return false;
+        return $changed;
+    }
+
+    /** @return array{attempt:array<string,mixed>,question:array<string,mixed>,board_id:string,subject_id:string}|null */
+    private function ownedAttemptQuestion(string $learnerId, string $attemptId, string $questionId): ?array
+    {
+        if (preg_match('/\A(?:learner|account-learner)-[a-f0-9]{32}\z/', $learnerId) !== 1) return null;
+        $attemptId = self::attemptId($attemptId);
+        $questionId = self::questionId($questionId);
+        $attempt = $this->attempts->findForLearner($attemptId, $learnerId);
+        if (!is_array($attempt) || ($attempt['completed'] ?? false) !== true) return null;
+
+        foreach (is_array($attempt['review'] ?? null) ? $attempt['review'] : [] as $item) {
+            if (!is_array($item) || !is_array($item['question'] ?? null)) continue;
+            $question = $item['question'];
+            if (!is_scalar($question['id'] ?? null) || trim((string) $question['id']) !== $questionId) continue;
+            $taxonomy = is_array($question['taxonomy'] ?? null) ? $question['taxonomy'] : [];
+            $learningContext = is_array($attempt['learning_context'] ?? null) ? $attempt['learning_context'] : [];
+            $boardId = self::scalarText($taxonomy['board_id'] ?? $question['board'] ?? $attempt['board'] ?? $learningContext['board'] ?? '');
+            $subjectId = self::scalarText($taxonomy['subject_id'] ?? $question['subject'] ?? $attempt['subject'] ?? $learningContext['subject'] ?? '');
+            if ($boardId === '' || $subjectId === '') return null;
+            return [
+                'attempt' => $attempt,
+                'question' => $question,
+                'board_id' => $boardId,
+                'subject_id' => $subjectId,
+            ];
         }
-        return $this->storage->update(self::COLLECTION, $id, [
-            'status' => $status,
-            'status_changed_at' => gmdate(DATE_ATOM),
-        ]) !== null;
+        return null;
+    }
+
+    private static function attemptId(string $attemptId): string
+    {
+        $attemptId = trim($attemptId);
+        if ($attemptId === '' || strlen($attemptId) > 120
+            || preg_match('/\A[A-Za-z0-9][A-Za-z0-9._:-]*\z/', $attemptId) !== 1) {
+            throw new InvalidArgumentException('Choose a valid completed quiz result.');
+        }
+        return $attemptId;
+    }
+
+    private static function questionVersion(array $question): string
+    {
+        try {
+            return hash('sha256', json_encode($question, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR));
+        } catch (\JsonException $exception) {
+            throw new RuntimeException('The question snapshot could not be checked safely.', 0, $exception);
+        }
+    }
+
+    /** @return list<array{from:string,to:string,at:string}> */
+    private static function validStatusHistory(mixed $history): array
+    {
+        if (!is_array($history)) return [];
+        $valid = [];
+        foreach ($history as $entry) {
+            if (!is_array($entry) || !is_string($entry['at'] ?? null) || trim($entry['at']) === '') continue;
+            $from = strtoupper(trim((string) ($entry['from'] ?? '')));
+            $to = strtoupper(trim((string) ($entry['to'] ?? $entry['status'] ?? '')));
+            if (!in_array($to, self::STATUSES, true)
+                || ($from !== '' && !in_array($from, self::STATUSES, true))) continue;
+            $valid[] = ['from' => $from, 'to' => $to, 'at' => $entry['at']];
+        }
+        return array_slice($valid, -9);
     }
 
     private static function questionId(string $questionId): string
@@ -270,6 +375,7 @@ final class QuestionIssueReportService
         return [
             'id' => (string) ($record['id'] ?? ''),
             'question_id' => (string) ($record['question_id'] ?? ''),
+            'attempt_id' => (string) ($record['attempt_id'] ?? ''),
             'question_version_sha256' => (string) ($record['question_version_sha256'] ?? ''),
             'board_id' => (string) ($record['board_id'] ?? ''),
             'subject_id' => (string) ($record['subject_id'] ?? ''),
@@ -279,6 +385,7 @@ final class QuestionIssueReportService
             'status' => (string) ($record['status'] ?? 'SUBMITTED'),
             'created_at' => (string) ($record['created_at'] ?? ''),
             'status_changed_at' => (string) ($record['status_changed_at'] ?? $record['created_at'] ?? ''),
+            'status_history' => self::validStatusHistory($record['status_history'] ?? null),
         ];
     }
 }

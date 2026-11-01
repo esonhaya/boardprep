@@ -64,7 +64,7 @@ final class StudyCalendarService
             return ['state' => 'NO_UPCOMING_SESSIONS', 'completed' => $completed, 'total' => count($sessions)];
         }
         $action = (string) ($next['action'] ?? '/study-calendar');
-        if (!preg_match('#^/(?:quiz|flashcards/review|mistake-notebook/review)(?:\?|$)#', $action)) {
+        if (!preg_match('#^/(?:quiz|flashcards/review|mistake-notebook)(?:\?|$)#', $action)) {
             $action = '/study-calendar';
         }
         return [

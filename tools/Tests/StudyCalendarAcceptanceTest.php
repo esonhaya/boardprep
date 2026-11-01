@@ -9,6 +9,7 @@ use App\Services\Accounts\AccountDataInventoryService;
 use App\Services\Accounts\AccountRestoreService;
 use App\Services\Learning\StudyCalendarPlanner;
 use App\Services\Learning\StudyCalendarService;
+use App\Services\Learning\StudyCalendarEvidenceService;
 use App\Storage\JsonStorage;
 use App\Storage\SqliteStorage;
 
@@ -32,7 +33,7 @@ $boards = [[
     'name' => 'Synthetic LET Board',
     'practice_subjects' => [
         ['id' => 'english', 'name' => 'English', 'available_questions' => 30],
-        ['id' => 'math', 'name' => 'Mathematics', 'available_questions' => 20],
+        ['id' => 'mathematics', 'name' => 'Mathematics', 'available_questions' => 20],
     ],
 ]];
 $input = [
@@ -43,7 +44,7 @@ $input = [
     'daily_minutes' => 45,
     'review_intensity' => 'balanced',
     'rest_dates' => ['2026-11-04'],
-    'subject_priorities' => ['let' => ['english' => 'high', 'math' => 'normal']],
+    'subject_priorities' => ['let' => ['english' => 'high', 'mathematics' => 'normal']],
     'expected_revision' => 0,
     'request_id' => str_repeat('1', 32),
 ];
@@ -52,7 +53,7 @@ $evidence = [
     'focus_topics' => [['topic' => 'Unsupported synthetic weakness', 'board' => 'LET', 'subject' => 'english', 'attempts' => 20, 'average' => 10]],
     'due_flashcard_count' => 5,
     'due_flashcard_status' => 'AVAILABLE',
-    'mistake_count' => 3,
+    'mistake_subject_counts' => ['english' => 3],
 ];
 
 try {
@@ -64,8 +65,24 @@ try {
     calendarAssert(count($sessionDates) === count(array_unique($sessionDates)), 'Generation created duplicate sessions on a day.');
     calendarAssert(!in_array('2026-11-04', $sessionDates, true), 'A configured rest day received a session.');
     calendarAssert((new DateTimeImmutable(max($sessionDates))) <= new DateTimeImmutable('2026-11-25'), 'A generated session exceeded the configured examination date.');
-    calendarAssert(count(array_filter($generated['sessions'], static fn(array $s): bool => $s['kind'] === 'FLASHCARDS')) > 0, 'Recorded due flashcards were not integrated into the schedule.');
-    calendarAssert(count(array_filter($generated['sessions'], static fn(array $s): bool => $s['kind'] === 'MISTAKES')) > 0, 'Recorded mistake evidence was not integrated into the schedule.');
+    $flashcardSessions = array_values(array_filter($generated['sessions'], static fn(array $s): bool => $s['kind'] === 'FLASHCARDS'));
+    calendarAssert($flashcardSessions !== [], 'Recorded due flashcards were not integrated into the schedule.');
+    foreach ($flashcardSessions as $session) {
+        parse_str((string) parse_url((string) ($session['action'] ?? ''), PHP_URL_QUERY), $actionQuery);
+        calendarAssert(($actionQuery['board'] ?? null) === 'LET'
+            && ($actionQuery['subject'] ?? null) === ($session['subject_id'] ?? null),
+            'A flashcard task did not preserve its board and assigned subject filters.');
+    }
+    $mistakeSessions = array_values(array_filter($generated['sessions'], static fn(array $s): bool => $s['kind'] === 'MISTAKES'));
+    calendarAssert($mistakeSessions !== [], 'Recorded mistake evidence was not integrated into the schedule.');
+    foreach ($mistakeSessions as $session) {
+        parse_str((string) parse_url((string) ($session['action'] ?? ''), PHP_URL_QUERY), $actionQuery);
+        calendarAssert(parse_url((string) ($session['action'] ?? ''), PHP_URL_PATH) === '/mistake-notebook'
+            && ($actionQuery['board'] ?? null) === 'let'
+            && ($actionQuery['subject'] ?? null) === 'english'
+            && ($session['subject_id'] ?? null) === 'english',
+            'A mistake task did not open the matching learner-owned board/subject notebook.');
+    }
     calendarAssert(count(array_filter($generated['sessions'], static fn(array $s): bool => $s['topic'] !== null)) === 0, 'Insufficient history was misrepresented as a weak topic.');
     calendarAssert(str_starts_with($generated['sessions'][0]['action'], '/'), 'Study task action was not an internal route.');
 
@@ -97,6 +114,42 @@ try {
     calendarAssert(count(array_filter($enoughEvidence['sessions'], static fn(array $s): bool => $s['topic'] === 'Reading Comprehension')) > 0, 'Supported topic focus was omitted.');
     calendarAssert(count(array_filter($enoughEvidence['sessions'], static fn(array $s): bool => $s['topic'] === 'Foreign board weak area')) === 0, 'A different board’s weak topic was applied to this plan.');
 
+    $unscopedMistakeEvidence = StudyCalendarPlanner::generate($validated, [
+        'mistake_count' => 99,
+        'due_flashcard_count' => 0,
+    ], $today);
+    calendarAssert(count(array_filter($unscopedMistakeEvidence['sessions'], static fn(array $s): bool => $s['kind'] === 'MISTAKES')) === 0,
+        'Unscoped aggregate mistake evidence was assigned to a subject without board/subject provenance.');
+
+    $attemptEvidence = [
+        [
+            'id' => 'calendar-evidence-let', 'user_id' => 'learner-' . str_repeat('e', 32), 'completed' => true, 'score' => 0, 'total' => 3,
+            'board' => 'let', 'subject' => 'english', 'completed_at' => '2026-10-31T10:00:00+00:00',
+            'review' => [
+                ['question' => ['id' => 'let-english-wrong', 'taxonomy' => ['board_id' => 'let', 'subject_id' => 'english']], 'answered' => true, 'correct' => false],
+                ['question' => ['id' => 'let-english-skipped', 'taxonomy' => ['board_id' => 'let', 'subject_id' => 'english']], 'answered' => false, 'correct' => false],
+            ],
+        ],
+        [
+            'id' => 'calendar-evidence-let-math', 'user_id' => 'learner-' . str_repeat('e', 32), 'completed' => true, 'score' => 0, 'total' => 1,
+            'board' => 'let', 'subject' => 'mathematics', 'completed_at' => '2026-10-29T10:00:00+00:00',
+            'review' => [['question' => ['id' => 'let-math-wrong', 'taxonomy' => ['board_id' => 'let', 'subject_id' => 'mathematics']], 'answered' => true, 'correct' => false]],
+        ],
+        [
+            'id' => 'calendar-evidence-cse', 'user_id' => 'learner-' . str_repeat('e', 32), 'completed' => true, 'score' => 0, 'total' => 1,
+            'board' => 'cse', 'subject' => 'english', 'completed_at' => '2026-10-30T10:00:00+00:00',
+            'review' => [['question' => ['id' => 'cse-english-wrong', 'taxonomy' => ['board_id' => 'cse', 'subject_id' => 'english']], 'answered' => true, 'correct' => false]],
+        ],
+        [
+            'id' => 'calendar-evidence-mixed-snapshot', 'user_id' => 'learner-' . str_repeat('e', 32), 'completed' => true, 'score' => 0, 'total' => 1,
+            'board' => 'let', 'subject' => 'english', 'completed_at' => '2026-10-28T10:00:00+00:00',
+            'review' => [['question' => ['id' => 'let-taxonomy-mathematics', 'taxonomy' => ['board_id' => 'let', 'subject_id' => 'mathematics']], 'answered' => true, 'correct' => false]],
+        ],
+    ];
+    $scopedMistakes = StudyCalendarEvidenceService::mistakeSubjectCounts($attemptEvidence, $validated);
+    calendarAssert($scopedMistakes === ['english' => 2, 'mathematics' => 2],
+        'Calendar mistake evidence did not prefer question-level subject provenance and count selected-board skips: ' . json_encode($scopedMistakes));
+
     foreach (['json', 'sqlite'] as $driver) {
         $driverPath = $fixtureRoot . '/' . $driver;
         mkdir($driverPath, 0700, true);
@@ -119,6 +172,24 @@ try {
         calendarAssert((new StudyCalendarService($storage, $learnerB))->current() === null, $driver . ' plan crossed learner ownership.');
         $summary = $service->dashboardSummary($today);
         calendarAssert(($summary['state'] ?? '') === 'UPCOMING' && (int) ($summary['total'] ?? 0) === count($first['plan']['sessions']), $driver . ' dashboard did not surface the next learner-owned calendar session.');
+
+        $summaryLearner = 'learner-' . str_repeat($driver === 'json' ? 'e' : 'f', 32);
+        $summaryService = new StudyCalendarService($storage, $summaryLearner);
+        $mistakePlanInput = array_merge($input, ['request_id' => str_repeat('8', 32)]);
+        $mistakePlan = $summaryService->saveConfiguration($mistakePlanInput, $boards, [
+            'attempt_count' => 0, 'due_flashcard_count' => 0, 'mistake_subject_counts' => ['english' => 1],
+        ], $today);
+        $practiceTask = $mistakePlan['plan']['sessions'][0];
+        $nextMistakeTask = array_values(array_filter($mistakePlan['plan']['sessions'], static fn(array $row): bool => $row['kind'] === 'MISTAKES'))[0] ?? null;
+        calendarAssert(is_array($nextMistakeTask), $driver . ' scoped mistake session was not generated for dashboard routing.');
+        $summaryService->updateTask([
+            'task_id' => $practiceTask['task_id'], 'operation' => 'complete', 'expected_revision' => 1,
+            'request_id' => str_repeat('9', 32),
+        ], $today);
+        $nextSummary = $summaryService->dashboardSummary($today);
+        calendarAssert(($nextSummary['action'] ?? null) === ($nextMistakeTask['action'] ?? null)
+            && str_starts_with((string) ($nextSummary['action'] ?? ''), '/mistake-notebook?'),
+            $driver . ' dashboard discarded the valid scoped mistake-notebook action.');
 
         $task = $first['plan']['sessions'][0];
         $deferDate = '2026-11-13';

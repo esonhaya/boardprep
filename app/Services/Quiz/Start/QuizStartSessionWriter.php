@@ -16,6 +16,7 @@ final class QuizStartSessionWriter
             'mode',
             'currentQuestion',
             'attempt_persisted',
+            'quiz_attempt_id',
             'quiz_completed',
             'quiz_result',
             'flashcard_missed_scope',

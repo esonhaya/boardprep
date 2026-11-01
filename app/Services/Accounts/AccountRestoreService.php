@@ -112,9 +112,7 @@ final class AccountRestoreService
                 $records = $payload['collections'][$exportName];
                 if ($exportName === 'question_issue_reports') {
                     foreach ($records as &$record) {
-                        // A restored copy has not passed through this destination's reviewer workflow.
-                        $record['status'] = 'SUBMITTED';
-                        $record['status_changed_at'] = gmdate(DATE_ATOM);
+                        $record = self::resetQuestionReportForRestoredCopy($record);
                     }
                     unset($record);
                 }
@@ -234,6 +232,16 @@ final class AccountRestoreService
             || count($manifest['record_counts']) !== count($expectedNames)) {
             throw new RuntimeException('RESTORE_MANIFEST_MISMATCH: account profile count is invalid.');
         }
+    }
+
+    /** A restored report is submitted again for review in the isolated destination. */
+    public static function resetQuestionReportForRestoredCopy(array $record, ?string $timestamp = null): array
+    {
+        $timestamp = $timestamp !== null && trim($timestamp) !== '' ? $timestamp : gmdate(DATE_ATOM);
+        $record['status'] = 'SUBMITTED';
+        $record['status_changed_at'] = $timestamp;
+        $record['status_history'] = [['status' => 'SUBMITTED', 'at' => $timestamp]];
+        return $record;
     }
 
     private static function validateDestination(string $path): string

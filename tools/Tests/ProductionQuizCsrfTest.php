@@ -24,47 +24,6 @@ $cookies = ['PHPSESSID' => $sessionId];
 $http = new HttpSimulator($root . '/public/index.php');
 
 try {
-    $canonicalQuestions = json_decode((string) file_get_contents($storage . '/questions.json'), true, 512, JSON_THROW_ON_ERROR);
-    $reportQuestion = null;
-    foreach (is_array($canonicalQuestions) ? $canonicalQuestions : [] as $candidate) {
-        if (is_array($candidate) && is_scalar($candidate['id'] ?? null)
-            && is_array($candidate['taxonomy'] ?? null)
-            && trim((string) ($candidate['taxonomy']['board_id'] ?? '')) !== ''
-            && trim((string) ($candidate['taxonomy']['subject_id'] ?? '')) !== '') {
-            $reportQuestion = $candidate;
-            break;
-        }
-    }
-    if (!is_array($reportQuestion)) {
-        throw new RuntimeException('production question-report route fixture has no reportable canonical question');
-    }
-    $reportId = (string) $reportQuestion['id'];
-    $reportPage = $http->request('GET', '/question-report', ['question_id' => $reportId], [], [], $cookies);
-    if (!$reportPage['success'] || $reportPage['status'] !== 200
-        || !preg_match('/name="csrf_token" value="([^\"]+)"/', $reportPage['output'], $reportCsrf)) {
-        throw new RuntimeException('production learner question-report route was not available or did not include CSRF');
-    }
-    $missingReportCsrf = $http->request('POST', '/question-report', [], [
-        'question_id' => $reportId, 'type' => 'SOURCE_CONCERN', 'description' => 'Production-safe fixture report',
-    ], [], $cookies);
-    if ($missingReportCsrf['status'] !== 303) {
-        throw new RuntimeException('production question-report mutation accepted a request without CSRF');
-    }
-    $validReport = $http->request('POST', '/question-report', [], [
-        'csrf_token' => html_entity_decode($reportCsrf[1], ENT_QUOTES | ENT_HTML5, 'UTF-8'),
-        'question_id' => $reportId, 'type' => 'SOURCE_CONCERN', 'description' => 'Production-safe fixture report',
-    ], [], $cookies);
-    $reportPath = $storage . '/learner-question-reports.json';
-    $reportRecords = is_file($reportPath)
-        ? json_decode((string) file_get_contents($reportPath), true, 512, JSON_THROW_ON_ERROR)
-        : [];
-    if (!$validReport['success'] || $validReport['status'] !== 303
-        || !is_array($reportRecords) || count($reportRecords) !== 1
-        || ($reportRecords[0]['question_id'] ?? null) !== $reportId
-        || !str_contains($reportRecords[0]['user_id'] ?? '', 'learner-')) {
-        throw new RuntimeException('production question-report route failed its isolated authenticated-session persistence check');
-    }
-
     $settings = $http->request('GET', '/quiz', [], [], [], $cookies);
     if (!$settings['success'] || !preg_match('/name="csrf_token" value="([^"]+)"/', $settings['output'], $match)) {
         throw new RuntimeException('production quiz settings did not render a CSRF token');
@@ -92,6 +51,7 @@ try {
         'action' => 'start',
         'exam' => 'LET',
         'subject' => 'English',
+        'topic' => 'Subject-Verb Agreement',
         'mode' => 'practice',
         'difficulty' => 'mixed',
         'count' => 1,
@@ -103,7 +63,59 @@ try {
 
     $valid = $http->request('POST', '/quiz', [], $payload + ['csrf_token' => $match[1]], [], $cookies);
     if (!$valid['success'] || !str_contains($valid['output'], 'Question 1 /')) {
-        throw new RuntimeException('production quiz rejected a valid CSRF-protected start');
+        throw new RuntimeException('production quiz rejected a valid CSRF-protected start: HTTP '
+            . $valid['status'] . ' ' . ($valid['location'] ?? '') . ' ' . substr(strip_tags((string) $valid['output']), 0, 220));
+    }
+
+    if (!preg_match('/name="question_id"\s+value="([^"]+)"/', $valid['output'], $questionMatch)) {
+        throw new RuntimeException('production quiz did not expose its server-selected question for result verification');
+    }
+    $answer = $http->request('POST', '/quiz', [], [
+        'action' => 'submit', 'question_id' => $questionMatch[1], 'answer' => 'A', 'csrf_token' => $match[1],
+    ], [], $cookies);
+    if ($answer['status'] !== 200 || !str_contains($answer['output'], 'Question 1 /')) {
+        throw new RuntimeException('production practice answer submission failed: HTTP '
+            . $answer['status'] . ' ' . ($answer['location'] ?? '') . ' ' . substr((string) $answer['stderr'], -240));
+    }
+    $finish = $http->request('POST', '/quiz', [], ['action' => 'finish', 'csrf_token' => $match[1]], [], $cookies);
+    $result = $http->request('GET', '/quiz', ['action' => 'result'], [], [], $cookies);
+    if ($finish['status'] !== 303 || !$result['success']
+        || !preg_match('/href="([^"]*\/question-report[^"]*)"/', $result['output'], $reportLink)) {
+        throw new RuntimeException('production quiz did not persist a completed result with a question-report action');
+    }
+    $reportUrl = html_entity_decode($reportLink[1], ENT_QUOTES | ENT_HTML5, 'UTF-8');
+    parse_str((string) parse_url($reportUrl, PHP_URL_QUERY), $reportQuery);
+    if (!is_scalar($reportQuery['attempt_id'] ?? null)
+        || (string) ($reportQuery['question_id'] ?? '') !== $questionMatch[1]) {
+        throw new RuntimeException('production result report action was not bound to its saved attempt and question');
+    }
+    $reportPage = $http->request('GET', '/question-report', $reportQuery, [], [], $cookies);
+    if (!$reportPage['success'] || $reportPage['status'] !== 200
+        || !preg_match('/name="csrf_token" value="([^"]+)"/', $reportPage['output'], $reportCsrf)) {
+        throw new RuntimeException('production owned-result report form was unavailable or did not include CSRF');
+    }
+    $missingReportCsrf = $http->request('POST', '/question-report', [], [
+        'attempt_id' => $reportQuery['attempt_id'], 'question_id' => $reportQuery['question_id'],
+        'type' => 'SOURCE_CONCERN', 'description' => 'Production-safe fixture report',
+    ], [], $cookies);
+    if ($missingReportCsrf['status'] !== 303) {
+        throw new RuntimeException('production question-report mutation accepted a request without CSRF');
+    }
+    $validReport = $http->request('POST', '/question-report', [], [
+        'csrf_token' => html_entity_decode($reportCsrf[1], ENT_QUOTES | ENT_HTML5, 'UTF-8'),
+        'attempt_id' => $reportQuery['attempt_id'], 'question_id' => $reportQuery['question_id'],
+        'type' => 'SOURCE_CONCERN', 'description' => 'Production-safe fixture report',
+    ], [], $cookies);
+    $reportPath = $storage . '/learner-question-reports.json';
+    $reportRecords = is_file($reportPath)
+        ? json_decode((string) file_get_contents($reportPath), true, 512, JSON_THROW_ON_ERROR)
+        : [];
+    if (!$validReport['success'] || $validReport['status'] !== 303
+        || !is_array($reportRecords) || count($reportRecords) !== 1
+        || ($reportRecords[0]['attempt_id'] ?? null) !== $reportQuery['attempt_id']
+        || ($reportRecords[0]['question_id'] ?? null) !== $reportQuery['question_id']
+        || !str_contains($reportRecords[0]['user_id'] ?? '', 'learner-')) {
+        throw new RuntimeException('production report route failed its isolated owner-verified result persistence check');
     }
 
     $invalidTimedPayload = [
@@ -143,7 +155,7 @@ try {
         throw new RuntimeException('production exposed the Doctor API.');
     }
 
-    echo "[PASS] production learner issue reporting persists with CSRF and session ownership; quiz/preferences mutations require CSRF and reviewer/admin routes remain unavailable.\n";
+    echo "[PASS] production learner issue reporting binds to an owned completed result and persists with CSRF; quiz/preferences mutations require CSRF and reviewer/admin routes remain unavailable.\n";
 } finally {
     $sessionDirectory = trim((string) (getenv('APP_SESSION_PATH') ?: ''));
     if ($sessionDirectory === '') {

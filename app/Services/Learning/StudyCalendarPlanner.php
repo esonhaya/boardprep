@@ -180,7 +180,16 @@ final class StudyCalendarPlanner
             ? $evidence['focus_topics']
             : [];
         $dueCount = max(0, min(100000, (int) ($evidence['due_flashcard_count'] ?? 0)));
-        $mistakeCount = max(0, min(100000, (int) ($evidence['mistake_count'] ?? 0)));
+        $mistakeSubjectCounts = [];
+        foreach (is_array($evidence['mistake_subject_counts'] ?? null) ? $evidence['mistake_subject_counts'] : [] as $subjectId => $count) {
+            $subjectId = strtolower(trim((string) $subjectId));
+            if ($subjectId === '' || !isset($availableSubjects[$subjectId]) || !is_numeric($count)) continue;
+            $count = max(0, min(100000, (int) $count));
+            if ($count > 0) $mistakeSubjectCounts[$subjectId] = $count;
+        }
+        ksort($mistakeSubjectCounts, SORT_STRING);
+        $mistakeSubjectIds = array_keys($mistakeSubjectCounts);
+        $mistakeCount = array_sum($mistakeSubjectCounts);
         $reviewCadence = match ($configuration['review_intensity'] ?? 'balanced') {
             'light' => 7,
             'intensive' => 2,
@@ -209,12 +218,23 @@ final class StudyCalendarPlanner
                 $kind = 'PRACTICE';
                 if ($dueCount > 0 && $sessionNumber % $reviewCadence === 0) {
                     $kind = 'FLASHCARDS';
-                } elseif ($mistakeCount > 0 && $sessionNumber % max(3, $reviewCadence + 1) === 1) {
+                } elseif ($mistakeSubjectIds !== [] && $sessionNumber % max(3, $reviewCadence + 1) === 1) {
                     $kind = 'MISTAKES';
                 }
+                if ($kind === 'MISTAKES') {
+                    $subjectId = $mistakeSubjectIds[intdiv($sessionNumber, max(3, $reviewCadence + 1)) % count($mistakeSubjectIds)];
+                    $subject = $availableSubjects[$subjectId];
+                    $topic = self::focusForSubject($focusTopics, $subject, $configuration);
+                }
                 $action = match ($kind) {
-                    'FLASHCARDS' => '/flashcards/review?' . http_build_query(['board' => $configuration['board_code']]),
-                    'MISTAKES' => '/mistake-notebook/review',
+                    'FLASHCARDS' => '/flashcards/review?' . http_build_query([
+                        'board' => $configuration['board_code'],
+                        'subject' => $subjectId,
+                    ]),
+                    'MISTAKES' => '/mistake-notebook?' . http_build_query([
+                        'board' => $configuration['board_id'],
+                        'subject' => $subjectId,
+                    ]),
                     default => '/quiz?' . http_build_query(array_filter([
                         'exam' => $configuration['board_code'],
                         'subject' => $subjectId,

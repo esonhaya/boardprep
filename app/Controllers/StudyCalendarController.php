@@ -10,10 +10,10 @@ use App\Core\Response;
 use App\Core\View;
 use App\Services\Flashcard\FlashcardService;
 use App\Services\Learning\LearningHistoryService;
+use App\Services\Learning\StudyCalendarEvidenceService;
 use App\Services\Learning\StudyCalendarPlanner;
 use App\Services\Learning\StudyCalendarService;
 use App\Services\Learning\StudyDashboardService;
-use App\Services\Learning\WeaknessService;
 use App\Services\Board\BoardViewService;
 use App\Services\Profile\LearnerPreferenceService;
 use App\Services\Shared\CsrfTokenService;
@@ -74,11 +74,8 @@ final class StudyCalendarController
                 $attemptBoard = strtolower(trim((string) ($attempt['board'] ?? $attempt['exam'] ?? $learningContext['board'] ?? '')));
                 if ($attemptBoard !== '' && isset($boardAliases[$attemptBoard])) $boardAttemptCount++;
             }
-            $weaknesses = WeaknessService::all();
-            $mistakeCount = 0;
-            foreach ($weaknesses as $record) {
-                if (is_array($record)) $mistakeCount += max(0, (int) ($record['wrong'] ?? 0));
-            }
+            $mistakeSubjectCounts = StudyCalendarEvidenceService::mistakeSubjectCounts($attempts, $configuration);
+            $mistakeCount = array_sum($mistakeSubjectCounts);
             $dueCount = 0;
             $dueStatus = 'AVAILABLE';
             try {
@@ -97,6 +94,7 @@ final class StudyCalendarController
                 'due_flashcard_count' => $dueCount,
                 'due_flashcard_status' => $dueStatus,
                 'mistake_count' => $mistakeCount,
+                'mistake_subject_counts' => $mistakeSubjectCounts,
             ], $today);
             \SessionService::flash(
                 'success',

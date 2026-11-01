@@ -368,6 +368,9 @@ final class QuizFlowController
                 'markedReviewAvailable' => $markedQuestionIds !== null,
                 'reviewFilterBaseUrl' => '/quiz?action=result',
                 'quizSession' => is_array($session) ? $session : [],
+                'reportAttemptId' => is_scalar(\SessionService::get('quiz_attempt_id'))
+                    ? (string) \SessionService::get('quiz_attempt_id')
+                    : '',
                 'studyReferencesByQuestion' => $studyReferencesByQuestion,
                 'notesPracticeReview' => $notesPracticeReview,
                 'mistakeRecovery' => $mistakeRecovery,

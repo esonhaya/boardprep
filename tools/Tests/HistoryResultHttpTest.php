@@ -144,6 +144,8 @@ try {
     historyCheck(str_contains($html, '/history') && str_contains($html, '/progress') && str_contains($html, '/dashboard'), 'historical return actions are incomplete');
     historyCheck(str_contains($html, 'Marked for review (1)') && str_contains($html, 'Which answer is correct?'), 'saved marked result filter was not rendered for its owner');
     historyCheck(str_contains($html, '/flashcards/missed?attempt_id=attempt-history-owned'), 'historical missed-flashcard action is missing');
+    historyCheck(str_contains($html, '/question-report?attempt_id=attempt-history-owned&amp;question_id=history-q1'),
+        'historical result question report did not bind both the owned attempt and reviewed question');
     historyCheck(str_contains(file_get_contents($root . '/app/Views/history/attempt.php'), 'View result'), 'history row reopen action is missing');
 
     $_GET = ['id' => 'attempt-history-legacy-exam', 'review_filter' => 'marked'];
@@ -268,7 +270,7 @@ try {
         }
     }
 
-    echo "[PASS] Owned history result renders through the production router with score, review, study, flashcard, and return actions.\n";
+    echo "[PASS] Owned history result renders through the production router with score, review, study, flashcard, result-bound report, and return actions.\n";
     echo "[PASS] Persisted owned histories with 0, 1, 20, 100, and 500 attempts render bounded rows, accurate summaries, and safe empty states.\n";
     echo "[PASS] Registered mixed-board/subject filters, legacy unregistered buckets, invalid filters, bounded pagination, and safe result-to-history return paths hold.\n";
     echo "[PASS] Foreign, unknown, request-owner override, and GET mutation boundaries hold.\n";

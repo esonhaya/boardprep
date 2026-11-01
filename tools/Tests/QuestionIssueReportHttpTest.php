@@ -47,9 +47,44 @@ try {
     $learnerA = ['PHPSESSID' => 'b732-report-a-' . bin2hex(random_bytes(8))];
     $learnerB = ['PHPSESSID' => 'b732-report-b-' . bin2hex(random_bytes(8))];
 
-    $form = $http->request('GET', '/question-report', ['question_id' => $questionId], [], [], $learnerA);
+    $settings = $http->request('GET', '/quiz', [], [], [], $learnerA);
+    issueReportHttpAssert(preg_match('/name="csrf_token" value="([a-f0-9]{64})"/', $settings['output'], $quizCsrf) === 1,
+        'Quiz setup omitted its session token.');
+    $started = $http->request('POST', '/quiz', [], [
+        'action' => 'start', 'exam' => 'LET', 'subject' => 'English', 'mode' => 'exam',
+        'difficulty' => 'mixed', 'count' => 1, 'csrf_token' => $quizCsrf[1],
+    ], [], $learnerA);
+    issueReportHttpAssert(str_contains($started['output'], 'Question 1 / 1')
+        && preg_match('/name="question_id"\s+value="([^"]+)"/', $started['output'], $activeQuestion) === 1,
+        'Could not start a one-question synthetic report fixture.');
+    $questionId = (string) $activeQuestion[1];
+    $answer = $http->request('POST', '/quiz', [], [
+        'action' => 'submit', 'question_id' => $questionId, 'answer' => 'A', 'csrf_token' => $quizCsrf[1],
+    ], [], $learnerA);
+    issueReportHttpAssert($answer['status'] === 303 && $answer['location'] === '/quiz?action=review',
+        'Synthetic quiz answer did not enter exam review.');
+    $review = $http->request('GET', '/quiz', ['action' => 'review'], [], [], $learnerA);
+    issueReportHttpAssert(str_contains($review['output'], 'Review your answers'), 'Synthetic exam review was unavailable.');
+    $finished = $http->request('POST', '/quiz', [], ['action' => 'finish', 'csrf_token' => $quizCsrf[1]], [], $learnerA);
+    issueReportHttpAssert($finished['status'] === 303, 'Synthetic exam did not finish.');
+    $result = $http->request('GET', '/quiz', ['action' => 'result'], [], [], $learnerA);
+    issueReportHttpAssert(preg_match('/href="([^"]*\/question-report[^"]*)"/', $result['output'], $reportLink) === 1,
+        'Completed result omitted its question-report action.');
+    $reportUrl = html_entity_decode($reportLink[1], ENT_QUOTES | ENT_HTML5, 'UTF-8');
+    parse_str((string) parse_url($reportUrl, PHP_URL_QUERY), $reportQuery);
+    $questionId = (string) ($reportQuery['question_id'] ?? '');
+    $attemptId = (string) ($reportQuery['attempt_id'] ?? '');
+    issueReportHttpAssert($questionId !== '' && $attemptId !== '', 'Result report action omitted attempt ownership context.');
+
+    $unboundForm = $http->request('GET', '/question-report', ['question_id' => $questionId], [], [], $learnerA);
+    issueReportHttpAssert($unboundForm['status'] === 404, 'Question report form accepted an unbound canonical question.');
+    $foreignAttemptForm = $http->request('GET', '/question-report', $reportQuery, [], [], $learnerB);
+    issueReportHttpAssert($foreignAttemptForm['status'] === 404, 'A learner could open a report form for another learner’s attempt.');
+
+    $form = $http->request('GET', '/question-report', $reportQuery, [], [], $learnerA);
     issueReportHttpAssert($form['status'] === 200
         && str_contains($form['output'], 'Report a question concern')
+        && str_contains($form['output'], 'completed quiz result')
         && str_contains($form['output'], 'for="question-report-type"')
         && str_contains($form['output'], 'id="question-report-type"')
         && str_contains($form['output'], 'for="question-report-description"')
@@ -62,23 +97,23 @@ try {
     $token = html_entity_decode($csrf[1], ENT_QUOTES | ENT_HTML5, 'UTF-8');
 
     $missingCsrf = $http->request('POST', '/question-report', [], [
-        'question_id' => $questionId, 'type' => 'SOURCE_CONCERN', 'description' => 'No token',
+        'attempt_id' => $attemptId, 'question_id' => $questionId, 'type' => 'SOURCE_CONCERN', 'description' => 'No token',
     ], [], $learnerA);
     issueReportHttpAssert($missingCsrf['status'] === 303, 'Missing CSRF did not use the safe form redirect.');
     $badType = $http->request('POST', '/question-report', [], [
-        'csrf_token' => $token, 'question_id' => $questionId, 'type' => 'APPROVE_ANSWER',
+        'csrf_token' => $token, 'attempt_id' => $attemptId, 'question_id' => $questionId, 'type' => 'APPROVE_ANSWER',
     ], [], $learnerA);
     issueReportHttpAssert($badType['status'] === 303, 'An unrecognized concern type was not rejected.');
     $arrayType = $http->request('POST', '/question-report', [], [
-        'csrf_token' => $token, 'question_id' => $questionId, 'type' => ['OTHER'], 'description' => '',
+        'csrf_token' => $token, 'attempt_id' => $attemptId, 'question_id' => $questionId, 'type' => ['OTHER'], 'description' => '',
     ], [], $learnerA);
     issueReportHttpAssert($arrayType['status'] === 303, 'An array-valued concern type was not rejected.');
     $unknownQuestion = $http->request('POST', '/question-report', [], [
-        'csrf_token' => $token, 'question_id' => 'unknown-question-id', 'type' => 'SOURCE_CONCERN', 'description' => 'Not found',
+        'csrf_token' => $token, 'attempt_id' => $attemptId, 'question_id' => 'unknown-question-id', 'type' => 'SOURCE_CONCERN', 'description' => 'Not found',
     ], [], $learnerA);
     issueReportHttpAssert($unknownQuestion['status'] === 303, 'A stale question identifier was not rejected safely.');
     $oversizedDescription = $http->request('POST', '/question-report', [], [
-        'csrf_token' => $token, 'question_id' => $questionId, 'type' => 'SOURCE_CONCERN', 'description' => str_repeat('x', 501),
+        'csrf_token' => $token, 'attempt_id' => $attemptId, 'question_id' => $questionId, 'type' => 'SOURCE_CONCERN', 'description' => str_repeat('x', 501),
     ], [], $learnerA);
     issueReportHttpAssert($oversizedDescription['status'] === 303, 'An oversized report note was not rejected safely.');
     $stillEmpty = $http->request('GET', '/question-reports', [], [], [], $learnerA);
@@ -87,6 +122,7 @@ try {
 
     $post = [
         'csrf_token' => $token,
+        'attempt_id' => $attemptId,
         'question_id' => $questionId,
         'type' => 'SOURCE_CONCERN',
         'description' => '<script>alert("x")</script> Please check the reference.',
@@ -100,7 +136,8 @@ try {
     issueReportHttpAssert($mine['status'] === 200
         && str_contains($mine['output'], 'SUBMITTED')
         && str_contains($mine['output'], '&lt;script&gt;alert(&quot;x&quot;)&lt;/script&gt;')
-        && !str_contains($mine['output'], '<script>alert("x")</script>'),
+        && !str_contains($mine['output'], '<script>alert("x")</script>')
+        && !str_contains($mine['output'], $attemptId),
         'Learner status view failed to escape the report text or display its real status.');
     $otherLearner = $http->request('GET', '/question-reports', [], [], [], $learnerB);
     issueReportHttpAssert($otherLearner['status'] === 200
@@ -116,12 +153,14 @@ try {
     issueReportHttpAssert(is_array($records) && count($records) === 1, 'The JSON simulation did not store exactly one idempotent report.');
     issueReportHttpAssert(($records[0]['status'] ?? null) === 'SUBMITTED'
         && ($records[0]['user_id'] ?? null) !== ''
-        && ($records[0]['question_id'] ?? null) === $questionId,
-        'SQLite report ownership or initial status was invalid.');
+        && ($records[0]['question_id'] ?? null) === $questionId
+        && ($records[0]['attempt_id'] ?? null) === $attemptId
+        && count((array) ($records[0]['status_history'] ?? [])) === 1,
+        'Report ownership, attempt reference, or initial status history was invalid.');
     issueReportHttpAssert(!array_key_exists('answer', $records[0]) && !array_key_exists('explanation', $records[0]),
         'Learner report persistence copied protected answer or explanation content.');
 
-    echo "[PASS] Learner question-report form, CSRF/input validation, duplicate retry, XSS-safe private status, account isolation, reviewer gate, JSON storage, and canonical-data separation.\n";
+    echo "[PASS] Owner-verified result reporting, CSRF/input validation, duplicate retry, XSS-safe private status, account isolation, reviewer gate, JSON storage, and canonical-data separation.\n";
 } finally {
     foreach (scandir($root) ?: [] as $entry) {
         if ($entry === '.' || $entry === '..') continue;

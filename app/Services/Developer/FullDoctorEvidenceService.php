@@ -41,7 +41,24 @@ final class FullDoctorEvidenceService
         if ($candidates === []) return self::unavailable('full_doctor_artifact_missing');
         usort($candidates, static fn(array $a, array $b): int => strcmp($b[0], $a[0]));
         $name = $candidates[0][1];
-        return $this->read($root, 'docs/reports/' . $name, 'docs/reports/' . substr($name, 0, -5) . '.meta.txt', self::gitHead($root), $now);
+        $evidence = $this->read($root, 'docs/reports/' . $name, 'docs/reports/' . substr($name, 0, -5) . '.meta.txt', self::gitHead($root), $now);
+        $worktreeClean = self::applicationWorktreeClean($root);
+        if (($evidence['state'] ?? '') === 'CURRENT_PASS' && $worktreeClean !== true) {
+            $evidence['state'] = 'UNVERIFIED';
+            $evidence['reason'] = $worktreeClean === false
+                ? 'application_worktree_dirty'
+                : 'application_worktree_status_unavailable';
+            if (is_array($evidence['functional_tests'] ?? null)) $evidence['functional_tests']['status'] = 'UNVERIFIED';
+            foreach (['integration_tests', 'security_tests'] as $domain) {
+                if (is_array($evidence[$domain] ?? null)) {
+                    $evidence[$domain]['status'] = 'STALE_RECORDED_' . (string) ($evidence[$domain]['status'] ?? 'UNKNOWN');
+                }
+            }
+            if (is_string($evidence['browser_acceptance'] ?? null)) {
+                $evidence['browser_acceptance'] = 'STALE_RECORDED_' . $evidence['browser_acceptance'];
+            }
+        }
+        return $evidence;
     }
 
     /** @return array<string,mixed> */
@@ -323,6 +340,23 @@ final class FullDoctorEvidenceService
         $status = proc_close($process);
         $head = is_string($output) ? trim($output) : '';
         return $status === 0 && preg_match('/\A[0-9a-f]{40}\z/', $head) === 1 ? $head : null;
+    }
+
+    private static function applicationWorktreeClean(string $root): ?bool
+    {
+        $process = @proc_open([
+            'git', '-C', $root, 'status', '--porcelain=v1', '--untracked-files=normal', '--', '.',
+            ':(exclude)docs/reports/**', ':(exclude)storage/**',
+        ], [0 => ['pipe', 'r'], 1 => ['pipe', 'w'], 2 => ['pipe', 'w']], $pipes);
+        if (!is_resource($process)) return null;
+        fclose($pipes[0]);
+        $output = stream_get_contents($pipes[1]);
+        stream_get_contents($pipes[2]);
+        fclose($pipes[1]);
+        fclose($pipes[2]);
+        $status = proc_close($process);
+        if ($status !== 0 || !is_string($output)) return null;
+        return trim($output) === '';
     }
 
     private static function unavailable(string $reason, string $artifact = ''): array

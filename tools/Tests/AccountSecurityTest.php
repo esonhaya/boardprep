@@ -57,6 +57,7 @@ try {
     $_SESSION['learner_preferences'] = ['preferred_board' => 'LET'];
     $_SESSION['questions'] = [['id' => 'anonymous-active-question']];
     $_SESSION['quiz_session'] = ['id' => 'anonymous-active-session'];
+    $_SESSION['quiz_attempt_id'] = 'account-test-anonymous-attempt';
     $_SESSION['exam_review_flags'] = [0 => true];
     $_SESSION['exam_review_flag_versions'] = [0 => 1];
     $_SESSION['exam_review_flag_session_id'] = 'anonymous-active-session';
@@ -126,9 +127,10 @@ try {
     $learnerA = LearnerIdentityService::current();
     accountAssert($learnerA === $rawA['learner_id'] && $learnerA !== $anonymousId, 'Login did not switch to the separate server-issued account learner identity.');
     accountAssert(($_SESSION['anonymous_learner_identity'] ?? null) === $anonymousId, 'The pre-login anonymous identity was not kept separate.');
-    accountAssert(!isset($_SESSION['questions'], $_SESSION['quiz_session']), 'An anonymous active quiz remained active inside the account session.');
+    accountAssert(!isset($_SESSION['questions'], $_SESSION['quiz_session'], $_SESSION['quiz_attempt_id']), 'Anonymous quiz or result context remained active inside the account session.');
     accountAssert(is_array($_SESSION['anonymous_pending_quiz'] ?? null), 'Anonymous in-progress quiz context was discarded instead of isolated.');
     accountAssert(!isset($_SESSION['exam_review_flags'])
+        && ($_SESSION['anonymous_pending_quiz']['quiz_attempt_id'] ?? '') === 'account-test-anonymous-attempt'
         && ($_SESSION['anonymous_pending_quiz']['exam_review_flags'][0] ?? false) === true
         && ($_SESSION['anonymous_pending_quiz']['exam_review_flag_versions'][0] ?? null) === 1
         && ($_SESSION['anonymous_pending_quiz']['exam_review_flag_session_id'] ?? '') === 'anonymous-active-session',
@@ -140,6 +142,13 @@ try {
     } catch (RuntimeException $exception) {
         accountAssert(str_contains($exception->getMessage(), 'Signed-in learner data'), 'Unexpected anonymous privacy boundary error.');
     }
+
+    AccountSessionService::logout();
+    accountAssert(LearnerIdentityService::current() === $anonymousId
+        && ($_SESSION['quiz_attempt_id'] ?? '') === 'account-test-anonymous-attempt',
+        'Logout did not restore anonymous quiz-result context to its original learner boundary.');
+    AccountSessionService::login($rawA);
+    accountAssert(!isset($_SESSION['quiz_attempt_id']), 'Anonymous result context leaked back into the authenticated account.');
 
     $preferences = [
         'preferred_board' => 'CSE',

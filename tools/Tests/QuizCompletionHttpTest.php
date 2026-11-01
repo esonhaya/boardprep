@@ -129,6 +129,16 @@ try {
         || !str_contains($result['output'], 'Question outcomes')) {
         throw new RuntimeException('completed result did not render through HTTP');
     }
+    if (preg_match('/href="([^"]*\/question-report[^"]*)"/', $result['output'], $reportLinkMatch) !== 1) {
+        throw new RuntimeException('completed result did not link question reporting to its owned attempt');
+    }
+    $reportUrl = html_entity_decode($reportLinkMatch[1], ENT_QUOTES | ENT_HTML5, 'UTF-8');
+    parse_str((string) parse_url($reportUrl, PHP_URL_QUERY), $reportQuery);
+    if (!is_scalar($reportQuery['attempt_id'] ?? null)
+        || !is_scalar($reportQuery['question_id'] ?? null)
+        || (string) $reportQuery['question_id'] !== (string) $matches[1]) {
+        throw new RuntimeException('result question report link omitted its attempt or did not match the reviewed question');
+    }
 
     $study = $simulator->request('GET', '/study', [], [], [], $cookies);
     $progress = $simulator->request('GET', '/progress', [], [], [], $cookies);
@@ -161,7 +171,51 @@ try {
         throw new RuntimeException('completion did not persist exactly one canonical attempt');
     }
 
-    echo "[PASS] HTTP completion renders result and persists one attempt across retries.\n";
+    if ((string) $reportQuery['attempt_id'] !== (string) ($new[0]['id'] ?? '')) {
+        throw new RuntimeException('result question report link did not use the persisted attempt id');
+    }
+    $foreignCookies = ['PHPSESSID' => 'batch665-completion-foreign-' . bin2hex(random_bytes(5))];
+    $foreignReport = $simulator->request('GET', '/question-report', $reportQuery, [], [], $foreignCookies);
+    if ($foreignReport['status'] !== 404 || !str_contains((string) $foreignReport['output'], 'Question not found.')) {
+        throw new RuntimeException('foreign attempt report request returned HTTP ' . $foreignReport['status'] . ': '
+            . substr((string) $foreignReport['output'], 0, 360) . ' ' . substr((string) $foreignReport['stderr'], -360));
+    }
+
+    $questionRows = json_decode((string) file_get_contents($fixturePath . '/questions.json'), true, 512, JSON_THROW_ON_ERROR);
+    if (!is_array($questionRows)) {
+        throw new RuntimeException('isolated question fixture was not a list');
+    }
+    $questionRows = array_values(array_filter($questionRows, static fn(mixed $question): bool => !is_array($question)
+        || (string) ($question['id'] ?? '') !== (string) $reportQuery['question_id']));
+    file_put_contents($fixturePath . '/questions.json', json_encode($questionRows, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR) . "\n", LOCK_EX);
+    $reportForm = $simulator->request('GET', '/question-report', $reportQuery, [], [], $cookies);
+    if ($reportForm['status'] !== 200
+        || !str_contains($reportForm['output'], 'Report a question concern')
+        || preg_match('/name="csrf_token" value="([a-f0-9]{64})"/', $reportForm['output'], $reportCsrf) !== 1
+        || !str_contains($reportForm['output'], 'completed quiz result')) {
+        throw new RuntimeException('owned historical report form returned HTTP ' . $reportForm['status'] . ': '
+            . substr(strip_tags((string) $reportForm['output']), 0, 320) . ' ' . substr((string) $reportForm['stderr'], -320));
+    }
+    $reportCsrfToken = html_entity_decode($reportCsrf[1], ENT_QUOTES | ENT_HTML5, 'UTF-8');
+    $reportSubmit = $simulator->request('POST', '/question-report', [], [
+        'csrf_token' => $reportCsrfToken,
+        'attempt_id' => (string) $reportQuery['attempt_id'],
+        'question_id' => (string) $reportQuery['question_id'],
+        'type' => 'SOURCE_CONCERN',
+        'description' => 'Synthetic archived question report fixture.',
+    ], [], $cookies);
+    if (!$reportSubmit['success'] || $reportSubmit['status'] !== 303
+        || $reportSubmit['location'] !== '/question-reports') {
+        throw new RuntimeException('owned attempt question report did not persist through POST/Redirect/GET');
+    }
+    $reportRecords = json_decode((string) file_get_contents($fixturePath . '/learner-question-reports.json'), true, 512, JSON_THROW_ON_ERROR);
+    if (!is_array($reportRecords) || count($reportRecords) !== 1
+        || ($reportRecords[0]['attempt_id'] ?? null) !== $new[0]['id']
+        || ($reportRecords[0]['question_id'] ?? null) !== $reportQuery['question_id']) {
+        throw new RuntimeException('question concern was not bound to its owner-verified attempt snapshot');
+    }
+
+    echo "[PASS] HTTP completion persists one attempt and binds archived question reporting to its owner-verified result.\n";
 } finally {
     $iterator = new RecursiveIteratorIterator(
         new RecursiveDirectoryIterator($fixturePath, FilesystemIterator::SKIP_DOTS),
@@ -180,6 +234,9 @@ try {
         $sessionDirectory = $root . '/storage/doctor/simulation-sessions';
     }
     @unlink(rtrim($sessionDirectory, DIRECTORY_SEPARATOR) . '/sess_' . $cookies['PHPSESSID']);
+    if (isset($foreignCookies['PHPSESSID'])) {
+        @unlink(rtrim($sessionDirectory, DIRECTORY_SEPARATOR) . '/sess_' . $foreignCookies['PHPSESSID']);
+    }
     foreach ($originalEnvironment as $environmentKey => $value) {
         if ($value === false) {
             putenv($environmentKey);

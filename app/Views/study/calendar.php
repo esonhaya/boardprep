@@ -160,7 +160,7 @@ $nextAvailable = static function (string $after, array $config, array $allSessio
         <?php else: ?>
             <ol class="study-calendar-list">
                 <?php foreach ($sessions as $session): ?>
-                    <?php if (!is_array($session)) continue; $status = (string) ($session['status'] ?? 'planned'); $taskId = (string) ($session['task_id'] ?? ''); $action = (string) ($session['action'] ?? '/study'); if (!preg_match('#^/(?:quiz|flashcards/review|mistake-notebook/review)(?:\?|$)#', $action)) $action = '/study'; ?>
+                    <?php if (!is_array($session)) continue; $status = (string) ($session['status'] ?? 'planned'); $taskId = (string) ($session['task_id'] ?? ''); $action = (string) ($session['action'] ?? '/study'); if (!preg_match('#^/(?:quiz|flashcards/review|mistake-notebook)(?:\?|$)#', $action)) $action = '/study'; ?>
                     <li class="study-calendar-session">
                         <article class="study-plan-item">
                             <div class="page-header">

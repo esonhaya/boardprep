@@ -13,6 +13,19 @@ function readinessAssert(bool $condition, string $message): void
     if (!$condition) throw new RuntimeException($message);
 }
 
+/** @return array{exit:int,stdout:string,stderr:string} */
+function readinessCommand(array $command): array
+{
+    $process = proc_open($command, [0 => ['pipe', 'r'], 1 => ['pipe', 'w'], 2 => ['pipe', 'w']], $pipes);
+    if (!is_resource($process)) throw new RuntimeException('Unable to run isolated Git fixture command.');
+    fclose($pipes[0]);
+    $stdout = stream_get_contents($pipes[1]);
+    $stderr = stream_get_contents($pipes[2]);
+    fclose($pipes[1]);
+    fclose($pipes[2]);
+    return ['exit' => proc_close($process), 'stdout' => is_string($stdout) ? $stdout : '', 'stderr' => is_string($stderr) ? $stderr : ''];
+}
+
 $fixture = sys_get_temp_dir() . '/boardprep-readiness-evidence-' . bin2hex(random_bytes(8));
 $reports = $fixture . '/docs/reports';
 mkdir($reports, 0700, true);
@@ -82,6 +95,40 @@ try {
         && ($evidence['security_tests']['total'] ?? null) === 6, 'Security test totals were projected incorrectly.');
     readinessAssert($evidence['browser_acceptance'] === 'NOT_EXECUTED', 'Absent browser evidence was represented as executed.');
     readinessAssert(($evidence['source_traceability']['unreviewed_or_unknown_links'] ?? null) === 17, 'Traceability count lost its source evidence.');
+
+    $gitFixture = sys_get_temp_dir() . '/boardprep-readiness-git-' . bin2hex(random_bytes(8));
+    $gitReports = $gitFixture . '/docs/reports';
+    mkdir($gitReports, 0700, true);
+    mkdir($gitFixture . '/app', 0700, true);
+    file_put_contents($gitFixture . '/app/verified.php', "<?php\n// committed fixture\n");
+    readinessAssert(readinessCommand(['git', '-C', $gitFixture, 'init', '--quiet'])['exit'] === 0, 'Unable to initialize clean Git evidence fixture.');
+    readinessAssert(readinessCommand(['git', '-C', $gitFixture, 'config', 'user.name', 'BoardPrep Test'])['exit'] === 0, 'Unable to configure Git evidence fixture.');
+    readinessAssert(readinessCommand(['git', '-C', $gitFixture, 'config', 'user.email', 'fixture@example.invalid'])['exit'] === 0, 'Unable to configure Git evidence fixture email.');
+    readinessAssert(readinessCommand(['git', '-C', $gitFixture, 'add', 'app/verified.php'])['exit'] === 0, 'Unable to stage clean Git evidence fixture.');
+    readinessAssert(readinessCommand(['git', '-C', $gitFixture, 'commit', '--quiet', '-m', 'readiness fixture'])['exit'] === 0, 'Unable to commit clean Git evidence fixture.');
+    $fixtureHead = trim(readinessCommand(['git', '-C', $gitFixture, 'rev-parse', 'HEAD'])['stdout']);
+    $fixtureBase = 'batch-733-full-doctor-20261101T000009Z';
+    $fixtureJsonPath = $gitReports . '/' . $fixtureBase . '.json';
+    file_put_contents($fixtureJsonPath, $json);
+    file_put_contents($gitReports . '/' . $fixtureBase . '.meta.txt', implode("\n", [
+        'COMMAND=php tools/doctor.php --release --json',
+        'CWD=' . $gitFixture,
+        'START_UTC=2026-10-31T23:59:30Z',
+        'END_UTC=2026-11-01T00:00:00Z',
+        'EXIT_CODE=0',
+        'TESTED_SHA=' . $fixtureHead,
+        'JSON=' . $fixtureBase . '.json',
+        'ARTIFACT_SHA256=' . hash('sha256', $json),
+        '',
+    ]));
+    $cleanWorktreeEvidence = $reader->latest($gitFixture, $now);
+    readinessAssert($cleanWorktreeEvidence['state'] === 'CURRENT_PASS', 'Clean, current Git evidence did not remain verifiable.');
+    file_put_contents($gitFixture . '/app/verified.php', "<?php\n// uncommitted implementation change\n");
+    $dirtyWorktreeEvidence = $reader->latest($gitFixture, $now);
+    readinessAssert($dirtyWorktreeEvidence['state'] === 'UNVERIFIED'
+        && $dirtyWorktreeEvidence['reason'] === 'application_worktree_dirty'
+        && ($dirtyWorktreeEvidence['integration_tests']['status'] ?? '') === 'STALE_RECORDED_PASS',
+        'Current-commit Doctor evidence was trusted with changed application code.');
 
     $missing = $reader->read($fixture, 'docs/reports/batch-733-full-doctor-20261101T000001Z.json', 'docs/reports/batch-733-full-doctor-20261101T000001Z.meta.txt', $head, $now);
     readinessAssert($missing['state'] === 'UNVERIFIED', 'Missing Doctor artifact was not shown as unverified.');
@@ -188,7 +235,7 @@ try {
         && !str_contains(json_encode($boundedDashboard, JSON_THROW_ON_ERROR), 'Synthetic private report body'),
         'Large question-report collections were not bounded or private report content leaked.');
 
-    echo "[PASS] Doctor artifact provenance, JSON/schema validation, current/stale/wrong-commit/failure/missing cases, path safety, browser-not-executed, academic backlog, scoped reviewer policy, and private report aggregation.\n";
+    echo "[PASS] Doctor artifact provenance, clean/dirty source freshness, JSON/schema validation, current/stale/wrong-commit/failure/missing cases, path safety, browser-not-executed, academic backlog, scoped reviewer policy, and private report aggregation.\n";
     echo 'REPORT_AGGREGATION_5001_ROWS_MS=' . $aggregationMilliseconds . "\n";
 } finally {
     $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($fixture, FilesystemIterator::SKIP_DOTS), RecursiveIteratorIterator::CHILD_FIRST);

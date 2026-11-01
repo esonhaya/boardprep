@@ -136,7 +136,7 @@ $checks = [
         && str_contains($css, '@media(max-width:600px){.dashboard-calendar-summary'),
     'calendar data stays owner-scoped with safe route allowlists and current progress is summarized on the dashboard' => str_contains($calendarService, '($record[\'user_id\'] ?? null) !== $this->learnerId')
         && str_contains($calendarService, 'function dashboardSummary')
-        && str_contains($calendarService, 'quiz|flashcards/review|mistake-notebook/review')
+        && str_contains($calendarService, 'quiz|flashcards/review|mistake-notebook')
         && str_contains($dashboard, 'dashboard-calendar-heading'),
     'readiness dashboard labels browser and public release independently' => str_contains($readiness, 'Browser acceptance')
         && str_contains($readiness, 'Public release')

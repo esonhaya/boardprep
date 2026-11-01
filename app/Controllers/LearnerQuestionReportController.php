@@ -17,12 +17,17 @@ final class LearnerQuestionReportController
 {
     public static function create(): void
     {
+        $attemptId = Request::query('attempt_id');
         $questionId = Request::query('question_id');
-        if (!is_scalar($questionId)) {
+        if (!is_scalar($attemptId) || !is_scalar($questionId)) {
             Response::text('Question not found.', 404);
         }
         try {
-            $context = self::service()->questionContext((string) $questionId);
+            $context = self::service()->questionContextForAttempt(
+                LearnerIdentityService::current(),
+                (string) $attemptId,
+                (string) $questionId
+            );
         } catch (InvalidArgumentException) {
             $context = null;
         }
@@ -33,6 +38,7 @@ final class LearnerQuestionReportController
         View::render('learning/question-report', [
             'pageTitle' => 'Report a question concern | BoardPrep',
             'question' => $context,
+            'attemptId' => (string) $attemptId,
             'types' => QuestionIssueReportService::types(),
             'csrfToken' => CsrfTokenService::token(),
         ]);
@@ -40,10 +46,12 @@ final class LearnerQuestionReportController
 
     public static function submit(): void
     {
+        $rawAttemptId = Request::input('attempt_id');
         $rawQuestionId = Request::input('question_id');
+        $attemptId = is_scalar($rawAttemptId) ? trim((string) $rawAttemptId) : '';
         $questionId = is_scalar($rawQuestionId) ? trim((string) $rawQuestionId) : '';
-        $redirect = $questionId !== '' && strlen($questionId) <= 120
-            ? '/question-report?question_id=' . rawurlencode($questionId)
+        $redirect = $attemptId !== '' && strlen($attemptId) <= 120 && $questionId !== '' && strlen($questionId) <= 120
+            ? '/question-report?attempt_id=' . rawurlencode($attemptId) . '&question_id=' . rawurlencode($questionId)
             : '/history';
         if (!CsrfTokenService::valid(Request::input('csrf_token'))) {
             \SessionService::flash('error', 'This form expired. Reopen it and try again.');
@@ -58,6 +66,7 @@ final class LearnerQuestionReportController
             }
             $result = self::service()->submit(
                 LearnerIdentityService::current(),
+                $attemptId,
                 $questionId,
                 (string) $rawType,
                 (string) $rawDescription

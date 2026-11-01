@@ -3,6 +3,7 @@ $question = is_array($question ?? null) ? $question : [];
 $types = is_array($types ?? null) ? $types : [];
 $csrfToken = is_string($csrfToken ?? null) ? $csrfToken : '';
 $questionId = is_scalar($question['id'] ?? null) ? (string) $question['id'] : '';
+$attemptId = is_scalar($attemptId ?? null) ? (string) $attemptId : '';
 $escape = static fn(mixed $value): string => htmlspecialchars(is_scalar($value) ? (string) $value : '', ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
 ?>
 <div class="page-container learner-question-report">
@@ -14,9 +15,11 @@ $escape = static fn(mixed $value): string => htmlspecialchars(is_scalar($value) 
     <section class="card" aria-labelledby="reported-question-heading">
         <h2 id="reported-question-heading">Question <?= $escape($questionId) ?></h2>
         <p><?= nl2br($escape($question['question'] ?? '')) ?></p>
+        <p class="muted-note">This report is linked to the completed quiz result that showed this question<?= ($question['archived'] ?? false) === true ? '; its saved question version will be used for review' : '' ?>.</p>
     </section>
     <form class="card learner-question-report-form" method="post" action="/question-report">
         <input type="hidden" name="csrf_token" value="<?= $escape($csrfToken) ?>">
+        <input type="hidden" name="attempt_id" value="<?= $escape($attemptId) ?>">
         <input type="hidden" name="question_id" value="<?= $escape($questionId) ?>">
         <div class="form-field">
             <label for="question-report-type">What should be reviewed?</label>
