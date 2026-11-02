@@ -54,6 +54,9 @@ final class QuizFlowController
 
         if ($action !== 'start') {
             ExamTimerService::enforceIfExpired();
+            if ($method === 'POST') {
+                self::validatePostedQuizSession();
+            }
         }
 
         switch ($action) {
@@ -123,6 +126,29 @@ final class QuizFlowController
     {
         \SessionService::flash('error', 'That quiz action is invalid or expired. Please try again.');
         Response::redirect('/quiz');
+    }
+
+    /** Reject a browser form whose originating quiz no longer matches this session. */
+    private static function validatePostedQuizSession(): void
+    {
+        $quizSession = \SessionService::get('quiz_session', []);
+        $quizSession = is_array($quizSession) ? $quizSession : [];
+        $activeSessionId = is_scalar($quizSession['id'] ?? null)
+            ? trim((string) $quizSession['id'])
+            : '';
+        $isExam = ($quizSession['mode'] ?? \SessionService::get('mode')) === 'exam';
+        $postedSessionId = Request::input('quiz_session_id');
+
+        if ($postedSessionId === null && !$isExam) {
+            return;
+        }
+
+        if (!is_scalar($postedSessionId)
+            || $activeSessionId === ''
+            || !hash_equals($activeSessionId, trim((string) $postedSessionId))) {
+            \SessionService::flash('error', 'This form belongs to a different quiz session. Your current session was kept.');
+            Response::redirect('/quiz', 303);
+        }
     }
 
     private static function settings(?array $activeSession = null): void

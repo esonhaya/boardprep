@@ -11,6 +11,7 @@ if ($remainingSeconds !== null):
 <p class="sr-only" id="exam-countdown-announcement" aria-live="polite" aria-atomic="true"></p>
 <form id="exam-expiry-check" class="sr-only" method="POST" action="/quiz" hidden>
     <input type="hidden" name="action" value="timer-check">
+    <input type="hidden" name="quiz_session_id" value="<?= htmlspecialchars(is_scalar($timerSession['id'] ?? null) ? (string) $timerSession['id'] : '', ENT_QUOTES, 'UTF-8') ?>">
     <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($timerCsrfToken, ENT_QUOTES, 'UTF-8') ?>">
 </form>
 <script src="/assets/js/exam-timer.js" defer></script>

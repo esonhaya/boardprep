@@ -50,7 +50,20 @@ $readSession = static function (string $sessionId) use ($sessionPath): array {
     session_write_close();
     return is_array($data) ? $data : [];
 };
-
+$writeSession = static function (string $sessionId, array $data) use ($sessionPath): void {
+    if (session_status() === PHP_SESSION_ACTIVE) {
+        session_write_close();
+    }
+    ini_set('session.use_cookies', '0');
+    ini_set('session.use_strict_mode', '0');
+    session_save_path($sessionPath);
+    session_id($sessionId);
+    if (!session_start()) {
+        throw new RuntimeException('Unable to update isolated exam-simulation session.');
+    }
+    $_SESSION = $data;
+    session_write_close();
+};
 try {
     $settings = $http->request('GET', '/quiz', [], [], [], $cookies);
     if (!$settings['success'] || $settings['status'] !== 200
@@ -95,7 +108,8 @@ try {
         || !str_contains($start['output'], 'An internet connection is required to save or change answers')
         || !str_contains($start['output'], 'Time remaining')
         || !str_contains($start['output'], 'separate from the official board examination')
-        || !preg_match('/name="question_id"\s+value="([^"]+)"/', $start['output'], $match)) {
+        || !preg_match('/name="question_id"\s+value="([^"]+)"/', $start['output'], $match)
+        || !preg_match('/name="quiz_session_id"\s+value="([^"]+)"/', $start['output'], $startSessionIdMatch)) {
         throw new RuntimeException('Timed exam simulation did not start with its timer and official-exam disclosure.');
     }
 
@@ -108,6 +122,23 @@ try {
 
     $startedSession = $readSession($cookies['PHPSESSID']);
     $startedQuiz = $startedSession['quiz_session'] ?? [];
+    if ((string) ($startedQuiz['id'] ?? '') !== $startSessionIdMatch[1]) {
+        throw new RuntimeException('Rendered exam form did not carry its active server session identity.');
+    }
+
+    $missingSessionIdentity = $http->request('POST', '/quiz', [], [
+        'action' => 'next', 'quiz_session_id' => '', 'from_question_id' => $match[1], 'csrf_token' => $csrfToken,
+    ], [], $cookies);
+    $afterMissingSessionIdentity = $readSession($cookies['PHPSESSID']);
+    $missingSessionRecovery = $http->request('GET', '/quiz', [], [], [], $cookies);
+    if ($missingSessionIdentity['status'] !== 303 || $missingSessionIdentity['location'] !== '/quiz'
+        || (int) ($afterMissingSessionIdentity['currentQuestion'] ?? -1) !== 0
+        || (array) ($afterMissingSessionIdentity['answers'] ?? []) !== []
+        || !$missingSessionRecovery['success']
+        || !str_contains($missingSessionRecovery['output'], 'This form belongs to a different quiz session')
+        || !str_contains($missingSessionRecovery['output'], 'role="alert"')) {
+        throw new RuntimeException('An exam POST without its rendered session identity was allowed to mutate the active exam.');
+    }
     $deadline = is_array($startedQuiz) ? (int) ($startedQuiz['deadline_epoch'] ?? 0) : 0;
     $startedAt = is_array($startedQuiz) ? strtotime((string) ($startedQuiz['started_at'] ?? '')) : false;
     $deadlineOffset = $startedAt === false ? 0 : $deadline - $startedAt;
@@ -350,8 +381,8 @@ try {
     }
 
     $concurrentFinishes = $http->requestsConcurrently([
-        ['method' => 'POST', 'path' => '/quiz', 'post' => ['action' => 'finish', 'csrf_token' => $csrfToken], 'cookies' => $cookies],
-        ['method' => 'POST', 'path' => '/quiz', 'post' => ['action' => 'finish', 'csrf_token' => $csrfToken], 'cookies' => $cookies],
+        ['method' => 'POST', 'path' => '/quiz', 'post' => ['action' => 'finish', 'quiz_session_id' => $startedQuiz['id'], 'csrf_token' => $csrfToken], 'cookies' => $cookies],
+        ['method' => 'POST', 'path' => '/quiz', 'post' => ['action' => 'finish', 'quiz_session_id' => $startedQuiz['id'], 'csrf_token' => $csrfToken], 'cookies' => $cookies],
     ]);
     $finish = $concurrentFinishes[0] ?? [];
     $secondFinish = $concurrentFinishes[1] ?? [];
@@ -446,16 +477,17 @@ try {
     }
     $raceSessionBefore = $readSession($raceCookies['PHPSESSID']);
     $raceQuestionId = $raceQuestionMatch[1];
+    $raceSessionId = (string) ($raceSessionBefore['quiz_session']['id'] ?? '');
     $raceNextQuestionId = (string) ($raceSessionBefore['questions'][1]['id'] ?? '');
     $raceResponses = $http->requestsConcurrently([
         ['method' => 'POST', 'path' => '/quiz', 'post' => [
-            'action' => 'submit', 'question_id' => $raceQuestionId, 'answer' => 'A', 'csrf_token' => $raceCsrf,
+            'action' => 'submit', 'quiz_session_id' => $raceSessionId, 'question_id' => $raceQuestionId, 'answer' => 'A', 'csrf_token' => $raceCsrf,
         ], 'cookies' => $raceCookies],
         ['method' => 'POST', 'path' => '/quiz', 'post' => [
-            'action' => 'next', 'from_question_id' => $raceQuestionId, 'csrf_token' => $raceCsrf,
+            'action' => 'next', 'quiz_session_id' => $raceSessionId, 'from_question_id' => $raceQuestionId, 'csrf_token' => $raceCsrf,
         ], 'cookies' => $raceCookies],
         ['method' => 'POST', 'path' => '/quiz', 'post' => [
-            'action' => 'review-flag', 'index' => 0, 'question_id' => $raceQuestionId,
+            'action' => 'review-flag', 'quiz_session_id' => $raceSessionId, 'index' => 0, 'question_id' => $raceQuestionId,
             'marked' => '1', 'version' => '0', 'return_to' => 'current', 'csrf_token' => $raceCsrf,
         ], 'cookies' => $raceCookies],
     ]);
@@ -489,12 +521,13 @@ try {
         throw new RuntimeException('Conflicting-answer race fixture did not start its exam.');
     }
     $answerRaceQuestionId = $answerRaceQuestionMatch[1];
+    $answerRaceSessionId = (string) ($readSession($answerRaceCookies['PHPSESSID'])['quiz_session']['id'] ?? '');
     $conflictingAnswerResponses = $http->requestsConcurrently([
         ['method' => 'POST', 'path' => '/quiz', 'post' => [
-            'action' => 'submit', 'question_id' => $answerRaceQuestionId, 'answer' => 'A', 'csrf_token' => $answerRaceCsrf,
+            'action' => 'submit', 'quiz_session_id' => $answerRaceSessionId, 'question_id' => $answerRaceQuestionId, 'answer' => 'A', 'csrf_token' => $answerRaceCsrf,
         ], 'cookies' => $answerRaceCookies],
         ['method' => 'POST', 'path' => '/quiz', 'post' => [
-            'action' => 'submit', 'question_id' => $answerRaceQuestionId, 'answer' => 'B', 'csrf_token' => $answerRaceCsrf,
+            'action' => 'submit', 'quiz_session_id' => $answerRaceSessionId, 'question_id' => $answerRaceQuestionId, 'answer' => 'B', 'csrf_token' => $answerRaceCsrf,
         ], 'cookies' => $answerRaceCookies],
     ]);
     $answerRaceSession = $readSession($answerRaceCookies['PHPSESSID']);
@@ -549,7 +582,71 @@ try {
         throw new RuntimeException('A new practice session did not replace the completed simulation.');
     }
 
-$expiryCookies = ['PHPSESSID' => 'batch676-expired-exam-' . bin2hex(random_bytes(8))];
+    $staleAttemptCookies = ['PHPSESSID' => 'batch739-stale-attempt-' . bin2hex(random_bytes(8))];
+    $staleAttemptSettings = $http->request('GET', '/quiz', [], [], [], $staleAttemptCookies);
+    if (!$staleAttemptSettings['success']
+        || !preg_match('/name="csrf_token" value="([^"]+)"/', $staleAttemptSettings['output'], $staleAttemptCsrfMatch)) {
+        throw new RuntimeException('Stale-attempt fixture did not receive a CSRF token.');
+    }
+    $staleAttemptCsrf = $staleAttemptCsrfMatch[1];
+    $oldAttemptStart = $http->request('POST', '/quiz', [], [
+        'action' => 'start', 'exam' => 'LET', 'subject' => 'English', 'mode' => 'exam',
+        'timer_mode' => 'untimed', 'difficulty' => 'mixed', 'count' => 2, 'csrf_token' => $staleAttemptCsrf,
+    ], [], $staleAttemptCookies);
+    $oldAttemptState = $readSession($staleAttemptCookies['PHPSESSID']);
+    $oldAttemptSessionId = (string) ($oldAttemptState['quiz_session']['id'] ?? '');
+    $oldQuestion = $oldAttemptState['questions'][0] ?? null;
+    if (!$oldAttemptStart['success'] || !is_array($oldQuestion) || $oldAttemptSessionId === '') {
+        throw new RuntimeException('Stale-attempt fixture did not create its original exam session.');
+    }
+    $newAttemptStart = $http->request('POST', '/quiz', [], [
+        'action' => 'start', 'exam' => 'LET', 'subject' => 'English', 'mode' => 'exam',
+        'timer_mode' => 'untimed', 'difficulty' => 'mixed', 'count' => 2, 'csrf_token' => $staleAttemptCsrf,
+    ], [], $staleAttemptCookies);
+    $newAttemptState = $readSession($staleAttemptCookies['PHPSESSID']);
+    $newAttemptSessionId = (string) ($newAttemptState['quiz_session']['id'] ?? '');
+    if (!$newAttemptStart['success'] || $newAttemptSessionId === '' || $newAttemptSessionId === $oldAttemptSessionId) {
+        throw new RuntimeException('Starting a replacement exam did not create a distinct session identity.');
+    }
+    // Force a canonical question-ID overlap so this exercises stale form identity,
+    // not the existing unrelated-question rejection path.
+    $newAttemptState['questions'] = [$oldQuestion];
+    $newAttemptState['answers'] = [];
+    $newAttemptState['currentQuestion'] = 0;
+    $newAttemptState['mode'] = 'exam';
+    $newAttemptState['quiz_session']['question_count'] = 1;
+    $newAttemptState['quiz_session']['question_ids'] = [(string) $oldQuestion['id']];
+    $newAttemptState['quiz_session']['timer_mode'] = 'untimed';
+    $newAttemptState['quiz_session']['time_limit_seconds'] = 0;
+    $newAttemptState['quiz_session']['deadline_epoch'] = null;
+    $newAttemptState['exam_answer_revision'] = 0;
+    $newAttemptState['exam_review_flags'] = [];
+    $newAttemptState['exam_review_flag_versions'] = [];
+    $newAttemptState['exam_review_flag_session_id'] = $newAttemptSessionId;
+    $writeSession($staleAttemptCookies['PHPSESSID'], $newAttemptState);
+    $staleAttemptReplay = $http->request('POST', '/quiz', [], [
+        'action' => 'submit', 'quiz_session_id' => $oldAttemptSessionId,
+        'question_id' => (string) $oldQuestion['id'], 'answer' => 'A', 'csrf_token' => $staleAttemptCsrf,
+    ], [], $staleAttemptCookies);
+    $afterStaleAttemptReplay = $readSession($staleAttemptCookies['PHPSESSID']);
+    $staleAttemptRecovery = $http->request('GET', '/quiz', [], [], [], $staleAttemptCookies);
+    if (!in_array($staleAttemptReplay['status'], [302, 303], true)
+        || $staleAttemptReplay['location'] !== '/quiz'
+        || (array) ($afterStaleAttemptReplay['answers'] ?? []) !== []
+        || (int) ($afterStaleAttemptReplay['currentQuestion'] ?? -1) !== 0
+        || ($afterStaleAttemptReplay['attempt_persisted'] ?? false) === true
+        || !$staleAttemptRecovery['success']
+        || !str_contains($staleAttemptRecovery['output'], 'This form belongs to a different quiz session')
+        || !str_contains($staleAttemptRecovery['output'], 'Question 1 / 1')) {
+        throw new RuntimeException('A stale form from an earlier exam mutated a replacement session with the same question ID: ' . json_encode([
+            'status' => $staleAttemptReplay['status'] ?? null,
+            'location' => $staleAttemptReplay['location'] ?? null,
+            'answers' => $afterStaleAttemptReplay['answers'] ?? null,
+            'attempt_persisted' => $afterStaleAttemptReplay['attempt_persisted'] ?? null,
+        ]));
+    }
+
+    $expiryCookies = ['PHPSESSID' => 'batch676-expired-exam-' . bin2hex(random_bytes(8))];
     $expirySettings = $http->request('GET', '/quiz', [], [], [], $expiryCookies);
     if (!$expirySettings['success'] || !preg_match('/name="csrf_token" value="([^"]+)"/', $expirySettings['output'], $expiryCsrfMatch)) {
         throw new RuntimeException('Quiz settings did not provide a CSRF token for expired-timer coverage.');
@@ -659,10 +756,10 @@ $expiryCookies = ['PHPSESSID' => 'batch676-expired-exam-' . bin2hex(random_bytes
     }
     $finalizeMarkResponses = $http->requestsConcurrently([
         ['method' => 'POST', 'path' => '/quiz', 'post' => [
-            'action' => 'finish', 'csrf_token' => $finalizeMarkCsrf,
+            'action' => 'finish', 'quiz_session_id' => $finalizeMarkSessionId, 'csrf_token' => $finalizeMarkCsrf,
         ], 'cookies' => $finalizeMarkCookies],
         ['method' => 'POST', 'path' => '/quiz', 'post' => [
-            'action' => 'review-flag', 'index' => 0, 'question_id' => $finalizeMarkQuestionId,
+            'action' => 'review-flag', 'quiz_session_id' => $finalizeMarkSessionId, 'index' => 0, 'question_id' => $finalizeMarkQuestionId,
             'marked' => '1', 'version' => '0', 'return_to' => 'current', 'csrf_token' => $finalizeMarkCsrf,
         ], 'cookies' => $finalizeMarkCookies],
     ]);
@@ -693,7 +790,7 @@ $expiryCookies = ['PHPSESSID' => 'batch676-expired-exam-' . bin2hex(random_bytes
         ]));
     }
 
-    echo "[PASS] Timed/untimed exam setup, resume, versioned finalized review marks, stale flag rejection, answer/navigation/finalization races, editable answers, review summary, late-expiration rejection, partial scoring, history metadata, lost-response retries, and exact-once submission verified.\n";
+    echo "[PASS] Timed/untimed exam setup, resume, session-bound stale-form rejection, versioned finalized review marks, stale flag rejection, answer/navigation/finalization races, editable answers, review summary, late-expiration rejection, partial scoring, history metadata, lost-response retries, and exact-once submission verified.\n";
 } finally {
     $repository = App::container()->get(AttemptRepository::class);
     $after = json_decode((string) file_get_contents($path), true);

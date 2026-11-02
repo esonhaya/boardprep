@@ -10,6 +10,7 @@ $studyReferences = is_array($studyReferences ?? null) ? $studyReferences : [];
 $progressValue = $total > 0 ? min(100, max(0, (int) round(($current + 1) / $total * 100))) : 0;
 $quizSession = \SessionService::get('quiz_session', []);
 $quizSession = is_array($quizSession) ? $quizSession : [];
+$quizSessionId = is_scalar($quizSession['id'] ?? null) ? trim((string) $quizSession['id']) : '';
 $isExamSimulation = $mode === 'exam';
 $answers = \SessionService::get('answers', []);
 $answers = is_array($answers) ? $answers : [];
@@ -104,6 +105,7 @@ if ($civilServiceLevel !== '') {
 </p>
 <form class="exam-review-flag-form exam-current-review-flag" method="POST" action="/quiz" aria-label="Question review mark">
     <input type="hidden" name="action" value="review-flag">
+    <input type="hidden" name="quiz_session_id" value="<?= htmlspecialchars($quizSessionId, ENT_QUOTES, 'UTF-8') ?>">
     <input type="hidden" name="index" value="<?= (int) $current ?>">
     <input type="hidden" name="question_id" value="<?= htmlspecialchars($questionId, ENT_QUOTES, 'UTF-8') ?>">
     <input type="hidden" name="marked" value="<?= $reviewFlagState['marked'] ? '0' : '1' ?>">
@@ -221,6 +223,8 @@ name="action"
 value="finish"
 >
 
+<input type="hidden" name="quiz_session_id" value="<?= htmlspecialchars($quizSessionId, ENT_QUOTES, 'UTF-8') ?>">
+
 <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrfToken, ENT_QUOTES, 'UTF-8') ?>">
 
 <button type="submit">
@@ -236,6 +240,7 @@ Finish Quiz
 <form method="POST" action="/quiz?action=next">
 
 <input type="hidden" name="action" value="next">
+<input type="hidden" name="quiz_session_id" value="<?= htmlspecialchars($quizSessionId, ENT_QUOTES, 'UTF-8') ?>">
 <input type="hidden" name="from_question_id" value="<?= htmlspecialchars($questionId, ENT_QUOTES, 'UTF-8') ?>">
 <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrfToken, ENT_QUOTES, 'UTF-8') ?>">
 
@@ -263,6 +268,7 @@ value="<?= htmlspecialchars((string) ($question["id"] ?? "")) ?>"
 >
 
 <input type="hidden" name="action" value="submit">
+<input type="hidden" name="quiz_session_id" value="<?= htmlspecialchars($quizSessionId, ENT_QUOTES, 'UTF-8') ?>">
 <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrfToken, ENT_QUOTES, 'UTF-8') ?>">
 
 
@@ -306,12 +312,14 @@ required
 <nav class="exam-question-navigation" aria-label="Exam simulation question navigation">
     <form method="POST" action="/quiz">
         <input type="hidden" name="action" value="previous">
+        <input type="hidden" name="quiz_session_id" value="<?= htmlspecialchars($quizSessionId, ENT_QUOTES, 'UTF-8') ?>">
         <input type="hidden" name="from_question_id" value="<?= htmlspecialchars($questionId, ENT_QUOTES, 'UTF-8') ?>">
         <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrfToken, ENT_QUOTES, 'UTF-8') ?>">
         <button type="submit" class="button button-outline" <?= $current <= 0 ? 'disabled' : '' ?>>Previous question</button>
     </form>
     <form method="POST" action="/quiz">
         <input type="hidden" name="action" value="next">
+        <input type="hidden" name="quiz_session_id" value="<?= htmlspecialchars($quizSessionId, ENT_QUOTES, 'UTF-8') ?>">
         <input type="hidden" name="from_question_id" value="<?= htmlspecialchars($questionId, ENT_QUOTES, 'UTF-8') ?>">
         <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrfToken, ENT_QUOTES, 'UTF-8') ?>">
         <button type="submit" class="button button-outline"><?= $current + 1 >= $total ? 'Review answers' : 'Skip to next question' ?></button>

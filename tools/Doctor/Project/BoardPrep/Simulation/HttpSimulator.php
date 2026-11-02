@@ -9,6 +9,9 @@ SimulationStorageFixture::activate(dirname(__DIR__, 5));
 
 final class HttpSimulator
 {
+    /** @var array<string,string> */
+    private array $quizSessionIds = [];
+
     public function __construct(
         private string $entryPoint
     ) {
@@ -52,6 +55,7 @@ final class HttpSimulator
         array $server = [],
         array $cookies = []
     ): array {
+        $post = $this->bindRenderedQuizSession($method, $path, $post, $cookies);
         $payload = $this->createPayload(
             $method,
             $path,
@@ -76,12 +80,15 @@ final class HttpSimulator
         $duration =
             microtime(true) - $start;
 
-        return $this->buildResponse(
+        $response = $this->buildResponse(
             $stdout,
             $stderr,
             $exitCode,
             $duration
         );
+        $this->rememberRenderedQuizSession($response, $cookies);
+
+        return $response;
     }
 
     /**
@@ -115,7 +122,12 @@ final class HttpSimulator
                     (string) ($request['method'] ?? 'GET'),
                     (string) ($request['path'] ?? '/'),
                     (array) ($request['query'] ?? []),
-                    (array) ($request['post'] ?? []),
+                    $this->bindRenderedQuizSession(
+                        (string) ($request['method'] ?? 'GET'),
+                        (string) ($request['path'] ?? '/'),
+                        (array) ($request['post'] ?? []),
+                        (array) ($request['cookies'] ?? [])
+                    ),
                     (array) ($request['server'] ?? []),
                     (array) ($request['cookies'] ?? [])
                 );
@@ -150,12 +162,14 @@ final class HttpSimulator
                 $running[$index]['process'] = null;
                 $stdout = (string) (file_get_contents($request['stdout']) ?: '');
                 $stderr = (string) (file_get_contents($request['stderr']) ?: '');
-                $responses[] = $this->buildResponse(
+                $response = $this->buildResponse(
                     $stdout,
                     $stderr,
                     $exitCode,
                     microtime(true) - $request['started_at']
                 );
+                $this->rememberRenderedQuizSession($response, (array) ($requests[$index]['cookies'] ?? []));
+                $responses[] = $response;
             }
 
             return $responses;
@@ -517,6 +531,35 @@ PHP;
                 $exitCode === 0
                 && $status < 400,
         ];
+    }
+
+    /** Supply the server-issued identity captured from the latest rendered quiz form. */
+    private function bindRenderedQuizSession(string $method, string $path, array $post, array $cookies): array
+    {
+        $cookieId = is_scalar($cookies['PHPSESSID'] ?? null) ? (string) $cookies['PHPSESSID'] : '';
+        if (strtoupper($method) === 'POST' && $path === '/quiz'
+            && ($post['action'] ?? '') !== 'start'
+            && !array_key_exists('quiz_session_id', $post)
+            && $cookieId !== ''
+            && isset($this->quizSessionIds[$cookieId])) {
+            $post['quiz_session_id'] = $this->quizSessionIds[$cookieId];
+        }
+
+        return $post;
+    }
+
+    /** Remember the token actually rendered by the application for later simulated form posts. */
+    private function rememberRenderedQuizSession(array $response, array $cookies): void
+    {
+        $cookieId = is_scalar($cookies['PHPSESSID'] ?? null) ? (string) $cookies['PHPSESSID'] : '';
+        $output = is_string($response['output'] ?? null) ? $response['output'] : '';
+        if ($cookieId !== ''
+            && preg_match('/name="quiz_session_id"\s+value="([^"]*)"/', $output, $match) === 1) {
+            $sessionId = html_entity_decode($match[1], ENT_QUOTES | ENT_HTML5, 'UTF-8');
+            if ($sessionId !== '') {
+                $this->quizSessionIds[$cookieId] = $sessionId;
+            }
+        }
     }
 
     /**
