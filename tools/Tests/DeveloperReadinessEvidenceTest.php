@@ -123,6 +123,47 @@ try {
     ]));
     $cleanWorktreeEvidence = $reader->latest($gitFixture, $now);
     readinessAssert($cleanWorktreeEvidence['state'] === 'CURRENT_PASS', 'Clean, current Git evidence did not remain verifiable.');
+    $barePassBase = 'batch-733-full-doctor-20261101T000010Z';
+    [, $barePassJson] = $writeArtifact($barePassBase, ['browser' => 'PASS']);
+    file_put_contents($gitReports . '/' . $barePassBase . '.json', $barePassJson);
+    file_put_contents($gitReports . '/' . $barePassBase . '.meta.txt', implode("\n", [
+        'COMMAND=php tools/doctor.php --release --json',
+        'CWD=' . $gitFixture,
+        'START_UTC=2026-10-31T23:59:30Z',
+        'END_UTC=2026-11-01T00:00:00Z',
+        'EXIT_CODE=0',
+        'TESTED_SHA=' . $fixtureHead,
+        'JSON=' . $barePassBase . '.json',
+        'ARTIFACT_SHA256=' . hash('sha256', $barePassJson),
+        '',
+    ]));
+    $barePassEvidence = $reader->latest($gitFixture, $now);
+    readinessAssert($barePassEvidence['state'] === 'CURRENT_PASS'
+        && $barePassEvidence['browser_acceptance'] === 'PASS', 'Valid Full Doctor evidence fixture did not preserve its recorded browser marker.');
+    $barePassStorage = new JsonStorage($fixture . '/bare-pass-dashboard-storage');
+    $barePassDashboard = (new ReadinessDashboardService($barePassStorage, $reader))->build($gitFixture, $now);
+    readinessAssert(($barePassDashboard['browser_acceptance']['status'] ?? '') === 'UNVERIFIED'
+        && str_contains((string) ($barePassDashboard['browser_acceptance']['failure_reason'] ?? ''), 'validated browser-specific provenance'),
+        'A browser PASS marker without domain provenance was accepted.');
+    $unknownBrowserBase = 'batch-733-full-doctor-20261101T000012Z';
+    [, $unknownBrowserJson] = $writeArtifact($unknownBrowserBase, ['browser' => 'SUCCESS']);
+    file_put_contents($gitReports . '/' . $unknownBrowserBase . '.json', $unknownBrowserJson);
+    file_put_contents($gitReports . '/' . $unknownBrowserBase . '.meta.txt', implode("\n", [
+        'COMMAND=php tools/doctor.php --release --json',
+        'CWD=' . $gitFixture,
+        'START_UTC=2026-10-31T23:59:30Z',
+        'END_UTC=2026-11-01T00:00:00Z',
+        'EXIT_CODE=0',
+        'TESTED_SHA=' . $fixtureHead,
+        'JSON=' . $unknownBrowserBase . '.json',
+        'ARTIFACT_SHA256=' . hash('sha256', $unknownBrowserJson),
+        '',
+    ]));
+    $unknownBrowserDashboard = (new ReadinessDashboardService($barePassStorage, $reader))->build($gitFixture, $now);
+    readinessAssert(($unknownBrowserDashboard['browser_acceptance']['status'] ?? '') === 'UNVERIFIED'
+        && str_contains((string) ($unknownBrowserDashboard['browser_acceptance']['failure_reason'] ?? ''), 'unrecognized'),
+        'An unrecognized browser success value was accepted.');
+    $writeArtifact('batch-733-full-doctor-20261101T000013Z');
     file_put_contents($gitFixture . '/app/verified.php', "<?php\n// uncommitted implementation change\n");
     $dirtyWorktreeEvidence = $reader->latest($gitFixture, $now);
     readinessAssert($dirtyWorktreeEvidence['state'] === 'UNVERIFIED'
@@ -195,6 +236,8 @@ try {
     file_put_contents($reports . '/' . $metadataBase . '.meta.txt', 'EXIT_CODE=0');
     $unproven = $reader->read($fixture, 'docs/reports/' . $metadataBase . '.json', 'docs/reports/' . $metadataBase . '.meta.txt', $head, $now);
     readinessAssert($unproven['state'] === 'UNVERIFIED' && $unproven['priority_counts']['P2'] === 1, 'A valid report with missing provenance either lost its recorded counts or claimed PASS.');
+    $dashboardBase = 'batch-733-full-doctor-20261101T000011Z';
+    $writeArtifact($dashboardBase);
 
     $storagePath = $fixture . '/dashboard-storage';
     $storage = new JsonStorage($storagePath);
@@ -206,7 +249,7 @@ try {
         'id' => 'qir-' . str_repeat('2', 32), 'user_id' => 'learner-' . str_repeat('2', 32),
         'question_id' => 'private-question-two', 'description' => 'PRIVATE REPORT TEXT TWO', 'status' => 'UNDER_REVIEW',
     ]);
-    $dashboard = (new ReadinessDashboardService($storage))->build(dirname(__DIR__, 2));
+    $dashboard = (new ReadinessDashboardService($storage, $reader))->build($fixture, $now);
     readinessAssert($dashboard['technical_gate']['status'] === 'UNVERIFIED', 'Legacy evidence without tested commit was represented as current PASS.');
     readinessAssert(($dashboard['academic_approval']['pending_proposals'] ?? null) === 276, 'Pending academic proposals were not grounded in the current disposition inventory.');
     readinessAssert(($dashboard['academic_approval']['reviewer_authorization'] ?? '') === 'SCOPED_PER_ACCOUNT; checked by academic workflow; not grantable from this dashboard', 'Dashboard implies reviewer authorization can be granted here.');
@@ -215,6 +258,15 @@ try {
         && ($dashboard['learner_question_reports']['counts']['under_review'] ?? null) === 1, 'Learner concern aggregates were incorrect.');
     readinessAssert(!str_contains(json_encode($dashboard, JSON_THROW_ON_ERROR), 'PRIVATE REPORT TEXT'), 'Dashboard exposed private learner report content.');
     readinessAssert(($dashboard['public_release_authorization']['status'] ?? '') === 'NOT_AUTHORIZED', 'Technical evidence implied public release authorization.');
+    $browser = $dashboard['browser_acceptance'] ?? null;
+    readinessAssert(is_array($browser) && ($browser['status'] ?? '') === 'NOT_EXECUTED'
+        && ($browser['freshness'] ?? '') === 'NO_EVIDENCE'
+        && str_contains((string) ($browser['failure_reason'] ?? ''), 'No validated current-commit'),
+        'Absent browser execution was not represented as NOT_EXECUTED with an explicit reason.');
+    foreach (['environment', 'tested_sha', 'timestamp', 'command', 'exit_code', 'artifact', 'artifact_sha256'] as $field) {
+        readinessAssert(array_key_exists($field, $browser) && $browser[$field] === null,
+            'Unexecuted browser acceptance invented ' . $field . ' provenance.');
+    }
     foreach ([
         'encrypted_backup_acceptance' => 'No sodium-enabled encrypted backup',
         'hosted_configuration_acceptance' => 'No authorized disposable-host',

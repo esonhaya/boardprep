@@ -111,10 +111,7 @@ final class ReadinessDashboardService
                 'freshness_reason' => (string) ($evidence['reason'] ?? 'evidence_unavailable'),
                 'source' => 'latest direct-child docs/reports/batch-*-full-doctor-*.json with matching .meta.txt provenance',
             ],
-            'browser_acceptance' => [
-                'status' => (string) ($evidence['browser_acceptance'] ?? 'NOT_EXECUTED'),
-                'source' => 'Full Doctor release_domains.BROWSER_ACCEPTANCE; absent evidence is NOT_EXECUTED',
-            ],
+            'browser_acceptance' => self::browserAcceptance($evidence),
             'encrypted_backup_acceptance' => self::unexecutedAcceptance(
                 'No sodium-enabled encrypted backup and authorized restore result is recorded for this checkout.',
                 'No validated current-commit sodium round-trip artifact is available. A fail-closed missing-extension check is not encrypted backup acceptance.'
@@ -174,5 +171,85 @@ final class ReadinessDashboardService
             'freshness' => 'NO_EVIDENCE',
             'source' => $source,
         ];
+    }
+
+    /** @return array<string,mixed> */
+    private static function browserAcceptance(array $evidence): array
+    {
+        $recordedStatus = strtoupper(trim((string) ($evidence['browser_acceptance'] ?? 'NOT_EXECUTED')));
+        $knownStatuses = ['PASS', 'FAIL', 'FAILED', 'MISMATCH', 'REVIEW', 'STALE', 'UNVERIFIED', 'NOT_EXECUTED', 'BLOCKED', 'MISSING'];
+        $freshness = 'NO_EVIDENCE';
+        $failureReason = 'No validated current-commit real-browser acceptance result is recorded.';
+
+        $staleRecorded = str_starts_with($recordedStatus, 'STALE_RECORDED_');
+        $statusToClassify = $staleRecorded
+            ? substr($recordedStatus, strlen('STALE_RECORDED_'))
+            : $recordedStatus;
+        if ($staleRecorded) {
+            if (in_array($statusToClassify, $knownStatuses, true)) {
+                $status = in_array($statusToClassify, ['NOT_EXECUTED', 'BLOCKED', 'MISSING'], true)
+                    ? 'NOT_EXECUTED'
+                    : ($statusToClassify === 'PASS' ? 'STALE' : self::browserStatus($statusToClassify));
+                $freshness = 'STALE';
+                $failureReason = 'The recorded browser status is from stale Full Doctor evidence.';
+            } else {
+                $status = 'UNVERIFIED';
+                $freshness = 'UNVERIFIED';
+                $failureReason = 'The browser acceptance status is unrecognized and cannot be accepted.';
+            }
+        } elseif ($recordedStatus === 'PASS') {
+            $status = 'UNVERIFIED';
+            $freshness = 'UNVERIFIED';
+            $failureReason = 'A browser PASS marker without validated browser-specific provenance is not accepted.';
+        } elseif (in_array($recordedStatus, $knownStatuses, true)) {
+            $status = self::browserStatus($recordedStatus);
+            $doctorState = (string) ($evidence['state'] ?? 'UNVERIFIED');
+            $freshness = in_array($doctorState, ['CURRENT_PASS', 'FAIL'], true) ? 'CURRENT' : strtoupper($doctorState);
+            if ($status === 'FAILED') {
+                $failureReason = 'The recorded browser acceptance result failed or did not match this checkout.';
+            } elseif ($status === 'REVIEW') {
+                $failureReason = 'The browser acceptance evidence requires review.';
+            } elseif ($status === 'NOT_EXECUTED') {
+                $freshness = 'NO_EVIDENCE';
+                $failureReason = 'No validated current-commit real-browser acceptance result is recorded.';
+            } elseif ($status === 'STALE') {
+                $freshness = 'STALE';
+                $failureReason = 'No current, validated browser acceptance result is available.';
+            } elseif ($status === 'UNVERIFIED') {
+                $freshness = 'UNVERIFIED';
+                $failureReason = 'No current, validated browser acceptance result is available.';
+            }
+        } else {
+            $status = 'UNVERIFIED';
+            $freshness = 'UNVERIFIED';
+            $failureReason = 'The browser acceptance status is unrecognized and cannot be accepted.';
+        }
+
+        return [
+            'status' => $status,
+            'environment' => null,
+            'tested_sha' => null,
+            'timestamp' => null,
+            'command' => null,
+            'exit_code' => null,
+            'artifact' => null,
+            'artifact_sha256' => null,
+            'failure_reason' => $failureReason,
+            'freshness' => $freshness,
+            'source' => 'Full Doctor browser summary; a browser PASS requires browser-specific validated provenance.',
+        ];
+    }
+
+    private static function browserStatus(string $status): string
+    {
+        return match ($status) {
+            'PASS' => 'UNVERIFIED',
+            'FAIL', 'FAILED', 'MISMATCH' => 'FAILED',
+            'BLOCKED', 'MISSING', 'NOT_EXECUTED' => 'NOT_EXECUTED',
+            'REVIEW' => 'REVIEW',
+            'STALE' => 'STALE',
+            'UNVERIFIED' => 'UNVERIFIED',
+            default => 'UNVERIFIED',
+        };
     }
 }

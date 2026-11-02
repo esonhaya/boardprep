@@ -78,6 +78,7 @@ try {
         && str_contains($readiness, 'NOT_EXECUTED')
         && str_contains($readiness, 'Encrypted backup acceptance')
         && str_contains($readiness, 'Hosted configuration acceptance')
+        && str_contains($readiness, 'No validated current-commit real-browser acceptance result is recorded.')
         && str_contains($readiness, 'Not recorded'), 'Readiness dashboard failed to display separate browser, crypto, hosted, and public-release states.');
     echo "[PASS] Learner dashboard/calendar routes render owned study state; readiness route displays independent technical, browser, backup, hosted, academic, and public-release gates.\n";
 } finally {
