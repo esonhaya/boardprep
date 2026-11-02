@@ -53,3 +53,50 @@ test('exam timer uses one-second rendering and catches up when a mobile tab retu
   tick();
   assert.equal(submissions, 1, 'repeated focus and interval events cannot submit twice');
 });
+
+test('exam timer accounts for response-to-script delay and device sleep', () => {
+  const callbacks = { document: new Map(), window: new Map() };
+  let performanceNow = 4500;
+  let wallNow = 100000;
+  let tick = null;
+  let submissions = 0;
+  const timer = { dataset: { remainingSeconds: '10' } };
+  const value = { textContent: '' };
+  const expiryForm = { requestSubmit() { submissions++; } };
+  const document = {
+    hidden: false,
+    querySelector(selector) { return selector === '.exam-countdown[data-remaining-seconds]' ? timer : null; },
+    getElementById(id) {
+      return ({ 'exam-expiry-check': expiryForm, 'exam-countdown-value': value })[id] || null;
+    },
+    addEventListener(name, callback) { callbacks.document.set(name, callback); },
+  };
+  const window = {
+    setInterval(callback) { tick = callback; return 1; },
+    addEventListener(name, callback) { callbacks.window.set(name, callback); },
+  };
+  const source = fs.readFileSync(path.join(__dirname, '../../public/assets/js/exam-timer.js'), 'utf8');
+  vm.runInNewContext(source, {
+    document,
+    window,
+    performance: {
+      now: () => performanceNow,
+      getEntriesByType: (type) => type === 'navigation' ? [{ responseStart: 500 }] : [],
+    },
+    Date: { now: () => wallNow },
+    Number,
+    Math,
+    String,
+  });
+
+  assert.equal(value.textContent, '00:06', 'four seconds between the response and script must not be added back to the exam');
+  performanceNow += 1000;
+  wallNow += 1000;
+  tick();
+  assert.equal(value.textContent, '00:05');
+
+  wallNow += 5000;
+  callbacks.window.get('pageshow')();
+  assert.equal(value.textContent, '00:00', 'a sleeping mobile device must catch up from wall time when the page resumes');
+  assert.equal(submissions, 1);
+});

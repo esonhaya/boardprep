@@ -9,6 +9,14 @@
     if (!Number.isFinite(initialSeconds) || initialSeconds < 0) return;
 
     const startedAt = performance.now();
+    const startedAtWall = Date.now();
+    const navigation = typeof performance.getEntriesByType === 'function'
+        ? performance.getEntriesByType('navigation')[0]
+        : null;
+    const responseStart = Number(navigation?.responseStart);
+    const elapsedBeforeScript = Number.isFinite(responseStart) && responseStart > 0
+        ? Math.max(0, startedAt - responseStart)
+        : 0;
     let submitted = false;
     let lastAnnouncement = null;
     const format = (seconds) => {
@@ -21,7 +29,11 @@
     };
 
     const update = () => {
-        const elapsedSeconds = Math.floor((performance.now() - startedAt) / 1000);
+        const elapsedSinceScript = Math.max(
+            performance.now() - startedAt,
+            Date.now() - startedAtWall
+        );
+        const elapsedSeconds = Math.floor((elapsedBeforeScript + elapsedSinceScript) / 1000);
         const remaining = Math.max(0, initialSeconds - elapsedSeconds);
         value.textContent = format(remaining);
         timer.dataset.remainingSeconds = String(remaining);
