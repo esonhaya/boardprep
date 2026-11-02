@@ -115,6 +115,14 @@ final class ReadinessDashboardService
                 'status' => (string) ($evidence['browser_acceptance'] ?? 'NOT_EXECUTED'),
                 'source' => 'Full Doctor release_domains.BROWSER_ACCEPTANCE; absent evidence is NOT_EXECUTED',
             ],
+            'encrypted_backup_acceptance' => self::unexecutedAcceptance(
+                'No sodium-enabled encrypted backup and authorized restore result is recorded for this checkout.',
+                'No validated current-commit sodium round-trip artifact is available. A fail-closed missing-extension check is not encrypted backup acceptance.'
+            ),
+            'hosted_configuration_acceptance' => self::unexecutedAcceptance(
+                'No authorized disposable-host configuration result is recorded for this checkout.',
+                'Local production preflight does not establish HTTPS, proxy, cookie, session, or filesystem behavior on a hosted system.'
+            ),
             'academic_approval' => [
                 'status' => $proposalState !== 'AVAILABLE' || $workflowState !== 'AVAILABLE'
                     ? 'UNVERIFIED'
@@ -147,6 +155,24 @@ final class ReadinessDashboardService
                 ['label' => 'Source registry and review guidance', 'href' => '/developer/academic-review'],
                 ['label' => 'Release gate documentation', 'href' => '/developer/doctor'],
             ],
+        ];
+    }
+
+    /** @return array<string,mixed> */
+    private static function unexecutedAcceptance(string $reason, string $source): array
+    {
+        return [
+            'status' => 'NOT_EXECUTED',
+            'environment' => null,
+            'tested_sha' => null,
+            'timestamp' => null,
+            'command' => null,
+            'exit_code' => null,
+            'artifact' => null,
+            'artifact_sha256' => null,
+            'failure_reason' => $reason,
+            'freshness' => 'NO_EVIDENCE',
+            'source' => $source,
         ];
     }
 }

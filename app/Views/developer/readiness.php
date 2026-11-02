@@ -7,6 +7,8 @@ $data = is_array($readiness ?? null) ? $readiness : [];
 $technical = is_array($data['technical_gate'] ?? null) ? $data['technical_gate'] : [];
 $academic = is_array($data['academic_approval'] ?? null) ? $data['academic_approval'] : [];
 $browser = is_array($data['browser_acceptance'] ?? null) ? $data['browser_acceptance'] : [];
+$backup = is_array($data['encrypted_backup_acceptance'] ?? null) ? $data['encrypted_backup_acceptance'] : [];
+$hosted = is_array($data['hosted_configuration_acceptance'] ?? null) ? $data['hosted_configuration_acceptance'] : [];
 $reports = is_array($data['learner_question_reports'] ?? null) ? $data['learner_question_reports'] : [];
 $counts = is_array($technical['priority_counts'] ?? null) ? $technical['priority_counts'] : [];
 $state = strtoupper((string) ($technical['status'] ?? 'UNVERIFIED'));
@@ -20,7 +22,7 @@ $artifactPath = is_string($technical['artifact'] ?? null) && $technical['artifac
     <div>
         <p class="eyebrow">Read-only operational evidence</p>
         <h1>Readiness Overview</h1>
-        <p>Technical checks, browser execution, academic review, and public-release authorization are separate states. This page reads saved evidence and does not run diagnostics or grant access.</p>
+        <p>Technical checks, browser execution, encrypted backup, hosted configuration, academic review, and public-release authorization are separate states. This page reads saved evidence and does not run diagnostics or grant access.</p>
     </div>
     <nav class="related-navigation" aria-label="Readiness evidence links">
         <?php foreach ((array) ($data['links'] ?? []) as $link): ?>
@@ -35,6 +37,8 @@ $artifactPath = is_string($technical['artifact'] ?? null) && $technical['artifac
     <div class="stats-grid">
         <article class="card"><h3>Technical gate</h3><p><span class="badge <?= $e($badgeClass) ?>"><?= $e($state) ?></span></p><p>Recorded release gate: <strong><?= $e($technical['release_gate'] ?? 'UNKNOWN') ?></strong></p><p>Health: <?= $e($technical['health_status'] ?? 'UNKNOWN') ?></p></article>
         <article class="card"><h3>Browser acceptance</h3><p><span class="badge badge-warning"><?= $e($browser['status'] ?? 'NOT_EXECUTED') ?></span></p><p>Browser PASS requires an explicit supported-runner result in Full Doctor evidence.</p></article>
+        <article class="card"><h3>Encrypted backup acceptance</h3><p><span class="badge badge-warning"><?= $e($backup['status'] ?? 'NOT_EXECUTED') ?></span></p><p><?= $e($backup['failure_reason'] ?? 'No current sodium round-trip evidence is registered.') ?></p><p>Provenance: <?= $e($backup['freshness'] ?? 'NO_EVIDENCE') ?> · environment <?= $e($backup['environment'] ?? 'Not recorded') ?> · commit <?= $e($backup['tested_sha'] ?? 'Not recorded') ?> · run <?= $e($backup['timestamp'] ?? 'Not recorded') ?> · command <?= $e($backup['command'] ?? 'Not recorded') ?> · exit <?= $e($backup['exit_code'] ?? 'Not recorded') ?> · artifact <?= $e($backup['artifact'] ?? 'Not recorded') ?> · SHA-256 <?= $e($backup['artifact_sha256'] ?? 'Not recorded') ?>.</p><p class="muted"><?= $e($backup['source'] ?? 'No validated acceptance artifact is registered.') ?></p></article>
+        <article class="card"><h3>Hosted configuration acceptance</h3><p><span class="badge badge-warning"><?= $e($hosted['status'] ?? 'NOT_EXECUTED') ?></span></p><p><?= $e($hosted['failure_reason'] ?? 'No authorized hosted configuration evidence is registered.') ?></p><p>Provenance: <?= $e($hosted['freshness'] ?? 'NO_EVIDENCE') ?> · environment <?= $e($hosted['environment'] ?? 'Not recorded') ?> · commit <?= $e($hosted['tested_sha'] ?? 'Not recorded') ?> · run <?= $e($hosted['timestamp'] ?? 'Not recorded') ?> · command <?= $e($hosted['command'] ?? 'Not recorded') ?> · exit <?= $e($hosted['exit_code'] ?? 'Not recorded') ?> · artifact <?= $e($hosted['artifact'] ?? 'Not recorded') ?> · SHA-256 <?= $e($hosted['artifact_sha256'] ?? 'Not recorded') ?>.</p><p class="muted"><?= $e($hosted['source'] ?? 'No validated acceptance artifact is registered.') ?></p></article>
         <article class="card"><h3>Academic approval</h3><p><span class="badge badge-warning"><?= $e($academic['status'] ?? 'UNVERIFIED') ?></span></p><p>Pending proposals: <strong><?= $e($academic['pending_proposals'] ?? 'UNKNOWN') ?></strong></p><p>Human reviewer authorization remains required.</p></article>
         <article class="card"><h3>Public release</h3><p><span class="badge badge-danger">NOT AUTHORIZED</span></p><p>A passing technical gate does not authorize public release.</p></article>
     </div>

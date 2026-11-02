@@ -75,8 +75,11 @@ try {
     $readiness = (string) ob_get_clean();
     calendarHttpAssert(str_contains($readiness, 'Readiness Overview')
         && str_contains($readiness, 'NOT AUTHORIZED')
-        && str_contains($readiness, 'NOT_EXECUTED'), 'Readiness dashboard failed to display separate browser and public release states.');
-    echo "[PASS] Learner dashboard/calendar routes render owned study state; readiness route keeps browser and public-release gates separate.\n";
+        && str_contains($readiness, 'NOT_EXECUTED')
+        && str_contains($readiness, 'Encrypted backup acceptance')
+        && str_contains($readiness, 'Hosted configuration acceptance')
+        && str_contains($readiness, 'Not recorded'), 'Readiness dashboard failed to display separate browser, crypto, hosted, and public-release states.');
+    echo "[PASS] Learner dashboard/calendar routes render owned study state; readiness route displays independent technical, browser, backup, hosted, academic, and public-release gates.\n";
 } finally {
     if (is_dir($storagePath)) {
         $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($storagePath, FilesystemIterator::SKIP_DOTS), RecursiveIteratorIterator::CHILD_FIRST);

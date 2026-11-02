@@ -215,6 +215,20 @@ try {
         && ($dashboard['learner_question_reports']['counts']['under_review'] ?? null) === 1, 'Learner concern aggregates were incorrect.');
     readinessAssert(!str_contains(json_encode($dashboard, JSON_THROW_ON_ERROR), 'PRIVATE REPORT TEXT'), 'Dashboard exposed private learner report content.');
     readinessAssert(($dashboard['public_release_authorization']['status'] ?? '') === 'NOT_AUTHORIZED', 'Technical evidence implied public release authorization.');
+    foreach ([
+        'encrypted_backup_acceptance' => 'No sodium-enabled encrypted backup',
+        'hosted_configuration_acceptance' => 'No authorized disposable-host',
+    ] as $gateName => $reasonFragment) {
+        $gate = $dashboard[$gateName] ?? null;
+        readinessAssert(is_array($gate) && ($gate['status'] ?? '') === 'NOT_EXECUTED'
+            && ($gate['freshness'] ?? '') === 'NO_EVIDENCE'
+            && str_contains((string) ($gate['failure_reason'] ?? ''), $reasonFragment),
+            $gateName . ' absence was not clearly represented as NOT_EXECUTED.');
+        foreach (['environment', 'tested_sha', 'timestamp', 'command', 'exit_code', 'artifact', 'artifact_sha256'] as $field) {
+            readinessAssert(array_key_exists($field, $gate) && $gate[$field] === null,
+                $gateName . ' invented ' . $field . ' provenance without an executed acceptance result.');
+        }
+    }
 
     $largeReportFixture = [];
     for ($index = 1; $index <= 5001; $index++) {
