@@ -10,6 +10,50 @@
 
 <?php $settings = is_array($settings ?? null) ? $settings : []; $preferences = is_array($preferences ?? null) ? $preferences : []; ?>
 <?php $activeSession = is_array($activeSession ?? null) ? $activeSession : null; ?>
+<?php $activeDraft = is_array($activeDraft ?? null) ? $activeDraft : null; $recoveryAvailable = ($recoveryAvailable ?? false) === true; ?>
+
+<?php if ($activeDraft !== null && ($activeDraft['status'] ?? '') === 'completed'): ?>
+<aside class="active-session-warning card" role="status">
+    <div><p class="eyebrow">Exam completed</p><h2>Your saved exam has a result</h2><p>It is already finalized. You can view completed attempts in your <a href="/history">history</a>.</p></div>
+</aside>
+<?php elseif ($activeDraft !== null && ($activeDraft['status'] ?? '') === 'unavailable'): ?>
+<aside class="active-session-warning card" role="alert" aria-labelledby="saved-exam-unavailable-heading">
+    <div><p class="eyebrow">Saved exam unavailable</p><h2 id="saved-exam-unavailable-heading">This saved exam cannot be verified for recovery</h2><p>Its saved state was left unchanged. Discard it to start a new exam.</p></div>
+    <form method="POST" action="/quiz">
+        <input type="hidden" name="action" value="discard-draft">
+        <input type="hidden" name="draft_id" value="<?= htmlspecialchars((string) ($activeDraft['id'] ?? ''), ENT_QUOTES, 'UTF-8') ?>">
+        <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrfToken, ENT_QUOTES, 'UTF-8') ?>">
+        <button type="submit" class="button button-outline">Discard unavailable exam</button>
+    </form>
+</aside>
+<?php elseif ($activeDraft !== null && ($activeDraft['status'] ?? '') === 'storage_unavailable'): ?>
+<aside class="active-session-warning card" role="alert" aria-labelledby="saved-exam-storage-heading">
+    <div><p class="eyebrow">Saved exam status unavailable</p><h2 id="saved-exam-storage-heading">We could not verify your unfinished exam</h2><p>Reload this page when account storage is available. An exam cannot be resumed or finalized until its saved state can be checked.</p></div>
+</aside>
+<?php elseif ($activeDraft !== null): ?>
+<aside class="active-session-warning card" aria-labelledby="saved-exam-heading">
+    <div>
+        <p class="eyebrow"><?= ($activeDraft['status'] ?? '') === 'expired' ? 'Timed exam expired' : 'Saved exam' ?></p>
+        <h2 id="saved-exam-heading"><?= ($activeDraft['status'] ?? '') === 'expired' ? 'This attempt can be finalized with its saved answers' : 'Resume your unfinished exam' ?></h2>
+        <p><strong><?= htmlspecialchars(\App\Services\Shared\TaxonomyStorageService::label('boards', (string) ($activeDraft['board'] ?? '')) ?: (string) ($activeDraft['board'] ?? 'Exam'), ENT_QUOTES, 'UTF-8') ?></strong><?php if (($activeDraft['subject'] ?? '*') !== '*'): ?> · <?= htmlspecialchars(\App\Services\Shared\TaxonomyStorageService::label('subjects', (string) $activeDraft['subject']), ENT_QUOTES, 'UTF-8') ?><?php endif; ?></p>
+        <p><?= (int) ($activeDraft['answered_count'] ?? 0) ?> of <?= (int) ($activeDraft['question_count'] ?? 0) ?> questions have saved answers.<?php if (($activeDraft['timer_mode'] ?? '') === 'timed' && is_numeric($activeDraft['deadline_epoch'] ?? null)): ?> Original server deadline: <?= htmlspecialchars(date('Y-m-d H:i:s T', (int) $activeDraft['deadline_epoch']), ENT_QUOTES, 'UTF-8') ?>.<?php elseif (($activeDraft['timer_mode'] ?? '') === 'untimed'): ?> This exam is untimed.<?php endif; ?></p>
+        <?php if (($activeDraft['status'] ?? '') === 'expired'): ?><p role="status">No additional time will be granted. Resuming finalizes the attempt using the answers already saved by the server.</p><?php else: ?><p>Your exam answers are saved to this signed-in account. Recovery requires signing in again; it does not provide offline answer synchronization.</p><?php endif; ?>
+    </div>
+    <div class="form-actions">
+        <form method="POST" action="/quiz">
+            <input type="hidden" name="action" value="recover-draft">
+            <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrfToken, ENT_QUOTES, 'UTF-8') ?>">
+            <button type="submit" class="button button-outline"><?= ($activeDraft['status'] ?? '') === 'expired' ? 'Finalize expired attempt' : 'Resume saved exam' ?></button>
+        </form>
+        <form method="POST" action="/quiz">
+            <input type="hidden" name="action" value="discard-draft">
+            <input type="hidden" name="draft_id" value="<?= htmlspecialchars((string) ($activeDraft['id'] ?? ''), ENT_QUOTES, 'UTF-8') ?>">
+            <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrfToken, ENT_QUOTES, 'UTF-8') ?>">
+            <button type="submit" class="button button-outline">Discard saved exam</button>
+        </form>
+    </div>
+</aside>
+<?php endif; ?>
 
 <?php if ($activeSession !== null): ?>
 <aside class="active-session-warning card" aria-labelledby="active-session-heading">
@@ -190,6 +234,7 @@ Exam simulation
 <div class="form-field"><label for="quiz-timer-mode">Exam simulation timer</label><select id="quiz-timer-mode" name="timer_mode" aria-controls="quiz-time-limit"><option value="untimed" <?= ($settings['timer_mode'] ?? 'untimed') === 'untimed' ? 'selected' : '' ?>>Untimed</option><option value="timed" <?= ($settings['timer_mode'] ?? '') === 'timed' ? 'selected' : '' ?>>Timed</option></select><small class="form-help">Choose a timer for this study session. This does not represent an official examination duration.</small></div>
 <div id="quiz-time-limit-field" class="form-field" <?= ($settings['timer_mode'] ?? 'untimed') === 'timed' ? '' : 'hidden' ?>><label for="quiz-time-limit">Time limit in minutes</label><input id="quiz-time-limit" name="time_limit_minutes" type="number" min="1" max="600" step="1" value="<?= htmlspecialchars((string) ($settings['time_limit_minutes_input'] ?? (($settings['time_limit_minutes'] ?? 0) > 0 ? $settings['time_limit_minutes'] : 60)), ENT_QUOTES, 'UTF-8') ?>"><small class="form-help">Use a whole number from 1 to 600. The timer continues when you move between questions or refresh.</small></div>
 <p class="small-note" id="timer-mode-help">Untimed sessions ignore the minutes value. Choose Timed to enter a duration. With JavaScript off, both timer choices and the duration stay available.</p>
+<?php if ($recoveryAvailable): ?><p class="form-help">When you are signed in, exam answers are saved to your account and can be resumed after PHP session loss while the attempt remains eligible.</p><?php else: ?><p class="form-help">This exam is tied to the current server session. If its session data expires or is lost, unfinished answers cannot be recovered. The exam does not support offline answer saving.</p><?php endif; ?>
 </div>
 <noscript><style>#exam-timer-fields[hidden],#quiz-time-limit-field[hidden]{display:block!important}</style><p class="small-note">The distribution preview updates when you change boards, subjects or question counts. JavaScript is needed for that live preview; exam simulation remains available without it.</p></noscript>
 

@@ -199,7 +199,7 @@ final class ExamReviewFlagService
         $sessionId = is_array($session) && is_scalar($session['id'] ?? null)
             ? trim((string) $session['id'])
             : '';
-        if (preg_match('/\Aquiz-[a-f0-9]{16}\z/', $sessionId) !== 1) return false;
+        if (preg_match('/\Aquiz-(?:[a-f0-9]{16}|[a-f0-9]{32})\z/', $sessionId) !== 1) return false;
 
         $stored = \SessionService::get('exam_review_flag_session_id');
         if (is_scalar($stored) && (string) $stored === $sessionId) return true;

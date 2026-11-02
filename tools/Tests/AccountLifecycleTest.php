@@ -168,6 +168,16 @@ $seed = static function (string $learnerId, string $suffix, int $value) use ($dr
         'created_at' => gmdate(DATE_ATOM),
         'status_changed_at' => gmdate(DATE_ATOM),
     ]);
+    if ($suffix === 'd1') {
+        App::storage()->create('exam-drafts', [
+            'id' => 'exam-draft-' . str_repeat('d', 32),
+            'user_id' => $learnerId,
+            'state' => 'in_progress',
+            'active_quiz_session_id' => 'quiz-1234567890abcdef',
+            'question_ids' => ['synthetic-draft-question'],
+            'answers' => ['synthetic-draft-question' => 'B'],
+        ]);
+    }
 };
 $seed($learnerA, 'a', 7);
 $seed($learnerB, 'b', 4);
@@ -196,7 +206,7 @@ $questionPath = dirname(__DIR__, 2) . '/storage/questions.json';
 $questionsBefore = hash_file('sha256', $questionPath);
 $stableOwnedHash = static function (string $learnerId): string {
     $collections = [];
-    foreach (['attempts', 'weakness', 'flashcard_state', 'learner_notes', 'learner-question-reports', 'learner-study-plans'] as $name) {
+    foreach (['attempts', 'exam-drafts', 'weakness', 'flashcard_state', 'learner_notes', 'learner-question-reports', 'learner-study-plans'] as $name) {
         $collections[$name] = App::storage()->where($name, ['user_id' => $learnerId]);
     }
     return hash('sha256', serialize($collections));
@@ -218,6 +228,7 @@ try {
         && $inventory['collections']['flashcard_reviews']['count'] === 2
         && $inventory['collections']['learner_notes']['count'] === 2
         && $inventory['collections']['question_issue_reports']['count'] === 2
+        && $inventory['collections']['exam_drafts']['count'] === 1
         && $inventory['collections']['study_calendar']['count'] === 1,
         'Account data inventory did not accurately report owned collections.');
     lifecycleAssert(($inventory['derived']['current_storage_non_account_owned_counts']['anonymous_learner_records']['quiz_attempts'] ?? null) === 1,
@@ -227,11 +238,13 @@ try {
         && ($export['manifest']['record_counts']['quiz_attempts'] ?? null) === 2
         && ($export['manifest']['record_counts']['learner_notes'] ?? null) === 2
         && ($export['manifest']['record_counts']['question_issue_reports'] ?? null) === 2
+        && ($export['manifest']['record_counts']['exam_drafts'] ?? null) === 1
         && ($export['manifest']['record_counts']['study_calendar'] ?? null) === 1
         && count($export['records']['study_calendar'] ?? []) === 1
         && count($export['records']['learner_notes'] ?? []) === 2
         && count($export['records']['question_issue_reports'] ?? []) === 2
         && !isset($export['records']['question_issue_reports'][0]['user_id'])
+        && !isset($export['records']['exam_drafts'][0]['active_quiz_session_id'])
         && !isset($export['account']['password_hash'], $export['account']['recovery_code_hashes'])
         && !str_contains(json_encode($export, JSON_THROW_ON_ERROR), 'synthetic-quiz-session-d1'),
         'Account export manifest or secret/session exclusions were incorrect.');
@@ -275,6 +288,7 @@ try {
     lifecycleAssert(App::storage()->where('attempts', ['user_id' => $learnerD]) === []
         && App::storage()->where('weakness', ['user_id' => $learnerD]) === []
         && App::storage()->where('flashcard_state', ['user_id' => $learnerD]) === []
+        && App::storage()->where('exam-drafts', ['user_id' => $learnerD]) === []
         && App::storage()->where('learner-question-reports', ['user_id' => $learnerD]) === []
         && App::storage()->where('learner-study-plans', ['user_id' => $learnerD]) === [],
         'Deletion completed while owned records remained.');

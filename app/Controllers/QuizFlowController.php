@@ -11,6 +11,7 @@ use App\Core\View;
 use App\Services\Quiz\QuizResultActionService;
 use App\Services\Quiz\ExamTimerService;
 use App\Services\Quiz\ExamReviewFlagService;
+use App\Services\Quiz\ExamDraftService;
 use App\Services\Quiz\Start\QuizStartSessionWriter;
 use App\Services\Quiz\Start\QuizStartInputNormalizer;
 use App\Services\Board\BoardViewService;
@@ -37,22 +38,56 @@ final class QuizFlowController
 
         $action = trim((string) $rawAction);
 
+        $draftService = new ExamDraftService();
+        $csrfRequired = App::config('environment') === 'production'
+            || $draftService->availableForCurrentLearner()
+            || in_array($action, ['recover-draft', 'discard-draft'], true);
         if ($method === 'POST'
-            && App::config('environment') === 'production'
+            && $csrfRequired
             && !CsrfTokenService::valid(Request::input('csrf_token'))) {
             \SessionService::flash('error', 'Your quiz form expired. Please try again.');
             Response::redirect('/quiz');
         }
 
         $allowed = $method === 'POST'
-            ? ['start', 'submit', 'next', 'previous', 'jump', 'finish', 'timer-check', 'review-flag']
+            ? ['start', 'submit', 'next', 'previous', 'jump', 'finish', 'timer-check', 'review-flag', 'recover-draft', 'discard-draft']
             : ['', 'start', 'result', 'review'];
 
         if (!in_array($action, $allowed, true)) {
             self::rejectAction();
         }
 
-        if ($action !== 'start') {
+        if (!in_array($action, ['start', 'recover-draft', 'discard-draft'], true)) {
+            $authoritative = false;
+            $authorityCheckFailed = false;
+            try {
+                $authoritative = $draftService->currentSessionIsAuthoritative();
+            } catch (\Throwable) {
+                // A storage failure must not make an unverifiable exam appear current.
+                $authorityCheckFailed = true;
+            }
+            if (!$authoritative) {
+                \SessionService::flash('error', $authorityCheckFailed
+                    ? 'The saved exam could not be verified. Open the quiz page to review its recovery status.'
+                    : 'This exam was resumed in another session. Open the quiz page to continue the current saved attempt.');
+                Response::redirect('/quiz?action=start', 303);
+            }
+            $currentQuizSession = \SessionService::get('quiz_session', []);
+            if (!\SessionService::has('attempt_persisted')
+                && is_array($currentQuizSession)
+                && is_scalar($currentQuizSession['durable_draft_id'] ?? null)
+                && trim((string) ($currentQuizSession['durable_draft_id'] ?? '')) !== '') {
+                $restored = false;
+                try {
+                    $restored = $draftService->restoreAuthoritativeSessionState();
+                } catch (\Throwable) {
+                    // The account-scoped settings page provides the safe recovery or discard state.
+                }
+                if (!$restored) {
+                    \SessionService::flash('error', 'The saved exam state could not be verified. Open the quiz page to recover it.');
+                    Response::redirect('/quiz?action=start', 303);
+                }
+            }
             ExamTimerService::enforceIfExpired();
             if ($method === 'POST') {
                 self::validatePostedQuizSession();
@@ -66,6 +101,14 @@ final class QuizFlowController
                     return;
                 }
                 \QuizStartService::start();
+                return;
+
+            case 'recover-draft':
+                self::recoverDraft();
+                return;
+
+            case 'discard-draft':
+                self::discardDraft();
                 return;
 
             case 'submit':
@@ -230,6 +273,12 @@ final class QuizFlowController
             (string) ($settings['subject'] ?? '*'),
             (int) ($settings['count'] ?? 0)
         );
+        $draftService = new ExamDraftService();
+        try {
+            $activeDraft = $draftService->currentSummary();
+        } catch (\Throwable) {
+            $activeDraft = ['status' => 'storage_unavailable'];
+        }
         View::render(
             'quiz/settings',
             [
@@ -242,8 +291,134 @@ final class QuizFlowController
                 'preferences' => LearnerPreferenceService::get(),
                 'letSpecializations' => LETVariantRegistry::specializations(),
                 'activeSession' => $activeSession ?? self::activeSessionSummary(),
+                'activeDraft' => $activeDraft,
+                'recoveryAvailable' => $draftService->availableForCurrentLearner(),
             ]
         );
+    }
+
+    private static function recoverDraft(): void
+    {
+        $draftService = new ExamDraftService();
+        try {
+            $draft = $draftService->recoverCurrentAccountDraft();
+        } catch (\Throwable $exception) {
+            \SessionService::flash('error', $exception instanceof \App\Exceptions\ExamDraftUnavailableException
+                ? $exception->getMessage()
+                : 'The saved exam could not be recovered. Your account data was not changed.');
+            Response::redirect('/quiz?action=start', 303);
+        }
+
+        if (($draft['status'] ?? '') === 'completed') {
+            \SessionService::flash('success', 'This exam is already completed. Its result is available in your history.');
+            Response::redirect('/history', 303);
+        }
+
+        try {
+            $questions = self::recoverableQuestions($draft);
+        } catch (\Throwable $exception) {
+            \SessionService::flash('error', 'The selected questions are no longer eligible, so this saved exam cannot be resumed. You can discard it from the quiz page.');
+            Response::redirect('/quiz?action=start', 303);
+        }
+
+        $quizSession = is_array($draft['quiz_session'] ?? null) ? $draft['quiz_session'] : [];
+        $quizSession['id'] = (string) ($draft['active_quiz_session_id'] ?? '');
+        $quizSession['durable_draft_id'] = (string) ($draft['id'] ?? '');
+        $quizSession['durable_draft_revision'] = (int) ($draft['revision'] ?? 0);
+        \SessionService::set('quiz_session', $quizSession);
+        \SessionService::set('questions', $questions);
+        \SessionService::set('answers', is_array($draft['answers'] ?? null) ? $draft['answers'] : []);
+        \SessionService::set('currentQuestion', (int) ($draft['current_question'] ?? 0));
+        \SessionService::set('mode', 'exam');
+        \SessionService::set('feedback', null);
+        \SessionService::set('exam_answer_revision', (int) ($draft['exam_answer_revision'] ?? 0));
+        \SessionService::set('exam_review_flags', array_fill_keys(
+            is_array($draft['review_flags'] ?? null) ? $draft['review_flags'] : [],
+            true
+        ));
+        \SessionService::set('exam_review_flag_versions', []);
+        \SessionService::set('exam_review_flag_session_id', (string) ($quizSession['id'] ?? ''));
+        \SessionService::remove('exam_reviewed_revision');
+        \SessionService::remove('attempt_persisted');
+        \SessionService::remove('quiz_attempt_id');
+        \SessionService::remove('quiz_completed');
+        \SessionService::remove('quiz_result');
+
+        if (($draft['status'] ?? '') === 'expired') {
+            ExamTimerService::enforceIfExpired();
+            \SessionService::flash('error', 'This timed exam has expired and cannot be resumed with additional time.');
+            Response::redirect('/quiz?action=start', 303);
+        }
+
+        \SessionService::flash('success', 'Your saved exam was recovered. Its original server deadline is still in effect.');
+        Response::redirect('/quiz', 303);
+    }
+
+    private static function discardDraft(): void
+    {
+        $draftId = Request::input('draft_id');
+        $discarded = is_scalar($draftId)
+            && (new ExamDraftService())->discardOwnedDraft(trim((string) $draftId));
+        $quizSession = \SessionService::get('quiz_session', []);
+        if ($discarded && is_array($quizSession)
+            && is_scalar($quizSession['durable_draft_id'] ?? null)
+            && hash_equals((string) $draftId, (string) $quizSession['durable_draft_id'])) {
+            QuizStartSessionWriter::clear();
+        }
+        \SessionService::flash($discarded ? 'success' : 'error', $discarded
+            ? 'The unfinished exam draft was discarded.'
+            : 'That unfinished exam is unavailable.');
+        Response::redirect('/quiz?action=start', 303);
+    }
+
+    /** @return list<array<string,mixed>> */
+    private static function recoverableQuestions(array $draft): array
+    {
+        $ids = $draft['question_ids'] ?? null;
+        $session = $draft['quiz_session'] ?? null;
+        if (!is_array($ids) || !array_is_list($ids) || $ids === [] || !is_array($session)) {
+            throw new \RuntimeException('Invalid saved exam selection.');
+        }
+        $records = App::container()->get(\App\Repositories\QuestionRepository::class)->findMany($ids);
+        $canonical = [];
+        foreach ($ids as $id) {
+            $question = $records[(string) $id] ?? null;
+            if (!\App\Services\Quiz\Session\QuizSessionQuestion::isCurrent($question)) {
+                throw new \RuntimeException('Saved exam question is unavailable.');
+            }
+            $canonical[] = $question;
+        }
+
+        $board = is_scalar($session['board'] ?? null) ? trim((string) $session['board']) : '';
+        $subject = is_scalar($session['subject'] ?? null) ? trim((string) $session['subject']) : '*';
+        $domain = is_scalar($session['domain'] ?? null) && trim((string) $session['domain']) !== ''
+            ? trim((string) $session['domain'])
+            : null;
+        if ($board === '') {
+            throw new \RuntimeException('Saved exam configuration is unavailable.');
+        }
+        $index = \App\Services\Question\QuestionEligibilityService::index($canonical);
+        $request = new \SelectionRequest(
+            subject: $subject === '' ? '*' : $subject,
+            domain: $domain,
+            difficultyDistribution: [],
+            questionCount: count($ids),
+            topic: is_array($session['topics'] ?? null) && count($session['topics']) === 1
+                && is_scalar($session['topics'][0] ?? null) ? (string) $session['topics'][0] : null,
+            exam: $board,
+            letVariant: is_array($session['let_variant'] ?? null) ? $session['let_variant'] : null,
+            civilServiceLevel: is_scalar($session['civil_service_level'] ?? null)
+                ? (string) $session['civil_service_level']
+                : null
+        );
+        $eligible = [];
+        foreach ($canonical as $question) {
+            if (count(\QuestionPoolFilter::filter([$question], $request, $index)) !== 1) {
+                throw new \RuntimeException('Saved exam questions are no longer eligible.');
+            }
+            $eligible[] = $question;
+        }
+        return $eligible;
     }
 
     /** @return array<string, int|string>|null */
@@ -459,6 +634,31 @@ final class QuizFlowController
                 (string) $rawMarked === '1',
                 (int) $rawVersion
             );
+            if ($result['status'] === 'updated') {
+                $quizSession = \SessionService::get('quiz_session', []);
+                if (is_array($quizSession)
+                    && is_scalar($quizSession['durable_draft_id'] ?? null)
+                    && trim((string) ($quizSession['durable_draft_id'] ?? '')) !== '') {
+                    $rawDraftRevision = Request::input('draft_revision');
+                    $draftRevision = is_scalar($rawDraftRevision)
+                        && preg_match('/\A\d{1,10}\z/', (string) $rawDraftRevision) === 1
+                        ? (int) $rawDraftRevision
+                        : -1;
+                    try {
+                        (new ExamDraftService())->saveCurrentSessionState(
+                            $draftRevision,
+                            is_scalar($quizSession['id'] ?? null) ? (string) $quizSession['id'] : ''
+                        );
+                    } catch (\Throwable $exception) {
+                        try {
+                            (new ExamDraftService())->restoreAuthoritativeSessionState();
+                        } catch (\Throwable) {
+                            // The existing draft remains authoritative if storage is unavailable.
+                        }
+                        $result['status'] = 'stale';
+                    }
+                }
+            }
             $questionNumber = (int) $rawIndex + 1;
             if ($result['status'] === 'updated') {
                 \SessionService::flash('success', $result['marked']

@@ -606,7 +606,7 @@ final class ReleaseReadinessService
         $root ??= dirname(__DIR__, 4);
         $groups = [
             'learner_core_flows' => ['tools/Tests/TenBoardLearnerJourneyHttpTest.php', 'tools/Tests/LearnerJourneyHttpTest.php', 'tools/Tests/LearnerDashboardReliabilityTest.php', 'tools/Tests/LearnerExperienceConsistencyTest.php', 'tools/Tests/AdaptiveStudyEvidenceTest.php', 'tools/Tests/LearningProfileActionViewTest.php', 'tools/Tests/ProgressRecommendationViewTest.php', 'tools/Tests/LearnerNavigationUxTest.php', 'tools/Tests/LearnerMobileAccessibilityViewTest.php', 'tools/Tests/BoardDetailPerformanceTest.php', 'tools/Tests/StudyDashboardPreparedHistoryEquivalenceTest.php', 'tools/Tests/SmartStudyHubServiceTest.php'],
-            'attempt_safety' => ['tools/Tests/MultiAttemptLearningHttpTest.php', 'tools/Tests/QuizStartFailureHttpTest.php', 'tools/Tests/ApplicationResilienceTest.php', 'tools/Tests/BlueprintDuplicateExposureTest.php'],
+            'attempt_safety' => ['tools/Tests/MultiAttemptLearningHttpTest.php', 'tools/Tests/QuizStartFailureHttpTest.php', 'tools/Tests/ApplicationResilienceTest.php', 'tools/Tests/BlueprintDuplicateExposureTest.php', 'tools/Tests/ExamDraftBackendParityTest.php', 'tools/Tests/DurableExamRecoveryHttpTest.php', 'tools/Tests/AccountLifecycleJsonTest.php', 'tools/Tests/AccountLifecycleSqliteTest.php'],
             'result_review' => ['tools/Tests/HistoryResultHttpTest.php', 'tools/Tests/QuizCompletionHttpTest.php'],
             'simulator_recovery' => ['tools/Tests/ExamSimulationHttpTest.php', 'tools/Tests/SimulationFixtureLifecycleTest.php', 'tools/Tests/DoctorSimulatorStateIsolationTest.php'],
             'doctor_integrity' => ['tools/Tests/DoctorIntegrityTest.php', 'tools/Tests/RepositoryHealthEvidenceFreshnessTest.php', 'tools/Tests/Batch675StaticDoctorPrecisionTest.php', 'tools/Tests/Batch675SourceQualityPathwaysTest.php', 'tools/Tests/EducationalIntegrityPrecisionTest.php', 'tools/Tests/Batch687SourceReviewTest.php'],
@@ -860,7 +860,7 @@ final class ReleaseReadinessService
 
         $bytes = 0;
         $files = 0;
-        $mutableCollections = ['attempts.json', 'weakness.json', 'question-statistics.json', 'flashcard_state.json', 'learner-question-reports.json', 'learner_notes.json'];
+        $mutableCollections = ['attempts.json', 'exam-drafts.json', 'weakness.json', 'question-statistics.json', 'flashcard_state.json', 'learner-question-reports.json', 'learner_notes.json'];
         $iterator = new \RecursiveIteratorIterator(
             new \RecursiveDirectoryIterator($sourcePath, \FilesystemIterator::SKIP_DOTS),
             \RecursiveIteratorIterator::SELF_FIRST
@@ -952,7 +952,7 @@ final class ReleaseReadinessService
             self::removeFlowTestStorage($storagePath);
             throw new \RuntimeException('Release flow tests require the repository storage fixture.');
         }
-        $mutableCollections = ['attempts.json', 'weakness.json', 'question-statistics.json', 'flashcard_state.json', 'learner-question-reports.json', 'learner_notes.json'];
+        $mutableCollections = ['attempts.json', 'exam-drafts.json', 'weakness.json', 'question-statistics.json', 'flashcard_state.json', 'learner-question-reports.json', 'learner_notes.json'];
         try {
             $iterator = new \RecursiveIteratorIterator(
                 new \RecursiveDirectoryIterator($sourceRoot, \FilesystemIterator::SKIP_DOTS),

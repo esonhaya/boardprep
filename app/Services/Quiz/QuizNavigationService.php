@@ -27,6 +27,12 @@ class QuizNavigationService
         $current = self::nextQuestionIndex($questions);
 
         SessionService::set("currentQuestion", $current);
+        $expectedRevision = $fromAnswerSubmission
+            ? self::sessionDraftRevision()
+            : self::postedDraftRevision();
+        if (!self::persistDurableNavigation($expectedRevision)) {
+            $current = self::current();
+        }
         self::renderNextQuestion($questions, $current);
     }
 
@@ -42,6 +48,9 @@ class QuizNavigationService
         }
         $current = max(0, self::current() - 1);
         SessionService::set('currentQuestion', $current);
+        if (!self::persistDurableNavigation(self::postedDraftRevision())) {
+            $current = self::current();
+        }
         self::renderNextQuestion($questions, $current);
     }
 
@@ -68,6 +77,9 @@ class QuizNavigationService
             QuizSessionRecoveryService::abandonInvalidSession();
         }
         SessionService::set('currentQuestion', $current);
+        if (!self::persistDurableNavigation(self::postedDraftRevision())) {
+            $current = self::current();
+        }
         self::renderNextQuestion($questions, $current);
     }
 
@@ -211,5 +223,52 @@ class QuizNavigationService
             "mode" => SessionService::get("mode", "practice"),
             "feedback" => null,
         ]);
+    }
+
+    private static function persistDurableNavigation(int $expectedRevision): bool
+    {
+        $quizSession = SessionService::get('quiz_session', []);
+        if (!is_array($quizSession)
+            || !is_scalar($quizSession['durable_draft_id'] ?? null)
+            || trim((string) ($quizSession['durable_draft_id'] ?? '')) === '') {
+            return true;
+        }
+        $sessionId = is_scalar($quizSession['id'] ?? null) ? trim((string) $quizSession['id']) : '';
+        try {
+            (new \App\Services\Quiz\ExamDraftService())->saveCurrentSessionState(
+                $expectedRevision,
+                $sessionId
+            );
+            return true;
+        } catch (\Throwable $exception) {
+            $restored = false;
+            try {
+                $restored = (new \App\Services\Quiz\ExamDraftService())->restoreAuthoritativeSessionState();
+            } catch (\Throwable) {
+                // Keep the navigation failure fail-closed if durable storage is unavailable.
+            }
+            if (!$restored) {
+                SessionService::flash('error', 'This exam session is no longer current. Open the quiz page to recover the saved attempt.');
+                Response::redirect('/quiz?action=start', 303);
+            }
+            SessionService::flash('error', 'This exam changed in another request. The saved answers were kept; refresh before continuing.');
+            return false;
+        }
+    }
+
+    private static function postedDraftRevision(): int
+    {
+        $raw = Request::input('draft_revision');
+        return is_scalar($raw) && preg_match('/\A\d{1,10}\z/', (string) $raw) === 1
+            ? (int) $raw
+            : -1;
+    }
+
+    private static function sessionDraftRevision(): int
+    {
+        $session = SessionService::get('quiz_session', []);
+        return is_array($session) && is_int($session['durable_draft_revision'] ?? null)
+            ? $session['durable_draft_revision']
+            : -1;
     }
 }

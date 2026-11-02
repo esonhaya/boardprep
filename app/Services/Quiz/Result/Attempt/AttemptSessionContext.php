@@ -11,6 +11,12 @@ final class AttemptSessionContext
     public static function fromSession(array $session): array
     {
         $sessionId = AttemptValueReader::text($session["id"] ?? null);
+        $draftId = AttemptValueReader::text($session['durable_draft_id'] ?? null);
+        if (preg_match('/\Aexam-draft-[a-f0-9]{32}\z/', $draftId) === 1) {
+            // Stable across PHP session loss and resume-token rotation so a
+            // repeated finalization resolves to the same completed attempt.
+            $sessionId = $draftId;
+        }
 
         return [
             "session_id" => $sessionId,

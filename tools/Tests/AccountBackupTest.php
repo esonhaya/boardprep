@@ -98,6 +98,40 @@ try {
         'score' => 1,
         'total' => 2,
     ]);
+    $syntheticDraftId = 'exam-draft-' . str_repeat('b', 32);
+    App::storage()->create('exam-drafts', [
+        'id' => $syntheticDraftId,
+        'schema_version' => 1,
+        'state' => 'in_progress',
+        'user_id' => $learnerId,
+        'quiz_session' => [
+            'board' => 'LET',
+            'subject' => '*',
+            'topics' => [],
+            'mode' => 'exam',
+            'session_type' => 'exam_simulation',
+            'timer_mode' => 'untimed',
+            'time_limit_minutes' => 0,
+            'time_limit_seconds' => 0,
+            'deadline_epoch' => null,
+            'time_expired' => false,
+            'let_variant' => null,
+            'difficulty' => 'mixed',
+            'requested_question_count' => 1,
+            'question_count' => 1,
+            'started_at' => gmdate(DATE_ATOM),
+        ],
+        'active_quiz_session_id' => 'quiz-abcdef0123456789',
+        'question_ids' => ['synthetic-backup-draft-question'],
+        'choice_counts' => ['synthetic-backup-draft-question' => 4],
+        'answers' => ['synthetic-backup-draft-question' => 'A'],
+        'current_question' => 0,
+        'review_flags' => [],
+        'exam_answer_revision' => 1,
+        'revision' => 2,
+        'created_at' => gmdate(DATE_ATOM),
+        'updated_at' => gmdate(DATE_ATOM),
+    ]);
     App::storage()->create('weakness', [
         'id' => $learnerId . '|backup-topic',
         'user_id' => $learnerId,
@@ -152,6 +186,7 @@ try {
         accountBackupAssert(!str_contains($archive, $secret), 'Encrypted account archive exposed plaintext credential or learner data.');
     }
     accountBackupAssert(($created['record_counts']['quiz_attempts'] ?? null) === 1
+        && ($created['record_counts']['exam_drafts'] ?? null) === 1
         && ($created['record_counts']['weakness_summaries'] ?? null) === 1
         && ($created['record_counts']['flashcard_reviews'] ?? null) === 1
         && ($created['record_counts']['question_issue_reports'] ?? null) === 1
@@ -190,8 +225,17 @@ try {
     accountBackupThrows(static fn() => $backup->verify($headerTamperPath, $passphrase), 'BACKUP_AUTHENTICATION_FAILED');
 
     $decodedPayload = AccountBackupCrypto::decrypt($archive, $passphrase);
+    $archivedDraft = $decodedPayload['collections']['exam_drafts'][0] ?? null;
+    accountBackupAssert(is_array($archivedDraft)
+        && ($archivedDraft['id'] ?? null) === $syntheticDraftId
+        && ($archivedDraft['answers']['synthetic-backup-draft-question'] ?? null) === 'A'
+        && !array_key_exists('active_quiz_session_id', $archivedDraft)
+        && !array_key_exists('question', $archivedDraft)
+        && !array_key_exists('answer', $archivedDraft)
+        && !str_contains($archive, 'quiz-abcdef0123456789'),
+        'Encrypted draft backup exposed its active session binding or omitted safe learner answer data.');
     accountBackupAssert(($decodedPayload['manifest']['included_collections'] ?? null) === [
-        'quiz_attempts', 'weakness_summaries', 'flashcard_reviews', 'learner_notes', 'question_issue_reports', 'study_calendar', 'credential_profile',
+        'quiz_attempts', 'exam_drafts', 'weakness_summaries', 'flashcard_reviews', 'learner_notes', 'question_issue_reports', 'study_calendar', 'credential_profile',
     ], 'Encrypted backup manifest did not match the supported restore inventory.');
     $badManifest = $decodedPayload;
     $badManifest['manifest']['record_counts']['quiz_attempts'] = 99;
@@ -264,6 +308,12 @@ try {
     accountBackupAssert(isset($restoredAccounts['accounts']['batch693-backup'])
         && $restoredAccounts['accounts']['batch693-backup']['learner_id'] === $learnerId,
         'Restored credentials and learner identity do not match.');
+    $restoredDrafts = json_decode((string) file_get_contents($destination . '/exam-drafts.json'), true, 32, JSON_THROW_ON_ERROR);
+    accountBackupAssert(count($restoredDrafts) === 1
+        && ($restoredDrafts[0]['id'] ?? null) === $syntheticDraftId
+        && ($restoredDrafts[0]['active_quiz_session_id'] ?? null) === ''
+        && ($restoredDrafts[0]['answers']['synthetic-backup-draft-question'] ?? null) === 'A',
+        'Restored unfinished draft did not require a fresh authenticated session claim.');
     $restoredReports = json_decode((string) file_get_contents($destination . '/learner-question-reports.json'), true, 32, JSON_THROW_ON_ERROR);
     accountBackupAssert(count($restoredReports) === 1
         && ($restoredReports[0]['question_id'] ?? null) === 'synthetic-backup-question'

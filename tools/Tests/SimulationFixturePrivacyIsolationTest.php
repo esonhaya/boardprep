@@ -39,7 +39,7 @@ try {
     \Tools\Doctor\Project\BoardPrep\Simulation\SimulationStorageFixture::activate($temporaryRoot);
     $fixtureStorage = \Tools\Doctor\Project\BoardPrep\Simulation\SimulationStorageFixture::storagePath();
 
-    foreach (['attempts.json', 'weakness.json', 'question-statistics.json', 'flashcard_state.json', 'learner-question-reports.json', 'learner_notes.json'] as $name) {
+    foreach (['attempts.json', 'exam-drafts.json', 'weakness.json', 'question-statistics.json', 'flashcard_state.json', 'learner-question-reports.json', 'learner_notes.json'] as $name) {
         $assert(file_get_contents($fixtureStorage . '/' . $name) === "[]\n", 'Mutable learner state was copied into simulator fixture: ' . $name);
     }
     foreach (['results.json', 'history.json', 'progress.json'] as $name) {

@@ -81,6 +81,7 @@ class Database
             $json = $this->jsonStorage($config['path'] ?? null);
             $this->storage = new StorageRouter($json, [
                 'attempts' => $this->sqliteStorage,
+                'exam-drafts' => $this->sqliteStorage,
                 'weakness' => $this->sqliteStorage,
                 'flashcard_state' => $this->sqliteStorage,
                 'question-statistics' => $this->sqliteStorage,

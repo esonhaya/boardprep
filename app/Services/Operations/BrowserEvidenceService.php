@@ -123,6 +123,7 @@ final class BrowserEvidenceService
         return in_array($path, [
             'tools/Batch596Author.php',
             'storage/attempts.json',
+            'storage/exam-drafts.json',
             'storage/question-statistics.json',
             'storage/weakness.json',
             'storage/progress.json',

@@ -43,7 +43,7 @@ final class AccountBackupService
             $records = $inventory['records'];
             foreach ($records as &$collection) {
                 foreach ($collection as &$record) {
-                    unset($record['session_id']);
+                    unset($record['session_id'], $record['active_quiz_session_id']);
                 }
                 unset($record);
             }

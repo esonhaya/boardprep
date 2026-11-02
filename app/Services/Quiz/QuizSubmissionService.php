@@ -48,8 +48,20 @@ class QuizSubmissionService
         }
 
         if (!self::storeAnswer($question, (string) $answer)) {
-            self::storeFeedback($question, self::existingAnswer($question));
-            self::renderQuestion($question, $current, count($questions));
+            if (self::isPracticeMode()) {
+                self::storeFeedback($question, self::existingAnswer($question));
+            } else {
+                SessionService::remove('feedback');
+            }
+            $quizSession = SessionService::get('quiz_session', []);
+            $durable = is_array($quizSession) && is_scalar($quizSession['durable_draft_id'] ?? null);
+            self::renderQuestion(
+                $question,
+                $current,
+                count($questions),
+                null,
+                $durable ? 'Your answer was not saved. The previous server-saved answer was kept; reconnect and try again.' : null
+            );
             return;
         }
 
@@ -290,6 +302,37 @@ class QuizSubmissionService
             $revision = is_int($revision) && $revision >= 0 ? $revision : 0;
             SessionService::set('exam_answer_revision', $revision + 1);
             SessionService::remove('exam_reviewed_revision');
+        }
+
+        $quizSession = SessionService::get('quiz_session', []);
+        if (self::isExamMode() && is_array($quizSession)
+            && is_scalar($quizSession['durable_draft_id'] ?? null)
+            && trim((string) ($quizSession['durable_draft_id'] ?? '')) !== '') {
+            $rawExpectedRevision = Request::input('draft_revision');
+            $expectedRevision = is_scalar($rawExpectedRevision)
+                && preg_match('/\A\d{1,10}\z/', (string) $rawExpectedRevision) === 1
+                ? (int) $rawExpectedRevision
+                : -1;
+            $sessionId = is_scalar($quizSession['id'] ?? null) ? trim((string) $quizSession['id']) : '';
+            try {
+                (new \App\Services\Quiz\ExamDraftService())->saveCurrentSessionState(
+                    $expectedRevision,
+                    $sessionId
+                );
+            } catch (\Throwable $exception) {
+                $restored = false;
+                try {
+                    $restored = (new \App\Services\Quiz\ExamDraftService())->restoreAuthoritativeSessionState();
+                } catch (\Throwable) {
+                    // The save status is unknown until durable storage can be read again.
+                }
+                if (!$restored) {
+                    SessionService::flash('error', 'The answer save could not be confirmed. Reload the quiz page when account storage is available; the server will determine which answer was saved.');
+                    Response::redirect('/quiz?action=start', 303);
+                }
+                SessionService::flash('error', 'Your answer was not saved. The previous server-saved answer was kept; reconnect and try again.');
+                return false;
+            }
         }
 
         return true;

@@ -4,6 +4,9 @@ $answers = is_array($answers ?? null) ? $answers : [];
 $quizSession = \SessionService::get('quiz_session', []);
 $quizSession = is_array($quizSession) ? $quizSession : [];
 $quizSessionId = is_scalar($quizSession['id'] ?? null) ? trim((string) $quizSession['id']) : '';
+$draftRevision = is_int($quizSession['durable_draft_revision'] ?? null)
+    ? (string) $quizSession['durable_draft_revision']
+    : '';
 $csrfToken = \App\Services\Shared\CsrfTokenService::token();
 $currentIndex = \SessionService::get('currentQuestion', 0);
 $currentIndex = is_int($currentIndex) || (is_string($currentIndex) && preg_match('/^\d+$/', $currentIndex) === 1)
@@ -83,6 +86,7 @@ $unansweredCount = count($questions) - $answeredCount;
                     <form method="POST" action="/quiz" class="exam-review-jump-form">
                         <input type="hidden" name="action" value="jump">
                         <input type="hidden" name="quiz_session_id" value="<?= htmlspecialchars($quizSessionId, ENT_QUOTES, 'UTF-8') ?>">
+                        <input type="hidden" name="draft_revision" value="<?= htmlspecialchars($draftRevision, ENT_QUOTES, 'UTF-8') ?>">
                         <input type="hidden" name="index" value="<?= $index ?>">
                         <input type="hidden" name="from_question_id" value="<?= htmlspecialchars($currentQuestionId, ENT_QUOTES, 'UTF-8') ?>">
                         <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrfToken, ENT_QUOTES, 'UTF-8') ?>">
@@ -91,6 +95,7 @@ $unansweredCount = count($questions) - $answeredCount;
                     <form method="POST" action="/quiz" class="exam-review-flag-form">
                         <input type="hidden" name="action" value="review-flag">
                         <input type="hidden" name="quiz_session_id" value="<?= htmlspecialchars($quizSessionId, ENT_QUOTES, 'UTF-8') ?>">
+                        <input type="hidden" name="draft_revision" value="<?= htmlspecialchars($draftRevision, ENT_QUOTES, 'UTF-8') ?>">
                         <input type="hidden" name="index" value="<?= $index ?>">
                         <input type="hidden" name="question_id" value="<?= htmlspecialchars($id, ENT_QUOTES, 'UTF-8') ?>">
                         <input type="hidden" name="marked" value="<?= $flagState['marked'] ? '0' : '1' ?>">
@@ -112,6 +117,7 @@ $unansweredCount = count($questions) - $answeredCount;
         <form method="POST" action="/quiz" data-exam-submit-form>
             <input type="hidden" name="action" value="finish">
             <input type="hidden" name="quiz_session_id" value="<?= htmlspecialchars($quizSessionId, ENT_QUOTES, 'UTF-8') ?>">
+            <input type="hidden" name="draft_revision" value="<?= htmlspecialchars($draftRevision, ENT_QUOTES, 'UTF-8') ?>">
             <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrfToken, ENT_QUOTES, 'UTF-8') ?>">
             <button type="submit">Submit exam simulation</button>
         </form>

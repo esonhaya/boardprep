@@ -13,7 +13,7 @@ final class AccountDataService
         $records = [];
         foreach ($inventory['records'] as $collection => $ownedRecords) {
             $records[$collection] = array_map(static function (array $record): array {
-                unset($record['user_id'], $record['session_id']);
+                unset($record['user_id'], $record['session_id'], $record['active_quiz_session_id']);
                 return $record;
             }, $ownedRecords);
         }
@@ -46,7 +46,7 @@ final class AccountDataService
                 'updated_at' => (string) ($account['updated_at'] ?? ''),
                 'preferences' => is_array($account['preferences'] ?? null) ? $account['preferences'] : [],
             ],
-            'scope' => 'Saved quiz attempts, derived weakness summaries, flashcard review state, private learner notes, question issue reports, an editable study calendar, and account preferences owned by this account.',
+            'scope' => 'Saved quiz attempts, unfinished account-owned exam drafts, derived weakness summaries, flashcard review state, private learner notes, question issue reports, an editable study calendar, and account preferences owned by this account.',
             'records' => $records,
         ];
     }

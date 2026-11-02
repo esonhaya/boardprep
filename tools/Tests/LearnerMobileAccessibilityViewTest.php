@@ -122,6 +122,13 @@ $checks = [
         && str_contains($privacy, 'Clearing browser cookies alone does not delete server-side records'),
     'quiz setup errors use an alert and keep explanatory copy with the settings' => str_contains($settings, 'role="alert"')
         && str_contains($settings, 'class="form-help mode-disclosure"'),
+    'exam recovery exposes accessible owner actions and honest guest/offline limits' => str_contains($settings, 'Resume saved exam')
+        && str_contains($settings, 'name="action" value="recover-draft"')
+        && str_contains($settings, 'name="action" value="discard-draft"')
+        && str_contains($settings, 'aria-labelledby="saved-exam-unavailable-heading"')
+        && str_contains($settings, 'current server session')
+        && str_contains($settings, 'does not support offline answer saving')
+        && str_contains($settings, 'No additional time will be granted.'),
     'mobile navigation and controls meet touch sizing contract' => str_contains($css, 'grid-template-columns:repeat(2,minmax(0,1fr))')
         && substr_count($css, 'min-height:44px') >= 4,
     'Smart Study actions use fluid one-column cards through the 320–430px phone range' => str_contains($css, '.dashboard-smart-study-actions{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))')

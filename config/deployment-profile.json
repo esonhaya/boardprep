@@ -52,7 +52,8 @@
     "json_optional_mutable_stores": [
         "blueprints.json",
         "learner_notes.json",
-        "learner-question-reports.json"
+        "learner-question-reports.json",
+        "exam-drafts.json"
     ],
     "account_preview": {
         "private_storage": "storage/private/learner-accounts",
@@ -72,6 +73,7 @@
     "backup_scope": "mutable_runtime_state_only",
     "production_data_excluded_from_package": [
         "storage/attempts.json",
+        "storage/exam-drafts.json",
         "storage/weakness.json",
         "storage/question-statistics.json",
         "storage/flashcard_state.json",

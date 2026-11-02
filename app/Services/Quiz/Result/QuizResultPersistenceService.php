@@ -31,11 +31,19 @@ final class QuizResultPersistenceService
             $questions
         );
 
-        $savedAttempt = App::container()
+        $saveOutcome = App::container()
             ->get(AttemptService::class)
-            ->save($attempt);
+            ->saveWithStatus($attempt);
+        $savedAttempt = $saveOutcome['attempt'];
 
+        $draftId = is_scalar($session['durable_draft_id'] ?? null)
+            ? trim((string) $session['durable_draft_id'])
+            : '';
         $attemptId = is_scalar($savedAttempt['id'] ?? null) ? trim((string) $savedAttempt['id']) : '';
+        if ($draftId !== '' && $attemptId !== '') {
+            (new \App\Services\Quiz\ExamDraftService())->deleteAfterFinalization($draftId, $attemptId);
+        }
+
         if ($attemptId !== '') {
             SessionService::set('quiz_attempt_id', $attemptId);
         }
@@ -43,6 +51,8 @@ final class QuizResultPersistenceService
         SessionService::set("attempt_persisted", true);
         SessionService::set("quiz_completed", true);
 
-        QuizAnswerStatisticsRecorder::record($questions, $answers);
+        if (($saveOutcome['created'] ?? false) === true) {
+            QuizAnswerStatisticsRecorder::record($questions, $answers);
+        }
     }
 }

@@ -25,6 +25,25 @@ class AttemptService
         });
     }
 
+    /** @return array{attempt:array<string,mixed>,created:bool} */
+    public function saveWithStatus(array $attempt): array
+    {
+        $attempt = $this->normalizeAttempt($attempt);
+        $attempt['user_id'] = LearnerIdentityService::current();
+        return AccountLifecycleLock::withWritableLearner($attempt['user_id'], function () use ($attempt): array {
+            $sessionId = is_scalar($attempt['session_id'] ?? null)
+                ? trim((string) $attempt['session_id'])
+                : '';
+            if ($sessionId !== '') {
+                $existing = $this->attempts->bySessionId($sessionId, $attempt['user_id']);
+                if ($existing !== null) {
+                    return ['attempt' => $existing, 'created' => false];
+                }
+            }
+            return ['attempt' => $this->attempts->create($attempt), 'created' => true];
+        });
+    }
+
     private function saveForLearner(array $attempt): array
     {
         $sessionId = is_scalar($attempt['session_id'] ?? null)

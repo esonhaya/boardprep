@@ -20,6 +20,7 @@ final class BackupService
     /** @var list<string> */
     private const JSON_BACKUP_FILES = [
         'attempts.json',
+        'exam-drafts.json',
         'weakness.json',
         'question-statistics.json',
         'flashcard_state.json',

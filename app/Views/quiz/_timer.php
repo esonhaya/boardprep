@@ -1,5 +1,8 @@
 <?php
 $timerSession = is_array($quizSession ?? null) ? $quizSession : [];
+$timerDraftRevision = is_int($timerSession['durable_draft_revision'] ?? null)
+    ? (string) $timerSession['durable_draft_revision']
+    : '';
 $remainingSeconds = \App\Services\Quiz\ExamTimerService::remainingSeconds($timerSession);
 if ($remainingSeconds !== null):
     $timerCsrfToken = \App\Services\Shared\CsrfTokenService::token();
@@ -12,6 +15,7 @@ if ($remainingSeconds !== null):
 <form id="exam-expiry-check" class="sr-only" method="POST" action="/quiz" hidden>
     <input type="hidden" name="action" value="timer-check">
     <input type="hidden" name="quiz_session_id" value="<?= htmlspecialchars(is_scalar($timerSession['id'] ?? null) ? (string) $timerSession['id'] : '', ENT_QUOTES, 'UTF-8') ?>">
+    <input type="hidden" name="draft_revision" value="<?= htmlspecialchars($timerDraftRevision, ENT_QUOTES, 'UTF-8') ?>">
     <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($timerCsrfToken, ENT_QUOTES, 'UTF-8') ?>">
 </form>
 <script src="/assets/js/exam-timer.js" defer></script>

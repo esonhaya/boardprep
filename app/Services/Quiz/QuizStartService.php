@@ -13,12 +13,26 @@ use App\Services\Quiz\Start\QuizStartSessionWriter;
 use App\Services\Quiz\Start\QuizStartSpecificationFactory;
 use App\Services\Quiz\Start\QuizStartViewModelFactory;
 use App\Services\Profile\LearnerPreferenceService;
+use App\Services\Quiz\ExamDraftService;
 
 class QuizStartService
 {
     public static function start(): void
     {
         $input = LearnerPreferenceService::applyToQuizInput(Request::all());
+        if (strtolower(trim((string) ($input['mode'] ?? 'practice'))) === 'exam'
+            && (new ExamDraftService())->availableForCurrentLearner()) {
+            try {
+                $draft = (new ExamDraftService())->currentSummary();
+            } catch (\Throwable $exception) {
+                SessionService::flash('error', 'Your saved exam could not be verified. Open the quiz page and resolve that draft before starting another exam.');
+                Response::redirect('/quiz?action=start', 303);
+            }
+            if ($draft !== null && ($draft['status'] ?? '') !== 'completed') {
+                SessionService::flash('error', 'An unfinished exam is already saved for this account. Resume it or discard it before starting another exam.');
+                Response::redirect('/quiz?action=start', 303);
+            }
+        }
         $exam = strtolower(trim((string) ($input['exam'] ?? '')));
         if (in_array($exam, ['cse', 'civil-service'], true)) {
             $level = strtoupper(trim((string) ($input['civil_service_level'] ?? $input['civilServiceLevel'] ?? '')));
@@ -213,6 +227,10 @@ class QuizStartService
         );
         QuizNavigationService::reset();
 
+        if (!self::persistDurableExamDraft($preparation->questions)) {
+            Response::redirect('/quiz?action=start', 303);
+        }
+
         View::render(
             'quiz/index',
             QuizStartViewModelFactory::create(
@@ -220,6 +238,33 @@ class QuizStartService
                 $preparation->questions
             )
         );
+    }
+
+    /** Save authenticated exam state before showing a recoverable exam as started. */
+    private static function persistDurableExamDraft(array $questions): bool
+    {
+        $session = SessionService::get('quiz_session', []);
+        if (!is_array($session) || ($session['mode'] ?? null) !== 'exam') {
+            return true;
+        }
+        $draftService = new ExamDraftService();
+        if (!$draftService->availableForCurrentLearner()) {
+            return true;
+        }
+        try {
+            $draftService->createFromCurrentSession(
+                $session,
+                $questions,
+                SessionService::get('answers', []),
+                QuizNavigationService::current(),
+                SessionService::get('exam_review_flags', [])
+            );
+            return true;
+        } catch (\Throwable $exception) {
+            QuizStartSessionWriter::clear();
+            SessionService::flash('error', 'The exam was not started because its durable recovery state could not be saved. Please try again.');
+            return false;
+        }
     }
 
     /** Preserve safe learner choices when a start request needs correction. */

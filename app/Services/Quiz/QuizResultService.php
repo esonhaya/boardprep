@@ -6,6 +6,29 @@ final class QuizResultService
 {
     public static function build(): array
     {
+        try {
+            return (new \App\Services\Quiz\ExamDraftService())->withCurrentDraftFinalization(
+                static fn(): array => self::buildUnlocked()
+            );
+        } catch (\App\Exceptions\ExamDraftConflictException $exception) {
+            $restored = false;
+            try {
+                $restored = (new \App\Services\Quiz\ExamDraftService())->restoreAuthoritativeSessionState();
+            } catch (\Throwable) {
+                // Do not claim the result is current when the draft cannot be reloaded.
+            }
+            \SessionService::flash('error', $restored
+                ? $exception->getMessage()
+                : 'The submitted exam could not be verified against its saved state. Reload after account storage is available.');
+            \App\Core\Response::redirect($restored ? '/quiz' : '/quiz?action=start', 303);
+        } catch (\App\Exceptions\ExamDraftUnavailableException $exception) {
+            \SessionService::flash('error', 'The saved exam could not be verified and was not submitted. Open the quiz page to recover it.');
+            \App\Core\Response::redirect('/quiz?action=start', 303);
+        }
+    }
+
+    private static function buildUnlocked(): array
+    {
         $cached = SessionService::get("quiz_result", null);
         if (self::validCachedResult($cached)) {
             return QuizResultResponseFactory::create($cached);

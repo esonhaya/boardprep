@@ -106,6 +106,7 @@ final class SimulationStorageFixture
 
         $excludedFiles = [
             'attempts.json',
+            'exam-drafts.json',
             'results.json',
             'history.json',
             'progress.json',
@@ -162,6 +163,7 @@ final class SimulationStorageFixture
 
         foreach ([
             'attempts.json' => "[]\n",
+            'exam-drafts.json' => "[]\n",
             'weakness.json' => "[]\n",
             'question-statistics.json' => "[]\n",
             'flashcard_state.json' => "[]\n",
