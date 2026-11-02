@@ -23,6 +23,8 @@ final class ApplicationSimulator
 
     private array $requestData = [];
 
+    private ?HttpSimulator $httpSimulator = null;
+
     private string $method = 'GET';
 
     private string $uri = '/';
@@ -108,13 +110,10 @@ final class ApplicationSimulator
             );
         }
 
-        $simulator =
-            new HttpSimulator(
-                $entryPoint
-            );
+        $this->httpSimulator ??= new HttpSimulator($entryPoint);
 
         $result =
-            $simulator->request(
+            $this->httpSimulator->request(
                 method: $this->method,
                 path: $path,
                 query: $query,
