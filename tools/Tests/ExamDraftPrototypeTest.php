@@ -6,13 +6,55 @@ require_once dirname(__DIR__, 2) . '/app/Core/Autoloader.php';
 \App\Core\Autoloader::register();
 
 use App\Core\App;
+use App\Contracts\StorageInterface;
 use App\Exceptions\ExamDraftConflictException;
 use App\Exceptions\ExamDraftUnavailableException;
 use App\Repositories\AttemptRepository;
+use App\Repositories\ExamDraftRepository;
 use App\Services\Accounts\AccountRepository;
+use App\Services\Accounts\AccountLifecycleLock;
 use App\Services\Accounts\AccountRestoreService;
+use App\Services\Accounts\AccountSessionService;
 use App\Services\Accounts\AccountService;
 use App\Services\Quiz\ExamDraftService;
+
+final class ExamDraftFailpointStorage implements StorageInterface
+{
+    private ?array $failpoint = null;
+
+    public function __construct(private StorageInterface $inner)
+    {
+    }
+
+    public function failNext(string $operation, string $collection, string $phase): void
+    {
+        $this->failpoint = [$operation, $collection, $phase];
+    }
+
+    private function mutate(string $operation, string $collection, callable $callback): mixed
+    {
+        if ($this->failpoint === [$operation, $collection, 'before']) {
+            $this->failpoint = null;
+            throw new RuntimeException('Injected storage failure before commit.');
+        }
+        $result = $callback();
+        if ($this->failpoint === [$operation, $collection, 'after']) {
+            $this->failpoint = null;
+            throw new RuntimeException('Injected lost response after commit.');
+        }
+        return $result;
+    }
+
+    public function all(string $collection): array { return $this->inner->all($collection); }
+    public function find(string $collection, string $id): ?array { return $this->inner->find($collection, $id); }
+    public function where(string $collection, array $criteria): array { return $this->inner->where($collection, $criteria); }
+    public function create(string $collection, array $data): array { return $this->mutate('create', $collection, fn() => $this->inner->create($collection, $data)); }
+    public function update(string $collection, string $id, array $data): ?array { return $this->mutate('update', $collection, fn() => $this->inner->update($collection, $id, $data)); }
+    public function updateBatch(string $collection, array $ids, callable $updater): void { $this->inner->updateBatch($collection, $ids, $updater); }
+    public function delete(string $collection, string $id): bool { return $this->mutate('delete', $collection, fn() => $this->inner->delete($collection, $id)); }
+    public function exists(string $collection, string $id): bool { return $this->inner->exists($collection, $id); }
+    public function replace(string $collection, array $records): void { $this->mutate('replace', $collection, fn() => $this->inner->replace($collection, $records)); }
+}
 
 function examDraftAssert(bool $condition, string $message): void
 {
@@ -154,6 +196,38 @@ $registeredB = $accounts->register('batch740-owner-b', $passwordB);
 examDraftAssert(is_array($registeredA['account']) && is_array($registeredB['account']), 'Synthetic account creation failed.');
 $accountA = $registeredA['account'] + ['password' => $passwordA];
 $accountB = $registeredB['account'] + ['password' => $passwordB];
+
+// Reproduce a request that authenticated before waiting for the account write lock.
+$passwordC = 'Batch741 synthetic owner C long password';
+$registeredC = $accounts->register('batch741-owner-c', $passwordC);
+examDraftAssert(is_array($registeredC['account']), 'Synthetic account C creation failed.');
+$accountC = $registeredC['account'] + ['password' => $passwordC];
+examDraftSession($accountC);
+$staleSessionAccount = AccountSessionService::current();
+examDraftAssert(is_array($staleSessionAccount), 'Synthetic account C did not authenticate.');
+AccountLifecycleLock::withLock(static function () use ($staleSessionAccount): void {
+    $updated = (new AccountRepository())->updateById(
+        (string) $staleSessionAccount['account_id'],
+        static function (array $current): array {
+            $current['auth_version'] = (int) ($current['auth_version'] ?? 0) + 1;
+            return $current;
+        }
+    );
+    if (!is_array($updated)) {
+        throw new RuntimeException('Could not invalidate the synthetic session epoch.');
+    }
+});
+$revokedWriteRan = false;
+examDraftExpect(RuntimeException::class, static function () use ($staleSessionAccount, &$revokedWriteRan): void {
+    AccountLifecycleLock::withWritableLearner(
+        (string) $staleSessionAccount['learner_id'],
+        static function () use (&$revokedWriteRan): void {
+            $revokedWriteRan = true;
+        }
+    );
+}, 'A write acquired the lifecycle lock with a revoked authentication epoch');
+examDraftAssert(!$revokedWriteRan, 'A write with a revoked authentication epoch reached its operation.');
+
 examDraftSession($accountA);
 
 $questionsA = examDraftSyntheticQuestions();
@@ -193,6 +267,13 @@ examDraftAssert(!str_contains($encodedDraft, 'Synthetic stem')
     && !str_contains($encodedDraft, 'Choice one'), 'Question text, choices, or answer-key explanations leaked into durable draft storage.');
 examDraftAssert(!array_key_exists('answer', $draft) && !array_key_exists('questions', $draft), 'Correct answers or question snapshots were persisted in the durable draft.');
 examDraftAssert($draft['quiz_session']['deadline_epoch'] === $sessionA['deadline_epoch'], 'Server deadline changed during draft creation.');
+
+$duplicateSession = array_replace($sessionA, ['id' => 'quiz-' . bin2hex(random_bytes(8))]);
+examDraftExpect(ExamDraftConflictException::class,
+    fn() => $service->createFromCurrentSession($duplicateSession, $questionsA),
+    'A second active draft was created for the same learner');
+examDraftAssert(count((new ExamDraftRepository(App::storage()))->byLearner($accountA['learner_id'])) === 1,
+    'One-active-draft enforcement left more than one learner draft.');
 
 $rawAccountA = (new AccountRepository())->findByUsername((string) $accountA['username']);
 $backupDraft = $draft;
@@ -240,6 +321,29 @@ examDraftExpect(RuntimeException::class,
     'An account restore payload retained an active quiz session binding');
 
 $_SESSION['answers'] = ['synthetic-exam-q1' => 'B'];
+$failpointStorage = new ExamDraftFailpointStorage(App::storage());
+$failpointService = new ExamDraftService($failpointStorage);
+$failpointStorage->failNext('update', 'exam-drafts', 'before');
+examDraftExpect(RuntimeException::class,
+    fn() => $failpointService->saveCurrentSessionState(0, (string) $sessionA['id']),
+    'A draft save reported success when storage rejected the write before commit');
+$afterRejectedWrite = App::storage()->find('exam-drafts', $draftId);
+examDraftAssert(($afterRejectedWrite['revision'] ?? null) === 0
+    && ($afterRejectedWrite['answers'] ?? null) === [],
+    'A rejected pre-commit answer write changed the durable draft.');
+$failpointStorage->failNext('update', 'exam-drafts', 'after');
+examDraftExpect(RuntimeException::class,
+    fn() => $failpointService->saveCurrentSessionState(0, (string) $sessionA['id']),
+    'The lost-response fixture did not fail after the storage commit.');
+$afterLostResponse = App::storage()->find('exam-drafts', $draftId);
+examDraftAssert(($afterLostResponse['revision'] ?? null) === 1
+    && ($afterLostResponse['answers'] ?? null) === ['synthetic-exam-q1' => 'B'],
+    'The lost-response fixture did not persist the answer exactly once.');
+$lostResponseRetry = $failpointService->saveCurrentSessionState(0, (string) $sessionA['id']);
+examDraftAssert(($lostResponseRetry['revision'] ?? null) === 1
+    && (int) ($_SESSION['quiz_session']['durable_draft_revision'] ?? -1) === 1,
+    'Retry after a lost save response did not acknowledge the committed state.');
+
 $saved = $service->saveCurrentSessionState(0, (string) $sessionA['id']);
 examDraftAssert($saved['revision'] === 1 && $saved['answers'] === ['synthetic-exam-q1' => 'B'], 'Answer did not persist with the next revision.');
 $retry = $service->saveCurrentSessionState(0, (string) $sessionA['id']);
@@ -324,20 +428,109 @@ examDraftExpect(ExamDraftUnavailableException::class,
     fn() => $service->saveCurrentSessionState((int) $expired['revision'], (string) $expired['active_quiz_session_id']),
     'An answer was saved after the server deadline');
 
-// A malformed owner record fails closed and is never overwritten by a recovery attempt.
-$corrupt = $storedA;
-$corrupt['question_ids'] = 'not-a-list';
-App::storage()->update('exam-drafts', $draftId, $corrupt);
-$unavailable = $service->currentSummary();
-examDraftAssert(($unavailable['status'] ?? null) === 'unavailable' && ($unavailable['id'] ?? null) === $draftId,
-    'A corrupted draft did not produce the safe owner-scoped unavailable state.');
-$afterCorruption = App::storage()->find('exam-drafts', $draftId);
-examDraftAssert(($afterCorruption['question_ids'] ?? null) === 'not-a-list', 'Corrupt draft storage was overwritten during fail-closed handling.');
+// Malformed and unsupported durable data fails closed without mutating the record.
+$validCorruptionBaseline = App::storage()->find('exam-drafts', $draftId);
+$corruptions = [
+    ['question_ids' => 'not-a-list'],
+    ['question_ids' => ['synthetic-exam-q1', 'synthetic-exam-q1']],
+    ['answers' => ['synthetic-exam-q1' => 'Z']],
+    ['review_flags' => [999]],
+    ['revision' => -1],
+    ['schema_version' => 999],
+    ['quiz_session' => array_replace($validCorruptionBaseline['quiz_session'], [
+        'deadline_epoch' => (int) $validCorruptionBaseline['quiz_session']['deadline_epoch'] + 3600,
+    ])],
+];
+foreach ($corruptions as $corruption) {
+    $corrupt = array_replace($validCorruptionBaseline, $corruption);
+    App::storage()->update('exam-drafts', $draftId, $corrupt);
+    $unavailable = $service->currentSummary();
+    examDraftAssert(($unavailable['status'] ?? null) === 'unavailable' && ($unavailable['id'] ?? null) === $draftId,
+        'A malformed draft did not produce the safe owner-scoped unavailable state.');
+    examDraftExpect(ExamDraftUnavailableException::class,
+        fn() => $service->recoverCurrentAccountDraft(),
+        'A malformed draft was recoverable.');
+    examDraftAssert(App::storage()->find('exam-drafts', $draftId) === $corrupt,
+        'Fail-closed handling overwrote a malformed draft record.');
+}
 examDraftAssert($service->discardOwnedDraft($draftId)
     && App::storage()->find('exam-drafts', $draftId) === null,
     'An owner could not safely discard an unverifiable draft.');
 
+// Result creation and draft cleanup recover safely after persistence failures.
+$finalizationStart = time();
+$finalizationSession = array_replace($sessionA, [
+    'id' => 'quiz-' . bin2hex(random_bytes(8)),
+    'started_at' => gmdate(DATE_ATOM, $finalizationStart),
+    'deadline_epoch' => $finalizationStart + 3600,
+]);
+$_SESSION['quiz_session'] = $finalizationSession;
+$_SESSION['questions'] = $questionsA;
+$_SESSION['answers'] = ['synthetic-exam-q1' => 'B'];
+$_SESSION['currentQuestion'] = 0;
+$_SESSION['exam_review_flags'] = [];
+$_SESSION['exam_answer_revision'] = 1;
+$finalizationDraft = $service->createFromCurrentSession($finalizationSession, $questionsA, $_SESSION['answers']);
+$finalizationDraftId = (string) $finalizationDraft['id'];
+
+$insertionFailureInstalled = false;
+$sqliteConnection = null;
+if ($backend === 'json') {
+    $attemptsPath = $storage . '/attempts.json';
+    $attemptsBeforeFault = file_get_contents($attemptsPath);
+    if (!is_string($attemptsBeforeFault)) {
+        throw new RuntimeException('Could not snapshot isolated attempts storage for fault injection.');
+    }
+    file_put_contents($attemptsPath, '{injected malformed attempts collection', LOCK_EX);
+} else {
+    $sqliteConnection = new PDO('sqlite:' . $storage . '/runtime/boardprep.sqlite', null, null, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+    $sqliteConnection->exec("CREATE TRIGGER batch741_fail_attempt_insert BEFORE INSERT ON storage_records WHEN NEW.collection = 'attempts' BEGIN SELECT RAISE(ABORT, 'injected attempt insert failure'); END");
+    $insertionFailureInstalled = true;
+}
+$insertFailureObserved = false;
+try {
+    \QuizResultService::build();
+} catch (Throwable) {
+    $insertFailureObserved = true;
+}
+if ($backend === 'json') {
+    file_put_contents($attemptsPath, $attemptsBeforeFault, LOCK_EX);
+} elseif ($insertionFailureInstalled) {
+    $sqliteConnection->exec('DROP TRIGGER batch741_fail_attempt_insert');
+}
+examDraftAssert($insertFailureObserved
+    && App::storage()->find('exam-drafts', $finalizationDraftId) !== null
+    && (new AttemptRepository(App::storage()))->bySessionId($finalizationDraftId, $accountA['learner_id']) === null,
+    'A failed result write changed or removed the resumable draft.');
+
+if ($backend === 'sqlite') {
+    $sqliteConnection->exec("CREATE TRIGGER batch741_fail_draft_delete BEFORE DELETE ON storage_records WHEN OLD.collection = 'exam-drafts' BEGIN SELECT RAISE(ABORT, 'injected draft delete failure'); END");
+    $deleteFailureObserved = false;
+    try {
+        \QuizResultService::build();
+    } catch (Throwable) {
+        $deleteFailureObserved = true;
+    }
+    $durableAttempt = (new AttemptRepository(App::storage()))->bySessionId($finalizationDraftId, $accountA['learner_id']);
+    examDraftAssert($deleteFailureObserved && is_array($durableAttempt)
+        && ($durableAttempt['completed'] ?? false) === true
+        && App::storage()->find('exam-drafts', $finalizationDraftId) !== null,
+        'A failed draft cleanup lost a committed result or removed its recovery record.');
+    $sqliteConnection->exec('DROP TRIGGER batch741_fail_draft_delete');
+}
+
+\QuizResultService::build();
+$finalizedAttempt = (new AttemptRepository(App::storage()))->bySessionId($finalizationDraftId, $accountA['learner_id']);
+examDraftAssert(is_array($finalizedAttempt) && ($finalizedAttempt['completed'] ?? false) === true
+    && App::storage()->find('exam-drafts', $finalizationDraftId) === null
+    && \SessionService::has('attempt_persisted'),
+    'A retry did not finish result verification and draft cleanup.');
+$finalAttemptSnapshot = $finalizedAttempt;
+\QuizResultService::build();
+examDraftAssert((new AttemptRepository(App::storage()))->bySessionId($finalizationDraftId, $accountA['learner_id']) === $finalAttemptSnapshot,
+    'Repeated finalization changed or duplicated the immutable result.');
+
 session_unset();
 session_write_close();
 examDraftRemoveFixture($root);
-echo "[PASS] {$backend}: synthetic authenticated ownership, lost-session recovery, answer persistence/retry, stale-write rejection, repeated recovery, unchanged deadline, submitted/expired/corrupt draft rejection and discard, and answer-key exclusion.\n";
+echo "[PASS] {$backend}: authenticated ownership and session-epoch fencing, one active draft, before/after-commit save retries, lost-session recovery, stale-write rejection, deadline integrity, corruption rejection, finalization fault recovery, exact-once result persistence, and answer-key exclusion.\n";

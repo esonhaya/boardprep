@@ -68,6 +68,16 @@ final class AccountLifecycleLock
             if (!is_array($account) || ($account['status'] ?? null) !== 'active') {
                 throw new RuntimeException('Account data is unavailable for writing.');
             }
+
+            // The identity may have been resolved before this process acquired the
+            // lifecycle lock. Recheck the session epoch while holding the lock so
+            // a password reset or account transition cannot race a stale write.
+            $sessionAccount = AccountSessionService::current();
+            if (!is_array($sessionAccount)
+                || !hash_equals($learnerId, (string) ($sessionAccount['learner_id'] ?? ''))) {
+                throw new RuntimeException('The authenticated account session is no longer valid for writing.');
+            }
+
             return $operation();
         });
     }
