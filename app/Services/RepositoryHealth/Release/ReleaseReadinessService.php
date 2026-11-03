@@ -882,9 +882,9 @@ final class ReleaseReadinessService
             $bytes += $size;
             $files++;
         }
-        // Six mutable learner collections are seeded as empty JSON arrays.
-        $bytes += 18;
-        $files += 6;
+        // Mutable collections are seeded as empty JSON arrays in the fixture.
+        $bytes += count($mutableCollections) * strlen("[]\n");
+        $files += count($mutableCollections);
         return ['fixture_bytes' => $bytes, 'fixture_files' => $files];
     }
 
