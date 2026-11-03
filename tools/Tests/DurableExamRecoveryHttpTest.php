@@ -291,6 +291,97 @@ $attemptRowsAfterRetry = json_decode((string) file_get_contents($storage . '/att
 $matchingAfterRetry = array_values(array_filter($attemptRowsAfterRetry, static fn(array $attempt): bool => ($attempt['session_id'] ?? null) === $draftId && ($attempt['user_id'] ?? null) === $learnerId));
 durableDraftHttpAssert($finishRetry['status'] === 303 && count($matchingAfterRetry) === 1, 'A repeated finish duplicated or changed the durable result.');
 
+// A durable answer mutation and finalization must serialize to one immutable result.
+$raceSettings = $http->request('GET', '/quiz?action=start', [], [], [], $cookieAfterLoss);
+$raceStart = $http->request('POST', '/quiz', [], [
+    'action' => 'start',
+    'csrf_token' => durableDraftHttpCsrf($raceSettings['output']),
+    'exam' => 'LET',
+    'subject' => '*',
+    'mode' => 'exam',
+    'difficulty' => 'mixed',
+    'count' => '5',
+    'timer_mode' => 'untimed',
+], [], $cookieAfterLoss);
+durableDraftHttpAssert($raceStart['status'] === 200
+    && preg_match('/name="question_id"\s+value="([^"]+)"/', $raceStart['output'], $raceQuestionMatch) === 1
+    && preg_match('/name="quiz_session_id"\s+value="([^"]+)"/', $raceStart['output'], $raceSessionMatch) === 1
+    && preg_match('/name="draft_revision"\s+value="([^"]*)"/', $raceStart['output'], $raceRevisionMatch) === 1,
+    'The durable save/finalization race fixture did not start with server bindings.');
+$raceQuestionId = html_entity_decode($raceQuestionMatch[1], ENT_QUOTES | ENT_HTML5, 'UTF-8');
+$raceQuizSessionId = html_entity_decode($raceSessionMatch[1], ENT_QUOTES | ENT_HTML5, 'UTF-8');
+$raceDraftRevision = html_entity_decode($raceRevisionMatch[1], ENT_QUOTES | ENT_HTML5, 'UTF-8');
+$raceCsrf = durableDraftHttpCsrf($raceStart['output']);
+$raceDraftRows = json_decode((string) file_get_contents($draftPath), true, 128, JSON_THROW_ON_ERROR);
+$raceDraft = $raceDraftRows[0] ?? [];
+$raceDraftId = (string) ($raceDraft['id'] ?? '');
+durableDraftHttpAssert($raceDraftId !== '' && ($raceDraft['user_id'] ?? null) === $learnerId,
+    'The race fixture draft was not owned by its authenticated learner.');
+$raceReview = $http->request('GET', '/quiz', ['action' => 'review'], [], [], $cookieAfterLoss);
+durableDraftHttpAssert($raceReview['status'] === 200, 'The race fixture review state could not be prepared.');
+$raceResponses = $http->requestsConcurrently([
+    ['method' => 'POST', 'path' => '/quiz', 'post' => [
+        'action' => 'submit',
+        'quiz_session_id' => $raceQuizSessionId,
+        'draft_revision' => $raceDraftRevision,
+        'question_id' => $raceQuestionId,
+        'answer' => 'A',
+        'csrf_token' => $raceCsrf,
+    ], 'cookies' => $cookieAfterLoss],
+    ['method' => 'POST', 'path' => '/quiz', 'post' => [
+        'action' => 'finish',
+        'quiz_session_id' => $raceQuizSessionId,
+        'draft_revision' => $raceDraftRevision,
+        'csrf_token' => $raceCsrf,
+    ], 'cookies' => $cookieAfterLoss],
+]);
+durableDraftHttpAssert(count($raceResponses) === 2,
+    'The durable answer save/finalization race did not return both simulated requests.');
+$raceAttempts = static function () use ($storage, $raceDraftId, $learnerId): array {
+    $rows = json_decode((string) file_get_contents($storage . '/attempts.json'), true, 128, JSON_THROW_ON_ERROR);
+    return array_values(array_filter($rows, static fn(array $attempt): bool =>
+        ($attempt['session_id'] ?? null) === $raceDraftId
+        && ($attempt['user_id'] ?? null) === $learnerId
+    ));
+};
+$raceFinalAttempts = $raceAttempts();
+if ($raceFinalAttempts === []) {
+    // If the answer won first, it invalidates the old review revision; review the latest state and finish it.
+    $raceReviewAfterSave = $http->request('GET', '/quiz', ['action' => 'review'], [], [], $cookieAfterLoss);
+    durableDraftHttpAssert($raceReviewAfterSave['status'] === 200
+        && preg_match('/name="quiz_session_id"\s+value="([^"]+)"/', $raceReviewAfterSave['output'], $raceFinalSessionMatch) === 1
+        && preg_match('/name="draft_revision"\s+value="([^"]*)"/', $raceReviewAfterSave['output'], $raceFinalRevisionMatch) === 1,
+        'The durable race did not leave an active, reviewable attempt after a save-first ordering.');
+    $raceFinalized = $http->request('POST', '/quiz', [], [
+        'action' => 'finish',
+        'csrf_token' => durableDraftHttpCsrf($raceReviewAfterSave['output']),
+        'quiz_session_id' => html_entity_decode($raceFinalSessionMatch[1], ENT_QUOTES | ENT_HTML5, 'UTF-8'),
+        'draft_revision' => html_entity_decode($raceFinalRevisionMatch[1], ENT_QUOTES | ENT_HTML5, 'UTF-8'),
+    ], [], $cookieAfterLoss);
+    durableDraftHttpAssert($raceFinalized['status'] === 303
+        && ($raceFinalized['location'] ?? '') === '/quiz?action=result',
+        'The draft could not be finalized after resolving a save-first race.');
+    $raceFinalAttempts = $raceAttempts();
+}
+$raceDraftRowsAfterFinish = json_decode((string) file_get_contents($draftPath), true, 128, JSON_THROW_ON_ERROR);
+durableDraftHttpAssert(count($raceFinalAttempts) === 1
+    && ($raceFinalAttempts[0]['completed'] ?? false) === true
+    && count(array_filter($raceDraftRowsAfterFinish, static fn(array $row): bool => ($row['id'] ?? null) === $raceDraftId)) === 0,
+    'A durable answer/finalization race duplicated a result or left the submitted draft recoverable.');
+$raceResultSnapshot = (string) file_get_contents($storage . '/attempts.json');
+$lateRaceSave = $http->request('POST', '/quiz', [], [
+    'action' => 'submit',
+    'quiz_session_id' => $raceQuizSessionId,
+    'draft_revision' => $raceDraftRevision,
+    'question_id' => $raceQuestionId,
+    'answer' => 'B',
+    'csrf_token' => $raceCsrf,
+], [], $cookieAfterLoss);
+durableDraftHttpAssert(in_array($lateRaceSave['status'], [302, 303], true)
+    && (string) file_get_contents($storage . '/attempts.json') === $raceResultSnapshot
+    && count($raceAttempts()) === 1,
+    'A late durable answer save changed or duplicated a finalized result.');
+
 // Corrupt draft data is shown as unavailable and can be discarded by its owner.
 $settingsAfterFinish = $http->request('GET', '/quiz', ['action' => 'start'], [], [], $cookieAfterLoss);
 $startAgain = $http->request('POST', '/quiz', [], [
@@ -353,4 +444,4 @@ durableDraftHttpAssert($guestStart['status'] === 200
     && $draftRowsAfterGuestStart === [],
     'Guest exam behavior unexpectedly created or promised an account-owned recovery draft.');
 
-echo "[PASS] authenticated and guest exam starts, duplicate-attempt prevention, answer persistence and retry idempotency, PHP session loss, reauthentication, CSRF, concurrent owner-scoped recovery, stale-form rejection, original deadline, answer restoration, cross-account isolation, exactly-once finalization, and safe corrupt-draft discard.\n";
+echo "[PASS] authenticated and guest exam starts, duplicate-attempt prevention, answer persistence and retry idempotency, PHP session loss, reauthentication, CSRF, concurrent owner-scoped recovery, stale-form rejection, original deadline, answer restoration, cross-account isolation, save/finalization concurrency, exactly-once result persistence, and safe corrupt-draft discard.\n";
