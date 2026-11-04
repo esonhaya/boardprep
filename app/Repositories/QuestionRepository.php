@@ -21,13 +21,39 @@ class QuestionRepository extends BaseRepository
 
     public function all(): array
     {
+        $reuseMetadataSnapshot = null;
+        return $this->loadAll($reuseMetadataSnapshot);
+    }
+
+    /**
+     * Load the canonical question projection and its raw reuse metadata in one
+     * storage pass. Request-local consumers that validate derived eligibility
+     * can reuse the metadata snapshot instead of decoding the same collection
+     * again.
+     *
+     * @return array{questions:list<array<string,mixed>>,reuse_metadata:list<array<string,mixed>>}
+     */
+    public function allWithReuseMetadataSnapshot(): array
+    {
+        $reuseMetadataSnapshot = [];
+        $questions = $this->loadAll($reuseMetadataSnapshot);
+        return ['questions' => $questions, 'reuse_metadata' => $reuseMetadataSnapshot];
+    }
+
+    /** @param ?array $reuseMetadataSnapshot Set to [] to retain the collection snapshot. */
+    private function loadAll(?array &$reuseMetadataSnapshot): array
+    {
         $questions = array_values(array_filter(
             $this->storage->all($this->collection),
             'is_array'
         ));
 
+        $reuseRecords = $this->storage->all('question-reuse-metadata');
+        if ($reuseMetadataSnapshot !== null) {
+            $reuseMetadataSnapshot = $reuseRecords;
+        }
         $reuseByQuestion = [];
-        foreach ($this->storage->all('question-reuse-metadata') as $record) {
+        foreach ($reuseRecords as $record) {
             if (!is_array($record) || !is_scalar($record['question_id'] ?? null)) {
                 continue;
             }

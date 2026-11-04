@@ -27,12 +27,19 @@ final class FlashcardController
         $parsed = self::filters(Request::query());
         $questionSnapshot = $parsed['question_snapshot'] ?? null;
         $eligibilityIndex = $parsed['eligibility_index'] ?? null;
+        $studyQuestionLinkSnapshot = $parsed['study_question_links_snapshot'] ?? null;
         $selection = self::emptySelection();
         $error = $parsed['error'];
 
         if ($error === null) {
             try {
-                $selection = self::selection($parsed['mode'], $parsed['filters'], $questionSnapshot, $eligibilityIndex);
+                $selection = self::selection(
+                    $parsed['mode'],
+                    $parsed['filters'],
+                    $questionSnapshot,
+                    $eligibilityIndex,
+                    $studyQuestionLinkSnapshot
+                );
             } catch (\Throwable) {
                 $error = 'Flashcards are temporarily unavailable. Please try again.';
             }
@@ -40,13 +47,27 @@ final class FlashcardController
         $boards = $subjects = $topics = [];
         try {
             $boards = self::options(TaxonomyStorageService::boards());
+            $reuseMetadataSnapshot = null;
             [$subjects, $topics] = is_array($parsed['filter_options'] ?? null)
                 ? $parsed['filter_options']
-                : self::filterOptions($parsed['filters'], $questionSnapshot, $eligibilityIndex);
+                : self::filterOptions(
+                    $parsed['filters'],
+                    $questionSnapshot,
+                    $eligibilityIndex,
+                    $reuseMetadataSnapshot,
+                    $studyQuestionLinkSnapshot
+                );
         } catch (\Throwable) {
             $error ??= 'Flashcard filters are temporarily unavailable. Please try again.';
         }
-        unset($parsed['question_snapshot'], $questionSnapshot, $parsed['eligibility_index'], $eligibilityIndex);
+        unset(
+            $parsed['question_snapshot'],
+            $parsed['eligibility_index'],
+            $parsed['study_question_links_snapshot'],
+            $questionSnapshot,
+            $eligibilityIndex,
+            $studyQuestionLinkSnapshot
+        );
 
         View::render('flashcards/index', [
             'pageTitle' => 'Flashcards | BoardPrep',
@@ -65,6 +86,7 @@ final class FlashcardController
         $parsed = self::filters(Request::query());
         $questionSnapshot = $parsed['question_snapshot'] ?? null;
         $eligibilityIndex = $parsed['eligibility_index'] ?? null;
+        $studyQuestionLinkSnapshot = $parsed['study_question_links_snapshot'] ?? null;
         $filters = $parsed['filters'];
         $mode = $parsed['mode'];
         $card = null;
@@ -84,7 +106,13 @@ final class FlashcardController
                         throw new \InvalidArgumentException('Flashcard does not match the selected filters.');
                     }
                 } else {
-                    $selection = self::selection($mode, $filters, $questionSnapshot, $eligibilityIndex);
+                    $selection = self::selection(
+                        $mode,
+                        $filters,
+                        $questionSnapshot,
+                        $eligibilityIndex,
+                        $studyQuestionLinkSnapshot
+                    );
                     $card = $selection['cards'][0] ?? null;
                 }
             } catch (\Throwable) {
@@ -99,7 +127,7 @@ final class FlashcardController
         $expectedReviewCount = $card !== null && $revealed
             ? self::service()->reviewCount((string) ($card['card_key'] ?? ''))
             : 0;
-        unset($parsed['question_snapshot'], $questionSnapshot, $parsed['eligibility_index'], $eligibilityIndex);
+        unset($parsed['question_snapshot'], $questionSnapshot, $parsed['eligibility_index'], $eligibilityIndex, $parsed['study_question_links_snapshot'], $studyQuestionLinkSnapshot);
 
         View::render('flashcards/review', [
             'pageTitle' => 'Review Flashcards | BoardPrep',
@@ -118,7 +146,7 @@ final class FlashcardController
     public static function submitReview(): void
     {
         $parsed = self::filters(Request::input());
-        unset($parsed['question_snapshot']);
+        unset($parsed['question_snapshot'], $parsed['study_question_links_snapshot']);
         $filters = $parsed['filters'];
         $eligibilityIndex = $parsed['eligibility_index'] ?? null;
         $mode = $parsed['mode'];
@@ -230,7 +258,7 @@ final class FlashcardController
         return App::container()->get(FlashcardService::class);
     }
 
-    /** @return array{filters:array<string,mixed>,mode:string,error:?string,filter_options:?array,question_snapshot:?array,eligibility_index:?QuestionEligibilityIndex} */
+    /** @return array{filters:array<string,mixed>,mode:string,error:?string,filter_options:?array,question_snapshot:?array,eligibility_index:?QuestionEligibilityIndex,study_question_links_snapshot:?array} */
     private static function filters(mixed $input): array
     {
         $input = is_array($input) ? $input : [];
@@ -256,6 +284,8 @@ final class FlashcardController
         $filterOptions = null;
         $questionSnapshot = null;
         $eligibilityIndex = null;
+        $reuseMetadataSnapshot = null;
+        $studyQuestionLinkSnapshot = null;
         try {
             $boardRows = self::options(TaxonomyStorageService::boards());
             $boardAliases = [];
@@ -319,6 +349,7 @@ final class FlashcardController
                 'filter_options' => null,
                 'question_snapshot' => null,
                 'eligibility_index' => null,
+                'study_question_links_snapshot' => null,
             ];
         }
 
@@ -331,6 +362,7 @@ final class FlashcardController
                     'filter_options' => null,
                     'question_snapshot' => null,
                     'eligibility_index' => null,
+                    'study_question_links_snapshot' => null,
                 ];
             }
             $mode = (string) $input['mode'];
@@ -368,12 +400,19 @@ final class FlashcardController
         }
 
         if ($error === null && (isset($filters['board']) || isset($filters['subject']) || isset($filters['topic']))) {
-            $filterOptions = self::filterOptions($filters, $questionSnapshot, $eligibilityIndex);
+            $filterOptions = self::filterOptions(
+                $filters,
+                $questionSnapshot,
+                $eligibilityIndex,
+                $reuseMetadataSnapshot,
+                $studyQuestionLinkSnapshot
+            );
             $compatible = self::filterCompatibility($filters, $filterOptions);
             if ($compatible === false) {
                 $error = 'That subject and topic do not belong to the selected board. Choose a compatible filter combination.';
             }
         }
+        unset($reuseMetadataSnapshot);
 
         return [
             'filters' => $filters,
@@ -382,6 +421,7 @@ final class FlashcardController
             'filter_options' => $filterOptions,
             'question_snapshot' => $questionSnapshot,
             'eligibility_index' => $eligibilityIndex,
+            'study_question_links_snapshot' => $studyQuestionLinkSnapshot,
         ];
     }
 
@@ -390,17 +430,18 @@ final class FlashcardController
         string $mode,
         array $filters,
         ?array $questionSnapshot = null,
-        ?QuestionEligibilityIndex $eligibilityIndex = null
+        ?QuestionEligibilityIndex $eligibilityIndex = null,
+        ?array $studyQuestionLinkSnapshot = null
     ): array
     {
         if ($mode === 'missed') {
             return self::service()->selectionForQuestionIds(self::missedQuestionIds(), 10);
         }
         if ($mode === 'weakness') {
-            return self::service()->weaknessSelection(10, null, $questionSnapshot, $eligibilityIndex);
+            return self::service()->weaknessSelection(10, null, $questionSnapshot, $eligibilityIndex, $studyQuestionLinkSnapshot);
         }
 
-        return self::service()->dueSelection($filters, 10, null, $questionSnapshot, $eligibilityIndex);
+        return self::service()->dueSelection($filters, 10, null, $questionSnapshot, $eligibilityIndex, $studyQuestionLinkSnapshot);
     }
 
     /** @return list<string> */
@@ -473,7 +514,9 @@ final class FlashcardController
     private static function filterOptions(
         array $filters,
         ?array &$questionSnapshot = null,
-        ?QuestionEligibilityIndex &$eligibilityIndex = null
+        ?QuestionEligibilityIndex &$eligibilityIndex = null,
+        ?array &$reuseMetadataSnapshot = null,
+        ?array &$studyQuestionLinkSnapshot = null
     ): array
     {
         $wantedBoard = (string) ($filters['board'] ?? '');
@@ -488,10 +531,19 @@ final class FlashcardController
         $subjects = [];
         $topics = [];
         $selectionQuestions = [];
-        $questionSnapshot ??= App::container()->get(QuestionRepository::class)->all();
+        if ($questionSnapshot === null) {
+            $questionRead = App::container()->get(QuestionRepository::class)->allWithReuseMetadataSnapshot();
+            $questionSnapshot = $questionRead['questions'];
+            $reuseMetadataSnapshot = $questionRead['reuse_metadata'];
+        }
         $questions = $questionSnapshot;
         if ($wantedBoard !== '') {
-            $eligibilityIndex ??= QuestionEligibilityService::index($questions);
+            $studyQuestionLinkSnapshot ??= App::storage()->all('study-question-links');
+            $eligibilityIndex ??= QuestionEligibilityService::index(
+                $questions,
+                $reuseMetadataSnapshot,
+                $studyQuestionLinkSnapshot
+            );
         }
         $index = $eligibilityIndex;
         $scopeFilters = $filters;

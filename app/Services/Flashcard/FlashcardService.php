@@ -118,7 +118,8 @@ final class FlashcardService
         int $limit = 20,
         ?DateTimeImmutable $now = null,
         ?array $questionSnapshot = null,
-        ?QuestionEligibilityIndex $eligibilityIndex = null
+        ?QuestionEligibilityIndex $eligibilityIndex = null,
+        ?array $studyQuestionLinkSnapshot = null
     ): array {
         if ($limit < 1) {
             throw new InvalidArgumentException('Due-card limit must be positive.');
@@ -160,7 +161,7 @@ final class FlashcardService
         }
 
         return $this->selectFromCards(
-            $this->derivation->all($filters, [], $questionSnapshot, $eligibilityIndex),
+            $this->derivation->all($filters, [], $questionSnapshot, $eligibilityIndex, $studyQuestionLinkSnapshot),
             $states,
             $includeNew,
             false,
@@ -187,7 +188,8 @@ final class FlashcardService
         int $limit = 20,
         ?DateTimeImmutable $now = null,
         ?array $questionSnapshot = null,
-        ?QuestionEligibilityIndex $eligibilityIndex = null
+        ?QuestionEligibilityIndex $eligibilityIndex = null,
+        ?array $studyQuestionLinkSnapshot = null
     ): array
     {
         $weakTopics = $this->weakTopics();
@@ -195,7 +197,13 @@ final class FlashcardService
             return $this->emptySelection();
         }
 
-        $cards = $this->derivation->all([], array_keys($weakTopics), $questionSnapshot, $eligibilityIndex);
+        $cards = $this->derivation->all(
+            [],
+            array_keys($weakTopics),
+            $questionSnapshot,
+            $eligibilityIndex,
+            $studyQuestionLinkSnapshot
+        );
 
         return $this->selectFromCards(
             $cards,

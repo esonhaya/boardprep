@@ -73,16 +73,6 @@ $_GET = ['board' => 'let', 'subject' => 'english'];
 $_SERVER['REQUEST_METHOD'] = 'GET';
 $_SERVER['REQUEST_URI'] = '/flashcards?board=let&subject=english';
 $fullQuestionCount = count(App::storage()->all('questions'));
-$filtersMethod = new ReflectionMethod(FlashcardController::class, 'filters');
-$parsedFilters = $filtersMethod->invoke(null, ['board' => 'let', 'subject' => 'english']);
-$scopedQuestionCount = count((array) ($parsedFilters['question_snapshot'] ?? []));
-if ($scopedQuestionCount < 1 || $scopedQuestionCount >= $fullQuestionCount) {
-    throw new RuntimeException(sprintf(
-        'Scoped flashcard filters retained %d of %d canonical questions; expected a strictly smaller eligible selection scope.',
-        $scopedQuestionCount,
-        $fullQuestionCount
-    ));
-}
 $countingStorage->allReads = [];
 $countingStorage->questionCollectionReads = 0;
 $runs = [];
@@ -139,10 +129,39 @@ foreach ($runs as $index => $run) {
             ));
         }
     }
+    if ($index === 0) {
+        foreach (['question-reuse-metadata', 'concept-derived-eligibility', 'study-question-links'] as $collection) {
+            if (($run['all_reads'][$collection] ?? 0) !== 1) {
+                throw new RuntimeException(sprintf(
+                    'Cold scoped flashcard request read %s %d times; expected one shared request snapshot.',
+                    $collection,
+                    $run['all_reads'][$collection] ?? 0
+                ));
+            }
+        }
+        printf(
+            "[PASS] cold collection snapshots: reuse_metadata=%d derived_eligibility=%d study_links=%d.\n",
+            $run['all_reads']['question-reuse-metadata'],
+            $run['all_reads']['concept-derived-eligibility'],
+            $run['all_reads']['study-question-links']
+        );
+    }
     printf("[PASS] flashcard request %d: reads=%d elapsed_ms=%.1f\n", $index + 1, $run['question_reads'], $run['elapsed_ms']);
 }
-printf("[PASS] flashcard controller available_cards=%d 3-run peak_mb=%.1f total_question_reads=%d.\n", $availableCount, $peakMemoryMb, $countingStorage->questionCollectionReads);
+$requestQuestionReads = $countingStorage->questionCollectionReads;
+$filtersMethod = new ReflectionMethod(FlashcardController::class, 'filters');
+$parsedFilters = $filtersMethod->invoke(null, ['board' => 'let', 'subject' => 'english']);
+$scopedQuestionCount = count((array) ($parsedFilters['question_snapshot'] ?? []));
+if ($scopedQuestionCount < 1 || $scopedQuestionCount >= $fullQuestionCount) {
+    throw new RuntimeException(sprintf(
+        'Scoped flashcard filters retained %d of %d canonical questions; expected a strictly smaller eligible selection scope.',
+        $scopedQuestionCount,
+        $fullQuestionCount
+    ));
+}
+printf("[PASS] flashcard controller available_cards=%d 3-run peak_mb=%.1f total_question_reads=%d.\n", $availableCount, $peakMemoryMb, $requestQuestionReads);
 printf("[PASS] flashcard selection scope reduced from %d to %d canonical questions.\n", $fullQuestionCount, $scopedQuestionCount);
+printf("[PASS] flashcard response sha256=%s bytes=%d.\n", hash('sha256', $html), strlen($html));
 if (getenv('BOARDPREP_TRACE_QUESTION_READS') === '1') {
     foreach ($countingStorage->questionReadCallers as $caller) echo "[READ] {$caller}\n";
 }

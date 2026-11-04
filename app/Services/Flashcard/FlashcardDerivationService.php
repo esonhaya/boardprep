@@ -85,16 +85,29 @@ final class FlashcardDerivationService
         array $filters = [],
         array $topicIds = [],
         ?array $questionSnapshot = null,
-        ?QuestionEligibilityIndex $questionEligibilityIndex = null
+        ?QuestionEligibilityIndex $questionEligibilityIndex = null,
+        ?array $studyQuestionLinkSnapshot = null
     ): array
     {
-        $questions = $questionSnapshot ?? $this->questions->all();
+        $reuseMetadataSnapshot = null;
+        if ($questionSnapshot === null && isset($filters['board'])) {
+            $questionRead = $this->questions->allWithReuseMetadataSnapshot();
+            $questions = $questionRead['questions'];
+            $reuseMetadataSnapshot = $questionRead['reuse_metadata'];
+        } else {
+            $questions = $questionSnapshot ?? $this->questions->all();
+        }
         $eligibilityIndex = $questionEligibilityIndex ?? $this->eligibilityIndex;
         if (isset($filters['board']) && $eligibilityIndex === null) {
-            // Eligibility relationship validation can reuse the canonical
-            // snapshot already loaded for card derivation instead of decoding
-            // the full question bank a second time on a cold request.
-            $this->eligibilityIndex = QuestionEligibilityService::index($questions);
+            // Eligibility and study-reference validation share the request's
+            // canonical snapshots rather than independently decoding the same
+            // collections during a cold board-scoped selection.
+            $studyQuestionLinkSnapshot ??= App::storage()->all('study-question-links');
+            $this->eligibilityIndex = QuestionEligibilityService::index(
+                $questions,
+                $reuseMetadataSnapshot,
+                $studyQuestionLinkSnapshot
+            );
             $eligibilityIndex = $this->eligibilityIndex;
         }
         $selectedIndexes = [];
@@ -129,7 +142,12 @@ final class FlashcardDerivationService
         }
 
         $referencesByQuestion = $this->useSharedStudyLibrary
-            ? StudyLibraryService::forQuestionsByBoard($boardsByQuestion, $questions, $eligibilityIndex)
+            ? StudyLibraryService::forQuestionsByBoard(
+                $boardsByQuestion,
+                $questions,
+                $eligibilityIndex,
+                $studyQuestionLinkSnapshot
+            )
             : [];
         $cards = [];
         foreach ($selectedIndexes as $index) {
@@ -166,7 +184,12 @@ final class FlashcardDerivationService
                 $board = $taxonomy['board_id'] ?? $question['board'] ?? null;
                 $boardsByQuestion[$questionId] = is_scalar($board) ? (string) $board : null;
             }
-            $referencesByQuestion = StudyLibraryService::forQuestionsByBoard($boardsByQuestion, $questions);
+            $referencesByQuestion = StudyLibraryService::forQuestionsByBoard(
+                $boardsByQuestion,
+                $questions,
+                null,
+                null
+            );
         }
 
         $cards = [];

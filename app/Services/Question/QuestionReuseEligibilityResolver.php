@@ -142,28 +142,57 @@ final class QuestionReuseEligibilityResolver
     /** @return array<int, array> */
     public static function productionDerivedRelationships(
         ?array $questionSnapshot = null,
-        ?array $blueprintSnapshot = null
+        ?array $blueprintSnapshot = null,
+        ?array $reuseMetadataSnapshot = null,
+        ?array $studyQuestionLinksSnapshot = null
     ): array
     {
         if (self::$productionRelationshipsCache !== null) {
             return self::$productionRelationshipsCache;
         }
-        if (!self::productionDerivationEnabled()) {
+        if (self::$productionEnabledCache === false) {
+            return self::$productionRelationshipsCache = [];
+        }
+        $derivedRecords = App::storage()->all('concept-derived-eligibility');
+        if (self::$productionEnabledCache === null) {
+            self::$productionEnabledCache = false;
+            foreach ($derivedRecords as $record) {
+                if (is_array($record)
+                    && ($record['record_type'] ?? '') === 'CONFIG'
+                    && ($record['production_enabled'] ?? false) === true) {
+                    self::$productionEnabledCache = true;
+                    break;
+                }
+            }
+        }
+        if (!self::$productionEnabledCache) {
             return self::$productionRelationshipsCache = [];
         }
         $questionConceptById = $questionSnapshot === null
             ? null
             : self::questionConcepts($questionSnapshot);
+        $reuseMetadataByQuestion = $reuseMetadataSnapshot === null
+            ? null
+            : self::reuseMetadataIndex($reuseMetadataSnapshot);
+        $studySupportByQuestion = $studyQuestionLinksSnapshot === null
+            ? null
+            : self::studySupportIndex($studyQuestionLinksSnapshot);
         $valid = [];
         $blueprints = $blueprintSnapshot;
-        foreach (App::storage()->all('concept-derived-eligibility') as $record) {
+        foreach ($derivedRecords as $record) {
             if (!is_array($record) || ($record['record_type'] ?? '') !== 'RELATIONSHIP') {
                 continue;
             }
             // Relationship validation checks blueprint placement. Reuse the
             // caller's canonical snapshot, or read it once for this batch.
             $blueprints ??= App::storage()->all('blueprints');
-            if (self::validateDerivedRelationship($record, $questionConceptById, $blueprints) === []) {
+            if (self::validateDerivedRelationship(
+                $record,
+                $questionConceptById,
+                $blueprints,
+                $reuseMetadataByQuestion,
+                $studySupportByQuestion
+            ) === []) {
                 $valid[] = $record;
             }
         }
@@ -173,7 +202,9 @@ final class QuestionReuseEligibilityResolver
     public static function validateDerivedRelationship(
         array $relationship,
         ?array $questionConceptById = null,
-        ?array $blueprintSnapshot = null
+        ?array $blueprintSnapshot = null,
+        ?array $reuseMetadataByQuestionSnapshot = null,
+        ?array $studySupportByQuestionSnapshot = null
     ): array
     {
         $errors = [];
@@ -193,7 +224,9 @@ final class QuestionReuseEligibilityResolver
         if ($targetBoard === '' || TaxonomyStorageService::find('boards', $targetBoard) === null) $errors[] = 'INVALID_DERIVED_BOARD';
         if ($conceptId === '' || TaxonomyStorageService::find('taxonomy/concepts', $conceptId) === null) $errors[] = 'INVALID_DERIVED_CONCEPT';
         if ($questionExists && $questionConceptId !== $conceptId) $errors[] = 'DERIVED_CONCEPT_MISMATCH';
-        $metadata = self::reuseMetadataByQuestion()[$questionId] ?? null;
+        $metadata = $reuseMetadataByQuestionSnapshot === null
+            ? (self::reuseMetadataByQuestion()[$questionId] ?? null)
+            : ($reuseMetadataByQuestionSnapshot[$questionId] ?? null);
         if (!is_array($metadata) || ($metadata['reuse_policy'] ?? '') !== 'AUTO') $errors[] = 'DERIVED_POLICY_NOT_AUTO';
         if (is_array($metadata) && ($metadata['context_mode'] ?? '') !== 'NEUTRAL') $errors[] = 'DERIVED_CONTEXT_BLOCKED';
         $requiredDepth = $relationship['question_required_depth'] ?? null;
@@ -226,7 +259,10 @@ final class QuestionReuseEligibilityResolver
             foreach (self::validatePlacement($targetBoard, $placement, $blueprintSnapshot) as $error) $errors[] = 'DERIVED_' . $error;
         }
         $sourceSupport = is_array($relationship['source_support'] ?? null) ? $relationship['source_support'] : [];
-        if (!(self::studySupportByQuestion()[$questionId] ?? false)
+        $hasStudySupport = $studySupportByQuestionSnapshot === null
+            ? (self::studySupportByQuestion()[$questionId] ?? false)
+            : isset($studySupportByQuestionSnapshot[$questionId]);
+        if (!$hasStudySupport
             || ($sourceSupport['decision'] ?? '') !== 'PASS'
             || !is_array($sourceSupport['link_ids'] ?? null)
             || $sourceSupport['link_ids'] === []) {
@@ -266,24 +302,40 @@ final class QuestionReuseEligibilityResolver
     private static function reuseMetadataByQuestion(): array
     {
         if (self::$reuseMetadataByQuestionCache !== null) return self::$reuseMetadataByQuestionCache;
+        return self::$reuseMetadataByQuestionCache = self::reuseMetadataIndex(
+            App::storage()->all('question-reuse-metadata')
+        );
+    }
+
+    /** @return array<string, array> */
+    private static function reuseMetadataIndex(array $records): array
+    {
         $index = [];
-        foreach (App::storage()->all('question-reuse-metadata') as $record) {
+        foreach ($records as $record) {
             if (is_array($record) && isset($record['question_id']) && is_array($record['reuse'] ?? null)) {
                 $index[(string) $record['question_id']] = $record['reuse'];
             }
         }
-        return self::$reuseMetadataByQuestionCache = $index;
+        return $index;
     }
 
     /** @return array<string, bool> */
     private static function studySupportByQuestion(): array
     {
         if (self::$studySupportByQuestionCache !== null) return self::$studySupportByQuestionCache;
+        return self::$studySupportByQuestionCache = self::studySupportIndex(
+            App::storage()->all('study-question-links')
+        );
+    }
+
+    /** @return array<string, bool> */
+    private static function studySupportIndex(array $links): array
+    {
         $index = [];
-        foreach (App::storage()->all('study-question-links') as $link) {
+        foreach ($links as $link) {
             if (is_array($link) && isset($link['question_id'])) $index[(string) $link['question_id']] = true;
         }
-        return self::$studySupportByQuestionCache = $index;
+        return $index;
     }
 
     /** @return array<string, array> */

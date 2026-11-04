@@ -297,7 +297,8 @@ final class StudyLibraryService
     public static function forQuestionsByBoard(
         array $boardByQuestionId,
         ?array $questionSnapshot = null,
-        ?\App\Services\Question\QuestionEligibilityIndex $eligibilityIndex = null
+        ?\App\Services\Question\QuestionEligibilityIndex $eligibilityIndex = null,
+        ?array $studyQuestionLinkSnapshot = null
     ): array
     {
         $contexts = [];
@@ -312,7 +313,12 @@ final class StudyLibraryService
             ];
         }
 
-        return $contexts === [] ? [] : self::resolveQuestionReferences($contexts, $questionSnapshot, $eligibilityIndex);
+        return $contexts === [] ? [] : self::resolveQuestionReferences(
+            $contexts,
+            $questionSnapshot,
+            $eligibilityIndex,
+            $studyQuestionLinkSnapshot
+        );
     }
 
     /**
@@ -322,7 +328,8 @@ final class StudyLibraryService
     private static function resolveQuestionReferences(
         array $contexts,
         ?array $questionSnapshot = null,
-        ?\App\Services\Question\QuestionEligibilityIndex $eligibilityIndex = null
+        ?\App\Services\Question\QuestionEligibilityIndex $eligibilityIndex = null,
+        ?array $studyQuestionLinkSnapshot = null
     ): array
     {
         $questionIds = array_fill_keys(array_keys($contexts), true);
@@ -366,7 +373,7 @@ final class StudyLibraryService
 
         $references = [];
         $resolvedSubjects = [];
-        foreach (App::storage()->all('study-question-links') as $link) {
+        foreach ($studyQuestionLinkSnapshot ?? App::storage()->all('study-question-links') as $link) {
             if (!is_array($link) || !self::isVisibleQuestionLink($link)) {
                 continue;
             }
