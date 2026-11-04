@@ -23,7 +23,7 @@ $query = [];
 parse_str((string) parse_url($actions[0]['url'] ?? '', PHP_URL_QUERY), $query);
 $normalized = QuizStartInputNormalizer::normalize($query);
 
-if ($normalized['subject'] !== 'english'
+if ($normalized['subject'] !== '*'
     || $normalized['topics'] !== ['Grammar']
     || $normalized['mode'] !== 'practice'
     || $normalized['difficulty'] !== 'mixed'

@@ -32,8 +32,10 @@ function integrationLocation(array $response): array
 
 $root = sys_get_temp_dir() . '/boardprep-integration-' . bin2hex(random_bytes(6));
 $sqlitePath = $root . '/integration.sqlite';
+$driver = strtolower((string) ($argv[1] ?? 'sqlite'));
+integrationCheck(in_array($driver, ['json', 'sqlite'], true), 'storage driver must be json or sqlite');
 mkdir($root, 0777, true);
-putenv('DB_DRIVER=sqlite');
+putenv('DB_DRIVER=' . $driver);
 putenv('DB_SQLITE_PATH=' . $sqlitePath);
 putenv('BOARDPREP_SIMULATION_SEED=669531');
 
@@ -134,7 +136,9 @@ try {
         'card_key' => integrationHidden($reveal['output'], 'card_key'),
         'review_request_id' => integrationHidden($reveal['output'], 'review_request_id'),
         'expected_review_count' => integrationHidden($reveal['output'], 'expected_review_count'),
-        'rating' => 'good',
+        // An immediate relearning rating keeps this synthetic missed card due
+        // so the calendar path below can consume the same learner-owned queue.
+        'rating' => 'again',
         'user_id' => 'foreign-user',
     ], [], $learner);
     integrationCheck($reviewPost['status'] === 303, 'missed review did not use PRG');
@@ -147,14 +151,99 @@ try {
         integrationCheck($page['status'] === 200 && str_contains($page['output'], '/flashcards'), "{$path} omitted flashcard action");
     }
 
+    // Continue the same learner's missed-answer path into the adaptive calendar.
+    $calendarSetup = $simulator->request('GET', '/study-calendar', [], [], [], $learner);
+    integrationCheck($calendarSetup['status'] === 200, 'study calendar setup did not render');
+    preg_match('/<input\\b[^>]*\\bname="start_date"[^>]*\\bvalue="([^"]*)"/', $calendarSetup['output'], $calendarStartDate);
+    integrationCheck(isset($calendarStartDate[1]) && $calendarStartDate[1] !== '', 'calendar setup omitted its start date');
+    $calendarSave = $simulator->request('POST', '/study-calendar', [], [
+        'csrf_token' => integrationHidden($calendarSetup['output'], 'csrf_token'),
+        'expected_revision' => integrationHidden($calendarSetup['output'], 'expected_revision'),
+        'request_id' => bin2hex(random_bytes(16)),
+        'board_id' => 'let',
+        'exam_date' => '',
+        'start_date' => html_entity_decode($calendarStartDate[1]),
+        'daily_minutes' => '45',
+        'review_intensity' => 'balanced',
+        'weekdays' => ['1', '2', '3', '4', '5', '6', '7'],
+        'rest_dates' => '',
+        'subject_priorities' => ['let' => ['social-studies' => 'normal']],
+    ], [], $learner);
+    integrationCheck($calendarSave['status'] === 303, 'calendar save did not use PRG');
+    $calendar = $simulator->request('GET', '/study-calendar', [], [], [], $learner);
+    integrationCheck($calendar['status'] === 200, 'saved study calendar did not render');
+    $calendarHtml = html_entity_decode($calendar['output'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
+    integrationCheck(
+        str_contains($calendarHtml, 'FLASHCARDS')
+            && str_contains($calendarHtml, '1 due flashcard in this board and subject queue')
+            && str_contains($calendarHtml, 'MISTAKES')
+            && str_contains($calendarHtml, '5 saved wrong or skipped questions'),
+        'calendar did not turn this learner\'s due missed card and saved mistake into scoped review sessions'
+    );
+    preg_match('#href="(/flashcards/review\\?[^\"]+)"#', $calendarHtml, $calendarFlashcardAction);
+    integrationCheck(isset($calendarFlashcardAction[1]), 'calendar omitted its due flashcard action');
+    $flashcardActionUrl = html_entity_decode($calendarFlashcardAction[1], ENT_QUOTES | ENT_HTML5, 'UTF-8');
+    $flashcardAction = parse_url($flashcardActionUrl);
+    parse_str((string) ($flashcardAction['query'] ?? ''), $flashcardActionQuery);
+    integrationCheck(
+        ($flashcardAction['path'] ?? '') === '/flashcards/review'
+            && ($flashcardActionQuery['board'] ?? '') === 'LET'
+            && ($flashcardActionQuery['subject'] ?? '') === 'social-studies',
+        'calendar flashcard action lost its board/subject scope'
+    );
+    $calendarFlashcards = $simulator->request(
+        'GET',
+        (string) ($flashcardAction['path'] ?? '/'),
+        $flashcardActionQuery,
+        [],
+        [],
+        $learner
+    );
+    integrationCheck(
+        $calendarFlashcards['status'] === 200
+            && str_contains($calendarFlashcards['output'], 'Recall before revealing'),
+        'calendar flashcard action did not reach the learner\'s due review queue'
+    );
+    preg_match('#href="(/mistake-notebook\\?[^\"]+)"#', $calendarHtml, $calendarMistakeAction);
+    integrationCheck(isset($calendarMistakeAction[1]), 'calendar omitted its saved mistake action');
+    $mistakeActionUrl = html_entity_decode($calendarMistakeAction[1], ENT_QUOTES | ENT_HTML5, 'UTF-8');
+    $mistakeAction = parse_url($mistakeActionUrl);
+    parse_str((string) ($mistakeAction['query'] ?? ''), $mistakeActionQuery);
+    integrationCheck(
+        ($mistakeAction['path'] ?? '') === '/mistake-notebook'
+            && ($mistakeActionQuery['board'] ?? '') === 'let'
+            && ($mistakeActionQuery['subject'] ?? '') === 'social-studies',
+        'calendar mistake action lost its board/subject scope'
+    );
+    $calendarMistakes = $simulator->request(
+        'GET',
+        (string) ($mistakeAction['path'] ?? '/'),
+        $mistakeActionQuery,
+        [],
+        [],
+        $learner
+    );
+    integrationCheck(
+        $calendarMistakes['status'] === 200
+            && str_contains($calendarMistakes['output'], 'Question ' . $questionId),
+        'calendar mistake action did not return to the learner\'s recorded question'
+    );
+
     $foreignMissed = $simulator->request('GET', '/flashcards/missed', ['attempt_id' => 'foreign-attempt'], [], [], ['PHPSESSID' => 'batch676-flashcard-integration-b-' . bin2hex(random_bytes(8))]);
     integrationCheck($foreignMissed['status'] === 303, 'foreign attempt input was not rejected');
-    $pdo = new PDO('sqlite:' . $sqlitePath);
-    $stateCount = (int) $pdo->query("SELECT COUNT(*) FROM storage_records WHERE collection = 'flashcard_state'")->fetchColumn();
+    if ($driver === 'sqlite') {
+        $pdo = new PDO('sqlite:' . $sqlitePath);
+        $stateCount = (int) $pdo->query("SELECT COUNT(*) FROM storage_records WHERE collection = 'flashcard_state'")->fetchColumn();
+    } else {
+        $statePath = rtrim($simulator->storagePath(), DIRECTORY_SEPARATOR) . '/flashcard_state.json';
+        $stateRows = json_decode((string) file_get_contents($statePath), true, 512, JSON_THROW_ON_ERROR);
+        $stateCount = is_array($stateRows) ? count($stateRows) : 0;
+    }
     integrationCheck($stateCount === 1, 'integrated review did not create one state record');
 
     echo "[PASS] Quiz miss -> result action -> missed flashcard -> reveal -> rating journey completed through public/index.php.\n";
-    echo "[PASS] Weakness, dashboard, progress, study, PRG, and foreign-attempt boundaries verified.\n";
+    echo "[PASS] Same learner's due flashcard and saved mistake feed scoped calendar actions back into review.\n";
+    echo "[PASS] Weakness, dashboard, progress, study, PRG, and foreign-attempt boundaries verified ({$driver} storage).\n";
 } finally {
     putenv('DB_DRIVER');
     putenv('DB_SQLITE_PATH');

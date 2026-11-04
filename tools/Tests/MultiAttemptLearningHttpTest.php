@@ -30,11 +30,18 @@ $simulator = new HttpSimulator($root . '/public/index.php');
 
 $complete = static function (string $cookie, string $topic) use ($simulator): void {
     $cookies = ['PHPSESSID' => $cookie];
+    $settings = $simulator->request('GET', '/quiz', ['action' => 'start'], [], [], $cookies);
+    if (!$settings['success']
+        || !preg_match('/name="csrf_token"\s+value="([a-f0-9]{64})"/', $settings['output'], $csrfMatch)) {
+        throw new RuntimeException("could not load {$topic} quiz form through HTTP");
+    }
+    $csrfToken = $csrfMatch[1];
     $start = $simulator->request(
         'POST',
         '/quiz',
         [],
         [
+            'csrf_token' => $csrfToken,
             'action' => 'start',
             'subject' => 'English',
             'topic' => $topic,
@@ -55,7 +62,7 @@ $complete = static function (string $cookie, string $topic) use ($simulator): vo
         'POST',
         '/quiz',
         [],
-        ['action' => 'submit', 'question_id' => $matches[1], 'answer' => 'A'],
+        ['action' => 'submit', 'question_id' => $matches[1], 'answer' => 'A', 'csrf_token' => $csrfToken],
         [],
         $cookies
     );
@@ -69,7 +76,7 @@ $complete = static function (string $cookie, string $topic) use ($simulator): vo
         throw new RuntimeException("could not review {$topic} answers through HTTP");
     }
 
-    $finish = $simulator->request('POST', '/quiz', [], ['action' => 'finish'], [], $cookies);
+    $finish = $simulator->request('POST', '/quiz', [], ['action' => 'finish', 'csrf_token' => $csrfToken], [], $cookies);
     if (!$finish['success'] || $finish['status'] !== 303
         || ($finish['location'] ?? '') !== '/quiz?action=result') {
         throw new RuntimeException("could not finish {$topic} exam simulation through HTTP");
@@ -85,7 +92,7 @@ $complete = static function (string $cookie, string $topic) use ($simulator): vo
         'POST',
         '/quiz',
         [],
-        ['action' => 'submit', 'question_id' => $matches[1], 'answer' => 'B'],
+        ['action' => 'submit', 'question_id' => $matches[1], 'answer' => 'B', 'csrf_token' => $csrfToken],
         [],
         $cookies
     );

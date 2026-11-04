@@ -174,7 +174,7 @@ $staleSubmit = $http->request('POST', '/quiz', [], [
     'action' => 'submit', 'question_id' => $staleQuestionMatch[1], 'answer' => 'A',
     'csrf_token' => mistakeCsrf($freshSettings['output']),
 ], [], $staleCookies);
-mistakeHttpOk($staleSubmit, 'Reject an answer from an expired quiz session', 302);
+mistakeHttpOk($staleSubmit, 'Reject an answer from an expired quiz session', 303);
 mistakeAssert(mistakeAttemptsHash($fixture) === $attemptsBeforeStaleSubmit,
     'An expired quiz session wrote a new attempt or altered history.');
 
