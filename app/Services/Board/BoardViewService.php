@@ -63,10 +63,12 @@ final class BoardViewService
         // hydrating learner statistics and reuse metadata into every question.
         $questions = App::storage()->all('questions');
         $blueprints = App::container()->get(BlueprintRepository::class)->all();
+        // Derived eligibility validation can use these authoritative snapshots
+        // instead of decoding the canonical question and blueprint files again.
         $eligibility = new QuestionEligibilityIndex(
             App::storage()->all('question-eligibility'),
             $blueprints,
-            \App\Services\Question\QuestionReuseEligibilityResolver::productionDerivedRelationships(),
+            \App\Services\Question\QuestionReuseEligibilityResolver::productionDerivedRelationships($questions, $blueprints),
             App::storage()->all('question-reuse-overrides')
         );
         $questionsById = [];
