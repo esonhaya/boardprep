@@ -294,7 +294,11 @@ final class StudyLibraryService
      * @param array<string, mixed> $boardByQuestionId
      * @return array<string, array<int, array<string, mixed>>>
      */
-    public static function forQuestionsByBoard(array $boardByQuestionId, ?array $questionSnapshot = null): array
+    public static function forQuestionsByBoard(
+        array $boardByQuestionId,
+        ?array $questionSnapshot = null,
+        ?\App\Services\Question\QuestionEligibilityIndex $eligibilityIndex = null
+    ): array
     {
         $contexts = [];
         foreach ($boardByQuestionId as $rawQuestionId => $boardId) {
@@ -308,14 +312,18 @@ final class StudyLibraryService
             ];
         }
 
-        return $contexts === [] ? [] : self::resolveQuestionReferences($contexts, $questionSnapshot);
+        return $contexts === [] ? [] : self::resolveQuestionReferences($contexts, $questionSnapshot, $eligibilityIndex);
     }
 
     /**
      * @param array<string, array{board_id:?string,subject_id:?string}> $contexts
      * @return array<string, array<int, array<string, mixed>>>
      */
-    private static function resolveQuestionReferences(array $contexts, ?array $questionSnapshot = null): array
+    private static function resolveQuestionReferences(
+        array $contexts,
+        ?array $questionSnapshot = null,
+        ?\App\Services\Question\QuestionEligibilityIndex $eligibilityIndex = null
+    ): array
     {
         $questionIds = array_fill_keys(array_keys($contexts), true);
         $snapshotById = null;
@@ -393,7 +401,12 @@ final class StudyLibraryService
                     );
                     $subjectKey = $questionId . "\0" . $contextBoard;
                     if (!array_key_exists($subjectKey, $resolvedSubjects)) {
-                        $resolvedSubjects[$subjectKey] = self::effectiveSubjectForQuestion($questionId, $contextBoard, $snapshotById);
+                        $resolvedSubjects[$subjectKey] = self::effectiveSubjectForQuestion(
+                            $questionId,
+                            $contextBoard,
+                            $snapshotById,
+                            $eligibilityIndex
+                        );
                     }
                     $resolvedSubject = $resolvedSubjects[$subjectKey];
                     if ($resolvedSubject === '' || $resolvedSubject !== $lessonSubject
@@ -463,7 +476,12 @@ final class StudyLibraryService
         return $references;
     }
 
-    private static function effectiveSubjectForQuestion(string $questionId, string $boardId, ?array $snapshotById = null): string
+    private static function effectiveSubjectForQuestion(
+        string $questionId,
+        string $boardId,
+        ?array $snapshotById = null,
+        ?\App\Services\Question\QuestionEligibilityIndex $eligibilityIndex = null
+    ): string
     {
         if ($snapshotById === null && self::$questionIndex === null) {
             self::$questionIndex = [];
@@ -477,7 +495,8 @@ final class StudyLibraryService
         if (!is_array($question)) {
             return '';
         }
-        if (self::$eligibilityIndex === null) {
+        $eligibilityIndex ??= self::$eligibilityIndex;
+        if ($eligibilityIndex === null) {
             $storage = App::storage();
             self::$eligibilityIndex = new \App\Services\Question\QuestionEligibilityIndex(
                 $storage->all('question-eligibility'),
@@ -485,11 +504,12 @@ final class StudyLibraryService
                 \App\Services\Question\QuestionReuseEligibilityResolver::productionDerivedRelationships(),
                 $storage->all('question-reuse-overrides')
             );
+            $eligibilityIndex = self::$eligibilityIndex;
         }
         $resolved = \App\Services\Question\QuestionEligibilityService::forExam(
             $question,
             $boardId,
-            self::$eligibilityIndex
+            $eligibilityIndex
         );
         return is_array($resolved) ? strtolower(trim((string) ($resolved['subject_id'] ?? ''))) : '';
     }

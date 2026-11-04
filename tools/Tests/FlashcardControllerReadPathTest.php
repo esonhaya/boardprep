@@ -17,6 +17,8 @@ final class FlashcardReadCountingStorage implements StorageInterface
     public int $questionCollectionReads = 0;
     /** @var list<string> */
     public array $questionReadCallers = [];
+    /** @var array<string, int> */
+    public array $allReads = [];
 
     public function __construct(private StorageInterface $inner)
     {
@@ -24,6 +26,7 @@ final class FlashcardReadCountingStorage implements StorageInterface
 
     public function all(string $collection): array
     {
+        $this->allReads[$collection] = ($this->allReads[$collection] ?? 0) + 1;
         if ($collection === 'questions') {
             $this->questionCollectionReads++;
             if (getenv('BOARDPREP_TRACE_QUESTION_READS') === '1') {
@@ -69,15 +72,37 @@ if (!session_start()) throw new RuntimeException('Unable to start isolated flash
 $_GET = ['board' => 'let', 'subject' => 'english'];
 $_SERVER['REQUEST_METHOD'] = 'GET';
 $_SERVER['REQUEST_URI'] = '/flashcards?board=let&subject=english';
+$fullQuestionCount = count(App::storage()->all('questions'));
+$filtersMethod = new ReflectionMethod(FlashcardController::class, 'filters');
+$parsedFilters = $filtersMethod->invoke(null, ['board' => 'let', 'subject' => 'english']);
+$scopedQuestionCount = count((array) ($parsedFilters['question_snapshot'] ?? []));
+if ($scopedQuestionCount < 1 || $scopedQuestionCount >= $fullQuestionCount) {
+    throw new RuntimeException(sprintf(
+        'Scoped flashcard filters retained %d of %d canonical questions; expected a strictly smaller eligible selection scope.',
+        $scopedQuestionCount,
+        $fullQuestionCount
+    ));
+}
+$countingStorage->allReads = [];
+$countingStorage->questionCollectionReads = 0;
 $runs = [];
 for ($run = 0; $run < 3; $run++) {
+    $readsBefore = $countingStorage->allReads;
     ob_start();
     $startedAt = hrtime(true);
     FlashcardController::index();
     $html = (string) ob_get_clean();
+    $requestReads = [];
+    foreach ($countingStorage->allReads as $collection => $count) {
+        $delta = $count - ($readsBefore[$collection] ?? 0);
+        if ($delta > 0) {
+            $requestReads[$collection] = $delta;
+        }
+    }
     $runs[] = [
         'elapsed_ms' => (hrtime(true) - $startedAt) / 1_000_000,
         'question_reads' => $countingStorage->questionCollectionReads - array_sum(array_column($runs, 'question_reads')),
+        'all_reads' => $requestReads,
     ];
 }
 $peakMemoryMb = memory_get_peak_usage(true) / 1_048_576;
@@ -104,9 +129,20 @@ foreach ($runs as $index => $run) {
     if ($run['question_reads'] > 1) {
         throw new RuntimeException('Scoped flashcard page reloaded the canonical bank after deriving filter options.');
     }
+    foreach (['blueprints', 'question-eligibility', 'question-reuse-overrides'] as $collection) {
+        if (($run['all_reads'][$collection] ?? 0) !== 1) {
+            throw new RuntimeException(sprintf(
+                'Scoped flashcard request %d read the %s collection %d times; expected exactly once.',
+                $index + 1,
+                $collection,
+                $run['all_reads'][$collection]
+            ));
+        }
+    }
     printf("[PASS] flashcard request %d: reads=%d elapsed_ms=%.1f\n", $index + 1, $run['question_reads'], $run['elapsed_ms']);
 }
 printf("[PASS] flashcard controller available_cards=%d 3-run peak_mb=%.1f total_question_reads=%d.\n", $availableCount, $peakMemoryMb, $countingStorage->questionCollectionReads);
+printf("[PASS] flashcard selection scope reduced from %d to %d canonical questions.\n", $fullQuestionCount, $scopedQuestionCount);
 if (getenv('BOARDPREP_TRACE_QUESTION_READS') === '1') {
     foreach ($countingStorage->questionReadCallers as $caller) echo "[READ] {$caller}\n";
 }

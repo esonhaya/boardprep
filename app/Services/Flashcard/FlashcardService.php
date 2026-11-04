@@ -8,6 +8,7 @@ use App\Repositories\FlashcardStateRepository;
 use App\Services\Accounts\AccountLifecycleLock;
 use App\Services\Learning\LearnerIdentityService;
 use App\Services\Learning\WeaknessService;
+use App\Services\Question\QuestionEligibilityIndex;
 use DateTimeImmutable;
 use InvalidArgumentException;
 
@@ -116,7 +117,8 @@ final class FlashcardService
         array $filters = [],
         int $limit = 20,
         ?DateTimeImmutable $now = null,
-        ?array $questionSnapshot = null
+        ?array $questionSnapshot = null,
+        ?QuestionEligibilityIndex $eligibilityIndex = null
     ): array {
         if ($limit < 1) {
             throw new InvalidArgumentException('Due-card limit must be positive.');
@@ -158,7 +160,7 @@ final class FlashcardService
         }
 
         return $this->selectFromCards(
-            $this->derivation->all($filters, [], $questionSnapshot),
+            $this->derivation->all($filters, [], $questionSnapshot, $eligibilityIndex),
             $states,
             $includeNew,
             false,
@@ -184,7 +186,8 @@ final class FlashcardService
     public function weaknessSelection(
         int $limit = 20,
         ?DateTimeImmutable $now = null,
-        ?array $questionSnapshot = null
+        ?array $questionSnapshot = null,
+        ?QuestionEligibilityIndex $eligibilityIndex = null
     ): array
     {
         $weakTopics = $this->weakTopics();
@@ -192,7 +195,7 @@ final class FlashcardService
             return $this->emptySelection();
         }
 
-        $cards = $this->derivation->all([], array_keys($weakTopics), $questionSnapshot);
+        $cards = $this->derivation->all([], array_keys($weakTopics), $questionSnapshot, $eligibilityIndex);
 
         return $this->selectFromCards(
             $cards,

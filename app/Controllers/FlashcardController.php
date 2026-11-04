@@ -12,6 +12,7 @@ use App\Services\Flashcard\FlashcardService;
 use App\Services\Flashcard\FlashcardScopeMatcher;
 use App\Services\Quiz\HistoricalQuizResultService;
 use App\Services\Quiz\Result\QuizAnswerStatisticsPlan;
+use App\Services\Question\QuestionEligibilityIndex;
 use App\Services\Question\QuestionIdMigrationService;
 use App\Services\Shared\CsrfTokenService;
 use App\Services\Shared\TaxonomyStorageService;
@@ -25,12 +26,13 @@ final class FlashcardController
     {
         $parsed = self::filters(Request::query());
         $questionSnapshot = $parsed['question_snapshot'] ?? null;
+        $eligibilityIndex = $parsed['eligibility_index'] ?? null;
         $selection = self::emptySelection();
         $error = $parsed['error'];
 
         if ($error === null) {
             try {
-                $selection = self::selection($parsed['mode'], $parsed['filters'], $questionSnapshot);
+                $selection = self::selection($parsed['mode'], $parsed['filters'], $questionSnapshot, $eligibilityIndex);
             } catch (\Throwable) {
                 $error = 'Flashcards are temporarily unavailable. Please try again.';
             }
@@ -40,11 +42,11 @@ final class FlashcardController
             $boards = self::options(TaxonomyStorageService::boards());
             [$subjects, $topics] = is_array($parsed['filter_options'] ?? null)
                 ? $parsed['filter_options']
-                : self::filterOptions($parsed['filters'], $questionSnapshot);
+                : self::filterOptions($parsed['filters'], $questionSnapshot, $eligibilityIndex);
         } catch (\Throwable) {
             $error ??= 'Flashcard filters are temporarily unavailable. Please try again.';
         }
-        unset($parsed['question_snapshot'], $questionSnapshot);
+        unset($parsed['question_snapshot'], $questionSnapshot, $parsed['eligibility_index'], $eligibilityIndex);
 
         View::render('flashcards/index', [
             'pageTitle' => 'Flashcards | BoardPrep',
@@ -62,6 +64,7 @@ final class FlashcardController
     {
         $parsed = self::filters(Request::query());
         $questionSnapshot = $parsed['question_snapshot'] ?? null;
+        $eligibilityIndex = $parsed['eligibility_index'] ?? null;
         $filters = $parsed['filters'];
         $mode = $parsed['mode'];
         $card = null;
@@ -77,11 +80,11 @@ final class FlashcardController
                         throw new \InvalidArgumentException('Missing flashcard.');
                     }
                     $card = self::service()->card((string) $rawCardKey);
-                    if (!self::matches($card, $filters) || !self::allowedInMode($card, $mode)) {
+                    if (!self::matches($card, $filters, $eligibilityIndex) || !self::allowedInMode($card, $mode)) {
                         throw new \InvalidArgumentException('Flashcard does not match the selected filters.');
                     }
                 } else {
-                    $selection = self::selection($mode, $filters, $questionSnapshot);
+                    $selection = self::selection($mode, $filters, $questionSnapshot, $eligibilityIndex);
                     $card = $selection['cards'][0] ?? null;
                 }
             } catch (\Throwable) {
@@ -90,13 +93,13 @@ final class FlashcardController
         }
 
         if ($card !== null) {
-            $card = self::applyReviewContext($card, $filters, $questionSnapshot);
+            $card = self::applyReviewContext($card, $filters, $questionSnapshot, $eligibilityIndex);
         }
         $reviewToken = $card !== null && $revealed ? bin2hex(random_bytes(16)) : '';
         $expectedReviewCount = $card !== null && $revealed
             ? self::service()->reviewCount((string) ($card['card_key'] ?? ''))
             : 0;
-        unset($parsed['question_snapshot'], $questionSnapshot);
+        unset($parsed['question_snapshot'], $questionSnapshot, $parsed['eligibility_index'], $eligibilityIndex);
 
         View::render('flashcards/review', [
             'pageTitle' => 'Review Flashcards | BoardPrep',
@@ -117,6 +120,7 @@ final class FlashcardController
         $parsed = self::filters(Request::input());
         unset($parsed['question_snapshot']);
         $filters = $parsed['filters'];
+        $eligibilityIndex = $parsed['eligibility_index'] ?? null;
         $mode = $parsed['mode'];
         $redirect = self::reviewUrl($filters, $mode);
 
@@ -147,7 +151,7 @@ final class FlashcardController
 
         try {
             $card = self::service()->card(trim((string) $cardKey));
-            if (!self::matches($card, $filters) || !self::allowedInMode($card, $mode)) {
+            if (!self::matches($card, $filters, $eligibilityIndex) || !self::allowedInMode($card, $mode)) {
                 throw new \InvalidArgumentException('Card is not in the selected review set.');
             }
             self::service()->review(
@@ -226,7 +230,7 @@ final class FlashcardController
         return App::container()->get(FlashcardService::class);
     }
 
-    /** @return array{filters:array<string,mixed>,mode:string,error:?string,filter_options:?array,question_snapshot:?array} */
+    /** @return array{filters:array<string,mixed>,mode:string,error:?string,filter_options:?array,question_snapshot:?array,eligibility_index:?QuestionEligibilityIndex} */
     private static function filters(mixed $input): array
     {
         $input = is_array($input) ? $input : [];
@@ -251,6 +255,7 @@ final class FlashcardController
         $error = null;
         $filterOptions = null;
         $questionSnapshot = null;
+        $eligibilityIndex = null;
         try {
             $boardRows = self::options(TaxonomyStorageService::boards());
             $boardAliases = [];
@@ -313,6 +318,7 @@ final class FlashcardController
                 'error' => 'Flashcard filters are temporarily unavailable. Please try again.',
                 'filter_options' => null,
                 'question_snapshot' => null,
+                'eligibility_index' => null,
             ];
         }
 
@@ -324,6 +330,7 @@ final class FlashcardController
                     'error' => 'Please choose a valid flashcard review mode.',
                     'filter_options' => null,
                     'question_snapshot' => null,
+                    'eligibility_index' => null,
                 ];
             }
             $mode = (string) $input['mode'];
@@ -361,7 +368,7 @@ final class FlashcardController
         }
 
         if ($error === null && (isset($filters['board']) || isset($filters['subject']) || isset($filters['topic']))) {
-            $filterOptions = self::filterOptions($filters, $questionSnapshot);
+            $filterOptions = self::filterOptions($filters, $questionSnapshot, $eligibilityIndex);
             $compatible = self::filterCompatibility($filters, $filterOptions);
             if ($compatible === false) {
                 $error = 'That subject and topic do not belong to the selected board. Choose a compatible filter combination.';
@@ -374,20 +381,26 @@ final class FlashcardController
             'error' => $error,
             'filter_options' => $filterOptions,
             'question_snapshot' => $questionSnapshot,
+            'eligibility_index' => $eligibilityIndex,
         ];
     }
 
     /** @return array{cards:list<array<string,mixed>>,due_count:int,new_count:int,total_count:int} */
-    private static function selection(string $mode, array $filters, ?array $questionSnapshot = null): array
+    private static function selection(
+        string $mode,
+        array $filters,
+        ?array $questionSnapshot = null,
+        ?QuestionEligibilityIndex $eligibilityIndex = null
+    ): array
     {
         if ($mode === 'missed') {
             return self::service()->selectionForQuestionIds(self::missedQuestionIds(), 10);
         }
         if ($mode === 'weakness') {
-            return self::service()->weaknessSelection(10, null, $questionSnapshot);
+            return self::service()->weaknessSelection(10, null, $questionSnapshot, $eligibilityIndex);
         }
 
-        return self::service()->dueSelection($filters, 10, null, $questionSnapshot);
+        return self::service()->dueSelection($filters, 10, null, $questionSnapshot, $eligibilityIndex);
     }
 
     /** @return list<string> */
@@ -445,18 +458,27 @@ final class FlashcardController
         return is_scalar($value) && (string) $value === '1';
     }
 
-    private static function matches(array $card, array $filters): bool
+    private static function matches(
+        array $card,
+        array $filters,
+        ?QuestionEligibilityIndex $eligibilityIndex = null
+    ): bool
     {
         $question = App::container()->get(QuestionRepository::class)->find((string) ($card['question_id'] ?? ''));
         if (!is_array($question)) return false;
-        return FlashcardScopeMatcher::matches($question, $filters);
+        return FlashcardScopeMatcher::matches($question, $filters, $eligibilityIndex);
     }
 
     /** @return array{0:list<array>,1:list<array>} */
-    private static function filterOptions(array $filters, ?array &$questionSnapshot = null): array
+    private static function filterOptions(
+        array $filters,
+        ?array &$questionSnapshot = null,
+        ?QuestionEligibilityIndex &$eligibilityIndex = null
+    ): array
     {
         $wantedBoard = (string) ($filters['board'] ?? '');
         $wantedSubject = (string) ($filters['subject'] ?? '');
+        $wantedTopic = (string) ($filters['topic'] ?? '');
         if ($wantedBoard === '' && $wantedSubject === '') {
             return [
                 self::options(TaxonomyStorageService::subjects()),
@@ -465,9 +487,13 @@ final class FlashcardController
         }
         $subjects = [];
         $topics = [];
+        $selectionQuestions = [];
         $questionSnapshot ??= App::container()->get(QuestionRepository::class)->all();
         $questions = $questionSnapshot;
-        $index = $wantedBoard !== '' ? QuestionEligibilityService::index($questions) : null;
+        if ($wantedBoard !== '') {
+            $eligibilityIndex ??= QuestionEligibilityService::index($questions);
+        }
+        $index = $eligibilityIndex;
         $scopeFilters = $filters;
         unset($scopeFilters['subject'], $scopeFilters['topic']);
         foreach ($questions as $question) {
@@ -477,21 +503,40 @@ final class FlashcardController
             if ($eligibility === null) continue;
             $subjectId = (string) ($eligibility['subject_id'] ?? '');
             if ($subjectId !== '') $subjects[strtolower($subjectId)] = true;
-            if ($wantedSubject !== '' && strtolower($subjectId) !== strtolower($wantedSubject)) continue;
             $placement = is_array($eligibility['placement'] ?? null) ? $eligibility['placement'] : [];
             $topicId = (string) ($placement['topic_id'] ?? $placement['topic'] ?? $taxonomy['topic_id'] ?? $question['topic'] ?? '');
+            $matchesSubject = $wantedSubject === '' || strtolower($subjectId) === strtolower($wantedSubject);
+            $matchesTopic = $wantedTopic === '' || strtolower($topicId) === strtolower($wantedTopic);
+            if ($wantedBoard !== '' && $matchesSubject && $matchesTopic) {
+                $selectionQuestions[] = $question;
+            }
+            if (!$matchesSubject) continue;
             if ($topicId !== '') $topics[strtolower($topicId)] = true;
+        }
+        if ($wantedBoard !== '') {
+            // The same authoritative scope checks above are used by card
+            // selection. Keep its snapshot limited to eligible questions in
+            // the selected board/subject/topic so it does not scan the full
+            // canonical bank a second time.
+            $questionSnapshot = $selectionQuestions;
         }
         $subjectRows = array_values(array_filter(self::options(TaxonomyStorageService::subjects()), static fn(array $row): bool => isset($subjects[strtolower((string) ($row['id'] ?? ''))])));
         $topicRows = array_values(array_filter(self::options(TaxonomyStorageService::topics()), static fn(array $row): bool => isset($topics[strtolower((string) ($row['id'] ?? ''))])));
         return [$subjectRows, $topicRows];
     }
 
-    private static function applyReviewContext(array $card, array $filters, ?array $questionSnapshot = null): array
+    private static function applyReviewContext(
+        array $card,
+        array $filters,
+        ?array $questionSnapshot = null,
+        ?QuestionEligibilityIndex $eligibilityIndex = null
+    ): array
     {
         $question = App::container()->get(QuestionRepository::class)->find((string) ($card['question_id'] ?? ''));
         if (!is_array($question)) return $card;
-        $index = isset($filters['board']) ? QuestionEligibilityService::index($questionSnapshot) : null;
+        $index = isset($filters['board'])
+            ? ($eligibilityIndex ?? QuestionEligibilityService::index($questionSnapshot))
+            : null;
         $effective = FlashcardScopeMatcher::effectiveEligibility($question, $filters, $index);
         if ($effective === null) return $card;
         if (isset($filters['board'])) $card['board'] = (string) $filters['board'];

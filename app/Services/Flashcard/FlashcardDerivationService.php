@@ -81,14 +81,21 @@ final class FlashcardDerivationService
         return $this->deriveMany($questions);
     }
 
-    public function all(array $filters = [], array $topicIds = [], ?array $questionSnapshot = null): array
+    public function all(
+        array $filters = [],
+        array $topicIds = [],
+        ?array $questionSnapshot = null,
+        ?QuestionEligibilityIndex $questionEligibilityIndex = null
+    ): array
     {
         $questions = $questionSnapshot ?? $this->questions->all();
-        if (isset($filters['board']) && $this->eligibilityIndex === null) {
+        $eligibilityIndex = $questionEligibilityIndex ?? $this->eligibilityIndex;
+        if (isset($filters['board']) && $eligibilityIndex === null) {
             // Eligibility relationship validation can reuse the canonical
             // snapshot already loaded for card derivation instead of decoding
             // the full question bank a second time on a cold request.
             $this->eligibilityIndex = QuestionEligibilityService::index($questions);
+            $eligibilityIndex = $this->eligibilityIndex;
         }
         $selectedIndexes = [];
         $boardsByQuestion = [];
@@ -97,7 +104,7 @@ final class FlashcardDerivationService
         )), true);
 
         foreach ($questions as $index => $question) {
-            if (!$this->matchesFilters($question, $filters)
+            if (!$this->matchesFilters($question, $filters, $eligibilityIndex)
                 || ($topicIds !== [] && !isset($topicIds[$this->topicId($question)]))) {
                 continue;
             }
@@ -122,7 +129,7 @@ final class FlashcardDerivationService
         }
 
         $referencesByQuestion = $this->useSharedStudyLibrary
-            ? StudyLibraryService::forQuestionsByBoard($boardsByQuestion, $questions)
+            ? StudyLibraryService::forQuestionsByBoard($boardsByQuestion, $questions, $eligibilityIndex)
             : [];
         $cards = [];
         foreach ($selectedIndexes as $index) {
@@ -196,10 +203,16 @@ final class FlashcardDerivationService
         return (string) ($taxonomy['topic_id'] ?? $question['topic'] ?? '');
     }
 
-    private function matchesFilters(array $question, array $filters): bool
+    private function matchesFilters(
+        array $question,
+        array $filters,
+        ?QuestionEligibilityIndex $eligibilityIndex = null
+    ): bool
     {
-        if (isset($filters['board'])) $this->eligibilityIndex ??= QuestionEligibilityService::index();
-        return FlashcardScopeMatcher::matches($question, $filters, $this->eligibilityIndex);
+        if (isset($filters['board']) && $eligibilityIndex === null) {
+            $eligibilityIndex = $this->eligibilityIndex ??= QuestionEligibilityService::index();
+        }
+        return FlashcardScopeMatcher::matches($question, $filters, $eligibilityIndex);
     }
 
     public function derive(array $question): ?array
