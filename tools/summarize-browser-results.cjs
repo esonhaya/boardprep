@@ -58,7 +58,9 @@ function cleanMessage(value, limit = 1200) {
 }
 
 function summaryStatus(summary) {
-  return summary.failed > 0 || summary.flaky > 0 || summary.not_run > 0 ? 'FAILED' : 'COMPLETED';
+  if (summary.failed > 0 || summary.flaky > 0) return 'FAILED';
+  if (summary.skipped > 0 || summary.not_run > 0) return 'INCOMPLETE';
+  return 'COMPLETED';
 }
 
 function main() {

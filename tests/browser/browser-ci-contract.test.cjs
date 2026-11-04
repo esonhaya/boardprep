@@ -84,6 +84,10 @@ test('browser evidence contracts cover isolated data, desktop/mobile access path
   assert.match(learnerSpec, /page\.keyboard\.press\('Tab'\)/);
   assert.match(accountSpec, /anonymous-access-and-account-authorization/);
   assert.match(accountSpec, /login-and-session-rotation/);
+  assert.match(accountSpec, /authenticated-exam-recovery-session-loss/);
+  assert.match(accountSpec, /clearCookies\(\{ name: 'BOARDPREP_AUTH_SESSION' \}\)/);
+  assert.match(accountSpec, /fs\.unlinkSync\(lostSessionFile\)/,
+    'the account browser journey must simulate server-side PHP session-data loss in its isolated fixture');
   assert.match(reportSpec, /learner can report a result question and reports stay private to the session/);
   assert.match(reportSpec, /tabToKeyboardFocus/);
   assert.match(reportSpec, /UNCLEAR_WORDING/);
@@ -100,6 +104,8 @@ test('browser certification has no retries and a flaky result is a failure', () 
   assert.match(config, /retries:\s*0/);
   assert.match(config, /trace:\s*'retain-on-failure'/);
   assert.match(runner, /browserReport\.stats\?\.flaky\s*===\s*0/);
+  assert.match(runner, /browserReport\.stats\?\.skipped\s*===\s*0/);
+  assert.match(fs.readFileSync(path.join(root, 'tools/write-browser-ci-manifest.cjs'), 'utf8'), /stats\.skipped\s*>\s*0/);
 
   const report = {
     suites: [{ specs: [{ title: 'synthetic retry', file: 'fixture.spec.cjs', line: 1, tests: [{
@@ -110,6 +116,15 @@ test('browser certification has no retries and a flaky result is a failure', () 
   const summary = summarize(report);
   assert.equal(summary.flaky, 1);
   assert.equal(summaryStatus(summary), 'FAILED');
+
+  const skippedSummary = summarize({
+    suites: [{ specs: [{ title: 'mandatory skipped flow', file: 'fixture.spec.cjs', line: 1, tests: [{
+      projectName: 'mobile', outcome: 'skipped', ok: true, expectedStatus: 'skipped', results: [],
+    }] }] }],
+  });
+  assert.equal(skippedSummary.skipped, 1);
+  assert.equal(summaryStatus(skippedSummary), 'INCOMPLETE',
+    'a skipped mandatory browser flow must remain unexecuted, not certified complete');
 });
 
 test('browser provenance records exact commit and leaves missing browser evidence unrun', () => {
@@ -123,11 +138,17 @@ test('browser provenance records exact commit and leaves missing browser evidenc
     });
     assert.equal(result.status, 0, result.stderr || result.stdout);
     const manifest = JSON.parse(fs.readFileSync(path.join(evidence, 'browser-ci-manifest.json'), 'utf8'));
-    assert.equal(manifest.provenance.tested_sha, commit);
+    assert.equal(manifest.provenance.tested_sha, null);
+    assert.equal(manifest.provenance.checkout_sha, commit);
     assert.equal(manifest.provenance.workflow_sha_matches_checkout, true);
-    assert.equal(manifest.browser_execution_status, 'NOT_COMPLETED');
+    assert.equal(manifest.acceptance_status, 'NOT_EXECUTED');
+    assert.equal(manifest.browser_execution_status, 'NOT_EXECUTED');
     assert.equal(manifest.browser_preflight_status, 'NOT_RUN');
     assert.deepEqual(manifest.acceptance_case_ids, Array.from({ length: 12 }, (_, index) => `MVP-${String(index + 1).padStart(2, '0')}`));
+    const sidecarSha = fs.readFileSync(path.join(evidence, 'browser-ci-manifest.sha256'), 'utf8').trim().split(/\s+/)[0];
+    const manifestSha = require('node:crypto').createHash('sha256')
+      .update(fs.readFileSync(path.join(evidence, 'browser-ci-manifest.json'))).digest('hex');
+    assert.equal(sidecarSha, manifestSha, 'the evidence manifest sidecar must verify its exact bytes');
 
     const mismatchResult = spawnSync(process.execPath, ['tools/write-browser-ci-manifest.cjs'], {
       cwd: root,
@@ -137,9 +158,107 @@ test('browser provenance records exact commit and leaves missing browser evidenc
     assert.equal(mismatchResult.status, 1, 'provenance writer accepted a workflow SHA that differs from the checkout');
     const mismatchedManifest = JSON.parse(fs.readFileSync(path.join(evidence, 'browser-ci-manifest.json'), 'utf8'));
     assert.equal(mismatchedManifest.provenance.workflow_sha_matches_checkout, false);
+
+    const staleSha = '0'.repeat(40);
+    fs.mkdirSync(path.join(evidence, 'test-results'), { recursive: true });
+    fs.writeFileSync(path.join(evidence, 'browser-preflight.json'), JSON.stringify({ status: 'PASS', commit: staleSha }));
+    fs.writeFileSync(path.join(evidence, 'test-results', 'browser-execution.json'), JSON.stringify({
+      status: 'BROWSER_EXECUTED_PASS',
+      commit: staleSha,
+      working_tree_clean: true,
+      exit_code: 0,
+      command: 'npm run test:browser',
+      executed_at: '2026-11-04T00:00:00Z',
+    }));
+    fs.writeFileSync(path.join(evidence, 'test-results', 'browser-results.json'), JSON.stringify({ stats: {
+      expected: 1, unexpected: 0, flaky: 0, skipped: 0,
+    } }));
+    fs.writeFileSync(path.join(evidence, 'account-fixture-private.json'), JSON.stringify({ storage: '/synthetic/private/path' }));
+    const staleResult = spawnSync(process.execPath, ['tools/write-browser-ci-manifest.cjs'], {
+      cwd: root,
+      encoding: 'utf8',
+      env: { ...process.env, BOARDPREP_BROWSER_EVIDENCE_DIR: evidence, GITHUB_SHA: commit, GITHUB_ACTIONS: 'false' },
+    });
+    assert.equal(staleResult.status, 1, 'the evidence writer accepted browser PASS artifacts from another commit');
+    const staleManifest = JSON.parse(fs.readFileSync(path.join(evidence, 'browser-ci-manifest.json'), 'utf8'));
+    assert.equal(staleManifest.acceptance_status, 'UNVERIFIED_STALE_OR_MISMATCHED');
+    assert.equal(staleManifest.browser_execution_status, 'BROWSER_EXECUTED_PASS');
+    assert.ok(staleManifest.evidence_issues.some((issue) => issue.includes('execution SHA')));
+    assert.ok(!staleManifest.artifact_references.includes('account-fixture-private.json'), 'private fixture handoff metadata must not enter the artifact manifest');
+    assert.ok(staleManifest.artifact_integrity.every((artifact) => /^[a-f0-9]{64}$/.test(artifact.sha256)));
+
+    const isolatedRepo = fs.mkdtempSync(path.join(os.tmpdir(), 'boardprep-browser-skip-manifest-'));
+    const fixtureEvidence = fs.mkdtempSync(path.join(os.tmpdir(), 'boardprep-browser-skip-evidence-'));
+    try {
+      fs.mkdirSync(path.join(isolatedRepo, 'tools'), { recursive: true });
+      fs.mkdirSync(path.join(fixtureEvidence, 'test-results'), { recursive: true });
+      fs.copyFileSync(path.join(root, 'tools/write-browser-ci-manifest.cjs'), path.join(isolatedRepo, 'tools/write-browser-ci-manifest.cjs'));
+      fs.writeFileSync(path.join(isolatedRepo, 'package-lock.json'), JSON.stringify({ packages: {} }));
+      const git = (args) => spawnSync('git', args, { cwd: isolatedRepo, encoding: 'utf8' });
+      assert.equal(git(['init', '-q']).status, 0);
+      assert.equal(git(['config', 'user.email', 'fixture@example.invalid']).status, 0);
+      assert.equal(git(['config', 'user.name', 'Acceptance Fixture']).status, 0);
+      assert.equal(git(['add', '.']).status, 0);
+      assert.equal(git(['commit', '-qm', 'synthetic browser evidence fixture']).status, 0);
+      const fixtureCommit = git(['rev-parse', 'HEAD']).stdout.trim();
+      fs.writeFileSync(path.join(fixtureEvidence, 'browser-preflight.json'), JSON.stringify({ status: 'PASS', commit: fixtureCommit }));
+      fs.writeFileSync(path.join(fixtureEvidence, 'test-results', 'browser-execution.json'), JSON.stringify({
+        status: 'BROWSER_EXECUTED_PASS', commit: fixtureCommit, working_tree_clean: true,
+        exit_code: 0, command: 'npm run test:browser', executed_at: '2026-11-04T00:00:00Z',
+        fixture_identity: 'synthetic-isolated-fixture',
+      }));
+      const fixtureManifestCommand = () => spawnSync(process.execPath, ['tools/write-browser-ci-manifest.cjs'], {
+        cwd: isolatedRepo,
+        encoding: 'utf8',
+        env: { ...process.env, BOARDPREP_BROWSER_EVIDENCE_DIR: fixtureEvidence, GITHUB_SHA: fixtureCommit, GITHUB_ACTIONS: 'false' },
+      });
+      const browserResultsPath = path.join(fixtureEvidence, 'test-results', 'browser-results.json');
+      fs.writeFileSync(browserResultsPath, JSON.stringify({ stats: {
+        expected: 10, unexpected: 0, flaky: 0, skipped: 0,
+      } }));
+      const completeResult = fixtureManifestCommand();
+      assert.equal(completeResult.status, 0, completeResult.stderr || completeResult.stdout);
+      const completeManifest = JSON.parse(fs.readFileSync(path.join(fixtureEvidence, 'browser-ci-manifest.json'), 'utf8'));
+      assert.equal(completeManifest.acceptance_status, 'PASS', 'complete synthetic exact-SHA evidence should certify');
+
+      fs.writeFileSync(browserResultsPath, JSON.stringify({ stats: {
+        expected: 10, unexpected: 0, flaky: 0, skipped: 1,
+      } }));
+      const skippedResult = fixtureManifestCommand();
+      assert.equal(skippedResult.status, 2, 'the provenance writer must reject a suite with a skipped required flow as incomplete');
+      const skippedManifest = JSON.parse(fs.readFileSync(path.join(fixtureEvidence, 'browser-ci-manifest.json'), 'utf8'));
+      assert.equal(skippedManifest.acceptance_status, 'INCOMPLETE');
+      assert.equal(skippedManifest.browser_results.skipped, 1);
+    } finally {
+      fs.rmSync(isolatedRepo, { recursive: true, force: true });
+      fs.rmSync(fixtureEvidence, { recursive: true, force: true });
+    }
   } finally {
     fs.rmSync(evidence, { recursive: true, force: true });
   }
+});
+
+test('required rendered-browser viewport evidence includes 320, 360, 390, 430, and 768 pixels', () => {
+  const runner = fs.readFileSync(path.join(root, 'tools/run-browser-tests.cjs'), 'utf8');
+  const accountSpec = fs.readFileSync(path.join(root, 'tests/browser/accounts/account-auth.spec.cjs'), 'utf8');
+  const expected = [
+    ['320', '568'], ['360', '800'], ['390', '844'], ['430', '932'], ['768', '1024'],
+  ];
+  const accountViewportBlock = accountSpec.match(/for \(const viewport of \[([\s\S]*?)\]\)/)?.[1] || '';
+  const actualAccountViewports = [...accountViewportBlock.matchAll(/width:\s*(\d+),\s*height:\s*(\d+)/g)]
+    .map((match) => `${match[1]}x${match[2]}`);
+  const requiredBlock = runner.match(/const requiredViewportSizes = \[([^\]]+)\]/)?.[1] || '';
+  const requiredViewports = [...requiredBlock.matchAll(/'([^']+)'/g)].map((match) => match[1]);
+
+  for (const [width, height] of expected) {
+    assert.ok(actualAccountViewports.includes(`${width}x${height}`), `account browser journey omits ${width}x${height}`);
+    assert.ok(requiredViewports.includes(`${width}x${height}`), `browser certification does not require ${width}x${height}`);
+  }
+  for (const [width, height] of expected) {
+    assert.ok(accountSpec.includes(`'${width}x${height}'`), `account browser evidence omits ${width}x${height}`);
+  }
+  assert.match(accountSpec, /authenticated-exam-recovery-session-loss/);
+  assert.match(runner, /'authenticated-exam-recovery-session-loss'/);
 });
 
 test('Developer Question Repository browser suite covers every required REPO case without mutation', () => {

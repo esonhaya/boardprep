@@ -5,6 +5,14 @@ const os = require('node:os');
 const path = require('node:path');
 const { spawnSync } = require('node:child_process');
 
+const repositoryRoot = path.resolve(__dirname, '..');
+const executionStartedAt = new Date().toISOString();
+const executionStartedMonotonic = process.hrtime.bigint();
+const startingCommit = spawnSync('git', ['rev-parse', 'HEAD'], {
+  cwd: repositoryRoot,
+  encoding: 'utf8',
+}).stdout.trim();
+
 if (process.platform === 'android') {
   console.log('BROWSER_ACCEPTANCE=BROWSER_BLOCKED');
   console.log('REASON=Playwright Chromium does not support the Android/Termux Node runtime.');
@@ -56,7 +64,6 @@ try {
   fs.unlinkSync(path.join(evidenceDirectory, 'account-fixture-private.json'));
 } catch {}
 
-const repositoryRoot = path.resolve(__dirname, '..');
 const evidencePath = (name) => path.join(evidenceDirectory, `${name}.json`);
 const readEvidence = (name) => JSON.parse(fs.readFileSync(evidencePath(name), 'utf8'));
 let exitStatus = result.status ?? 1;
@@ -90,6 +97,7 @@ if (exitStatus === 0) {
       'wrong-password-generic-response',
       'login-and-session-rotation',
       'authenticated-profile-update',
+      'authenticated-exam-recovery-session-loss',
       'account-practice-history-and-flashcard-progress',
       'account-export-step-up',
       'encrypted-backup-restore-fixture-integrity',
@@ -113,7 +121,7 @@ if (exitStatus === 0) {
       encoding: 'utf8',
     }).stdout.trim();
     const responsiveStates = readEvidence('responsive-states');
-    const requiredViewportSizes = ['320x568', '360x800', '390x844', '412x915', '768x1024'];
+    const requiredViewportSizes = ['320x568', '360x800', '390x844', '430x932', '768x1024'];
     const requiredDesktopViewport = { width: 1366, height: 768 };
     const selectedProjects = process.argv.includes('--project=mobile')
       ? ['mobile']
@@ -156,9 +164,11 @@ if (exitStatus === 0) {
       && requiredViewportSizes.every((size) => complexContent.results.mobile?.tables?.includes(size))
       && accountExplorer.status === 'PASS'
       && accountExplorer.tested_commit === commit
+      && commit === startingCommit
       && accountScenarioIds.every((id) => accountExplorer.scenarios?.some((item) => item.id === id && item.result === 'PASS'))
       && browserReport.stats?.unexpected === 0
       && browserReport.stats?.flaky === 0
+      && browserReport.stats?.skipped === 0
       && browserReport.stats?.expected > 0
       && !process.argv.includes('--update-snapshots')
       && process.env.VISUAL_REGRESSION !== '1';
@@ -171,10 +181,18 @@ if (exitStatus === 0) {
       status: completeBrowserEvidence && workingTree === ''
         ? 'BROWSER_EXECUTED_PASS'
         : 'BROWSER_EXECUTED_PARTIAL',
+      started_at: executionStartedAt,
       executed_at: new Date().toISOString(),
+      elapsed_ms: Number((process.hrtime.bigint() - executionStartedMonotonic) / 1_000_000n),
+      exit_code: result.status ?? 1,
       commit,
+      starting_commit: startingCommit,
       working_tree_clean: workingTree === '',
       command: `npm run test:browser${process.argv.slice(2).length ? ` -- ${process.argv.slice(2).join(' ')}` : ''}`,
+      fixture_identity: 'isolated_git_archive_synthetic_storage_loopback',
+      limitations: [
+        'Automated Chromium projects use desktop and mobile emulation; they do not establish physical Android behavior, human visual review, screen-reader acceptance, or WCAG conformance.',
+      ],
       engine: 'chromium',
       engine_versions: Object.fromEntries(Object.entries(runtime.results).map(([project, item]) => [project, item.version])),
       projects: selectedProjects,
@@ -186,7 +204,7 @@ if (exitStatus === 0) {
         privacy_export_and_deletion: privacy.projects.length > 0,
         production_boundary: productionBoundary.projects.length > 0,
         ten_board_journeys: tenBoard.results.mobile?.boards?.length === 10,
-        responsive_viewport_sweep: viewports.results.mobile?.sizes?.length === requiredViewportSizes.length,
+        responsive_viewport_sweep: requiredViewportSizes.every((size) => viewports.results.mobile?.sizes?.includes(size)),
         responsive_active_practice_results_simulator_flashcards_privacy_and_errors: responsiveStates.projects.includes('mobile')
           && [
             'activePractice',
@@ -220,13 +238,47 @@ if (exitStatus === 0) {
     );
     console.log(`BROWSER_EXECUTION=${execution.status}`);
     if (execution.status !== 'BROWSER_EXECUTED_PASS') {
-      console.error('::error title=Browser certification evidence incomplete::Required projects, journeys, viewports, or clean-checkout evidence were not all present.');
+      console.error('::error title=Browser certification evidence incomplete::Required projects, journeys, viewports, or clean-checkout evidence were not all present, or at least one required test was skipped.');
       exitStatus = 1;
     }
   } catch (error) {
     console.error(`BROWSER_EXECUTION=EVIDENCE_INCOMPLETE (${error.message})`);
     exitStatus = 1;
   }
+}
+
+const browserExecutionPath = path.join(evidenceDirectory, 'test-results', 'browser-execution.json');
+if (!fs.existsSync(browserExecutionPath)) {
+  const commitAfterExecution = spawnSync('git', ['rev-parse', 'HEAD'], {
+    cwd: repositoryRoot,
+    encoding: 'utf8',
+  }).stdout.trim();
+  const workingTree = spawnSync('git', ['status', '--porcelain'], {
+    cwd: repositoryRoot,
+    encoding: 'utf8',
+  }).stdout.trim();
+  const failureExecution = {
+    format_version: 1,
+    status: result.status === 0 ? 'BROWSER_EXECUTED_PARTIAL' : 'BROWSER_EXECUTED_FAIL',
+    started_at: executionStartedAt,
+    executed_at: new Date().toISOString(),
+    elapsed_ms: Number((process.hrtime.bigint() - executionStartedMonotonic) / 1_000_000n),
+    exit_code: result.status ?? 1,
+    commit: commitAfterExecution,
+    starting_commit: startingCommit,
+    working_tree_clean: workingTree === '',
+    command: `npm run test:browser${process.argv.slice(2).length ? ` -- ${process.argv.slice(2).join(' ')}` : ''}`,
+    fixture_identity: 'isolated_git_archive_synthetic_storage_loopback',
+    limitations: [
+      'Automated Chromium projects use desktop and mobile emulation; they do not establish physical Android behavior, human visual review, screen-reader acceptance, or WCAG conformance.',
+    ],
+    engine: 'chromium',
+    failure_reason: result.status === 0
+      ? 'Playwright exited successfully but the required acceptance evidence was incomplete.'
+      : 'Playwright exited unsuccessfully; inspect the retained result and diagnostic artifacts.',
+  };
+  fs.mkdirSync(path.dirname(browserExecutionPath), { recursive: true });
+  fs.writeFileSync(browserExecutionPath, `${JSON.stringify(failureExecution, null, 2)}\n`);
 }
 
 if (removeEvidenceDirectory && exitStatus === 0) {

@@ -59,7 +59,10 @@ fs.mkdirSync(authSessionStorage, { recursive: true, mode: 0o700 });
 const evidenceDirectory = process.env.BOARDPREP_EXPLORER_EVIDENCE_DIR || process.env.BOARDPREP_BROWSER_EVIDENCE_DIR || '';
 if (evidenceDirectory) {
   fs.mkdirSync(evidenceDirectory, { recursive: true, mode: 0o700 });
-  fs.writeFileSync(path.join(evidenceDirectory, 'account-fixture-private.json'), JSON.stringify({ storage: authStorage }) + '\n', { mode: 0o600 });
+  fs.writeFileSync(path.join(evidenceDirectory, 'account-fixture-private.json'), JSON.stringify({
+    storage: authStorage,
+    sessions: authSessionStorage,
+  }) + '\n', { mode: 0o600 });
 }
 const academicSeed = spawnSync('php', [path.join(applicationRoot, 'tests/browser/seed-academic-review-fixture.php')], {
   cwd: applicationRoot,

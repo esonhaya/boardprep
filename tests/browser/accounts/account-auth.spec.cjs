@@ -79,6 +79,68 @@ async function completeSyntheticPractice(page) {
   await expect(page.getByRole('heading', { name: /Quiz Result/i })).toBeVisible();
 }
 
+async function completeAuthenticatedExamRecovery(page, username, password, sessionDirectory, scenario) {
+  await page.goto(AUTH + '/quiz?exam=LET');
+  const subject = await page.locator('#quiz-subject option[data-exam="LET"]').first().getAttribute('value');
+  expect(subject).toBeTruthy();
+  await page.locator('#quiz-subject').selectOption(subject);
+  await page.locator('#quiz-count').selectOption('5');
+  await page.locator('#quiz-mode').selectOption('exam');
+  await page.locator('#quiz-timer-mode').selectOption('timed');
+  await page.locator('#quiz-time-limit').fill('10');
+  await page.getByRole('button', { name: 'Start exam simulation' }).click();
+  await expect(page.locator('.quiz-meta')).toContainText('Question 1 / 5');
+  await expect(page.locator('.exam-countdown')).toBeVisible();
+
+  await page.locator('input[name="answer"]').first().check();
+  await page.getByRole('button', { name: 'Save answer and continue' }).click();
+  await expect(page.locator('.quiz-meta')).toContainText('Question 2 / 5');
+  const remainingBeforeSessionLoss = Number(await page.locator('.exam-countdown').getAttribute('data-remaining-seconds'));
+  expect(Number.isFinite(remainingBeforeSessionLoss)).toBe(true);
+
+  const oldSession = (await page.context().cookies(AUTH))
+    .find((cookie) => cookie.name === 'BOARDPREP_AUTH_SESSION')?.value;
+  expect(oldSession).toBeTruthy();
+  reportSensitiveValues.add(oldSession);
+  await page.context().clearCookies({ name: 'BOARDPREP_AUTH_SESSION' });
+  expect((await page.context().cookies(AUTH)).some((cookie) => cookie.name === 'BOARDPREP_AUTH_SESSION')).toBe(false);
+  expect(/^[A-Za-z0-9,-]{1,128}$/.test(oldSession)).toBe(true);
+  const lostSessionFile = path.join(sessionDirectory, 'sess_' + oldSession);
+  expect(fs.existsSync(lostSessionFile)).toBe(true);
+  fs.unlinkSync(lostSessionFile);
+
+  await signIn(page, username, password);
+  await expect(page).toHaveURL(/\/account\/profile$/);
+  const newSession = (await page.context().cookies(AUTH))
+    .find((cookie) => cookie.name === 'BOARDPREP_AUTH_SESSION')?.value;
+  expect(newSession).toBeTruthy();
+  expect(newSession).not.toBe(oldSession);
+  reportSensitiveValues.add(newSession);
+
+  await page.goto(AUTH + '/quiz');
+  await expect(page.locator('#saved-exam-heading')).toHaveText('Resume your unfinished exam');
+  await expect(page.locator('.active-session-warning')).toContainText('1 of 5 questions have saved answers');
+  await expect(page.locator('.active-session-warning')).toContainText('Original server deadline:');
+  await page.getByRole('button', { name: 'Resume saved exam' }).click();
+  await expect(page.locator('.quiz-meta')).toContainText('Question 2 / 5');
+  const remainingAfterRecovery = Number(await page.locator('.exam-countdown').getAttribute('data-remaining-seconds'));
+  expect(remainingAfterRecovery).toBeLessThanOrEqual(remainingBeforeSessionLoss);
+
+  await page.getByRole('link', { name: 'Review question status' }).click();
+  await expect(page.locator('.exam-review-summary')).toContainText('1 answer recorded');
+  await expect(page.locator('.exam-review-item').first()).toContainText('Answered');
+  await page.getByRole('button', { name: 'Submit exam simulation' }).click();
+  await expect(page.locator('.quiz-result-page h1')).toContainText('Exam Simulation Result');
+  await page.goto(AUTH + '/history');
+  await expect(page.locator('.quiz-history-item')).toHaveCount(1);
+
+  scenario(
+    'authenticated-exam-recovery-session-loss',
+    '/quiz → /account/login → /quiz',
+    'A signed-in learner recovered one saved answer after losing the PHP session cookie; the original deadline remained authoritative and the completed result appeared once in history.'
+  );
+}
+
 async function reviewOneSyntheticFlashcard(page) {
   await page.goto(AUTH + '/flashcards?include_new=1');
   const start = page.getByRole('link', { name: /Start review|Review now/ }).first();
@@ -151,8 +213,16 @@ test('isolated mobile account journeys preserve authentication and learner owner
   const evidenceDirectory = path.resolve(process.env.BOARDPREP_BROWSER_EVIDENCE_DIR || fs.mkdtempSync(path.join(os.tmpdir(), 'boardprep-account-browser-')));
   const fixtureManifestPath = path.join(evidenceDirectory, 'account-fixture-private.json');
   if (!fs.existsSync(fixtureManifestPath)) throw new Error('The isolated account fixture handoff is missing.');
-  const authStorage = JSON.parse(fs.readFileSync(fixtureManifestPath, 'utf8')).storage;
+  const privateFixture = JSON.parse(fs.readFileSync(fixtureManifestPath, 'utf8'));
+  const authStorage = privateFixture.storage;
+  const authSessionStorage = privateFixture.sessions;
   if (typeof authStorage !== 'string' || !path.isAbsolute(authStorage)) throw new Error('The isolated account fixture path is invalid.');
+  if (typeof authSessionStorage !== 'string' || !path.isAbsolute(authSessionStorage)
+    || path.dirname(path.resolve(authStorage)) !== path.dirname(path.resolve(authSessionStorage))
+    || path.basename(path.resolve(authSessionStorage)) !== 'auth-sessions'
+    || !path.resolve(authSessionStorage).startsWith(path.resolve(os.tmpdir()) + path.sep)) {
+    throw new Error('The synthetic PHP session fixture path is unsafe.');
+  }
   const mode = process.env.BOARDPREP_EXPLORER_MODE || 'browser-acceptance';
   const maxDurationMs = mode === 'smoke' ? 180000 : 300000;
   const startedAt = Date.now();
@@ -168,7 +238,7 @@ test('isolated mobile account journeys preserve authentication and learner owner
     limits: { max_pages: 120, max_scenarios: 36, max_duration_ms: maxDurationMs, concurrency: 1, allowed_origins: [AUTH, PUBLIC] },
     page_navigation_count: 0,
     unexpected_origins: [],
-    viewports_tested: ['320x568', '360x800', '390x844', '412x915', '768x1024'],
+    viewports_tested: ['320x568', '360x800', '390x844', '430x932', '768x1024'],
     scenarios: [],
     confirmed_defects: [],
     routes_visited: [],
@@ -263,7 +333,7 @@ test('isolated mobile account journeys preserve authentication and learner owner
       { width: 320, height: 568 },
       { width: 360, height: 800 },
       { width: 390, height: 844 },
-      { width: 412, height: 915 },
+      { width: 430, height: 932 },
       { width: 768, height: 1024 },
     ]) {
       await page.setViewportSize(viewport);
@@ -368,6 +438,8 @@ test('isolated mobile account journeys preserve authentication and learner owner
     await page.getByRole('button', { name: 'Save exam preferences' }).click();
     await expect(page.locator('.alert-success')).toContainText('saved to your account');
     scenario('authenticated-profile-update', '/profile/preferences', 'Candidate preferences save to the account profile.');
+
+    await completeAuthenticatedExamRecovery(page, usernameA, PASSWORD_A, authSessionStorage, scenario);
 
     await completeSyntheticPractice(page);
     await reviewOneSyntheticFlashcard(page);
