@@ -99,6 +99,9 @@ try {
         } elseif ($count === 100) {
             skippedHistoryAssert(str_contains($html, 'Showing 1–20 of 100 skipped questions')
                 && str_contains($html, 'skipped_page=2'), 'One hundred skipped questions lacked bounded forward navigation.');
+            skippedHistoryAssert(substr_count($html, 'aria-label="Skipped question pages"') === 1
+                && substr_count($html, 'Showing 1–20 of 100 skipped questions · Page 1 of 5') === 1,
+                'One hundred skipped questions rendered duplicate navigation or range announcements.');
         } else {
             skippedHistoryAssert(str_contains($html, 'Showing 1–20 of 500 skipped questions')
                 && str_contains($html, 'Page 1 of 25')

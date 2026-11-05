@@ -47,6 +47,9 @@ $checks = [
         && str_contains($quiz, '<legend>Choose one answer</legend>')
         && str_contains($quiz, 'class="quiz-choice" for="answer-'),
     'quiz feedback is announced' => str_contains($quiz, 'role="status" aria-live="polite"'),
+    'routine flash messages use polite status semantics while errors stay assertive' => str_contains($layout, '$layoutFlashIsError = $layoutFlashType === "error"')
+        && str_contains($layout, 'role="<?= $layoutFlashIsError ? "alert" : "status" ?>"')
+        && str_contains($layout, 'aria-live="<?= $layoutFlashIsError ? "assertive" : "polite" ?>"'),
     'exam progress has mode-specific accessible naming and question position' => str_contains($quiz, 'aria-label="<?= $isExamSimulation ?')
         && str_contains($quiz, 'aria-valuetext="Question <?= $current + 1 ?> of <?= $total ?>"'),
     'review mark control exposes its pressed state and text label' => str_contains($quiz, 'aria-pressed="<?= $reviewFlagState[\'marked\'] ? \'true\' : \'false\' ?>"')

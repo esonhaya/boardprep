@@ -77,7 +77,8 @@
 
 <?php $layoutFlash = \SessionService::consumeFlash(); ?>
 <?php if (is_array($layoutFlash) && is_scalar($layoutFlash["message"] ?? null)): ?>
-<p class="flash-message flash-<?= htmlspecialchars((string) ($layoutFlash["type"] ?? "info")) ?>" role="alert">
+<?php $layoutFlashType = is_scalar($layoutFlash["type"] ?? null) ? trim((string) $layoutFlash["type"]) : "info"; $layoutFlashIsError = $layoutFlashType === "error"; ?>
+<p class="flash-message flash-<?= htmlspecialchars($layoutFlashType, ENT_QUOTES, "UTF-8") ?>" role="<?= $layoutFlashIsError ? "alert" : "status" ?>" aria-live="<?= $layoutFlashIsError ? "assertive" : "polite" ?>" aria-atomic="true">
     <?= htmlspecialchars((string) $layoutFlash["message"]) ?>
 </p>
 <?php endif; ?>
