@@ -185,18 +185,38 @@ final class SimulationStorageFixture
             return;
         }
         $input = fopen($questionsPath, 'rb');
+        if (!is_resource($input)) {
+            throw new \RuntimeException('Unable to open deterministic simulator question fixtures.');
+        }
+
+        $usageCounterPattern = '/^\s*"(?:timesUsed|timesCorrect|timesIncorrect|updatedAt)"\s*:/';
+        $hasUsageCounters = false;
+        while (($line = fgets($input)) !== false) {
+            if (preg_match($usageCounterPattern, $line) === 1) {
+                $hasUsageCounters = true;
+                break;
+            }
+        }
+        if (!$hasUsageCounters) {
+            fclose($input);
+            return;
+        }
+        if (!rewind($input)) {
+            fclose($input);
+            throw new \RuntimeException('Unable to rewind deterministic simulator question fixtures.');
+        }
+
         $temporaryPath = $questionsPath . '.simulator';
         $output = fopen($temporaryPath, 'wb');
-        if (!is_resource($input) || !is_resource($output)) {
-            if (is_resource($input)) fclose($input);
-            if (is_resource($output)) fclose($output);
+        if (!is_resource($output)) {
+            fclose($input);
             @unlink($temporaryPath);
             throw new \RuntimeException('Unable to open deterministic simulator question fixtures.');
         }
 
         $pendingLine = null;
         while (($line = fgets($input)) !== false) {
-            if (preg_match('/^\s*"(?:timesUsed|timesCorrect|timesIncorrect|updatedAt)"\s*:/', $line) === 1) {
+            if (preg_match($usageCounterPattern, $line) === 1) {
                 continue;
             }
             if ($pendingLine !== null) {

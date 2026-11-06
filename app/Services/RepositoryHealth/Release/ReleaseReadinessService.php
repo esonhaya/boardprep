@@ -23,6 +23,7 @@ final class ReleaseReadinessService
 
     private const RELEASE_TEST_MIN_FREE_BYTES = 1610612736; // 1.5 GiB
     private const RELEASE_TEST_RESERVE_BYTES = 134217728; // 128 MiB for session/output growth
+    private const RELEASE_TEST_OBSERVED_PEAK_BYTES = 533401600; // Additional reduction measured during DoctorSimulatorStateIsolationTest
 
     /** @param array<string, mixed> $flowEvidence @param array<string, mixed> $performance @param array<string, mixed>|null $production */
     public static function audit(HealthReport $report, array $flowEvidence = [], array $performance = [], ?array $production = null): array
@@ -608,13 +609,13 @@ final class ReleaseReadinessService
             'learner_core_flows' => ['tools/Tests/TenBoardLearnerJourneyHttpTest.php', 'tools/Tests/LearnerJourneyHttpTest.php', 'tools/Tests/LearnerDashboardReliabilityTest.php', 'tools/Tests/LearnerExperienceConsistencyTest.php', 'tools/Tests/AdaptiveStudyEvidenceTest.php', 'tools/Tests/LearningProfileActionViewTest.php', 'tools/Tests/ProgressRecommendationViewTest.php', 'tools/Tests/LearnerNavigationUxTest.php', 'tools/Tests/LearnerMobileAccessibilityViewTest.php', 'tools/Tests/BoardDetailPerformanceTest.php', 'tools/Tests/StudyDashboardPreparedHistoryEquivalenceTest.php', 'tools/Tests/SmartStudyHubServiceTest.php'],
             'attempt_safety' => ['tools/Tests/MultiAttemptLearningHttpTest.php', 'tools/Tests/QuizStartFailureHttpTest.php', 'tools/Tests/ApplicationResilienceTest.php', 'tools/Tests/BlueprintDuplicateExposureTest.php', 'tools/Tests/ExamDraftBackendParityTest.php', 'tools/Tests/DurableExamRecoveryHttpTest.php', 'tools/Tests/AccountLifecycleJsonTest.php', 'tools/Tests/AccountLifecycleSqliteTest.php'],
             'result_review' => ['tools/Tests/HistoryResultHttpTest.php', 'tools/Tests/QuizCompletionHttpTest.php'],
-            'simulator_recovery' => ['tools/Tests/ExamSimulationHttpTest.php', 'tools/Tests/SimulationFixtureLifecycleTest.php', 'tools/Tests/DoctorSimulatorStateIsolationTest.php'],
+            'simulator_recovery' => ['tools/Tests/ExamSimulationHttpTest.php', 'tools/Tests/SimulationFixtureLifecycleTest.php', 'tools/Tests/SimulationQuestionFixtureSanitizationTest.php', 'tools/Tests/DoctorSimulatorStateIsolationTest.php'],
             'doctor_integrity' => ['tools/Tests/DoctorIntegrityTest.php', 'tools/Tests/RepositoryHealthEvidenceFreshnessTest.php', 'tools/Tests/Batch675StaticDoctorPrecisionTest.php', 'tools/Tests/Batch675SourceQualityPathwaysTest.php', 'tools/Tests/EducationalIntegrityPrecisionTest.php', 'tools/Tests/Batch687SourceReviewTest.php'],
             'admin_core_flows' => ['tools/Tests/QuestionEditorEligibilityTest.php', 'tools/Tests/QuestionAuthoringWorkflowIntegrationTest.php'],
             'shared_question_safety' => ['tools/Tests/CrossBoardCanonicalReuseTest.php', 'tools/Tests/Batch669NursingIntegrationTest.php', 'tools/Tests/MultiExamEligibilityTest.php'],
             'study_experience' => ['tools/Tests/StudyLibraryNavigationTest.php', 'tools/Tests/SourceStudyLibraryTest.php', 'tools/Tests/QuestionStudyReferenceTest.php', 'tools/Tests/Batch678StudyReviewNavigationTest.php', 'tools/Tests/Batch711NotesBasedPracticeTest.php', 'tools/Tests/FlashcardIntegrationTest.php', 'tools/Tests/FlashcardControllerReadPathTest.php', 'tools/Tests/FlashcardHttpTest.php', 'tools/Tests/Batch672EducationalQualityTest.php', 'tools/Tests/Batch672CountReconciliationTest.php', 'tools/Tests/Batch677SourceFirstImprovementsTest.php', 'tools/Tests/Batch682EducationalQualityTest.php', 'tests/batch677-let-source-quality-test.php'],
             'security_sanity' => ['tools/Tests/ProductionQuizCsrfTest.php', 'tools/Tests/QuestionImportCsrfTest.php', 'tools/Tests/AnonymousLearnerPrivacyHttpTest.php', 'tools/Tests/SessionConfigurationTest.php', 'tools/Tests/SecurityTrustBoundaryTest.php', 'tools/Tests/BackupManifestPathSafetyTest.php'],
-            'repository_determinism' => ['tools/Tests/ReleaseReadinessContractTest.php', 'tools/Tests/QuizAnswerStatisticsWeaknessTest.php', 'tools/Tests/ReleaseFlowStorageIsolationTest.php', 'tools/Tests/TemporaryTestArtifactCleanupTest.php', 'tools/Tests/JsonStorageFaultInjectionTest.php', 'tools/Tests/QuestionEligibilityMetadataBatchTest.php'],
+            'repository_determinism' => ['tools/Tests/ReleaseReadinessContractTest.php', 'tools/Tests/ReleaseTestStoragePreflightTest.php', 'tools/Tests/QuizAnswerStatisticsWeaknessTest.php', 'tools/Tests/ReleaseFlowStorageIsolationTest.php', 'tools/Tests/TemporaryTestArtifactCleanupTest.php', 'tools/Tests/JsonStorageFaultInjectionTest.php', 'tools/Tests/QuestionEligibilityMetadataBatchTest.php'],
             'production_configuration' => ['tools/Tests/RuntimeConfigurationTest.php', 'tools/Tests/ProductionFoundationTest.php', 'tools/Tests/DeploymentPreflightIsolationTest.php', 'tools/Tests/ProductReadinessTest.php', 'tools/Tests/BrowserWorkflowEvidenceTest.php', 'tools/Tests/HayaDoctorAdapterCompatibilityTest.php', 'tools/Tests/AcceptanceCenterTest.php'],
             'release_packaging' => ['tools/Tests/ReleasePackageTest.php'],
         ];
@@ -633,32 +634,25 @@ final class ReleaseReadinessService
                 ['available_before_bytes' => $availableBefore]
             );
         }
-        $requiredBytes = self::RELEASE_TEST_MIN_FREE_BYTES
-            + self::RELEASE_TEST_RESERVE_BYTES
-            + (int) $fixturePlan['fixture_bytes'];
-        $storageEvidence = [
-            'status' => 'PASS',
-            'reason' => 'Available temporary storage covers one private fixture, the 128 MiB runtime reserve, and the 1.5 GiB safety floor.',
+        $storageEvidence = self::evaluateFlowTestStoragePreflight(
+            $availableBefore,
+            (int) $fixturePlan['fixture_bytes']
+        ) + [
+            'reason' => 'Available temporary storage covers one private fixture, the 128 MiB runtime reserve, the observed additional test-storage peak, and the 1.5 GiB safety floor.',
             'temporary_root' => $temporaryRoot,
-            'available_before_bytes' => $availableBefore,
-            'minimum_free_bytes' => self::RELEASE_TEST_MIN_FREE_BYTES,
-            'runtime_reserve_bytes' => self::RELEASE_TEST_RESERVE_BYTES,
-            'fixture_bytes' => (int) $fixturePlan['fixture_bytes'],
             'fixture_files' => (int) $fixturePlan['fixture_files'],
             'simultaneous_fixture_copies' => 1,
             'redundant_baseline_bytes_avoided' => (int) $fixturePlan['fixture_bytes'],
-            'required_available_bytes' => $requiredBytes,
             'minimum_observed_available_bytes' => $availableBefore,
             'preexisting_fixture_directories_left_untouched' => $preexistingFixtures,
             'preexisting_session_directories_left_untouched' => $preexistingSessions,
             'largest_session_bytes_before_cleanup' => 0,
             'largest_additional_test_storage_bytes_observed' => 0,
         ];
-        if ($availableBefore === null || $availableBefore < $requiredBytes) {
-            $storageEvidence['status'] = 'REVIEW';
+        if (($storageEvidence['status'] ?? '') !== 'PASS') {
             $storageEvidence['reason'] = $availableBefore === null
                 ? 'Unable to measure temporary free space; release tests were not started.'
-                : 'Insufficient free space for the isolated fixture and safety reserve; release tests were not started.';
+                : 'Insufficient free space for the isolated fixture, observed peak reserve, and safety floor; release tests were not started.';
             return self::incompleteFlowChecks($groups, 'REVIEW', $storageEvidence['reason'], $storageEvidence);
         }
 
@@ -828,6 +822,28 @@ final class ReleaseReadinessService
         ));
         $checks['flow_storage'] = $storageEvidence;
         return ['checks' => $checks, 'storage' => $storageEvidence];
+    }
+
+    /** @return array{status:string,available_before_bytes:?int,minimum_free_bytes:int,runtime_reserve_bytes:int,fixture_bytes:int,observed_additional_test_storage_reserve_bytes:int,required_available_bytes:int} */
+    public static function evaluateFlowTestStoragePreflight(?int $availableBytes, int $fixtureBytes): array
+    {
+        if ($fixtureBytes < 0) {
+            throw new \InvalidArgumentException('Release-test fixture bytes cannot be negative.');
+        }
+
+        $requiredBytes = self::RELEASE_TEST_MIN_FREE_BYTES
+            + self::RELEASE_TEST_RESERVE_BYTES
+            + $fixtureBytes
+            + self::RELEASE_TEST_OBSERVED_PEAK_BYTES;
+        return [
+            'status' => $availableBytes !== null && $availableBytes >= $requiredBytes ? 'PASS' : 'REVIEW',
+            'available_before_bytes' => $availableBytes,
+            'minimum_free_bytes' => self::RELEASE_TEST_MIN_FREE_BYTES,
+            'runtime_reserve_bytes' => self::RELEASE_TEST_RESERVE_BYTES,
+            'fixture_bytes' => $fixtureBytes,
+            'observed_additional_test_storage_reserve_bytes' => self::RELEASE_TEST_OBSERVED_PEAK_BYTES,
+            'required_available_bytes' => $requiredBytes,
+        ];
     }
 
     private static function availableSpace(string $path): ?int
