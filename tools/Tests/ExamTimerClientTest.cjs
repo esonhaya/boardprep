@@ -6,16 +6,16 @@ const path = require('node:path');
 const vm = require('node:vm');
 const test = require('node:test');
 
-test('exam timer uses one-second rendering and catches up when a mobile tab returns', () => {
+test('exam timer requests one server deadline check when a mobile tab returns after zero', () => {
   const callbacks = { document: new Map(), window: new Map() };
   let now = 0;
   let tick = null;
   let intervalMs = null;
-  let submissions = 0;
+  let deadlineChecks = 0;
   const timer = { dataset: { remainingSeconds: '5' } };
   const value = { textContent: '' };
   const announcement = { textContent: '' };
-  const expiryForm = { requestSubmit() { submissions++; } };
+  const expiryForm = { requestSubmit() { deadlineChecks++; } };
   const document = {
     hidden: false,
     querySelector(selector) { return selector === '.exam-countdown[data-remaining-seconds]' ? timer : null; },
@@ -43,15 +43,19 @@ test('exam timer uses one-second rendering and catches up when a mobile tab retu
   now = 5500;
   document.hidden = true;
   callbacks.document.get('visibilitychange')();
-  assert.equal(submissions, 0, 'hidden visibility does not fabricate an expiry confirmation');
+  assert.equal(deadlineChecks, 0, 'hidden visibility does not fabricate an expiry confirmation');
   document.hidden = false;
   callbacks.window.get('pageshow')();
   assert.equal(value.textContent, '00:00');
-  assert.equal(submissions, 1, 'expiry submits only once when the page resumes after the deadline');
+  assert.equal(deadlineChecks, 1, 'the client asks the server to validate expiry once after the countdown reaches zero');
   assert.match(announcement.textContent, /Time is up/);
+  assert.match(announcement.textContent, /checking the server deadline/i,
+    'the browser must announce that the server is checking expiry before claiming the attempt is being submitted');
+  assert.doesNotMatch(announcement.textContent, /submitting your exam simulation/i,
+    'a client countdown alone must not claim that the server has finalized the attempt');
   callbacks.window.get('focus')();
   tick();
-  assert.equal(submissions, 1, 'repeated focus and interval events cannot submit twice');
+  assert.equal(deadlineChecks, 1, 'repeated focus and interval events cannot issue duplicate deadline checks');
 });
 
 test('exam timer accounts for response-to-script delay and device sleep', () => {
@@ -59,10 +63,10 @@ test('exam timer accounts for response-to-script delay and device sleep', () => 
   let performanceNow = 4500;
   let wallNow = 100000;
   let tick = null;
-  let submissions = 0;
+  let deadlineChecks = 0;
   const timer = { dataset: { remainingSeconds: '10' } };
   const value = { textContent: '' };
-  const expiryForm = { requestSubmit() { submissions++; } };
+  const expiryForm = { requestSubmit() { deadlineChecks++; } };
   const document = {
     hidden: false,
     querySelector(selector) { return selector === '.exam-countdown[data-remaining-seconds]' ? timer : null; },
@@ -98,5 +102,5 @@ test('exam timer accounts for response-to-script delay and device sleep', () => 
   wallNow += 5000;
   callbacks.window.get('pageshow')();
   assert.equal(value.textContent, '00:00', 'a sleeping mobile device must catch up from wall time when the page resumes');
-  assert.equal(submissions, 1);
+  assert.equal(deadlineChecks, 1);
 });

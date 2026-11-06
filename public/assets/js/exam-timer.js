@@ -42,7 +42,7 @@
             || (remaining > 0 && remaining <= 300 && remaining % 60 === 0);
         if (announce && remaining !== lastAnnouncement && announcement) {
             announcement.textContent = remaining === 0
-                ? 'Time is up. Submitting your exam simulation.'
+                ? 'Time is up on this device. Checking the server deadline.'
                 : `${format(remaining)} remaining.`;
             lastAnnouncement = remaining;
         }

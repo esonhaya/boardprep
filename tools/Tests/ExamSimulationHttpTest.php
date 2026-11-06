@@ -158,6 +158,23 @@ try {
         throw new RuntimeException('Refreshing an active simulation did not recover its question and original deadline.');
     }
 
+    // The browser countdown can reach zero before the server deadline (for
+    // example after device clock changes or delayed background execution).
+    // Its timer-check request must not finalize while server time remains.
+    $earlyDeadlineCheck = $http->request('POST', '/quiz', [], [
+        'action' => 'timer-check',
+        'quiz_session_id' => $startSessionIdMatch[1],
+        'csrf_token' => $csrfToken,
+    ], [], $cookies);
+    $afterEarlyDeadlineCheck = $readSession($cookies['PHPSESSID']);
+    if (!$earlyDeadlineCheck['success'] || $earlyDeadlineCheck['status'] !== 200
+        || !str_contains($earlyDeadlineCheck['output'], 'Question 1 / 3')
+        || (int) ($afterEarlyDeadlineCheck['quiz_session']['deadline_epoch'] ?? 0) !== $deadline
+        || ($afterEarlyDeadlineCheck['attempt_persisted'] ?? false) === true
+        || ($afterEarlyDeadlineCheck['quiz_completed'] ?? false) === true) {
+        throw new RuntimeException('A client timer-check finalized an exam before the authoritative server deadline.');
+    }
+
     $unboundNavigation = $http->request('POST', '/quiz', [], [
         'action' => 'next', 'csrf_token' => $csrfToken,
     ], [], $cookies);
