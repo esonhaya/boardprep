@@ -15,6 +15,8 @@ test('Linux browser workflow pins runtime and executes fixture, preflight, suite
   const lock = JSON.parse(fs.readFileSync(path.join(root, 'package-lock.json'), 'utf8'));
   assert.match(workflow, /runs-on:\s*ubuntu-24\.04/);
   assert.match(workflow, /node-version:\s*22\.23\.3/);
+  assert.match(workflow, /actions\/checkout@[0-9a-f]{40}[\s\S]*?with:\s*\n\s+persist-credentials:\s*false/,
+    'test code must not inherit the checkout token through local Git configuration');
   for (const [action, sha, release] of [
     ['actions/checkout', 'de0fac2e4500dabe0009e67214ff5f5447ce83dd', 'v6.0.2'],
     ['shivammathur/setup-php', 'eb7c497e18156a6bbabfef1d3a82760b9eda3962', '2.40.0'],
