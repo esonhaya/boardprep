@@ -47,6 +47,8 @@ async function waitForHealth(url, child, getErrors, timeoutMs = 30_000) {
 
 test('production-equivalent PHP fixture serves loopback routes and shuts down its children before cleanup', async () => {
   const fixtureParent = fs.mkdtempSync(path.join(os.tmpdir(), 'boardprep-browser-lifecycle-'));
+  const evidenceDirectory = path.join(fixtureParent, 'evidence');
+  const privateFixturePath = `${evidenceDirectory}.private.json`;
   const ports = await Promise.all([availableLoopbackPort(), availableLoopbackPort(), availableLoopbackPort()]);
   const child = spawn(process.execPath, ['tests/browser/server.cjs'], {
     cwd: root,
@@ -55,6 +57,8 @@ test('production-equivalent PHP fixture serves loopback routes and shuts down it
       BOARDPREP_BROWSER_PORT: String(ports[0]),
       BOARDPREP_DEVELOPER_BROWSER_PORT: String(ports[1]),
       BOARDPREP_AUTH_BROWSER_PORT: String(ports[2]),
+      BOARDPREP_BROWSER_EVIDENCE_DIR: evidenceDirectory,
+      BOARDPREP_BROWSER_PRIVATE_FIXTURE_PATH: privateFixturePath,
       TMPDIR: fixtureParent,
     },
     stdio: ['ignore', 'pipe', 'pipe'],
@@ -84,6 +88,23 @@ test('production-equivalent PHP fixture serves loopback routes and shuts down it
     });
     assert.match(fixtureUrl, /^http:\/\/127\.0\.0\.1:/, 'fixture must bind to loopback');
 
+    await new Promise((resolve, reject) => {
+      const deadline = Date.now() + 10_000;
+      const inspectHandoff = () => {
+        if (fs.existsSync(privateFixturePath)) return resolve();
+        if (child.exitCode !== null || Date.now() >= deadline) return reject(new Error('Private browser fixture handoff was not created outside uploadable evidence.'));
+        setTimeout(inspectHandoff, 25);
+      };
+      inspectHandoff();
+    });
+    const handoffStat = fs.lstatSync(privateFixturePath);
+    assert.equal(handoffStat.isFile(), true);
+    assert.equal(handoffStat.isSymbolicLink(), false);
+    assert.equal(handoffStat.mode & 0o077, 0, 'private fixture handoff must be owner-only');
+    assert.equal(fs.statSync(evidenceDirectory).mode & 0o077, 0, 'browser evidence should be owner-only on Unix hosts');
+    assert.equal(fs.existsSync(path.join(evidenceDirectory, 'account-fixture-private.json')), false,
+      'private handoff must not be written inside uploadable browser evidence');
+
     await waitForHealth(fixtureUrl, child, () => errors);
     const healthResponse = await fetch(`${fixtureUrl}/health.php`, { signal: AbortSignal.timeout(10_000) });
     assert.equal(healthResponse.status, 200, 'production health route should be available');
@@ -101,7 +122,9 @@ test('production-equivalent PHP fixture serves loopback routes and shuts down it
     ]);
     clearTimeout(shutdownDeadline);
     assert.equal(exit.code, 143, 'SIGTERM should remain visible as the server exit status');
-    assert.deepEqual(fs.readdirSync(fixtureParent), [], 'server shutdown must remove its private fixture only after PHP children exit');
+    assert.deepEqual(fs.readdirSync(fixtureParent), ['evidence'], 'server shutdown must remove its private fixture only after PHP children exit');
+    assert.deepEqual(fs.readdirSync(evidenceDirectory), [], 'the evidence directory must not retain the private handoff');
+    assert.equal(fs.existsSync(privateFixturePath), false, 'server shutdown must remove the private evidence sidecar');
   } finally {
     if (child.exitCode === null && child.signalCode === null) {
       child.kill('SIGTERM');
@@ -116,6 +139,40 @@ test('production-equivalent PHP fixture serves loopback routes and shuts down it
         await exitPromise;
       }
     }
+    fs.rmSync(fixtureParent, { recursive: true, force: true });
+  }
+});
+
+test('private browser fixture handoff fails closed when a prior path already exists', async () => {
+  const fixtureParent = fs.mkdtempSync(path.join(os.tmpdir(), 'boardprep-browser-private-collision-'));
+  const evidenceDirectory = path.join(fixtureParent, 'evidence');
+  const privateFixturePath = `${evidenceDirectory}.private.json`;
+  const sentinel = 'preserve-existing-private-fixture';
+  fs.writeFileSync(privateFixturePath, sentinel, { mode: 0o600 });
+  const child = spawn(process.execPath, ['tests/browser/server.cjs'], {
+    cwd: root,
+    env: {
+      ...process.env,
+      BOARDPREP_BROWSER_EVIDENCE_DIR: evidenceDirectory,
+      BOARDPREP_BROWSER_PRIVATE_FIXTURE_PATH: privateFixturePath,
+      TMPDIR: fixtureParent,
+    },
+    stdio: ['ignore', 'ignore', 'pipe'],
+  });
+  let errors = '';
+  child.stderr.setEncoding('utf8').on('data', (chunk) => { errors += chunk; });
+  const exit = await new Promise((resolve, reject) => {
+    const timeout = setTimeout(() => reject(new Error(`Fixture collision did not fail closed. ${errors}`)), 30_000);
+    child.once('error', (error) => { clearTimeout(timeout); reject(error); });
+    child.once('exit', (code, signal) => { clearTimeout(timeout); resolve({ code, signal }); });
+  });
+  try {
+    assert.equal(exit.code, 1, 'the server must refuse an existing private handoff instead of overwriting it');
+    assert.equal(fs.readFileSync(privateFixturePath, 'utf8'), sentinel);
+    assert.match(errors, /Unable to create the private browser fixture handoff securely/);
+    assert.deepEqual(fs.readdirSync(fixtureParent), ['evidence.private.json'], 'fixture setup failure must remove its temporary tree');
+  } finally {
+    if (child.exitCode === null && child.signalCode === null) child.kill('SIGKILL');
     fs.rmSync(fixtureParent, { recursive: true, force: true });
   }
 });

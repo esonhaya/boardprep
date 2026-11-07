@@ -41,6 +41,7 @@ test('Linux browser workflow pins runtime and executes fixture, preflight, suite
   assert.match(workflow, /npm run test:browser/);
   assert.match(workflow, /write-browser-ci-manifest\.cjs/);
   assert.match(workflow, /permissions:\s*\n\s*contents:\s*read/);
+  assert.doesNotMatch(workflow, /\$\{\{\s*secrets\./, 'browser acceptance must not receive hosted or production secrets');
   assert.ok(Number(workflow.match(/timeout-minutes:\s*(\d+)/)?.[1]) > 0);
   assert.equal(lock.packages?.['node_modules/@playwright/test']?.version, '1.63.0');
   const readme = fs.readFileSync(path.join(root, 'README.md'), 'utf8');
@@ -96,6 +97,26 @@ test('browser evidence contracts cover isolated data, desktop/mobile access path
   assert.match(server, /\['-C', repositoryRoot, 'archive', '--format=tar'/);
   assert.match(workflow, /Upload browser visual and diagnostic artifacts[\s\S]*?if:\s*always\(\)[\s\S]*?actions\/upload-artifact/);
   assert.match(workflow, /retention-days:\s*14/);
+});
+
+test('credential-bearing browser flows keep private handoffs and traces out of uploaded artifacts', () => {
+  const workflow = fs.readFileSync(path.join(root, '.github/workflows/browser-acceptance.yml'), 'utf8');
+  const accountSpec = fs.readFileSync(path.join(root, 'tests/browser/accounts/account-auth.spec.cjs'), 'utf8');
+  const reviewerSpec = fs.readFileSync(path.join(root, 'tests/browser/acceptance/academic-review-pilot.spec.cjs'), 'utf8');
+  const server = fs.readFileSync(path.join(root, 'tests/browser/server.cjs'), 'utf8');
+  const config = fs.readFileSync(path.join(root, 'tests/browser/playwright.config.cjs'), 'utf8');
+  const runner = fs.readFileSync(path.join(root, 'tools/run-browser-tests.cjs'), 'utf8');
+
+  assert.match(workflow, /!\$\{\{\s*env\.BOARDPREP_BROWSER_EVIDENCE_DIR\s*\}\}\/account-fixture-private\.json/);
+  assert.match(workflow, /!\$\{\{\s*env\.BOARDPREP_BROWSER_EVIDENCE_DIR\s*\}\}\/\*\*\/\*\.private\.json/);
+  assert.match(config, /BOARDPREP_BROWSER_PRIVATE_FIXTURE_PATH\s*=\s*privateFixturePath/);
+  assert.match(server, /privateFixturePathFor\(evidenceDirectory\)/);
+  assert.match(server, /fs\.chmodSync\(privateFixturePath, 0o600\)/);
+  assert.match(server, /fs\.rmSync\(privateFixturePath, \{ force: true \}\)/);
+  assert.match(accountSpec, /trace:\s*'off'/, 'account passwords and recovery codes must not be persisted to failure traces');
+  assert.match(reviewerSpec, /trace:\s*'off'/, 'reviewer credentials must not be persisted to failure traces');
+  assert.match(accountSpec, /fixtureManifestPath = privateFixturePathFor\(evidenceDirectory\)/);
+  assert.match(runner, /privateFixturePathFor\(evidenceDirectory\)/);
 });
 
 test('browser certification has no retries and a flaky result is a failure', () => {

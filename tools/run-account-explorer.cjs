@@ -6,6 +6,7 @@ const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
 const { spawnSync } = require('node:child_process');
+const { privateFixturePathFor } = require('../tests/browser/private-fixture-path.cjs');
 
 if (process.platform === 'android') {
   console.error('AUTH_EXPLORER=UNAVAILABLE_LOCAL_CHROMIUM');
@@ -55,10 +56,10 @@ const result = spawnSync(process.execPath, [
   stdio: 'inherit',
 });
 
-// This private path handoff lets the browser run isolated CLI backup/restore
-// checks without placing fixture locations or records in its public report.
+// This private sidecar handoff lets the browser run isolated CLI backup/restore
+// checks without placing fixture locations or records in uploadable evidence.
 try {
-  fs.unlinkSync(path.join(evidenceDirectory, 'account-fixture-private.json'));
+  fs.rmSync(privateFixturePathFor(evidenceDirectory), { force: true });
 } catch {}
 
 const reportPath = path.join(evidenceDirectory, 'account-explorer.json');

@@ -6,12 +6,14 @@ const path = require('node:path');
 const crypto = require('node:crypto');
 const { execFileSync, spawn } = require('node:child_process');
 const { test, expect } = require('@playwright/test');
+const { privateFixturePathFor } = require('../private-fixture-path.cjs');
 
 // Authentication journeys mutate rate limits and durable fixture accounts.
 // Retrying the same journey against that state can turn the first failure into
 // a misleading second attempt and overwrite its evidence.
 test.describe.configure({ retries: 0 });
-test.use({ screenshot: 'off' });
+// Credential-bearing journeys must not persist request bodies in Playwright traces.
+test.use({ screenshot: 'off', trace: 'off' });
 
 const AUTH = 'http://127.0.0.1:4175';
 const PUBLIC = 'http://127.0.0.1:4173';
@@ -211,8 +213,11 @@ test('isolated mobile account journeys preserve authentication and learner owner
   const usernameDelete = 'delete-' + seed;
   const usernameLimit = 'limit-' + seed;
   const evidenceDirectory = path.resolve(process.env.BOARDPREP_BROWSER_EVIDENCE_DIR || fs.mkdtempSync(path.join(os.tmpdir(), 'boardprep-account-browser-')));
-  const fixtureManifestPath = path.join(evidenceDirectory, 'account-fixture-private.json');
+  const fixtureManifestPath = privateFixturePathFor(evidenceDirectory);
   if (!fs.existsSync(fixtureManifestPath)) throw new Error('The isolated account fixture handoff is missing.');
+  const fixtureManifestStat = fs.lstatSync(fixtureManifestPath);
+  expect(fixtureManifestStat.isFile() && !fixtureManifestStat.isSymbolicLink()).toBe(true);
+  expect(fixtureManifestStat.mode & 0o077).toBe(0);
   const privateFixture = JSON.parse(fs.readFileSync(fixtureManifestPath, 'utf8'));
   const authStorage = privateFixture.storage;
   const authSessionStorage = privateFixture.sessions;

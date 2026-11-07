@@ -2,13 +2,20 @@ const { defineConfig, devices } = require('@playwright/test');
 const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
+const { privateFixturePathFor } = require('./private-fixture-path.cjs');
 
 const evidenceDirectory = path.resolve(
   process.env.BOARDPREP_BROWSER_EVIDENCE_DIR
     || path.join(os.tmpdir(), `boardprep-browser-evidence-${process.pid}`)
 );
 const resultsDirectory = path.join(evidenceDirectory, 'test-results');
-fs.mkdirSync(resultsDirectory, { recursive: true });
+const privateFixturePath = privateFixturePathFor(evidenceDirectory);
+fs.mkdirSync(resultsDirectory, { recursive: true, mode: 0o700 });
+if (process.platform !== 'win32') {
+  fs.chmodSync(evidenceDirectory, 0o700);
+}
+process.env.BOARDPREP_BROWSER_EVIDENCE_DIR = evidenceDirectory;
+process.env.BOARDPREP_BROWSER_PRIVATE_FIXTURE_PATH = privateFixturePath;
 
 module.exports = defineConfig({
   testDir: __dirname,
@@ -46,6 +53,11 @@ module.exports = defineConfig({
     url: 'http://127.0.0.1:4173/',
     timeout: 120_000,
     reuseExistingServer: false,
+    env: {
+      ...process.env,
+      BOARDPREP_BROWSER_EVIDENCE_DIR: evidenceDirectory,
+      BOARDPREP_BROWSER_PRIVATE_FIXTURE_PATH: privateFixturePath,
+    },
     stdout: 'pipe',
     stderr: 'pipe',
   },

@@ -5,6 +5,7 @@ const os = require('node:os');
 const path = require('node:path');
 const { spawn, spawnSync } = require('node:child_process');
 const { createBrowserStorageFixture } = require('./storage-fixture.cjs');
+const { privateFixturePathFor } = require('./private-fixture-path.cjs');
 
 const repositoryRoot = path.resolve(__dirname, '../..');
 const temporaryRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'boardprep-browser-'));
@@ -57,12 +58,15 @@ fs.mkdirSync(developerSessionStorage, { recursive: true });
 fs.mkdirSync(acceptanceStorage, { recursive: true, mode: 0o700 });
 fs.mkdirSync(authSessionStorage, { recursive: true, mode: 0o700 });
 const evidenceDirectory = process.env.BOARDPREP_EXPLORER_EVIDENCE_DIR || process.env.BOARDPREP_BROWSER_EVIDENCE_DIR || '';
+const privateFixturePath = evidenceDirectory ? privateFixturePathFor(evidenceDirectory) : null;
+if (privateFixturePath && process.env.BOARDPREP_BROWSER_PRIVATE_FIXTURE_PATH
+  && path.resolve(process.env.BOARDPREP_BROWSER_PRIVATE_FIXTURE_PATH) !== privateFixturePath) {
+  process.stderr.write('The browser private fixture path did not match the isolated evidence run.\n');
+  fs.rmSync(temporaryRoot, { recursive: true, force: true });
+  process.exit(1);
+}
 if (evidenceDirectory) {
   fs.mkdirSync(evidenceDirectory, { recursive: true, mode: 0o700 });
-  fs.writeFileSync(path.join(evidenceDirectory, 'account-fixture-private.json'), JSON.stringify({
-    storage: authStorage,
-    sessions: authSessionStorage,
-  }) + '\n', { mode: 0o600 });
 }
 const academicSeed = spawnSync('php', [path.join(applicationRoot, 'tests/browser/seed-academic-review-fixture.php')], {
   cwd: applicationRoot,
@@ -82,6 +86,26 @@ if (academicSeed.status !== 0) {
   process.stderr.write(academicSeed.stderr || 'Unable to prepare the isolated academic reviewer fixture.\n');
   fs.rmSync(temporaryRoot, { recursive: true, force: true });
   process.exit(1);
+}
+if (privateFixturePath) {
+  let descriptor = null;
+  let created = false;
+  try {
+    descriptor = fs.openSync(privateFixturePath, 'wx', 0o600);
+    created = true;
+    fs.writeFileSync(descriptor, JSON.stringify({
+      storage: authStorage,
+      sessions: authSessionStorage,
+    }) + '\n');
+    fs.fchmodSync(descriptor, 0o600);
+  } catch {
+    if (descriptor !== null) fs.closeSync(descriptor);
+    if (created) fs.rmSync(privateFixturePath, { force: true });
+    fs.rmSync(temporaryRoot, { recursive: true, force: true });
+    process.stderr.write('Unable to create the private browser fixture handoff securely.\n');
+    process.exit(1);
+  }
+  fs.closeSync(descriptor);
 }
 const port = String(process.env.BOARDPREP_BROWSER_PORT || '4173');
 const developerPort = String(process.env.BOARDPREP_DEVELOPER_BROWSER_PORT || '4174');
@@ -206,6 +230,7 @@ function cleanup() {
   cleanupPromise = (async () => {
     await stopPhpChildren();
     fs.rmSync(temporaryRoot, { recursive: true, force: true });
+    if (privateFixturePath) fs.rmSync(privateFixturePath, { force: true });
   })();
   return cleanupPromise;
 }
@@ -223,6 +248,7 @@ process.on('exit', () => {
   if (!cleanupPromise) {
     for (const child of phpProcesses) if (!hasExited(child)) child.kill('SIGTERM');
     fs.rmSync(temporaryRoot, { recursive: true, force: true });
+    if (privateFixturePath) fs.rmSync(privateFixturePath, { force: true });
   }
 });
 for (const phpChild of phpProcesses) phpChild.on('exit', (code, signal) => {

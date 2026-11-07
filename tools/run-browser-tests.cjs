@@ -4,6 +4,7 @@ const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
 const { spawnSync } = require('node:child_process');
+const { privateFixturePathFor } = require('../tests/browser/private-fixture-path.cjs');
 
 const repositoryRoot = path.resolve(__dirname, '..');
 const executionStartedAt = new Date().toISOString();
@@ -61,7 +62,7 @@ const result = spawnSync(process.execPath, [
 });
 
 try {
-  fs.unlinkSync(path.join(evidenceDirectory, 'account-fixture-private.json'));
+  fs.rmSync(privateFixturePathFor(evidenceDirectory), { force: true });
 } catch {}
 
 const evidencePath = (name) => path.join(evidenceDirectory, `${name}.json`);

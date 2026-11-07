@@ -2,6 +2,9 @@
 
 const { test, expect, assertPageHealthy, tabToKeyboardFocus, recordBrowserEvidence } = require('../fixtures/test.cjs');
 
+// The synthetic reviewer signs in below; do not persist the form request body in a trace.
+test.use({ trace: 'off' });
+
 const productionBase = process.env.BOARDPREP_BROWSER_URL || 'http://127.0.0.1:4173';
 const developerBase = process.env.BOARDPREP_DEVELOPER_BROWSER_URL || 'http://127.0.0.1:4174';
 const authBase = process.env.BOARDPREP_AUTH_BROWSER_URL || 'http://127.0.0.1:4175';
