@@ -170,7 +170,8 @@ test('private browser fixture handoff fails closed when a prior path already exi
     assert.equal(exit.code, 1, 'the server must refuse an existing private handoff instead of overwriting it');
     assert.equal(fs.readFileSync(privateFixturePath, 'utf8'), sentinel);
     assert.match(errors, /Unable to create the private browser fixture handoff securely/);
-    assert.deepEqual(fs.readdirSync(fixtureParent), ['evidence.private.json'], 'fixture setup failure must remove its temporary tree');
+    assert.deepEqual(fs.readdirSync(fixtureParent).sort(), ['evidence', 'evidence.private.json'], 'fixture setup failure must remove its private temporary tree while preserving the caller-owned evidence directory');
+    assert.deepEqual(fs.readdirSync(evidenceDirectory), [], 'failed startup must not put private handoff data in the evidence directory');
   } finally {
     if (child.exitCode === null && child.signalCode === null) child.kill('SIGKILL');
     fs.rmSync(fixtureParent, { recursive: true, force: true });

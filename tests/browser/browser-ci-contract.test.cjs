@@ -111,7 +111,8 @@ test('credential-bearing browser flows keep private handoffs and traces out of u
   assert.match(workflow, /!\$\{\{\s*env\.BOARDPREP_BROWSER_EVIDENCE_DIR\s*\}\}\/\*\*\/\*\.private\.json/);
   assert.match(config, /BOARDPREP_BROWSER_PRIVATE_FIXTURE_PATH\s*=\s*privateFixturePath/);
   assert.match(server, /privateFixturePathFor\(evidenceDirectory\)/);
-  assert.match(server, /fs\.chmodSync\(privateFixturePath, 0o600\)/);
+  assert.match(server, /fs\.openSync\(privateFixturePath, 'wx', 0o600\)/);
+  assert.match(server, /fs\.fchmodSync\(descriptor, 0o600\)/);
   assert.match(server, /fs\.rmSync\(privateFixturePath, \{ force: true \}\)/);
   assert.match(accountSpec, /trace:\s*'off'/, 'account passwords and recovery codes must not be persisted to failure traces');
   assert.match(reviewerSpec, /trace:\s*'off'/, 'reviewer credentials must not be persisted to failure traces');
