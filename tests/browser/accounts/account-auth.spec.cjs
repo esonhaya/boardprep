@@ -15,7 +15,7 @@ test.describe.configure({ retries: 0 });
 // Credential-bearing journeys must not persist request bodies in Playwright traces.
 test.use({ screenshot: 'off', trace: 'off' });
 
-const AUTH = 'http://127.0.0.1:4175';
+const AUTH = process.env.BOARDPREP_ACCOUNT_BROWSER_URL || 'http://127.0.0.1:4176';
 const PUBLIC = 'http://127.0.0.1:4173';
 const PASSWORD_A = 'BoardPrep batch 692 learner passphrase';
 const PASSWORD_B = 'BoardPrep batch 692 second account phrase';
@@ -219,12 +219,13 @@ test('isolated mobile account journeys preserve authentication and learner owner
   expect(fixtureManifestStat.isFile() && !fixtureManifestStat.isSymbolicLink()).toBe(true);
   expect(fixtureManifestStat.mode & 0o077).toBe(0);
   const privateFixture = JSON.parse(fs.readFileSync(fixtureManifestPath, 'utf8'));
-  const authStorage = privateFixture.storage;
-  const authSessionStorage = privateFixture.sessions;
+  const accountFixture = privateFixture.accountAuth;
+  const authStorage = accountFixture?.storage;
+  const authSessionStorage = accountFixture?.sessions;
   if (typeof authStorage !== 'string' || !path.isAbsolute(authStorage)) throw new Error('The isolated account fixture path is invalid.');
   if (typeof authSessionStorage !== 'string' || !path.isAbsolute(authSessionStorage)
     || path.dirname(path.resolve(authStorage)) !== path.dirname(path.resolve(authSessionStorage))
-    || path.basename(path.resolve(authSessionStorage)) !== 'auth-sessions'
+    || path.basename(path.resolve(authSessionStorage)) !== 'account-auth-sessions'
     || !path.resolve(authSessionStorage).startsWith(path.resolve(os.tmpdir()) + path.sep)) {
     throw new Error('The synthetic PHP session fixture path is unsafe.');
   }

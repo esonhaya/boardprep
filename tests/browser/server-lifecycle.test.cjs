@@ -49,7 +49,12 @@ test('production-equivalent PHP fixture serves loopback routes and shuts down it
   const fixtureParent = fs.mkdtempSync(path.join(os.tmpdir(), 'boardprep-browser-lifecycle-'));
   const evidenceDirectory = path.join(fixtureParent, 'evidence');
   const privateFixturePath = `${evidenceDirectory}.private.json`;
-  const ports = await Promise.all([availableLoopbackPort(), availableLoopbackPort(), availableLoopbackPort()]);
+  const ports = await Promise.all([
+    availableLoopbackPort(),
+    availableLoopbackPort(),
+    availableLoopbackPort(),
+    availableLoopbackPort(),
+  ]);
   const child = spawn(process.execPath, ['tests/browser/server.cjs'], {
     cwd: root,
     env: {
@@ -57,6 +62,7 @@ test('production-equivalent PHP fixture serves loopback routes and shuts down it
       BOARDPREP_BROWSER_PORT: String(ports[0]),
       BOARDPREP_DEVELOPER_BROWSER_PORT: String(ports[1]),
       BOARDPREP_AUTH_BROWSER_PORT: String(ports[2]),
+      BOARDPREP_ACCOUNT_BROWSER_PORT: String(ports[3]),
       BOARDPREP_BROWSER_EVIDENCE_DIR: evidenceDirectory,
       BOARDPREP_BROWSER_PRIVATE_FIXTURE_PATH: privateFixturePath,
       TMPDIR: fixtureParent,
@@ -86,6 +92,7 @@ test('production-equivalent PHP fixture serves loopback routes and shuts down it
       });
       inspectOutput();
     });
+    const accountFixtureUrl = `http://127.0.0.1:${ports[3]}`;
     assert.match(fixtureUrl, /^http:\/\/127\.0\.0\.1:/, 'fixture must bind to loopback');
 
     await new Promise((resolve, reject) => {
@@ -105,7 +112,16 @@ test('production-equivalent PHP fixture serves loopback routes and shuts down it
     assert.equal(fs.existsSync(path.join(evidenceDirectory, 'account-fixture-private.json')), false,
       'private handoff must not be written inside uploadable browser evidence');
 
+    const handoff = JSON.parse(fs.readFileSync(privateFixturePath, 'utf8'));
+    assert.notEqual(handoff.accountAuth?.storage, handoff.storage,
+      'long account journeys must not share rate-limit storage with scoped reviewer journeys');
+    assert.notEqual(handoff.accountAuth?.sessions, handoff.sessions,
+      'long account journeys must use separate PHP session storage');
+
     await waitForHealth(fixtureUrl, child, () => errors);
+    await waitForHealth(accountFixtureUrl, child, () => errors);
+    assert.match(output, new RegExp(`BROWSER_ACCOUNT_AUTH_FIXTURE_URL=http://127\\.0\\.0\\.1:${ports[3]}`),
+      'account journey server must announce its own loopback endpoint');
     const healthResponse = await fetch(`${fixtureUrl}/health.php`, { signal: AbortSignal.timeout(10_000) });
     assert.equal(healthResponse.status, 200, 'production health route should be available');
     const health = await healthResponse.json();

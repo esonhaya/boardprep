@@ -124,6 +124,31 @@ async function assertPageHealthy(page, testInfo, name, options = {}) {
   const overflow = await page.evaluate(() => ({
     width: document.documentElement.scrollWidth,
     viewport: document.documentElement.clientWidth,
+    offenders: [...document.body.querySelectorAll('*')]
+      .map((element) => {
+        const rect = element.getBoundingClientRect();
+        const style = getComputedStyle(element);
+        return {
+          tag: element.tagName.toLowerCase(),
+          id: element.id || '',
+          className: typeof element.className === 'string' ? element.className.slice(0, 96) : '',
+          left: Math.round(rect.left),
+          right: Math.round(rect.right),
+          overshoot: Math.round(Math.max(
+            rect.right - document.documentElement.clientWidth,
+            -rect.left,
+          )),
+          width: Math.round(rect.width),
+          scrollWidth: element.scrollWidth,
+          clientWidth: element.clientWidth,
+          position: style.position,
+          overflowX: style.overflowX,
+        };
+      })
+      .filter((element) => element.overshoot > 2
+        && element.overflowX !== 'auto' && element.overflowX !== 'scroll')
+      .sort((left, right) => right.overshoot - left.overshoot || right.width - left.width)
+      .slice(0, 8),
   }));
 
   const diagnostics = page.__boardPrepDiagnostics;
@@ -142,7 +167,7 @@ async function assertPageHealthy(page, testInfo, name, options = {}) {
   markExpectedConsoleErrors(diagnostics);
 
   if (overflow.width > overflow.viewport + 2) {
-    throw new Error(`Material page overflow on ${name}: ${overflow.width}px > ${overflow.viewport}px`);
+    throw new Error(`Material page overflow on ${name}: ${overflow.width}px > ${overflow.viewport}px; overflowing elements=${JSON.stringify(overflow.offenders)}`);
   }
   if (brokenImages.length > 0) {
     throw new Error(`Broken rendered images on ${name}: ${brokenImages.join(', ')}`);

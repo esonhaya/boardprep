@@ -120,6 +120,12 @@ test('credential-bearing browser flows keep private handoffs and traces out of u
   assert.match(server, /fs\.rmSync\(privateFixturePath, \{ force: true \}\)/);
   assert.match(server, /crypto\.randomBytes\(32\)\.toString\('base64url'\)/);
   assert.match(server, /academicReviewer:\s*\{/);
+  assert.match(server, /accountAuth:\s*\{/);
+  assert.match(server, /createBrowserStorageFixture\(path\.join\(applicationRoot, 'storage'\), accountAuthStorage\)/,
+    'the longer account lifecycle journey needs a private mutable storage root');
+  assert.match(server, /APP_STORAGE_PATH:\s*accountAuthStorage/,
+    'account lifecycle rate limits must not affect the synthetic reviewer fixture');
+  assert.match(server, /BOARDPREP_ACCOUNT_BROWSER_PORT/);
   assert.match(server, /BOARDPREP_SYNTHETIC_REVIEWER_PASSWORD:\s*syntheticReviewerPassword/);
   assert.match(accountSpec, /trace:\s*'off'/, 'account passwords and recovery codes must not be persisted to failure traces');
   assert.match(reviewerSpec, /trace:\s*'off'/, 'reviewer credentials must not be persisted to failure traces');
@@ -133,6 +139,10 @@ test('credential-bearing browser flows keep private handoffs and traces out of u
   assert.match(reviewerSeed, /BOARDPREP_SYNTHETIC_REVIEWER_PASSWORD/);
   assert.match(reviewerSeed, /account-learner-\[a-f0-9\]\{32\}/);
   assert.match(accountSpec, /fixtureManifestPath = privateFixturePathFor\(evidenceDirectory\)/);
+  assert.match(accountSpec, /privateFixture\.accountAuth/,
+    'account lifecycle tests must use the isolated account storage handoff');
+  assert.match(accountSpec, /127\.0\.0\.1:4176/,
+    'account lifecycle browser routes must stay on the isolated loopback server');
   assert.match(runner, /privateFixturePathFor\(evidenceDirectory\)/);
 });
 

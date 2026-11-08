@@ -52,13 +52,17 @@ const developerSessionStorage = path.join(temporaryRoot, 'developer-sessions');
 const acceptanceStorage = path.join(temporaryRoot, 'acceptance-feedback');
 const authStorage = path.join(temporaryRoot, 'auth-runtime-storage');
 const authSessionStorage = path.join(temporaryRoot, 'auth-sessions');
+const accountAuthStorage = path.join(temporaryRoot, 'account-auth-runtime-storage');
+const accountAuthSessionStorage = path.join(temporaryRoot, 'account-auth-sessions');
 const syntheticReviewerPassword = crypto.randomBytes(32).toString('base64url');
 createBrowserStorageFixture(path.join(applicationRoot, 'storage'), runtimeStorage);
 createBrowserStorageFixture(path.join(applicationRoot, 'storage'), authStorage);
+createBrowserStorageFixture(path.join(applicationRoot, 'storage'), accountAuthStorage);
 fs.mkdirSync(sessionStorage, { recursive: true });
 fs.mkdirSync(developerSessionStorage, { recursive: true });
 fs.mkdirSync(acceptanceStorage, { recursive: true, mode: 0o700 });
 fs.mkdirSync(authSessionStorage, { recursive: true, mode: 0o700 });
+fs.mkdirSync(accountAuthSessionStorage, { recursive: true, mode: 0o700 });
 const evidenceDirectory = process.env.BOARDPREP_EXPLORER_EVIDENCE_DIR || process.env.BOARDPREP_BROWSER_EVIDENCE_DIR || '';
 const privateFixturePath = evidenceDirectory ? privateFixturePathFor(evidenceDirectory) : null;
 if (privateFixturePath && process.env.BOARDPREP_BROWSER_PRIVATE_FIXTURE_PATH
@@ -103,6 +107,10 @@ if (privateFixturePath) {
         username: 'b716-synthetic-reviewer',
         password: syntheticReviewerPassword,
       },
+      accountAuth: {
+        storage: accountAuthStorage,
+        sessions: accountAuthSessionStorage,
+      },
     }) + '\n');
     fs.fchmodSync(descriptor, 0o600);
   } catch {
@@ -117,10 +125,12 @@ if (privateFixturePath) {
 const port = String(process.env.BOARDPREP_BROWSER_PORT || '4173');
 const developerPort = String(process.env.BOARDPREP_DEVELOPER_BROWSER_PORT || '4174');
 const authPort = String(process.env.BOARDPREP_AUTH_BROWSER_PORT || '4175');
+const accountAuthPort = String(process.env.BOARDPREP_ACCOUNT_BROWSER_PORT || '4176');
 console.log(`BROWSER_FIXTURE_URL=http://127.0.0.1:${port}`);
 console.log(`BROWSER_DEVELOPER_FIXTURE_URL=http://127.0.0.1:${developerPort}`);
 console.log('BROWSER_FIXTURE_ENV=isolated production learner, testing developer, and testing account servers; account storage and sessions are separate temporary fixtures; listeners are loopback-only.');
 console.log('BROWSER_AUTH_FIXTURE_URL=http://127.0.0.1:' + authPort);
+console.log('BROWSER_ACCOUNT_AUTH_FIXTURE_URL=http://127.0.0.1:' + accountAuthPort);
 const php = spawn(
   'php',
   [
@@ -193,7 +203,32 @@ const authPhp = spawn(
     stdio: 'inherit',
   }
 );
-const phpProcesses = [php, developerPhp, authPhp];
+const accountAuthPhp = spawn(
+  'php',
+  [
+    '-d', 'session.name=BOARDPREP_ACCOUNT_AUTH_SESSION',
+    '-d', 'session.save_path=' + accountAuthSessionStorage,
+    '-S', '127.0.0.1:' + accountAuthPort,
+    '-t', path.join(applicationRoot, 'public'),
+    path.join(applicationRoot, 'public', 'router.php'),
+  ],
+  {
+    cwd: applicationRoot,
+    env: {
+      ...process.env,
+      APP_ENV: 'testing',
+      APP_DEBUG: 'false',
+      APP_TIMEZONE: 'Asia/Manila',
+      BUILD_COMMIT: buildCommit,
+      BOARDPREP_ACCOUNTS_ENABLED: 'true',
+      DB_DRIVER: 'json',
+      APP_STORAGE_PATH: accountAuthStorage,
+      APP_SESSION_PATH: accountAuthSessionStorage,
+    },
+    stdio: 'inherit',
+  }
+);
+const phpProcesses = [php, developerPhp, authPhp, accountAuthPhp];
 
 let shuttingDown = false;
 let cleanupPromise = null;

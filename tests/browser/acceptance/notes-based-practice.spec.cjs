@@ -45,7 +45,9 @@ test('Practice Based on My Notes completes a private learner quiz journey', asyn
   await expect(page).toHaveURL(/\/my-notes\?note=note-[a-f0-9]{32}$/);
   await expect(page.getByRole('heading', { name: 'Practice from these notes' })).toBeVisible();
 
-  const availableText = await page.getByText(/^Questions available:/).textContent();
+  const availableText = await page.locator('.notes-match-panel > p')
+    .filter({ hasText: /^Questions available:/ })
+    .textContent();
   const available = Number((availableText || '').match(/\d+/)?.[0] || 0);
   expect(available, 'the note should match at least one existing, eligible canonical question').toBeGreaterThan(0);
   expect(await page.locator('.notes-match-reasons li').count()).toBeGreaterThan(0);

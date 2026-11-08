@@ -10,6 +10,8 @@ const evidenceDirectory = path.resolve(
 );
 const resultsDirectory = path.join(evidenceDirectory, 'test-results');
 const privateFixturePath = privateFixturePathFor(evidenceDirectory);
+const accountAuthPort = String(process.env.BOARDPREP_ACCOUNT_BROWSER_PORT || '4176');
+process.env.BOARDPREP_ACCOUNT_BROWSER_URL = `http://127.0.0.1:${accountAuthPort}`;
 fs.mkdirSync(resultsDirectory, { recursive: true, mode: 0o700 });
 if (process.platform !== 'win32') {
   fs.chmodSync(evidenceDirectory, 0o700);
@@ -57,6 +59,7 @@ module.exports = defineConfig({
       ...process.env,
       BOARDPREP_BROWSER_EVIDENCE_DIR: evidenceDirectory,
       BOARDPREP_BROWSER_PRIVATE_FIXTURE_PATH: privateFixturePath,
+      BOARDPREP_ACCOUNT_BROWSER_PORT: accountAuthPort,
     },
     stdout: 'pipe',
     stderr: 'pipe',
