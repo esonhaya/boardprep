@@ -414,10 +414,10 @@ test.describe('BoardPrep learner browser acceptance', () => {
     const dashboardHeading = page.locator('main h1');
     await expect(dashboardHeading).toHaveCount(1);
     await expect(dashboardHeading).toHaveText('Welcome to BoardPrep');
-    const emptyAccuracy = page.locator('.stat-card').filter({ hasText: 'Answer accuracy' });
-    const emptyBestScore = page.locator('.stat-card').filter({ hasText: 'Best score' });
+    const emptyAccuracy = page.locator('.stat-card').filter({ hasText: /^Answer accuracy/ });
+    const emptyBestScore = page.locator('.stat-card').filter({ hasText: /^Best score/ });
     await expect(emptyAccuracy).toContainText('—');
-    await expect(emptyAccuracy).toContainText('No completed quizzes yet');
+    await expect(emptyAccuracy).toContainText('No answered questions yet');
     await expect(emptyBestScore).toContainText('—');
     await expect(emptyBestScore).toContainText('No completed quizzes yet');
     await expect(page.getByRole('link', { name: 'Explore published study materials' })).toHaveAttribute('href', '/study-library');
@@ -502,7 +502,7 @@ test.describe('BoardPrep learner browser acceptance', () => {
   test('quiz configuration and deterministic text round trip work', async ({ page }, testInfo) => {
     await page.goto('/quiz');
     await expect(page.locator('#quiz-mode option[value="exam"]')).toHaveText('Exam simulation');
-    await expect(page.locator('.mode-disclosure')).toContainText('separate from the official board examination');
+    await expect(page.locator('.mode-disclosure')).toContainText('No BoardPrep simulation represents an official board examination or passing threshold.');
     await page.locator('#quiz-mode').selectOption('exam');
     await expect(page.locator('#exam-timer-fields')).toBeVisible();
     await expect(page.locator('#quiz-timer-mode')).toHaveValue('untimed');
@@ -840,8 +840,11 @@ test.describe('BoardPrep learner browser acceptance', () => {
         await noJsPage.locator('#quiz-timer-mode').selectOption(timerMode);
         await noJsPage.locator('#quiz-time-limit').fill(timerMode === 'untimed' ? '17' : '5');
         await noJsPage.locator('#quiz-count').selectOption('5');
-        const postResponse = noJsPage.waitForResponse((response) =>
-          response.url().endsWith('/quiz') && response.request().method() === 'POST', { timeout: 20_000 });
+        const postResponse = noJsPage.waitForResponse((response) => {
+          let pathname = '';
+          try { pathname = new URL(response.url()).pathname; } catch {}
+          return pathname === '/quiz' && response.request().method() === 'POST';
+        }, { timeout: 20_000 });
         await noJsPage.locator('#start-session-button').click({ noWaitAfter: true, timeout: 20_000 });
         const response = await postResponse;
         expect(response.status()).toBeLessThan(400);

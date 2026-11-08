@@ -3,6 +3,7 @@
 const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
+const { isExpectedProjectSkip } = require('../tests/browser/expected-project-skips.cjs');
 
 function collectTests(report) {
   const tests = [];
@@ -14,6 +15,9 @@ function collectTests(report) {
         tests.push({
           title: [...scope, spec.title, test.projectName].filter(Boolean).join(' › '),
           file: spec.file || '',
+          specTitle: spec.title || '',
+          projectName: test.projectName || '',
+          annotations: Array.isArray(test.annotations) ? test.annotations : [],
           line: Number(spec.line) || 1,
           outcome: test.outcome || '',
           ok: test.ok,
@@ -30,12 +34,29 @@ function collectTests(report) {
 
 function summarize(report) {
   const tests = collectTests(report);
-  const summary = { total: tests.length, passed: 0, failed: 0, skipped: 0, flaky: 0, not_run: 0, failures: [] };
+  const summary = {
+    total: tests.length,
+    passed: 0,
+    failed: 0,
+    skipped: 0,
+    expected_skipped: 0,
+    unexpected_skipped: 0,
+    flaky: 0,
+    not_run: 0,
+    failures: [],
+  };
   for (const test of tests) {
     const statuses = test.results.map((result) => result.status || '');
     const finalStatus = statuses.at(-1) || '';
     if (test.expectedStatus === 'skipped' || test.outcome === 'skipped' || finalStatus === 'skipped') {
       summary.skipped++;
+      if (isExpectedProjectSkip({
+        file: test.file,
+        title: test.specTitle,
+        projectName: test.projectName,
+        annotations: test.annotations,
+      })) summary.expected_skipped++;
+      else summary.unexpected_skipped++;
     } else if (test.expectedStatus === 'failed' && finalStatus === 'failed') {
       summary.passed++;
     } else if (test.outcome === 'unexpected' || test.ok === false || (test.results.length > 0 && finalStatus !== test.expectedStatus)) {
@@ -59,7 +80,7 @@ function cleanMessage(value, limit = 1200) {
 
 function summaryStatus(summary) {
   if (summary.failed > 0 || summary.flaky > 0) return 'FAILED';
-  if (summary.skipped > 0 || summary.not_run > 0) return 'INCOMPLETE';
+  if (summary.unexpected_skipped > 0 || summary.not_run > 0) return 'INCOMPLETE';
   return 'COMPLETED';
 }
 
@@ -90,7 +111,7 @@ function main() {
   const lines = [
     '## Browser acceptance assertion summary',
     '',
-    `BROWSER_TEST_SUMMARY=${status} TOTAL=${summary.total} PASSED=${summary.passed} FLAKY=${summary.flaky} FAILED=${summary.failed} SKIPPED=${summary.skipped} NOT_RUN=${summary.not_run}`,
+    `BROWSER_TEST_SUMMARY=${status} TOTAL=${summary.total} PASSED=${summary.passed} FLAKY=${summary.flaky} FAILED=${summary.failed} SKIPPED=${summary.skipped} EXPECTED_SKIPPED=${summary.expected_skipped} UNEXPECTED_SKIPPED=${summary.unexpected_skipped} NOT_RUN=${summary.not_run}`,
   ];
   for (const failure of summary.failures.slice(0, 20)) {
     const message = cleanMessage(failure.message);

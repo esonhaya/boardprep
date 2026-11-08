@@ -21,7 +21,7 @@ function matchesExpectedHttpError(error, expected) {
 
 function matchesExpectedConsoleError(error, expected) {
   if (error.pageUrl !== (expected.pageUrl || expected.url)) return false;
-  if (expected.status !== 404) return false;
+  if (![401, 403, 404].includes(expected.status)) return false;
 
   const message = expected.consoleMessage;
   if (message instanceof RegExp) return message.test(error.message);

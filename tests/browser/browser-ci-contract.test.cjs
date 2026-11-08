@@ -7,6 +7,8 @@ const path = require('node:path');
 const { spawnSync } = require('node:child_process');
 const test = require('node:test');
 const { summarize, summaryStatus } = require('../../tools/summarize-browser-results.cjs');
+const { classifySkippedTests } = require('./expected-project-skips.cjs');
+const { matchesExpectedConsoleError } = require('./fixtures/diagnostics.cjs');
 
 const root = path.resolve(__dirname, '../..');
 
@@ -116,10 +118,53 @@ test('credential-bearing browser flows keep private handoffs and traces out of u
   assert.match(server, /fs\.openSync\(privateFixturePath, 'wx', 0o600\)/);
   assert.match(server, /fs\.fchmodSync\(descriptor, 0o600\)/);
   assert.match(server, /fs\.rmSync\(privateFixturePath, \{ force: true \}\)/);
+  assert.match(server, /crypto\.randomBytes\(32\)\.toString\('base64url'\)/);
+  assert.match(server, /academicReviewer:\s*\{/);
+  assert.match(server, /BOARDPREP_SYNTHETIC_REVIEWER_PASSWORD:\s*syntheticReviewerPassword/);
   assert.match(accountSpec, /trace:\s*'off'/, 'account passwords and recovery codes must not be persisted to failure traces');
   assert.match(reviewerSpec, /trace:\s*'off'/, 'reviewer credentials must not be persisted to failure traces');
+  assert.match(reviewerSpec, /credentials\.password/);
+  assert.doesNotMatch(
+    reviewerSpec,
+    /locator\(['"]#account-password['"]\)\.fill\(['"][^'"]+['"]\)/,
+    'reviewer passwords must come from the private per-run handoff, not a hardcoded fill value',
+  );
+  const reviewerSeed = fs.readFileSync(path.join(root, 'tests/browser/seed-academic-review-fixture.php'), 'utf8');
+  assert.match(reviewerSeed, /BOARDPREP_SYNTHETIC_REVIEWER_PASSWORD/);
+  assert.match(reviewerSeed, /account-learner-\[a-f0-9\]\{32\}/);
   assert.match(accountSpec, /fixtureManifestPath = privateFixturePathFor\(evidenceDirectory\)/);
   assert.match(runner, /privateFixturePathFor\(evidenceDirectory\)/);
+});
+
+test('expected authentication denials are isolated from unexpected browser console errors', () => {
+  const url = 'http://127.0.0.1:4174/developer/academic-review?pilot=1';
+  for (const status of [401, 403, 404]) {
+    const expected = {
+      status,
+      url,
+      pageUrl: url,
+      consoleMessage: new RegExp('Failed to load resource: the server responded with a status of ' + status + '\\b'),
+    };
+    assert.equal(matchesExpectedConsoleError({
+      pageUrl: url,
+      message: 'Failed to load resource: the server responded with a status of ' + status + ' (expected denial)',
+    }, expected), true, 'HTTP ' + status + ' denial should be allowlisted only for its matching page and status');
+    assert.equal(matchesExpectedConsoleError({
+      pageUrl: url + '&different=1',
+      message: 'Failed to load resource: the server responded with a status of ' + status + ' (expected denial)',
+    }, expected), false, 'HTTP ' + status + ' denial from a different page must remain visible');
+  }
+  assert.equal(matchesExpectedConsoleError({
+    pageUrl: url,
+    message: 'Failed to load resource: the server responded with a status of 500 (Internal Server Error)',
+  }, {
+    status: 401, url, pageUrl: url,
+    consoleMessage: /Failed to load resource: the server responded with a status of 401\\b/,
+  }), false);
+  assert.equal(matchesExpectedConsoleError({
+    pageUrl: url,
+    message: 'Uncaught application error',
+  }, { status: 500, url, pageUrl: url, consoleMessage: /./ }), false);
 });
 
 test('browser certification has no retries and a flaky result is a failure', () => {
@@ -128,8 +173,9 @@ test('browser certification has no retries and a flaky result is a failure', () 
   assert.match(config, /retries:\s*0/);
   assert.match(config, /trace:\s*'retain-on-failure'/);
   assert.match(runner, /browserReport\.stats\?\.flaky\s*===\s*0/);
-  assert.match(runner, /browserReport\.stats\?\.skipped\s*===\s*0/);
-  assert.match(fs.readFileSync(path.join(root, 'tools/write-browser-ci-manifest.cjs'), 'utf8'), /stats\.skipped\s*>\s*0/);
+  assert.match(runner, /skippedTests\.unexpected\.length\s*===\s*0/);
+  assert.match(runner, /classifySkippedTests\(browserReport\)/);
+  assert.match(fs.readFileSync(path.join(root, 'tools/write-browser-ci-manifest.cjs'), 'utf8'), /skippedTests\.unexpected\.length\s*>\s*0/);
 
   const report = {
     suites: [{ specs: [{ title: 'synthetic retry', file: 'fixture.spec.cjs', line: 1, tests: [{
@@ -147,8 +193,30 @@ test('browser certification has no retries and a flaky result is a failure', () 
     }] }] }],
   });
   assert.equal(skippedSummary.skipped, 1);
+  assert.equal(skippedSummary.unexpected_skipped, 1);
   assert.equal(summaryStatus(skippedSummary), 'INCOMPLETE',
     'a skipped mandatory browser flow must remain unexecuted, not certified complete');
+
+  const expectedSkip = {
+    file: 'acceptance/boardprep.spec.cjs',
+    title: 'mobile layouts remain in the viewport at supported narrow widths',
+    tests: [{
+      projectName: 'desktop',
+      outcome: 'skipped',
+      ok: true,
+      expectedStatus: 'skipped',
+      annotations: [{ type: 'skip', description: 'Viewport sweep runs once in the mobile project.' }],
+      results: [{ status: 'skipped' }],
+    }],
+  };
+  const expectedSkipReport = { suites: [{ specs: [expectedSkip] }] };
+  assert.deepEqual(classifySkippedTests(expectedSkipReport).unexpected, []);
+  assert.equal(classifySkippedTests(expectedSkipReport).expected.length, 1);
+  const expectedSkipSummary = summarize(expectedSkipReport);
+  assert.equal(expectedSkipSummary.expected_skipped, 1);
+  assert.equal(expectedSkipSummary.unexpected_skipped, 0);
+  assert.equal(summaryStatus(expectedSkipSummary), 'COMPLETED',
+    'only exact, reviewed project-scoped skips may be treated as expected');
 });
 
 test('browser provenance records exact commit and leaves missing browser evidence unrun', () => {
@@ -215,8 +283,10 @@ test('browser provenance records exact commit and leaves missing browser evidenc
     const fixtureEvidence = fs.mkdtempSync(path.join(os.tmpdir(), 'boardprep-browser-skip-evidence-'));
     try {
       fs.mkdirSync(path.join(isolatedRepo, 'tools'), { recursive: true });
+      fs.mkdirSync(path.join(isolatedRepo, 'tests', 'browser'), { recursive: true });
       fs.mkdirSync(path.join(fixtureEvidence, 'test-results'), { recursive: true });
       fs.copyFileSync(path.join(root, 'tools/write-browser-ci-manifest.cjs'), path.join(isolatedRepo, 'tools/write-browser-ci-manifest.cjs'));
+      fs.copyFileSync(path.join(root, 'tests/browser/expected-project-skips.cjs'), path.join(isolatedRepo, 'tests/browser/expected-project-skips.cjs'));
       fs.writeFileSync(path.join(isolatedRepo, 'package-lock.json'), JSON.stringify({ packages: {} }));
       const git = (args) => spawnSync('git', args, { cwd: isolatedRepo, encoding: 'utf8' });
       assert.equal(git(['init', '-q']).status, 0);
@@ -247,9 +317,35 @@ test('browser provenance records exact commit and leaves missing browser evidenc
 
       fs.writeFileSync(browserResultsPath, JSON.stringify({ stats: {
         expected: 10, unexpected: 0, flaky: 0, skipped: 1,
-      } }));
+      }, suites: [{ specs: [{
+        file: 'acceptance/boardprep.spec.cjs',
+        title: 'mobile layouts remain in the viewport at supported narrow widths',
+        tests: [{
+          projectName: 'desktop', status: 'skipped', expectedStatus: 'skipped',
+          annotations: [{ type: 'skip', description: 'Viewport sweep runs once in the mobile project.' }],
+          results: [{ status: 'skipped' }],
+        }],
+      }] }] }));
+      const intentionalSkipResult = fixtureManifestCommand();
+      assert.equal(intentionalSkipResult.status, 0, intentionalSkipResult.stderr || intentionalSkipResult.stdout);
+      const intentionalSkipManifest = JSON.parse(fs.readFileSync(path.join(fixtureEvidence, 'browser-ci-manifest.json'), 'utf8'));
+      assert.equal(intentionalSkipManifest.acceptance_status, 'PASS', 'an exact project-specific skip may pass only when its reason and context match the reviewed allowlist');
+      assert.equal(intentionalSkipManifest.browser_results.expected_skipped, 1);
+      assert.equal(intentionalSkipManifest.browser_results.unexpected_skipped, 0);
+
+      fs.writeFileSync(browserResultsPath, JSON.stringify({ stats: {
+        expected: 10, unexpected: 0, flaky: 0, skipped: 1,
+      }, suites: [{ specs: [{
+        file: 'acceptance/boardprep.spec.cjs',
+        title: 'mobile layouts remain in the viewport at supported narrow widths',
+        tests: [{
+          projectName: 'desktop', status: 'skipped', expectedStatus: 'skipped',
+          annotations: [{ type: 'skip', description: 'Unexpected skip reason.' }],
+          results: [{ status: 'skipped' }],
+        }],
+      }] }] }));
       const skippedResult = fixtureManifestCommand();
-      assert.equal(skippedResult.status, 2, 'the provenance writer must reject a suite with a skipped required flow as incomplete');
+      assert.equal(skippedResult.status, 2, 'the provenance writer must reject unknown skipped flows as incomplete');
       const skippedManifest = JSON.parse(fs.readFileSync(path.join(fixtureEvidence, 'browser-ci-manifest.json'), 'utf8'));
       assert.equal(skippedManifest.acceptance_status, 'INCOMPLETE');
       assert.equal(skippedManifest.browser_results.skipped, 1);

@@ -40,7 +40,7 @@ test('Practice Based on My Notes completes a private learner quiz journey', asyn
   await expect(page.getByRole('heading', { name: 'Practice Based on My Notes' })).toBeVisible();
   await page.getByLabel('Note title').fill(title);
   await page.getByLabel('Examination board').selectOption(String(board.id));
-  await page.getByLabel('Study notes').fill(noteBody);
+  await page.getByRole('textbox', { name: 'Study notes' }).fill(noteBody);
   await page.getByRole('button', { name: 'Save note' }).click();
   await expect(page).toHaveURL(/\/my-notes\?note=note-[a-f0-9]{32}$/);
   await expect(page.getByRole('heading', { name: 'Practice from these notes' })).toBeVisible();
@@ -83,7 +83,7 @@ test('Practice Based on My Notes completes a private learner quiz journey', asyn
   await assertPageHealthy(page, testInfo, 'notes-practice-result');
 
   await page.getByRole('link', { name: 'Return to this note' }).click();
-  await page.getByLabel('Study notes').fill(`${noteBody}\n\nUpdated after the quiz.`);
+  await page.getByRole('textbox', { name: 'Study notes' }).fill(`${noteBody}\n\nUpdated after the quiz.`);
   await page.getByRole('button', { name: 'Save changes' }).click();
   await expect(page.locator('#my-note-body')).toHaveValue(/Updated after the quiz/);
   await page.goto('/quiz?action=result');

@@ -13,7 +13,8 @@ test('learner can generate a transparent study calendar and complete a task on m
   await expect(page.getByRole('heading', { name: 'Set up your plan' })).toBeVisible();
 
   const board = page.locator('#calendar-board');
-  await expect(board.locator('option').first()).toBeVisible();
+  await expect(board).toBeVisible();
+  expect(await board.locator('option').count()).toBeGreaterThan(0);
   await tabToKeyboardFocus(page, board);
   await board.selectOption({ index: 0 });
 

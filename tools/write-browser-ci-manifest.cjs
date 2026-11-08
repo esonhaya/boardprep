@@ -5,6 +5,7 @@ const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
 const { execFileSync } = require('node:child_process');
+const { classifySkippedTests } = require('../tests/browser/expected-project-skips.cjs');
 
 const root = path.resolve(__dirname, '..');
 const evidenceDirectory = path.resolve(
@@ -71,6 +72,8 @@ const browserExecution = readJson(path.join(evidenceDirectory, 'test-results', '
 const browserResults = readJson(browserResultsPath);
 const preflight = readJson(path.join(evidenceDirectory, 'browser-preflight.json'));
 const stats = browserResults?.stats || {};
+const skippedTests = classifySkippedTests(browserResults);
+const skippedCountsMatch = stats.skipped === skippedTests.expected.length + skippedTests.unexpected.length;
 const workflowSha = process.env.GITHUB_SHA || null;
 const worktreeClean = command('git', ['status', '--porcelain']) === '';
 const testedSha = typeof browserExecution?.commit === 'string' ? browserExecution.commit : null;
@@ -108,14 +111,15 @@ if (browserExecution || (workflowSha !== null && workflowSha !== commit)) {
     || preflight?.status !== 'PASS'
     || !hasRequiredResultArtifacts
     || !hasCompleteResultStats
-    || stats.skipped > 0
+    || !skippedCountsMatch
+    || skippedTests.unexpected.length > 0
     || typeof browserExecution.command !== 'string'
     || browserExecution.command.trim() === ''
     || typeof browserExecution.fixture_identity !== 'string'
     || browserExecution.fixture_identity.trim() === '') {
     acceptanceStatus = 'INCOMPLETE';
-    evidenceIssues.push(stats.skipped > 0
-      ? 'one or more required browser tests were skipped; the acceptance run is incomplete'
+    evidenceIssues.push(skippedTests.unexpected.length > 0 || !skippedCountsMatch
+      ? 'one or more browser tests were skipped outside the reviewed project-specific skip list; the acceptance run is incomplete'
       : 'execution, preflight, fixture identity, command, or required artifacts are incomplete');
   } else {
     acceptanceStatus = 'PASS';
@@ -187,6 +191,8 @@ const manifest = {
     failed: Number.isInteger(stats.unexpected) ? stats.unexpected : null,
     flaky: Number.isInteger(stats.flaky) ? stats.flaky : null,
     skipped: Number.isInteger(stats.skipped) ? stats.skipped : null,
+    expected_skipped: skippedTests.expected.length,
+    unexpected_skipped: skippedTests.unexpected.length,
   },
   artifact_integrity: artifactIntegrity,
   artifact_references: artifactIntegrity.map((item) => item.path),

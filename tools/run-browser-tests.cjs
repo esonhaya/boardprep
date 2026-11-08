@@ -5,6 +5,7 @@ const os = require('node:os');
 const path = require('node:path');
 const { spawnSync } = require('node:child_process');
 const { privateFixturePathFor } = require('../tests/browser/private-fixture-path.cjs');
+const { classifySkippedTests } = require('../tests/browser/expected-project-skips.cjs');
 
 const repositoryRoot = path.resolve(__dirname, '..');
 const executionStartedAt = new Date().toISOString();
@@ -82,6 +83,9 @@ if (exitStatus === 0) {
     const viewports = readEvidence('viewports');
     const complexContent = readEvidence('complex-content');
     const accountExplorer = readEvidence('account-explorer');
+    const skippedTests = classifySkippedTests(browserReport);
+    const reportedSkipped = browserReport.stats?.skipped ?? null;
+    const skipCountsMatch = reportedSkipped === skippedTests.expected.length + skippedTests.unexpected.length;
     const accountScenarioIds = [
       'mobile-login-layout-320',
       'mobile-login-layout-360',
@@ -169,7 +173,8 @@ if (exitStatus === 0) {
       && accountScenarioIds.every((id) => accountExplorer.scenarios?.some((item) => item.id === id && item.result === 'PASS'))
       && browserReport.stats?.unexpected === 0
       && browserReport.stats?.flaky === 0
-      && browserReport.stats?.skipped === 0
+      && skipCountsMatch
+      && skippedTests.unexpected.length === 0
       && browserReport.stats?.expected > 0
       && !process.argv.includes('--update-snapshots')
       && process.env.VISUAL_REGRESSION !== '1';
@@ -226,8 +231,14 @@ if (exitStatus === 0) {
       results: {
         passed: browserReport.stats?.expected ?? null,
         failed: browserReport.stats?.unexpected ?? null,
-        skipped: browserReport.stats?.skipped ?? null,
+        skipped: reportedSkipped,
+        expected_skipped: skippedTests.expected.length,
+        unexpected_skipped: skippedTests.unexpected.length,
         flaky: browserReport.stats?.flaky ?? null,
+      },
+      skipped_tests: {
+        expected: skippedTests.expected.map(({ file, title, projectName }) => ({ file, title, project: projectName })),
+        unexpected: skippedTests.unexpected.map(({ file, title, projectName }) => ({ file, title, project: projectName })),
       },
       report: 'test-results/browser-results.json',
       authentication_report: 'account-explorer.json',
@@ -278,6 +289,27 @@ if (!fs.existsSync(browserExecutionPath)) {
       ? 'Playwright exited successfully but the required acceptance evidence was incomplete.'
       : 'Playwright exited unsuccessfully; inspect the retained result and diagnostic artifacts.',
   };
+  try {
+    const browserReportPath = path.join(evidenceDirectory, 'test-results', 'browser-results.json');
+    if (fs.existsSync(browserReportPath)) {
+      const browserReport = JSON.parse(fs.readFileSync(browserReportPath, 'utf8'));
+      const skippedTests = classifySkippedTests(browserReport);
+      failureExecution.results = {
+        passed: browserReport.stats?.expected ?? null,
+        failed: browserReport.stats?.unexpected ?? null,
+        skipped: browserReport.stats?.skipped ?? null,
+        expected_skipped: skippedTests.expected.length,
+        unexpected_skipped: skippedTests.unexpected.length,
+        flaky: browserReport.stats?.flaky ?? null,
+      };
+      failureExecution.skipped_tests = {
+        expected: skippedTests.expected.map(({ file, title, projectName }) => ({ file, title, project: projectName })),
+        unexpected: skippedTests.unexpected.map(({ file, title, projectName }) => ({ file, title, project: projectName })),
+      };
+    }
+  } catch {
+    failureExecution.results = null;
+  }
   fs.mkdirSync(path.dirname(browserExecutionPath), { recursive: true });
   fs.writeFileSync(browserExecutionPath, `${JSON.stringify(failureExecution, null, 2)}\n`);
 }

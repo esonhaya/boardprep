@@ -42,7 +42,10 @@ test('learner can report a result question and reports stay private to the sessi
   const reportLink = page.getByRole('link', { name: 'Report this question' }).first();
   await expect(reportLink).toBeVisible();
   const href = await reportLink.getAttribute('href');
-  expect(href).toMatch(/^\/question-report\?question_id=/);
+  const reportUrl = new URL(href, 'http://127.0.0.1');
+  expect(reportUrl.pathname).toBe('/question-report');
+  expect(reportUrl.searchParams.get('attempt_id')).toBeTruthy();
+  expect(reportUrl.searchParams.get('question_id')).toMatch(/^\d+$/);
   await reportLink.click();
 
   await expect(page.getByRole('heading', { name: 'Report a question concern' })).toBeVisible();

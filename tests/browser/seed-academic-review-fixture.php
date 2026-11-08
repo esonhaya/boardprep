@@ -20,14 +20,24 @@ require_once $root . '/app/Core/Autoloader.php';
 \App\Core\Autoloader::register();
 \App\Core\App::boot();
 
-$accountId = 'b716-browser-reviewer-synthetic';
-$learnerId = 'b716-browser-learner-synthetic';
+$accountId = 'account-' . substr(hash('sha256', 'boardprep-browser-reviewer-account-v1'), 0, 32);
+$learnerId = 'account-learner-' . substr(hash('sha256', 'boardprep-browser-reviewer-learner-v1'), 0, 32);
+$reviewerPassword = getenv('BOARDPREP_SYNTHETIC_REVIEWER_PASSWORD');
+if (preg_match('/\\Aaccount-[a-f0-9]{32}\\z/', $accountId) !== 1
+    || preg_match('/\\Aaccount-learner-[a-f0-9]{32}\\z/', $learnerId) !== 1) {
+    fwrite(STDERR, "Refusing to seed a synthetic reviewer identity that violates account session validation.\n");
+    exit(3);
+}
+if (!is_string($reviewerPassword) || strlen($reviewerPassword) < 32) {
+    fwrite(STDERR, "Refusing to seed the synthetic reviewer without a per-run private password.\n");
+    exit(4);
+}
 $account = new \App\Services\Accounts\AccountRepository();
 if (!$account->create([
     'account_id' => $accountId,
     'learner_id' => $learnerId,
     'username' => 'b716-synthetic-reviewer',
-    'password_hash' => password_hash('B716 synthetic browser fixture password only', PASSWORD_DEFAULT),
+    'password_hash' => password_hash($reviewerPassword, PASSWORD_DEFAULT),
     'status' => 'active',
     'auth_version' => 1,
     'created_at' => gmdate(DATE_ATOM),

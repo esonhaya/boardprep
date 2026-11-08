@@ -1,6 +1,9 @@
 'use strict';
 
+const fs = require('node:fs');
+const path = require('node:path');
 const { test, expect, assertPageHealthy, tabToKeyboardFocus, recordBrowserEvidence } = require('../fixtures/test.cjs');
+const { privateFixturePathFor } = require('../private-fixture-path.cjs');
 
 // The synthetic reviewer signs in below; do not persist the form request body in a trace.
 test.use({ trace: 'off' });
@@ -9,10 +12,32 @@ const productionBase = process.env.BOARDPREP_BROWSER_URL || 'http://127.0.0.1:41
 const developerBase = process.env.BOARDPREP_DEVELOPER_BROWSER_URL || 'http://127.0.0.1:4174';
 const authBase = process.env.BOARDPREP_AUTH_BROWSER_URL || 'http://127.0.0.1:4175';
 
+function syntheticReviewerCredentials() {
+  const evidenceDirectory = path.resolve(process.env.BOARDPREP_BROWSER_EVIDENCE_DIR || '');
+  const privatePath = privateFixturePathFor(evidenceDirectory);
+  if (!process.env.BOARDPREP_BROWSER_PRIVATE_FIXTURE_PATH
+    || path.resolve(process.env.BOARDPREP_BROWSER_PRIVATE_FIXTURE_PATH) !== privatePath) {
+    throw new Error('The isolated reviewer credential handoff is unavailable.');
+  }
+  const stat = fs.lstatSync(privatePath);
+  if (!stat.isFile() || stat.isSymbolicLink() || (stat.mode & 0o077) !== 0) {
+    throw new Error('The isolated reviewer credential handoff is not a private regular file.');
+  }
+  const fixture = JSON.parse(fs.readFileSync(privatePath, 'utf8'));
+  const credentials = fixture.academicReviewer;
+  if (typeof credentials?.username !== 'string'
+    || typeof credentials?.password !== 'string'
+    || credentials.password.length < 32) {
+    throw new Error('The isolated reviewer credential handoff is incomplete.');
+  }
+  return credentials;
+}
+
 async function signInSyntheticReviewer(page) {
+  const credentials = syntheticReviewerCredentials();
   await page.goto(`${authBase}/account/login`);
-  await page.locator('#account-username').fill('b716-synthetic-reviewer');
-  await page.locator('#account-password').fill('B716 synthetic browser fixture password only');
+  await page.locator('#account-username').fill(credentials.username);
+  await page.locator('#account-password').fill(credentials.password);
   await page.getByRole('button', { name: 'Sign in' }).click();
   await expect(page).not.toHaveURL(/\/account\/login(?:\?|$)/);
 }
@@ -23,6 +48,11 @@ function allowExpectedDocumentError(page, response, status) {
   ));
   expect(expected).toBeTruthy();
   page.__boardPrepDiagnostics.allowedHttpErrors.push(expected);
+  page.__boardPrepDiagnostics.expectedHttpErrors.push({
+    ...expected,
+    pageUrl: page.url(),
+    consoleMessage: new RegExp(`Failed to load resource: the server responded with a status of ${status}\\b`),
+  });
 }
 
 test.describe('Academic review pilot access boundary', () => {
@@ -31,7 +61,7 @@ test.describe('Academic review pilot access boundary', () => {
     const response = await page.goto(url);
     expect(response?.status()).toBe(404);
     allowExpectedDocumentError(page, response, 404);
-    await expect(page.locator('body')).toContainText('Route not found.');
+    await expect(page.getByRole('heading', { name: 'We couldn’t find that page' })).toBeVisible();
     await expect(page.locator('body')).not.toContainText('20-item academic pilot');
   });
 

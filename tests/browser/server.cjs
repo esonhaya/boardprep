@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const fs = require('node:fs');
+const crypto = require('node:crypto');
 const os = require('node:os');
 const path = require('node:path');
 const { spawn, spawnSync } = require('node:child_process');
@@ -51,6 +52,7 @@ const developerSessionStorage = path.join(temporaryRoot, 'developer-sessions');
 const acceptanceStorage = path.join(temporaryRoot, 'acceptance-feedback');
 const authStorage = path.join(temporaryRoot, 'auth-runtime-storage');
 const authSessionStorage = path.join(temporaryRoot, 'auth-sessions');
+const syntheticReviewerPassword = crypto.randomBytes(32).toString('base64url');
 createBrowserStorageFixture(path.join(applicationRoot, 'storage'), runtimeStorage);
 createBrowserStorageFixture(path.join(applicationRoot, 'storage'), authStorage);
 fs.mkdirSync(sessionStorage, { recursive: true });
@@ -77,6 +79,7 @@ const academicSeed = spawnSync('php', [path.join(applicationRoot, 'tests/browser
     APP_DEBUG: 'false',
     APP_TIMEZONE: 'Asia/Manila',
     BOARDPREP_ACCOUNTS_ENABLED: 'true',
+    BOARDPREP_SYNTHETIC_REVIEWER_PASSWORD: syntheticReviewerPassword,
     DB_DRIVER: 'json',
     APP_STORAGE_PATH: authStorage,
     APP_SESSION_PATH: authSessionStorage,
@@ -96,6 +99,10 @@ if (privateFixturePath) {
     fs.writeFileSync(descriptor, JSON.stringify({
       storage: authStorage,
       sessions: authSessionStorage,
+      academicReviewer: {
+        username: 'b716-synthetic-reviewer',
+        password: syntheticReviewerPassword,
+      },
     }) + '\n');
     fs.fchmodSync(descriptor, 0o600);
   } catch {
