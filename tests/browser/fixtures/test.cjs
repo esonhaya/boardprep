@@ -7,6 +7,7 @@ const {
   matchesExpectedHttpError,
   matchesExpectedConsoleError,
 } = require('./diagnostics.cjs');
+const { collectHorizontalOverflowDiagnostics } = require('./overflow-diagnostics.cjs');
 
 function installDiagnostics(page) {
   const diagnostics = {
@@ -121,35 +122,35 @@ async function assertPageHealthy(page, testInfo, name, options = {}) {
   const brokenImages = await page.locator('img').evaluateAll((images) => images
     .filter((image) => image.complete && image.naturalWidth === 0)
     .map((image) => image.currentSrc || image.src || image.alt || 'unnamed image'));
-  const overflow = await page.evaluate(() => ({
+  const measurements = await page.evaluate(() => ({
     width: document.documentElement.scrollWidth,
     viewport: document.documentElement.clientWidth,
-    offenders: [...document.body.querySelectorAll('*')]
-      .map((element) => {
-        const rect = element.getBoundingClientRect();
-        const style = getComputedStyle(element);
-        return {
-          tag: element.tagName.toLowerCase(),
-          id: element.id || '',
-          className: typeof element.className === 'string' ? element.className.slice(0, 96) : '',
-          left: Math.round(rect.left),
-          right: Math.round(rect.right),
-          overshoot: Math.round(Math.max(
-            rect.right - document.documentElement.clientWidth,
-            -rect.left,
-          )),
-          width: Math.round(rect.width),
-          scrollWidth: element.scrollWidth,
-          clientWidth: element.clientWidth,
-          position: style.position,
-          overflowX: style.overflowX,
-        };
-      })
-      .filter((element) => element.overshoot > 2
-        && element.overflowX !== 'auto' && element.overflowX !== 'scroll')
-      .sort((left, right) => right.overshoot - left.overshoot || right.width - left.width)
-      .slice(0, 8),
+    bodyScrollWidth: document.body.scrollWidth,
+    viewportWidth: window.innerWidth,
+    viewportHeight: window.innerHeight,
   }));
+  let overflow = {
+    ...measurements,
+    document: { clientWidth: measurements.viewport, scrollWidth: measurements.width },
+    body: { scrollWidth: measurements.bodyScrollWidth },
+    viewportDimensions: { width: measurements.viewportWidth, height: measurements.viewportHeight },
+    offenders: [],
+  };
+
+  if (measurements.width > measurements.viewport + 2) {
+    try {
+      overflow = await page.evaluate(collectHorizontalOverflowDiagnostics);
+      overflow.width = overflow.document.scrollWidth;
+      overflow.viewportWidth = overflow.document.clientWidth;
+    } catch {
+      // Keep the primary overflow failure actionable even if secondary DOM
+      // diagnostics cannot run in a navigated or partially torn-down page.
+      overflow = {
+        ...overflow,
+        detailedDiagnostics: 'unavailable',
+      };
+    }
+  }
 
   const diagnostics = page.__boardPrepDiagnostics;
   diagnostics.brokenImages.push(...brokenImages);
@@ -166,8 +167,8 @@ async function assertPageHealthy(page, testInfo, name, options = {}) {
   }
   markExpectedConsoleErrors(diagnostics);
 
-  if (overflow.width > overflow.viewport + 2) {
-    throw new Error(`Material page overflow on ${name}: ${overflow.width}px > ${overflow.viewport}px; overflowing elements=${JSON.stringify(overflow.offenders)}`);
+  if (measurements.width > measurements.viewport + 2) {
+    throw new Error(`Material page overflow on ${name}: ${measurements.width}px > ${measurements.viewport}px; diagnostics=${JSON.stringify(overflow)}`);
   }
   if (brokenImages.length > 0) {
     throw new Error(`Broken rendered images on ${name}: ${brokenImages.join(', ')}`);

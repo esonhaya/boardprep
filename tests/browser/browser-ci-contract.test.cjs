@@ -233,13 +233,25 @@ test('browser certification has no retries and a flaky result is a failure', () 
 test('browser failure reports retain exact overflow offender geometry and no-JavaScript POST wait is bounded above observed Termux runtime', () => {
   const fixture = fs.readFileSync(path.join(root, 'tests/browser/fixtures/test.cjs'), 'utf8');
   const learnerSpec = fs.readFileSync(path.join(root, 'tests/browser/acceptance/boardprep.spec.cjs'), 'utf8');
+  const overflowDiagnostics = fs.readFileSync(path.join(root, 'tests/browser/fixtures/overflow-diagnostics.cjs'), 'utf8');
   const academicSeeder = fs.readFileSync(path.join(root, 'tests/browser/seed-academic-review-fixture.php'), 'utf8');
   const fixtureHelper = fs.readFileSync(path.join(root, 'tests/browser/academic-review-fixture-helpers.php'), 'utf8');
   const fixtureLifecycle = fs.readFileSync(path.join(root, 'tests/browser/server-lifecycle.test.cjs'), 'utf8');
 
-  assert.match(fixture, /offenders:\s*\[\.\.\.document\.body\.querySelectorAll\('\*'\)\]/,
-    'a rendered overflow failure must report structural element geometry for root-cause analysis');
-  assert.match(fixture, /overflowing elements=\$\{JSON\.stringify\(overflow\.offenders\)\}/);
+  assert.match(fixture, /if \(measurements\.width > measurements\.viewport \+ 2\) \{\s+try \{\s+overflow = await page\.evaluate\(collectHorizontalOverflowDiagnostics\)/,
+    'detailed DOM scanning should run only after the cheap viewport measurement detects overflow');
+  assert.match(fixture, /diagnostics=\$\{JSON\.stringify\(overflow\)\}/,
+    'the primary overflow failure must retain the bounded diagnostic report');
+  for (const field of [
+    'documentElement', 'body.scrollWidth', 'innerWidth', 'innerHeight', 'getBoundingClientRect',
+    'minWidth', 'maxWidth', 'overflowX', 'whiteSpace', 'gridTemplateColumns',
+  ]) assert.ok(overflowDiagnostics.includes(field), `overflow diagnostics omitted ${field}`);
+  assert.doesNotMatch(overflowDiagnostics, /\.value\b|\.textContent\b|\.innerHTML\b|\.outerHTML\b|\.getAttribute\(/,
+    'overflow diagnostics must never capture form values, rendered text, or arbitrary attributes');
+  assert.match(overflowDiagnostics, /const scanLimit = 2500/,
+    'DOM scanning must have a bounded element budget');
+  assert.match(overflowDiagnostics, /allElements\.slice\(0, scanLimit\)/);
+  assert.match(overflowDiagnostics, /candidates\.slice\(0, 8\)/, 'failure output must cap the number of detailed offenders');
   assert.match(learnerSpec, /const serverSubmissionTimeoutMs = 60_000/);
   assert.match(learnerSpec, /test\.setTimeout\(150_000\)/);
   assert.match(learnerSpec, /waitForResponse\([\s\S]*?serverSubmissionTimeoutMs/);
