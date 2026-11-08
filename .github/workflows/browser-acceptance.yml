@@ -71,6 +71,7 @@ jobs:
           php tools/Tests/AnonymousLearnerPrivacyHttpTest.php
           php tools/Tests/SessionConfigurationTest.php
           php tools/Tests/SecurityTrustBoundaryTest.php
+          php tools/Tests/BrowserAcademicReviewFixtureSeedTest.php
           php tools/Tests/FlashcardControllerReadPathTest.php
           php tools/Tests/FlashcardHttpTest.php
 

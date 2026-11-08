@@ -17,6 +17,7 @@ if (getenv('APP_ENV') !== 'testing'
 }
 
 require_once $root . '/app/Core/Autoloader.php';
+require_once __DIR__ . '/academic-review-fixture-helpers.php';
 \App\Core\Autoloader::register();
 \App\Core\App::boot();
 
@@ -82,15 +83,7 @@ if (!is_string($rootReal) || !is_string($temporaryRoot)
     exit(4);
 }
 $matrix = json_decode((string) file_get_contents($matrixPath), true, 512, JSON_THROW_ON_ERROR);
-$staled = false;
-foreach ((array) ($matrix['citation_rows'] ?? []) as &$citation) {
-    if (is_array($citation) && (string) ($citation['question_id'] ?? '') === '9348') {
-        $citation['question_version'] = str_repeat('0', 64);
-        $staled = true;
-        break;
-    }
-}
-unset($citation);
+$staled = boardPrepBrowserStaleSupplementalEvidenceVersion($matrix, '9348');
 if (!$staled || file_put_contents($matrixPath, json_encode($matrix, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR) . "\n", LOCK_EX) === false) {
     fwrite(STDERR, "Unable to prepare the isolated stale-version browser evidence fixture.\n");
     exit(5);

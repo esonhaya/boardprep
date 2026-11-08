@@ -118,6 +118,20 @@ test('production-equivalent PHP fixture serves loopback routes and shuts down it
     assert.notEqual(handoff.accountAuth?.sessions, handoff.sessions,
       'long account journeys must use separate PHP session storage');
 
+    const academicMatrixPath = path.join(
+      fixtureParent,
+      'BoardPrepBrowser',
+      'docs/reports/batch-716-source-evidence-matrix.json',
+    );
+    const academicMatrix = JSON.parse(fs.readFileSync(academicMatrixPath, 'utf8'));
+    const proposalRows = academicMatrix.citation_rows.filter((row) => row.question_id === '9348');
+    assert.ok(proposalRows.length > 0, 'the isolated source matrix must retain proposal 9348 rows');
+    assert.equal(
+      proposalRows.filter((row) => row.question_version === '0'.repeat(64)).length,
+      1,
+      'the browser seeder must persist exactly one stale supplemental row in the disposable checkout',
+    );
+
     await waitForHealth(fixtureUrl, child, () => errors);
     await waitForHealth(accountFixtureUrl, child, () => errors);
     assert.match(output, new RegExp(`BROWSER_ACCOUNT_AUTH_FIXTURE_URL=http://127\\.0\\.0\\.1:${ports[3]}`),

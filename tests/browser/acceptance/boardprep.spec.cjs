@@ -831,6 +831,10 @@ test.describe('BoardPrep learner browser acceptance', () => {
 
   test('exam timer falls back to server validation when JavaScript is disabled', async ({ browser }, testInfo) => {
     test.skip(testInfo.project.name !== 'desktop', 'The no-JavaScript fallback runs once in the desktop project.');
+    // An isolated Termux HTTP reproduction completed the same server-authoritative
+    // start POST in 29.63s. Keep the wait bounded, but above that measured runtime.
+    const serverSubmissionTimeoutMs = 60_000;
+    test.setTimeout(150_000);
     const submitNoJavaScriptSession = async (timerMode) => {
       // Keep each submitted session in its own cookie jar. The first POST
       // deliberately creates an unfinished quiz; the second case should test
@@ -848,8 +852,8 @@ test.describe('BoardPrep learner browser acceptance', () => {
           let pathname = '';
           try { pathname = new URL(response.url()).pathname; } catch {}
           return pathname === '/quiz' && response.request().method() === 'POST';
-        }, { timeout: 20_000 });
-        await noJsPage.locator('#start-session-button').click({ noWaitAfter: true, timeout: 20_000 });
+        }, { timeout: serverSubmissionTimeoutMs });
+        await noJsPage.locator('#start-session-button').click({ noWaitAfter: true, timeout: serverSubmissionTimeoutMs });
         const response = await postResponse;
         expect(response.status()).toBeLessThan(400);
         await expect(noJsPage.locator('.quiz-meta')).toContainText('Question 1 / 5');

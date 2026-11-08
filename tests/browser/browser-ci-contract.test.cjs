@@ -39,6 +39,7 @@ test('Linux browser workflow pins runtime and executes fixture, preflight, suite
     'SecurityTrustBoundaryTest.php',
     'FlashcardControllerReadPathTest.php',
     'FlashcardHttpTest.php',
+    'BrowserAcademicReviewFixtureSeedTest.php',
   ]) assert.ok(workflow.includes(regression), `workflow omitted focused regression ${regression}`);
   assert.match(workflow, /playwright install --with-deps chromium/);
   assert.match(workflow, /browser-preflight\.cjs/);
@@ -227,6 +228,26 @@ test('browser certification has no retries and a flaky result is a failure', () 
   assert.equal(expectedSkipSummary.unexpected_skipped, 0);
   assert.equal(summaryStatus(expectedSkipSummary), 'COMPLETED',
     'only exact, reviewed project-scoped skips may be treated as expected');
+});
+
+test('browser failure reports retain exact overflow offender geometry and no-JavaScript POST wait is bounded above observed Termux runtime', () => {
+  const fixture = fs.readFileSync(path.join(root, 'tests/browser/fixtures/test.cjs'), 'utf8');
+  const learnerSpec = fs.readFileSync(path.join(root, 'tests/browser/acceptance/boardprep.spec.cjs'), 'utf8');
+  const academicSeeder = fs.readFileSync(path.join(root, 'tests/browser/seed-academic-review-fixture.php'), 'utf8');
+  const fixtureHelper = fs.readFileSync(path.join(root, 'tests/browser/academic-review-fixture-helpers.php'), 'utf8');
+  const fixtureLifecycle = fs.readFileSync(path.join(root, 'tests/browser/server-lifecycle.test.cjs'), 'utf8');
+
+  assert.match(fixture, /offenders:\s*\[\.\.\.document\.body\.querySelectorAll\('\*'\)\]/,
+    'a rendered overflow failure must report structural element geometry for root-cause analysis');
+  assert.match(fixture, /overflowing elements=\$\{JSON\.stringify\(overflow\.offenders\)\}/);
+  assert.match(learnerSpec, /const serverSubmissionTimeoutMs = 60_000/);
+  assert.match(learnerSpec, /test\.setTimeout\(150_000\)/);
+  assert.match(learnerSpec, /waitForResponse\([\s\S]*?serverSubmissionTimeoutMs/);
+  assert.match(academicSeeder, /boardPrepBrowserStaleSupplementalEvidenceVersion\(\$matrix, '9348'\)/);
+  assert.match(fixtureHelper, /foreach \(\$matrix\['citation_rows'\] as &\$citation\)/,
+    'the fixture mutator must hold a reference to the matrix rows rather than a cast copy');
+  assert.match(fixtureLifecycle, /exactly one stale supplemental row in the disposable checkout/,
+    'the full fixture lifecycle must prove the version mutation survives JSON persistence');
 });
 
 test('browser provenance records exact commit and leaves missing browser evidence unrun', () => {
