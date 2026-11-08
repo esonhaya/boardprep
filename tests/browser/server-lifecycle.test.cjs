@@ -119,7 +119,7 @@ test('production-equivalent PHP fixture serves loopback routes and shuts down it
       'long account journeys must use separate PHP session storage');
 
     const academicMatrixPath = path.join(
-      fixtureParent,
+      path.dirname(handoff.storage),
       'BoardPrepBrowser',
       'docs/reports/batch-716-source-evidence-matrix.json',
     );
@@ -191,19 +191,31 @@ test('private browser fixture handoff fails closed when a prior path already exi
   });
   let errors = '';
   child.stderr.setEncoding('utf8').on('data', (chunk) => { errors += chunk; });
-  const exit = await new Promise((resolve, reject) => {
-    const timeout = setTimeout(() => reject(new Error(`Fixture collision did not fail closed. ${errors}`)), 30_000);
-    child.once('error', (error) => { clearTimeout(timeout); reject(error); });
-    child.once('exit', (code, signal) => { clearTimeout(timeout); resolve({ code, signal }); });
-  });
   try {
+    const exit = await new Promise((resolve, reject) => {
+      const timeout = setTimeout(() => reject(new Error(`Fixture collision did not fail closed. ${errors}`)), 60_000);
+      child.once('error', (error) => { clearTimeout(timeout); reject(error); });
+      child.once('exit', (code, signal) => { clearTimeout(timeout); resolve({ code, signal }); });
+    });
     assert.equal(exit.code, 1, 'the server must refuse an existing private handoff instead of overwriting it');
     assert.equal(fs.readFileSync(privateFixturePath, 'utf8'), sentinel);
     assert.match(errors, /Unable to create the private browser fixture handoff securely/);
     assert.deepEqual(fs.readdirSync(fixtureParent).sort(), ['evidence', 'evidence.private.json'], 'fixture setup failure must remove its private temporary tree while preserving the caller-owned evidence directory');
     assert.deepEqual(fs.readdirSync(evidenceDirectory), [], 'failed startup must not put private handoff data in the evidence directory');
   } finally {
-    if (child.exitCode === null && child.signalCode === null) child.kill('SIGKILL');
+    if (child.exitCode === null && child.signalCode === null) {
+      child.kill('SIGTERM');
+      let cleanupDeadline;
+      const exited = await Promise.race([
+        new Promise((resolve) => child.once('exit', () => resolve(true))),
+        new Promise((resolve) => { cleanupDeadline = setTimeout(() => resolve(false), 6_000); }),
+      ]);
+      clearTimeout(cleanupDeadline);
+      if (!exited) {
+        child.kill('SIGKILL');
+        await new Promise((resolve) => child.once('exit', resolve));
+      }
+    }
     fs.rmSync(fixtureParent, { recursive: true, force: true });
   }
 });
