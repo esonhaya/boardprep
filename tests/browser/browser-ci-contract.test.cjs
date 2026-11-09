@@ -254,7 +254,11 @@ test('browser failure reports retain exact overflow offender geometry and no-Jav
   assert.match(overflowDiagnostics, /candidates\.slice\(0, 8\)/, 'failure output must cap the number of detailed offenders');
   assert.match(learnerSpec, /const serverSubmissionTimeoutMs = 60_000/);
   assert.match(learnerSpec, /test\.setTimeout\(150_000\)/);
-  assert.match(learnerSpec, /waitForResponse\([\s\S]*?serverSubmissionTimeoutMs/);
+  assert.match(learnerSpec, /Bounded no-JavaScript \/quiz POST lifecycle wait expired; \$\{JSON\.stringify\(quizPostState\)\}/,
+    'no-JavaScript POST timeouts must retain sanitized request-lifecycle evidence');
+  for (const field of ['submitPhase', 'requestStarted', 'requestFailed', 'responseObserved', 'responseStatus', 'requestFinished', 'navigationPath', 'failureCode']) {
+    assert.ok(learnerSpec.includes(field), `no-JavaScript POST diagnostics omitted ${field}`);
+  }
   assert.match(academicSeeder, /boardPrepBrowserStaleSupplementalEvidenceVersion\(\$matrix, '9348'\)/);
   assert.match(fixtureHelper, /foreach \(\$matrix\['citation_rows'\] as &\$citation\)/,
     'the fixture mutator must hold a reference to the matrix rows rather than a cast copy');
@@ -461,6 +465,8 @@ test('review evidence wraps long source snapshots and evidence-state grids at mo
   const css = fs.readFileSync(path.join(root, 'public/assets/css/style.css'), 'utf8');
   assert.match(css, /\.pilot-evidence-states\{display:grid;grid-template-columns:minmax\(130px,\.7fr\) minmax\(0,1\.3fr\);/);
   assert.match(css, /\.pilot-evidence-states>\*\{min-width:0;overflow-wrap:anywhere\}/);
+  assert.match(css, /\.batch716-source-row p\{overflow-wrap:anywhere\}/,
+    'long source evidence paragraphs must wrap within their narrow detail row');
   assert.match(css, /\.academic-review-printable pre\{max-width:100%;white-space:pre-wrap;overflow-wrap:anywhere\}/);
   assert.match(css, /@media\(max-width:768px\)\{\.pilot-evidence-states\{grid-template-columns:minmax\(0,1fr\)\}\}/);
 });
@@ -474,5 +480,8 @@ test('browser selectors and account-cookie assertions match the isolated fixture
   assert.match(server, /session\.name=BOARDPREP_ACCOUNT_AUTH_SESSION/);
   assert.match(accountSpec, /BOARDPREP_ACCOUNT_AUTH_SESSION/);
   assert.doesNotMatch(accountSpec, /BOARDPREP_AUTH_SESSION/);
-  assert.match(quizSpec, /Bounded no-JavaScript \/quiz POST response wait expired; request_started=\$\{quizPostState\.requestStarted\}; request_failed=\$\{quizPostState\.requestFailed\}/);
+  assert.match(quizSpec, /Bounded no-JavaScript \/quiz POST lifecycle wait expired; \$\{JSON\.stringify\(quizPostState\)\}/);
+  for (const field of ['submitPhase', 'requestStarted', 'requestFailed', 'responseObserved', 'responseStatus', 'requestFinished', 'navigationPath', 'failureCode']) {
+    assert.ok(quizSpec.includes(field), `quiz POST lifecycle diagnostics omitted ${field}`);
+  }
 });
