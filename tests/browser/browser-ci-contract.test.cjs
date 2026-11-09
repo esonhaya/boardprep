@@ -91,7 +91,7 @@ test('browser evidence contracts cover isolated data, desktop/mobile access path
   assert.match(accountSpec, /anonymous-access-and-account-authorization/);
   assert.match(accountSpec, /login-and-session-rotation/);
   assert.match(accountSpec, /authenticated-exam-recovery-session-loss/);
-  assert.match(accountSpec, /clearCookies\(\{ name: 'BOARDPREP_AUTH_SESSION' \}\)/);
+  assert.match(accountSpec, /clearCookies\(\{ name: 'BOARDPREP_ACCOUNT_AUTH_SESSION' \}\)/);
   assert.match(accountSpec, /fs\.unlinkSync\(lostSessionFile\)/,
     'the account browser journey must simulate server-side PHP session-data loss in its isolated fixture');
   assert.match(reportSpec, /learner can report a result question and reports stay private to the session/);
@@ -455,4 +455,24 @@ test('browser preflight explicitly blocks a Termux host instead of implying desk
   assert.equal(report.checks.playwright_driver_compatibility.status, 'BLOCKED');
   assert.match(report.checks.playwright_driver_compatibility.reason, /Termux/);
   assert.equal(report.checks.loopback_connectivity.status, 'PASS');
+});
+
+test('review evidence wraps long source snapshots and evidence-state grids at mobile widths', () => {
+  const css = fs.readFileSync(path.join(root, 'public/assets/css/style.css'), 'utf8');
+  assert.match(css, /\.pilot-evidence-states\{display:grid;grid-template-columns:minmax\(130px,\.7fr\) minmax\(0,1\.3fr\);/);
+  assert.match(css, /\.pilot-evidence-states>\*\{min-width:0;overflow-wrap:anywhere\}/);
+  assert.match(css, /\.academic-review-printable pre\{max-width:100%;white-space:pre-wrap;overflow-wrap:anywhere\}/);
+  assert.match(css, /@media\(max-width:768px\)\{\.pilot-evidence-states\{grid-template-columns:minmax\(0,1fr\)\}\}/);
+});
+
+test('browser selectors and account-cookie assertions match the isolated fixture UI and PHP session name', () => {
+  const notesSpec = fs.readFileSync(path.join(root, 'tests/browser/acceptance/notes-based-practice.spec.cjs'), 'utf8');
+  const accountSpec = fs.readFileSync(path.join(root, 'tests/browser/accounts/account-auth.spec.cjs'), 'utf8');
+  const server = fs.readFileSync(path.join(root, 'tests/browser/server.cjs'), 'utf8');
+  const quizSpec = fs.readFileSync(path.join(root, 'tests/browser/acceptance/boardprep.spec.cjs'), 'utf8');
+  assert.match(notesSpec, /getByRole\('heading', \{ name: 'My notes', exact: true \}\)/);
+  assert.match(server, /session\.name=BOARDPREP_ACCOUNT_AUTH_SESSION/);
+  assert.match(accountSpec, /BOARDPREP_ACCOUNT_AUTH_SESSION/);
+  assert.doesNotMatch(accountSpec, /BOARDPREP_AUTH_SESSION/);
+  assert.match(quizSpec, /Bounded no-JavaScript \/quiz POST response wait expired; request_started=\$\{quizPostState\.requestStarted\}; request_failed=\$\{quizPostState\.requestFailed\}/);
 });

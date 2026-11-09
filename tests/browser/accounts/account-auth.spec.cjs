@@ -101,11 +101,11 @@ async function completeAuthenticatedExamRecovery(page, username, password, sessi
   expect(Number.isFinite(remainingBeforeSessionLoss)).toBe(true);
 
   const oldSession = (await page.context().cookies(AUTH))
-    .find((cookie) => cookie.name === 'BOARDPREP_AUTH_SESSION')?.value;
+    .find((cookie) => cookie.name === 'BOARDPREP_ACCOUNT_AUTH_SESSION')?.value;
   expect(oldSession).toBeTruthy();
   reportSensitiveValues.add(oldSession);
-  await page.context().clearCookies({ name: 'BOARDPREP_AUTH_SESSION' });
-  expect((await page.context().cookies(AUTH)).some((cookie) => cookie.name === 'BOARDPREP_AUTH_SESSION')).toBe(false);
+  await page.context().clearCookies({ name: 'BOARDPREP_ACCOUNT_AUTH_SESSION' });
+  expect((await page.context().cookies(AUTH)).some((cookie) => cookie.name === 'BOARDPREP_ACCOUNT_AUTH_SESSION')).toBe(false);
   expect(/^[A-Za-z0-9,-]{1,128}$/.test(oldSession)).toBe(true);
   const lostSessionFile = path.join(sessionDirectory, 'sess_' + oldSession);
   expect(fs.existsSync(lostSessionFile)).toBe(true);
@@ -114,7 +114,7 @@ async function completeAuthenticatedExamRecovery(page, username, password, sessi
   await signIn(page, username, password);
   await expect(page).toHaveURL(/\/account\/profile$/);
   const newSession = (await page.context().cookies(AUTH))
-    .find((cookie) => cookie.name === 'BOARDPREP_AUTH_SESSION')?.value;
+    .find((cookie) => cookie.name === 'BOARDPREP_ACCOUNT_AUTH_SESSION')?.value;
   expect(newSession).toBeTruthy();
   expect(newSession).not.toBe(oldSession);
   reportSensitiveValues.add(newSession);
@@ -410,11 +410,11 @@ test('isolated mobile account journeys preserve authentication and learner owner
     scenario('wrong-password-generic-response', '/account/login', 'Wrong password receives a generic sign-in error.');
 
     const csrfBeforeLogin = await csrf(page);
-    const cookieBefore = (await page.context().cookies(AUTH)).find((cookie) => cookie.name === 'BOARDPREP_AUTH_SESSION')?.value;
+    const cookieBefore = (await page.context().cookies(AUTH)).find((cookie) => cookie.name === 'BOARDPREP_ACCOUNT_AUTH_SESSION')?.value;
     if (cookieBefore) reportSensitiveValues.add(cookieBefore);
     await signIn(page, usernameA, PASSWORD_A);
     await expect(page).toHaveURL(/\/account\/profile$/);
-    const cookieAfter = (await page.context().cookies(AUTH)).find((cookie) => cookie.name === 'BOARDPREP_AUTH_SESSION')?.value;
+    const cookieAfter = (await page.context().cookies(AUTH)).find((cookie) => cookie.name === 'BOARDPREP_ACCOUNT_AUTH_SESSION')?.value;
     if (cookieAfter) reportSensitiveValues.add(cookieAfter);
     expect(Boolean(cookieBefore && cookieAfter && cookieAfter !== cookieBefore)).toBe(true);
     expect((await csrf(page)) !== csrfBeforeLogin).toBe(true);

@@ -848,13 +848,33 @@ test.describe('BoardPrep learner browser acceptance', () => {
         await noJsPage.locator('#quiz-timer-mode').selectOption(timerMode);
         await noJsPage.locator('#quiz-time-limit').fill(timerMode === 'untimed' ? '17' : '5');
         await noJsPage.locator('#quiz-count').selectOption('5');
+        const quizPostState = { requestStarted: false, requestFailed: false };
+        const isQuizPost = (request) => {
+          let pathname = '';
+          try { pathname = new URL(request.url()).pathname; } catch {}
+          return pathname === '/quiz' && request.method() === 'POST';
+        };
+        noJsPage.on('request', (request) => {
+          if (isQuizPost(request)) quizPostState.requestStarted = true;
+        });
+        noJsPage.on('requestfailed', (request) => {
+          if (isQuizPost(request)) quizPostState.requestFailed = true;
+        });
         const postResponse = noJsPage.waitForResponse((response) => {
           let pathname = '';
           try { pathname = new URL(response.url()).pathname; } catch {}
           return pathname === '/quiz' && response.request().method() === 'POST';
         }, { timeout: serverSubmissionTimeoutMs });
-        await noJsPage.locator('#start-session-button').click({ noWaitAfter: true, timeout: serverSubmissionTimeoutMs });
-        const response = await postResponse;
+        let response;
+        try {
+          await noJsPage.locator('#start-session-button').click({ noWaitAfter: true, timeout: serverSubmissionTimeoutMs });
+          response = await postResponse;
+        } catch (error) {
+          if (error?.name === 'TimeoutError') {
+            throw new Error(`Bounded no-JavaScript /quiz POST response wait expired; request_started=${quizPostState.requestStarted}; request_failed=${quizPostState.requestFailed}.`);
+          }
+          throw error;
+        }
         expect(response.status()).toBeLessThan(400);
         await expect(noJsPage.locator('.quiz-meta')).toContainText('Question 1 / 5');
         if (timerMode === 'untimed') {

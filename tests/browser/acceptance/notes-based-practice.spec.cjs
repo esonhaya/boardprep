@@ -94,7 +94,7 @@ test('Practice Based on My Notes completes a private learner quiz journey', asyn
   const isolated = await page.context().browser().newContext();
   const otherLearner = await isolated.newPage();
   await otherLearner.goto('/my-notes');
-  await expect(otherLearner.getByRole('heading', { name: 'My notes' })).toBeVisible();
+  await expect(otherLearner.getByRole('heading', { name: 'My notes', exact: true })).toBeVisible();
   await expect(otherLearner.locator('body')).not.toContainText(title);
   await isolated.close();
 
