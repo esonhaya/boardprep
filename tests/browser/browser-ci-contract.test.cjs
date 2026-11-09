@@ -256,6 +256,12 @@ test('browser failure reports retain exact overflow offender geometry and no-Jav
   assert.match(learnerSpec, /test\.setTimeout\(150_000\)/);
   assert.match(learnerSpec, /Bounded no-JavaScript \/quiz POST lifecycle wait expired; \$\{JSON\.stringify\(quizPostState\)\}/,
     'no-JavaScript POST timeouts must retain sanitized request-lifecycle evidence');
+  assert.match(learnerSpec, /form\.getAttribute\('action'\)/,
+    'the no-JavaScript form diagnostic must read the action attribute, not a control-shadowed form property');
+  assert.match(learnerSpec, /clickFailureReason=\$\{clickFailureReason\}/,
+    'no-JavaScript click timeouts must retain an allowlisted actionability reason');
+  assert.match(learnerSpec, /scrollHeight: document\.documentElement\.scrollHeight/);
+  assert.match(learnerSpec, /scrollY: Math\.round\(window\.scrollY\)/);
   const noJsDiagnosticStart = learnerSpec.indexOf('const getSubmitControlDiagnostics');
   const noJsDiagnosticEnd = learnerSpec.indexOf('      try {', noJsDiagnosticStart);
   assert.ok(noJsDiagnosticStart >= 0 && noJsDiagnosticEnd > noJsDiagnosticStart,
@@ -479,6 +485,8 @@ test('review evidence wraps long source snapshots and evidence-state grids at mo
   assert.match(css, /\.pilot-review-grid p,\.pilot-source-dossier summary,\.batch716-source-row summary\{min-width:0;overflow-wrap:anywhere\}/,
     'reviewer summaries and paragraphs must wrap long source labels within their measured mobile containers');
   assert.match(css, /\.academic-review-printable pre\{max-width:100%;white-space:pre-wrap;overflow-wrap:anywhere\}/);
+  assert.match(css, /\.academic-review-printable article\.card p\{min-width:0;overflow-wrap:anywhere\}/,
+    'review packet card paragraphs must wrap long metadata and proposed text at the measured overflowing container');
   assert.match(css, /@media\(max-width:768px\)\{\.pilot-evidence-states\{grid-template-columns:minmax\(0,1fr\)\}\}/);
 });
 

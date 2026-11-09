@@ -881,13 +881,18 @@ test.describe('BoardPrep learner browser acceptance', () => {
           } : null,
           form: form ? {
             method: String(form.method || 'get').toUpperCase(),
-            actionPath: new URL(form.action, location.href).pathname,
+            actionPath: (() => {
+              const action = form.getAttribute('action');
+              try { return new URL(action || location.href, location.href).pathname; } catch { return 'INVALID_FORM_ACTION'; }
+            })(),
           } : null,
           invalidControlTypes,
           viewport: {
             clientWidth: document.documentElement.clientWidth,
             clientHeight: document.documentElement.clientHeight,
             scrollWidth: document.documentElement.scrollWidth,
+            scrollHeight: document.documentElement.scrollHeight,
+            scrollY: Math.round(window.scrollY),
           },
         };
       });
@@ -960,7 +965,18 @@ test.describe('BoardPrep learner browser acceptance', () => {
           if (error?.name === 'TimeoutError') {
             let submitControl = null;
             try { submitControl = await getSubmitControlDiagnostics(); } catch { submitControl = { diagnosticStatus: 'unavailable' }; }
-            throw new Error(`Bounded no-JavaScript /quiz POST ${submitPhase} timed out; lifecycle=${JSON.stringify(quizPostState)}; submitControl=${JSON.stringify(submitControl)}.`);
+            const clickError = String(error?.message || '').toLowerCase();
+            const actionabilityReasons = [
+              ['element is not visible', 'NOT_VISIBLE'],
+              ['element is not stable', 'NOT_STABLE'],
+              ['intercepts pointer events', 'POINTER_INTERCEPTED'],
+              ['outside of the viewport', 'OUTSIDE_VIEWPORT'],
+              ['element is not enabled', 'NOT_ENABLED'],
+              ['element is not attached to the dom', 'DETACHED'],
+            ];
+            const clickFailureReason = actionabilityReasons.find(([phrase]) => clickError.includes(phrase))?.[1]
+              ?? 'ACTIONABILITY_TIMEOUT_UNCLASSIFIED';
+            throw new Error(`Bounded no-JavaScript /quiz POST ${submitPhase} timed out; clickFailureReason=${clickFailureReason}; lifecycle=${JSON.stringify(quizPostState)}; submitControl=${JSON.stringify(submitControl)}.`);
           }
           throw error;
         } finally {
