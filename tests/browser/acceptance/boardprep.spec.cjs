@@ -841,6 +841,56 @@ test.describe('BoardPrep learner browser acceptance', () => {
       // timer normalization without also becoming a replacement-session test.
       const context = await browser.newContext({ javaScriptEnabled: false, baseURL: 'http://127.0.0.1:4173' });
       const noJsPage = await context.newPage();
+      const getSubmitControlDiagnostics = async () => noJsPage.evaluate(() => {
+        const button = document.querySelector('#start-session-button');
+        const rect = button?.getBoundingClientRect();
+        const center = rect ? { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 } : null;
+        const hit = center && center.x >= 0 && center.x < document.documentElement.clientWidth
+          && center.y >= 0 && center.y < document.documentElement.clientHeight
+          ? document.elementFromPoint(center.x, center.y)
+          : null;
+        const form = button?.form ?? null;
+        const invalidControlTypes = form
+          ? Array.from(form.elements)
+            .filter((control) => control.willValidate && !control.validity.valid)
+            .map((control) => String(control.type || control.tagName).slice(0, 24))
+            .slice(0, 12)
+          : [];
+        const style = button ? getComputedStyle(button) : null;
+        return {
+          button: button ? {
+            present: true,
+            disabled: button.disabled,
+            hidden: button.hidden,
+            display: style?.display ?? null,
+            visibility: style?.visibility ?? null,
+            pointerEvents: style?.pointerEvents ?? null,
+            rect: rect ? {
+              left: Math.round(rect.left),
+              right: Math.round(rect.right),
+              top: Math.round(rect.top),
+              bottom: Math.round(rect.bottom),
+              width: Math.round(rect.width),
+              height: Math.round(rect.height),
+            } : null,
+          } : { present: false },
+          centerHit: hit ? {
+            tag: hit.tagName.toLowerCase(),
+            id: String(hit.id || '').slice(0, 64),
+            classNames: Array.from(hit.classList).slice(0, 8),
+          } : null,
+          form: form ? {
+            method: String(form.method || 'get').toUpperCase(),
+            actionPath: new URL(form.action, location.href).pathname,
+          } : null,
+          invalidControlTypes,
+          viewport: {
+            clientWidth: document.documentElement.clientWidth,
+            clientHeight: document.documentElement.clientHeight,
+            scrollWidth: document.documentElement.scrollWidth,
+          },
+        };
+      });
       try {
         await noJsPage.goto('/quiz?exam=LET&mode=exam');
         await expect(noJsPage.locator('#timer-mode-help')).toContainText('Untimed sessions ignore the minutes value');
@@ -908,7 +958,9 @@ test.describe('BoardPrep learner browser acceptance', () => {
           }
         } catch (error) {
           if (error?.name === 'TimeoutError') {
-            throw new Error(`Bounded no-JavaScript /quiz POST ${submitPhase} timed out; ${JSON.stringify(quizPostState)}.`);
+            let submitControl = null;
+            try { submitControl = await getSubmitControlDiagnostics(); } catch { submitControl = { diagnosticStatus: 'unavailable' }; }
+            throw new Error(`Bounded no-JavaScript /quiz POST ${submitPhase} timed out; lifecycle=${JSON.stringify(quizPostState)}; submitControl=${JSON.stringify(submitControl)}.`);
           }
           throw error;
         } finally {

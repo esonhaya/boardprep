@@ -256,6 +256,15 @@ test('browser failure reports retain exact overflow offender geometry and no-Jav
   assert.match(learnerSpec, /test\.setTimeout\(150_000\)/);
   assert.match(learnerSpec, /Bounded no-JavaScript \/quiz POST lifecycle wait expired; \$\{JSON\.stringify\(quizPostState\)\}/,
     'no-JavaScript POST timeouts must retain sanitized request-lifecycle evidence');
+  const noJsDiagnosticStart = learnerSpec.indexOf('const getSubmitControlDiagnostics');
+  const noJsDiagnosticEnd = learnerSpec.indexOf('      try {', noJsDiagnosticStart);
+  assert.ok(noJsDiagnosticStart >= 0 && noJsDiagnosticEnd > noJsDiagnosticStart,
+    'no-JavaScript click failures must collect a bounded submit-control diagnostic');
+  const noJsDiagnosticSource = learnerSpec.slice(noJsDiagnosticStart, noJsDiagnosticEnd);
+  assert.match(noJsDiagnosticSource, /elementFromPoint/);
+  assert.match(noJsDiagnosticSource, /validity\.valid/);
+  assert.doesNotMatch(noJsDiagnosticSource, /\.value\b|\.textContent\b|\.innerHTML\b/,
+    'submit-control diagnostics must not collect submitted values or rendered private text');
   for (const field of ['submitPhase', 'requestStarted', 'requestFailed', 'responseObserved', 'responseStatus', 'requestFinished', 'navigationPath', 'failureCode']) {
     assert.ok(learnerSpec.includes(field), `no-JavaScript POST diagnostics omitted ${field}`);
   }
@@ -467,6 +476,8 @@ test('review evidence wraps long source snapshots and evidence-state grids at mo
   assert.match(css, /\.pilot-evidence-states>\*\{min-width:0;overflow-wrap:anywhere\}/);
   assert.match(css, /\.batch716-source-row p\{overflow-wrap:anywhere\}/,
     'long source evidence paragraphs must wrap within their narrow detail row');
+  assert.match(css, /\.pilot-review-grid p,\.pilot-source-dossier summary,\.batch716-source-row summary\{min-width:0;overflow-wrap:anywhere\}/,
+    'reviewer summaries and paragraphs must wrap long source labels within their measured mobile containers');
   assert.match(css, /\.academic-review-printable pre\{max-width:100%;white-space:pre-wrap;overflow-wrap:anywhere\}/);
   assert.match(css, /@media\(max-width:768px\)\{\.pilot-evidence-states\{grid-template-columns:minmax\(0,1fr\)\}\}/);
 });

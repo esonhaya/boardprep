@@ -170,5 +170,6 @@ button:disabled{cursor:not-allowed;opacity:.65}
 /* Keep restricted review evidence readable on narrow screens without clipping content. */
 .pilot-evidence-states>*{min-width:0;overflow-wrap:anywhere}
 .batch716-source-row p{overflow-wrap:anywhere}
+.pilot-review-grid p,.pilot-source-dossier summary,.batch716-source-row summary{min-width:0;overflow-wrap:anywhere}
 .academic-review-printable pre{max-width:100%;white-space:pre-wrap;overflow-wrap:anywhere}
 @media(max-width:768px){.pilot-evidence-states{grid-template-columns:minmax(0,1fr)}}
