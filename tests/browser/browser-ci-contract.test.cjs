@@ -254,6 +254,10 @@ test('browser failure reports retain exact overflow offender geometry and no-Jav
   assert.match(overflowDiagnostics, /candidates\.slice\(0, 8\)/, 'failure output must cap the number of detailed offenders');
   assert.match(learnerSpec, /const serverSubmissionTimeoutMs = 60_000/);
   assert.match(learnerSpec, /test\.setTimeout\(150_000\)/);
+  assert.match(learnerSpec, /await noJsPage\.mouse\.wheel\(0, noJsPage\.viewportSize\(\)\.height \* 8\)/,
+    'the long no-JavaScript settings page must be scrolled by browser input before the submit click');
+  assert.match(learnerSpec, /await expect\(submitButton\)\.toBeInViewport\(\)/,
+    'the no-JavaScript submit test must confirm the button is on screen before clicking');
   assert.match(learnerSpec, /Bounded no-JavaScript \/quiz POST lifecycle wait expired; \$\{JSON\.stringify\(quizPostState\)\}/,
     'no-JavaScript POST timeouts must retain sanitized request-lifecycle evidence');
   assert.match(learnerSpec, /form\.getAttribute\('action'\)/,

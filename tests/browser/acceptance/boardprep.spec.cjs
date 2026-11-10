@@ -945,7 +945,14 @@ test.describe('BoardPrep learner browser acceptance', () => {
         let timeoutId;
         let submitPhase = 'submit-click';
         try {
-          await noJsPage.locator('#start-session-button').click({ noWaitAfter: true, timeout: serverSubmissionTimeoutMs });
+          const submitButton = noJsPage.locator('#start-session-button');
+          // The no-JavaScript settings page is tall; scroll as a learner would
+          // before clicking so this test exercises submission rather than
+          // depending on Playwright's auto-scroll actionability loop.
+          await noJsPage.mouse.move(683, 384);
+          await noJsPage.mouse.wheel(0, noJsPage.viewportSize().height * 8);
+          await expect(submitButton).toBeInViewport();
+          await submitButton.click({ noWaitAfter: true, timeout: serverSubmissionTimeoutMs });
           submitPhase = 'post-response';
           const timedResponse = new Promise((resolve) => {
             timeoutId = setTimeout(() => resolve(null), serverSubmissionTimeoutMs);
