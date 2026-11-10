@@ -280,6 +280,10 @@ test('browser failure reports retain exact overflow offender geometry and no-Jav
   const noJsDiagnosticSource = learnerSpec.slice(noJsDiagnosticStart, noJsDiagnosticEnd);
   assert.match(noJsDiagnosticSource, /elementFromPoint/);
   assert.match(noJsDiagnosticSource, /validity\.valid/);
+  assert.doesNotMatch(noJsDiagnosticSource, /requestAnimationFrame/,
+    'no-JavaScript diagnostics must not wait for page animation callbacks that are disabled with page scripts');
+  assert.match(learnerSpec, /await noJsPage\.waitForTimeout\(50\)/,
+    'submit-control stability samples must use Playwright-side timing in a JavaScript-disabled context');
   assert.doesNotMatch(noJsDiagnosticSource, /\.value\b|\.textContent\b|\.innerHTML\b/,
     'submit-control diagnostics must not collect submitted values or rendered private text');
   const responsiveDiagnosticStart = learnerSpec.indexOf('async function assertResponsiveSurface');

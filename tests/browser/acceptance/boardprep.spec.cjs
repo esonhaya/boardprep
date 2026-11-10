@@ -875,7 +875,7 @@ test.describe('BoardPrep learner browser acceptance', () => {
       const context = await browser.newContext({ javaScriptEnabled: false, baseURL: 'http://127.0.0.1:4173' });
       const noJsPage = await context.newPage();
       let scrollObservation = null;
-      const getSubmitControlDiagnostics = async () => noJsPage.evaluate(async () => {
+      const getSubmitControlDiagnostics = async () => noJsPage.evaluate(() => {
         const button = document.querySelector('#start-session-button');
         const rectSnapshot = () => {
           const rect = button?.getBoundingClientRect();
@@ -923,17 +923,6 @@ test.describe('BoardPrep learner browser acceptance', () => {
           });
         }
         const scrollableAncestor = scrollAncestors.find((ancestor) => ancestor.scrollable) || null;
-        const stableRectSamples = [];
-        for (let sample = 0; sample < 3; sample += 1) {
-          await new Promise((resolve) => requestAnimationFrame(resolve));
-          stableRectSamples.push(rectSnapshot());
-        }
-        const numericKeys = ['left', 'right', 'top', 'bottom', 'width', 'height'];
-        const maxRectDelta = stableRectSamples.length > 1
-          ? Math.max(...numericKeys.map((key) => Math.max(...stableRectSamples
-            .slice(1)
-            .map((sample, index) => Math.abs((sample?.[key] ?? 0) - (stableRectSamples[index]?.[key] ?? 0))))))
-          : 0;
         const stickyElements = [...document.querySelectorAll('header, nav, aside, [role="dialog"]')]
           .filter((element) => ['sticky', 'fixed'].includes(getComputedStyle(element).position))
           .slice(0, 8)
@@ -964,7 +953,7 @@ test.describe('BoardPrep learner browser acceptance', () => {
             maxHeight: style?.maxHeight ?? null,
             rect: rectSnapshot(),
             inViewport: Boolean(rect && rect.top >= 0 && rect.bottom <= document.documentElement.clientHeight),
-            stability: { samples: stableRectSamples.length, maxRectDelta, stable: maxRectDelta <= 0.5 },
+            stability: { samples: 1, maxRectDelta: null, stable: null },
           } : { present: false },
           centerHit: hit ? {
             tag: hit.tagName.toLowerCase(),
@@ -1056,7 +1045,22 @@ test.describe('BoardPrep learner browser acceptance', () => {
           // form and records sanitized geometry if scrolling does not settle.
           const beforeScroll = await getSubmitControlDiagnostics();
           if (!beforeScroll.button.inViewport) await submitButton.scrollIntoViewIfNeeded({ timeout: serverSubmissionTimeoutMs });
+          const afterScrollFirst = await getSubmitControlDiagnostics();
+          // Measure stability from Playwright's Node-side clock. Page-side
+          // requestAnimationFrame never fires in this JavaScript-disabled
+          // context, so diagnostics must not await it.
+          await noJsPage.waitForTimeout(50);
           const afterScroll = await getSubmitControlDiagnostics();
+          const rectKeys = ['left', 'right', 'top', 'bottom', 'width', 'height'];
+          const hasRectSamples = Boolean(afterScrollFirst.button?.rect && afterScroll.button?.rect);
+          const maxRectDelta = hasRectSamples
+            ? Math.max(...rectKeys.map((key) => Math.abs(afterScroll.button.rect[key] - afterScrollFirst.button.rect[key])))
+            : null;
+          afterScroll.button.stability = {
+            samples: 2,
+            maxRectDelta,
+            stable: hasRectSamples && maxRectDelta <= 0.5,
+          };
           expect(afterScroll.button.inViewport,
             `No-JavaScript submit control remained outside the viewport after browser scrolling: ${JSON.stringify(afterScroll)}`)
             .toBeTruthy();
