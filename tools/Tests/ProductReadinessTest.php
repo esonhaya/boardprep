@@ -95,6 +95,43 @@ $humanStatuses = (array) ($report['human_acceptance_matrix']['status_by_case'] ?
 $assert(count($humanStatuses) === 12
     && count(array_filter($humanStatuses, static fn(mixed $status): bool => $status === 'NOT_RUN')) === 12,
     'Automated evidence must preserve all twelve human statuses as NOT_RUN until testers record outcomes.');
+$collectionSummary = (array) ($report['evidence_collection_summary'] ?? []);
+$assert(($collectionSummary['required_item_count'] ?? null) === 5
+    && ($collectionSummary['unguided_required_items'] ?? null) === [],
+    'Every mandatory evidence item must have an explicit collection path without changing its gate status.');
+$guidanceByEvidence = [];
+foreach ((array) ($report['mandatory_launch_evidence'] ?? []) as $evidence) {
+    if (is_array($evidence)) $guidanceByEvidence[(string) ($evidence['EVIDENCE'] ?? '')] = $evidence;
+}
+foreach ([
+    'Human acceptance MVP-01 through MVP-12 on a real browser/device' => 'HUMAN_DEVICE_SESSION',
+    'Real-browser mobile visual, overflow, keyboard, and accessibility behavior' => 'EXACT_COMMIT_BROWSER_PLUS_HUMAN_ASSISTIVE_TECHNOLOGY',
+    'Site-specific privacy terms, operator contact, retention, and deletion process' => 'OWNER_AND_PROVIDER_POLICY_REVIEW',
+    'Live HTTPS deployment, provider PHP/extensions, session cookie, filesystem permissions, and routes' => 'LIVE_HOST_AND_PROVIDER_VERIFICATION',
+    'Per-board full learner journeys for all ten boards' => 'AUTOMATED_PRODUCTION_HTTP_FIXTURE_MATRIX',
+] as $evidenceName => $method) {
+    $item = $guidanceByEvidence[$evidenceName] ?? [];
+    $guidance = (array) ($item['collection_guidance'] ?? []);
+    $assert(($guidance['collection_method'] ?? '') === $method
+        && trim((string) ($guidance['responsible_party'] ?? '')) !== ''
+        && trim((string) ($guidance['next_action'] ?? '')) !== '',
+        "Mandatory evidence '{$evidenceName}' lacks a useful collection owner/action.");
+}
+$assert(($guidanceByEvidence['Human acceptance MVP-01 through MVP-12 on a real browser/device']['STATUS'] ?? '') === 'NOT_VERIFIED'
+    && ($guidanceByEvidence['Site-specific privacy terms, operator contact, retention, and deletion process']['STATUS'] ?? '') === 'NOT_VERIFIED'
+    && ($guidanceByEvidence['Live HTTPS deployment, provider PHP/extensions, session cookie, filesystem permissions, and routes']['STATUS'] ?? '') === 'NOT_VERIFIED',
+    'Adding collection guidance must not promote human, privacy, or hosted acceptance.');
+$assert(($report['product_launch_ready'] ?? true) === false,
+    'Evidence guidance must not make Product Readiness pass while required acceptance remains incomplete.');
+$plainLines = [];
+$plainStatus = 0;
+exec(escapeshellarg(PHP_BINARY) . ' ' . escapeshellarg($root . '/tools/product-readiness.php') . ' 2>/dev/null', $plainLines, $plainStatus);
+$plainReport = implode("\n", $plainLines);
+$assert($plainStatus === 1
+    && str_contains($plainReport, 'EVIDENCE_ACTION=NOT_VERIFIED|METHOD=HUMAN_DEVICE_SESSION|RESPONSIBLE=')
+    && str_contains($plainReport, 'METHOD=OWNER_AND_PROVIDER_POLICY_REVIEW')
+    && str_contains($plainReport, 'METHOD=LIVE_HOST_AND_PROVIDER_VERIFICATION'),
+    'Human-readable readiness output must identify next evidence owners without changing the blocking result.');
 $assert(in_array('app/Controllers/DataHandlingController.php', (array) ($report['inventory']['controllers'] ?? []), true), 'Data handling controller is missing from the inventory.');
 $assert(in_array('tools/Tests/StudyLibraryNavigationTest.php', (array) ($report['inventory']['tests'] ?? []), true), 'Study navigation integration test is missing from the inventory.');
 $assert(count((array) ($report['board_assessment'] ?? [])) === 10, 'Board-by-board evidence rows are incomplete.');

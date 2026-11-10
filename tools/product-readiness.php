@@ -321,21 +321,74 @@ $browserValidationStatus = $browserExecutionVerified
         default => 'NOT_VERIFIED',
     };
 
+$evidenceGuidance = [
+    'Human acceptance MVP-01 through MVP-12 on a real browser/device' => [
+        'collection_method' => 'HUMAN_DEVICE_SESSION',
+        'responsible_party' => 'Human tester using the acceptance guide on a real browser/device',
+        'automation_suffices' => false,
+        'automated_portion' => 'None; automated routes and browser assertions cannot record human comprehension or completion.',
+        'next_action' => 'Run and record each of MVP-01 through MVP-12 in docs/HUMAN_TESTER_READINESS.md; leave unrun cases NOT_RUN.',
+    ],
+    'Real-browser mobile visual, overflow, keyboard, and accessibility behavior' => [
+        'collection_method' => 'EXACT_COMMIT_BROWSER_PLUS_HUMAN_ASSISTIVE_TECHNOLOGY',
+        'responsible_party' => 'QA on a supported browser host, plus a human tester for assistive technology/device behavior',
+        'automation_suffices' => false,
+        'automated_portion' => 'A successful current-commit Chromium workflow can verify rendered viewports and scripted keyboard assertions; it does not establish screen-reader behavior or WCAG conformance.',
+        'next_action' => 'Record exact-SHA browser evidence, then separately document human keyboard, screen-reader, and target-device observations.',
+    ],
+    'Site-specific privacy terms, operator contact, retention, and deletion process' => [
+        'collection_method' => 'OWNER_AND_PROVIDER_POLICY_REVIEW',
+        'responsible_party' => 'Deployment owner with the hosting/provider details needed for their own policy review',
+        'automation_suffices' => false,
+        'automated_portion' => 'Configuration can be checked for completeness; automation cannot establish the operator identity, policy accuracy, or owner approval.',
+        'next_action' => 'Supply and approve site-specific operator/contact, retention, deletion, hosting/log, and backup terms; do not infer or reuse placeholder values.',
+    ],
+    'Live HTTPS deployment, provider PHP/extensions, session cookie, filesystem permissions, and routes' => [
+        'collection_method' => 'LIVE_HOST_AND_PROVIDER_VERIFICATION',
+        'responsible_party' => 'Deployment operator with the hosting provider',
+        'automation_suffices' => false,
+        'automated_portion' => 'A hosted smoke can measure configured endpoints and runtime behavior only after a real deployment target is authorized and available.',
+        'next_action' => 'On an authorized live host, verify HTTPS, PHP/extensions, cookie flags, private storage permissions, and production routes; retain exact-host evidence.',
+    ],
+    'Per-board full learner journeys for all ten boards' => [
+        'collection_method' => 'AUTOMATED_PRODUCTION_HTTP_FIXTURE_MATRIX',
+        'responsible_party' => 'Local/CI test runner executing TenBoardLearnerJourneyHttpTest.php',
+        'automation_suffices' => true,
+        'automated_portion' => 'The isolated production-route HTTP matrix verifies the configured representative flow for each board.',
+        'next_action' => 'Keep the ten-board test registered and run it for application-affecting changes; this result does not satisfy human or rendered-browser evidence.',
+    ],
+];
+$unguidedMandatoryEvidence = [];
+$collectionMethodCounts = [];
 $mandatoryEvidence = (array) ($register['mandatory_launch_evidence'] ?? []);
 foreach ($mandatoryEvidence as &$evidence) {
-    if (!is_array($evidence)
-        || ($evidence['EVIDENCE'] ?? '') !== 'Real-browser mobile visual, overflow, keyboard, and accessibility behavior') {
+    if (!is_array($evidence)) {
         continue;
     }
 
-    if ($browserExecutionVerified) {
-        $evidence['STATUS'] = 'PASS';
-        $evidence['REASON'] = 'GitHub Actions run ' . (string) ($browserEvidenceResult['run_id'] ?? 'unknown')
-            . ' completed successfully on application commit ' . (string) ($browserEvidenceResult['application_commit'] ?? 'unknown')
-            . '; evidence is accepted because the assessed commit is exact or all descendants change docs/ files only. Automated Chromium does not establish screen-reader behavior or WCAG conformance.';
+    $evidenceName = (string) ($evidence['EVIDENCE'] ?? '');
+    $guidance = $evidenceGuidance[$evidenceName] ?? null;
+    if ($guidance === null) {
+        if (($evidence['REQUIRED'] ?? false) === true) {
+            $unguidedMandatoryEvidence[] = $evidenceName !== '' ? $evidenceName : 'unnamed evidence';
+            $invalidFeatures[] = 'mandatory launch evidence has no collection guidance';
+        }
     } else {
-        $evidence['STATUS'] = 'NOT_VERIFIED';
-        $evidence['REASON'] = (string) ($browserEvidenceResult['reason'] ?? 'No verifiable Chromium workflow evidence is registered.');
+        $evidence['collection_guidance'] = $guidance;
+        $method = $guidance['collection_method'];
+        $collectionMethodCounts[$method] = ($collectionMethodCounts[$method] ?? 0) + 1;
+    }
+
+    if ($evidenceName === 'Real-browser mobile visual, overflow, keyboard, and accessibility behavior') {
+        if ($browserExecutionVerified) {
+            $evidence['STATUS'] = 'PASS';
+            $evidence['REASON'] = 'GitHub Actions run ' . (string) ($browserEvidenceResult['run_id'] ?? 'unknown')
+                . ' completed successfully on application commit ' . (string) ($browserEvidenceResult['application_commit'] ?? 'unknown')
+                . '; evidence is accepted because the assessed commit is exact or all descendants change docs/ files only. Automated Chromium does not establish screen-reader behavior or WCAG conformance.';
+        } else {
+            $evidence['STATUS'] = 'NOT_VERIFIED';
+            $evidence['REASON'] = (string) ($browserEvidenceResult['reason'] ?? 'No verifiable Chromium workflow evidence is registered.');
+        }
     }
 }
 unset($evidence);
@@ -460,6 +513,11 @@ $report = [
     'open_findings' => $openFindings,
     'blocking_missing_capabilities' => $blockingCapabilities,
     'mandatory_evidence_not_passed' => $missingEvidence,
+    'evidence_collection_summary' => [
+        'required_item_count' => count(array_filter($mandatoryEvidence, static fn(mixed $evidence): bool => is_array($evidence) && ($evidence['REQUIRED'] ?? false) === true)),
+        'collection_method_counts' => $collectionMethodCounts,
+        'unguided_required_items' => $unguidedMandatoryEvidence,
+    ],
     'invalid_register_entries' => $invalidFeatures,
     'feature_assessment' => $register['feature_assessment'] ?? [],
     'board_assessment' => $register['board_assessment'] ?? [],
@@ -488,6 +546,17 @@ if ($jsonOutput) {
     echo 'MANDATORY_EVIDENCE_NOT_PASSED=' . count($missingEvidence) . PHP_EOL;
     if ($missingEvidence !== []) {
         echo 'NEXT_EVIDENCE=' . implode(' | ', $missingEvidence) . PHP_EOL;
+    }
+    foreach ($mandatoryEvidence as $evidence) {
+        if (!is_array($evidence) || ($evidence['REQUIRED'] ?? false) !== true || ($evidence['STATUS'] ?? '') === 'PASS') {
+            continue;
+        }
+        $guidance = (array) ($evidence['collection_guidance'] ?? []);
+        echo 'EVIDENCE_ACTION=' . (string) ($evidence['STATUS'] ?? 'INVALID')
+            . '|METHOD=' . (string) ($guidance['collection_method'] ?? 'UNMAPPED')
+            . '|RESPONSIBLE=' . (string) ($guidance['responsible_party'] ?? 'UNMAPPED')
+            . '|NEXT=' . (string) ($guidance['next_action'] ?? 'Add reviewed collection guidance.')
+            . PHP_EOL;
     }
 }
 
