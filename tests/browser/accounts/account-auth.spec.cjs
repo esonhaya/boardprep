@@ -7,6 +7,7 @@ const crypto = require('node:crypto');
 const { execFileSync, spawn } = require('node:child_process');
 const { test, expect } = require('@playwright/test');
 const { privateFixturePathFor } = require('../private-fixture-path.cjs');
+const { readPrivateAccountFixture } = require('./private-fixture-handoff.cjs');
 
 // Authentication journeys mutate rate limits and durable fixture accounts.
 // Retrying the same journey against that state can turn the first failure into
@@ -214,21 +215,6 @@ test('isolated mobile account journeys preserve authentication and learner owner
   const usernameLimit = 'limit-' + seed;
   const evidenceDirectory = path.resolve(process.env.BOARDPREP_BROWSER_EVIDENCE_DIR || fs.mkdtempSync(path.join(os.tmpdir(), 'boardprep-account-browser-')));
   const fixtureManifestPath = privateFixturePathFor(evidenceDirectory);
-  if (!fs.existsSync(fixtureManifestPath)) throw new Error('The isolated account fixture handoff is missing.');
-  const fixtureManifestStat = fs.lstatSync(fixtureManifestPath);
-  expect(fixtureManifestStat.isFile() && !fixtureManifestStat.isSymbolicLink()).toBe(true);
-  expect(fixtureManifestStat.mode & 0o077).toBe(0);
-  const privateFixture = JSON.parse(fs.readFileSync(fixtureManifestPath, 'utf8'));
-  const accountFixture = privateFixture.accountAuth;
-  const authStorage = accountFixture?.storage;
-  const authSessionStorage = accountFixture?.sessions;
-  if (typeof authStorage !== 'string' || !path.isAbsolute(authStorage)) throw new Error('The isolated account fixture path is invalid.');
-  if (typeof authSessionStorage !== 'string' || !path.isAbsolute(authSessionStorage)
-    || path.dirname(path.resolve(authStorage)) !== path.dirname(path.resolve(authSessionStorage))
-    || path.basename(path.resolve(authSessionStorage)) !== 'account-auth-sessions'
-    || !path.resolve(authSessionStorage).startsWith(path.resolve(os.tmpdir()) + path.sep)) {
-    throw new Error('The synthetic PHP session fixture path is unsafe.');
-  }
   const mode = process.env.BOARDPREP_EXPLORER_MODE || 'browser-acceptance';
   const maxDurationMs = mode === 'smoke' ? 180000 : 300000;
   const startedAt = Date.now();
@@ -246,12 +232,15 @@ test('isolated mobile account journeys preserve authentication and learner owner
     unexpected_origins: [],
     viewports_tested: ['320x568', '360x800', '390x844', '430x932', '768x1024'],
     scenarios: [],
+    diagnostics: [],
     confirmed_defects: [],
     routes_visited: [],
     actions_executed: 0,
   };
   const contexts = [];
   reportSensitiveValues.clear();
+  let authStorage = '';
+  let authSessionStorage = '';
   const trackPage = (trackedPage) => trackedPage.on('framenavigated', (frame) => {
     if (frame !== trackedPage.mainFrame()) return;
     const url = new URL(frame.url());
@@ -279,28 +268,36 @@ test('isolated mobile account journeys preserve authentication and learner owner
     explorerReport.status = status;
     if (failure) {
       const observed = sanitizedFailure(failure);
-      const serverCategory = observed.match(/\b(?:BACKUP|RESTORE|ACCOUNT|CLI|DEPENDENCY)_[A-Z0-9_]+/)?.[0]
-        || 'ASSERTION_OR_NAVIGATION_FAILURE';
-      const lastCompletedScenario = explorerReport.scenarios.at(-1)?.id || null;
-      const failureRoute = new URL(page.url()).pathname;
-      explorerReport.confirmed_defects.push({
-        code: 'ACCOUNT_JOURNEY_ASSERTION',
-        scenario: lastCompletedScenario
-          ? 'action following ' + lastCompletedScenario
-          : 'journey initialization at ' + failureRoute,
-        last_completed_scenario: lastCompletedScenario,
-        route: failureRoute,
-        expected_actual_result: observed,
-        server_exception_category: serverCategory,
-        reproduction_steps: explorerReport.scenarios.slice(-6).map(({ id, route, observed: step }) => ({ id, route, observed: step })),
-      });
-      const target = path.join(evidenceDirectory, 'account-explorer-failure.png');
-      await page.screenshot({
-        path: target,
-        fullPage: true,
-        mask: [page.locator('main'), page.locator('input'), page.locator('.recovery-code-list'), page.locator('.account-page dl dd'), page.locator('.quiz-question, .result-answer-review, .flashcard-card, .flashcard-answer')],
-      }).catch(() => undefined);
-      explorerReport.confirmed_defects[0].screenshot = path.basename(target);
+      const fixtureDiagnosticCode = /^ACCOUNT_FIXTURE_[A-Z_]+$/.test(String(failure.code || ''))
+        ? String(failure.code)
+        : null;
+      if (status === 'INCOMPLETE' && fixtureDiagnosticCode) {
+        explorerReport.diagnostics.push({ code: fixtureDiagnosticCode, observed });
+      } else {
+        const serverCategory = observed.match(/\b(?:BACKUP|RESTORE|ACCOUNT|CLI|DEPENDENCY)_[A-Z0-9_]+/)?.[0]
+          || 'ASSERTION_OR_NAVIGATION_FAILURE';
+        const lastCompletedScenario = explorerReport.scenarios.at(-1)?.id || null;
+        const failureRoute = new URL(page.url()).pathname;
+        const defect = {
+          code: 'ACCOUNT_JOURNEY_ASSERTION',
+          scenario: lastCompletedScenario
+            ? 'action following ' + lastCompletedScenario
+            : 'journey initialization at ' + failureRoute,
+          last_completed_scenario: lastCompletedScenario,
+          route: failureRoute,
+          expected_actual_result: observed,
+          server_exception_category: serverCategory,
+          reproduction_steps: explorerReport.scenarios.slice(-6).map(({ id, route, observed: step }) => ({ id, route, observed: step })),
+        };
+        explorerReport.confirmed_defects.push(defect);
+        const target = path.join(evidenceDirectory, 'account-explorer-failure.png');
+        await page.screenshot({
+          path: target,
+          fullPage: true,
+          mask: [page.locator('main'), page.locator('input'), page.locator('.recovery-code-list'), page.locator('.account-page dl dd'), page.locator('.quiz-question, .result-answer-review, .flashcard-card, .flashcard-answer')],
+        }).catch(() => undefined);
+        defect.screenshot = path.basename(target);
+      }
     }
     fs.mkdirSync(evidenceDirectory, { recursive: true });
     fs.writeFileSync(path.join(evidenceDirectory, 'account-explorer.json'), JSON.stringify(explorerReport, null, 2) + '\n', { mode: 0o600 });
@@ -320,6 +317,10 @@ test('isolated mobile account journeys preserve authentication and learner owner
       ...explorerReport.confirmed_defects.map((item) => '- ' + item.code + ' at ' + item.route + ' (' + item.scenario + '): ' + item.expected_actual_result),
       explorerReport.confirmed_defects.length ? '' : '- None observed.',
       '',
+      '## Infrastructure diagnostics',
+      ...explorerReport.diagnostics.map((item) => '- ' + item.code + ': ' + item.observed),
+      explorerReport.diagnostics.length ? '' : '- None observed.',
+      '',
       'This report contains no usernames, passwords, recovery codes, session IDs, or learner records.',
       '',
     ].join('\n');
@@ -327,6 +328,7 @@ test('isolated mobile account journeys preserve authentication and learner owner
   };
 
   try {
+    ({ authStorage, authSessionStorage } = readPrivateAccountFixture(fixtureManifestPath));
     await expect.poll(async () => {
       try {
         return (await page.request.get(AUTH + '/account/login')).status();
@@ -703,7 +705,8 @@ test('isolated mobile account journeys preserve authentication and learner owner
     await recordReport('PASS');
   } catch (error) {
     explorerReport.scenarios_executed = explorerReport.scenarios.length;
-    await recordReport('FAIL', error);
+    const setupIncomplete = /^ACCOUNT_FIXTURE_[A-Z_]+$/.test(String(error.code || ''));
+    await recordReport(setupIncomplete ? 'INCOMPLETE' : 'FAIL', error);
     throw error;
   } finally {
     for (const context of contexts) await context.close().catch(() => undefined);

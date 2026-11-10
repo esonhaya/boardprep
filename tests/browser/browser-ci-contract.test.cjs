@@ -75,6 +75,39 @@ test('all automated workflows pin external actions and acceptance covers calenda
   assert.match(releaseWorkflow, /BOARDPREP_BACKUP_TEST_DRIVER:\s*\$\{\{\s*matrix\.backup_test_driver/);
 });
 
+test('Site Explorer reports are exact-commit, coverage-complete, and exclude raw browser artifacts', () => {
+  const workflow = fs.readFileSync(path.join(root, '.github/workflows/site-explorer.yml'), 'utf8');
+  const runner = fs.readFileSync(path.join(root, 'tools/run-site-explorer.cjs'), 'utf8');
+  const accountRunner = fs.readFileSync(path.join(root, 'tools/run-account-explorer.cjs'), 'utf8');
+  const explorer = fs.readFileSync(path.join(root, 'tests/browser/explorer/site-explorer.spec.cjs'), 'utf8');
+  const accountSpec = fs.readFileSync(path.join(root, 'tests/browser/accounts/account-auth.spec.cjs'), 'utf8');
+  const reportContract = fs.readFileSync(path.join(root, 'tools/explorer-report-contract.cjs'), 'utf8');
+
+  assert.match(workflow, /!\$\{\{ runner\.temp \}\}\/boardprep-site-explorer\/[\s\S]*?\/test-results\/\*\*/,
+    'raw Playwright test results and traces must not be uploaded as sanitized explorer evidence');
+  assert.match(workflow, /!\$\{\{ runner\.temp \}\}\/boardprep-site-explorer\/[\s\S]*?\/playwright-report\/\*\*/);
+  assert.match(workflow, /\*\*\/\*\.html/,
+    'unfiltered DOM snapshots must stay out of uploaded explorer evidence');
+  assert.match(workflow, /\$\{\{ github\.run_attempt \}\}\.private\.json/,
+    'the private fixture sidecar must be explicitly excluded from uploads');
+  assert.match(runner, /writeMissingReport/);
+  assert.match(accountRunner, /writeMissingReport/);
+  assert.match(runner, /expectedCommit:\s*testedCommit/);
+  assert.match(accountRunner, /expectedCommit:\s*testedCommit/);
+  assert.match(accountSpec, /diagnostics:\s*\[\]/);
+  assert.match(accountSpec, /status === 'INCOMPLETE' && fixtureDiagnosticCode/,
+    'a private fixture handoff failure must be reported as incomplete infrastructure, not a learner defect');
+  const reportInitialization = accountSpec.indexOf('const explorerReport = {');
+  const handoffRead = accountSpec.indexOf('= readPrivateAccountFixture(fixtureManifestPath)');
+  assert.ok(reportInitialization >= 0 && handoffRead > reportInitialization,
+    'account explorer must initialize failure reporting before it validates the private fixture handoff');
+  assert.match(reportContract, /PLAYWRIGHT_REPORT_NOT_EMITTED/);
+  assert.match(reportContract, /REQUIRED_BOARD_COVERAGE_MISSING/);
+  assert.match(explorer, /boardCoverageIncomplete/);
+  assert.match(explorer, /pageLimitExceeded \|\| actionLimitExceeded \|\| boardCoverageIncomplete/,
+    'a bounded partial exploration must not be reported as a pass');
+});
+
 test('browser evidence contracts cover isolated data, desktop/mobile access paths, and retained diagnostics', () => {
   const workflow = fs.readFileSync(path.join(root, '.github/workflows/browser-acceptance.yml'), 'utf8');
   const config = fs.readFileSync(path.join(root, 'tests/browser/playwright.config.cjs'), 'utf8');
@@ -140,8 +173,8 @@ test('credential-bearing browser flows keep private handoffs and traces out of u
   assert.match(reviewerSeed, /BOARDPREP_SYNTHETIC_REVIEWER_PASSWORD/);
   assert.match(reviewerSeed, /account-learner-\[a-f0-9\]\{32\}/);
   assert.match(accountSpec, /fixtureManifestPath = privateFixturePathFor\(evidenceDirectory\)/);
-  assert.match(accountSpec, /privateFixture\.accountAuth/,
-    'account lifecycle tests must use the isolated account storage handoff');
+  assert.match(accountSpec, /\(\{\s*authStorage,\s*authSessionStorage\s*\}\s*=\s*readPrivateAccountFixture\(fixtureManifestPath\)\)/,
+    'account lifecycle tests must read isolated storage through the validated private handoff');
   assert.match(accountSpec, /127\.0\.0\.1:4176/,
     'account lifecycle browser routes must stay on the isolated loopback server');
   assert.match(runner, /privateFixturePathFor\(evidenceDirectory\)/);

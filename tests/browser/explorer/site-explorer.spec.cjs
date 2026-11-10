@@ -104,6 +104,7 @@ test('bounded stateful BoardPrep journey exploration', async ({ page }, testInfo
   const maxPages = Number.parseInt(process.env.BOARDPREP_EXPLORER_MAX_PAGES || (mode === 'smoke' ? '60' : '100'), 10);
   const maxActions = Number.parseInt(process.env.BOARDPREP_EXPLORER_MAX_ACTIONS || (mode === 'smoke' ? '180' : '320'), 10);
   const maxDurationMs = Number.parseInt(process.env.BOARDPREP_EXPLORER_MAX_DURATION_MS || (mode === 'smoke' ? '180000' : '540000'), 10);
+  const requiredBoardCount = mode === 'smoke' ? 2 : BOARDS.length;
   const started = Date.now();
   const evidenceDir = path.resolve(process.env.BOARDPREP_EXPLORER_EVIDENCE_DIR || path.join(os.tmpdir(), 'boardprep-site-explorer'));
   fs.mkdirSync(evidenceDir, { recursive: true });
@@ -116,6 +117,7 @@ test('bounded stateful BoardPrep journey exploration', async ({ page }, testInfo
     seed,
     mode,
     limits: { max_pages: maxPages, max_actions: maxActions, max_duration_ms: maxDurationMs, concurrency: 1 },
+    coverage_requirements: { required_board_count: requiredBoardCount },
     viewport: '1366x768',
     routes_visited: [],
     forms_exercised: [],
@@ -534,11 +536,12 @@ test('bounded stateful BoardPrep journey exploration', async ({ page }, testInfo
       httpErrorKeys.add(key);
       await addDefect('UNEXPECTED_HTTP_ERROR', `HTTP ${item.status} for an internal ${item.resource_type} request.`, { route: item.route, failed_url: item.url });
     }
-    if (evidence.boards_covered.length < (mode === 'smoke' ? 2 : BOARDS.length)) {
-      evidence.untested_paths.push(`Board coverage stopped at ${evidence.boards_covered.length}/${mode === 'smoke' ? 2 : BOARDS.length} due to a configured time or action budget.`);
-    }
     evidence.boards_covered = [...new Set(evidence.boards_covered)];
     evidence.board_subject_combinations = [...new Set(evidence.board_subject_combinations)];
+    const boardCoverageIncomplete = evidence.boards_covered.length < requiredBoardCount;
+    if (boardCoverageIncomplete) {
+      evidence.untested_paths.push(`Board coverage stopped at ${evidence.boards_covered.length}/${requiredBoardCount} due to a configured time or action budget.`);
+    }
     const pageLimitExceeded = evidence.routes_visited.length > maxPages;
     const actionLimitExceeded = evidence.actions_executed > maxActions;
     if (pageLimitExceeded || actionLimitExceeded) {
@@ -546,12 +549,15 @@ test('bounded stateful BoardPrep journey exploration', async ({ page }, testInfo
     }
     evidence.status = evidence.confirmed_defects.length
       ? 'FAIL'
-      : (pageLimitExceeded || actionLimitExceeded
+      : (pageLimitExceeded || actionLimitExceeded || boardCoverageIncomplete
         ? 'INCOMPLETE'
         : (evidence.review_cues.length ? 'PASS_WITH_REVIEW_CUES' : 'PASS'));
     if (evidence.confirmed_defects.length) {
       console.error(`EXPLORER_CONFIRMED_DEFECTS=${JSON.stringify(evidence.confirmed_defects.map(({ code, observed, route, question_id }) => ({ code, observed, route, question_id })))}`);
       throw new Error(`Explorer confirmed ${evidence.confirmed_defects.length} reproducible defect(s); inspect ${path.join(evidenceDir, 'site-explorer.json')}`);
+    }
+    if (boardCoverageIncomplete) {
+      throw new Error(`Explorer did not cover the required board set (${evidence.boards_covered.length}/${requiredBoardCount}); inspect ${path.join(evidenceDir, 'site-explorer.json')}`);
     }
     if (pageLimitExceeded || actionLimitExceeded) {
       throw new Error(`Explorer exceeded its configured bound; inspect ${path.join(evidenceDir, 'site-explorer.json')}`);

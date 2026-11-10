@@ -6,6 +6,7 @@ const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
 const { spawnSync } = require('node:child_process');
+const { readReport, reportPathFor, writeMissingReport } = require('./explorer-report-contract.cjs');
 
 if (process.platform === 'android') {
   console.error('SITE_EXPLORER=UNAVAILABLE_LOCAL_CHROMIUM');
@@ -14,6 +15,8 @@ if (process.platform === 'android') {
 }
 
 const root = path.resolve(__dirname, '..');
+const commitResult = spawnSync('git', ['rev-parse', 'HEAD'], { cwd: root, encoding: 'utf8' });
+const testedCommit = commitResult.status === 0 ? commitResult.stdout.trim() : 'UNAVAILABLE';
 const modeArg = process.argv.find((argument) => argument.startsWith('--mode='));
 const seedArg = process.argv.find((argument) => argument.startsWith('--seed='));
 const mode = modeArg ? modeArg.split('=')[1] : 'full';
@@ -58,20 +61,52 @@ const result = spawnSync(process.execPath, args, {
   stdio: 'inherit',
 });
 
-const jsonPath = path.join(evidenceDirectory, 'site-explorer.json');
-if (fs.existsSync(jsonPath)) {
-  try {
-    const report = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
-    console.log(`SITE_EXPLORER=${report.status}`);
-    console.log(`SITE_EXPLORER_REPORT=${jsonPath}`);
-    console.log(`SITE_EXPLORER_COMMIT=${report.tested_commit || 'UNVERIFIED'}`);
-  } catch (error) {
-    console.error(`SITE_EXPLORER_REPORT=INVALID ${String(error.message || error)}`);
-  }
-} else {
-  console.error(`SITE_EXPLORER_REPORT=MISSING expected ${jsonPath}`);
-}
 let exitStatus = result.status ?? 1;
+const reportOutcome = (kind, processResult, prefix) => {
+  let outcome = readReport({
+    evidenceDirectory,
+    kind,
+    expectedCommit: testedCommit,
+    expectedMode: mode,
+    expectedSeed: seed,
+  });
+  if (outcome.state === 'MISSING') {
+    try {
+      const fallback = writeMissingReport({
+        evidenceDirectory,
+        kind,
+        testedCommit,
+        mode,
+        seed,
+        processResult,
+      });
+      console.error(`${prefix}_REPORT_DIAGNOSTIC=${fallback.state}`);
+      outcome = readReport({
+        evidenceDirectory,
+        kind,
+        expectedCommit: testedCommit,
+        expectedMode: mode,
+        expectedSeed: seed,
+      });
+    } catch {
+      console.error(`${prefix}_REPORT_DIAGNOSTIC=FALLBACK_WRITE_FAILED`);
+    }
+  }
+  const reportPath = reportPathFor(evidenceDirectory, kind);
+  console.log(`${prefix}=${outcome.ok ? outcome.summary.status : outcome.state}`);
+  console.log(`${prefix}_REPORT=${reportPath}`);
+  console.log(`${prefix}_REPORT_CHECK=${outcome.code}`);
+  if (outcome.summary) {
+    console.log(`${prefix}_COMMIT=${outcome.summary.testedCommit}`);
+    console.log(`${prefix}_ROUTES=${outcome.summary.routeCount}`);
+    if (kind === 'site') console.log(`${prefix}_BOARDS=${outcome.summary.boardCount}`);
+    if (kind === 'account') console.log(`${prefix}_SCENARIOS=${outcome.summary.scenarioCount}`);
+  }
+  if (!outcome.ok) exitStatus = exitStatus || 1;
+  return outcome;
+};
+reportOutcome('site', result, 'SITE_EXPLORER');
+
 console.log('SITE_EXPLORER_SUITE=authentication');
 const authResult = spawnSync(process.execPath, [
   playwrightCli,
@@ -86,22 +121,5 @@ const authResult = spawnSync(process.execPath, [
 });
 if ((authResult.status ?? 1) !== 0) exitStatus = authResult.status ?? 1;
 
-const authJsonPath = path.join(evidenceDirectory, 'account-explorer.json');
-if (fs.existsSync(authJsonPath)) {
-  try {
-    const report = JSON.parse(fs.readFileSync(authJsonPath, 'utf8'));
-    const commit = spawnSync('git', ['rev-parse', 'HEAD'], { cwd: root, encoding: 'utf8' }).stdout.trim();
-    console.log('AUTH_EXPLORER=' + report.status);
-    console.log('AUTH_EXPLORER_SCENARIOS=' + (report.scenarios?.length ?? 0));
-    console.log('AUTH_EXPLORER_REPORT=' + authJsonPath);
-    console.log('AUTH_EXPLORER_COMMIT=' + (report.tested_commit || 'UNVERIFIED'));
-    if (report.status !== 'PASS' || report.tested_commit !== commit) exitStatus = exitStatus || 1;
-  } catch (error) {
-    console.error('AUTH_EXPLORER_REPORT=INVALID ' + String(error.message || error));
-    exitStatus = exitStatus || 1;
-  }
-} else {
-  console.error('AUTH_EXPLORER_REPORT=MISSING expected ' + authJsonPath);
-  exitStatus = exitStatus || 1;
-}
+reportOutcome('account', authResult, 'AUTH_EXPLORER');
 process.exit(exitStatus);

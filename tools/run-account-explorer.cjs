@@ -7,6 +7,7 @@ const os = require('node:os');
 const path = require('node:path');
 const { spawnSync } = require('node:child_process');
 const { privateFixturePathFor } = require('../tests/browser/private-fixture-path.cjs');
+const { readReport, reportPathFor, writeMissingReport } = require('./explorer-report-contract.cjs');
 
 if (process.platform === 'android') {
   console.error('AUTH_EXPLORER=UNAVAILABLE_LOCAL_CHROMIUM');
@@ -15,6 +16,8 @@ if (process.platform === 'android') {
 }
 
 const root = path.resolve(__dirname, '..');
+const commitResult = spawnSync('git', ['rev-parse', 'HEAD'], { cwd: root, encoding: 'utf8' });
+const testedCommit = commitResult.status === 0 ? commitResult.stdout.trim() : 'UNAVAILABLE';
 const modeArg = process.argv.find((argument) => argument.startsWith('--mode='));
 const seedArg = process.argv.find((argument) => argument.startsWith('--seed='));
 const mode = modeArg ? modeArg.split('=')[1] : 'full';
@@ -64,20 +67,33 @@ try {
 
 const reportPath = path.join(evidenceDirectory, 'account-explorer.json');
 if (!fs.existsSync(reportPath)) {
-  console.error('AUTH_EXPLORER_REPORT=MISSING ' + reportPath);
-  process.exit(result.status ?? 1);
+  try {
+    const fallback = writeMissingReport({
+      evidenceDirectory,
+      kind: 'account',
+      testedCommit,
+      mode,
+      seed,
+      processResult: result,
+    });
+    console.error('AUTH_EXPLORER_REPORT_DIAGNOSTIC=' + fallback.state);
+  } catch {
+    console.error('AUTH_EXPLORER_REPORT_DIAGNOSTIC=FALLBACK_WRITE_FAILED');
+  }
 }
-try {
-  const report = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
-  const commit = spawnSync('git', ['rev-parse', 'HEAD'], { cwd: root, encoding: 'utf8' }).stdout.trim();
-  console.log('AUTH_EXPLORER=' + report.status);
-  console.log('AUTH_EXPLORER_SCENARIOS=' + (report.scenarios?.length ?? 0));
-  console.log('AUTH_EXPLORER_REPORT=' + reportPath);
-  console.log('AUTH_EXPLORER_MARKDOWN=' + path.join(evidenceDirectory, 'account-explorer.md'));
-  console.log('AUTH_EXPLORER_COMMIT=' + (report.tested_commit || 'UNVERIFIED'));
-  if (report.status !== 'PASS' || report.tested_commit !== commit) process.exit(result.status || 1);
-} catch (error) {
-  console.error('AUTH_EXPLORER_REPORT=INVALID ' + String(error.message || error));
-  process.exit(1);
+const outcome = readReport({
+  evidenceDirectory,
+  kind: 'account',
+  expectedCommit: testedCommit,
+  expectedMode: mode,
+  expectedSeed: seed,
+});
+console.log('AUTH_EXPLORER=' + (outcome.ok ? outcome.summary.status : outcome.state));
+console.log('AUTH_EXPLORER_REPORT=' + reportPathFor(evidenceDirectory, 'account'));
+console.log('AUTH_EXPLORER_REPORT_CHECK=' + outcome.code);
+if (outcome.summary) {
+  console.log('AUTH_EXPLORER_SCENARIOS=' + outcome.summary.scenarioCount);
+  console.log('AUTH_EXPLORER_COMMIT=' + outcome.summary.testedCommit);
 }
+if (!outcome.ok) process.exit(result.status || 1);
 process.exit(result.status ?? 1);
