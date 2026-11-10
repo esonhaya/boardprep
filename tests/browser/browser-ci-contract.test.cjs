@@ -254,10 +254,14 @@ test('browser failure reports retain exact overflow offender geometry and no-Jav
   assert.match(overflowDiagnostics, /candidates\.slice\(0, 8\)/, 'failure output must cap the number of detailed offenders');
   assert.match(learnerSpec, /const serverSubmissionTimeoutMs = 60_000/);
   assert.match(learnerSpec, /test\.setTimeout\(150_000\)/);
-  assert.match(learnerSpec, /await noJsPage\.mouse\.wheel\(0, noJsPage\.viewportSize\(\)\.height \* 8\)/,
-    'the long no-JavaScript settings page must be scrolled by browser input before the submit click');
-  assert.match(learnerSpec, /await expect\(submitButton\)\.toBeInViewport\(\)/,
-    'the no-JavaScript submit test must confirm the button is on screen before clicking');
+  assert.match(learnerSpec, /await submitButton\.scrollIntoViewIfNeeded\(\{ timeout: serverSubmissionTimeoutMs \}\)/,
+    'the no-JavaScript submit test must use bounded browser scrolling on the actual submit control');
+  assert.match(learnerSpec, /No-JavaScript submit control remained outside the viewport after browser scrolling/,
+    'scroll failure output must include sanitized viewport and control geometry');
+  assert.match(learnerSpec, /No-JavaScript submit control geometry did not stabilize after browser scrolling/,
+    'the submit click must wait for stable control geometry');
+  assert.match(learnerSpec, /await submitButton\.click\(\{ noWaitAfter: true, timeout: serverSubmissionTimeoutMs \}\)/,
+    'the no-JavaScript flow must retain a real user-visible submit click');
   assert.match(learnerSpec, /Bounded no-JavaScript \/quiz POST lifecycle wait expired; \$\{JSON\.stringify\(quizPostState\)\}/,
     'no-JavaScript POST timeouts must retain sanitized request-lifecycle evidence');
   assert.match(learnerSpec, /form\.getAttribute\('action'\)/,
@@ -266,8 +270,11 @@ test('browser failure reports retain exact overflow offender geometry and no-Jav
     'no-JavaScript click timeouts must retain an allowlisted actionability reason');
   assert.match(learnerSpec, /scrollHeight: document\.documentElement\.scrollHeight/);
   assert.match(learnerSpec, /scrollY: Math\.round\(window\.scrollY\)/);
+  for (const field of ['scrollingElement', 'scrollOwner', 'scrollAncestors', 'stickyElements', 'stability', 'minHeight', 'maxHeight']) {
+    assert.ok(learnerSpec.includes(field), `no-JavaScript geometry diagnostics omitted ${field}`);
+  }
   const noJsDiagnosticStart = learnerSpec.indexOf('const getSubmitControlDiagnostics');
-  const noJsDiagnosticEnd = learnerSpec.indexOf('      try {', noJsDiagnosticStart);
+  const noJsDiagnosticEnd = learnerSpec.indexOf('      try {\n        await noJsPage.goto', noJsDiagnosticStart);
   assert.ok(noJsDiagnosticStart >= 0 && noJsDiagnosticEnd > noJsDiagnosticStart,
     'no-JavaScript click failures must collect a bounded submit-control diagnostic');
   const noJsDiagnosticSource = learnerSpec.slice(noJsDiagnosticStart, noJsDiagnosticEnd);
@@ -275,6 +282,17 @@ test('browser failure reports retain exact overflow offender geometry and no-Jav
   assert.match(noJsDiagnosticSource, /validity\.valid/);
   assert.doesNotMatch(noJsDiagnosticSource, /\.value\b|\.textContent\b|\.innerHTML\b/,
     'submit-control diagnostics must not collect submitted values or rendered private text');
+  const responsiveDiagnosticStart = learnerSpec.indexOf('async function assertResponsiveSurface');
+  const responsiveDiagnosticEnd = learnerSpec.indexOf('async function assertVisibleKeyboardFocus', responsiveDiagnosticStart);
+  assert.ok(responsiveDiagnosticStart >= 0 && responsiveDiagnosticEnd > responsiveDiagnosticStart,
+    'responsive control diagnostics must remain an isolated, reviewable helper');
+  const responsiveDiagnosticSource = learnerSpec.slice(responsiveDiagnosticStart, responsiveDiagnosticEnd);
+  assert.match(responsiveDiagnosticSource, /category,\s*ordinal,\s*width:/,
+    'touch target failures must identify sanitized control categories and dimensions');
+  assert.match(responsiveDiagnosticSource, /smallTouchTargets:[\s\S]*?describeControls\(smallTouchTargets\)/,
+    'undersized target output must use the sanitized control descriptor');
+  assert.doesNotMatch(responsiveDiagnosticSource, /\.innerText\b|\.textContent\b|\.outerHTML\b|\.value\b|\.getAttribute\(['"]aria-label['"]\)/,
+    'responsive failure diagnostics must not include question text, answer text, values, or accessible labels');
   for (const field of ['submitPhase', 'requestStarted', 'requestFailed', 'responseObserved', 'responseStatus', 'requestFinished', 'navigationPath', 'failureCode']) {
     assert.ok(learnerSpec.includes(field), `no-JavaScript POST diagnostics omitted ${field}`);
   }

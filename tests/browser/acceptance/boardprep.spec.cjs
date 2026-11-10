@@ -78,23 +78,56 @@ async function assertResponsiveSurface(page, label) {
     const formFields = [...document.querySelectorAll(
       'main input:not([type="hidden"]), main select, main textarea'
     )].filter(visible);
+    const categoryFor = (element) => {
+      if (element.matches('.mobile-menu-button')) return 'mobile-navigation-button';
+      if (element.matches('.quiz-choice')) return 'answer-choice';
+      if (element.matches('.privacy-delete-form label')) return 'privacy-delete-control';
+      if (element.matches('main select')) return 'select-control';
+      if (element.matches('main a.button')) return 'action-link';
+      if (element.matches('main button')) return 'button';
+      if (element.matches('main a')) return 'link';
+      return 'other-control';
+    };
+    const describeControls = (elements) => {
+      const ordinals = new Map();
+      return elements.map((element) => {
+        const category = categoryFor(element);
+        const ordinal = (ordinals.get(category) || 0) + 1;
+        ordinals.set(category, ordinal);
+        const rect = element.getBoundingClientRect();
+        const style = getComputedStyle(element);
+        return {
+          category,
+          ordinal,
+          width: Math.round(rect.width * 10) / 10,
+          height: Math.round(rect.height * 10) / 10,
+          minHeight: style.minHeight,
+          maxHeight: style.maxHeight,
+          computedHeight: style.height,
+          boxSizing: style.boxSizing,
+        };
+      });
+    };
+    const smallTouchTargets = touchTargets.filter((element) => element.getBoundingClientRect().height < 44);
+    const clippedControls = interactive.filter((element) => {
+      const rect = element.getBoundingClientRect();
+      return rect.left < -1 || rect.right > viewportWidth + 1;
+    });
     return {
       viewportWidth,
       documentWidth: document.documentElement.scrollWidth,
-      clippedControls: interactive
-        .filter((element) => {
-          const rect = element.getBoundingClientRect();
-          return rect.left < -1 || rect.right > viewportWidth + 1;
-        })
-        .map((element) => (element.innerText || element.getAttribute('aria-label') || element.tagName).trim().slice(0, 100)),
-      smallTouchTargets: touchTargets
-        .filter((element) => element.getBoundingClientRect().height < 44)
-        .map((element) => (element.innerText || element.getAttribute('aria-label') || element.tagName).trim().slice(0, 100)),
+      clippedControls: describeControls(clippedControls),
+      smallTouchTargets: describeControls(smallTouchTargets),
       unlabeledFields: formFields
         .filter((element) => !element.labels?.length
-          && !element.getAttribute('aria-label')
-          && !element.getAttribute('aria-labelledby'))
-        .map((element) => element.outerHTML.slice(0, 120)),
+          && !element.hasAttribute('aria-label')
+          && !element.hasAttribute('aria-labelledby'))
+        .map((element, index) => ({
+          category: 'unlabeled-form-field',
+          ordinal: index + 1,
+          tag: element.tagName.toLowerCase(),
+          inputType: element instanceof HTMLInputElement ? element.type : null,
+        })),
     };
   });
   expect(layout.documentWidth, `${label}: horizontal page overflow at ${layout.viewportWidth}px`).toBeLessThanOrEqual(layout.viewportWidth + 2);
@@ -841,8 +874,20 @@ test.describe('BoardPrep learner browser acceptance', () => {
       // timer normalization without also becoming a replacement-session test.
       const context = await browser.newContext({ javaScriptEnabled: false, baseURL: 'http://127.0.0.1:4173' });
       const noJsPage = await context.newPage();
-      const getSubmitControlDiagnostics = async () => noJsPage.evaluate(() => {
+      let scrollObservation = null;
+      const getSubmitControlDiagnostics = async () => noJsPage.evaluate(async () => {
         const button = document.querySelector('#start-session-button');
+        const rectSnapshot = () => {
+          const rect = button?.getBoundingClientRect();
+          return rect ? {
+            left: Math.round(rect.left * 10) / 10,
+            right: Math.round(rect.right * 10) / 10,
+            top: Math.round(rect.top * 10) / 10,
+            bottom: Math.round(rect.bottom * 10) / 10,
+            width: Math.round(rect.width * 10) / 10,
+            height: Math.round(rect.height * 10) / 10,
+          } : null;
+        };
         const rect = button?.getBoundingClientRect();
         const center = rect ? { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 } : null;
         const hit = center && center.x >= 0 && center.x < document.documentElement.clientWidth
@@ -857,6 +902,56 @@ test.describe('BoardPrep learner browser acceptance', () => {
             .slice(0, 12)
           : [];
         const style = button ? getComputedStyle(button) : null;
+        const scrollAncestors = [];
+        for (let ancestor = button?.parentElement; ancestor && scrollAncestors.length < 8; ancestor = ancestor.parentElement) {
+          const ancestorStyle = getComputedStyle(ancestor);
+          const ancestorRect = ancestor.getBoundingClientRect();
+          const classNames = Array.from(ancestor.classList)
+            .filter((name) => /^[a-z][a-z0-9_-]{0,47}$/i.test(name))
+            .slice(0, 5);
+          scrollAncestors.push({
+            tag: ancestor.tagName.toLowerCase(),
+            classNames,
+            overflowY: ancestorStyle.overflowY,
+            scrollTop: Math.round(ancestor.scrollTop),
+            scrollHeight: ancestor.scrollHeight,
+            clientHeight: ancestor.clientHeight,
+            top: Math.round(ancestorRect.top),
+            bottom: Math.round(ancestorRect.bottom),
+            scrollable: /^(auto|scroll|overlay)$/.test(ancestorStyle.overflowY)
+              && ancestor.scrollHeight > ancestor.clientHeight + 1,
+          });
+        }
+        const scrollableAncestor = scrollAncestors.find((ancestor) => ancestor.scrollable) || null;
+        const stableRectSamples = [];
+        for (let sample = 0; sample < 3; sample += 1) {
+          await new Promise((resolve) => requestAnimationFrame(resolve));
+          stableRectSamples.push(rectSnapshot());
+        }
+        const numericKeys = ['left', 'right', 'top', 'bottom', 'width', 'height'];
+        const maxRectDelta = stableRectSamples.length > 1
+          ? Math.max(...numericKeys.map((key) => Math.max(...stableRectSamples
+            .slice(1)
+            .map((sample, index) => Math.abs((sample?.[key] ?? 0) - (stableRectSamples[index]?.[key] ?? 0))))))
+          : 0;
+        const stickyElements = [...document.querySelectorAll('header, nav, aside, [role="dialog"]')]
+          .filter((element) => ['sticky', 'fixed'].includes(getComputedStyle(element).position))
+          .slice(0, 8)
+          .map((element) => {
+            const stickyStyle = getComputedStyle(element);
+            const stickyRect = element.getBoundingClientRect();
+            return {
+              tag: element.tagName.toLowerCase(),
+              classNames: Array.from(element.classList)
+                .filter((name) => /^[a-z][a-z0-9_-]{0,47}$/i.test(name))
+                .slice(0, 5),
+              position: stickyStyle.position,
+              top: Math.round(stickyRect.top),
+              bottom: Math.round(stickyRect.bottom),
+              height: Math.round(stickyRect.height),
+            };
+          });
+        const scrollingElement = document.scrollingElement || document.documentElement;
         return {
           button: button ? {
             present: true,
@@ -865,19 +960,18 @@ test.describe('BoardPrep learner browser acceptance', () => {
             display: style?.display ?? null,
             visibility: style?.visibility ?? null,
             pointerEvents: style?.pointerEvents ?? null,
-            rect: rect ? {
-              left: Math.round(rect.left),
-              right: Math.round(rect.right),
-              top: Math.round(rect.top),
-              bottom: Math.round(rect.bottom),
-              width: Math.round(rect.width),
-              height: Math.round(rect.height),
-            } : null,
+            minHeight: style?.minHeight ?? null,
+            maxHeight: style?.maxHeight ?? null,
+            rect: rectSnapshot(),
+            inViewport: Boolean(rect && rect.top >= 0 && rect.bottom <= document.documentElement.clientHeight),
+            stability: { samples: stableRectSamples.length, maxRectDelta, stable: maxRectDelta <= 0.5 },
           } : { present: false },
           centerHit: hit ? {
             tag: hit.tagName.toLowerCase(),
-            id: String(hit.id || '').slice(0, 64),
-            classNames: Array.from(hit.classList).slice(0, 8),
+            classNames: Array.from(hit.classList)
+              .filter((name) => /^[a-z][a-z0-9_-]{0,47}$/i.test(name))
+              .slice(0, 5),
+            withinSubmitButton: Boolean(button && (hit === button || button.contains(hit))),
           } : null,
           form: form ? {
             method: String(form.method || 'get').toUpperCase(),
@@ -893,7 +987,18 @@ test.describe('BoardPrep learner browser acceptance', () => {
             scrollWidth: document.documentElement.scrollWidth,
             scrollHeight: document.documentElement.scrollHeight,
             scrollY: Math.round(window.scrollY),
+            scrollingElement: {
+              tag: scrollingElement.tagName.toLowerCase(),
+              scrollTop: Math.round(scrollingElement.scrollTop),
+              scrollHeight: scrollingElement.scrollHeight,
+              clientHeight: scrollingElement.clientHeight,
+            },
           },
+          scrollOwner: scrollableAncestor
+            ? { type: 'ancestor', tag: scrollableAncestor.tag, classNames: scrollableAncestor.classNames }
+            : { type: 'document', tag: scrollingElement.tagName.toLowerCase() },
+          scrollAncestors,
+          stickyElements,
         };
       });
       try {
@@ -946,12 +1051,39 @@ test.describe('BoardPrep learner browser acceptance', () => {
         let submitPhase = 'submit-click';
         try {
           const submitButton = noJsPage.locator('#start-session-button');
-          // The no-JavaScript settings page is tall; scroll as a learner would
-          // before clicking so this test exercises submission rather than
-          // depending on Playwright's auto-scroll actionability loop.
-          await noJsPage.mouse.move(683, 384);
-          await noJsPage.mouse.wheel(0, noJsPage.viewportSize().height * 8);
-          await expect(submitButton).toBeInViewport();
+          // Scroll the actual submit control into view, then use a real pointer
+          // click. This works with whichever browser scroll owner contains the
+          // form and records sanitized geometry if scrolling does not settle.
+          const beforeScroll = await getSubmitControlDiagnostics();
+          if (!beforeScroll.button.inViewport) await submitButton.scrollIntoViewIfNeeded({ timeout: serverSubmissionTimeoutMs });
+          const afterScroll = await getSubmitControlDiagnostics();
+          expect(afterScroll.button.inViewport,
+            `No-JavaScript submit control remained outside the viewport after browser scrolling: ${JSON.stringify(afterScroll)}`)
+            .toBeTruthy();
+          expect(afterScroll.button.stability.stable,
+            `No-JavaScript submit control geometry did not stabilize after browser scrolling: ${JSON.stringify(afterScroll)}`)
+            .toBeTruthy();
+          if (!beforeScroll.button.inViewport) {
+            const documentMoved = beforeScroll.viewport.scrollY !== afterScroll.viewport.scrollY;
+            const ancestorMoved = beforeScroll.scrollAncestors.some((ancestor, index) =>
+              ancestor.scrollTop !== afterScroll.scrollAncestors[index]?.scrollTop);
+            expect(documentMoved || ancestorMoved,
+              `Browser scroll did not move the document or a scrollable ancestor: ${JSON.stringify({ beforeScroll, afterScroll })}`)
+              .toBeTruthy();
+          }
+          scrollObservation = {
+            timerMode,
+            ownerBefore: beforeScroll.scrollOwner,
+            ownerAfter: afterScroll.scrollOwner,
+            documentScrollYBefore: beforeScroll.viewport.scrollY,
+            documentScrollYAfter: afterScroll.viewport.scrollY,
+            scrollTopBefore: beforeScroll.scrollAncestors.map(({ tag, classNames, scrollTop }) => ({ tag, classNames, scrollTop })),
+            scrollTopAfter: afterScroll.scrollAncestors.map(({ tag, classNames, scrollTop }) => ({ tag, classNames, scrollTop })),
+            targetRectBefore: beforeScroll.button.rect,
+            targetRectAfter: afterScroll.button.rect,
+            targetStable: afterScroll.button.stability.stable,
+            stickyElements: afterScroll.stickyElements,
+          };
           await submitButton.click({ noWaitAfter: true, timeout: serverSubmissionTimeoutMs });
           submitPhase = 'post-response';
           const timedResponse = new Promise((resolve) => {
@@ -968,6 +1100,14 @@ test.describe('BoardPrep learner browser acceptance', () => {
           } else {
             await expect(noJsPage.locator('.exam-countdown')).toBeVisible();
           }
+          return {
+            ...scrollObservation,
+            requestStarted: quizPostState.requestStarted,
+            responseObserved: quizPostState.responseObserved,
+            responseStatus: quizPostState.responseStatus,
+            requestFinished: quizPostState.requestFinished,
+            navigationPath: quizPostState.navigationPath,
+          };
         } catch (error) {
           if (error?.name === 'TimeoutError') {
             let submitControl = null;
@@ -983,7 +1123,7 @@ test.describe('BoardPrep learner browser acceptance', () => {
             ];
             const clickFailureReason = actionabilityReasons.find(([phrase]) => clickError.includes(phrase))?.[1]
               ?? 'ACTIONABILITY_TIMEOUT_UNCLASSIFIED';
-            throw new Error(`Bounded no-JavaScript /quiz POST ${submitPhase} timed out; clickFailureReason=${clickFailureReason}; lifecycle=${JSON.stringify(quizPostState)}; submitControl=${JSON.stringify(submitControl)}.`);
+            throw new Error(`Bounded no-JavaScript /quiz POST ${submitPhase} timed out; clickFailureReason=${clickFailureReason}; lifecycle=${JSON.stringify(quizPostState)}; scroll=${JSON.stringify(scrollObservation)}; submitControl=${JSON.stringify(submitControl)}.`);
           }
           throw error;
         } finally {
@@ -994,12 +1134,14 @@ test.describe('BoardPrep learner browser acceptance', () => {
       }
     };
 
-    await submitNoJavaScriptSession('untimed');
-    await submitNoJavaScriptSession('timed');
+    const scrollObservations = [];
+    scrollObservations.push(await submitNoJavaScriptSession('untimed'));
+    scrollObservations.push(await submitNoJavaScriptSession('timed'));
     recordBrowserEvidence('exam-timer-no-javascript', {
       untimed_stale_minutes_ignored: true,
       timed_whole_number_accepted: true,
       server_side_validation: 'PASS',
+      scrollObservations,
     }, testInfo);
   });
 
