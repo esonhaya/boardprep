@@ -256,7 +256,9 @@ try {
     file_put_contents($fullRepository . '/docs/merge-note.md', "First-parent documentation change.\n");
     $historyRun(['add', 'docs/merge-note.md'], $fullRepository);
     $historyRun(['-c', 'user.name=BoardPrep Fixture', '-c', 'user.email=fixture@example.invalid', 'commit', '-qm', 'first-parent documentation'], $fullRepository);
-    $historyRun(['merge', '--no-ff', 'app-side', '-m', 'merge application change'], $fullRepository);
+    // CI runners do not necessarily define a global Git identity. Keep the
+    // synthetic merge deterministic and isolated to this fixture command.
+    $historyRun(['-c', 'user.name=BoardPrep Fixture', '-c', 'user.email=fixture@example.invalid', 'merge', '--no-ff', 'app-side', '-m', 'merge application change'], $fullRepository);
     $mergeHead = $historyRun(['rev-parse', 'HEAD'], $fullRepository);
     $mergeRecord = $historyRecord;
     $mergeRecord['head_sha'] = trim($revertedHead);
